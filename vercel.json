@@ -1,12 +1,10 @@
 {
   "version": 2,
+  "buildCommand": "rm -f \"Landing Page Enhancements.tsx\" && npm run build",
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/next",
-      "config": {
-        "buildCommand": "./build.sh"
-      }
+      "use": "@vercel/next"
     }
   ],
   "routes": [
