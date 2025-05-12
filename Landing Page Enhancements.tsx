@@ -103,7 +103,7 @@ const ImaginationGLanding = () => {
     { number: "3x", label: "Average ROI" }
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('Email submitted:', email);
     // Handle email submission logic here
