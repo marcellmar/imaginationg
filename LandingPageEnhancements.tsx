@@ -5,7 +5,7 @@ const ImaginationGLanding = () => {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
-  const [selectedService, setSelectedService] = useState<number | null>(null);
+  const [selectedService, setSelectedService] = useState<any>(null);
   const [email, setEmail] = useState<string>('');
 
   useEffect(() => {

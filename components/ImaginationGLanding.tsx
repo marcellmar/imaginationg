@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const ImaginationGLanding = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [activeAccordion, setActiveAccordion] = useState(null);
+  const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   // Removed email state variables
 
