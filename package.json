@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "[ -f \"Landing Page Enhancements.tsx\" ] && rm \"Landing Page Enhancements.tsx\" || echo \"File already removed\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

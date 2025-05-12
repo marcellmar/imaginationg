@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, Check, Star, MessageCircle, Phone, Plus, Minus, Menu, X } from 'lucide-react';
 
 const ImaginationGLanding = () => {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [activeAccordion, setActiveAccordion] = useState(null);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState(null);
-  const [email, setEmail] = useState('');
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
+  const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const [selectedService, setSelectedService] = useState<number | null>(null);
+  const [email, setEmail] = useState<string>('');
 
   useEffect(() => {
     const handleScroll = () => setScrollPosition(window.scrollY);
@@ -103,7 +103,7 @@ const ImaginationGLanding = () => {
     { number: "3x", label: "Average ROI" }
   ];
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     console.log('Email submitted:', email);
     // Handle email submission logic here
