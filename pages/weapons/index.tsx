@@ -6,48 +6,48 @@ import { ArrowRight, Check } from 'lucide-react';
 const weapons = [
   {
     id: 1,
-    title: "Clarity Collision",
-    description: "You speak. We cut. You move. We leave.",
+    title: "THE NAMING",
+    description: "This is not a conversation. It's the room. You say the thing you've been lying about. Out loud.",
     price: "$500",
-    duration: "90 minutes",
+    duration: "One Room. One Hour.",
     popular: false,
-    slug: "clarity-catalyst-call"
+    slug: "the-naming"
   },
   {
     id: 2,
-    title: "Ecosystem Collision Map",
-    description: "Your network is dead. Get the real collisions. Or stay soft.",
+    title: "THE MAP",
+    description: "Your network is dead. We show you the collisions you've been pretending aren't there.",
     price: "$1,000",
-    duration: "1 week",
+    duration: "7 days",
     popular: false,
-    slug: "ecosystem-map"
+    slug: "the-map"
   },
   {
     id: 3,
-    title: "Market Smackdown",
-    description: "Face the truth you've been avoiding. Go or drift.",
+    title: "THE MARKET SMACKDOWN",
+    description: "The market's already told you 'no.' We make you face it.",
     price: "$1,500",
     duration: "5-7 days",
     popular: false,
-    slug: "pre-market-signal-scan"
+    slug: "the-market-smackdown"
   },
   {
     id: 4,
-    title: "30-Day Drift Break", 
-    description: "Movement. Forced. No plan. No options. Just move.",
+    title: "30-DAY DRIFT BREAK", 
+    description: "Forced movement. No plans. No meetings. Just the thing you said you'd do—or didn't.",
     price: "$3,000",
-    duration: "4 weeks",
+    duration: "30 days",
     popular: true,
-    slug: "movement-sprint"
+    slug: "thirty-day-drift-break"
   },
   {
     id: 5,
-    title: "First Blood Build",
-    description: "Bleed for it. Or keep lying to yourself. Build the bruise.",
+    title: "FIRST BLOOD BUILD",
+    description: "Build the thing that bruises. Fast. Ugly. You bleed for it. Or you keep bluffing.",
     price: "$5,000",
-    duration: "2-3 weeks",
+    duration: "6 weeks max",
     popular: false,
-    slug: "mvp-jumpstart"
+    slug: "first-blood-build"
   }
 ];
 

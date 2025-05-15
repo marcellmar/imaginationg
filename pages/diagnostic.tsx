@@ -1,785 +1,263 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
 const DiagnosticPage = () => {
-  useEffect(() => {
-    // This script will run only on the client side after the component is mounted
-    // Add a small delay to ensure DOM elements are fully loaded
-    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
-      setTimeout(() => {
-        const script = document.createElement('script');
-        script.setAttribute('data-diagnostic', 'true');
-        script.innerHTML = `
-        // Create global objects
-        window.answers = {};
-        window.answeredCount = 0;
-        window.startTime = Date.now();
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [answers, setAnswers] = useState<{ [key: number]: string }>({});
+  const [showResults, setShowResults] = useState(false);
+  const [startTime, setStartTime] = useState<number>(0);
+  const [selectedAnswers, setSelectedAnswers] = useState<{ [key: number]: boolean }>({});
 
-        // Timer countdown
-        window.countdown = 60;
-        window.timerInterval = setInterval(() => {
-          const countdownElement = document.getElementById('countdown');
-          if (countdownElement) {
-            window.countdown--;
-            countdownElement.textContent = window.countdown;
-            if (window.countdown <= 0) {
-              clearInterval(window.timerInterval);
-              const timerElement = document.getElementById('timer');
-              if (timerElement) {
-                timerElement.textContent = "Time's up! But take your time to face the truth...";
-              }
-            }
-          } else {
-            // If element not found, clear the interval
-            clearInterval(window.timerInterval);
-          }
-        }, 1000);
-
-      // Set up click handlers for all the buttons
-      const buttons = document.querySelectorAll('.btn-yes, .btn-no');
-      if (buttons.length > 0) {
-        buttons.forEach(button => {
-          button.addEventListener('click', function() {
-            const card = this.closest('.signal-card');
-            if (!card) return;
-
-            const signal = parseInt(card.getAttribute('data-signal'));
-            const answer = this.classList.contains('btn-yes') ? 'yes' : 'no';
-
-            // Same logic as before but defined and executed here
-            window.answers[signal] = answer;
-
-            // Get references
-            const yesBtn = card.querySelector('.btn-yes');
-            const noBtn = card.querySelector('.btn-no');
-            const details = document.getElementById('details-' + signal);
-
-            // Update UI - with null checks
-            if (yesBtn && noBtn) {
-              if (answer === 'yes') {
-                yesBtn.classList.add('selected');
-                noBtn.classList.remove('selected');
-                card.classList.add('active');
-              } else {
-                noBtn.classList.add('selected');
-                yesBtn.classList.remove('selected');
-                card.classList.remove('active');
-              }
-            }
-
-            // Show details based on answer - with null check
-            if (details) {
-              // Show drift detected when answer indicates a problem
-              if ((signal === 1 && answer === 'no') || 
-                  (signal === 2 && answer === 'yes') || 
-                  (signal === 3 && answer === 'yes') || 
-                  (signal === 4 && answer === 'yes') || 
-                  (signal === 5 && answer === 'no')) {
-                details.classList.add('show');
-              } else {
-                details.classList.remove('show');
-              }
-            }
-
-            // Update progress - with null check
-            window.answeredCount = Object.keys(window.answers).length;
-            const progress = (window.answeredCount / 5) * 100;
-            const progressBar = document.getElementById('progressBar');
-            if (progressBar) {
-              progressBar.style.width = progress + '%';
-            }
-
-            // Show results if all answered
-            if (window.answeredCount === 5) {
-              showResults();
-            }
-          });
-        });
-      }
-
-      // Function to show results
-      function showResults() {
-        const results = document.getElementById('results');
-        if (!results) return;
-
-        results.classList.add('show');
-
-        // Calculate drift score and determine weapon
-        let driftScore = 0;
-        let recommendedWeapon = '';
-        let weaponUrl = '';
-        
-        if (window.answers[1] === 'no') driftScore++; // No clarity
-        if (window.answers[2] === 'yes') driftScore++; // Dead network
-        if (window.answers[3] === 'yes') driftScore++; // Market guessing
-        if (window.answers[4] === 'yes') driftScore++; // Planning paralysis
-        if (window.answers[5] === 'no') driftScore++; // No shipping
-
-        // Determine weapon based on answers
-        if (window.answers[1] === 'no') {
-          recommendedWeapon = 'Clarity Collision';
-          weaponUrl = '/weapons/clarity-catalyst-call';
-        } else if (window.answers[2] === 'yes') {
-          recommendedWeapon = 'Ecosystem Collision Map';
-          weaponUrl = '/weapons/ecosystem-map';
-        } else if (window.answers[3] === 'yes') {
-          recommendedWeapon = 'Market Smackdown';
-          weaponUrl = '/weapons/pre-market-signal-scan';
-        } else if (window.answers[4] === 'yes') {
-          recommendedWeapon = '30-Day Drift Break';
-          weaponUrl = '/weapons/movement-sprint';
-        } else if (window.answers[5] === 'no') {
-          recommendedWeapon = 'First Blood Build';
-          weaponUrl = '/weapons/mvp-jumpstart';
-        } else {
-          recommendedWeapon = 'Clarity Collision';
-          weaponUrl = '/weapons/clarity-catalyst-call';
-        }
-
-        // Update score display - with null checks
-        const scoreElement = document.getElementById('score');
-        if (scoreElement) {
-          scoreElement.textContent = \`\${driftScore}/5\`;
-
-          // Set status message
-          const scoreMessage = document.getElementById('score-message');
-          if (driftScore <= 1) {
-            scoreElement.className = 'drift-score score-low';
-            if (scoreMessage) scoreMessage.textContent = "You're moving! Minor adjustments needed.";
-          } else if (driftScore <= 3) {
-            scoreElement.className = 'drift-score score-medium';
-            if (scoreMessage) scoreMessage.textContent = "Warning: Drift detected. Time to pick your weapon.";
-          } else {
-            scoreElement.className = 'drift-score score-high';
-            if (scoreMessage) scoreMessage.textContent = "Critical: You're fully drifting. Immediate action required.";
-          }
-        }
-
-        // Update weapon recommendation
-        const weaponRec = document.getElementById('weapon-recommendation');
-        if (weaponRec) {
-          weaponRec.innerHTML = \`
-            <h3>Your Prescribed Weapon:</h3>
-            <div class="weapon-card">
-              <h4>\${recommendedWeapon}</h4>
-              <p>Based on your drift patterns, this is the intervention you need.</p>
-              <a href="\${weaponUrl}" class="weapon-button">DEPLOY THIS WEAPON</a>
-            </div>
-          \`;
-        }
-
-        // Generate personalized action plan
-        const planContainer = document.getElementById('action-plan');
-        if (planContainer) {
-          let plan = '';
-
-          if (window.answers[1] === 'no') {
-            plan += '<div class="plan-item">TODAY: Write your vision in 10 words. Or stay lost forever.</div>';
-          }
-          if (window.answers[2] === 'yes') {
-            plan += '<div class="plan-item">TODAY: Kill 5 dead relationships. Find 3 collision partners.</div>';
-          }
-          if (window.answers[3] === 'yes') {
-            plan += '<div class="plan-item">TODAY: Call 3 real customers. Stop hiding behind surveys.</div>';
-          }
-          if (window.answers[4] === 'yes') {
-            plan += '<div class="plan-item">TODAY: Pick ONE thing. Ship in 48 hours. No excuses.</div>';
-          }
-          if (window.answers[5] === 'no') {
-            plan += '<div class="plan-item">THIS WEEK: Build something ugly that works. Bleed for it.</div>';
-          }
-
-          if (!plan) {
-            plan = '<div class="plan-item">You think you\\'re moving. You\\'re not. Move faster.</div>';
-          }
-
-          planContainer.innerHTML = plan;
-        }
-
-        // Scroll to results - with smooth behavior
-        results.scrollIntoView({ behavior: 'smooth' });
-      }
-
-      // Set up chat button
-      const chatButton = document.querySelector('.live-chat');
-      if (chatButton) {
-        chatButton.addEventListener('click', function() {
-          window.open('https://wa.me/17737044833', '_blank');
-        });
-      }
-    `;
-          // Append the script to the document body
-          if (typeof document !== 'undefined') {
-            document.body.appendChild(script);
-          }
-        }, 500); // 500ms delay to ensure DOM is ready
-
-        // Clean up function
-        return () => {
-          const script = document.querySelector('script[data-diagnostic]');
-          if (script && script.parentNode) {
-            document.body.removeChild(script);
-          }
-        };
+  const questions = [
+    {
+      id: 1,
+      title: "THE REVENUE CHECK",
+      question: "Your last big idea - did it make money?",
+      answers: [
+        { text: "YES, REAL CASH", subtext: "Numbers don't lie.", value: "no" },
+        { text: "STILL WAITING", subtext: "Always tomorrow.", value: "yes" }
+      ]
+    },
+    {
+      id: 2,
+      title: "THE MEETING CHECK",
+      question: "Last week - meetings or making?",
+      answers: [
+        { text: "SHIPPED SOMETHING", subtext: "Movement over meetings.", value: "no" },
+        { text: "TALKED ABOUT IT", subtext: "Professional talker.", value: "yes" }
+      ]
+    },
+    {
+      id: 3,
+      title: "THE EXCUSE CHECK",
+      question: "Why haven't you started?",
+      answers: [
+        { text: "I HAVE STARTED", subtext: "Already bleeding.", value: "no" },
+        { text: "NEED MORE TIME/DATA/MONEY", subtext: "Classic drift.", value: "yes" }
+      ]
+    },
+    {
+      id: 4,
+      title: "THE FEAR CHECK",
+      question: "What scares you more?",
+      answers: [
+        { text: "STAYING STUCK", subtext: "Fear drives movement.", value: "no" },
+        { text: "LOOKING STUPID", subtext: "Pride keeps you drifting.", value: "yes" }
+      ]
+    },
+    {
+      id: 5,
+      title: "THE BLUFF CHECK",
+      question: "If I called your biggest client right now, what would they say?",
+      answers: [
+        { text: "THEY DELIVER", subtext: "Reputation = results.", value: "no" },
+        { text: "GREAT POTENTIAL", subtext: "Potential = haven't done shit.", value: "yes" }
+      ]
     }
-  }, []);
+  ];
+
+  const startDiagnostic = () => {
+    setCurrentQuestion(1);
+    setStartTime(Date.now());
+    setAnswers({});
+    setShowResults(false);
+  };
+
+  const selectAnswer = (questionId: number, answer: string) => {
+    setAnswers({ ...answers, [questionId]: answer });
+    setSelectedAnswers({ ...selectedAnswers, [questionId]: true });
+    
+    setTimeout(() => {
+      if (questionId < questions.length) {
+        setCurrentQuestion(questionId + 1);
+      } else {
+        // Show results
+        calculateResults();
+      }
+    }, 500);
+  };
+
+  const calculateResults = () => {
+    const driftScore = Object.values(answers).filter(a => a === 'yes').length;
+    const totalQuestions = questions.length;
+    setShowResults(true);
+  };
+
+  const getRecommendedWeapon = (driftScore: number) => {
+    if (driftScore >= 4) {
+      return { name: "30-DAY DRIFT BREAK", url: "/weapons/thirty-day-drift-break" };
+    } else if (driftScore >= 3) {
+      return { name: "THE MARKET SMACKDOWN", url: "/weapons/the-market-smackdown" };
+    } else if (driftScore >= 2) {
+      return { name: "THE MAP", url: "/weapons/the-map" };
+    } else if (driftScore >= 1) {
+      return { name: "THE NAMING", url: "/weapons/the-naming" };
+    } else {
+      return { name: "FIRST BLOOD BUILD", url: "/weapons/first-blood-build" };
+    }
+  };
+
+  const driftScore = Object.values(answers).filter(a => a === 'yes').length;
+  const recommendedWeapon = getRecommendedWeapon(driftScore);
+  const timeElapsed = startTime ? Math.floor((Date.now() - startTime) / 1000) : 0;
+
+  const getDriftLevel = (score: number) => {
+    if (score >= 4) return { level: "TERMINAL DRIFT", className: "text-red-500" };
+    if (score >= 3) return { level: "SEVERE DRIFT", className: "text-orange-500" };
+    if (score >= 2) return { level: "MODERATE DRIFT", className: "text-yellow-500" };
+    if (score >= 1) return { level: "MILD DRIFT", className: "text-blue-500" };
+    return { level: "MINIMAL DRIFT", className: "text-green-500" };
+  };
+
+  const driftLevel = getDriftLevel(driftScore);
 
   return (
     <>
       <Head>
-        <title>Stop Drifting. Start Moving. | IMAGINATION G</title>
-        <meta name="description" content="Find out if you're moving or just drifting in 60 seconds. Get your prescribed weapon." />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DRIFT DIAGNOSTIC | IMAGINATION G</title>
+        <meta name="description" content="60 seconds to face the truth. Are you drifting or moving? Stop lying to yourself." />
       </Head>
 
-      <div dangerouslySetInnerHTML={{ 
-        __html: `
-        <div class="progress-bar">
-            <div class="progress-fill" id="progressBar"></div>
-        </div>
-
-        <div class="container">
-            <div className="site-header" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; margin-bottom: 2rem;">
-              <a href="/" style="font-size: 1.5rem; font-weight: bold; color: white; text-decoration: none;">
-                IMAGINATION G
+      <div className="min-h-screen bg-black text-white font-sans">
+        {/* Navigation */}
+        <nav className="bg-black bg-opacity-95 backdrop-blur-sm shadow-lg px-6 py-4 fixed top-0 left-0 right-0 z-50">
+          <div className="max-w-7xl mx-auto flex justify-between items-center">
+            <Link href="/" className="text-xl font-bold tracking-wider">IMAGINATION G</Link>
+            <div className="hidden md:flex items-center gap-8">
+              <Link href="/" className="hover:text-gray-300 transition-colors flex items-center gap-1">
+                <span>←</span> Home
+              </Link>
+              <Link href="/weapons" className="hover:text-gray-300 transition-colors">Weapons</Link>
+              <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
+              <a
+                href="https://outlook.office.com/owa/calendar/IG@imaginationg.studio/bookings/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-black px-6 py-2 font-medium hover:bg-gray-200 transition-all inline-block">
+                Book a Call
               </a>
-              <a href="/" style="color: #999; text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
-                <span style="font-size: 1.2rem;">←</span> Back to Home
-              </a>
             </div>
-            
-            <div class="hero">
-                <h1>Are You Moving or Just Drifting?</h1>
-                <p class="subtitle">Find out in 60 seconds. Get your prescribed weapon.</p>
-                <div class="timer" id="timer">Time to truth: <span id="countdown">60</span> seconds</div>
-            </div>
+          </div>
+        </nav>
 
-            <div class="intro-box">
-                <strong>WARNING:</strong> This diagnostic will expose your drift patterns. 
-                Most people are drifting in at least 3 areas. The good news? 
-                We'll prescribe the exact weapon you need to break free.
+        <div className="pt-24 pb-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            {/* Header */}
+            <div className="text-center mb-12">
+              <h1 className="text-5xl md:text-7xl font-black mb-6">DRIFT DIAGNOSTIC</h1>
+              <p className="text-2xl md:text-3xl text-red-500 font-bold">30 seconds to find out you're full of shit.</p>
+              <p className="text-xl text-zinc-500 mt-4">Answer fast. No thinking. Just truth.</p>
             </div>
 
-            <div class="diagnostic">
-                <div class="diagnostic-intro">
-                    <h2>Answer These 5 Questions</h2>
-                    <p>Be honest. Your future depends on it.</p>
+            {/* Start Screen */}
+            {currentQuestion === 0 && !showResults && (
+              <div className="text-center my-20">
+                <div className="bg-black border-4 border-red-500 p-12 max-w-2xl mx-auto">
+                  <h2 className="text-4xl font-black mb-6 text-red-500">STILL LYING TO YOURSELF?</h2>
+                  <p className="text-2xl text-white mb-8">
+                    5 punches to the face.<br/>
+                    No escape routes.<br/>
+                    Your weapon prescribed.<br/>
+                  </p>
+                  <p className="text-lg text-zinc-500 mb-8">
+                    Most people fail. You're probably one of them.
+                  </p>
+                  <button 
+                    onClick={startDiagnostic}
+                    className="bg-red-600 text-white px-16 py-6 text-2xl font-black hover:bg-red-700 transition-all border-4 border-red-600">
+                    FACE THE TRUTH
+                  </button>
                 </div>
+              </div>
+            )}
 
-                <!-- Signal 1 -->
-                <div class="signal-card" data-signal="1">
-                    <div class="signal-header">
-                        <div class="signal-number">1</div>
-                        <div class="signal-content">
-                            <h3 class="signal-title">Your Clarity</h3>
-                            <p class="signal-symptom">Can you explain your vision in one sentence? Without corporate BS?</p>
-                        </div>
-                        <div class="signal-indicator">
-                            <div class="yes-no-buttons">
-                                <button class="btn-yes">YES</button>
-                                <button class="btn-no">NO</button>
-                            </div>
-                        </div>
+            {/* Questions */}
+            {currentQuestion > 0 && !showResults && (
+              <div className="space-y-8">
+                {questions.filter(q => q.id === currentQuestion).map((q) => (
+                  <div key={q.id} className="question animate-fade-in">
+                    <h3 className="text-2xl font-bold mb-6">{q.id}. {q.title}</h3>
+                    <p className="text-xl text-zinc-400 mb-6">{q.question}</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {q.answers.map((answer, index) => (
+                        <button 
+                          key={index}
+                          onClick={() => selectAnswer(q.id, answer.value)}
+                          className={`answer-btn bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 py-6 px-8 text-xl font-medium transition-all ${
+                            selectedAnswers[q.id] ? 'opacity-50' : ''
+                          }`}
+                          disabled={selectedAnswers[q.id]}>
+                          <span className={`block ${answer.value === 'yes' ? 'text-red-500' : 'text-green-500'} font-bold`}>
+                            {answer.text}
+                          </span>
+                          <span className="block text-sm text-zinc-500 mt-2">{answer.subtext}</span>
+                        </button>
+                      ))}
                     </div>
-                    <div class="signal-details" id="details-1">
-                        <div class="immediate-action">
-                            <p class="action-title">DRIFT DETECTED:</p>
-                            <p>You can't even explain why you exist. Your team is lost. You need clarity collision.</p>
-                        </div>
-                    </div>
+                  </div>
+                ))}
+
+                {/* Progress Bar */}
+                <div className="mt-8">
+                  <div className="bg-zinc-800 h-2 rounded-full overflow-hidden">
+                    <div 
+                      className="bg-red-500 h-full transition-all duration-300"
+                      style={{ width: `${(currentQuestion / questions.length) * 100}%` }}
+                    />
+                  </div>
+                  <p className="text-center text-zinc-500 mt-2">Question {currentQuestion} of {questions.length}</p>
                 </div>
+              </div>
+            )}
 
-                <!-- Signal 2 -->
-                <div class="signal-card" data-signal="2">
-                    <div class="signal-header">
-                        <div class="signal-number">2</div>
-                        <div class="signal-content">
-                            <h3 class="signal-title">Your Network</h3>
-                            <p class="signal-symptom">Same LinkedIn connections? Same useless meetings? Same dead relationships?</p>
-                        </div>
-                        <div class="signal-indicator">
-                            <div class="yes-no-buttons">
-                                <button class="btn-yes">YES</button>
-                                <button class="btn-no">NO</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="signal-details" id="details-2">
-                        <div class="immediate-action">
-                            <p class="action-title">DRIFT DETECTED:</p>
-                            <p>Your network is dead. You need real collisions, not coffee chats.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Signal 3 -->
-                <div class="signal-card" data-signal="3">
-                    <div class="signal-header">
-                        <div class="signal-number">3</div>
-                        <div class="signal-content">
-                            <h3 class="signal-title">Your Market</h3>
-                            <p class="signal-symptom">Still guessing what customers want? Still hoping? Still researching?</p>
-                        </div>
-                        <div class="signal-indicator">
-                            <div class="yes-no-buttons">
-                                <button class="btn-yes">YES</button>
-                                <button class="btn-no">NO</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="signal-details" id="details-3">
-                        <div class="immediate-action">
-                            <p class="action-title">DRIFT DETECTED:</p>
-                            <p>You're hiding from market truth. Face the smackdown or keep bleeding.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Signal 4 -->
-                <div class="signal-card" data-signal="4">
-                    <div class="signal-header">
-                        <div class="signal-number">4</div>
-                        <div class="signal-content">
-                            <h3 class="signal-title">Your Momentum</h3>
-                            <p class="signal-symptom">Been "planning" the same thing for over 30 days?</p>
-                        </div>
-                        <div class="signal-indicator">
-                            <div class="yes-no-buttons">
-                                <button class="btn-yes">YES</button>
-                                <button class="btn-no">NO</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="signal-details" id="details-4">
-                        <div class="immediate-action">
-                            <p class="action-title">DRIFT DETECTED:</p>
-                            <p>Planning is procrastination. You need forced movement. Now.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Signal 5 -->
-                <div class="signal-card" data-signal="5">
-                    <div class="signal-header">
-                        <div class="signal-number">5</div>
-                        <div class="signal-content">
-                            <h3 class="signal-title">Your Shipping</h3>
-                            <p class="signal-symptom">Got a working prototype? Something real? Something bleeding?</p>
-                        </div>
-                        <div class="signal-indicator">
-                            <div class="yes-no-buttons">
-                                <button class="btn-yes">YES</button>
-                                <button class="btn-no">NO</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="signal-details" id="details-5">
-                        <div class="immediate-action">
-                            <p class="action-title">DRIFT DETECTED:</p>
-                            <p>All talk, no blood. Ship something or stay irrelevant.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="results-section" id="results">
-                <h2>Your Drift Score</h2>
-                <div class="drift-score" id="score">0/5</div>
-                <p id="score-message"></p>
-
-                <div id="weapon-recommendation" class="weapon-recommendation"></div>
-
-                <div class="personalized-plan">
-                    <h3>Your Immediate Action Plan</h3>
-                    <div id="action-plan"></div>
-                </div>
-
-                <div class="cta-final">
-                    <h3>Ready to Stop Drifting?</h3>
-                    <p>You've identified the patterns. Now deploy your weapon.</p>
-                    <div class="cta-buttons">
-                        <a href="/weapons" class="btn-primary">VIEW ALL WEAPONS</a>
-                        <a href="https://outlook.office.com/owa/calendar/IG@imaginationg.studio/bookings/" class="btn-secondary" target="_blank" rel="noopener noreferrer">BOOK IMMEDIATE INTERVENTION</a>
-                    </div>
-                    <p style="margin-top: 1rem; font-style: italic;">
-                        Warning: 87% of people who take this diagnostic are still drifting 30 days later. Don't be one of them.
+            {/* Results */}
+            {showResults && (
+              <div className="text-center my-20 animate-fade-in">
+                <div className="bg-zinc-900 border border-zinc-800 p-12 max-w-3xl mx-auto">
+                  <h2 className="text-4xl font-bold mb-4">YOUR DRIFT DIAGNOSIS</h2>
+                  <p className="text-lg text-zinc-500 mb-8">Completed in {timeElapsed} seconds</p>
+                  
+                  <div className="mb-12">
+                    <p className="text-2xl mb-4">Drift Score:</p>
+                    <p className={`text-6xl font-black ${driftLevel.className}`}>
+                      {driftScore}/{questions.length}
                     </p>
+                    <p className={`text-2xl mt-4 font-bold ${driftLevel.className}`}>
+                      {driftLevel.level}
+                    </p>
+                    <p className="text-lg text-zinc-500 mt-4">
+                      {driftScore >= 4 && "You're a professional drifter. Years wasted. Still talking."}
+                      {driftScore === 3 && "Major drift. You know it. They know it. Stop lying."}
+                      {driftScore === 2 && "Drifting hard. Time to face the mirror."}
+                      {driftScore === 1 && "Slight drift. Still fixable. Move now."}
+                      {driftScore === 0 && "No drift? Then why are you here? Stop wasting time."}
+                    </p>
+                  </div>
+
+                  <div className="mb-12">
+                    <p className="text-xl text-zinc-500 mb-4">YOUR PRESCRIBED WEAPON:</p>
+                    <p className="text-3xl font-bold text-white mb-8">{recommendedWeapon.name}</p>
+                    <a 
+                      href={recommendedWeapon.url}
+                      className="inline-block bg-red-500 text-white px-10 py-4 text-xl font-black hover:bg-red-600 transition-all">
+                      GET YOUR WEAPON →
+                    </a>
+                  </div>
+
+                  <div className="border-t border-zinc-800 pt-8 mt-12">
+                    <button 
+                      onClick={startDiagnostic}
+                      className="text-zinc-500 hover:text-white transition-colors underline">
+                      Retake Diagnostic
+                    </button>
+                  </div>
                 </div>
-            </div>
+              </div>
+            )}
+          </div>
         </div>
-
-        <div class="live-chat">
-            💬 Need Truth?
-        </div>
-        `
-      }} />
-
-      <style jsx global>{`
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #000;
-            color: #fff;
-            line-height: 1.6;
-        }
-
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: rgba(255,255,255,0.1);
-            z-index: 1000;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #ff0000, #00ff00);
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 4rem 0;
-            position: relative;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .hero .subtitle {
-            font-size: 1.25rem;
-            color: #999;
-            margin-bottom: 2rem;
-        }
-
-        .timer {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #ff0000;
-            margin-bottom: 2rem;
-        }
-
-        .intro-box {
-            background: rgba(255,255,255,0.05);
-            border-left: 4px solid #ff0000;
-            padding: 2rem;
-            margin: 2rem 0;
-            font-size: 1.2rem;
-        }
-
-        .diagnostic {
-            margin: 4rem 0;
-        }
-
-        .diagnostic-intro {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .diagnostic-intro h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .signal-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 2rem;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .signal-card:hover {
-            border-color: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
-        }
-
-        .signal-card.active {
-            border-color: #ff0000;
-            background: rgba(255,0,0,0.05);
-        }
-
-        .signal-header {
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .signal-number {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            font-size: 1.5rem;
-            font-weight: 900;
-            margin-right: 1rem;
-        }
-
-        .signal-content {
-            flex: 1;
-        }
-
-        .signal-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .signal-symptom {
-            color: #999;
-            font-style: italic;
-        }
-
-        .signal-indicator {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .yes-no-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn-yes, .btn-no {
-            padding: 0.5rem 1.5rem;
-            border: 2px solid transparent;
-            background: rgba(255,255,255,0.1);
-            color: #fff;
-            cursor: pointer;
-            font-weight: 700;
-            transition: all 0.3s ease;
-        }
-
-        .btn-yes:hover {
-            border-color: #ff0000;
-            background: rgba(255,0,0,0.1);
-        }
-
-        .btn-no:hover {
-            border-color: #00ff00;
-            background: rgba(0,255,0,0.1);
-        }
-
-        .btn-yes.selected {
-            background: #ff0000;
-            border-color: #ff0000;
-        }
-
-        .btn-no.selected {
-            background: #00ff00;
-            border-color: #00ff00;
-            color: #000;
-        }
-
-        .signal-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
-            padding: 0 1.5rem;
-        }
-
-        .signal-details.show {
-            max-height: 500px;
-            padding: 0 1.5rem 1.5rem;
-        }
-
-        .immediate-action {
-            background: rgba(255,255,255,0.05);
-            border-left: 4px solid #ff0000;
-            padding: 1rem;
-            margin: 1rem 0;
-        }
-
-        .action-title {
-            font-weight: 700;
-            color: #ff0000;
-            margin-bottom: 0.5rem;
-        }
-
-        .results-section {
-            margin: 4rem 0;
-            text-align: center;
-            display: none;
-        }
-
-        .results-section.show {
-            display: block;
-        }
-
-        .drift-score {
-            font-size: 4rem;
-            font-weight: 900;
-            margin: 2rem 0;
-        }
-
-        .score-low { color: #00ff00; }
-        .score-medium { color: #ffff00; }
-        .score-high { color: #ff0000; }
-
-        .weapon-recommendation {
-            background: rgba(255,255,255,0.05);
-            padding: 2rem;
-            margin: 2rem 0;
-            border: 2px solid #ff0000;
-        }
-
-        .weapon-card {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .weapon-card h4 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #ff0000;
-        }
-
-        .weapon-button {
-            display: inline-block;
-            background: #ff0000;
-            color: #fff;
-            padding: 1rem 2rem;
-            margin-top: 1rem;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-        }
-
-        .weapon-button:hover {
-            transform: scale(1.05);
-            background: #cc0000;
-        }
-
-        .personalized-plan {
-            background: rgba(255,255,255,0.05);
-            padding: 2rem;
-            margin: 2rem 0;
-            text-align: left;
-        }
-
-        .plan-item {
-            margin: 1rem 0;
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .plan-item::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            font-weight: 900;
-            color: #ff0000;
-        }
-
-        .cta-final {
-            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-            padding: 3rem;
-            margin: 3rem 0;
-            text-align: center;
-            border-radius: 10px;
-        }
-
-        .cta-final h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: #fff;
-            color: #000;
-            padding: 1rem 2rem;
-            font-weight: 900;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-        }
-
-        .btn-primary:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(255,255,255,0.1);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #fff;
-            border: 2px solid #fff;
-            padding: 1rem 2rem;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            background: #fff;
-            color: #000;
-        }
-
-        .live-chat {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: #ff0000;
-            color: #fff;
-            padding: 1rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-
-        .live-chat:hover {
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-            }
-            
-            .yes-no-buttons {
-                flex-direction: column;
-            }
-        }
-      `}</style>
+      </div>
     </>
   );
 };
