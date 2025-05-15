@@ -7,7 +7,7 @@ const EcosystemMap: NextPage = () => {
     <ServiceLayout
       title="Ecosystem Map + Connection Strategy"
       description="Build alliances and open doors with a strategic connection plan"
-      price="$750"
+      price="$1,000"
       prevService={{ name: "MVP Jumpstart", slug: "mvp-jumpstart" }}
     >
       <ServiceContent

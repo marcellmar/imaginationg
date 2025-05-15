@@ -15,56 +15,56 @@ const ImaginationGLanding = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const services = [
+  const weapons = [
     {
       id: 1,
-      title: "Clarity Catalyst Call",
-      price: "$250",
+      title: "Clarity Collision",
+      price: "$500",
       duration: "90 minutes",
-      outcome: "1-page Dream → Move → Build map",
-      bestFor: ["New founders", "Stuck teams", "Creatives with too many ideas"],
-      popular: true,
+      outcome: "Your drift named. Your move clear.",
+      bestFor: ["You speak. We cut. You move."],
+      popular: false,
       slug: "clarity-catalyst-call"
     },
     {
       id: 2,
-      title: "Pre-Market Signal Scan",
-      price: "$600",
-      duration: "5-7 day turnaround",
-      outcome: "2-page market entry report",
-      bestFor: ["Product launches", "Business expansion"],
+      title: "Ecosystem Collision Map",
+      price: "$1,000",
+      duration: "1 week",
+      outcome: "Real collisions. Not soft connections.",
+      bestFor: ["Your network is dead. Get real."],
+      popular: false,
+      slug: "ecosystem-map"  
+    },
+    {
+      id: 3,
+      title: "Market Smackdown",
+      price: "$1,500",
+      duration: "5-7 days",
+      outcome: "The truth. Go or drift.",
+      bestFor: ["Face it or keep lying."],
       popular: false,
       slug: "pre-market-signal-scan"
     },
     {
-      id: 3,
-      title: "30-Day Movement Sprint",
-      price: "$1,500",
+      id: 4,
+      title: "30-Day Drift Break",
+      price: "$3,000",
       duration: "4 weeks",
-      outcome: "Focused plan + execution path",
-      bestFor: ["Small teams", "Burned out founders"],
-      popular: false,
+      outcome: "Movement. Forced. No escape.",
+      bestFor: ["Stop planning. Start moving."],
+      popular: true,
       slug: "movement-sprint"
     },
     {
-      id: 4,
-      title: "MVP Jumpstart",
-      price: "$2,000-$3,500",
+      id: 5,
+      title: "First Blood Build",
+      price: "$5,000",
       duration: "2-3 weeks",
-      outcome: "Functioning prototype",
-      bestFor: ["Rapid validation", "Pre-investment demos"],
+      outcome: "Build the bruise. Ship it.",
+      bestFor: ["Bleed for it. Or drift forever."],
       popular: false,
       slug: "mvp-jumpstart"
-    },
-    {
-      id: 5,
-      title: "Ecosystem Map + Connection Strategy",
-      price: "$750",
-      duration: "1 week",
-      outcome: "Stakeholder map + connection plan",
-      bestFor: ["Local orgs", "Creators needing network growth"],
-      popular: false,
-      slug: "ecosystem-map"
     }
   ];
 
@@ -134,11 +134,11 @@ const ImaginationGLanding = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="#services" className="hover:text-gray-300 transition-colors">Services</Link>
+            <Link href="/weapons" className="hover:text-gray-300 transition-colors">Weapons</Link>
             <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
             <Link href="#testimonials" className="hover:text-gray-300 transition-colors">Results</Link>
             <Link href="#faq" className="hover:text-gray-300 transition-colors">FAQ</Link>
-            <Link href="/diagnostic" className="hover:text-gray-300 transition-colors text-red-400">Drift Diagnostic</Link>
+            <Link href="/diagnostic" className="bg-red-500 text-white px-4 py-1 hover:bg-red-600 transition-colors">Drift Diagnostic</Link>
             <a
               href="https://outlook.office.com/owa/calendar/IG@imaginationg.studio/bookings/"
               target="_blank"
@@ -161,11 +161,11 @@ const ImaginationGLanding = () => {
         {mobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-black border-t border-zinc-800">
             <div className="flex flex-col p-6 space-y-4">
-              <Link href="#services" className="hover:text-gray-300 transition-colors">Services</Link>
+              <Link href="/weapons" className="hover:text-gray-300 transition-colors">Weapons</Link>
               <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
               <Link href="#testimonials" className="hover:text-gray-300 transition-colors">Results</Link>
               <Link href="#faq" className="hover:text-gray-300 transition-colors">FAQ</Link>
-              <Link href="/diagnostic" className="hover:text-gray-300 transition-colors text-red-400">Drift Diagnostic</Link>
+              <Link href="/diagnostic" className="bg-red-500 text-white px-4 py-1 hover:bg-red-600 transition-colors">Drift Diagnostic</Link>
               <a
                 href="https://outlook.office.com/owa/calendar/IG@imaginationg.studio/bookings/"
                 target="_blank"
@@ -211,8 +211,8 @@ const ImaginationGLanding = () => {
             className="bg-white text-black px-8 py-4 font-medium text-lg hover:bg-opacity-90 transition-all transform hover:scale-105 inline-block">
             Book Clarity Call - $250
           </a>
-          <Link href="/services" className="border border-white px-8 py-4 font-medium text-lg hover:bg-white hover:text-black transition-all">
-            View All Services
+          <Link href="/weapons" className="border border-white px-8 py-4 font-medium text-lg hover:bg-white hover:text-black transition-all">
+            Pick Your Weapon
           </Link>
         </div>
 
@@ -283,34 +283,34 @@ const ImaginationGLanding = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-24 px-6 bg-zinc-900">
+      {/* Weapons Section */}
+      <section id="weapons" className="py-24 px-6 bg-zinc-900">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">Services & Pricing</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">Pick Your Weapon</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => (
+            {weapons.map((weapon) => (
               <div
-                key={service.id}
+                key={weapon.id}
                 className={`relative bg-black p-8 rounded-lg border transition-all duration-300 hover:transform hover:scale-105 cursor-pointer ${
-                  service.popular ? 'border-white' : 'border-zinc-800'
+                  weapon.popular ? 'border-white' : 'border-zinc-800'
                 }`}
               >
-                {service.popular && (
+                {weapon.popular && (
                   <div className="absolute -top-3 right-6 bg-white text-black px-4 py-1 text-sm font-bold rounded">
-                    MOST POPULAR
+                    MOST LETHAL
                   </div>
                 )}
 
-                <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                <div className="text-3xl font-bold mb-2 text-white">{service.price}</div>
-                <p className="text-gray-400 mb-4">{service.duration}</p>
-                <p className="mb-6">{service.outcome}</p>
+                <h3 className="text-2xl font-bold mb-4">{weapon.title}</h3>
+                <div className="text-3xl font-bold mb-2 text-white">{weapon.price}</div>
+                <p className="text-gray-400 mb-4">{weapon.duration}</p>
+                <p className="mb-6">{weapon.outcome}</p>
 
                 <div className="mb-6">
-                  <p className="text-sm text-gray-400 mb-2">Best for:</p>
+                  <p className="text-sm text-gray-400 mb-2">Reality:</p>
                   <ul className="space-y-1">
-                    {service.bestFor.map((item, index) => (
+                    {weapon.bestFor.map((item, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <Check size={16} className="text-green-400 mt-0.5" />
                         <span className="text-sm">{item}</span>
@@ -321,9 +321,9 @@ const ImaginationGLanding = () => {
 
                 <div className="flex flex-col gap-2">
                   <Link
-                    href={`/services/${service.slug}`}
+                    href={`/weapons/${weapon.slug}`}
                     className="w-full border border-white text-white py-3 font-medium hover:bg-white hover:text-black transition-all inline-block text-center">
-                    View Details
+                    DEPLOY
                   </Link>
                   <a
                     href="https://outlook.office.com/owa/calendar/IG@imaginationg.studio/bookings/"
@@ -340,9 +340,9 @@ const ImaginationGLanding = () => {
           <div className="mt-12 text-center">
             <p className="text-lg text-gray-400 mb-4">Need a custom solution?</p>
             <Link
-              href="/services"
+              href="/weapons"
               className="border border-white px-8 py-3 font-medium hover:bg-white hover:text-black transition-all inline-block">
-              See All Services
+              See All Weapons
             </Link>
           </div>
         </div>
@@ -537,8 +537,8 @@ const ImaginationGLanding = () => {
               className="bg-white text-black px-8 py-4 font-medium text-lg hover:bg-opacity-90 transition-all transform hover:scale-105 inline-block">
               Book Your Clarity Call - $250
             </a>
-            <Link href="/services" className="border border-white px-8 py-4 font-medium text-lg hover:bg-white hover:text-black transition-all">
-              View All Services
+            <Link href="/weapons" className="border border-white px-8 py-4 font-medium text-lg hover:bg-white hover:text-black transition-all">
+              Pick Your Weapon
             </Link>
           </div>
           
@@ -558,7 +558,7 @@ const ImaginationGLanding = () => {
             <div>
               <h4 className="font-medium mb-4">Quick Links</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><Link href="#services" className="hover:text-white transition-colors">Services</Link></li>
+                <li><Link href="/weapons" className="hover:text-white transition-colors">Weapons</Link></li>
                 <li><Link href="#about" className="hover:text-white transition-colors">About</Link></li>
                 <li><Link href="#testimonials" className="hover:text-white transition-colors">Results</Link></li>
                 <li><Link href="#faq" className="hover:text-white transition-colors">FAQ</Link></li>

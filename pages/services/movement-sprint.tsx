@@ -7,7 +7,7 @@ const MovementSprint: NextPage = () => {
     <ServiceLayout
       title="30-Day Movement Sprint"
       description="A 4-week lightweight execution sprint to turn ideas into action"
-      price="$1,500"
+      price="$3,000"
       prevService={{ name: "Pre-Market Signal Scan", slug: "pre-market-signal-scan" }}
       nextService={{ name: "MVP Jumpstart", slug: "mvp-jumpstart" }}
     >

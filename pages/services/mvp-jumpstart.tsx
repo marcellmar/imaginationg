@@ -7,7 +7,7 @@ const MVPJumpstart: NextPage = () => {
     <ServiceLayout
       title="MVP Jumpstart"
       description="A rapid prototyping sprint to bring your idea to life"
-      price="$2,000 - $3,500"
+      price="$5,000"
       prevService={{ name: "30-Day Movement Sprint", slug: "movement-sprint" }}
       nextService={{ name: "Ecosystem Map", slug: "ecosystem-map" }}
     >

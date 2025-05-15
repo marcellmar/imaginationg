@@ -7,7 +7,7 @@ const ClarityCatalystCall: NextPage = () => {
     <ServiceLayout
       title="Clarity Catalyst Call"
       description="A 90-minute catalytic session to move from drift to momentum"
-      price="$250"
+      price="$500"
       nextService={{ name: "Pre-Market Signal Scan", slug: "pre-market-signal-scan" }}
     >
       <ServiceContent

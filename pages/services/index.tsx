@@ -69,9 +69,7 @@ const ServicesPage: NextPage = () => {
                 <span>←</span> Home
               </Link>
               <Link href="/#services" className="hover:text-gray-300 transition-colors">Services</Link>
-              <Link href="/#about" className="hover:text-gray-300 transition-colors">About</Link>
-              <Link href="/#testimonials" className="hover:text-gray-300 transition-colors">Results</Link>
-              <Link href="/#faq" className="hover:text-gray-300 transition-colors">FAQ</Link>
+              <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
               <a
                 href="https://outlook.office.com/owa/calendar/IG@imaginationg.studio/bookings/"
                 target="_blank"

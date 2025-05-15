@@ -79,7 +79,7 @@ const CaseStudies = () => {
                 <span>←</span> Home
               </Link>
               <Link href="/#services" className="hover:text-gray-300 transition-colors">Services</Link>
-              <Link href="/#about" className="hover:text-gray-300 transition-colors">About</Link>
+              <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
               <Link href="/diagnostic" className="hover:text-gray-300 transition-colors">Diagnostic</Link>
             </div>
           </div>

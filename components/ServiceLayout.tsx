@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, X } from 'lucide-react';
 
 interface ServiceLayoutProps {
   children: React.ReactNode;
@@ -18,6 +18,12 @@ interface ServiceLayoutProps {
   };
 }
 
+interface FlowData {
+  fromFlow: boolean;
+  drift: string;
+  move: string;
+}
+
 const ServiceLayout: React.FC<ServiceLayoutProps> = ({
   children,
   title,
@@ -26,6 +32,31 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
   nextService,
   prevService
 }) => {
+  const [flowData, setFlowData] = useState<FlowData | null>(null);
+  const [showBanner, setShowBanner] = useState(false);
+
+  useEffect(() => {
+    // Check for flowData in sessionStorage
+    const storedFlowData = sessionStorage.getItem('flowData');
+    if (storedFlowData) {
+      try {
+        const data = JSON.parse(storedFlowData);
+        if (data.fromFlow) {
+          setFlowData(data);
+          setShowBanner(true);
+          // Clear the flowData after reading to prevent showing again
+          sessionStorage.removeItem('flowData');
+        }
+      } catch (error) {
+        console.error('Error parsing flowData:', error);
+      }
+    }
+  }, []);
+
+  const handleCloseBanner = () => {
+    setShowBanner(false);
+  };
+
   return (
     <>
       <Head>
@@ -43,9 +74,7 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
                 <span>←</span> Home
               </Link>
               <Link href="/#services" className="hover:text-gray-300 transition-colors">Services</Link>
-              <Link href="/#about" className="hover:text-gray-300 transition-colors">About</Link>
-              <Link href="/#testimonials" className="hover:text-gray-300 transition-colors">Results</Link>
-              <Link href="/#faq" className="hover:text-gray-300 transition-colors">FAQ</Link>
+              <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
               <a
                 href="https://outlook.office.com/owa/calendar/IG@imaginationg.studio/bookings/"
                 target="_blank"
@@ -57,8 +86,30 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
           </div>
         </nav>
 
+        {/* Flow Banner */}
+        {showBanner && flowData && (
+          <div className="fixed top-20 left-0 right-0 z-40 bg-gradient-to-r from-green-600 to-blue-600 text-white">
+            <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+              <div className="flex-1">
+                <p className="text-lg font-medium">
+                  You've named your drift: <span className="font-bold">{flowData.drift}</span>. 
+                  Your move: <span className="font-bold">{flowData.move}</span>. 
+                  <span className="ml-2">Let's make it happen.</span>
+                </p>
+              </div>
+              <button 
+                onClick={handleCloseBanner}
+                className="ml-4 p-2 hover:bg-white hover:bg-opacity-20 rounded-full transition-colors"
+                aria-label="Close banner"
+              >
+                <X size={20} />
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* Service Header */}
-        <header className="pt-32 pb-16 px-6 bg-zinc-900">
+        <header className={`${showBanner ? 'pt-48' : 'pt-32'} pb-16 px-6 bg-zinc-900 transition-all duration-300`}>
           <div className="max-w-4xl mx-auto">
             <Link 
               href="/#services" 

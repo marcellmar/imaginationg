@@ -6,9 +6,11 @@ const DiagnosticPage = () => {
   useEffect(() => {
     // This script will run only on the client side after the component is mounted
     // Add a small delay to ensure DOM elements are fully loaded
-    setTimeout(() => {
-      const script = document.createElement('script');
-      script.innerHTML = `
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+      setTimeout(() => {
+        const script = document.createElement('script');
+        script.setAttribute('data-diagnostic', 'true');
+        script.innerHTML = `
         // Create global objects
         window.answers = {};
         window.answeredCount = 0;
@@ -25,7 +27,7 @@ const DiagnosticPage = () => {
               clearInterval(window.timerInterval);
               const timerElement = document.getElementById('timer');
               if (timerElement) {
-                timerElement.textContent = "Time's up! But take your time...";
+                timerElement.textContent = "Time's up! But take your time to face the truth...";
               }
             }
           } else {
@@ -68,7 +70,12 @@ const DiagnosticPage = () => {
 
             // Show details based on answer - with null check
             if (details) {
-              if ((answer === 'yes' && signal !== 5) || (answer === 'no' && signal === 5)) {
+              // Show drift detected when answer indicates a problem
+              if ((signal === 1 && answer === 'no') || 
+                  (signal === 2 && answer === 'yes') || 
+                  (signal === 3 && answer === 'yes') || 
+                  (signal === 4 && answer === 'yes') || 
+                  (signal === 5 && answer === 'no')) {
                 details.classList.add('show');
               } else {
                 details.classList.remove('show');
@@ -98,13 +105,37 @@ const DiagnosticPage = () => {
 
         results.classList.add('show');
 
-        // Calculate drift score
+        // Calculate drift score and determine weapon
         let driftScore = 0;
-        if (window.answers[1] === 'yes') driftScore++; // Bad
-        if (window.answers[2] === 'yes') driftScore++; // Bad
-        if (window.answers[3] === 'yes') driftScore++; // Bad
-        if (window.answers[4] === 'yes') driftScore++; // Bad
-        if (window.answers[5] === 'no') driftScore++; // Bad (reversed)
+        let recommendedWeapon = '';
+        let weaponUrl = '';
+        
+        if (window.answers[1] === 'no') driftScore++; // No clarity
+        if (window.answers[2] === 'yes') driftScore++; // Dead network
+        if (window.answers[3] === 'yes') driftScore++; // Market guessing
+        if (window.answers[4] === 'yes') driftScore++; // Planning paralysis
+        if (window.answers[5] === 'no') driftScore++; // No shipping
+
+        // Determine weapon based on answers
+        if (window.answers[1] === 'no') {
+          recommendedWeapon = 'Clarity Collision';
+          weaponUrl = '/weapons/clarity-catalyst-call';
+        } else if (window.answers[2] === 'yes') {
+          recommendedWeapon = 'Ecosystem Collision Map';
+          weaponUrl = '/weapons/ecosystem-map';
+        } else if (window.answers[3] === 'yes') {
+          recommendedWeapon = 'Market Smackdown';
+          weaponUrl = '/weapons/pre-market-signal-scan';
+        } else if (window.answers[4] === 'yes') {
+          recommendedWeapon = '30-Day Drift Break';
+          weaponUrl = '/weapons/movement-sprint';
+        } else if (window.answers[5] === 'no') {
+          recommendedWeapon = 'First Blood Build';
+          weaponUrl = '/weapons/mvp-jumpstart';
+        } else {
+          recommendedWeapon = 'Clarity Collision';
+          weaponUrl = '/weapons/clarity-catalyst-call';
+        }
 
         // Update score display - with null checks
         const scoreElement = document.getElementById('score');
@@ -118,11 +149,24 @@ const DiagnosticPage = () => {
             if (scoreMessage) scoreMessage.textContent = "You're moving! Minor adjustments needed.";
           } else if (driftScore <= 3) {
             scoreElement.className = 'drift-score score-medium';
-            if (scoreMessage) scoreMessage.textContent = "Warning: Drift detected. Time to course-correct.";
+            if (scoreMessage) scoreMessage.textContent = "Warning: Drift detected. Time to pick your weapon.";
           } else {
             scoreElement.className = 'drift-score score-high';
-            if (scoreMessage) scoreMessage.textContent = "Critical: You're in full drift mode. Immediate action required.";
+            if (scoreMessage) scoreMessage.textContent = "Critical: You're fully drifting. Immediate action required.";
           }
+        }
+
+        // Update weapon recommendation
+        const weaponRec = document.getElementById('weapon-recommendation');
+        if (weaponRec) {
+          weaponRec.innerHTML = \`
+            <h3>Your Prescribed Weapon:</h3>
+            <div class="weapon-card">
+              <h4>\${recommendedWeapon}</h4>
+              <p>Based on your drift patterns, this is the intervention you need.</p>
+              <a href="\${weaponUrl}" class="weapon-button">DEPLOY THIS WEAPON</a>
+            </div>
+          \`;
         }
 
         // Generate personalized action plan
@@ -130,24 +174,24 @@ const DiagnosticPage = () => {
         if (planContainer) {
           let plan = '';
 
-          if (window.answers[1] === 'yes') {
-            plan += '<div class="plan-item">TODAY: Cancel tomorrow\\'s meetings. Replace with 15-min decision sprints.</div>';
+          if (window.answers[1] === 'no') {
+            plan += '<div class="plan-item">TODAY: Write your vision in 10 words. Or stay lost forever.</div>';
           }
           if (window.answers[2] === 'yes') {
-            plan += '<div class="plan-item">TODAY: Set hard ship date 48 hours from now. Cut scope, not timeline.</div>';
+            plan += '<div class="plan-item">TODAY: Kill 5 dead relationships. Find 3 collision partners.</div>';
           }
           if (window.answers[3] === 'yes') {
-            plan += '<div class="plan-item">TODAY: Give your team $500 decision authority. Watch them fly.</div>';
+            plan += '<div class="plan-item">TODAY: Call 3 real customers. Stop hiding behind surveys.</div>';
           }
           if (window.answers[4] === 'yes') {
-            plan += '<div class="plan-item">TODAY: Kill your bottom 3 projects. Focus on your top 2.</div>';
+            plan += '<div class="plan-item">TODAY: Pick ONE thing. Ship in 48 hours. No excuses.</div>';
           }
           if (window.answers[5] === 'no') {
-            plan += '<div class="plan-item">THIS WEEK: Book external catalyst. Your system needs shock therapy.</div>';
+            plan += '<div class="plan-item">THIS WEEK: Build something ugly that works. Bleed for it.</div>';
           }
 
           if (!plan) {
-            plan = '<div class="plan-item">Keep your momentum! Book a session to go from good to unstoppable.</div>';
+            plan = '<div class="plan-item">You think you\\'re moving. You\\'re not. Move faster.</div>';
           }
 
           planContainer.innerHTML = plan;
@@ -165,22 +209,27 @@ const DiagnosticPage = () => {
         });
       }
     `;
-      document.body.appendChild(script);
+          // Append the script to the document body
+          if (typeof document !== 'undefined') {
+            document.body.appendChild(script);
+          }
+        }, 500); // 500ms delay to ensure DOM is ready
 
-      // Clean up function
-      return () => {
-        if (script && script.parentNode) {
-          document.body.removeChild(script);
-        }
-      };
-    }, 500); // 500ms delay to ensure DOM is ready
+        // Clean up function
+        return () => {
+          const script = document.querySelector('script[data-diagnostic]');
+          if (script && script.parentNode) {
+            document.body.removeChild(script);
+          }
+        };
+    }
   }, []);
 
   return (
     <>
       <Head>
         <title>Stop Drifting. Start Moving. | IMAGINATION G</title>
-        <meta name="description" content="Find out if you're moving or just drifting in 60 seconds. Get your personalized action plan." />
+        <meta name="description" content="Find out if you're moving or just drifting in 60 seconds. Get your prescribed weapon." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
@@ -202,14 +251,14 @@ const DiagnosticPage = () => {
             
             <div class="hero">
                 <h1>Are You Moving or Just Drifting?</h1>
-                <p class="subtitle">Find out in 60 seconds. Get your personalized action plan.</p>
-                <div class="timer" id="timer">Time to clarity: <span id="countdown">60</span> seconds</div>
+                <p class="subtitle">Find out in 60 seconds. Get your prescribed weapon.</p>
+                <div class="timer" id="timer">Time to truth: <span id="countdown">60</span> seconds</div>
             </div>
 
             <div class="intro-box">
-                <strong>WARNING:</strong> This diagnostic will expose the truth about your momentum. 
-                Most people discover they're drifting in at least 3 areas. The good news? 
-                You'll leave with a clear plan to fix it.
+                <strong>WARNING:</strong> This diagnostic will expose your drift patterns. 
+                Most people are drifting in at least 3 areas. The good news? 
+                We'll prescribe the exact weapon you need to break free.
             </div>
 
             <div class="diagnostic">
@@ -223,8 +272,8 @@ const DiagnosticPage = () => {
                     <div class="signal-header">
                         <div class="signal-number">1</div>
                         <div class="signal-content">
-                            <h3 class="signal-title">Your Last 3 Meetings</h3>
-                            <p class="signal-symptom">Did they end with clear, assigned actions?</p>
+                            <h3 class="signal-title">Your Clarity</h3>
+                            <p class="signal-symptom">Can you explain your vision in one sentence? Without corporate BS?</p>
                         </div>
                         <div class="signal-indicator">
                             <div class="yes-no-buttons">
@@ -235,8 +284,8 @@ const DiagnosticPage = () => {
                     </div>
                     <div class="signal-details" id="details-1">
                         <div class="immediate-action">
-                            <p class="action-title">IMMEDIATE ACTION:</p>
-                            <p>Cancel your next meeting. Replace it with a 15-minute stand-up focused on ONE decision.</p>
+                            <p class="action-title">DRIFT DETECTED:</p>
+                            <p>You can't even explain why you exist. Your team is lost. You need clarity collision.</p>
                         </div>
                     </div>
                 </div>
@@ -246,8 +295,8 @@ const DiagnosticPage = () => {
                     <div class="signal-header">
                         <div class="signal-number">2</div>
                         <div class="signal-content">
-                            <h3 class="signal-title">Your Current Project</h3>
-                            <p class="signal-symptom">Has it been "almost ready" for more than 2 weeks?</p>
+                            <h3 class="signal-title">Your Network</h3>
+                            <p class="signal-symptom">Same LinkedIn connections? Same useless meetings? Same dead relationships?</p>
                         </div>
                         <div class="signal-indicator">
                             <div class="yes-no-buttons">
@@ -258,8 +307,8 @@ const DiagnosticPage = () => {
                     </div>
                     <div class="signal-details" id="details-2">
                         <div class="immediate-action">
-                            <p class="action-title">IMMEDIATE ACTION:</p>
-                            <p>Set a hard deadline: Ship in 48 hours. Cut features, not momentum.</p>
+                            <p class="action-title">DRIFT DETECTED:</p>
+                            <p>Your network is dead. You need real collisions, not coffee chats.</p>
                         </div>
                     </div>
                 </div>
@@ -269,8 +318,8 @@ const DiagnosticPage = () => {
                     <div class="signal-header">
                         <div class="signal-number">3</div>
                         <div class="signal-content">
-                            <h3 class="signal-title">Your Team's Energy</h3>
-                            <p class="signal-symptom">Do they wait for your approval before moving?</p>
+                            <h3 class="signal-title">Your Market</h3>
+                            <p class="signal-symptom">Still guessing what customers want? Still hoping? Still researching?</p>
                         </div>
                         <div class="signal-indicator">
                             <div class="yes-no-buttons">
@@ -281,8 +330,8 @@ const DiagnosticPage = () => {
                     </div>
                     <div class="signal-details" id="details-3">
                         <div class="immediate-action">
-                            <p class="action-title">IMMEDIATE ACTION:</p>
-                            <p>Email your team NOW: "Any decision under $500 is yours to make. Move fast."</p>
+                            <p class="action-title">DRIFT DETECTED:</p>
+                            <p>You're hiding from market truth. Face the smackdown or keep bleeding.</p>
                         </div>
                     </div>
                 </div>
@@ -292,8 +341,8 @@ const DiagnosticPage = () => {
                     <div class="signal-header">
                         <div class="signal-number">4</div>
                         <div class="signal-content">
-                            <h3 class="signal-title">Your To-Do List</h3>
-                            <p class="signal-symptom">More than 5 "priorities" right now?</p>
+                            <h3 class="signal-title">Your Momentum</h3>
+                            <p class="signal-symptom">Been "planning" the same thing for over 30 days?</p>
                         </div>
                         <div class="signal-indicator">
                             <div class="yes-no-buttons">
@@ -304,8 +353,8 @@ const DiagnosticPage = () => {
                     </div>
                     <div class="signal-details" id="details-4">
                         <div class="immediate-action">
-                            <p class="action-title">IMMEDIATE ACTION:</p>
-                            <p>Kill 3 projects today. Not pause. Kill. Focus is your superpower.</p>
+                            <p class="action-title">DRIFT DETECTED:</p>
+                            <p>Planning is procrastination. You need forced movement. Now.</p>
                         </div>
                     </div>
                 </div>
@@ -315,8 +364,8 @@ const DiagnosticPage = () => {
                     <div class="signal-header">
                         <div class="signal-number">5</div>
                         <div class="signal-content">
-                            <h3 class="signal-title">Your Progress</h3>
-                            <p class="signal-symptom">Same problems as 6 months ago?</p>
+                            <h3 class="signal-title">Your Shipping</h3>
+                            <p class="signal-symptom">Got a working prototype? Something real? Something bleeding?</p>
                         </div>
                         <div class="signal-indicator">
                             <div class="yes-no-buttons">
@@ -327,8 +376,8 @@ const DiagnosticPage = () => {
                     </div>
                     <div class="signal-details" id="details-5">
                         <div class="immediate-action">
-                            <p class="action-title">IMMEDIATE ACTION:</p>
-                            <p>Your system is broken. Time for external shock therapy. Book help or burn it down.</p>
+                            <p class="action-title">DRIFT DETECTED:</p>
+                            <p>All talk, no blood. Ship something or stay irrelevant.</p>
                         </div>
                     </div>
                 </div>
@@ -339,27 +388,29 @@ const DiagnosticPage = () => {
                 <div class="drift-score" id="score">0/5</div>
                 <p id="score-message"></p>
 
+                <div id="weapon-recommendation" class="weapon-recommendation"></div>
+
                 <div class="personalized-plan">
-                    <h3>Your 48-Hour Action Plan</h3>
+                    <h3>Your Immediate Action Plan</h3>
                     <div id="action-plan"></div>
                 </div>
 
                 <div class="cta-final">
-                    <h3>Ready to Break the Drift Cycle?</h3>
-                    <p>You've identified the problems. Now let's architect the solution.</p>
+                    <h3>Ready to Stop Drifting?</h3>
+                    <p>You've identified the patterns. Now deploy your weapon.</p>
                     <div class="cta-buttons">
-                        <a href="https://outlook.office.com/owa/calendar/IG@imaginationg.studio/bookings/" class="btn-primary" target="_blank" rel="noopener noreferrer">Book Clarity Call - $250</a>
-                        <a href="/IMAGINATION_G_Drift_Movement_Playbook.pdf" download="IMAGINATION_G_Drift_Movement_Playbook.pdf" class="btn-secondary">Download Full Playbook</a>
+                        <a href="/weapons" class="btn-primary">VIEW ALL WEAPONS</a>
+                        <a href="https://outlook.office.com/owa/calendar/IG@imaginationg.studio/bookings/" class="btn-secondary" target="_blank" rel="noopener noreferrer">BOOK IMMEDIATE INTERVENTION</a>
                     </div>
                     <p style="margin-top: 1rem; font-style: italic;">
-                        87% of our clients break their drift cycle within 30 days.
+                        Warning: 87% of people who take this diagnostic are still drifting 30 days later. Don't be one of them.
                     </p>
                 </div>
             </div>
         </div>
 
         <div class="live-chat">
-            💬 Live Help
+            💬 Need Truth?
         </div>
         `
       }} />
@@ -561,14 +612,14 @@ const DiagnosticPage = () => {
 
         .immediate-action {
             background: rgba(255,255,255,0.05);
-            border-left: 4px solid #00ff00;
+            border-left: 4px solid #ff0000;
             padding: 1rem;
             margin: 1rem 0;
         }
 
         .action-title {
             font-weight: 700;
-            color: #00ff00;
+            color: #ff0000;
             margin-bottom: 0.5rem;
         }
 
@@ -592,6 +643,40 @@ const DiagnosticPage = () => {
         .score-medium { color: #ffff00; }
         .score-high { color: #ff0000; }
 
+        .weapon-recommendation {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid #ff0000;
+        }
+
+        .weapon-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .weapon-card h4 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ff0000;
+        }
+
+        .weapon-button {
+            display: inline-block;
+            background: #ff0000;
+            color: #fff;
+            padding: 1rem 2rem;
+            margin-top: 1rem;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .weapon-button:hover {
+            transform: scale(1.05);
+            background: #cc0000;
+        }
+
         .personalized-plan {
             background: rgba(255,255,255,0.05);
             padding: 2rem;
@@ -610,7 +695,7 @@ const DiagnosticPage = () => {
             position: absolute;
             left: 0;
             font-weight: 900;
-            color: #00ff00;
+            color: #ff0000;
         }
 
         .cta-final {

@@ -7,7 +7,7 @@ const PreMarketSignalScan: NextPage = () => {
     <ServiceLayout
       title="Pre-Market Signal Scan"
       description="A no-fluff, data-rich report to guide your product or market decisions"
-      price="$600"
+      price="$1,500"
       prevService={{ name: "Clarity Catalyst Call", slug: "clarity-catalyst-call" }}
       nextService={{ name: "30-Day Movement Sprint", slug: "movement-sprint" }}
     >
