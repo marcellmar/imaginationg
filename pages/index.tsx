@@ -63,7 +63,7 @@ const Home: NextPage = () => {
             <Link 
               href="/ig-complete-flow"
               className="inline-block bg-red-500 text-white px-10 py-5 text-xl md:text-2xl font-black hover:bg-red-600 transition-all">
-              ENTER THE COLLISION
+              YOU SUCK. NOW WHAT?
             </Link>
           </div>
           
