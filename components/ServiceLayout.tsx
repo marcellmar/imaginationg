@@ -58,6 +58,32 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({
       <Head>
         <title>{title} - IMAGINATION_G</title>
         <meta name="description" content={description} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": title,
+              "description": description,
+              "provider": {
+                "@type": "Organization",
+                "name": "IMAGINATION G",
+                "url": "https://www.imaginationg.studio"
+              },
+              "areaServed": "Worldwide",
+              "offers": price !== "Custom" ? {
+                "@type": "Offer",
+                "price": price.replace('$', ''),
+                "priceCurrency": "USD"
+              } : undefined,
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Business Transformation Services"
+              }
+            })
+          }}
+        />
       </Head>
 
       <div className="min-h-screen bg-black text-white">

@@ -8,6 +8,27 @@ const TheMapPage: NextPage = () => {
       <Head>
         <title>THE MAP | IMAGINATION G</title>
         <meta name="description" content="Your network is dead. We show you where to collide." />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": "The Map",
+              "description": "Strategic transformation roadmap and network collision strategy",
+              "provider": {
+                "@type": "Organization",
+                "name": "IMAGINATION G",
+                "url": "https://www.imaginationg.studio"
+              },
+              "areaServed": "Worldwide",
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Business Transformation Services"
+              }
+            })
+          }}
+        />
       </Head>
 
       <div className="min-h-screen bg-black text-white">

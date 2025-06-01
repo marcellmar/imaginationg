@@ -8,6 +8,27 @@ const FirstBloodBuildPage: NextPage = () => {
       <Head>
         <title>FIRST BLOOD BUILD | IMAGINATION G</title>
         <meta name="description" content="Build the thing that bruises. Fast. Ugly." />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": "First Blood Build",
+              "description": "Rapid prototype development to test market assumptions and force early feedback",
+              "provider": {
+                "@type": "Organization",
+                "name": "IMAGINATION G",
+                "url": "https://www.imaginationg.studio"
+              },
+              "areaServed": "Worldwide",
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Business Transformation Services"
+              }
+            })
+          }}
+        />
       </Head>
 
       <div className="min-h-screen bg-black text-white">

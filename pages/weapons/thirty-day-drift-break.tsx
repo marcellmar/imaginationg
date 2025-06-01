@@ -8,6 +8,27 @@ const ThirtyDayDriftBreakPage: NextPage = () => {
       <Head>
         <title>30-DAY DRIFT BREAK | IMAGINATION G</title>
         <meta name="description" content="Forced movement. You act or you admit defeat." />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": "30-Day Drift Break",
+              "description": "Intensive 30-day program to break organizational drift patterns and force movement",
+              "provider": {
+                "@type": "Organization",
+                "name": "IMAGINATION G",
+                "url": "https://www.imaginationg.studio"
+              },
+              "areaServed": "Worldwide",
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Business Transformation Services"
+              }
+            })
+          }}
+        />
       </Head>
 
       <div className="min-h-screen bg-black text-white">

@@ -8,6 +8,33 @@ const TheNamingPage: NextPage = () => {
       <Head>
         <title>THE NAMING | IMAGINATION G</title>
         <meta name="description" content="60 minutes. One room. One truth." />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": "The Naming",
+              "description": "60-minute clarity catalyst session to identify and name what's broken in your business",
+              "provider": {
+                "@type": "Organization",
+                "name": "IMAGINATION G",
+                "url": "https://www.imaginationg.studio"
+              },
+              "areaServed": "Worldwide",
+              "offers": {
+                "@type": "Offer",
+                "price": "500",
+                "priceCurrency": "USD",
+                "description": "Single 60-minute session"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Business Transformation Services"
+              }
+            })
+          }}
+        />
       </Head>
 
       <div className="min-h-screen bg-black text-white">

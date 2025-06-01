@@ -8,6 +8,27 @@ const TheMarketSmackdownPage: NextPage = () => {
       <Head>
         <title>THE MARKET SMACKDOWN | IMAGINATION G</title>
         <meta name="description" content="The market already told you 'no.' Face it." />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": "The Market Smackdown",
+              "description": "Brutal market reality assessment to confront failed assumptions and pivot strategy",
+              "provider": {
+                "@type": "Organization",
+                "name": "IMAGINATION G",
+                "url": "https://www.imaginationg.studio"
+              },
+              "areaServed": "Worldwide",
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Business Transformation Services"
+              }
+            })
+          }}
+        />
       </Head>
 
       <div className="min-h-screen bg-black text-white">
