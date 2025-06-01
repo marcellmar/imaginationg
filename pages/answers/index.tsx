@@ -73,14 +73,14 @@ export default function AnswersHub() {
                 Step-by-step breakdowns of how to actually move forward.
               </p>
               <div className="space-y-3">
+                <Link href="/answers/guides/clarity-ritual" className="block text-sm hover:text-green-500">
+                  → The Clarity Ritual: Stop Strategy Theater Forever
+                </Link>
                 <Link href="/answers/guides/diagnose-drift" className="block text-sm hover:text-green-500">
-                  → How to Diagnose Organizational Drift
+                  → How to Diagnose Organizational Drift (Coming Soon)
                 </Link>
                 <Link href="/answers/guides/30-day-movement" className="block text-sm hover:text-green-500">
-                  → The 30-Day Movement Sprint
-                </Link>
-                <Link href="/answers/guides/stop-strategy-theater" className="block text-sm hover:text-green-500">
-                  → How to Stop Strategy Theater
+                  → The 30-Day Movement Sprint (Coming Soon)
                 </Link>
               </div>
             </div>
