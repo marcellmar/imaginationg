@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/third-parties": "^15.3.3",
     "@react-pdf/renderer": "^3.4.5",
     "autoprefixer": "^10.4.15",
     "lucide-react": "^0.284.0",
     "next": "^13.4.19",
+    "next.js": "^1.0.3",
     "nodemailer": "^6.9.7",
     "postcss": "^8.4.29",
     "react": "^18.2.0",

@@ -5,6 +5,9 @@ import Image from 'next/image';
 import { ArrowRight, Clock, Zap, BarChart2, TrendingUp, Check } from 'lucide-react';
 
 const CaseStudies = () => {
+  const handleBookCall = () => {
+    window.open('https://outlook.office.com/owa/calendar/IG@imaginationg.studio/bookings/', '_blank');
+  };
   const caseStudies = [
     {
       id: 1,
@@ -78,7 +81,7 @@ const CaseStudies = () => {
               <Link href="/" className="hover:text-gray-300 transition-colors flex items-center gap-1">
                 <span>←</span> Home
               </Link>
-              <Link href="/weapons" className="hover:text-gray-300 transition-colors">Weapons</Link>
+              <Link href="/#services" className="hover:text-gray-300 transition-colors">Services</Link>
               <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
               <Link href="/diagnostic" className="hover:text-gray-300 transition-colors">Diagnostic</Link>
             </div>
@@ -283,7 +286,7 @@ const CaseStudies = () => {
             <p className="text-gray-400 mb-6">A Studio for Aligned Futures</p>
             <div className="flex justify-center gap-6 mb-8">
               <Link href="/" className="text-gray-500 hover:text-white transition-colors">Home</Link>
-              <Link href="/weapons" className="text-gray-500 hover:text-white transition-colors">Weapons</Link>
+              <Link href="/#services" className="text-gray-500 hover:text-white transition-colors">Services</Link>
               <Link href="/diagnostic" className="text-gray-500 hover:text-white transition-colors">Diagnostic</Link>
               <Link href="/cheatsheet" className="text-gray-500 hover:text-white transition-colors">Playbook</Link>
             </div>

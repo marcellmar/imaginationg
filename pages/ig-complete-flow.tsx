@@ -7,7 +7,7 @@ const IGFlowPage: NextPage = () => {
     <>
       <Head>
         <title>IMAGINATION G - You Suck. Now What?</title>
-        <meta name="description" content="Name your drift. Name your move. Pick your weapon." />
+        <meta name="description" content="How does IMAGINATION G work? Three steps: diagnose your drift, name your truth, then deploy targeted interventions to break stagnation." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

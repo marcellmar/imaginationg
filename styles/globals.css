@@ -58,3 +58,20 @@ body {
     transform: translateY(0);
   }
 }
+
+@keyframes delay-1000 {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.1;
+  }
+}
+
+.delay-1000 {
+  animation-delay: 1s;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
