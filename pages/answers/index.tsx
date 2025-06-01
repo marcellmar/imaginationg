@@ -60,6 +60,9 @@ export default function AnswersHub() {
                 <Link href="/answers/glossary/clarity-catalyst" className="block text-sm hover:text-red-500">
                   → What is a Clarity Catalyst?
                 </Link>
+                <Link href="/answers/glossary/strategy-theater" className="block text-sm hover:text-red-500">
+                  → What is Strategy Theater?
+                </Link>
               </div>
             </div>
 
@@ -93,7 +96,7 @@ export default function AnswersHub() {
                   → Consultant vs Catalyst
                 </Link>
                 <Link href="/answers/compare/planning-vs-movement" className="block text-sm hover:text-blue-500">
-                  → Planning vs Movement
+                  → Planning vs Movement (Coming Soon)
                 </Link>
               </div>
             </div>
