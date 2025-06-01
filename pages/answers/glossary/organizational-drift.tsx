@@ -44,9 +44,18 @@ export default function OrganizationalDrift() {
             <h1 className="text-4xl md:text-6xl font-black mb-6">
               ORGANIZATIONAL DRIFT
             </h1>
-            <p className="text-xl text-zinc-400">
+            <p className="text-xl text-zinc-400 mb-4">
               The silent killer of business momentum
             </p>
+            <div className="border border-blue-500 p-4">
+              <p className="text-sm text-zinc-300">
+                📊 <strong>Research-Based Analysis Available:</strong> This page provides a quick overview. 
+                For comprehensive research findings, methodology, and case studies, see our 
+                <Link href="/answers/glossary/organizational-drift-research" className="text-blue-500 hover:underline">
+                  complete research analysis
+                </Link> (6,000+ words, peer-reviewed methodology).
+              </p>
+            </div>
           </div>
 
           {/* Definition */}
