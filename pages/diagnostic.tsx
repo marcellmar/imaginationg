@@ -11,48 +11,111 @@ const DiagnosticPage = () => {
   const questions = [
     {
       id: 1,
-      title: "THE REVENUE CHECK",
-      question: "Your last big idea - did it make money?",
-      yesText: "YES, REAL CASH",
-      yesSubtext: "Numbers don't lie.",
-      noText: "STILL WAITING",
-      noSubtext: "Always tomorrow."
+      title: "THE DECISION VELOCITY CHECK",
+      question: "How long since your last major decision?",
+      yesText: "THIS WEEK",
+      yesSubtext: "Decisions create momentum.",
+      noText: "STILL THINKING",
+      noSubtext: "Analysis paralysis is drift."
     },
     {
       id: 2,
-      title: "THE NETWORK TEST",
-      question: "Same LinkedIn connections for 6+ months?",
-      yesText: "DEAD NETWORK",
-      yesSubtext: "Same faces, same BS.",
-      noText: "NEW COLLISIONS",
-      noSubtext: "Fresh blood weekly."
+      title: "THE MEETING REALITY TEST",
+      question: "Do your meetings produce decisions or more meetings?",
+      yesText: "DECISIONS MADE",
+      yesSubtext: "Action follows words.",
+      noText: "MORE MEETINGS",
+      noSubtext: "Strategy theater in full swing."
     },
     {
       id: 3,
-      title: "THE CLARITY CHECK",
-      question: "Can you explain your vision in 10 words?",
-      yesText: "CRYSTAL CLEAR",
-      yesSubtext: "No fluff needed.",
-      noText: "STILL FOGGY",
-      noSubtext: "Lots of words, no point."
+      title: "THE CONSULTANT DEPENDENCY CHECK",
+      question: "Making decisions without external 'experts'?",
+      yesText: "WE DECIDE",
+      yesSubtext: "Internal confidence intact.",
+      noText: "NEED VALIDATION",
+      noSubtext: "Outsourced your backbone."
     },
     {
       id: 4,
-      title: "THE SHIPPING TEST",
-      question: "Built anything real in the last 30 days?",
-      yesText: "SHIPPED IT",
-      yesSubtext: "Ugly but live.",
-      noText: "STILL PLANNING",
-      noSubtext: "Perfect is the enemy."
+      title: "THE REVENUE REALITY",
+      question: "Your last initiative - did it make money?",
+      yesText: "PROFIT DELIVERED",
+      yesSubtext: "Results, not reports.",
+      noText: "STILL WAITING",
+      noSubtext: "ROI is still theoretical."
     },
     {
       id: 5,
-      title: "THE MOMENTUM CHECK",
-      question: "Moving faster than 3 months ago?",
+      title: "THE BINARY CHOICE TEST",
+      question: "Can you answer business questions with YES or NO?",
+      yesText: "CLEAR CHOICES",
+      yesSubtext: "Binary decisions drive progress.",
+      noText: "IT DEPENDS",
+      noSubtext: "Conditional thinking kills momentum."
+    },
+    {
+      id: 6,
+      title: "THE PLANNING VS ACTION RATIO",
+      question: "Spending more time planning or executing?",
+      yesText: "EXECUTING",
+      yesSubtext: "Bias toward action.",
+      noText: "PLANNING",
+      noSubtext: "Analysis addiction detected."
+    },
+    {
+      id: 7,
+      title: "THE COMMITTEE CORRUPTION",
+      question: "Can one person make decisions in your company?",
+      yesText: "INDIVIDUAL OWNERSHIP",
+      yesSubtext: "Accountability drives results.",
+      noText: "COMMITTEE REQUIRED",
+      noSubtext: "Consensus kills speed."
+    },
+    {
+      id: 8,
+      title: "THE SACRED COW SCANNER",
+      question: "Killed any 'untouchable' processes recently?",
+      yesText: "SLAUGHTERED SOME",
+      yesSubtext: "Progress requires sacrifice.",
+      noText: "ALL SACRED",
+      noSubtext: "Protecting dysfunction."
+    },
+    {
+      id: 9,
+      title: "THE SHIPPING VELOCITY",
+      question: "Built and launched something in the last 30 days?",
+      yesText: "SHIPPED IT",
+      yesSubtext: "Ugly and live beats perfect and dead.",
+      noText: "STILL PERFECTING",
+      noSubtext: "Perfectionism is procrastination."
+    },
+    {
+      id: 10,
+      title: "THE CLARITY CATALYST",
+      question: "Can you explain your vision in 10 words or less?",
+      yesText: "CRYSTAL CLEAR",
+      yesSubtext: "Clarity creates alignment.",
+      noText: "NEEDS EXPLANATION",
+      noSubtext: "Complexity is confusion."
+    },
+    {
+      id: 11,
+      title: "THE MOMENTUM MEASUREMENT",
+      question: "Moving faster than you were 3 months ago?",
       yesText: "ACCELERATING",
-      yesSubtext: "Speed is everything.",
-      noText: "SAME PACE",
-      noSubtext: "Or slower."
+      yesSubtext: "Velocity compounds value.",
+      noText: "SAME SPEED",
+      noSubtext: "Same pace equals drift."
+    },
+    {
+      id: 12,
+      title: "THE CONFLICT COMFORT",
+      question: "Had a difficult business conversation this week?",
+      yesText: "CONFRONTED TRUTH",
+      yesSubtext: "Hard conversations create change.",
+      noText: "AVOIDING CONFLICT",
+      noSubtext: "Comfort zones kill companies."
     }
   ];
 
@@ -76,32 +139,54 @@ const DiagnosticPage = () => {
     let recommendedWeapon = '';
     let weaponUrl = '';
     
-    // Calculate drift score based on answers
-    if (answers[1] === 'no') driftScore += 20; // No revenue
-    if (answers[2] === 'yes') driftScore += 20; // Dead network
-    if (answers[3] === 'no') driftScore += 20; // No clarity
-    if (answers[4] === 'no') driftScore += 20; // Not shipping
-    if (answers[5] === 'no') driftScore += 20; // No momentum
+    // Calculate drift score based on answers (each "no" = drift indicator)
+    const driftIndicators = [
+      answers[1] === 'no', // No recent decisions
+      answers[2] === 'no', // Meetings don't produce decisions  
+      answers[3] === 'no', // Need external validation
+      answers[4] === 'no', // No profitable initiatives
+      answers[5] === 'no', // Can't make binary choices
+      answers[6] === 'no', // More planning than executing
+      answers[7] === 'no', // Committee-based decisions
+      answers[8] === 'no', // No sacred cows killed
+      answers[9] === 'no', // Not shipping regularly
+      answers[10] === 'no', // No clear vision
+      answers[11] === 'no', // Not accelerating
+      answers[12] === 'no'  // Avoiding conflict
+    ];
+    
+    const driftCount = driftIndicators.filter(Boolean).length;
+    driftScore = Math.round((driftCount / 12) * 100);
 
-    // Determine weapon based on highest need
-    if (answers[3] === 'no') {
+    // Determine weapon based on most critical drift pattern
+    if (answers[10] === 'no' || answers[5] === 'no') {
+      // Clarity issues or can't make binary decisions
       recommendedWeapon = 'THE NAMING';
       weaponUrl = '/weapons/the-naming';
-    } else if (answers[2] === 'yes') {
-      recommendedWeapon = 'THE MAP';
-      weaponUrl = '/weapons/the-map';
-    } else if (answers[1] === 'no') {
+    } else if (answers[2] === 'no' || answers[6] === 'no' || answers[7] === 'no') {
+      // Meeting/planning/committee issues = strategy theater
+      recommendedWeapon = 'CLARITY RITUAL';
+      weaponUrl = '/answers/guides/clarity-ritual';
+    } else if (answers[4] === 'no') {
+      // Revenue/profitability issues
       recommendedWeapon = 'THE MARKET SMACKDOWN';
       weaponUrl = '/weapons/the-market-smackdown';
-    } else if (answers[4] === 'no') {
+    } else if (answers[9] === 'no') {
+      // Not shipping/building
       recommendedWeapon = 'FIRST BLOOD BUILD';
       weaponUrl = '/weapons/first-blood-build';
-    } else if (answers[5] === 'no') {
+    } else if (answers[11] === 'no' || answers[1] === 'no') {
+      // Momentum/decision velocity issues
       recommendedWeapon = '30-DAY DRIFT BREAK';
       weaponUrl = '/weapons/thirty-day-drift-break';
-    } else {
+    } else if (answers[12] === 'no' || answers[8] === 'no') {
+      // Avoiding conflict or protecting dysfunction
       recommendedWeapon = 'THE NAMING';
       weaponUrl = '/weapons/the-naming';
+    } else {
+      // Default recommendation for comprehensive approach
+      recommendedWeapon = 'THE MAP';
+      weaponUrl = '/weapons/the-map';
     }
 
     return { driftScore, recommendedWeapon, weaponUrl };
@@ -134,15 +219,16 @@ const DiagnosticPage = () => {
           <div className="flex items-center justify-center min-h-screen px-6">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-6xl md:text-8xl font-black mb-4">DRIFT DIAGNOSTIC</h1>
-              <p className="text-2xl text-red-500 mb-8">30 seconds to find out you're full of shit.</p>
-              <p className="text-zinc-500 mb-16">Answer fast. No thinking. Just truth.</p>
+              <p className="text-2xl text-red-500 mb-8">2 minutes to expose organizational drift patterns.</p>
+              <p className="text-zinc-500 mb-16">12 questions. Binary choices. No escape routes.</p>
 
               <div className="border-2 border-red-500 p-12 max-w-2xl mx-auto">
-                <h2 className="text-3xl font-black text-red-500 mb-6">STILL LYING TO YOURSELF?</h2>
+                <h2 className="text-3xl font-black text-red-500 mb-6">COMPREHENSIVE DRIFT ANALYSIS</h2>
                 <div className="space-y-2 mb-8">
-                  <p className="text-lg">5 punches to the face.</p>
-                  <p className="text-lg">No escape routes.</p>
-                  <p className="text-lg">Your weapon prescribed.</p>
+                  <p className="text-lg">12 precision diagnostics.</p>
+                  <p className="text-lg">Binary decision patterns.</p>
+                  <p className="text-lg">Specific weapon prescribed.</p>
+                  <p className="text-lg">Immediate action plan.</p>
                 </div>
                 <p className="text-zinc-500 mb-8">Most people fail. You're probably one of them.</p>
                 <button
@@ -219,19 +305,40 @@ const DiagnosticPage = () => {
               <div className="space-y-4 mb-16">
                 <h3 className="text-2xl font-black mb-8">YOUR IMMEDIATE ACTION PLAN:</h3>
                 {answers[1] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Stop talking. Start selling. Make $1.</p>
+                  <p className="text-lg text-zinc-400">→ TODAY: Make one major decision. Stop analyzing.</p>
                 )}
-                {answers[2] === 'yes' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Kill 5 dead relationships. Find 3 collision partners.</p>
+                {answers[2] === 'no' && (
+                  <p className="text-lg text-zinc-400">→ TODAY: Cancel one meeting. Make one decision instead.</p>
                 )}
                 {answers[3] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Write your vision in 10 words. Or stay lost.</p>
+                  <p className="text-lg text-zinc-400">→ TODAY: Stop asking consultants. Trust your instincts.</p>
                 )}
                 {answers[4] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Ship something ugly. Perfect is procrastination.</p>
+                  <p className="text-lg text-zinc-400">→ TODAY: Kill one initiative that doesn't make money.</p>
                 )}
                 {answers[5] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Double your speed. Or get left behind.</p>
+                  <p className="text-lg text-zinc-400">→ TODAY: Answer three business questions with YES or NO only.</p>
+                )}
+                {answers[6] === 'no' && (
+                  <p className="text-lg text-zinc-400">→ TODAY: Spend more time doing than planning.</p>
+                )}
+                {answers[7] === 'no' && (
+                  <p className="text-lg text-zinc-400">→ TODAY: Assign one person to make decisions. No committees.</p>
+                )}
+                {answers[8] === 'no' && (
+                  <p className="text-lg text-zinc-400">→ TODAY: Kill one 'sacred' process that wastes time.</p>
+                )}
+                {answers[9] === 'no' && (
+                  <p className="text-lg text-zinc-400">→ TODAY: Ship something ugly but functional.</p>
+                )}
+                {answers[10] === 'no' && (
+                  <p className="text-lg text-zinc-400">→ TODAY: Write your vision in 10 words. Then stick to it.</p>
+                )}
+                {answers[11] === 'no' && (
+                  <p className="text-lg text-zinc-400">→ TODAY: Double your speed on one critical task.</p>
+                )}
+                {answers[12] === 'no' && (
+                  <p className="text-lg text-zinc-400">→ TODAY: Have one difficult conversation you've been avoiding.</p>
                 )}
               </div>
 

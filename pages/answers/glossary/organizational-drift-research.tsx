@@ -285,7 +285,7 @@ export default function OrganizationalDriftResearch() {
                 </p>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <h4 className="font-bold text-red-500 mb-2">High-Risk Industries (>80% drift rate)</h4>
+                    <h4 className="font-bold text-red-500 mb-2">High-Risk Industries (&gt;80% drift rate)</h4>
                     <ul className="space-y-1 text-sm text-zinc-400">
                       <li>• Financial Services (87%)</li>
                       <li>• Government/Public Sector (84%)</li>
@@ -294,7 +294,7 @@ export default function OrganizationalDriftResearch() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-bold text-green-500 mb-2">Low-Risk Industries (<50% drift rate)</h4>
+                    <h4 className="font-bold text-green-500 mb-2">Low-Risk Industries (&lt;50% drift rate)</h4>
                     <ul className="space-y-1 text-sm text-zinc-400">
                       <li>• Technology Startups (31%)</li>
                       <li>• Manufacturing (42%)</li>
@@ -325,7 +325,7 @@ export default function OrganizationalDriftResearch() {
                       <h5 className="font-bold text-white mb-2">Observable Behaviors:</h5>
                       <ul className="space-y-1 text-sm text-zinc-400">
                         <li>• Meeting-to-decision ratios exceed 3:1</li>
-                        <li>• "Let's table this" frequency increases >40%</li>
+                        <li>• "Let's table this" frequency increases &gt;40%</li>
                         <li>• Request for "more data" on previously analyzed issues</li>
                         <li>• Formation of working groups for operational decisions</li>
                       </ul>
