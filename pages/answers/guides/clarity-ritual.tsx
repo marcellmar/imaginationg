@@ -5,8 +5,8 @@ export default function ClarityRitual() {
   return (
     <>
       <Head>
-        <title>The Clarity Ritual: Stop Strategy Theater Forever | IMAGINATION G</title>
-        <meta name="description" content="The Clarity Ritual is a recurring, high-voltage system that forces confrontation, not consensus. Your frontline weapon against strategy theater and organizational drift." />
+        <title>The Signal Ritual: Stop Optimization Theater Forever | IMAGINATION G</title>
+        <meta name="description" content="The Signal Ritual is a recurring, high-voltage system that forces signal amplification, not consensus. Your frontline intervention against optimization theater and signal suppression." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
           type="application/ld+json"
@@ -14,26 +14,26 @@ export default function ClarityRitual() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "HowTo",
-              "name": "The Clarity Ritual",
-              "description": "A recurring system to prevent strategy theater and force organizational movement",
+              "name": "The Signal Ritual",
+              "description": "A recurring system to prevent optimization theater and force signal amplification",
               "totalTime": "PT30M",
-              "supply": ["Leadership team", "Binary decision framework", "Accountability system"],
+              "supply": ["Leadership team", "Binary override framework", "Signal accountability system"],
               "tool": ["Timer", "Decision log", "Action tracker"],
               "step": [
                 {
                   "@type": "HowToStep",
-                  "name": "Set the Voltage",
-                  "text": "Create time pressure and eliminate escape routes"
+                  "name": "Amplify Signal Strength",
+                  "text": "Create signal pressure and eliminate noise routes"
                 },
                 {
                   "@type": "HowToStep", 
-                  "name": "Force the Confrontation",
-                  "text": "Name what everyone is avoiding"
+                  "name": "Surface the Buried",
+                  "text": "Name what signal everyone is suppressing"
                 },
                 {
                   "@type": "HowToStep",
-                  "name": "Demand the Decision",
-                  "text": "Binary choice with immediate consequences"
+                  "name": "Force the Override",
+                  "text": "Binary override with immediate function"
                 },
                 {
                   "@type": "HowToStep",
@@ -63,21 +63,21 @@ export default function ClarityRitual() {
           {/* Header */}
           <div className="mb-12">
             <h1 className="text-4xl md:text-6xl font-black mb-6">
-              THE CLARITY RITUAL
+              THE SIGNAL RITUAL
             </h1>
             <p className="text-xl text-zinc-400">
-              Your frontline weapon against strategy theater
+              Your frontline intervention against optimization theater
             </p>
           </div>
 
           {/* Definition */}
           <div className="mb-12">
-            <h2 className="text-2xl font-black mb-6 text-red-500">WHAT IS THE CLARITY RITUAL?</h2>
+            <h2 className="text-2xl font-black mb-6 text-red-500">WHAT IS THE SIGNAL RITUAL?</h2>
             <div className="border-l-4 border-red-500 pl-6 mb-8">
               <p className="text-lg">
-                <strong>The Clarity Ritual</strong> is a recurring, high-voltage pulse that forces confrontation, not consensus. 
-                It's your systematic defense against <Link href="/answers/glossary/strategy-theater" className="text-red-500 hover:underline">strategy theater</Link> 
-                and <Link href="/answers/glossary/organizational-drift" className="text-red-500 hover:underline">organizational drift</Link>.
+                <strong>The Signal Ritual</strong> is a recurring, high-voltage pulse that forces signal amplification, not consensus. 
+                It's your systematic defense against <Link href="/answers/glossary/strategy-theater" className="text-red-500 hover:underline">optimization theater</Link> 
+                and <Link href="/answers/glossary/organizational-drift" className="text-red-500 hover:underline">signal suppression</Link>.
               </p>
             </div>
           </div>
@@ -87,44 +87,44 @@ export default function ClarityRitual() {
             <h2 className="text-2xl font-black mb-6">THE PROBLEM IT SOLVES</h2>
             <div className="bg-zinc-900 border border-zinc-800 p-8">
               <p className="text-lg mb-4">
-                <strong>Strategy theater creeps in slowly.</strong> One "let's schedule another meeting" becomes ten. 
-                One "we need more input" becomes perpetual analysis paralysis.
+                <strong>Optimization theater creeps in slowly.</strong> One "let's optimize this more" becomes endless loops. 
+                One "we need more aesthetic input" becomes perpetual noise amplification.
               </p>
               <ul className="space-y-2 text-zinc-400">
-                <li>• Teams avoid hard decisions by creating more planning sessions</li>
-                <li>• Leaders postpone difficult conversations by demanding more data</li>
-                <li>• Organizations choose comfortable consensus over uncomfortable progress</li>
-                <li>• Important decisions die in committee while competitors move</li>
+                <li>• Teams avoid signal detection by creating more optimization sessions</li>
+                <li>• Leaders postpone truth surfacing by demanding more aesthetic data</li>
+                <li>• Organizations choose comfortable consensus over uncomfortable override</li>
+                <li>• Important overrides die in committee while competitors surface signal</li>
               </ul>
             </div>
           </div>
 
           {/* The Four Phases */}
           <div className="mb-12">
-            <h2 className="text-2xl font-black mb-6">THE FOUR PHASES OF THE CLARITY RITUAL</h2>
+            <h2 className="text-2xl font-black mb-6">THE FOUR PHASES OF THE SIGNAL RITUAL</h2>
             
             {/* Phase 1 */}
             <div className="mb-8 border border-red-500 p-8">
-              <h3 className="text-2xl font-bold mb-4 text-red-500">PHASE 1: SET THE VOLTAGE</h3>
-              <p className="text-lg mb-4">Create time pressure and eliminate escape routes</p>
+              <h3 className="text-2xl font-bold mb-4 text-red-500">PHASE 1: AMPLIFY SIGNAL STRENGTH</h3>
+              <p className="text-lg mb-4">Create signal pressure and eliminate noise routes</p>
               
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-bold mb-3 text-white">Time Constraints:</h4>
+                  <h4 className="font-bold mb-3 text-white">Signal Constraints:</h4>
                   <ul className="space-y-1 text-sm text-zinc-400">
-                    <li>• 30 minutes maximum duration</li>
-                    <li>• No extensions, no exceptions</li>
-                    <li>• Countdown timer visible to all</li>
-                    <li>• Decision deadline announced upfront</li>
+                    <li>• 30 minutes maximum signal time</li>
+                    <li>• No noise extensions, no exceptions</li>
+                    <li>• Override timer visible to all</li>
+                    <li>• Function deadline announced upfront</li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-bold mb-3 text-white">Escape Route Elimination:</h4>
+                  <h4 className="font-bold mb-3 text-white">Noise Route Elimination:</h4>
                   <ul className="space-y-1 text-sm text-zinc-400">
-                    <li>• Ban "let's table this"</li>
-                    <li>• No "we need more research"</li>
-                    <li>• Prohibit "let's form a working group"</li>
-                    <li>• Eliminate "everyone needs to weigh in"</li>
+                    <li>• Ban "let's optimize this more"</li>
+                    <li>• No "we need more aesthetic research"</li>
+                    <li>• Prohibit "let's form an optimization group"</li>
+                    <li>• Eliminate "everyone needs to optimize"</li>
                   </ul>
                 </div>
               </div>
@@ -132,74 +132,74 @@ export default function ClarityRitual() {
 
             {/* Phase 2 */}
             <div className="mb-8 border border-yellow-500 p-8">
-              <h3 className="text-2xl font-bold mb-4 text-yellow-500">PHASE 2: FORCE THE CONFRONTATION</h3>
-              <p className="text-lg mb-4">Name what everyone is avoiding</p>
+              <h3 className="text-2xl font-bold mb-4 text-yellow-500">PHASE 2: SURFACE THE BURIED</h3>
+              <p className="text-lg mb-4">Name what signal everyone is suppressing</p>
               
               <div className="space-y-4">
                 <div className="border border-zinc-700 p-4">
-                  <h4 className="font-bold mb-2 text-yellow-500">The Truth Question:</h4>
-                  <p className="text-zinc-300">"What decision are we avoiding and why are we avoiding it?"</p>
+                  <h4 className="font-bold mb-2 text-yellow-500">The Signal Question:</h4>
+                  <p className="text-zinc-300">"What signal are we suppressing and why are we amplifying noise instead?"</p>
                 </div>
                 <div className="border border-zinc-700 p-4">
-                  <h4 className="font-bold mb-2 text-yellow-500">The Fear Question:</h4>
-                  <p className="text-zinc-300">"What are we afraid will happen if we decide this today?"</p>
+                  <h4 className="font-bold mb-2 text-yellow-500">The Override Question:</h4>
+                  <p className="text-zinc-300">"What are we afraid will happen if we override optimization today?"</p>
                 </div>
                 <div className="border border-zinc-700 p-4">
-                  <h4 className="font-bold mb-2 text-yellow-500">The Cost Question:</h4>
-                  <p className="text-zinc-300">"What is not deciding costing us right now?"</p>
+                  <h4 className="font-bold mb-2 text-yellow-500">The Function Question:</h4>
+                  <p className="text-zinc-300">"What is signal suppression costing us in function delivery right now?"</p>
                 </div>
               </div>
             </div>
 
             {/* Phase 3 */}
             <div className="mb-8 border border-blue-500 p-8">
-              <h3 className="text-2xl font-bold mb-4 text-blue-500">PHASE 3: DEMAND THE DECISION</h3>
-              <p className="text-lg mb-4">Binary choice with immediate consequences</p>
+              <h3 className="text-2xl font-bold mb-4 text-blue-500">PHASE 3: FORCE THE OVERRIDE</h3>
+              <p className="text-lg mb-4">Binary override with immediate function</p>
               
               <div className="bg-black border border-zinc-700 p-6 mb-4">
-                <h4 className="font-bold mb-3 text-blue-500">The Binary Framework:</h4>
+                <h4 className="font-bold mb-3 text-blue-500">The Binary Override Framework:</h4>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="border border-green-500 p-4">
-                    <h5 className="font-bold text-green-500 mb-2">YES means:</h5>
-                    <p className="text-sm text-zinc-400">Specific action, owner assigned, deadline set</p>
+                    <h5 className="font-bold text-green-500 mb-2">OVERRIDE means:</h5>
+                    <p className="text-sm text-zinc-400">Specific function, owner assigned, signal deadline set</p>
                   </div>
                   <div className="border border-red-500 p-4">
-                    <h5 className="font-bold text-red-500 mb-2">NO means:</h5>
-                    <p className="text-sm text-zinc-400">Topic is dead, never discussed again</p>
+                    <h5 className="font-bold text-red-500 mb-2">OPTIMIZE means:</h5>
+                    <p className="text-sm text-zinc-400">Signal is buried, never surfaced again</p>
                   </div>
                 </div>
               </div>
               
               <div className="border border-zinc-700 p-4">
-                <h4 className="font-bold mb-2 text-blue-500">Banned Responses:</h4>
+                <h4 className="font-bold mb-2 text-blue-500">Banned Noise Responses:</h4>
                 <ul className="space-y-1 text-sm text-zinc-400">
-                  <li>• "It depends"</li>
-                  <li>• "Let's explore both options"</li>
-                  <li>• "We need more time to think"</li>
-                  <li>• "What does everyone else think?"</li>
+                  <li>• "It depends on optimization"</li>
+                  <li>• "Let's explore both aesthetic options"</li>
+                  <li>• "We need more time to optimize"</li>
+                  <li>• "What does everyone else optimize?"</li>
                 </ul>
               </div>
             </div>
 
             {/* Phase 4 */}
             <div className="mb-8 border border-green-500 p-8">
-              <h3 className="text-2xl font-bold mb-4 text-green-500">PHASE 4: LOCK IN ACCOUNTABILITY</h3>
-              <p className="text-lg mb-4">Public commitment with specific deadlines</p>
+              <h3 className="text-2xl font-bold mb-4 text-green-500">PHASE 4: LOCK IN SIGNAL ACCOUNTABILITY</h3>
+              <p className="text-lg mb-4">Public commitment with specific function delivery</p>
               
               <div className="space-y-4">
                 <div className="border border-zinc-700 p-4">
-                  <h4 className="font-bold mb-2 text-green-500">Decision Documentation:</h4>
-                  <p className="text-sm text-zinc-400 mb-2">Record in real-time:</p>
+                  <h4 className="font-bold mb-2 text-green-500">Override Documentation:</h4>
+                  <p className="text-sm text-zinc-400 mb-2">Record signal in real-time:</p>
                   <ul className="space-y-1 text-xs text-zinc-500">
-                    <li>• What was decided (exact wording)</li>
-                    <li>• Who owns the outcome</li>
-                    <li>• Specific deadline for completion</li>
-                    <li>• Consequences for missing deadline</li>
+                    <li>• What signal was amplified (exact function)</li>
+                    <li>• Who owns the function outcome</li>
+                    <li>• Specific deadline for function delivery</li>
+                    <li>• Consequences for function failure</li>
                   </ul>
                 </div>
                 <div className="border border-zinc-700 p-4">
-                  <h4 className="font-bold mb-2 text-green-500">Public Commitment:</h4>
-                  <p className="text-sm text-zinc-400">Decision owner states publicly: "I commit to [specific action] by [specific date]. If I miss this deadline, [specific consequence]."</p>
+                  <h4 className="font-bold mb-2 text-green-500">Public Signal Commitment:</h4>
+                  <p className="text-sm text-zinc-400">Override owner states publicly: "I commit to [specific function] by [specific date]. If I miss this function delivery, [specific consequence]."</p>
                 </div>
               </div>
             </div>
@@ -244,29 +244,29 @@ export default function ClarityRitual() {
 
           {/* Warning Signs */}
           <div className="mb-12">
-            <h2 className="text-2xl font-black mb-6 text-red-500">WHEN TO TRIGGER AN EMERGENCY RITUAL</h2>
+            <h2 className="text-2xl font-black mb-6 text-red-500">WHEN TO TRIGGER AN EMERGENCY SIGNAL RITUAL</h2>
             <div className="bg-red-900 border border-red-500 p-8">
-              <h3 className="text-xl font-bold mb-4">Strategy Theater Alert Signals:</h3>
+              <h3 className="text-xl font-bold mb-4">Optimization Theater Alert Signals:</h3>
               <ul className="space-y-2 text-zinc-300">
                 <li className="flex items-start">
                   <span className="text-red-500 mr-3">•</span>
-                  Someone suggests "forming a working group"
+                  Someone suggests "forming an optimization group"
                 </li>
                 <li className="flex items-start">
                   <span className="text-red-500 mr-3">•</span>
-                  Meeting scheduled to plan another meeting
+                  Meeting scheduled to optimize another meeting
                 </li>
                 <li className="flex items-start">
                   <span className="text-red-500 mr-3">•</span>
-                  "We need more stakeholder input" for a decision you've discussed 3+ times
+                  "We need more aesthetic input" for a signal you've suppressed 3+ times
                 </li>
                 <li className="flex items-start">
                   <span className="text-red-500 mr-3">•</span>
-                  Framework evaluation session scheduled
+                  Optimization framework evaluation session scheduled
                 </li>
                 <li className="flex items-start">
                   <span className="text-red-500 mr-3">•</span>
-                  Anyone says "let's table this for now"
+                  Anyone says "let's optimize this more for now"
                 </li>
               </ul>
             </div>
@@ -279,19 +279,19 @@ export default function ClarityRitual() {
               <div className="border border-green-500 p-6">
                 <h3 className="font-bold text-green-500 mb-3">LEADING INDICATORS</h3>
                 <ul className="space-y-1 text-sm text-zinc-400">
-                  <li>• Decisions per ritual session</li>
-                  <li>• Time from discussion to decision</li>
-                  <li>• Number of "banned phrases" caught</li>
-                  <li>• Percentage of binary outcomes</li>
+                  <li>• Overrides per ritual session</li>
+                  <li>• Time from signal detection to override</li>
+                  <li>• Number of "banned noise phrases" caught</li>
+                  <li>• Percentage of binary override outcomes</li>
                 </ul>
               </div>
               <div className="border border-green-500 p-6">
                 <h3 className="font-bold text-green-500 mb-3">LAGGING INDICATORS</h3>
                 <ul className="space-y-1 text-sm text-zinc-400">
-                  <li>• Strategic initiatives completed</li>
-                  <li>• Revenue impact from decisions</li>
-                  <li>• Employee engagement scores</li>
-                  <li>• Competitive response time</li>
+                  <li>• Function delivery initiatives completed</li>
+                  <li>• Revenue impact from signal amplification</li>
+                  <li>• Employee signal clarity scores</li>
+                  <li>• Competitive override response time</li>
                 </ul>
               </div>
             </div>
@@ -299,20 +299,20 @@ export default function ClarityRitual() {
 
           {/* The IMAGINATION G Way */}
           <div className="mb-12">
-            <h2 className="text-2xl font-black mb-6">THE IMAGINATION G CLARITY RITUAL</h2>
+            <h2 className="text-2xl font-black mb-6">THE IMAGINATION G SIGNAL RITUAL</h2>
             <div className="border border-red-500 p-8">
-              <h3 className="text-xl font-bold mb-4">We don't facilitate. We detonate.</h3>
+              <h3 className="text-xl font-bold mb-4">We don't optimize. We override.</h3>
               <p className="text-lg mb-6">
-                Our Clarity Ritual isn't a meeting. It's a controlled explosion that forces breakthrough. 
-                No consensus-building. No stakeholder alignment. Just confrontational clarity that produces decisions.
+                Our Signal Ritual isn't an optimization meeting. It's a controlled signal amplification that forces buried truth to surface. 
+                No consensus-building. No aesthetic alignment. Just signal amplification that produces function.
               </p>
               <div className="bg-black border border-zinc-700 p-6">
                 <h4 className="font-bold mb-2 text-red-500">What We Bring:</h4>
                 <ul className="space-y-1 text-sm text-zinc-400">
-                  <li>• External pressure that internal teams can't generate</li>
-                  <li>• Permission to confront what everyone's avoiding</li>
-                  <li>• Binary decision frameworks that eliminate escape routes</li>
-                  <li>• Immediate accountability systems that force follow-through</li>
+                  <li>• External signal pressure that internal teams can't generate</li>
+                  <li>• Permission to surface what signal everyone's suppressing</li>
+                  <li>• Binary override frameworks that eliminate noise routes</li>
+                  <li>• Immediate signal accountability systems that force function delivery</li>
                 </ul>
               </div>
             </div>
@@ -320,21 +320,21 @@ export default function ClarityRitual() {
 
           {/* CTA */}
           <div className="border border-zinc-800 p-8 text-center">
-            <h3 className="text-2xl font-black mb-4">Ready to Install Your Clarity Ritual?</h3>
+            <h3 className="text-2xl font-black mb-4">Ready to Install Your Signal Ritual?</h3>
             <p className="text-zinc-400 mb-6">
-              Stop letting strategy theater kill your momentum. Get the confrontational clarity session that installs your decision-forcing system.
+              Stop letting optimization theater kill your function delivery. Get the signal amplification session that installs your override-forcing system.
             </p>
             <Link 
               href="/weapons/the-naming" 
               className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 transition-colors mr-4"
             >
-              INSTALL THE RITUAL
+              INSTALL THE SIGNAL RITUAL
             </Link>
             <Link 
               href="/diagnostic" 
               className="inline-block border border-red-500 text-red-500 hover:bg-red-500 hover:text-black font-bold py-3 px-8 transition-colors"
             >
-              DIAGNOSE STRATEGY THEATER
+              DETECT OPTIMIZATION THEATER
             </Link>
           </div>
         </div>

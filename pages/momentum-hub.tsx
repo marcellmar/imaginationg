@@ -91,6 +91,9 @@ const MomentumHub = () => {
               <Link href="/" className="text-gray-400 hover:text-white transition-colors">
                 Home
               </Link>
+              <Link href="/weapons" className="text-gray-400 hover:text-white transition-colors">
+                Interventions
+              </Link>
               <span className="text-gray-600">|</span>
               <span className="text-white">Client Hub</span>
             </div>

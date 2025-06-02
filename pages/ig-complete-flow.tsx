@@ -6,8 +6,8 @@ const IGFlowPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>IMAGINATION G - You Suck. Now What?</title>
-        <meta name="description" content="How does IMAGINATION G work? Three steps: diagnose your drift, name your truth, then deploy targeted interventions to break stagnation." />
+        <title>IMAGINATION G - Build From Real</title>
+        <meta name="description" content="Surface the buried truth. Name what you've been building around instead of from. Grant full override access to live systems." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

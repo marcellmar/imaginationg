@@ -7,7 +7,7 @@ const TheMapPage: NextPage = () => {
     <>
       <Head>
         <title>THE MAP | IMAGINATION G</title>
-        <meta name="description" content="Your network is dead. We show you where to collide." />
+        <meta name="description" content="Map the real connections. Surface the recursive patterns you've been optimizing around." />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -38,7 +38,7 @@ const TheMapPage: NextPage = () => {
             <Link href="/" className="text-xl font-black">IMAGINATION G</Link>
             <div className="flex items-center gap-6">
               <Link href="/" className="text-sm hover:text-zinc-400">← Home</Link>
-              <Link href="/weapons" className="text-sm hover:text-zinc-400">Weapons</Link>
+              <Link href="/weapons" className="text-sm hover:text-zinc-400">Interventions</Link>
               <Link href="/about" className="text-sm hover:text-zinc-400">About</Link>
               <Link href="/diagnostic" className="bg-white text-black px-4 py-2 text-sm font-bold hover:bg-zinc-200">
                 Book a Call
@@ -53,49 +53,49 @@ const TheMapPage: NextPage = () => {
             <div className="text-center mb-12">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-4">THE MAP</h1>
               <p className="text-3xl md:text-4xl font-black text-red-500 mb-2">$1,000</p>
-              <p className="text-zinc-400">Your network is dead. We show you where to collide.</p>
+              <p className="text-zinc-400">Map the real connections. Surface the recursive patterns you've been optimizing around.</p>
             </div>
 
             {/* Quote Box */}
             <div className="bg-zinc-900 border border-zinc-800 p-8 mb-12">
               <p className="text-xl font-bold mb-4">
-                You're playing the wrong game with the wrong people.
+                Your ecosystem is running recursive patterns you can't see.
               </p>
-              <p className="text-zinc-400 mb-4">Your "network" is a graveyard.</p>
-              <p className="text-zinc-400 mb-4">Dead connections. Dead ideas. Dead ends.</p>
+              <p className="text-zinc-400 mb-4">Connections optimizing around what's broken.</p>
+              <p className="text-zinc-400 mb-4">Relationships reinforcing what doesn't work.</p>
               <p className="text-zinc-400 mb-4">We don't expand your network.</p>
-              <p className="text-white font-bold">We show you who to collide with.</p>
+              <p className="text-white font-bold">We map the recursion and show you the real connections.</p>
             </div>
 
             {/* The Process */}
             <section className="mb-12">
-              <h2 className="text-2xl font-black mb-6">THE PROCESS:</h2>
-              <p className="text-zinc-400 mb-2">7 days. No meetings. No intros.</p>
-              <p className="text-zinc-400 mb-2">We dissect your ecosystem.</p>
-              <p className="text-zinc-400 mb-2">We map the collisions you're avoiding.</p>
-              <p className="text-red-500 font-bold">Then we hand you the map and leave.</p>
+              <h2 className="text-2xl font-black mb-6">THE ARCHITECTURE:</h2>
+              <p className="text-zinc-400 mb-2">7 days. No meetings. No management.</p>
+              <p className="text-zinc-400 mb-2">We trace your recursive patterns.</p>
+              <p className="text-zinc-400 mb-2">We surface the connections that matter.</p>
+              <p className="text-red-500 font-bold">Then we deliver the system map and you execute.</p>
             </section>
 
             {/* What We Map */}
             <section className="mb-12">
-              <h2 className="text-2xl font-black mb-6">WHAT WE MAP:</h2>
+              <h2 className="text-2xl font-black mb-6">WHAT WE SURFACE:</h2>
               <ol className="space-y-2">
-                <li className="text-zinc-400">1. The people using you (cut them)</li>
-                <li className="text-zinc-400">2. The people you're avoiding (face them)</li>
-                <li className="text-zinc-400">3. The collision points (use them)</li>
-                <li className="text-zinc-400">4. The escape routes (close them)</li>
-                <li className="text-red-500 font-bold">5. The one move that matters (make it)</li>
+                <li className="text-zinc-400">1. The recursive loops (break them)</li>
+                <li className="text-zinc-400">2. The real signal carriers (connect them)</li>
+                <li className="text-zinc-400">3. The pattern triggers (override them)</li>
+                <li className="text-zinc-400">4. The noise amplifiers (silence them)</li>
+                <li className="text-red-500 font-bold">5. The one connection that unlocks everything (activate it)</li>
               </ol>
             </section>
 
             {/* What You Get */}
             <section className="mb-12">
               <h2 className="text-2xl font-black mb-6">WHAT YOU GET:</h2>
-              <p className="text-zinc-400 mb-2">One document.</p>
-              <p className="text-zinc-400 mb-2">Five names.</p>
-              <p className="text-zinc-400 mb-2">Three collisions.</p>
-              <p className="text-zinc-400 mb-2">One move.</p>
-              <p className="text-white font-bold">No follow-up. No hand-holding.</p>
+              <p className="text-zinc-400 mb-2">One system map.</p>
+              <p className="text-zinc-400 mb-2">Five signal carriers.</p>
+              <p className="text-zinc-400 mb-2">Three pattern breaks.</p>
+              <p className="text-zinc-400 mb-2">One connection override.</p>
+              <p className="text-white font-bold">No management. No optimization.</p>
             </section>
 
             {/* What We Don't Do */}
@@ -128,9 +128,9 @@ const TheMapPage: NextPage = () => {
 
             {/* CTA Box */}
             <div className="bg-zinc-900 border border-zinc-800 p-8 mb-12">
-              <h3 className="text-2xl font-black mb-4">NOT SURE THIS IS YOUR WEAPON?</h3>
+              <h3 className="text-2xl font-black mb-4">NOT SURE THIS IS YOUR INTERVENTION?</h3>
               <p className="text-zinc-400 mb-6">
-                Take the 60-second drift diagnostic. Find out if you're moving or just networking.
+                Take the 60-second signal detection. Find out if you're building real connections or optimizing networks.
               </p>
               <Link 
                 href="/diagnostic"
@@ -162,7 +162,7 @@ const TheMapPage: NextPage = () => {
 
             {/* Next Weapon */}
             <div className="text-center text-zinc-600">
-              <p className="mb-4">Next weapon:</p>
+              <p className="mb-4">Next intervention:</p>
               <Link href="/weapons/the-market-smackdown" className="text-white hover:text-zinc-400 transition-colors">
                 THE MARKET SMACKDOWN →
               </Link>

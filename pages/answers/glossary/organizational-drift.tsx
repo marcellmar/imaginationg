@@ -6,7 +6,7 @@ export default function OrganizationalDrift() {
     <>
       <Head>
         <title>What is Organizational Drift? | IMAGINATION G</title>
-        <meta name="description" content="Organizational drift is the gradual loss of momentum and purpose in businesses, leading to stagnation despite activity. Learn how to diagnose and stop it." />
+        <meta name="description" content="Organizational drift is signal noise overwhelming buried truth, leading to optimization over override. Learn to detect and amplify signal." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
           type="application/ld+json"
@@ -45,7 +45,7 @@ export default function OrganizationalDrift() {
               ORGANIZATIONAL DRIFT
             </h1>
             <p className="text-xl text-zinc-400 mb-4">
-              The silent killer of business momentum
+              Signal noise overwhelming buried truth
             </p>
             <div className="border border-blue-500 p-4">
               <p className="text-sm text-zinc-300">
@@ -63,38 +63,38 @@ export default function OrganizationalDrift() {
             <h2 className="text-2xl font-black mb-6 text-red-500">DEFINITION</h2>
             <div className="border-l-4 border-red-500 pl-6 mb-8">
               <p className="text-lg">
-                <strong>Organizational Drift</strong> is the gradual loss of momentum and purpose in businesses, 
-                leading to stagnation despite constant activity. It's when your team is busy but not moving forward.
+                <strong>Organizational Drift</strong> is signal noise overwhelming buried truth, 
+                leading to optimization over override. It's when your team optimizes aesthetics but avoids agency.
               </p>
             </div>
           </div>
 
           {/* Signs */}
           <div className="mb-12">
-            <h2 className="text-2xl font-black mb-6">SIGNS YOU'RE DRIFTING</h2>
+            <h2 className="text-2xl font-black mb-6">SIGNS YOUR SIGNAL IS BURIED</h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="border border-zinc-800 p-6">
-                <h3 className="font-bold text-red-500 mb-3">Strategy Theater</h3>
+                <h3 className="font-bold text-red-500 mb-3">Optimization Theater</h3>
                 <p className="text-sm text-zinc-400">
-                  Endless planning sessions that produce documents, not results
+                  Endless optimization sessions that avoid override decisions
                 </p>
               </div>
               <div className="border border-zinc-800 p-6">
-                <h3 className="font-bold text-red-500 mb-3">Meeting Addiction</h3>
+                <h3 className="font-bold text-red-500 mb-3">Signal Suppression</h3>
                 <p className="text-sm text-zinc-400">
-                  Calendar full of status updates that never lead to decisions
+                  Calendar full of noise amplification that buries truth
                 </p>
               </div>
               <div className="border border-zinc-800 p-6">
-                <h3 className="font-bold text-red-500 mb-3">Analysis Paralysis</h3>
+                <h3 className="font-bold text-red-500 mb-3">Aesthetics Over Agency</h3>
                 <p className="text-sm text-zinc-400">
-                  Gathering more data instead of acting on what you already know
+                  Perfecting appearance instead of amplifying function
                 </p>
               </div>
               <div className="border border-zinc-800 p-6">
-                <h3 className="font-bold text-red-500 mb-3">Comfort Zone Camping</h3>
+                <h3 className="font-bold text-red-500 mb-3">Validation Seeking</h3>
                 <p className="text-sm text-zinc-400">
-                  Avoiding hard decisions by focusing on easy, safe tasks
+                  Avoiding internal signal by outsourcing decisions
                 </p>
               </div>
             </div>
@@ -102,19 +102,19 @@ export default function OrganizationalDrift() {
 
           {/* Why It Happens */}
           <div className="mb-12">
-            <h2 className="text-2xl font-black mb-6">WHY IT HAPPENS</h2>
+            <h2 className="text-2xl font-black mb-6">WHY SIGNAL GETS BURIED</h2>
             <div className="space-y-4 text-zinc-300">
               <p>
-                <strong>Fear of Failure:</strong> Teams choose safe busyness over risky progress
+                <strong>Fear of Truth:</strong> Teams choose optimization noise over signal clarity
               </p>
               <p>
-                <strong>Lack of Binary Decisions:</strong> Everything becomes a "maybe" or "let's discuss more"
+                <strong>Lack of Override:</strong> Everything becomes conditional instead of binary
               </p>
               <p>
-                <strong>Consultant Dependency:</strong> Outsourcing decisions to people who don't live with consequences
+                <strong>External Validation:</strong> Outsourcing signal to people who don't live with function
               </p>
               <p>
-                <strong>Committee Thinking:</strong> No one person owns the outcome, so no one forces movement
+                <strong>Consensus Addiction:</strong> No one owns the signal, so no one amplifies truth
               </p>
             </div>
           </div>
@@ -124,14 +124,14 @@ export default function OrganizationalDrift() {
             <h2 className="text-2xl font-black mb-6">THE REAL COST</h2>
             <div className="bg-zinc-900 border border-zinc-800 p-8">
               <p className="text-lg mb-4">
-                Organizational drift doesn't just slow you down - it kills your business while you're watching.
+                Buried signal doesn't just slow you down - it kills function while you optimize aesthetics.
               </p>
               <ul className="space-y-2 text-zinc-400">
-                <li>• Top talent leaves for companies that actually move</li>
-                <li>• Competitors capture market share while you plan</li>
-                <li>• Innovation dies in committee meetings</li>
-                <li>• Revenue stagnates despite increased effort</li>
-                <li>• Company culture becomes cynical and disengaged</li>
+                <li>• Top talent leaves for companies that amplify signal</li>
+                <li>• Competitors override while you optimize</li>
+                <li>• Agency dies in consensus meetings</li>
+                <li>• Function stagnates despite aesthetic effort</li>
+                <li>• Company culture becomes noise over signal</li>
               </ul>
             </div>
           </div>
@@ -141,36 +141,36 @@ export default function OrganizationalDrift() {
             <h2 className="text-2xl font-black mb-6 text-green-500">THE ANTIDOTE</h2>
             <p className="text-lg mb-6">
               <Link href="/answers/glossary/movement-architecture" className="text-green-500 hover:underline">
-                Movement Architecture
-              </Link> - the systematic design of organizational transformation through binary decisions and forced progress.
+                Signal Architecture
+              </Link> - the systematic amplification of buried truth through override protocols and function delivery.
             </p>
             <div className="border border-green-500 p-6">
-              <h3 className="font-bold mb-3">Three Steps to Stop Drifting:</h3>
+              <h3 className="font-bold mb-3">Three Steps to Amplify Signal:</h3>
               <ol className="space-y-2 text-zinc-300">
-                <li>1. <strong>Diagnose:</strong> Identify exactly where you're stuck</li>
-                <li>2. <strong>Decide:</strong> Make binary choices that force movement</li>
-                <li>3. <strong>Deploy:</strong> Take immediate action with prescribed weapons</li>
+                <li>1. <strong>Detect:</strong> Identify exactly where signal is buried</li>
+                <li>2. <strong>Override:</strong> Make binary choices that surface truth</li>
+                <li>3. <strong>Deploy:</strong> Take immediate action with prescribed interventions</li>
               </ol>
             </div>
           </div>
 
           {/* CTA */}
           <div className="border border-zinc-800 p-8 text-center">
-            <h3 className="text-2xl font-black mb-4">Ready to Stop Drifting?</h3>
+            <h3 className="text-2xl font-black mb-4">Ready to Amplify Signal?</h3>
             <p className="text-zinc-400 mb-6">
-              Take our 60-second diagnostic to see exactly where your organization is stuck.
+              Take our signal detection to see exactly where truth is buried in your organization.
             </p>
             <Link 
               href="/diagnostic" 
               className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 transition-colors mr-4"
             >
-              DIAGNOSE YOUR DRIFT
+              DETECT SIGNAL
             </Link>
             <Link 
               href="/answers/glossary/movement-architecture" 
               className="inline-block border border-green-500 text-green-500 hover:bg-green-500 hover:text-black font-bold py-3 px-8 transition-colors"
             >
-              LEARN MOVEMENT ARCHITECTURE
+              LEARN SIGNAL ARCHITECTURE
             </Link>
           </div>
         </div>

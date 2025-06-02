@@ -1,0 +1,393 @@
+{
+  "imagination_g_client_discovery_automation": {
+    "analysis_date": "2025-06-01T20:18:53.934972",
+    "jentic_uuid": "2f73eccc-e20d-450f-b59b-edb9c040a85b",
+    "total_workflows_analyzed": 40,
+    "discovery_categories": [
+      "Company Research & Intelligence",
+      "Revenue & Financial Analysis",
+      "LinkedIn & Professional Networks",
+      "Email & Communication Automation",
+      "CRM & Lead Management",
+      "Web Scraping & Data Collection",
+      "Social Media & Digital Presence",
+      "Event & Conference Tracking"
+    ],
+    "top_discovery_workflows": [
+      {
+        "id": "84e5b6425114496a029dae1c65f24d23",
+        "summary": "new-lead-to-opportunity-pipeline",
+        "description": "Captures a new lead, creates associated company and contact records, generates an initial opportunity, and logs a follow-up task.",
+        "api_name": "apideck.com/crm",
+        "match_score": 0.5456808399272715,
+        "discovery_category": "CRM & Lead Management",
+        "automation_goal": "Automatically manage and qualify discovered leads",
+        "keyword_score": 3,
+        "automation_score": 0,
+        "discovery_relevance": 0.9956808399272714,
+        "client_discovery_potential": {
+          "research_automation": true,
+          "bulk_processing": false,
+          "lead_generation": true,
+          "contact_discovery": true
+        }
+      },
+      {
+        "id": "0a0618e3ede4b855829b8fa630a3bc0c",
+        "summary": "export-specific-url-data-from-analysis",
+        "description": "Exports a list of URLs matching specific criteria (defined by a query) from a particular analysis to a CSV file. Allows users to download detailed data for offline analysis or reporting.",
+        "api_name": "botify.com",
+        "match_score": 0.5588953661589431,
+        "discovery_category": "Web Scraping & Data Collection",
+        "automation_goal": "Scrape company websites for qualification data",
+        "keyword_score": 1,
+        "automation_score": 1,
+        "discovery_relevance": 0.8088953661589431,
+        "client_discovery_potential": {
+          "research_automation": false,
+          "bulk_processing": true,
+          "lead_generation": false,
+          "contact_discovery": false
+        }
+      },
+      {
+        "id": "085f96026eda96728db3d1ac3508a06f",
+        "summary": "find-events-by-venue",
+        "description": "Search for a specific venue and then retrieve the list of events scheduled at that venue.",
+        "api_name": "ticketmaster.com/discovery",
+        "match_score": 0.6086336244781437,
+        "discovery_category": "Event & Conference Tracking",
+        "automation_goal": "Identify target clients at industry events",
+        "keyword_score": 0,
+        "automation_score": 2,
+        "discovery_relevance": 0.8086336244781438,
+        "client_discovery_potential": {
+          "research_automation": false,
+          "bulk_processing": true,
+          "lead_generation": false,
+          "contact_discovery": false
+        }
+      },
+      {
+        "id": "3a13400d4d02b31f02daf24e3fa8e59e",
+        "summary": "process-cnab-for-reconciliation",
+        "description": "Uploads a CNAB return file and retrieves the processed payment occurrence data (settlements, rejections, etc.) for financial reconciliation. This is the primary workflow for extracting meaningful business data from the CNAB file.",
+        "api_name": "cnab-online.herokuapp.com",
+        "match_score": 0.5016344040145138,
+        "discovery_category": "Company Research & Intelligence",
+        "automation_goal": "Automatically research potential client companies",
+        "keyword_score": 2,
+        "automation_score": 0,
+        "discovery_relevance": 0.8016344040145138,
+        "client_discovery_potential": {
+          "research_automation": true,
+          "bulk_processing": false,
+          "lead_generation": false,
+          "contact_discovery": false
+        }
+      },
+      {
+        "id": "576208253054293ceaa8c7f2e94afc64",
+        "summary": "retrieve-serp-data",
+        "description": "Submit one or more jobs to retrieve the full Search Engine Results Page (SERP) for specific keywords, then collect the detailed SERP data (organic results) once available. This is valuable for analyzing competitors and understanding the search landscape.",
+        "api_name": "sheerseo.com",
+        "match_score": 0.5301119405097918,
+        "discovery_category": "Web Scraping & Data Collection",
+        "automation_goal": "Scrape company websites for qualification data",
+        "keyword_score": 1,
+        "automation_score": 1,
+        "discovery_relevance": 0.7801119405097918,
+        "client_discovery_potential": {
+          "research_automation": false,
+          "bulk_processing": true,
+          "lead_generation": false,
+          "contact_discovery": false
+        }
+      },
+      {
+        "id": "86488f175f90eef91a997c43b60df9a4",
+        "summary": "scrape-all-search-results",
+        "description": "Retrieves a large dataset matching a specific query by iterating through results using the scraping endpoint's cursor mechanism. Useful for bulk data collection or comprehensive analysis.",
+        "api_name": "archive.org/search",
+        "match_score": 0.5291827321052551,
+        "discovery_category": "Web Scraping & Data Collection",
+        "automation_goal": "Scrape company websites for qualification data",
+        "keyword_score": 1,
+        "automation_score": 1,
+        "discovery_relevance": 0.7791827321052551,
+        "client_discovery_potential": {
+          "research_automation": false,
+          "bulk_processing": true,
+          "lead_generation": false,
+          "contact_discovery": false
+        }
+      },
+      {
+        "id": "05a5abadc70f9e00fc169fe31fdf6544",
+        "summary": "configure-application-role-connection",
+        "description": "Updates the metadata schema for an application's role connections and then updates a specific user's connection data based on that schema.",
+        "api_name": "discord.com",
+        "match_score": 0.6285759585247008,
+        "discovery_category": "LinkedIn & Professional Networks",
+        "automation_goal": "Find and connect with CEOs of target companies",
+        "keyword_score": 1,
+        "automation_score": 0,
+        "discovery_relevance": 0.7785759585247009,
+        "client_discovery_potential": {
+          "research_automation": false,
+          "bulk_processing": false,
+          "lead_generation": false,
+          "contact_discovery": false
+        }
+      },
+      {
+        "id": "b1c4afa6e4b6122e809538a340b2162a",
+        "summary": "find-events-by-artistattraction",
+        "description": "Search for an artist or attraction (like a sports team or play) and then find upcoming events featuring them.",
+        "api_name": "ticketmaster.com/discovery",
+        "match_score": 0.5674105882644653,
+        "discovery_category": "Event & Conference Tracking",
+        "automation_goal": "Identify target clients at industry events",
+        "keyword_score": 0,
+        "automation_score": 2,
+        "discovery_relevance": 0.7674105882644653,
+        "client_discovery_potential": {
+          "research_automation": false,
+          "bulk_processing": true,
+          "lead_generation": false,
+          "contact_discovery": false
+        }
+      },
+      {
+        "id": "81e6265d39b9810ffce9c7a997508aaa",
+        "summary": "company-verification",
+        "description": "Searches for a company using its registration number and retrieves its details, including significant ownership information.",
+        "api_name": "credas.co.uk/pi",
+        "match_score": 0.512590167655318,
+        "discovery_category": "Company Research & Intelligence",
+        "automation_goal": "Automatically research potential client companies",
+        "keyword_score": 1,
+        "automation_score": 1,
+        "discovery_relevance": 0.762590167655318,
+        "client_discovery_potential": {
+          "research_automation": false,
+          "bulk_processing": true,
+          "lead_generation": false,
+          "contact_discovery": false
+        }
+      },
+      {
+        "id": "b3ac74921a7b76282d1855a5b2a80b20",
+        "summary": "monitor-brand-mentions-and-reply",
+        "description": "Search for recent tweets mentioning a specific username (e.g., a brand) and post a reply to one of the found tweets.",
+        "api_name": "twitter.com/current",
+        "match_score": 0.6619408823216487,
+        "discovery_category": "Social Media & Digital Presence",
+        "automation_goal": "Monitor company digital footprint for growth signals",
+        "keyword_score": 0,
+        "automation_score": 1,
+        "discovery_relevance": 0.7619408823216487,
+        "client_discovery_potential": {
+          "research_automation": false,
+          "bulk_processing": true,
+          "lead_generation": false,
+          "contact_discovery": false
+        }
+      }
+    ],
+    "automation_pipeline": {
+      "stage_1_prospect_identification": {
+        "description": "Automatically identify companies in $25M-$500M revenue range",
+        "workflows": [
+          {
+            "id": "84e5b6425114496a029dae1c65f24d23",
+            "summary": "new-lead-to-opportunity-pipeline",
+            "description": "Captures a new lead, creates associated company and contact records, generates an initial opportunity, and logs a follow-up task.",
+            "api_name": "apideck.com/crm",
+            "match_score": 0.5456808399272715,
+            "discovery_category": "CRM & Lead Management",
+            "automation_goal": "Automatically manage and qualify discovered leads",
+            "keyword_score": 3,
+            "automation_score": 0,
+            "discovery_relevance": 0.9956808399272714,
+            "client_discovery_potential": {
+              "research_automation": true,
+              "bulk_processing": false,
+              "lead_generation": true,
+              "contact_discovery": true
+            }
+          },
+          {
+            "id": "3a13400d4d02b31f02daf24e3fa8e59e",
+            "summary": "process-cnab-for-reconciliation",
+            "description": "Uploads a CNAB return file and retrieves the processed payment occurrence data (settlements, rejections, etc.) for financial reconciliation. This is the primary workflow for extracting meaningful business data from the CNAB file.",
+            "api_name": "cnab-online.herokuapp.com",
+            "match_score": 0.5016344040145138,
+            "discovery_category": "Company Research & Intelligence",
+            "automation_goal": "Automatically research potential client companies",
+            "keyword_score": 2,
+            "automation_score": 0,
+            "discovery_relevance": 0.8016344040145138,
+            "client_discovery_potential": {
+              "research_automation": true,
+              "bulk_processing": false,
+              "lead_generation": false,
+              "contact_discovery": false
+            }
+          },
+          {
+            "id": "81e6265d39b9810ffce9c7a997508aaa",
+            "summary": "company-verification",
+            "description": "Searches for a company using its registration number and retrieves its details, including significant ownership information.",
+            "api_name": "credas.co.uk/pi",
+            "match_score": 0.512590167655318,
+            "discovery_category": "Company Research & Intelligence",
+            "automation_goal": "Automatically research potential client companies",
+            "keyword_score": 1,
+            "automation_score": 1,
+            "discovery_relevance": 0.762590167655318,
+            "client_discovery_potential": {
+              "research_automation": false,
+              "bulk_processing": true,
+              "lead_generation": false,
+              "contact_discovery": false
+            }
+          }
+        ],
+        "data_sources": [
+          "Company databases",
+          "Financial APIs",
+          "Business intelligence platforms"
+        ],
+        "automation_level": "Fully automated daily scans"
+      },
+      "stage_2_qualification_scoring": {
+        "description": "Score prospects based on IG ideal client criteria",
+        "workflows": [
+          {
+            "id": "0a0618e3ede4b855829b8fa630a3bc0c",
+            "summary": "export-specific-url-data-from-analysis",
+            "description": "Exports a list of URLs matching specific criteria (defined by a query) from a particular analysis to a CSV file. Allows users to download detailed data for offline analysis or reporting.",
+            "api_name": "botify.com",
+            "match_score": 0.5588953661589431,
+            "discovery_category": "Web Scraping & Data Collection",
+            "automation_goal": "Scrape company websites for qualification data",
+            "keyword_score": 1,
+            "automation_score": 1,
+            "discovery_relevance": 0.8088953661589431,
+            "client_discovery_potential": {
+              "research_automation": false,
+              "bulk_processing": true,
+              "lead_generation": false,
+              "contact_discovery": false
+            }
+          },
+          {
+            "id": "86488f175f90eef91a997c43b60df9a4",
+            "summary": "scrape-all-search-results",
+            "description": "Retrieves a large dataset matching a specific query by iterating through results using the scraping endpoint's cursor mechanism. Useful for bulk data collection or comprehensive analysis.",
+            "api_name": "archive.org/search",
+            "match_score": 0.5291827321052551,
+            "discovery_category": "Web Scraping & Data Collection",
+            "automation_goal": "Scrape company websites for qualification data",
+            "keyword_score": 1,
+            "automation_score": 1,
+            "discovery_relevance": 0.7791827321052551,
+            "client_discovery_potential": {
+              "research_automation": false,
+              "bulk_processing": true,
+              "lead_generation": false,
+              "contact_discovery": false
+            }
+          }
+        ],
+        "qualification_criteria": [
+          "Revenue range $25M-$500M",
+          "Growth rate 5-30% annually",
+          "Team size 50-1000 employees",
+          "Industry fit (B2B SaaS, Professional Services, Healthcare, Manufacturing)"
+        ],
+        "automation_level": "Automated scoring with manual review"
+      },
+      "stage_3_contact_discovery": {
+        "description": "Find CEO/leadership contact information",
+        "workflows": [
+          {
+            "id": "84e5b6425114496a029dae1c65f24d23",
+            "summary": "new-lead-to-opportunity-pipeline",
+            "description": "Captures a new lead, creates associated company and contact records, generates an initial opportunity, and logs a follow-up task.",
+            "api_name": "apideck.com/crm",
+            "match_score": 0.5456808399272715,
+            "discovery_category": "CRM & Lead Management",
+            "automation_goal": "Automatically manage and qualify discovered leads",
+            "keyword_score": 3,
+            "automation_score": 0,
+            "discovery_relevance": 0.9956808399272714,
+            "client_discovery_potential": {
+              "research_automation": true,
+              "bulk_processing": false,
+              "lead_generation": true,
+              "contact_discovery": true
+            }
+          }
+        ],
+        "contact_targets": [
+          "CEO",
+          "COO",
+          "VP Operations",
+          "Head of Strategy"
+        ],
+        "automation_level": "Automated discovery with verification"
+      },
+      "stage_4_outreach_automation": {
+        "description": "Automated personalized outreach campaigns",
+        "workflows": [],
+        "outreach_sequence": [
+          "Initial value-driven email",
+          "Follow-up with relevant case study",
+          "LinkedIn connection request",
+          "Phone/video call invitation"
+        ],
+        "automation_level": "Automated with personalization"
+      },
+      "stage_5_lead_management": {
+        "description": "CRM automation and lead nurturing",
+        "workflows": [
+          {
+            "id": "84e5b6425114496a029dae1c65f24d23",
+            "summary": "new-lead-to-opportunity-pipeline",
+            "description": "Captures a new lead, creates associated company and contact records, generates an initial opportunity, and logs a follow-up task.",
+            "api_name": "apideck.com/crm",
+            "match_score": 0.5456808399272715,
+            "discovery_category": "CRM & Lead Management",
+            "automation_goal": "Automatically manage and qualify discovered leads",
+            "keyword_score": 3,
+            "automation_score": 0,
+            "discovery_relevance": 0.9956808399272714,
+            "client_discovery_potential": {
+              "research_automation": true,
+              "bulk_processing": false,
+              "lead_generation": true,
+              "contact_discovery": true
+            }
+          }
+        ],
+        "lead_stages": [
+          "Identified",
+          "Contacted",
+          "Qualified",
+          "Demo Scheduled",
+          "Proposal Sent"
+        ],
+        "automation_level": "Fully automated pipeline management"
+      }
+    }
+  },
+  "expected_outcomes": {
+    "qualified_leads_per_month": "50-100 high-quality prospects",
+    "outreach_automation": "500+ personalized contacts monthly",
+    "qualification_accuracy": "80%+ fit for IG services",
+    "time_savings": "95% reduction in manual prospecting",
+    "cost_efficiency": "10x more leads at 1/5 the cost"
+  }
+}

@@ -7,22 +7,22 @@ const AboutPage = () => {
   return (
     <>
       <Head>
-        <title>About IMAGINATION G - Movement Catalysts, Not Consultants</title>
-        <meta name="description" content="IMAGINATION G creates business transformation through confrontation, not consultation. We force movement in 30 days using binary decisions. Learn our catalyst approach." />
+        <title>About IMAGINATION G - Signal Amplifiers, Not Optimizers</title>
+        <meta name="description" content="IMAGINATION G surfaces buried truth through override, not optimization. Agency over aesthetics. Signal over noise. We amplify what's real." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         
         {/* Open Graph / Social Media Meta Tags */}
-        <meta property="og:title" content="About IG | We Collide. We Leave." />
-        <meta property="og:description" content="We don't consult. We don't coach. We don't facilitate. We collide." />
+        <meta property="og:title" content="About IG | We Amplify Signal. We Leave." />
+        <meta property="og:description" content="We don't optimize. We don't polish. We don't perfect. We override." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://imaginationg.studio/about" />
         <meta property="og:image" content="https://imaginationg.studio/images/og-image.jpg" />
         
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About IG | We Collide. We Leave." />
-        <meta name="twitter:description" content="We don't consult. We don't coach. We don't facilitate. We collide." />
+        <meta name="twitter:title" content="About IG | We Amplify Signal. We Leave." />
+        <meta name="twitter:description" content="We don't optimize. We don't polish. We don't perfect. We override." />
         <meta name="twitter:image" content="https://imaginationg.studio/images/og-image.jpg" />
       </Head>
 
@@ -33,7 +33,7 @@ const AboutPage = () => {
             <Link href="/" className="text-base font-black">IMAGINATION G</Link>
             <div className="flex items-center gap-8">
               <Link href="/" className="text-sm hover:text-zinc-400">← Home</Link>
-              <Link href="/weapons" className="text-sm hover:text-zinc-400">Weapons</Link>
+              <Link href="/weapons" className="text-sm hover:text-zinc-400">Interventions</Link>
               <Link href="/about" className="text-sm hover:text-zinc-400">About</Link>
               <Link 
                 href="https://outlook.office.com/owa/calendar/IG@imaginationg.studio/bookings/"
@@ -52,7 +52,7 @@ const AboutPage = () => {
           <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight">ABOUT IG</h1>
             <p className="text-xl md:text-2xl text-zinc-500 max-w-3xl mx-auto">
-              We don't consult. We collide.
+              We don't optimize. We override.
             </p>
           </div>
         </header>
@@ -67,9 +67,9 @@ const AboutPage = () => {
                 <h2 className="text-3xl font-black mb-6">WHAT WE ARE</h2>
                 <div className="space-y-4 text-lg">
                   <p>We show up.</p>
-                  <p>We hold the mirror you've been avoiding.</p>
-                  <p>We force the drift into daylight.</p>
-                  <p>We make you name the move.</p>
+                  <p>We surface the buried signal.</p>
+                  <p>We amplify truth over noise.</p>
+                  <p>We force override over optimize.</p>
                   <p className="text-red-500 font-bold">We leave.</p>
                 </div>
               </div>
@@ -78,11 +78,11 @@ const AboutPage = () => {
               <div className="border border-zinc-800 p-8">
                 <h2 className="text-3xl font-black mb-6">WHAT WE'RE NOT</h2>
                 <div className="space-y-4 text-lg">
-                  <p>We don't partner with you.</p>
-                  <p>We don't build with you.</p>
-                  <p>We don't help you feel better.</p>
-                  <p>We don't check in.</p>
-                  <p className="text-red-500 font-bold">We don't care if you fail.</p>
+                  <p>We don't optimize around problems.</p>
+                  <p>We don't polish your aesthetics.</p>
+                  <p>We don't generate comfortable noise.</p>
+                  <p>We don't maintain your systems.</p>
+                  <p className="text-red-500 font-bold">We don't care if you choose drift.</p>
                 </div>
               </div>
 
@@ -91,16 +91,16 @@ const AboutPage = () => {
                 <h2 className="text-3xl font-black mb-6">OUR CODE</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div>
-                    <p className="text-xl mb-2">We don't coddle.</p>
-                    <p className="text-xl font-bold text-red-500">We confront.</p>
+                    <p className="text-xl mb-2">We don't optimize noise.</p>
+                    <p className="text-xl font-bold text-red-500">We amplify signal.</p>
                   </div>
                   <div>
-                    <p className="text-xl mb-2">We don't create dependencies.</p>
-                    <p className="text-xl font-bold text-red-500">We create exits.</p>
+                    <p className="text-xl mb-2">We don't build dependencies.</p>
+                    <p className="text-xl font-bold text-red-500">We build agency.</p>
                   </div>
                   <div>
-                    <p className="text-xl mb-2">We don't do frameworks.</p>
-                    <p className="text-xl font-bold text-red-500">We do collisions.</p>
+                    <p className="text-xl mb-2">We don't polish aesthetics.</p>
+                    <p className="text-xl font-bold text-red-500">We ship function.</p>
                   </div>
                 </div>
               </div>
@@ -109,10 +109,10 @@ const AboutPage = () => {
               <div className="border border-zinc-800 p-8">
                 <h2 className="text-3xl font-bold mb-6">HOW WE WORK</h2>
                 <div className="space-y-4 text-lg">
-                  <p className="font-bold text-red-500">You move first.</p>
-                  <p>You pick the weapon.</p>
-                  <p>You name the drift.</p>
-                  <p>You own the outcome.</p>
+                  <p className="font-bold text-red-500">You choose override first.</p>
+                  <p>You select the intervention.</p>
+                  <p>You name the buried truth.</p>
+                  <p>You amplify your signal.</p>
                   <p>We end the call.</p>
                 </div>
               </div>
@@ -131,9 +131,9 @@ const AboutPage = () => {
                   </div>
                 </div>
                 <div className="space-y-4 text-lg">
-                  <p>Built IG after 10 years of watching brilliant people drift.</p>
-                  <p>Saw too much talk. Not enough blood.</p>
-                  <p>This is the collision I wish I had.</p>
+                  <p>Built IG after 10 years of watching brilliant people optimize around truth.</p>
+                  <p>Saw too much noise. Not enough signal.</p>
+                  <p>This is the override I wish I had.</p>
                   <p className="text-red-500 font-bold">Now it's yours.</p>
                 </div>
               </div>
@@ -142,18 +142,18 @@ const AboutPage = () => {
             {/* Final CTA - similar to weapons page */}
             <div className="text-center mt-16">
               <div className="bg-zinc-900 p-8 inline-block">
-                <h3 className="text-2xl font-bold mb-4">STILL HERE?</h3>
-                <p className="text-lg text-zinc-400 mb-6">Either you get it or you don't. We're not waiting.</p>
+                <h3 className="text-2xl font-bold mb-4">SIGNAL CLEAR?</h3>
+                <p className="text-lg text-zinc-400 mb-6">Either you override or you optimize. We're not waiting.</p>
                 <div className="space-y-4">
                   <Link 
                     href="/weapons"
                     className="block bg-red-500 text-white px-8 py-4 text-lg font-medium hover:bg-red-600 transition-all">
-                    PICK YOUR WEAPON
+                    DEPLOY INTERVENTION
                   </Link>
                   <Link 
                     href="/diagnostic"
                     className="block border-2 border-white text-white px-8 py-4 text-lg font-medium hover:bg-white hover:text-black transition-all">
-                    TAKE THE DIAGNOSTIC
+                    DETECT SIGNAL
                   </Link>
                 </div>
               </div>

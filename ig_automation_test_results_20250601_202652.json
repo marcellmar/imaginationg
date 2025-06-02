@@ -1,0 +1,58 @@
+{
+  "test_run_id": "test_20250601_202645",
+  "start_time": "2025-06-01 20:26:45.561462",
+  "tests_passed": 5,
+  "tests_failed": 0,
+  "test_details": [
+    {
+      "test_name": "prospect_discovery",
+      "status": "passed",
+      "prospects_found": 10,
+      "prospects_qualified": 6,
+      "response_time": 2.00134015083313,
+      "details": "Successfully filtered prospects by IG relevance score"
+    },
+    {
+      "test_name": "jentic_workflows",
+      "status": "passed",
+      "workflows_deployed": 19,
+      "success_rate": 95.0,
+      "response_time": 2.506598949432373,
+      "details": "Deployed 19 workflows with 95.0% success rate"
+    },
+    {
+      "test_name": "contact_discovery",
+      "status": "passed",
+      "contacts_found": 15,
+      "companies_with_contacts": 9,
+      "discovery_rate": 90.0,
+      "response_time": 1.0106830596923828,
+      "details": "Found contacts for 9/10 companies"
+    },
+    {
+      "test_name": "email_automation",
+      "status": "passed",
+      "campaign_created": true,
+      "prospects_added": 9,
+      "contacts_added": 15,
+      "emails_queued": 45,
+      "response_time": 1.0013039112091064,
+      "details": "Campaign created with 45 emails queued"
+    },
+    {
+      "test_name": "performance_metrics",
+      "status": "passed",
+      "metrics": {
+        "discovery_to_contacts": 150.0,
+        "contacts_to_emails": 100.0,
+        "total_automation_efficiency": 4.5,
+        "expected_pipeline_value": 13500.0
+      },
+      "response_time": 2.9802322387695312e-05,
+      "details": "Calculated automation efficiency metrics"
+    }
+  ],
+  "end_time": "2025-06-01 20:26:52.081688",
+  "total_duration": "0:00:06.520226",
+  "success_rate": 100.0
+}

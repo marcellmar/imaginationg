@@ -144,7 +144,7 @@ const WeaponContent: React.FC<WeaponContentProps> = ({ weaponSlug }) => {
           <AlertCircle className="text-orange-500 flex-shrink-0 mt-1" size={24} />
           <div>
             <h3 className="text-xl font-bold mb-2">NOT SURE THIS IS YOUR WEAPON?</h3>
-            <p className="text-zinc-300 mb-4">Take the 60-second drift diagnostic. Find out if you're moving or just lying to yourself.</p>
+            <p className="text-zinc-300 mb-4">Take the 60-second signal detection. Find out if you're amplifying signal or optimizing noise.</p>
             <Link 
               href="/diagnostic"
               className="inline-block bg-orange-500 text-black px-6 py-3 font-bold hover:bg-orange-400 transition-all"

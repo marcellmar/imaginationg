@@ -92,14 +92,14 @@ const ImaginationGLanding = () => {
   const faqs = [
     {
       question: "Still talking? Still drifting?",
-      answer: "Every moment you wait is movement lost. You know this. Pick your weapon. Move now."
+      answer: "Every moment you wait is movement lost. You know this. Pick your intervention. Move now."
     },
     {
-      question: "Why 'weapons' and not 'services'?",
-      answer: "Services maintain. Weapons destroy drift. You don't need maintenance. You need movement."
+      question: "Why 'interventions' and not 'services'?",
+      answer: "Services maintain. Interventions destroy drift. You don't need maintenance. You need movement."
     },
     {
-      question: "What if I pick the wrong weapon?",
+      question: "What if I pick the wrong intervention?",
       answer: "Start with Clarity Collision. 90 minutes. Your drift named. Your move clear."
     },
     {
@@ -261,7 +261,7 @@ const ImaginationGLanding = () => {
       <section className="relative py-24 px-4 bg-zinc-900/30">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">
-            CHOOSE YOUR WEAPON<span className="text-red-600">.</span>
+            CHOOSE YOUR INTERVENTION<span className="text-red-600">.</span>
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
@@ -285,17 +285,17 @@ const ImaginationGLanding = () => {
                   ))}
                 </div>
                 <Link 
-                  href={`/services/${weapon.slug}`}
+                  href="/weapons"
                   className="block w-full bg-red-600 text-center py-3 rounded hover:bg-red-700 transition-colors"
                 >
-                  Choose This Weapon
+                  Choose This Intervention
                 </Link>
               </div>
             ))}
           </div>
 
           <div className="text-center">
-            <p className="text-zinc-400 mb-4">Not sure which weapon to choose?</p>
+            <p className="text-zinc-400 mb-4">Not sure which intervention to choose?</p>
             <Link href="/diagnostic" className="text-red-600 hover:text-red-500 font-semibold">
               Take the 2-minute Drift Test →
             </Link>

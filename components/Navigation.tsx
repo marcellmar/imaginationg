@@ -15,7 +15,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage }) => {
             ← Home
           </Link>
           <Link href="/weapons" className={`text-sm hover:text-zinc-400 transition-colors ${currentPage === 'weapons' ? 'text-white' : 'text-zinc-400'}`}>
-            Weapons
+            Interventions
           </Link>
           <Link href="/about" className={`text-sm hover:text-zinc-400 transition-colors ${currentPage === 'about' ? 'text-white' : 'text-zinc-400'}`}>
             About

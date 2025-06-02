@@ -45,67 +45,56 @@ const Home: NextPage = () => {
         />
       </Head>
       
-      <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          {/* Main Heading */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-2">YOU SUCK.</h1>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-16">NOW WHAT?</h2>
-          
-          {/* First Section */}
-          <div className="space-y-1 text-base md:text-lg text-zinc-400 mb-12">
-            <p>You're bluffing.</p>
-            <p>They see it.</p>
-            <p>You see it.</p>
-            <p>You stall.</p>
-            <p>You fake.</p>
-            <p>They feel it.</p>
-            <p>You hide it.</p>
+      <div className="min-h-screen bg-black text-white">
+        <section className="relative min-h-screen flex items-center justify-center px-4">
+          <div className="relative z-10 text-center max-w-5xl mx-auto">
+            
+            {/* System status */}
+            <div className="mb-8 text-green-400 text-sm font-mono bg-black border border-zinc-800 p-4">
+              <p>SYSTEM STATUS:</p>
+              <p>→ Signal clarity: ACTIVE</p>
+              <p>→ Override protocols: ENABLED</p>
+              <p>→ Truth detection: RUNNING</p>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight">
+              AGENCY OVER AESTHETICS<span className="text-red-600">.</span><br />
+              SIGNAL OVER NOISE<span className="text-red-600">.</span><br />
+              OVERRIDE OVER OPTIMIZE<span className="text-red-600">.</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-zinc-400 mb-12 leading-relaxed">
+              You didn't come to clean the edges.<br />
+              You came to dismantle what was never true.<br />
+              This isn't about looking right.<br />
+              It's about building from the only thing that lasts—what's real.
+            </p>
+            
+            <div className="space-y-2 mb-12 text-zinc-300">
+              <p>We don't build brands. We surface the buried truth.</p>
+              <p>We don't insert ideas. We amplify signal.</p>
+              <p>What we build reflects what you already knew.</p>
+              <p>Organizations in alignment move naturally.</p>
+            </div>
+            
+            <p className="text-5xl md:text-7xl font-black text-red-600 mb-8">
+              ARE YOU IN<span className="text-white">?</span>
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/ig-complete-flow" className="bg-red-600 px-12 py-6 text-2xl font-black hover:bg-red-700 transition-colors">
+                BUILD FROM REAL
+              </Link>
+              <Link href="/read-only" className="border border-zinc-600 px-12 py-6 text-2xl font-black text-zinc-400 hover:bg-zinc-900 transition-colors inline-block text-center">
+                CLEAN THE EDGES
+              </Link>
+            </div>
+            
+            <p className="text-zinc-500 mt-8">
+              Truth doesn't need permission to exist.
+            </p>
           </div>
-          
-          <p className="text-lg md:text-xl font-bold text-white mb-12">Stop lying.</p>
-          
-          {/* Middle Section */}
-          <div className="space-y-1 mb-16">
-            <p className="text-base md:text-lg text-zinc-400">We don't consult.</p>
-            <p className="text-lg md:text-xl font-bold text-white">We call your bluff.</p>
-            <p className="text-base md:text-lg text-zinc-400 mt-4">We make you say the move you've been hiding from.</p>
-          </div>
-          
-          <div className="space-y-1 text-base md:text-lg text-zinc-400 mb-16">
-            <p>You act.</p>
-            <p>Or you stall again.</p>
-          </div>
-          
-          {/* Who Are We For Section */}
-          <h3 className="text-2xl md:text-3xl font-black mb-8">WHO ARE WE FOR?</h3>
-          
-          <p className="text-base md:text-lg text-zinc-400 mb-8">If you're reading this, you already know.</p>
-          
-          <div className="space-y-1 text-base md:text-lg text-zinc-400 mb-8">
-            <p>If you want frameworks—<span className="font-bold text-white">this isn't for you.</span></p>
-            <p>If you need hand-holding—<span className="font-bold text-white">this isn't for you.</span></p>
-            <p>If you want validation—<span className="font-bold text-white">you won't find it here.</span></p>
-          </div>
-          
-          <p className="text-base md:text-lg font-bold text-white mb-4">We are for the ones who:</p>
-          
-          <div className="space-y-1 text-base md:text-lg text-zinc-400 mb-16">
-            <p>Know they're bluffing.</p>
-            <p>Can't stand it anymore.</p>
-            <p>Want collision. <span className="font-bold text-white">Fast. Loud. Final.</span></p>
-          </div>
-          
-          {/* CTA Section */}
-          <p className="text-sm text-zinc-500 mb-4">THE ONLY DOOR:</p>
-          
-          <Link 
-            href="/ig-complete-flow"
-            className="inline-block bg-red-500 text-white px-8 py-4 text-lg md:text-xl font-black hover:bg-red-600 transition-colors mb-12">
-            YOU SUCK. NOW WHAT?
-          </Link>
-          
-          <p className="text-sm text-zinc-500">That's it. Click or leave. <span className="font-bold text-white">We're not waiting.</span></p>
-        </div>
+        </section>
       </div>
     </>
   );

@@ -38,7 +38,7 @@ const FirstBloodBuildPage: NextPage = () => {
             <Link href="/" className="text-xl font-black">IMAGINATION G</Link>
             <div className="flex items-center gap-6">
               <Link href="/" className="text-sm hover:text-zinc-400">← Home</Link>
-              <Link href="/weapons" className="text-sm hover:text-zinc-400">Weapons</Link>
+              <Link href="/weapons" className="text-sm hover:text-zinc-400">Interventions</Link>
               <Link href="/about" className="text-sm hover:text-zinc-400">About</Link>
               <Link href="/diagnostic" className="bg-white text-black px-4 py-2 text-sm font-bold hover:bg-zinc-200">
                 Book a Call
@@ -161,14 +161,14 @@ const FirstBloodBuildPage: NextPage = () => {
                 rel="noopener noreferrer"
                 className="inline-block bg-red-500 hover:bg-red-600 text-white px-12 py-6 text-2xl font-black transition-colors"
               >
-                BUILD IT. OR DIE DREAMING.
+                SHIP FUNCTION. OR POLISH FOREVER.
               </a>
             </div>
 
             {/* Back to Weapons */}
             <div className="text-center text-zinc-600">
               <Link href="/weapons" className="text-white hover:text-zinc-400 transition-colors">
-                ← Back to weapons
+                ← Back to interventions
               </Link>
             </div>
           </div>

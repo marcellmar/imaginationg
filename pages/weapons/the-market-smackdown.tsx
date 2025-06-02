@@ -38,7 +38,7 @@ const TheMarketSmackdownPage: NextPage = () => {
             <Link href="/" className="text-xl font-black">IMAGINATION G</Link>
             <div className="flex items-center gap-6">
               <Link href="/" className="text-sm hover:text-zinc-400">← Home</Link>
-              <Link href="/weapons" className="text-sm hover:text-zinc-400">Weapons</Link>
+              <Link href="/weapons" className="text-sm hover:text-zinc-400">Interventions</Link>
               <Link href="/about" className="text-sm hover:text-zinc-400">About</Link>
               <Link href="/diagnostic" className="bg-white text-black px-4 py-2 text-sm font-bold hover:bg-zinc-200">
                 Book a Call
@@ -53,27 +53,27 @@ const TheMarketSmackdownPage: NextPage = () => {
             <div className="text-center mb-12">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-4">THE MARKET SMACKDOWN</h1>
               <p className="text-3xl md:text-4xl font-black text-red-500 mb-2">$1,500</p>
-              <p className="text-zinc-400">The market already told you 'no.' Face it.</p>
+              <p className="text-zinc-400">The market signal is already there. We help you hear what you've been ignoring.</p>
             </div>
 
             {/* Quote Box */}
             <div className="bg-zinc-900 border border-zinc-800 p-8 mb-12">
               <p className="text-xl font-bold mb-4">
-                The market isn't confused. You are.
+                The market signal isn't broken. Your receiver is.
               </p>
-              <p className="text-zinc-400 mb-4">They said no.</p>
-              <p className="text-zinc-400 mb-4">Multiple times.</p>
-              <p className="text-zinc-400 mb-4">In multiple ways.</p>
-              <p className="text-white font-bold">You just weren't listening.</p>
+              <p className="text-zinc-400 mb-4">The signal is clear.</p>
+              <p className="text-zinc-400 mb-4">Consistent frequency.</p>
+              <p className="text-zinc-400 mb-4">You're tuned to noise.</p>
+              <p className="text-white font-bold">We recalibrate your receiver.</p>
             </div>
 
             {/* The Process */}
             <section className="mb-12">
-              <h2 className="text-2xl font-black mb-6">THE PROCESS:</h2>
-              <p className="text-zinc-400 mb-2">5-7 days of market truth.</p>
-              <p className="text-zinc-400 mb-2">We talk to the people who said no.</p>
-              <p className="text-zinc-400 mb-2">We document why they walked.</p>
-              <p className="text-red-500 font-bold">Then we make you read it. All of it.</p>
+              <h2 className="text-2xl font-black mb-6">SIGNAL DETECTION:</h2>
+              <p className="text-zinc-400 mb-2">5-7 days of signal analysis.</p>
+              <p className="text-zinc-400 mb-2">We trace the market frequency.</p>
+              <p className="text-zinc-400 mb-2">We map your signal distortion.</p>
+              <p className="text-red-500 font-bold">Then we recalibrate your receiver. Completely.</p>
             </section>
 
             {/* What We Deliver */}
@@ -128,9 +128,9 @@ const TheMarketSmackdownPage: NextPage = () => {
 
             {/* CTA Box */}
             <div className="bg-zinc-900 border border-zinc-800 p-8 mb-12">
-              <h3 className="text-2xl font-black mb-4">NOT SURE THIS IS YOUR WEAPON?</h3>
+              <h3 className="text-2xl font-black mb-4">NOT SURE THIS IS YOUR INTERVENTION?</h3>
               <p className="text-zinc-400 mb-6">
-                Take the 60-second drift diagnostic. Find out if the market hates you or you hate yourself.
+                Take the 60-second signal detection. Find out if you're receiving market signal or generating noise.
               </p>
               <Link 
                 href="/diagnostic"
@@ -156,13 +156,13 @@ const TheMarketSmackdownPage: NextPage = () => {
                 rel="noopener noreferrer"
                 className="inline-block bg-red-500 hover:bg-red-600 text-white px-12 py-6 text-2xl font-black transition-colors"
               >
-                FACE THE TRUTH. OR KEEP LYING.
+                AMPLIFY SIGNAL. OR STAY BURIED.
               </a>
             </div>
 
             {/* Next Weapon */}
             <div className="text-center text-zinc-600">
-              <p className="mb-4">Next weapon:</p>
+              <p className="mb-4">Next intervention:</p>
               <Link href="/weapons/thirty-day-drift-break" className="text-white hover:text-zinc-400 transition-colors">
                 30-DAY DRIFT BREAK →
               </Link>

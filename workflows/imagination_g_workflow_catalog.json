@@ -1,0 +1,80 @@
+{
+  "imagination_g_core_workflows": {
+    "downloaded_date": "2025-06-01T19:39:25.505788",
+    "jentic_uuid": "2f73eccc-e20d-450f-b59b-edb9c040a85b",
+    "total_discovered": 18,
+    "top_5_selected": [
+      {
+        "id": "bcfa6d233982a59ac83181e5e786a181",
+        "summary": "interact-with-a-message",
+        "description": "Retrieves a specific message, adds a reaction from the current user, and then lists users who added that reaction.",
+        "api_name": "discord.com",
+        "match_score": 0.672173063288513,
+        "transformation_area": "Communication Optimization",
+        "priority": 2,
+        "relevance_score": 1.344346126577026
+      },
+      {
+        "id": "4319f0114459e9e84868ddc4441444ce",
+        "summary": "manage-thread-membership",
+        "description": "Creates a thread from a message, lists its members, and adds a new member to the thread.",
+        "api_name": "discord.com",
+        "match_score": 0.6687837144369992,
+        "transformation_area": "Communication Optimization",
+        "priority": 2,
+        "relevance_score": 1.3375674288739985
+      },
+      {
+        "id": "034ec5a766d82651c7a1e2f61c8dec53",
+        "summary": "initiate-direct-message-with-a-user",
+        "description": "Find a specific user by their username and send them a direct message, initiating a new DM conversation.",
+        "api_name": "twitter.com/current",
+        "match_score": 0.6670099496841431,
+        "transformation_area": "Communication Optimization",
+        "priority": 2,
+        "relevance_score": 1.3340198993682861
+      },
+      {
+        "id": "7ee73a2944ff68eb21203a5512bc7ba3",
+        "summary": "onboard-new-user-to-a-team",
+        "description": "Invites a new user via email to join a specific SIGNL4 team and checks the status of the invitation.",
+        "api_name": "signl4.com",
+        "match_score": 0.6666532754898071,
+        "transformation_area": "Communication Optimization",
+        "priority": 2,
+        "relevance_score": 1.3333065509796143
+      },
+      {
+        "id": "a8992529d7dfdc210a74b1e413884eaa",
+        "summary": "discover-and-join-channel",
+        "description": "Find available public channels (rooms) and join a specific one to participate.",
+        "api_name": "clubhouseapi.com",
+        "match_score": 0.6463258564472198,
+        "transformation_area": "Communication Optimization",
+        "priority": 2,
+        "relevance_score": 1.2926517128944397
+      }
+    ],
+    "workflow_execution_ready": true,
+    "transformation_areas_covered": [
+      "Communication Optimization"
+    ],
+    "api_platforms_included": [
+      "clubhouseapi.com",
+      "discord.com",
+      "twitter.com/current",
+      "signl4.com"
+    ]
+  },
+  "execution_details": {
+    "files_downloaded": true,
+    "execution_info_available": "<class 'dict'>",
+    "ready_for_oak_runner": true
+  },
+  "next_steps": [
+    "Test workflows locally with oak-runner",
+    "Customize workflows for IMAGINATION G use cases",
+    "Create client simulation environments",
+    "Build workflow automation templates"
+  ]
+}

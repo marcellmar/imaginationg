@@ -1,0 +1,43 @@
+{
+  "tier_1_jentic_workflows": {
+    "description": "Primary automation through jentic workflows",
+    "advantages": [
+      "Integrated with IG platform",
+      "Custom business logic",
+      "API flexibility"
+    ],
+    "use_cases": [
+      "Custom qualification scoring",
+      "IG-specific automation",
+      "Integrated reporting"
+    ],
+    "implementation": "Deploy top jentic workflows for client discovery"
+  },
+  "tier_2_specialized_tools": {
+    "description": "Best-in-class tools for specific functions",
+    "recommended_stack": {
+      "prospect_identification": "ZoomInfo API ($18K/year)",
+      "contact_discovery": "Apollo.io ($6K/year)",
+      "email_automation": "Lemlist ($3K/year)",
+      "linkedin_automation": "Phantombuster ($1.5K/year)",
+      "crm_automation": "HubSpot workflows ($2K/year)"
+    },
+    "total_cost": "$30.5K annually",
+    "expected_output": "500+ qualified prospects monthly"
+  },
+  "tier_3_hybrid_approach": {
+    "description": "Combine jentic workflows with specialized tools",
+    "architecture": {
+      "data_collection": "ZoomInfo + jentic company research workflows",
+      "qualification": "Custom jentic scoring workflows",
+      "outreach": "Apollo.io + jentic personalization workflows",
+      "management": "HubSpot + jentic pipeline automation"
+    },
+    "advantages": [
+      "Best of both worlds",
+      "Custom + proven tools",
+      "Maximum automation"
+    ],
+    "recommended": "Yes - provides flexibility and power"
+  }
+}

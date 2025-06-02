@@ -21,18 +21,26 @@ const IGCompleteFlow = () => {
       <div className="min-h-screen bg-black text-white font-sans">
         {/* No navigation. Just the room. */}
         
-        {/* Timer in corner */}
-        <div className="fixed top-8 right-8 text-red-500 font-mono">
-          <p className="text-2xl md:text-3xl font-bold">{timeOnPage}s</p>
-          <p className="text-xs text-zinc-600">STILL THINKING?</p>
+        {/* System status in corner */}
+        <div className="fixed top-8 right-8 text-green-400 font-mono bg-black border border-zinc-800 p-3">
+          <p className="text-xs">OVERRIDE MODE:</p>
+          <p className="text-lg font-bold">{timeOnPage}s</p>
+          <p className="text-xs text-zinc-600">TRUTH DETECTION</p>
         </div>
         
         <div className="min-h-screen flex flex-col justify-center px-6">
           <div className="max-w-4xl mx-auto w-full">
-            {/* The confrontation */}
+            {/* The invitation */}
             <div className="mb-24 text-center">
-              <h1 className="text-6xl md:text-8xl font-black mb-4 tracking-tight">YOU SUCK.</h1>
-              <h2 className="text-6xl md:text-8xl font-black tracking-tight">NOW WHAT?</h2>
+              <h1 className="text-5xl md:text-7xl font-black mb-8 tracking-tight leading-tight">
+                AGENCY OVER AESTHETICS<span className="text-red-600">.</span><br />
+                SIGNAL OVER NOISE<span className="text-red-600">.</span><br />
+                OVERRIDE OVER OPTIMIZE<span className="text-red-600">.</span>
+              </h1>
+              <p className="text-xl text-zinc-400 max-w-3xl mx-auto leading-relaxed">
+                You didn't come to clean the edges.<br />
+                You came to dismantle what was never true.
+              </p>
             </div>
             
             {/* First truth */}
@@ -40,10 +48,10 @@ const IGCompleteFlow = () => {
               <div>
                 <div className="mb-12 text-center">
                   <p className="text-3xl md:text-4xl font-black text-white">
-                    NAME YOUR <span className="text-red-500">DRIFT</span>
+                    NAME WHAT'S <span className="text-red-500">BURIED</span>
                   </p>
                   <p className="text-lg md:text-xl text-zinc-500 mt-4">
-                    The thing killing you. The stuck. The lie.
+                    The truth you've been building around instead of from.
                   </p>
                 </div>
                 <input
@@ -76,10 +84,10 @@ const IGCompleteFlow = () => {
                 <div className="animate-fade-in">
                   <div className="mb-12 text-center">
                     <p className="text-3xl md:text-4xl font-black text-white">
-                      NAME YOUR <span className="text-red-500">MOVE</span>
+                      NAME THE <span className="text-red-500">OVERRIDE</span>
                     </p>
                     <p className="text-lg md:text-xl text-zinc-500 mt-4">
-                      The move you've been hiding from.
+                      What you would build from that truth.
                     </p>
                   </div>
                   <input
@@ -115,15 +123,15 @@ const IGCompleteFlow = () => {
                 {/* Truth Box */}
                 <div className="border-2 border-red-500 p-12 max-w-4xl mx-auto mb-12">
                   <h3 className="text-3xl md:text-4xl font-black text-red-500 mb-12">
-                    THE TRUTH YOU JUST TOLD:
+                    THE SIGNAL YOU JUST AMPLIFIED:
                   </h3>
                   <div className="grid md:grid-cols-2 gap-16">
                     <div>
-                      <p className="text-zinc-500 text-sm uppercase mb-4">YOUR DRIFT:</p>
+                      <p className="text-zinc-500 text-sm uppercase mb-4">BURIED TRUTH:</p>
                       <p className="text-2xl text-white font-bold">{drift}</p>
                     </div>
                     <div>
-                      <p className="text-zinc-500 text-sm uppercase mb-4">YOUR MOVE:</p>
+                      <p className="text-zinc-500 text-sm uppercase mb-4">OVERRIDE PATH:</p>
                       <p className="text-2xl text-white font-bold">{move}</p>
                     </div>
                   </div>
@@ -132,7 +140,7 @@ const IGCompleteFlow = () => {
                 {/* Decision Section */}
                 <div className="mb-12">
                   <h3 className="text-4xl md:text-5xl font-black">
-                    DECISION TIME. NO MORE <span className="text-red-500">BULLSHIT.</span>
+                    NOW BUILD FROM <span className="text-red-500">REAL.</span>
                   </h3>
                 </div>
 
@@ -142,15 +150,15 @@ const IGCompleteFlow = () => {
                     onClick={() => setCurrentPage('weapons')}
                     className="bg-red-500 hover:bg-red-600 text-white px-8 py-8 text-2xl font-black transition-colors"
                   >
-                    MOVE
-                    <span className="block text-base font-normal mt-2">Pick your weapon</span>
+                    OVERRIDE
+                    <span className="block text-base font-normal mt-2">Grant full access</span>
                   </button>
                   <button
                     onClick={() => setCurrentPage('drift')}
                     className="bg-zinc-900 hover:bg-zinc-800 text-white px-8 py-8 text-2xl font-black border border-zinc-700 transition-colors"
                   >
-                    DRIFT
-                    <span className="block text-base font-normal mt-2">Keep lying</span>
+                    OPTIMIZE
+                    <span className="block text-base font-normal mt-2">Clean the edges</span>
                   </button>
                 </div>
               </div>
@@ -158,8 +166,8 @@ const IGCompleteFlow = () => {
             
             {/* Bottom text */}
             <div className="absolute bottom-8 left-0 right-0 text-center">
-              <p className="text-zinc-600 text-sm">
-                NO CONSULTANTS. NO FRAMEWORKS. JUST COLLISION.
+              <p className="text-zinc-600 text-sm font-mono">
+                // We surface the buried truth
               </p>
             </div>
           </div>
@@ -168,24 +176,25 @@ const IGCompleteFlow = () => {
     );
   }
 
-  // Drift Page - The Truth
+  // Optimize Page - The Choice to Stay Surface
   if (currentPage === 'drift') {
     return (
       <div className="min-h-screen bg-black text-white font-sans">
         <div className="min-h-screen flex items-center justify-center px-6">
           <div className="text-center max-w-4xl">
-            <h1 className="text-7xl md:text-9xl font-black mb-16 text-red-500">COWARD</h1>
+            <h1 className="text-7xl md:text-9xl font-black mb-16 text-zinc-600">READ-ONLY</h1>
             
             <div className="space-y-8 text-2xl md:text-3xl text-zinc-600 mb-20">
-              <p>Still drifting: <span className="text-white">{drift}</span></p>
-              <p>Still lying: <span className="text-white">{move}</span></p>
+              <p>Truth remains buried: <span className="text-white">{drift}</span></p>
+              <p>Override path unused: <span className="text-white">{move}</span></p>
+              <p className="text-lg text-zinc-500 mt-8">Signal detected. Access denied.</p>
             </div>
             
             <button 
               onClick={() => setCurrentPage('filter')}
               className="text-2xl font-black text-white border-b-4 border-white hover:text-red-500 hover:border-red-500 transition-all"
             >
-              TRY AGAIN
+              REQUEST ACCESS
             </button>
           </div>
         </div>
@@ -193,106 +202,18 @@ const IGCompleteFlow = () => {
     );
   }
 
-  // Weapons Page - Pick Your Weapon
+  // Redirect to Weapons Page
   if (currentPage === 'weapons') {
-    return (
-      <div className="min-h-screen bg-black text-white font-sans px-8 py-16">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="mb-16">
-            <h1 className="text-6xl md:text-8xl font-black mb-4">PICK YOUR WEAPON</h1>
-            <p className="text-zinc-500 text-xl">You know why you're here.</p>
-          </div>
-
-          {/* Drift and Move Display */}
-          <div className="grid md:grid-cols-2 gap-8 mb-20 max-w-3xl">
-            <div>
-              <p className="text-zinc-500 text-sm uppercase mb-2">YOUR DRIFT:</p>
-              <p className="text-xl text-white">{drift}</p>
-            </div>
-            <div>
-              <p className="text-zinc-500 text-sm uppercase mb-2">YOUR MOVE:</p>
-              <p className="text-xl text-white">{move}</p>
-            </div>
-          </div>
-
-          {/* Weapons List */}
-          <div className="space-y-16">
-            {/* The Naming */}
-            <a href="/weapons/the-naming" className="flex justify-between items-start group hover:opacity-80 transition-opacity cursor-pointer">
-              <div className="flex-1">
-                <h2 className="text-3xl md:text-4xl font-black mb-4 group-hover:text-red-500 transition-colors">THE NAMING</h2>
-                <p className="text-zinc-400 text-lg max-w-3xl">
-                  This is not a conversation. It's the room. You say the thing you've been lying about. Out loud.
-                </p>
-              </div>
-              <div className="text-3xl md:text-4xl font-black ml-8">$500</div>
-            </a>
-
-            {/* The Map */}
-            <a href="/weapons/the-map" className="flex justify-between items-start group hover:opacity-80 transition-opacity cursor-pointer">
-              <div className="flex-1">
-                <h2 className="text-3xl md:text-4xl font-black mb-4 group-hover:text-red-500 transition-colors">THE MAP</h2>
-                <p className="text-zinc-400 text-lg max-w-3xl">
-                  Your network is dead. We show you the collisions you've been pretending aren't there.
-                </p>
-              </div>
-              <div className="text-3xl md:text-4xl font-black ml-8">$1,000</div>
-            </a>
-
-            {/* The Market Smackdown */}
-            <a href="/weapons/the-market-smackdown" className="flex justify-between items-start group hover:opacity-80 transition-opacity cursor-pointer">
-              <div className="flex-1">
-                <h2 className="text-3xl md:text-4xl font-black mb-4 group-hover:text-red-500 transition-colors">THE MARKET SMACKDOWN</h2>
-                <p className="text-zinc-400 text-lg max-w-3xl">
-                  The market's already told you 'no.' We make you face it.
-                </p>
-              </div>
-              <div className="text-3xl md:text-4xl font-black ml-8">$1,500</div>
-            </a>
-
-            {/* 30-Day Drift Break */}
-            <a href="/weapons/thirty-day-drift-break" className="flex justify-between items-start group hover:opacity-80 transition-opacity cursor-pointer">
-              <div className="flex-1">
-                <h2 className="text-3xl md:text-4xl font-black mb-4 group-hover:text-red-500 transition-colors">30-DAY DRIFT BREAK</h2>
-                <p className="text-zinc-400 text-lg max-w-3xl">
-                  Forced movement. No plans. No meetings. Just the thing you said you'd do—or didn't.
-                </p>
-              </div>
-              <div className="text-3xl md:text-4xl font-black ml-8">$3,000</div>
-            </a>
-
-            {/* First Blood Build */}
-            <a href="/weapons/first-blood-build" className="flex justify-between items-start group hover:opacity-80 transition-opacity cursor-pointer">
-              <div className="flex-1">
-                <h2 className="text-3xl md:text-4xl font-black mb-4 group-hover:text-red-500 transition-colors">FIRST BLOOD BUILD</h2>
-                <p className="text-zinc-400 text-lg max-w-3xl">
-                  Build the thing that bruises. Fast. Ugly. You bleed for it. Or you keep bluffing.
-                </p>
-              </div>
-              <div className="text-3xl md:text-4xl font-black ml-8">$5,000</div>
-            </a>
-          </div>
-
-          {/* Bottom CTA */}
-          <div className="mt-32 text-center">
-            <p className="text-zinc-500 text-lg mb-8">Still drifting?</p>
-            <button 
-              onClick={() => setCurrentPage('filter')}
-              className="text-white text-lg underline hover:text-zinc-400 transition-colors mb-4 block mx-auto"
-            >
-              [BACK TO THE MIRROR]
-            </button>
-            <a 
-              href="/weapons"
-              className="text-white text-sm underline hover:text-zinc-400 transition-colors"
-            >
-              [just show me the weapons]
-            </a>
-          </div>
-        </div>
-      </div>
-    );
+    // Store flow data in sessionStorage for potential use on weapons page
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('flowData', JSON.stringify({
+        fromFlow: true,
+        drift: drift,
+        move: move
+      }));
+      window.location.href = '/weapons';
+    }
+    return null;
   }
 };
 

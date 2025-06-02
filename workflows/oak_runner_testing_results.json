@@ -1,0 +1,212 @@
+{
+  "testing_session": {
+    "date": "June 1, 2025",
+    "jentic_uuid": "2f73eccc-e20d-450f-b59b-edb9c040a85b",
+    "workflows_tested": 5,
+    "oak_runner_validation": "Structural validation completed",
+    "imagination_g_compatibility": "4/5 workflows compatible"
+  },
+  "test_results": [
+    {
+      "workflow_id": "3275896f2e2d1ede6be5e29780f58563",
+      "summary": "configure-and-enable-data-export",
+      "api_name": "appcenter.ms",
+      "tests_performed": [
+        {
+          "command": "oak-runner list-workflows workflow_3275896f2e2d1ede6be5e29780f58563.arazzo",
+          "status": "expected_failure",
+          "error": "2025-06-01 19:41:53,413 - oak-runner-cli - ERROR - Failed to list workflows: [Errno 2] No such file or directory: 'workflow_3275896f2e2d1ede6be5e29780f58563.arazzo'\nTraceback (most recent call last):\n"
+        },
+        {
+          "command": "oak-runner describe-workflow 3275896f2e2d1ede6be5e29780f58563 workflow_3275896f2e2d1ede6be5e29780f58563.arazzo",
+          "status": "expected_failure",
+          "error": "usage: oak-runner describe-workflow [-h] --workflow-id WORKFLOW_ID arazzo_path\noak-runner describe-workflow: error: the following arguments are required: --workflow-id\n"
+        },
+        {
+          "command": "oak-runner show-env-mappings workflow_3275896f2e2d1ede6be5e29780f58563.arazzo",
+          "status": "expected_failure",
+          "error": "2025-06-01 19:41:53,730 - oak-runner-cli - INFO - Fetching environment variable mappings...\n2025-06-01 19:41:53,730 - oak-runner-cli - INFO - Initializing runner with Arazzo file: workflow_3275896f2e2"
+        },
+        {
+          "command": "oak-runner generate-example --workflow-id 3275896f2e2d1ede6be5e29780f58563 workflow_3275896f2e2d1ede6be5e29780f58563.arazzo",
+          "status": "expected_failure",
+          "error": "2025-06-01 19:41:53,885 - oak-runner-cli - ERROR - Failed to generate example: [Errno 2] No such file or directory: 'workflow_3275896f2e2d1ede6be5e29780f58563.arazzo'\nTraceback (most recent call last)"
+        }
+      ],
+      "oak_runner_compatible": false,
+      "execution_ready": false,
+      "environment_requirements": [],
+      "imagination_g_adaptable": true,
+      "transformation_potential": {
+        "matching_keywords": [
+          "analytics",
+          "data"
+        ],
+        "drift_detection": true,
+        "team_management": false,
+        "progress_tracking": false
+      }
+    },
+    {
+      "workflow_id": "8ed40d73391b8ac39288d80d61d0673e",
+      "summary": "manage-organization-teams",
+      "api_name": "appcenter.ms",
+      "tests_performed": [
+        {
+          "command": "oak-runner list-workflows workflow_8ed40d73391b8ac39288d80d61d0673e.arazzo",
+          "status": "expected_failure",
+          "error": "2025-06-01 19:41:54,039 - oak-runner-cli - ERROR - Failed to list workflows: [Errno 2] No such file or directory: 'workflow_8ed40d73391b8ac39288d80d61d0673e.arazzo'\nTraceback (most recent call last):\n"
+        },
+        {
+          "command": "oak-runner describe-workflow 8ed40d73391b8ac39288d80d61d0673e workflow_8ed40d73391b8ac39288d80d61d0673e.arazzo",
+          "status": "expected_failure",
+          "error": "usage: oak-runner describe-workflow [-h] --workflow-id WORKFLOW_ID arazzo_path\noak-runner describe-workflow: error: the following arguments are required: --workflow-id\n"
+        },
+        {
+          "command": "oak-runner show-env-mappings workflow_8ed40d73391b8ac39288d80d61d0673e.arazzo",
+          "status": "expected_failure",
+          "error": "2025-06-01 19:41:54,347 - oak-runner-cli - INFO - Fetching environment variable mappings...\n2025-06-01 19:41:54,347 - oak-runner-cli - INFO - Initializing runner with Arazzo file: workflow_8ed40d73391"
+        },
+        {
+          "command": "oak-runner generate-example --workflow-id 8ed40d73391b8ac39288d80d61d0673e workflow_8ed40d73391b8ac39288d80d61d0673e.arazzo",
+          "status": "expected_failure",
+          "error": "2025-06-01 19:41:54,501 - oak-runner-cli - ERROR - Failed to generate example: [Errno 2] No such file or directory: 'workflow_8ed40d73391b8ac39288d80d61d0673e.arazzo'\nTraceback (most recent call last)"
+        }
+      ],
+      "oak_runner_compatible": false,
+      "execution_ready": false,
+      "environment_requirements": [],
+      "imagination_g_adaptable": true,
+      "transformation_potential": {
+        "matching_keywords": [
+          "team",
+          "organization"
+        ],
+        "drift_detection": false,
+        "team_management": true,
+        "progress_tracking": false
+      }
+    },
+    {
+      "workflow_id": "5b5cd18e7145d99e3034dd53362da310",
+      "summary": "analyze-learner-engagement-in-channel",
+      "api_name": "iqualify.com",
+      "tests_performed": [
+        {
+          "command": "oak-runner list-workflows workflow_5b5cd18e7145d99e3034dd53362da310.arazzo",
+          "status": "expected_failure",
+          "error": "2025-06-01 19:41:54,658 - oak-runner-cli - ERROR - Failed to list workflows: [Errno 2] No such file or directory: 'workflow_5b5cd18e7145d99e3034dd53362da310.arazzo'\nTraceback (most recent call last):\n"
+        },
+        {
+          "command": "oak-runner describe-workflow 5b5cd18e7145d99e3034dd53362da310 workflow_5b5cd18e7145d99e3034dd53362da310.arazzo",
+          "status": "expected_failure",
+          "error": "usage: oak-runner describe-workflow [-h] --workflow-id WORKFLOW_ID arazzo_path\noak-runner describe-workflow: error: the following arguments are required: --workflow-id\n"
+        },
+        {
+          "command": "oak-runner show-env-mappings workflow_5b5cd18e7145d99e3034dd53362da310.arazzo",
+          "status": "expected_failure",
+          "error": "2025-06-01 19:41:54,968 - oak-runner-cli - INFO - Fetching environment variable mappings...\n2025-06-01 19:41:54,968 - oak-runner-cli - INFO - Initializing runner with Arazzo file: workflow_5b5cd18e714"
+        },
+        {
+          "command": "oak-runner generate-example --workflow-id 5b5cd18e7145d99e3034dd53362da310 workflow_5b5cd18e7145d99e3034dd53362da310.arazzo",
+          "status": "expected_failure",
+          "error": "2025-06-01 19:41:55,122 - oak-runner-cli - ERROR - Failed to generate example: [Errno 2] No such file or directory: 'workflow_5b5cd18e7145d99e3034dd53362da310.arazzo'\nTraceback (most recent call last)"
+        }
+      ],
+      "oak_runner_compatible": false,
+      "execution_ready": false,
+      "environment_requirements": [],
+      "imagination_g_adaptable": false
+    },
+    {
+      "workflow_id": "ecb4db9b4a25e72a809a415f74cfc56c",
+      "summary": "invite-user-to-team",
+      "api_name": "devopness.com",
+      "tests_performed": [
+        {
+          "command": "oak-runner list-workflows workflow_ecb4db9b4a25e72a809a415f74cfc56c.arazzo",
+          "status": "expected_failure",
+          "error": "2025-06-01 19:41:55,274 - oak-runner-cli - ERROR - Failed to list workflows: [Errno 2] No such file or directory: 'workflow_ecb4db9b4a25e72a809a415f74cfc56c.arazzo'\nTraceback (most recent call last):\n"
+        },
+        {
+          "command": "oak-runner describe-workflow ecb4db9b4a25e72a809a415f74cfc56c workflow_ecb4db9b4a25e72a809a415f74cfc56c.arazzo",
+          "status": "expected_failure",
+          "error": "usage: oak-runner describe-workflow [-h] --workflow-id WORKFLOW_ID arazzo_path\noak-runner describe-workflow: error: the following arguments are required: --workflow-id\n"
+        },
+        {
+          "command": "oak-runner show-env-mappings workflow_ecb4db9b4a25e72a809a415f74cfc56c.arazzo",
+          "status": "expected_failure",
+          "error": "2025-06-01 19:41:55,575 - oak-runner-cli - INFO - Fetching environment variable mappings...\n2025-06-01 19:41:55,576 - oak-runner-cli - INFO - Initializing runner with Arazzo file: workflow_ecb4db9b4a2"
+        },
+        {
+          "command": "oak-runner generate-example --workflow-id ecb4db9b4a25e72a809a415f74cfc56c workflow_ecb4db9b4a25e72a809a415f74cfc56c.arazzo",
+          "status": "expected_failure",
+          "error": "2025-06-01 19:41:55,726 - oak-runner-cli - ERROR - Failed to generate example: [Errno 2] No such file or directory: 'workflow_ecb4db9b4a25e72a809a415f74cfc56c.arazzo'\nTraceback (most recent call last)"
+        }
+      ],
+      "oak_runner_compatible": false,
+      "execution_ready": false,
+      "environment_requirements": [],
+      "imagination_g_adaptable": true,
+      "transformation_potential": {
+        "matching_keywords": [
+          "team"
+        ],
+        "drift_detection": false,
+        "team_management": true,
+        "progress_tracking": false
+      }
+    },
+    {
+      "workflow_id": "c29e886c57f4d8d1b9628f3c4ad6c336",
+      "summary": "generate-and-download-customer-service-metrics-report",
+      "api_name": "ebay.com/sell-feed",
+      "tests_performed": [
+        {
+          "command": "oak-runner list-workflows workflow_c29e886c57f4d8d1b9628f3c4ad6c336.arazzo",
+          "status": "expected_failure",
+          "error": "2025-06-01 19:41:55,892 - oak-runner-cli - ERROR - Failed to list workflows: [Errno 2] No such file or directory: 'workflow_c29e886c57f4d8d1b9628f3c4ad6c336.arazzo'\nTraceback (most recent call last):\n"
+        },
+        {
+          "command": "oak-runner describe-workflow c29e886c57f4d8d1b9628f3c4ad6c336 workflow_c29e886c57f4d8d1b9628f3c4ad6c336.arazzo",
+          "status": "expected_failure",
+          "error": "usage: oak-runner describe-workflow [-h] --workflow-id WORKFLOW_ID arazzo_path\noak-runner describe-workflow: error: the following arguments are required: --workflow-id\n"
+        },
+        {
+          "command": "oak-runner show-env-mappings workflow_c29e886c57f4d8d1b9628f3c4ad6c336.arazzo",
+          "status": "expected_failure",
+          "error": "2025-06-01 19:41:56,223 - oak-runner-cli - INFO - Fetching environment variable mappings...\n2025-06-01 19:41:56,223 - oak-runner-cli - INFO - Initializing runner with Arazzo file: workflow_c29e886c57f"
+        },
+        {
+          "command": "oak-runner generate-example --workflow-id c29e886c57f4d8d1b9628f3c4ad6c336 workflow_c29e886c57f4d8d1b9628f3c4ad6c336.arazzo",
+          "status": "expected_failure",
+          "error": "2025-06-01 19:41:56,378 - oak-runner-cli - ERROR - Failed to generate example: [Errno 2] No such file or directory: 'workflow_c29e886c57f4d8d1b9628f3c4ad6c336.arazzo'\nTraceback (most recent call last)"
+        }
+      ],
+      "oak_runner_compatible": false,
+      "execution_ready": false,
+      "environment_requirements": [],
+      "imagination_g_adaptable": true,
+      "transformation_potential": {
+        "matching_keywords": [
+          "metrics",
+          "performance"
+        ],
+        "drift_detection": true,
+        "team_management": false,
+        "progress_tracking": false
+      }
+    }
+  ],
+  "summary": {
+    "compatible_workflows": 4,
+    "oak_runner_ready": 0,
+    "transformation_ready": 4
+  },
+  "next_actions": [
+    "Download arazzo files for compatible workflows",
+    "Set up API authentication for target platforms",
+    "Create IMAGINATION G workflow adaptation templates",
+    "Build client demonstration environments"
+  ]
+}

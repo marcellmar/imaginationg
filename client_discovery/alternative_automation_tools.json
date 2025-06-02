@@ -1,0 +1,57 @@
+{
+  "data_providers": {
+    "zoominfo": {
+      "purpose": "Company and contact database",
+      "automation": "API for bulk company/contact lookup",
+      "ig_use_case": "Identify companies in $25M-$500M range with CEO contacts",
+      "cost": "$12K-$24K annually",
+      "automation_level": "High - API-driven bulk processing"
+    },
+    "apollo_io": {
+      "purpose": "B2B database and outreach platform",
+      "automation": "API + outreach automation",
+      "ig_use_case": "Find qualified prospects + automated email sequences",
+      "cost": "$4K-$8K annually",
+      "automation_level": "Very High - End-to-end automation"
+    },
+    "clearbit": {
+      "purpose": "Company enrichment and intelligence",
+      "automation": "Real-time API enrichment",
+      "ig_use_case": "Enrich discovered companies with qualification data",
+      "cost": "$6K-$12K annually",
+      "automation_level": "High - Real-time data enrichment"
+    }
+  },
+  "outreach_automation": {
+    "outreach_io": {
+      "purpose": "Sales automation and sequencing",
+      "automation": "Multi-channel outreach automation",
+      "ig_use_case": "Automated email/LinkedIn/phone sequences",
+      "cost": "$3K-$6K annually",
+      "automation_level": "Very High - Full sequence automation"
+    },
+    "lemlist": {
+      "purpose": "Cold email automation with personalization",
+      "automation": "Personalized email campaigns at scale",
+      "ig_use_case": "Personalized cold outreach to qualified prospects",
+      "cost": "$2K-$4K annually",
+      "automation_level": "High - Personalized automation"
+    }
+  },
+  "linkedin_automation": {
+    "phantombuster": {
+      "purpose": "LinkedIn and social media automation",
+      "automation": "LinkedIn connection and messaging automation",
+      "ig_use_case": "Connect with CEOs and send personalized messages",
+      "cost": "$1K-$2K annually",
+      "automation_level": "Very High - Full LinkedIn automation"
+    },
+    "meet_leonard": {
+      "purpose": "LinkedIn lead generation automation",
+      "automation": "Automated LinkedIn prospecting",
+      "ig_use_case": "Find and connect with target company leadership",
+      "cost": "$2K-$4K annually",
+      "automation_level": "High - LinkedIn-focused automation"
+    }
+  }
+}

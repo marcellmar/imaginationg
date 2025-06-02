@@ -69,9 +69,14 @@ const CheatSheetPage: NextPage = () => {
         <div className="max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-10">
             <Link href="/" className="inline-block text-xl font-bold">IMAGINATION G</Link>
-            <Link href="/" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
-              <span>←</span> Back to Home
-            </Link>
+            <div className="flex items-center gap-6">
+              <Link href="/weapons" className="text-gray-400 hover:text-white transition-colors">
+                Interventions
+              </Link>
+              <Link href="/" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
+                <span>←</span> Back to Home
+              </Link>
+            </div>
           </div>
           <div className="mb-10 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Drift → Movement Playbook</h1>

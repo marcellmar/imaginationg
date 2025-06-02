@@ -11,21 +11,21 @@ const DiagnosticPage = () => {
   const questions = [
     {
       id: 1,
-      title: "THE DECISION VELOCITY CHECK",
-      question: "How long since your last major decision?",
-      yesText: "THIS WEEK",
-      yesSubtext: "Decisions create momentum.",
-      noText: "STILL THINKING",
-      noSubtext: "Analysis paralysis is drift."
+      title: "THE AGENCY DETECTOR",
+      question: "Made a decision this week without external validation?",
+      yesText: "FULL AGENCY",
+      yesSubtext: "Internal signal clear.",
+      noText: "NEED VALIDATION",
+      noSubtext: "Outsourced your signal."
     },
     {
       id: 2,
-      title: "THE MEETING REALITY TEST",
+      title: "THE NOISE DETECTOR",
       question: "Do your meetings produce decisions or more meetings?",
-      yesText: "DECISIONS MADE",
-      yesSubtext: "Action follows words.",
-      noText: "MORE MEETINGS",
-      noSubtext: "Strategy theater in full swing."
+      yesText: "SIGNAL AMPLIFIED",
+      yesSubtext: "Clear moves from words.",
+      noText: "NOISE GENERATION",
+      noSubtext: "Optimization theater running."
     },
     {
       id: 3,
@@ -47,12 +47,12 @@ const DiagnosticPage = () => {
     },
     {
       id: 5,
-      title: "THE BINARY CHOICE TEST",
+      title: "THE OVERRIDE SCANNER",
       question: "Can you answer business questions with YES or NO?",
-      yesText: "CLEAR CHOICES",
-      yesSubtext: "Binary decisions drive progress.",
-      noText: "IT DEPENDS",
-      noSubtext: "Conditional thinking kills momentum."
+      yesText: "OVERRIDE MODE",
+      yesSubtext: "Binary signal processing.",
+      noText: "OPTIMIZE MODE",
+      noSubtext: "Conditional noise pattern."
     },
     {
       id: 6,
@@ -83,12 +83,12 @@ const DiagnosticPage = () => {
     },
     {
       id: 9,
-      title: "THE SHIPPING VELOCITY",
+      title: "THE FUNCTION DETECTOR",
       question: "Built and launched something in the last 30 days?",
-      yesText: "SHIPPED IT",
-      yesSubtext: "Ugly and live beats perfect and dead.",
-      noText: "STILL PERFECTING",
-      noSubtext: "Perfectionism is procrastination."
+      yesText: "FUNCTION SHIPPED",
+      yesSubtext: "Function over form executed.",
+      noText: "FORM OPTIMIZATION",
+      noSubtext: "Aesthetics over agency."
     },
     {
       id: 10,
@@ -196,8 +196,8 @@ const DiagnosticPage = () => {
     return (
       <>
         <Head>
-          <title>Drift Diagnostic | IMAGINATION G</title>
-          <meta name="description" content="How do I know if my business is drifting? Take our 60-second diagnostic to identify drift patterns and get prescribed action." />
+          <title>SIGNAL DETECTION | IMAGINATION G</title>
+          <meta name="description" content="Quick signal scan to detect buried truth vs optimization noise. Agency over aesthetics. Override over optimize." />
         </Head>
 
         <div className="min-h-screen bg-black text-white">
@@ -207,7 +207,7 @@ const DiagnosticPage = () => {
               <Link href="/" className="text-base font-black">IMAGINATION G</Link>
               <div className="flex items-center gap-8">
                 <Link href="/" className="text-sm hover:text-zinc-400">← Home</Link>
-                <Link href="/weapons" className="text-sm hover:text-zinc-400">Weapons</Link>
+                <Link href="/weapons" className="text-sm hover:text-zinc-400">Interventions</Link>
                 <Link href="/about" className="text-sm hover:text-zinc-400">About</Link>
                 <Link href="/diagnostic" className="bg-white text-black px-6 py-2 text-sm font-bold hover:bg-zinc-200 transition-colors">
                   Book a Call
@@ -218,24 +218,24 @@ const DiagnosticPage = () => {
 
           <div className="flex items-center justify-center min-h-screen px-6">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-6xl md:text-8xl font-black mb-4">DRIFT DIAGNOSTIC</h1>
-              <p className="text-2xl text-red-500 mb-8">2 minutes to expose organizational drift patterns.</p>
-              <p className="text-zinc-500 mb-16">12 questions. Binary choices. No escape routes.</p>
+              <h1 className="text-6xl md:text-8xl font-black mb-4">SIGNAL DETECTION</h1>
+              <p className="text-2xl text-red-500 mb-8">2 minutes to detect buried truth vs optimization noise.</p>
+              <p className="text-zinc-500 mb-16">12 signals. Binary choices. Override or optimize.</p>
 
               <div className="border-2 border-red-500 p-12 max-w-2xl mx-auto">
-                <h2 className="text-3xl font-black text-red-500 mb-6">COMPREHENSIVE DRIFT ANALYSIS</h2>
+                <h2 className="text-3xl font-black text-red-500 mb-6">COMPREHENSIVE SIGNAL SCAN</h2>
                 <div className="space-y-2 mb-8">
-                  <p className="text-lg">12 precision diagnostics.</p>
-                  <p className="text-lg">Binary decision patterns.</p>
-                  <p className="text-lg">Specific weapon prescribed.</p>
-                  <p className="text-lg">Immediate action plan.</p>
+                  <p className="text-lg">12 precision signal detectors.</p>
+                  <p className="text-lg">Binary truth patterns.</p>
+                  <p className="text-lg">Specific intervention prescribed.</p>
+                  <p className="text-lg">Override or optimize path.</p>
                 </div>
-                <p className="text-zinc-500 mb-8">Most people fail. You're probably one of them.</p>
+                <p className="text-zinc-500 mb-8">Most people optimize around the truth. You're probably one of them.</p>
                 <button
                   onClick={() => setStarted(true)}
                   className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 text-xl font-black transition-colors"
                 >
-                  FACE THE TRUTH
+                  DETECT SIGNAL
                 </button>
               </div>
             </div>
@@ -261,7 +261,7 @@ const DiagnosticPage = () => {
               <Link href="/" className="text-base font-black">IMAGINATION G</Link>
               <div className="flex items-center gap-8">
                 <Link href="/" className="text-sm hover:text-zinc-400">← Home</Link>
-                <Link href="/weapons" className="text-sm hover:text-zinc-400">Weapons</Link>
+                <Link href="/weapons" className="text-sm hover:text-zinc-400">Interventions</Link>
                 <Link href="/about" className="text-sm hover:text-zinc-400">About</Link>
                 <Link href="/diagnostic" className="bg-white text-black px-6 py-2 text-sm font-bold hover:bg-zinc-200 transition-colors">
                   Book a Call
@@ -272,7 +272,7 @@ const DiagnosticPage = () => {
 
           <div className="pt-32 pb-20 px-6">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-5xl md:text-7xl font-black mb-8">YOUR DRIFT SCORE</h1>
+              <h1 className="text-5xl md:text-7xl font-black mb-8">YOUR SIGNAL CLARITY</h1>
               
               <div className={`text-8xl md:text-9xl font-black mb-8 ${
                 driftScore >= 60 ? 'text-red-500' : 
@@ -283,41 +283,41 @@ const DiagnosticPage = () => {
               </div>
 
               <p className="text-2xl text-zinc-400 mb-16">
-                {driftScore >= 60 ? "You're drowning in drift. Time to move or die." :
-                 driftScore >= 40 ? "Warning signs everywhere. Pick your weapon now." :
-                 "Minor drift detected. Stay vigilant."}
+                {driftScore >= 60 ? "Signal buried under optimization noise. Override or optimize." :
+                 driftScore >= 40 ? "Signal distortion detected. Choose your intervention." :
+                 "Signal clarity maintained. Stay vigilant."}
               </p>
 
               <div className="border-2 border-red-500 p-12 mb-16">
-                <h2 className="text-3xl font-black text-red-500 mb-4">YOUR PRESCRIBED WEAPON:</h2>
+                <h2 className="text-3xl font-black text-red-500 mb-4">YOUR PRESCRIBED INTERVENTION:</h2>
                 <h3 className="text-5xl font-black mb-8">{recommendedWeapon}</h3>
                 <p className="text-xl text-zinc-400 mb-8">
-                  Based on your drift patterns, this is the intervention you need.
+                  Based on your signal patterns, this is the intervention you need.
                 </p>
                 <Link 
                   href={weaponUrl}
                   className="inline-block bg-red-500 hover:bg-red-600 text-white px-8 py-4 text-xl font-black transition-colors"
                 >
-                  DEPLOY THIS WEAPON →
+                  DEPLOY INTERVENTION →
                 </Link>
               </div>
 
               <div className="space-y-4 mb-16">
-                <h3 className="text-2xl font-black mb-8">YOUR IMMEDIATE ACTION PLAN:</h3>
+                <h3 className="text-2xl font-black mb-8">YOUR IMMEDIATE OVERRIDE:</h3>
                 {answers[1] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Make one major decision. Stop analyzing.</p>
+                  <p className="text-lg text-zinc-400">→ TODAY: Make one decision from internal signal. Stop external validation.</p>
                 )}
                 {answers[2] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Cancel one meeting. Make one decision instead.</p>
+                  <p className="text-lg text-zinc-400">→ TODAY: Cancel one optimization meeting. Make one override decision.</p>
                 )}
                 {answers[3] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Stop asking consultants. Trust your instincts.</p>
+                  <p className="text-lg text-zinc-400">→ TODAY: Stop outsourcing decisions. Trust your signal.</p>
                 )}
                 {answers[4] === 'no' && (
                   <p className="text-lg text-zinc-400">→ TODAY: Kill one initiative that doesn't make money.</p>
                 )}
                 {answers[5] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Answer three business questions with YES or NO only.</p>
+                  <p className="text-lg text-zinc-400">→ TODAY: Switch from optimize to override mode. Binary choices only.</p>
                 )}
                 {answers[6] === 'no' && (
                   <p className="text-lg text-zinc-400">→ TODAY: Spend more time doing than planning.</p>
@@ -329,7 +329,7 @@ const DiagnosticPage = () => {
                   <p className="text-lg text-zinc-400">→ TODAY: Kill one 'sacred' process that wastes time.</p>
                 )}
                 {answers[9] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Ship something ugly but functional.</p>
+                  <p className="text-lg text-zinc-400">→ TODAY: Ship function over form. Stop aesthetic optimization.</p>
                 )}
                 {answers[10] === 'no' && (
                   <p className="text-lg text-zinc-400">→ TODAY: Write your vision in 10 words. Then stick to it.</p>
@@ -384,7 +384,7 @@ const DiagnosticPage = () => {
             <Link href="/" className="text-base font-black">IMAGINATION G</Link>
             <div className="flex items-center gap-8">
               <Link href="/" className="text-sm hover:text-zinc-400">← Home</Link>
-              <Link href="/weapons" className="text-sm hover:text-zinc-400">Weapons</Link>
+              <Link href="/weapons" className="text-sm hover:text-zinc-400">Interventions</Link>
               <Link href="/about" className="text-sm hover:text-zinc-400">About</Link>
               <Link href="/diagnostic" className="bg-white text-black px-6 py-2 text-sm font-bold hover:bg-zinc-200 transition-colors">
                 Book a Call

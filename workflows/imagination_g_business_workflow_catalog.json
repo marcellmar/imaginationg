@@ -1,0 +1,143 @@
+{
+  "imagination_g_business_workflows": {
+    "downloaded_date": "2025-06-01T19:40:46.267642",
+    "jentic_uuid": "2f73eccc-e20d-450f-b59b-edb9c040a85b",
+    "total_discovered": 26,
+    "enterprise_areas_searched": [
+      "Salesforce CRM Automation",
+      "Microsoft Office 365 Integration",
+      "Slack Workspace Management",
+      "Asana Project Management",
+      "HubSpot Marketing Automation",
+      "Google Workspace Productivity",
+      "Jira Issue Tracking",
+      "Analytics and Reporting"
+    ],
+    "top_5_business_workflows": [
+      {
+        "id": "3275896f2e2d1ede6be5e29780f58563",
+        "summary": "configure-and-enable-data-export",
+        "description": "Sets up and enables continuous export of analytics or crash data to Azure Blob Storage or Application Insights.",
+        "api_name": "appcenter.ms",
+        "match_score": 0.6759189761901194,
+        "business_area": "Microsoft Office 365 Integration",
+        "business_relevance": 0.7759189761901194,
+        "keyword_bonus": 1
+      },
+      {
+        "id": "8ed40d73391b8ac39288d80d61d0673e",
+        "summary": "manage-organization-teams",
+        "description": "Creates a team within an organization, adds users and apps to it.",
+        "api_name": "appcenter.ms",
+        "match_score": 0.5881111253599336,
+        "business_area": "Microsoft Office 365 Integration",
+        "business_relevance": 0.6881111253599336,
+        "keyword_bonus": 1
+      },
+      {
+        "id": "5b5cd18e7145d99e3034dd53362da310",
+        "summary": "analyze-learner-engagement-in-channel",
+        "description": "Retrieves posts, comments, and replies for a specific channel within an offering to analyze learner interaction.",
+        "api_name": "iqualify.com",
+        "match_score": 0.6823988462209356,
+        "business_area": "HubSpot Marketing Automation",
+        "business_relevance": 0.6823988462209356,
+        "keyword_bonus": 0
+      },
+      {
+        "id": "ecb4db9b4a25e72a809a415f74cfc56c",
+        "summary": "invite-user-to-team",
+        "description": "Invites a user via email to join an existing team, and the user accepts the invitation.",
+        "api_name": "devopness.com",
+        "match_score": 0.6678502062603757,
+        "business_area": "Microsoft Office 365 Integration",
+        "business_relevance": 0.6678502062603757,
+        "keyword_bonus": 0
+      },
+      {
+        "id": "c29e886c57f4d8d1b9628f3c4ad6c336",
+        "summary": "generate-and-download-customer-service-metrics-report",
+        "description": "Creates a task to generate a customer service metrics report based on specified filters (metric type, marketplace, etc.), monitors task status, and downloads the report file upon completion. Helps sellers analyze their performance.",
+        "api_name": "ebay.com/sell-feed",
+        "match_score": 0.6603992581367493,
+        "business_area": "Salesforce CRM Automation",
+        "business_relevance": 0.6603992581367493,
+        "keyword_bonus": 0
+      }
+    ],
+    "workflow_execution_ready": true,
+    "business_areas_covered": [
+      "Salesforce CRM Automation",
+      "Microsoft Office 365 Integration",
+      "HubSpot Marketing Automation"
+    ],
+    "api_platforms_included": [
+      "devopness.com",
+      "ebay.com/sell-feed",
+      "iqualify.com",
+      "appcenter.ms"
+    ],
+    "execution_details": {
+      "workflows_downloaded": 5,
+      "execution_info_type": "<class 'dict'>",
+      "has_workflows": false,
+      "has_operations": false,
+      "has_files": false
+    }
+  },
+  "imagination_g_applications": {
+    "drift_diagnostic_automation": {
+      "description": "Use business workflows to automate organizational drift detection",
+      "applicable_workflows": [
+        {
+          "id": "3275896f2e2d1ede6be5e29780f58563",
+          "summary": "configure-and-enable-data-export",
+          "description": "Sets up and enables continuous export of analytics or crash data to Azure Blob Storage or Application Insights.",
+          "api_name": "appcenter.ms",
+          "match_score": 0.6759189761901194,
+          "business_area": "Microsoft Office 365 Integration",
+          "business_relevance": 0.7759189761901194,
+          "keyword_bonus": 1
+        },
+        {
+          "id": "c29e886c57f4d8d1b9628f3c4ad6c336",
+          "summary": "generate-and-download-customer-service-metrics-report",
+          "description": "Creates a task to generate a customer service metrics report based on specified filters (metric type, marketplace, etc.), monitors task status, and downloads the report file upon completion. Helps sellers analyze their performance.",
+          "api_name": "ebay.com/sell-feed",
+          "match_score": 0.6603992581367493,
+          "business_area": "Salesforce CRM Automation",
+          "business_relevance": 0.6603992581367493,
+          "keyword_bonus": 0
+        }
+      ],
+      "integration_approach": "Connect diagnostic questions to real business system APIs"
+    },
+    "weapon_deployment_tracking": {
+      "description": "Track intervention implementation through business system workflows",
+      "applicable_workflows": [
+        {
+          "id": "c29e886c57f4d8d1b9628f3c4ad6c336",
+          "summary": "generate-and-download-customer-service-metrics-report",
+          "description": "Creates a task to generate a customer service metrics report based on specified filters (metric type, marketplace, etc.), monitors task status, and downloads the report file upon completion. Helps sellers analyze their performance.",
+          "api_name": "ebay.com/sell-feed",
+          "match_score": 0.6603992581367493,
+          "business_area": "Salesforce CRM Automation",
+          "business_relevance": 0.6603992581367493,
+          "keyword_bonus": 0
+        }
+      ],
+      "integration_approach": "Monitor weapon deployment progress through existing business systems"
+    },
+    "client_onboarding_automation": {
+      "description": "Automate client system discovery and integration setup",
+      "applicable_workflows": [],
+      "integration_approach": "Streamline connection to client business platforms"
+    }
+  },
+  "next_steps": [
+    "Test business workflows locally with oak-runner",
+    "Map workflows to IMAGINATION G diagnostic questions",
+    "Create business transformation workflow templates",
+    "Build client demonstration scenarios with real business platforms"
+  ]
+}

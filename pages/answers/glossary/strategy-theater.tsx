@@ -211,10 +211,10 @@ export default function StrategyTheater() {
           <div className="mb-12">
             <h2 className="text-2xl font-black mb-6">THE IMAGINATION G ANTIDOTE</h2>
             <div className="border border-red-500 p-8">
-              <h3 className="text-xl font-bold mb-4">We kill strategy theater with confrontational clarity.</h3>
+              <h3 className="text-xl font-bold mb-4">We kill strategy theater with signal amplification.</h3>
               <p className="text-lg mb-6">
                 No frameworks. No consensus-building. No 12-week strategic planning processes. 
-                We name what you're avoiding, force the decision, and prescribe the weapon.
+                We surface what's buried, force the override, and prescribe the intervention.
               </p>
               <div className="bg-black border border-zinc-700 p-6">
                 <h4 className="font-bold mb-2 text-red-500">THE NAMING Session:</h4>
@@ -230,19 +230,19 @@ export default function StrategyTheater() {
           <div className="border border-zinc-800 p-8 text-center">
             <h3 className="text-2xl font-black mb-4">Done with the Performance?</h3>
             <p className="text-zinc-400 mb-6">
-              Stop performing strategy. Start making decisions. Get the confrontational clarity session that ends the theater.
+              Stop performing strategy. Start amplifying signal. Get the intervention that ends the theater.
             </p>
             <Link 
               href="/weapons/the-naming" 
               className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 transition-colors mr-4"
             >
-              END THE THEATER
+              DEPLOY INTERVENTION
             </Link>
             <Link 
               href="/answers/glossary/organizational-drift" 
               className="inline-block border border-red-500 text-red-500 hover:bg-red-500 hover:text-black font-bold py-3 px-8 transition-colors"
             >
-              UNDERSTAND THE PROBLEM
+              UNDERSTAND SIGNAL NOISE
             </Link>
           </div>
         </div>

@@ -38,7 +38,7 @@ const ThirtyDayDriftBreakPage: NextPage = () => {
             <Link href="/" className="text-xl font-black">IMAGINATION G</Link>
             <div className="flex items-center gap-6">
               <Link href="/" className="text-sm hover:text-zinc-400">← Home</Link>
-              <Link href="/weapons" className="text-sm hover:text-zinc-400">Weapons</Link>
+              <Link href="/weapons" className="text-sm hover:text-zinc-400">Interventions</Link>
               <Link href="/about" className="text-sm hover:text-zinc-400">About</Link>
               <Link href="/diagnostic" className="bg-white text-black px-4 py-2 text-sm font-bold hover:bg-zinc-200">
                 Book a Call
@@ -129,7 +129,7 @@ const ThirtyDayDriftBreakPage: NextPage = () => {
             {/* Warning Box */}
             <div className="bg-red-900 border border-red-500 p-8 mb-12">
               <h3 className="text-2xl font-black mb-4 text-red-500">WARNING:</h3>
-              <p className="text-white mb-2">This is our most lethal weapon.</p>
+              <p className="text-white mb-2">This is our most intensive intervention.</p>
               <p className="text-white mb-2">Most people quit by day 7.</p>
               <p className="text-white mb-2">The rest quit by day 14.</p>
               <p className="text-white font-bold">If you're going to quit, don't start.</p>
@@ -151,13 +151,13 @@ const ThirtyDayDriftBreakPage: NextPage = () => {
                 rel="noopener noreferrer"
                 className="inline-block bg-red-500 hover:bg-red-600 text-white px-12 py-6 text-2xl font-black transition-colors"
               >
-                START MOVING. OR STAY DEAD.
+                OVERRIDE NOW. OR OPTIMIZE FOREVER.
               </a>
             </div>
 
             {/* Next Weapon */}
             <div className="text-center text-zinc-600">
-              <p className="mb-4">Next weapon:</p>
+              <p className="mb-4">Next intervention:</p>
               <Link href="/weapons/first-blood-build" className="text-white hover:text-zinc-400 transition-colors">
                 FIRST BLOOD BUILD →
               </Link>

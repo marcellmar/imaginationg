@@ -1,0 +1,149 @@
+{
+  "oak_runner_jentic_integration": {
+    "overview": "Local workflow execution for IMAGINATION G business transformation",
+    "discovered_workflows": [
+      {
+        "id": "7f722082379e18e45c2c3ffcd95661dc",
+        "summary": "track-customer-service-metric-trend",
+        "description": "Compares the seller's current official customer service metric rating with the projected rating for a specific metric type (e.g., 'Item Not As Described') to understand performance trends.",
+        "api_name": "ebay.com/sell-analytics",
+        "match_score": 0.5045377018772177
+      },
+      {
+        "id": "9d01a2ec2dc9e8ce9f0ed10d86415d04",
+        "summary": "automate-deployment-with-incoming-hook",
+        "description": "Creates a pipeline for an application deployment, adds an incoming hook to trigger it, and then triggers the hook.",
+        "api_name": "devopness.com",
+        "match_score": 0.5044296979904139
+      },
+      {
+        "id": "c11ab52e8ac4e70c8028696dab9edc03",
+        "summary": "configure-project-issue-security",
+        "description": "Creates an issue security scheme, adds security levels to it, assigns members to those levels, and finally associates the scheme with a project.",
+        "api_name": "atlassian.com/jira",
+        "match_score": 0.5183672452459541
+      },
+      {
+        "id": "8a23378916da773038ef0608afbbaa8c",
+        "summary": "manage-project-brief",
+        "description": "Creates a project brief for an existing project to document its goals and scope, and then updates it.",
+        "api_name": "asana.com",
+        "match_score": 0.5272448344680758
+      },
+      {
+        "id": "3b6ca208183779ed9cfafbcc0b72bcf8",
+        "summary": "initial-project-and-environment-setup",
+        "description": "Creates a new project and then adds a specific environment (e.g., staging) to that project.",
+        "api_name": "devopness.com",
+        "match_score": 0.530773043632504
+      }
+    ],
+    "execution_strategy": {
+      "workflow_development_cycle": {
+        "step_1_discovery": "Use jentic to find relevant business APIs and workflows",
+        "step_2_download": "Download workflow execution files through jentic",
+        "step_3_local_testing": "Test workflows locally with oak-runner",
+        "step_4_customization": "Adapt workflows for IMAGINATION G use cases",
+        "step_5_client_deployment": "Deploy tested workflows to client environments"
+      },
+      "imagination_g_applications": {
+        "drift_diagnostic_automation": {
+          "description": "Automate data collection for organizational drift assessment",
+          "local_testing": "Test API integrations with client systems using oak-runner",
+          "workflows_needed": [
+            "Project management APIs",
+            "Analytics APIs",
+            "Communication APIs"
+          ],
+          "oak_runner_benefits": [
+            "Safe testing",
+            "Rapid iteration",
+            "No cloud dependencies"
+          ]
+        },
+        "weapon_deployment_automation": {
+          "description": "Automate implementation of business transformation interventions",
+          "local_testing": "Validate intervention workflows before client deployment",
+          "workflows_needed": [
+            "Task automation",
+            "Progress tracking",
+            "Reporting APIs"
+          ],
+          "oak_runner_benefits": [
+            "Proven reliability",
+            "Client confidence",
+            "Risk reduction"
+          ]
+        },
+        "client_onboarding_automation": {
+          "description": "Streamline process of connecting to client systems",
+          "local_testing": "Test integration workflows with common business platforms",
+          "workflows_needed": [
+            "Authentication flows",
+            "Data discovery",
+            "Permission setup"
+          ],
+          "oak_runner_benefits": [
+            "Standardized process",
+            "Faster deployment",
+            "Reduced errors"
+          ]
+        }
+      }
+    },
+    "workflow_library_plan": {
+      "drift_detection_workflows": {
+        "decision_velocity_tracker": "Monitor project management APIs for decision speed",
+        "meeting_efficiency_analyzer": "Track calendar/communication APIs for meeting outcomes",
+        "consultant_dependency_monitor": "Analyze expense/vendor APIs for external reliance",
+        "binary_choice_assessor": "Evaluate decision patterns through workflow analysis"
+      },
+      "intervention_workflows": {
+        "clarity_catalyst_automation": "Automate scheduling and tracking of clarity sessions",
+        "drift_break_monitoring": "Track 30-day momentum building activities",
+        "market_smackdown_execution": "Automate market analysis and competitive positioning",
+        "movement_architecture_deployment": "Systematic implementation of organizational change"
+      },
+      "authority_building_workflows": {
+        "case_study_data_collection": "Automated gathering of transformation metrics",
+        "progress_reporting": "Real-time client dashboard and report generation",
+        "research_data_aggregation": "Compile anonymized insights across client base",
+        "thought_leadership_content": "Generate content from workflow execution data"
+      }
+    },
+    "immediate_implementation_steps": [
+      "Set up local oak-runner testing environment",
+      "Download sample workflows through jentic for common business APIs",
+      "Test local execution with oak-runner",
+      "Create IMAGINATION G workflow templates",
+      "Build client demonstration scenarios"
+    ]
+  },
+  "technical_setup": {
+    "requirements": [
+      "Python 3.10+",
+      "jentic SDK",
+      "oak-runner CLI"
+    ],
+    "environment_setup": [
+      "pip install jentic oak-runner",
+      "export JENTIC_UUID=2f73eccc-e20d-450f-b59b-edb9c040a85b",
+      "Create workflow testing directory",
+      "Set up API authentication templates"
+    ],
+    "testing_workflow": [
+      "1. Discover workflows with jentic",
+      "2. Download execution files",
+      "3. Test locally with oak-runner",
+      "4. Customize for IMAGINATION G",
+      "5. Deploy to client environment"
+    ]
+  },
+  "business_value": {
+    "risk_reduction": "Test all workflows locally before client deployment",
+    "faster_development": "Rapid prototyping and iteration of business automation",
+    "client_confidence": "Demonstrate proven workflows before implementation",
+    "cost_effectiveness": "Local testing reduces cloud costs and dependencies",
+    "scalability": "Build reusable workflow library for all clients"
+  }
+}

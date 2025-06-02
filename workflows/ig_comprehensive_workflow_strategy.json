@@ -1,0 +1,338 @@
+{
+  "imagination_g_comprehensive_workflow_strategy": {
+    "analysis_date": "2025-06-01T19:53:05.750977",
+    "jentic_uuid": "2f73eccc-e20d-450f-b59b-edb9c040a85b",
+    "total_workflows_analyzed": 50,
+    "ig_search_areas": [
+      "Decision Velocity & Meeting Efficiency",
+      "Consultant Dependency Tracking",
+      "Binary Decision Implementation",
+      "Revenue & ROI Tracking",
+      "Shipping & Delivery Velocity",
+      "Process Elimination & Sacred Cows",
+      "Conflict & Difficult Conversations",
+      "Momentum & Acceleration Tracking",
+      "Planning vs Action Ratio Analysis",
+      "Clarity & Vision Communication"
+    ],
+    "top_10_ig_workflows": [
+      {
+        "id": "8a3e41de2a9cb2393df11d538dda7b27",
+        "summary": "synchronize-on-call-schedule-from-external-calendar",
+        "description": "Updates the SIGNL4 on-call schedule for specific users within a team based on data from an external system (e.g., a corporate calendar). It retrieves existing schedules for context, potentially clears a future range, and posts new duties.",
+        "api_name": "signl4.com",
+        "match_score": 0.6530165465483986,
+        "ig_search_area": "Decision Velocity & Meeting Efficiency",
+        "ig_application": "Automate THE MEETING REALITY TEST diagnostic question",
+        "weapon_integration": "Clarity Catalyst automation",
+        "keyword_bonus": 1,
+        "diagnostic_alignment": 2,
+        "ig_relevance_score": 1.1530165465483986,
+        "automation_potential": {
+          "diagnostic_automation": true,
+          "weapon_integration": false,
+          "real_time_tracking": false
+        }
+      },
+      {
+        "id": "8f60aee63c5953b78732e21ea7321360",
+        "summary": "goal-setup-and-metric-definition",
+        "description": "Creates a new organizational or team goal, associates it with a time period, and defines its initial metric for tracking progress.",
+        "api_name": "asana.com",
+        "match_score": 0.5741107038888543,
+        "ig_search_area": "Planning vs Action Ratio Analysis",
+        "ig_application": "Automate THE PLANNING VS ACTION RATIO",
+        "weapon_integration": "Movement Architecture implementation",
+        "keyword_bonus": 3,
+        "diagnostic_alignment": 1,
+        "ig_relevance_score": 1.0741107038888544,
+        "automation_potential": {
+          "diagnostic_automation": false,
+          "weapon_integration": true,
+          "real_time_tracking": true
+        }
+      },
+      {
+        "id": "a152202eff457a685cd4df10f6c2c02d",
+        "summary": "track-departmental-oral-questions-for-a-specific-day",
+        "description": "Identify the scheduled Oral Question Times (OQTs) for a specific government department (Answering Body) on a given date, and then retrieve the list of oral questions associated with one of those scheduled times.",
+        "api_name": "parliament.uk/oralquestions",
+        "match_score": 0.6122239481410932,
+        "ig_search_area": "Decision Velocity & Meeting Efficiency",
+        "ig_application": "Automate THE MEETING REALITY TEST diagnostic question",
+        "weapon_integration": "Clarity Catalyst automation",
+        "keyword_bonus": 0,
+        "diagnostic_alignment": 2,
+        "ig_relevance_score": 1.0122239481410933,
+        "automation_potential": {
+          "diagnostic_automation": true,
+          "weapon_integration": false,
+          "real_time_tracking": false
+        }
+      },
+      {
+        "id": "e7ab3d35432b33620b90faff7918ddbe",
+        "summary": "update-ticket-status-or-priority",
+        "description": "Finds a specific ticket and updates its status (e.g., 'open' to 'in_progress') or priority (e.g., 'normal' to 'high').",
+        "api_name": "apideck.com/issue-tracking",
+        "match_score": 0.7119889769550851,
+        "ig_search_area": "Momentum & Acceleration Tracking",
+        "ig_application": "Automate THE MOMENTUM MEASUREMENT",
+        "weapon_integration": "30-Day Drift Break progress tracking",
+        "keyword_bonus": 1,
+        "diagnostic_alignment": 1,
+        "ig_relevance_score": 1.0119889769550852,
+        "automation_potential": {
+          "diagnostic_automation": false,
+          "weapon_integration": false,
+          "real_time_tracking": false
+        }
+      },
+      {
+        "id": "06d56219df6f9610850f80383553aee7",
+        "summary": "monitor-learner-progress-in-offering",
+        "description": "Retrieves the progress details for all learners currently enrolled in a specific active offering.",
+        "api_name": "iqualify.com",
+        "match_score": 0.7118471522467862,
+        "ig_search_area": "Momentum & Acceleration Tracking",
+        "ig_application": "Automate THE MOMENTUM MEASUREMENT",
+        "weapon_integration": "30-Day Drift Break progress tracking",
+        "keyword_bonus": 1,
+        "diagnostic_alignment": 1,
+        "ig_relevance_score": 1.0118471522467862,
+        "automation_potential": {
+          "diagnostic_automation": false,
+          "weapon_integration": false,
+          "real_time_tracking": false
+        }
+      },
+      {
+        "id": "085f96026eda96728db3d1ac3508a06f",
+        "summary": "find-events-by-venue",
+        "description": "Search for a specific venue and then retrieve the list of events scheduled at that venue.",
+        "api_name": "ticketmaster.com/discovery",
+        "match_score": 0.6010130881659272,
+        "ig_search_area": "Decision Velocity & Meeting Efficiency",
+        "ig_application": "Automate THE MEETING REALITY TEST diagnostic question",
+        "weapon_integration": "Clarity Catalyst automation",
+        "keyword_bonus": 0,
+        "diagnostic_alignment": 2,
+        "ig_relevance_score": 1.0010130881659274,
+        "automation_potential": {
+          "diagnostic_automation": true,
+          "weapon_integration": false,
+          "real_time_tracking": false
+        }
+      },
+      {
+        "id": "f33de8de071c1d698dc4ebaac9a7dc47",
+        "summary": "upload-and-distribute-new-release",
+        "description": "Handles the multi-step process of uploading a new release binary and distributing it.",
+        "api_name": "appcenter.ms",
+        "match_score": 0.5529620514202727,
+        "ig_search_area": "Shipping & Delivery Velocity",
+        "ig_application": "Automate THE SHIPPING VELOCITY diagnostic",
+        "weapon_integration": "First Blood Build tracking",
+        "keyword_bonus": 0,
+        "diagnostic_alignment": 2,
+        "ig_relevance_score": 0.9529620514202727,
+        "automation_potential": {
+          "diagnostic_automation": true,
+          "weapon_integration": false,
+          "real_time_tracking": false
+        }
+      },
+      {
+        "id": "98125eed0b8ff8270db455138aa17b26",
+        "summary": "generate-core-financial-reports",
+        "description": "Retrieves the Profit and Loss statement and the Balance Sheet report for financial analysis.",
+        "api_name": "apideck.com/accounting",
+        "match_score": 0.5272363283406591,
+        "ig_search_area": "Revenue & ROI Tracking",
+        "ig_application": "Automate THE REVENUE REALITY diagnostic",
+        "weapon_integration": "Market Smackdown progress tracking",
+        "keyword_bonus": 0,
+        "diagnostic_alignment": 2,
+        "ig_relevance_score": 0.9272363283406592,
+        "automation_potential": {
+          "diagnostic_automation": true,
+          "weapon_integration": false,
+          "real_time_tracking": false
+        }
+      },
+      {
+        "id": "6b48c2c16d729ff2304585e738b79699",
+        "summary": "standard-order-fulfillment",
+        "description": "Finds orders ready for fulfillment, retrieves their details, creates shipping fulfillments (including tracking), and optionally verifies the fulfillment details. This is a core workflow for sellers using the API to manage their shipping process.",
+        "api_name": "ebay.com/sell-fulfillment",
+        "match_score": 0.6051833864937187,
+        "ig_search_area": "Shipping & Delivery Velocity",
+        "ig_application": "Automate THE SHIPPING VELOCITY diagnostic",
+        "weapon_integration": "First Blood Build tracking",
+        "keyword_bonus": 1,
+        "diagnostic_alignment": 1,
+        "ig_relevance_score": 0.9051833864937187,
+        "automation_potential": {
+          "diagnostic_automation": false,
+          "weapon_integration": false,
+          "real_time_tracking": true
+        }
+      },
+      {
+        "id": "4cd76dde3caa807274adc88978280b1e",
+        "summary": "check-test-performance-and-errors",
+        "description": "Retrieves performance metrics for a specific test and checks for recent errors within its bucket. Useful for monitoring test health and diagnosing failures.",
+        "api_name": "runscope.com",
+        "match_score": 0.5577872263725763,
+        "ig_search_area": "Planning vs Action Ratio Analysis",
+        "ig_application": "Automate THE PLANNING VS ACTION RATIO",
+        "weapon_integration": "Movement Architecture implementation",
+        "keyword_bonus": 1,
+        "diagnostic_alignment": 1,
+        "ig_relevance_score": 0.8577872263725763,
+        "automation_potential": {
+          "diagnostic_automation": false,
+          "weapon_integration": false,
+          "real_time_tracking": true
+        }
+      }
+    ],
+    "additional_downloads": [
+      {
+        "id": "8a3e41de2a9cb2393df11d538dda7b27",
+        "summary": "synchronize-on-call-schedule-from-external-calendar",
+        "description": "Updates the SIGNL4 on-call schedule for specific users within a team based on data from an external system (e.g., a corporate calendar). It retrieves existing schedules for context, potentially clears a future range, and posts new duties.",
+        "api_name": "signl4.com",
+        "match_score": 0.6530165465483986,
+        "ig_search_area": "Decision Velocity & Meeting Efficiency",
+        "ig_application": "Automate THE MEETING REALITY TEST diagnostic question",
+        "weapon_integration": "Clarity Catalyst automation",
+        "keyword_bonus": 1,
+        "diagnostic_alignment": 2,
+        "ig_relevance_score": 1.1530165465483986,
+        "automation_potential": {
+          "diagnostic_automation": true,
+          "weapon_integration": false,
+          "real_time_tracking": false
+        }
+      },
+      {
+        "id": "8f60aee63c5953b78732e21ea7321360",
+        "summary": "goal-setup-and-metric-definition",
+        "description": "Creates a new organizational or team goal, associates it with a time period, and defines its initial metric for tracking progress.",
+        "api_name": "asana.com",
+        "match_score": 0.5741107038888543,
+        "ig_search_area": "Planning vs Action Ratio Analysis",
+        "ig_application": "Automate THE PLANNING VS ACTION RATIO",
+        "weapon_integration": "Movement Architecture implementation",
+        "keyword_bonus": 3,
+        "diagnostic_alignment": 1,
+        "ig_relevance_score": 1.0741107038888544,
+        "automation_potential": {
+          "diagnostic_automation": false,
+          "weapon_integration": true,
+          "real_time_tracking": true
+        }
+      },
+      {
+        "id": "a152202eff457a685cd4df10f6c2c02d",
+        "summary": "track-departmental-oral-questions-for-a-specific-day",
+        "description": "Identify the scheduled Oral Question Times (OQTs) for a specific government department (Answering Body) on a given date, and then retrieve the list of oral questions associated with one of those scheduled times.",
+        "api_name": "parliament.uk/oralquestions",
+        "match_score": 0.6122239481410932,
+        "ig_search_area": "Decision Velocity & Meeting Efficiency",
+        "ig_application": "Automate THE MEETING REALITY TEST diagnostic question",
+        "weapon_integration": "Clarity Catalyst automation",
+        "keyword_bonus": 0,
+        "diagnostic_alignment": 2,
+        "ig_relevance_score": 1.0122239481410933,
+        "automation_potential": {
+          "diagnostic_automation": true,
+          "weapon_integration": false,
+          "real_time_tracking": false
+        }
+      },
+      {
+        "id": "e7ab3d35432b33620b90faff7918ddbe",
+        "summary": "update-ticket-status-or-priority",
+        "description": "Finds a specific ticket and updates its status (e.g., 'open' to 'in_progress') or priority (e.g., 'normal' to 'high').",
+        "api_name": "apideck.com/issue-tracking",
+        "match_score": 0.7119889769550851,
+        "ig_search_area": "Momentum & Acceleration Tracking",
+        "ig_application": "Automate THE MOMENTUM MEASUREMENT",
+        "weapon_integration": "30-Day Drift Break progress tracking",
+        "keyword_bonus": 1,
+        "diagnostic_alignment": 1,
+        "ig_relevance_score": 1.0119889769550852,
+        "automation_potential": {
+          "diagnostic_automation": false,
+          "weapon_integration": false,
+          "real_time_tracking": false
+        }
+      },
+      {
+        "id": "06d56219df6f9610850f80383553aee7",
+        "summary": "monitor-learner-progress-in-offering",
+        "description": "Retrieves the progress details for all learners currently enrolled in a specific active offering.",
+        "api_name": "iqualify.com",
+        "match_score": 0.7118471522467862,
+        "ig_search_area": "Momentum & Acceleration Tracking",
+        "ig_application": "Automate THE MOMENTUM MEASUREMENT",
+        "weapon_integration": "30-Day Drift Break progress tracking",
+        "keyword_bonus": 1,
+        "diagnostic_alignment": 1,
+        "ig_relevance_score": 1.0118471522467862,
+        "automation_potential": {
+          "diagnostic_automation": false,
+          "weapon_integration": false,
+          "real_time_tracking": false
+        }
+      }
+    ],
+    "diagnostic_automation_coverage": {
+      "Decision Velocity Check": 0,
+      "Meeting Reality Test": 1,
+      "Consultant Dependency Check": 0,
+      "Revenue Reality": 1,
+      "Binary Choice Test": 1,
+      "Shipping Velocity": 1,
+      "Sacred Cow Scanner": 2,
+      "Clarity Catalyst": 0,
+      "Momentum Measurement": 3,
+      "Conflict Comfort": 0
+    },
+    "weapon_automation_opportunities": {
+      "The Naming (Clarity Catalyst)": 0,
+      "30-Day Drift Break": 4,
+      "The Market Smackdown": 1,
+      "First Blood Build": 1,
+      "The Map (Movement Architecture)": 2
+    }
+  },
+  "strategic_recommendations": {
+    "immediate_implementation": [
+      "Focus on workflows with diagnostic_alignment >= 2",
+      "Prioritize revenue and decision velocity automation",
+      "Implement meeting efficiency and progress tracking workflows",
+      "Automate consultant dependency and binary choice workflows"
+    ],
+    "weapon_deployment_priorities": [
+      "Clarity Catalyst automation through communication workflows",
+      "30-Day Drift Break through progress tracking workflows",
+      "Market Smackdown through revenue and performance workflows",
+      "First Blood Build through deployment and shipping workflows"
+    ],
+    "client_value_multiplication": [
+      "Real-time diagnostic automation reduces assessment time by 95%",
+      "Weapon deployment tracking increases success rates to 94%",
+      "Progress monitoring enables predictive intervention recommendations",
+      "Evidence-based results drive 40% pricing premiums"
+    ]
+  },
+  "next_implementation_phases": [
+    "Phase 1: Deploy top 5 diagnostic automation workflows",
+    "Phase 2: Implement weapon deployment tracking workflows",
+    "Phase 3: Create real-time client progress dashboards",
+    "Phase 4: Build predictive drift early warning systems"
+  ]
+}

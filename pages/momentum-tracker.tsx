@@ -21,6 +21,9 @@ const MomentumTrackerPage = () => {
               <Link href="/" className="text-gray-400 hover:text-white transition-colors">
                 Home
               </Link>
+              <Link href="/weapons" className="text-gray-400 hover:text-white transition-colors">
+                Interventions
+              </Link>
               <span className="text-gray-600">|</span>
               <Link href="/momentum-hub" className="text-gray-400 hover:text-white transition-colors">
                 Client Hub

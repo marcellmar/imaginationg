@@ -6,7 +6,7 @@ export default function AnswersHub() {
     <>
       <Head>
         <title>Business Questions Answered | IMAGINATION G</title>
-        <meta name="description" content="Get direct answers to your business questions. No fluff, no consulting theater - just brutal truth about organizational drift, movement architecture, and business transformation." />
+        <meta name="description" content="Get direct answers to your business questions. No fluff, no optimization theater - just brutal truth about signal amplification, override protocols, and business transformation." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
           type="application/ld+json"
@@ -37,8 +37,8 @@ export default function AnswersHub() {
               ANSWERS
             </h1>
             <p className="text-xl text-zinc-400 max-w-2xl">
-              Your business questions answered. No fluff. No consulting theater. 
-              Just brutal truth about what's broken and how to fix it.
+              Your business questions answered. No fluff. No optimization theater. 
+              Just brutal truth about what's buried and how to surface it.
             </p>
           </div>
 
@@ -120,15 +120,15 @@ export default function AnswersHub() {
 
           {/* CTA */}
           <div className="border border-zinc-800 p-8 text-center">
-            <h3 className="text-2xl font-black mb-4">Still Drifting?</h3>
+            <h3 className="text-2xl font-black mb-4">Signal Still Buried?</h3>
             <p className="text-zinc-400 mb-6">
-              Take the diagnostic. Get your prescribed weapon. Stop asking questions and start moving.
+              Detect your signal clarity. Get your prescribed intervention. Stop optimizing and start overriding.
             </p>
             <Link 
               href="/diagnostic" 
               className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 transition-colors"
             >
-              DIAGNOSE YOUR DRIFT
+              DETECT SIGNAL
             </Link>
           </div>
         </div>
