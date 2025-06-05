@@ -1,170 +1,294 @@
-import Head from 'next/head';
+import type { NextPage } from 'next';
 import Link from 'next/link';
+import SEOHead from '../../components/SEOHead';
+import Navigation from '../../components/Navigation';
+import RelatedContent from '../../components/RelatedContent';
+import { ArrowRight } from 'lucide-react';
 
-export default function AnswersHub() {
+const AnswersHub: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>Business Questions Answered | IMAGINATION G</title>
-        <meta name="description" content="Get direct answers to your business questions. No fluff, no optimization theater - just brutal truth about signal amplification, override protocols, and business transformation." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "name": "Business Questions Answered",
-              "description": "Direct answers to business transformation questions",
-              "publisher": {
-                "@type": "Organization",
-                "name": "IMAGINATION G",
-                "url": "https://www.imaginationg.studio"
-              }
-            })
-          }}
-        />
-      </Head>
+      <SEOHead
+        title="Business Questions Answered | IMAGINATION G"
+        description="Get direct answers to your business questions. No fluff, no optimization theater - just brutal truth about signal amplification, override protocols, and business transformation."
+        ogImage="/images/og-answers.svg"
+      />
 
       <div className="min-h-screen bg-black text-white">
-        <div className="max-w-4xl mx-auto px-6 py-16">
-          {/* Header */}
-          <div className="mb-16">
-            <Link href="/" className="text-red-500 text-sm font-bold mb-4 block">
-              ← BACK TO IMAGINATION G
-            </Link>
-            <h1 className="text-4xl md:text-6xl font-black mb-6">
-              ANSWERS
-            </h1>
-            <p className="text-xl text-zinc-400 max-w-2xl">
-              Business dysfunction decoded. No MBA speak. No optimization theater. 
-              Just buried truths about why organizations fail and how signal gets corrupted.
-            </p>
-          </div>
+        <Navigation currentPage="answers" />
 
-          {/* Categories */}
-          <div className="space-y-8 mb-16">
-            {/* Core Concepts */}
-            <div className="border border-zinc-800 p-8">
-              <h2 className="text-2xl font-black mb-4 text-red-500">CORE CONCEPTS</h2>
-              <p className="text-zinc-400 mb-6">
-                The fundamental forces that kill organizations. What others won't tell you.
-              </p>
-              <div className="grid md:grid-cols-2 gap-3">
-                <Link href="/answers/glossary/signal-corruption" className="block text-sm hover:text-red-500">
-                  → Signal Corruption: Why good people amplify noise
-                </Link>
-                <Link href="/answers/glossary/function-allergy" className="block text-sm hover:text-red-500">
-                  → Function Allergy: Why organizations reject delivery
-                </Link>
-                <Link href="/answers/glossary/aesthetic-addiction" className="block text-sm hover:text-red-500">
-                  → Aesthetic Addiction: The optimization drug
-                </Link>
-                <Link href="/answers/glossary/consensus-trap" className="block text-sm hover:text-red-500">
-                  → The Consensus Trap: How agreement kills truth
-                </Link>
-                <Link href="/answers/glossary/validation-industrial-complex" className="block text-sm hover:text-red-500">
-                  → Validation Industrial Complex: The decision avoidance industry
-                </Link>
-                <Link href="/answers/glossary/agency-deficit-disorder" className="block text-sm hover:text-red-500">
-                  → Agency Deficit Disorder: The real pandemic
-                </Link>
+        {/* Hero Section */}
+        <section className="pt-24 pb-16 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-4xl">
+              {/* System Status Badge */}
+              <div className="inline-block mb-8 text-green-400 text-xs font-mono bg-zinc-950 border border-zinc-800 px-4 py-2 rounded-full">
+                <span className="inline-block w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                KNOWLEDGE: ACCESSIBLE
               </div>
-            </div>
 
-            {/* System Dynamics */}
-            <div className="border border-zinc-800 p-8">
-              <h2 className="text-2xl font-black mb-4 text-yellow-500">SYSTEM DYNAMICS</h2>
-              <p className="text-zinc-400 mb-6">
-                How dysfunction spreads and truth degrades in organizations.
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
+                ANSWERS<span className="text-red-600">.</span>
+              </h1>
+              
+              <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
+                Business dysfunction decoded. No MBA speak. No optimization theater. 
+                Just buried truths about why organizations fail and how signal gets corrupted.
               </p>
-              <div className="grid md:grid-cols-2 gap-3">
-                <Link href="/answers/glossary/signal-decay-theory" className="block text-sm hover:text-yellow-500">
-                  → Signal Decay Theory: The mathematics of truth degradation
-                </Link>
-                <Link href="/answers/glossary/competence-paradox" className="block text-sm hover:text-yellow-500">
-                  → The Competence Paradox: Why good people build bad systems
-                </Link>
-                <Link href="/answers/glossary/organizational-drift" className="block text-sm hover:text-yellow-500">
-                  → Organizational Drift: Signal noise overwhelming truth
-                </Link>
-                <Link href="/answers/glossary/strategy-theater" className="block text-sm hover:text-yellow-500">
-                  → Strategy Theater: Optimization performance without function
-                </Link>
-              </div>
-            </div>
-
-            {/* Signal Architecture */}
-            <div className="border border-zinc-800 p-8">
-              <h2 className="text-2xl font-black mb-4 text-green-500">SIGNAL ARCHITECTURE</h2>
-              <p className="text-zinc-400 mb-6">
-                How to amplify truth and deliver function in dysfunctional systems.
-              </p>
-              <div className="grid md:grid-cols-2 gap-3">
-                <Link href="/answers/glossary/movement-architecture" className="block text-sm hover:text-green-500">
-                  → Signal Architecture: Truth amplification systems
-                </Link>
-                <Link href="/answers/glossary/clarity-catalyst" className="block text-sm hover:text-green-500">
-                  → Signal Catalyst: Human signal amplification
-                </Link>
-                <Link href="/answers/guides/clarity-ritual" className="block text-sm hover:text-green-500">
-                  → The Signal Ritual: Stop optimization theater forever
-                </Link>
-              </div>
             </div>
           </div>
+        </section>
 
-          {/* Featured Insights */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-black mb-8 text-center">BURIED TRUTHS MOST CONSULTANTS WON'T TELL YOU</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="border border-red-500 p-6">
-                <h3 className="font-bold text-red-500 mb-3">Why Good People Create Bad Systems</h3>
-                <p className="text-sm text-zinc-400 mb-4">
-                  The most competent individuals often build the most dysfunctional organizations through complexity bias and dependency creation.
+        {/* Quick Answer Box */}
+        <section className="py-16 px-6 bg-zinc-950 border-t border-zinc-900">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-4xl">
+              <div className="bg-black border-2 border-red-600 p-8">
+                <h2 className="text-2xl font-black mb-4 text-red-600">WHAT MAKES IMAGINATION G DIFFERENT?</h2>
+                <p className="text-lg">
+                  We use proprietary behavioral markers (Nexel, Morrin, Strune) to decode dysfunction patterns 
+                  that traditional consultants can't see. We don't optimize—we override.
                 </p>
-                <Link href="/answers/glossary/competence-paradox" className="text-red-500 text-xs hover:underline">
-                  → Read The Competence Paradox
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* IG Lexicon Section */}
+        <section className="py-16 px-6 border-t border-zinc-900">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-4xl">
+              <div className="border-4 border-red-600 p-12 bg-zinc-950">
+                <h2 className="text-3xl font-black mb-6 text-red-600">IG LEXICON: BEHAVIORAL PHYSICS</h2>
+                <p className="text-lg text-zinc-300 mb-8">
+                  <span className="text-red-600 font-bold">TL;DR:</span> Traditional business language describes symptoms. 
+                  Our lexicon names the actual forces. These terms are untranslatable—and uncopiable.
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    <Link href="/answers/glossary/nexel" className="block border-2 border-zinc-800 p-6 hover:border-red-600 transition-all group">
+                      <h3 className="font-black text-xl text-red-600 mb-2 group-hover:text-white transition-colors">
+                        Nexel <ArrowRight className="inline ml-2" size={16} />
+                      </h3>
+                      <p className="text-zinc-400">Your behavioral identity marker. How you move through constraint.</p>
+                    </Link>
+                    
+                    <Link href="/answers/glossary/morrin" className="block border-2 border-zinc-800 p-6 hover:border-red-600 transition-all group">
+                      <h3 className="font-black text-xl text-red-600 mb-2 group-hover:text-white transition-colors">
+                        Morrin <ArrowRight className="inline ml-2" size={16} />
+                      </h3>
+                      <p className="text-zinc-400">Post-choice existence. The moment aligned action begins.</p>
+                    </Link>
+                    
+                    <Link href="/answers/glossary/strune" className="block border-2 border-zinc-800 p-6 hover:border-red-600 transition-all group">
+                      <h3 className="font-black text-xl text-red-600 mb-2 group-hover:text-white transition-colors">
+                        Strune <ArrowRight className="inline ml-2" size={16} />
+                      </h3>
+                      <p className="text-zinc-400">When movement creates its own resistance. The pattern trap.</p>
+                    </Link>
+                    
+                    <Link href="/answers/glossary/pilor" className="block border-2 border-zinc-800 p-6 hover:border-red-600 transition-all group">
+                      <h3 className="font-black text-xl text-red-600 mb-2 group-hover:text-white transition-colors">
+                        Pilor <ArrowRight className="inline ml-2" size={16} />
+                      </h3>
+                      <p className="text-zinc-400">Recursive failure loops. Systems optimizing for dysfunction.</p>
+                    </Link>
+                    
+                    <Link href="/answers/glossary/kithara" className="block border-2 border-zinc-800 p-6 hover:border-red-600 transition-all group">
+                      <h3 className="font-black text-xl text-red-600 mb-2 group-hover:text-white transition-colors">
+                        Kithara <ArrowRight className="inline ml-2" size={16} />
+                      </h3>
+                      <p className="text-zinc-400">False harmony that prevents truth. The comfort that kills.</p>
+                    </Link>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <Link href="/answers/glossary/soreth" className="block border-2 border-zinc-800 p-6 hover:border-red-600 transition-all group">
+                      <h3 className="font-black text-xl text-red-600 mb-2 group-hover:text-white transition-colors">
+                        Soreth <ArrowRight className="inline ml-2" size={16} />
+                      </h3>
+                      <p className="text-zinc-400">Hidden energy drains. The invisible tax on every action.</p>
+                    </Link>
+                    
+                    <Link href="/answers/glossary/voxel" className="block border-2 border-zinc-800 p-6 hover:border-red-600 transition-all group">
+                      <h3 className="font-black text-xl text-red-600 mb-2 group-hover:text-white transition-colors">
+                        Voxel <ArrowRight className="inline ml-2" size={16} />
+                      </h3>
+                      <p className="text-zinc-400">Three-dimensional truth. Where reality meets perception meets action.</p>
+                    </Link>
+                    
+                    <Link href="/answers/glossary/quorr" className="block border-2 border-zinc-800 p-6 hover:border-red-600 transition-all group">
+                      <h3 className="font-black text-xl text-red-600 mb-2 group-hover:text-white transition-colors">
+                        Quorr <ArrowRight className="inline ml-2" size={16} />
+                      </h3>
+                      <p className="text-zinc-400">Technical debt disguised as features. Complexity serving no one.</p>
+                    </Link>
+                    
+                    <Link href="/answers/glossary/threnn" className="block border-2 border-zinc-800 p-6 hover:border-red-600 transition-all group">
+                      <h3 className="font-black text-xl text-red-600 mb-2 group-hover:text-white transition-colors">
+                        Threnn <ArrowRight className="inline ml-2" size={16} />
+                      </h3>
+                      <p className="text-zinc-400">Momentum multiplication. When aligned systems compound force.</p>
+                    </Link>
+                    
+                    <Link href="/answers/glossary/zelith" className="block border-2 border-zinc-800 p-6 hover:border-red-600 transition-all group">
+                      <h3 className="font-black text-xl text-red-600 mb-2 group-hover:text-white transition-colors">
+                        Zelith <ArrowRight className="inline ml-2" size={16} />
+                      </h3>
+                      <p className="text-zinc-400">Maximum pressure point. Where systems collapse or breakthrough.</p>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Categories Section */}
+        <section className="py-16 px-6 bg-zinc-950">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-4xl space-y-8">
+              {/* Core Concepts */}
+              <div className="border border-zinc-800 p-8">
+                <h2 className="text-2xl font-black mb-4 text-red-600">CORE CONCEPTS</h2>
+                <p className="text-zinc-400 mb-6">
+                  The fundamental forces that kill organizations. What others won't tell you.
+                </p>
+                <div className="grid md:grid-cols-2 gap-3">
+                  <Link href="/answers/glossary/organizational-drift" className="block text-zinc-300 hover:text-red-600 transition-colors">
+                    → Organizational Drift: When noise overwhelms signal
+                  </Link>
+                  <Link href="/answers/glossary/strategy-theater" className="block text-zinc-300 hover:text-red-600 transition-colors">
+                    → Strategy Theater: Performance without function
+                  </Link>
+                  <Link href="/answers/glossary/clarity-catalyst" className="block text-zinc-300 hover:text-red-600 transition-colors">
+                    → Clarity Catalyst: Human signal amplification
+                  </Link>
+                  <Link href="/answers/glossary/movement-architecture" className="block text-zinc-300 hover:text-red-600 transition-colors">
+                    → Movement Architecture: Truth amplification systems
+                  </Link>
+                  <Link href="/answers/glossary/first-blood" className="block text-zinc-300 hover:text-red-600 transition-colors">
+                    → First Blood: The cut that proves you're alive
+                  </Link>
+                  <Link href="/answers/guides/clarity-ritual" className="block text-zinc-300 hover:text-red-600 transition-colors">
+                    → The Clarity Ritual: Stop optimization theater
+                  </Link>
+                </div>
+              </div>
+
+              {/* Comparisons */}
+              <div className="border border-zinc-800 p-8">
+                <h2 className="text-2xl font-black mb-4 text-yellow-500">COMPARISONS</h2>
+                <p className="text-zinc-400 mb-6">
+                  Why traditional approaches fail and what actually works.
+                </p>
+                <div className="grid md:grid-cols-2 gap-3">
+                  <Link href="/answers/compare/consultant-vs-catalyst" className="block text-zinc-300 hover:text-yellow-500 transition-colors">
+                    → Consultant vs Catalyst: Why advice doesn't work
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Insights */}
+        <section className="py-16 px-6 border-t border-zinc-900">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl font-black mb-12 text-center">BURIED TRUTHS MOST CONSULTANTS WON'T TELL YOU</h2>
+            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              <div className="border-2 border-red-600 p-6">
+                <h3 className="font-black text-red-600 mb-3">Why Good People Create Bad Systems</h3>
+                <p className="text-sm text-zinc-400 mb-4">
+                  The most competent individuals often build the most dysfunctional organizations through 
+                  complexity bias and dependency creation.
+                </p>
+                <Link href="/answers/glossary/pilor" className="text-red-600 text-sm font-bold hover:underline">
+                  → Read About Pilor Loops
                 </Link>
               </div>
               
-              <div className="border border-yellow-500 p-6">
-                <h3 className="font-bold text-yellow-500 mb-3">The Mathematics of Truth Decay</h3>
+              <div className="border-2 border-yellow-500 p-6">
+                <h3 className="font-black text-yellow-500 mb-3">The Mathematics of Truth Decay</h3>
                 <p className="text-sm text-zinc-400 mb-4">
-                  Truth systematically degrades as it moves through organizational layers. Signal Clarity = Original Truth × (0.7)^n
+                  Truth systematically degrades as it moves through organizational layers. 
+                  Signal Clarity = Original Truth × (0.7)^n
                 </p>
-                <Link href="/answers/glossary/signal-decay-theory" className="text-yellow-500 text-xs hover:underline">
-                  → Read Signal Decay Theory
+                <Link href="/answers/glossary/strune" className="text-yellow-500 text-sm font-bold hover:underline">
+                  → Read About Strune Patterns
                 </Link>
               </div>
 
-              <div className="border border-green-500 p-6">
-                <h3 className="font-bold text-green-500 mb-3">The Trillion-Dollar Avoidance Industry</h3>
+              <div className="border-2 border-green-500 p-6">
+                <h3 className="font-black text-green-500 mb-3">The Trillion-Dollar Avoidance Industry</h3>
                 <p className="text-sm text-zinc-400 mb-4">
-                  Entire industries exist to help organizations avoid decisions through external validation and consensus building.
+                  Entire industries exist to help organizations avoid decisions through 
+                  external validation and consensus building.
                 </p>
-                <Link href="/answers/glossary/validation-industrial-complex" className="text-green-500 text-xs hover:underline">
-                  → Read Validation Industrial Complex
+                <Link href="/answers/glossary/kithara" className="text-green-500 text-sm font-bold hover:underline">
+                  → Read About Kithara State
                 </Link>
               </div>
             </div>
           </div>
+        </section>
 
-          {/* CTA */}
-          <div className="border border-zinc-800 p-8 text-center">
-            <h3 className="text-2xl font-black mb-4">Ready to Surface Buried Truth?</h3>
-            <p className="text-zinc-400 mb-6">
-              Stop asking why your organization is broken. Start understanding how dysfunction actually works. Detect your signal patterns and get targeted interventions.
+        {/* CTA Section */}
+        <section className="py-16 px-6 bg-zinc-950">
+          <div className="max-w-7xl mx-auto text-center">
+            <h3 className="text-3xl font-black mb-6">READY TO SURFACE BURIED TRUTH?</h3>
+            <p className="text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
+              Stop asking why your organization is broken. Start understanding how dysfunction actually works.
             </p>
-            <Link 
-              href="/diagnostic" 
-              className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 transition-colors"
-            >
-              DETECT SIGNAL
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link 
+                href="/diagnostic"
+                className="bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors"
+              >
+                DETECT YOUR SIGNAL
+              </Link>
+              <Link 
+                href="/interventions"
+                className="border-2 border-zinc-700 px-8 py-4 text-lg font-black hover:border-zinc-500 transition-colors"
+              >
+                VIEW INTERVENTIONS
+              </Link>
+            </div>
           </div>
-        </div>
+        </section>
+
+        {/* Related Content */}
+        <section className="py-16 px-6 border-t border-zinc-900">
+          <div className="max-w-7xl mx-auto">
+            <RelatedContent
+              title="Start Your Journey"
+              items={[
+                {
+                  href: "/answers/glossary/nexel",
+                  title: "Discover Your Nexel",
+                  description: "Your behavioral identity marker. How you move through constraint.",
+                  color: "red"
+                },
+                {
+                  href: "/ig-complete-flow",
+                  title: "Name Your Truth",
+                  description: "Surface what's buried. Choose your override path.",
+                  color: "yellow"
+                },
+                {
+                  href: "/interventions/the-naming",
+                  title: "Book The Naming",
+                  description: "One session to surface your buried signal.",
+                  color: "green"
+                }
+              ]}
+            />
+          </div>
+        </section>
       </div>
     </>
   );
-}
+};
+
+export default AnswersHub;

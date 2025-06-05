@@ -3,16 +3,16 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, X } from 'lucide-react';
 
-interface WeaponLayoutProps {
+interface InterventionLayoutProps {
   children: React.ReactNode;
   title: string;
   description: string;
   price: string;
-  nextWeapon?: {
+  nextIntervention?: {
     name: string;
     slug: string;
   };
-  prevWeapon?: {
+  prevIntervention?: {
     name: string;
     slug: string;
   };
@@ -24,13 +24,13 @@ interface FlowData {
   move: string;
 }
 
-const WeaponLayout: React.FC<WeaponLayoutProps> = ({
+const InterventionLayout: React.FC<InterventionLayoutProps> = ({
   children,
   title,
   description,
   price,
-  nextWeapon,
-  prevWeapon
+  nextIntervention,
+  prevIntervention
 }) => {
   const [flowData, setFlowData] = useState<FlowData | null>(null);
   const [showBanner, setShowBanner] = useState(false);
@@ -73,7 +73,7 @@ const WeaponLayout: React.FC<WeaponLayoutProps> = ({
               <Link href="/" className="hover:text-gray-300 transition-colors flex items-center gap-1">
                 <span>←</span> Home
               </Link>
-              <Link href="/weapons" className="hover:text-gray-300 transition-colors">Weapons</Link>
+              <Link href="/interventions" className="hover:text-gray-300 transition-colors">Interventions</Link>
               <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
               <a
                 href="https://outlook.office.com/owa/calendar/IG@imaginationg.studio/bookings/"
@@ -124,18 +124,18 @@ const WeaponLayout: React.FC<WeaponLayoutProps> = ({
         {/* Navigation Between Services */}
         <nav className="py-12 px-6 border-t border-zinc-800">
           <div className="max-w-4xl mx-auto flex justify-between items-center">
-            {prevWeapon ? (
-              <Link href={`/weapons/${prevWeapon.slug}`} className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
+            {prevIntervention ? (
+              <Link href={`/interventions/${prevIntervention.slug}`} className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
                 <ArrowLeft size={20} />
-                <span>{prevWeapon.name}</span>
+                <span>{prevIntervention.name}</span>
               </Link>
             ) : (
               <div></div>
             )}
             
-            {nextWeapon ? (
-              <Link href={`/weapons/${nextWeapon.slug}`} className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
-                <span>{nextWeapon.name}</span>
+            {nextIntervention ? (
+              <Link href={`/interventions/${nextIntervention.slug}`} className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
+                <span>{nextIntervention.name}</span>
                 <ArrowRight size={20} />
               </Link>
             ) : (
@@ -157,4 +157,4 @@ const WeaponLayout: React.FC<WeaponLayoutProps> = ({
   );
 };
 
-export default WeaponLayout;
+export default InterventionLayout;

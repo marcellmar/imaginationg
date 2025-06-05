@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
+import SEOHead from '../components/SEOHead';
+import Navigation from '../components/Navigation';
 
 const DiagnosticPage = () => {
   const [started, setStarted] = useState(false);
@@ -20,124 +21,119 @@ const DiagnosticPage = () => {
     },
     {
       id: 2,
-      title: "THE NOISE DETECTOR",
-      question: "Do your meetings produce decisions or more meetings?",
-      yesText: "SIGNAL AMPLIFIED",
-      yesSubtext: "Clear moves from words.",
-      noText: "NOISE GENERATION",
-      noSubtext: "Optimization theater running."
+      title: "THE MEETING AUDIT",
+      question: "Last 3 meetings produced immediate action?",
+      yesText: "MEETINGS = MOVEMENT",
+      yesSubtext: "Talk creates reality.",
+      noText: "MEETINGS = THEATER",
+      noSubtext: "Talk replaces action."
     },
     {
       id: 3,
-      title: "THE CONSULTANT DEPENDENCY CHECK",
-      question: "Making decisions without external 'experts'?",
-      yesText: "WE DECIDE",
-      yesSubtext: "Internal confidence intact.",
-      noText: "NEED VALIDATION",
-      noSubtext: "Outsourced your backbone."
+      title: "THE DEPENDENCY TEST",
+      question: "Can you ship without permission?",
+      yesText: "INDEPENDENT",
+      yesSubtext: "You own your output.",
+      noText: "DEPENDENT",
+      noSubtext: "Committees own you."
     },
     {
       id: 4,
       title: "THE REVENUE REALITY",
-      question: "Your last initiative - did it make money?",
-      yesText: "PROFIT DELIVERED",
-      yesSubtext: "Results, not reports.",
-      noText: "STILL WAITING",
-      noSubtext: "ROI is still theoretical."
+      question: "Profitable without new funding?",
+      yesText: "SELF-SUSTAINING",
+      yesSubtext: "Market validates you.",
+      noText: "FUNDING DEPENDENT",
+      noSubtext: "VCs validate you."
     },
     {
       id: 5,
-      title: "THE OVERRIDE SCANNER",
-      question: "Can you answer business questions with YES or NO?",
-      yesText: "OVERRIDE MODE",
-      yesSubtext: "Binary signal processing.",
-      noText: "OPTIMIZE MODE",
-      noSubtext: "Conditional noise pattern."
+      title: "THE CHOICE AUDIT",
+      question: "Made 5+ binary decisions today?",
+      yesText: "DECISIVE",
+      yesSubtext: "Choice is your default.",
+      noText: "DEFERRING",
+      noSubtext: "Maybe is your default."
     },
     {
       id: 6,
-      title: "THE PLANNING VS ACTION RATIO",
-      question: "Spending more time planning or executing?",
-      yesText: "EXECUTING",
-      yesSubtext: "Bias toward action.",
-      noText: "PLANNING",
-      noSubtext: "Analysis addiction detected."
+      title: "THE ACTION RATIO",
+      question: "More building than planning this week?",
+      yesText: "BUILDER MODE",
+      yesSubtext: "Reality over strategy.",
+      noText: "PLANNER MODE",
+      noSubtext: "Strategy over reality."
     },
     {
       id: 7,
-      title: "THE COMMITTEE CORRUPTION",
-      question: "Can one person make decisions in your company?",
-      yesText: "INDIVIDUAL OWNERSHIP",
-      yesSubtext: "Accountability drives results.",
-      noText: "COMMITTEE REQUIRED",
-      noSubtext: "Consensus kills speed."
+      title: "THE SPEED CHECK",
+      question: "Decisions happen same day?",
+      yesText: "VELOCITY",
+      yesSubtext: "Speed is strategy.",
+      noText: "DELAYED",
+      noSubtext: "Process is strategy."
     },
     {
       id: 8,
-      title: "THE SACRED COW SCANNER",
-      question: "Killed any 'untouchable' processes recently?",
-      yesText: "SLAUGHTERED SOME",
-      yesSubtext: "Progress requires sacrifice.",
-      noText: "ALL SACRED",
-      noSubtext: "Protecting dysfunction."
+      title: "THE TRUTH TRACKER",
+      question: "Killed a sacred cow this month?",
+      yesText: "TRUTH SEEKER",
+      yesSubtext: "Reality over comfort.",
+      noText: "COMFORT KEEPER",
+      noSubtext: "Comfort over reality."
     },
     {
       id: 9,
-      title: "THE FUNCTION DETECTOR",
-      question: "Built and launched something in the last 30 days?",
-      yesText: "FUNCTION SHIPPED",
-      yesSubtext: "Function over form executed.",
-      noText: "FORM OPTIMIZATION",
-      noSubtext: "Aesthetics over agency."
+      title: "THE OUTPUT SCANNER",
+      question: "Shipped something real this week?",
+      yesText: "SHIPPER",
+      yesSubtext: "Done beats perfect.",
+      noText: "POLISHER",
+      noSubtext: "Perfect beats done."
     },
     {
       id: 10,
-      title: "THE CLARITY CATALYST",
-      question: "Can you explain your vision in 10 words or less?",
+      title: "THE CLARITY METER",
+      question: "Can you explain your business in one sentence?",
       yesText: "CRYSTAL CLEAR",
-      yesSubtext: "Clarity creates alignment.",
-      noText: "NEEDS EXPLANATION",
-      noSubtext: "Complexity is confusion."
+      yesSubtext: "Simplicity is power.",
+      noText: "COMPLICATED",
+      noSubtext: "Complexity is hiding."
     },
     {
       id: 11,
-      title: "THE MOMENTUM MEASUREMENT",
-      question: "Moving faster than you were 3 months ago?",
+      title: "THE MOMENTUM GAUGE",
+      question: "Moving faster than last quarter?",
       yesText: "ACCELERATING",
-      yesSubtext: "Velocity compounds value.",
-      noText: "SAME SPEED",
-      noSubtext: "Same pace equals drift."
+      yesSubtext: "Momentum compounds.",
+      noText: "DECELERATING",
+      noSubtext: "Friction compounds."
     },
     {
       id: 12,
-      title: "THE CONFLICT COMFORT",
-      question: "Had a difficult business conversation this week?",
-      yesText: "CONFRONTED TRUTH",
-      yesSubtext: "Hard conversations create change.",
-      noText: "AVOIDING CONFLICT",
-      noSubtext: "Comfort zones kill companies."
+      title: "THE CONFLICT CHECK",
+      question: "Had a productive conflict this week?",
+      yesText: "TRUTH FRICTION",
+      yesSubtext: "Conflict creates clarity.",
+      noText: "FALSE HARMONY",
+      noSubtext: "Silence creates decay."
     }
   ];
 
   const handleAnswer = (answer: 'yes' | 'no') => {
-    const newAnswers = { ...answers, [currentQuestion]: answer };
-    setAnswers(newAnswers);
-
+    setAnswers({ ...answers, [currentQuestion]: answer });
+    
     if (currentQuestion < questions.length) {
-      setTimeout(() => {
-        setCurrentQuestion(currentQuestion + 1);
-      }, 300);
+      setCurrentQuestion(currentQuestion + 1);
     } else {
-      setTimeout(() => {
-        setShowResults(true);
-      }, 300);
+      setShowResults(true);
     }
   };
 
   const calculateResults = () => {
     let driftScore = 0;
-    let recommendedWeapon = '';
-    let weaponUrl = '';
+    let recommendedIntervention = '';
+    let interventionUrl = '';
     
     // Calculate drift score based on answers (each "no" = drift indicator)
     const driftIndicators = [
@@ -158,288 +154,231 @@ const DiagnosticPage = () => {
     const driftCount = driftIndicators.filter(Boolean).length;
     driftScore = Math.round((driftCount / 12) * 100);
 
-    // Determine weapon based on most critical drift pattern
+    // Determine intervention based on most critical drift pattern
     if (answers[10] === 'no' || answers[5] === 'no') {
       // Clarity issues or can't make binary decisions
-      recommendedWeapon = 'THE NAMING';
-      weaponUrl = '/weapons/the-naming';
+      recommendedIntervention = 'THE NAMING';
+      interventionUrl = '/interventions/the-naming';
     } else if (answers[2] === 'no' || answers[6] === 'no' || answers[7] === 'no') {
       // Meeting/planning/committee issues = strategy theater
-      recommendedWeapon = 'CLARITY RITUAL';
-      weaponUrl = '/answers/guides/clarity-ritual';
+      recommendedIntervention = 'CLARITY RITUAL';
+      interventionUrl = '/answers/guides/clarity-ritual';
     } else if (answers[4] === 'no') {
       // Revenue/profitability issues
-      recommendedWeapon = 'THE MARKET SMACKDOWN';
-      weaponUrl = '/weapons/the-market-smackdown';
+      recommendedIntervention = 'THE MARKET SMACKDOWN';
+      interventionUrl = '/interventions/the-market-smackdown';
     } else if (answers[9] === 'no') {
       // Not shipping/building
-      recommendedWeapon = 'FIRST BLOOD BUILD';
-      weaponUrl = '/weapons/first-blood-build';
+      recommendedIntervention = 'FIRST BLOOD BUILD';
+      interventionUrl = '/interventions/first-blood-build';
     } else if (answers[11] === 'no' || answers[1] === 'no') {
       // Momentum/decision velocity issues
-      recommendedWeapon = '30-DAY DRIFT BREAK';
-      weaponUrl = '/weapons/thirty-day-drift-break';
+      recommendedIntervention = '30-DAY DRIFT BREAK';
+      interventionUrl = '/interventions/thirty-day-drift-break';
     } else if (answers[12] === 'no' || answers[8] === 'no') {
       // Avoiding conflict or protecting dysfunction
-      recommendedWeapon = 'THE NAMING';
-      weaponUrl = '/weapons/the-naming';
+      recommendedIntervention = 'THE NAMING';
+      interventionUrl = '/interventions/the-naming';
     } else {
       // Default recommendation for comprehensive approach
-      recommendedWeapon = 'THE MAP';
-      weaponUrl = '/weapons/the-map';
+      recommendedIntervention = 'THE MAP';
+      interventionUrl = '/interventions/the-map';
     }
 
-    return { driftScore, recommendedWeapon, weaponUrl };
+    return { driftScore, recommendedIntervention, interventionUrl };
   };
 
+  // Start Screen
   if (!started) {
     return (
       <>
-        <Head>
-          <title>SIGNAL DETECTION | IMAGINATION G</title>
-          <meta name="description" content="Quick signal scan to detect buried truth vs optimization noise. Agency over aesthetics. Override over optimize." />
-        </Head>
-
+        <SEOHead
+          title="Signal Detection Diagnostic | IMAGINATION G"
+          description="19 binary questions. Zero escape routes. Find out if you're amplifying signal or optimizing noise."
+          ogImage="/images/og-diagnostic.svg"
+        />
+        
         <div className="min-h-screen bg-black text-white">
-          {/* Navigation */}
-          <nav className="fixed top-0 left-0 right-0 bg-black z-50">
-            <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-              <Link href="/" className="text-base font-black">IMAGINATION G</Link>
-              <div className="flex items-center gap-8">
-                <Link href="/" className="text-sm hover:text-zinc-400">← Home</Link>
-                <Link href="/weapons" className="text-sm hover:text-zinc-400">Interventions</Link>
-                <Link href="/about" className="text-sm hover:text-zinc-400">About</Link>
-                <Link href="/diagnostic" className="bg-white text-black px-6 py-2 text-sm font-bold hover:bg-zinc-200 transition-colors">
-                  Book a Call
-                </Link>
-              </div>
-            </div>
-          </nav>
+          <Navigation currentPage="diagnostic" />
 
-          <div className="flex items-center justify-center min-h-screen px-6">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-6xl md:text-8xl font-black mb-4">SIGNAL DETECTION</h1>
-              <p className="text-2xl text-red-500 mb-8">2 minutes to detect buried truth vs optimization noise.</p>
-              <p className="text-zinc-500 mb-16">12 signals. Binary choices. Override or optimize.</p>
-
-              <div className="border-2 border-red-500 p-12 max-w-2xl mx-auto">
-                <h2 className="text-3xl font-black text-red-500 mb-6">COMPREHENSIVE SIGNAL SCAN</h2>
-                <div className="space-y-2 mb-8">
-                  <p className="text-lg">12 precision signal detectors.</p>
-                  <p className="text-lg">Binary truth patterns.</p>
-                  <p className="text-lg">Specific intervention prescribed.</p>
-                  <p className="text-lg">Override or optimize path.</p>
+          <section className="pt-24 pb-16 px-6">
+            <div className="max-w-7xl mx-auto">
+              <div className="max-w-3xl mx-auto text-center">
+                {/* System Status Badge */}
+                <div className="inline-block mb-8 text-green-400 text-xs font-mono bg-zinc-950 border border-zinc-800 px-4 py-2 rounded-full">
+                  <span className="inline-block w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                  DETECTION: READY
                 </div>
-                <p className="text-zinc-500 mb-8">Most people optimize around the truth. You're probably one of them.</p>
+
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
+                  SIGNAL<br />DETECTION<span className="text-red-600">.</span>
+                </h1>
+                
+                <p className="text-xl text-zinc-400 mb-12 max-w-xl mx-auto">
+                  19 binary questions. Zero escape routes. 
+                  Find out if you're amplifying signal or optimizing noise.
+                </p>
+                
                 <button
                   onClick={() => setStarted(true)}
-                  className="bg-red-500 hover:bg-red-600 text-white px-8 py-4 text-xl font-black transition-colors"
+                  className="bg-red-600 px-12 py-6 text-2xl font-black hover:bg-red-700 transition-colors"
                 >
-                  DETECT SIGNAL
+                  START DIAGNOSTIC
                 </button>
+                
+                <p className="text-zinc-600 mt-8 text-sm">
+                  Takes 60 seconds. No email required.
+                </p>
               </div>
             </div>
-          </div>
+          </section>
         </div>
       </>
     );
   }
 
+  // Results Screen
   if (showResults) {
-    const { driftScore, recommendedWeapon, weaponUrl } = calculateResults();
+    const { driftScore, recommendedIntervention, interventionUrl } = calculateResults();
     
     return (
       <>
-        <Head>
-          <title>Your Results | IMAGINATION G</title>
-        </Head>
-
+        <SEOHead
+          title="Your Signal Detection Results | IMAGINATION G"
+          description="Your signal pattern revealed. See exactly where noise is overwhelming truth."
+        />
+        
         <div className="min-h-screen bg-black text-white">
-          {/* Navigation */}
-          <nav className="fixed top-0 left-0 right-0 bg-black z-50">
-            <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-              <Link href="/" className="text-base font-black">IMAGINATION G</Link>
-              <div className="flex items-center gap-8">
-                <Link href="/" className="text-sm hover:text-zinc-400">← Home</Link>
-                <Link href="/weapons" className="text-sm hover:text-zinc-400">Interventions</Link>
-                <Link href="/about" className="text-sm hover:text-zinc-400">About</Link>
-                <Link href="/diagnostic" className="bg-white text-black px-6 py-2 text-sm font-bold hover:bg-zinc-200 transition-colors">
-                  Book a Call
-                </Link>
+          <Navigation currentPage="diagnostic" />
+
+          <section className="pt-24 pb-16 px-6">
+            <div className="max-w-7xl mx-auto">
+              <div className="max-w-3xl mx-auto">
+                <h1 className="text-4xl md:text-5xl font-black mb-12 text-center">
+                  SIGNAL ANALYSIS COMPLETE
+                </h1>
+
+                {/* Score Display */}
+                <div className="bg-zinc-950 border border-zinc-800 p-12 mb-12 text-center">
+                  <p className="text-zinc-500 mb-4">YOUR NOISE LEVEL</p>
+                  <p className="text-7xl font-black mb-4">
+                    {driftScore}%
+                  </p>
+                  <p className="text-xl text-zinc-400">
+                    {driftScore < 25 && "Strong signal. Minor noise."}
+                    {driftScore >= 25 && driftScore < 50 && "Signal present. Noise building."}
+                    {driftScore >= 50 && driftScore < 75 && "Noise overwhelming signal."}
+                    {driftScore >= 75 && "Signal buried. Pure noise."}
+                  </p>
+                </div>
+
+                {/* Prescribed Intervention */}
+                <div className="border-4 border-red-600 p-12 mb-12 text-center">
+                  <h2 className="text-2xl font-black text-red-600 mb-4">YOUR PRESCRIBED INTERVENTION:</h2>
+                  <h3 className="text-5xl font-black mb-8">{recommendedIntervention}</h3>
+                  <p className="text-xl text-zinc-400 mb-8">
+                    Based on your signal patterns, this is the intervention you need.
+                  </p>
+                  <Link 
+                    href={interventionUrl}
+                    className="inline-block bg-red-600 px-8 py-4 text-xl font-black hover:bg-red-700 transition-colors"
+                  >
+                    DEPLOY INTERVENTION →
+                  </Link>
+                </div>
+
+                {/* Next Steps */}
+                <div className="grid md:grid-cols-2 gap-4">
+                  <Link 
+                    href="/interventions"
+                    className="border-2 border-zinc-700 px-6 py-4 text-lg font-black hover:border-zinc-500 transition-colors text-center"
+                  >
+                    VIEW ALL INTERVENTIONS
+                  </Link>
+                  <Link 
+                    href="https://outlook.office.com/owa/calendar/IG@imaginationg.studio/bookings/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white text-black px-6 py-4 text-lg font-black hover:bg-zinc-200 transition-colors text-center"
+                  >
+                    BOOK CLARITY CALL
+                  </Link>
+                </div>
               </div>
             </div>
-          </nav>
-
-          <div className="pt-32 pb-20 px-6">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-5xl md:text-7xl font-black mb-8">YOUR SIGNAL CLARITY</h1>
-              
-              <div className={`text-8xl md:text-9xl font-black mb-8 ${
-                driftScore >= 60 ? 'text-red-500' : 
-                driftScore >= 40 ? 'text-yellow-500' : 
-                'text-green-500'
-              }`}>
-                {driftScore}%
-              </div>
-
-              <p className="text-2xl text-zinc-400 mb-16">
-                {driftScore >= 60 ? "Signal buried under optimization noise. Override or optimize." :
-                 driftScore >= 40 ? "Signal distortion detected. Choose your intervention." :
-                 "Signal clarity maintained. Stay vigilant."}
-              </p>
-
-              <div className="border-2 border-red-500 p-12 mb-16">
-                <h2 className="text-3xl font-black text-red-500 mb-4">YOUR PRESCRIBED INTERVENTION:</h2>
-                <h3 className="text-5xl font-black mb-8">{recommendedWeapon}</h3>
-                <p className="text-xl text-zinc-400 mb-8">
-                  Based on your signal patterns, this is the intervention you need.
-                </p>
-                <Link 
-                  href={weaponUrl}
-                  className="inline-block bg-red-500 hover:bg-red-600 text-white px-8 py-4 text-xl font-black transition-colors"
-                >
-                  DEPLOY INTERVENTION →
-                </Link>
-              </div>
-
-              <div className="space-y-4 mb-16">
-                <h3 className="text-2xl font-black mb-8">YOUR IMMEDIATE OVERRIDE:</h3>
-                {answers[1] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Make one decision from internal signal. Stop external validation.</p>
-                )}
-                {answers[2] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Cancel one optimization meeting. Make one override decision.</p>
-                )}
-                {answers[3] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Stop outsourcing decisions. Trust your signal.</p>
-                )}
-                {answers[4] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Kill one initiative that doesn't make money.</p>
-                )}
-                {answers[5] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Switch from optimize to override mode. Binary choices only.</p>
-                )}
-                {answers[6] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Spend more time doing than planning.</p>
-                )}
-                {answers[7] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Assign one person to make decisions. No committees.</p>
-                )}
-                {answers[8] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Kill one 'sacred' process that wastes time.</p>
-                )}
-                {answers[9] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Ship function over form. Stop aesthetic optimization.</p>
-                )}
-                {answers[10] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Write your vision in 10 words. Then stick to it.</p>
-                )}
-                {answers[11] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Double your speed on one critical task.</p>
-                )}
-                {answers[12] === 'no' && (
-                  <p className="text-lg text-zinc-400">→ TODAY: Have one difficult conversation you've been avoiding.</p>
-                )}
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-                <Link 
-                  href="/weapons"
-                  className="bg-white text-black px-6 py-4 text-lg font-black hover:bg-zinc-200 transition-colors"
-                >
-                  VIEW ALL WEAPONS
-                </Link>
-                <Link 
-                  href="https://outlook.office.com/owa/calendar/IG@imaginationg.studio/bookings/"
-                  target="_blank"
-                  className="border-2 border-white text-white px-6 py-4 text-lg font-black hover:bg-white hover:text-black transition-colors"
-                >
-                  BOOK INTERVENTION
-                </Link>
-              </div>
-
-              <p className="text-zinc-500 mt-8 italic">
-                87% of people who take this diagnostic are still drifting 30 days later. Don't be one of them.
-              </p>
-            </div>
-          </div>
+          </section>
         </div>
       </>
     );
   }
 
-  const question = questions[currentQuestion - 1];
-  const progressPercentage = ((currentQuestion - 1) / questions.length) * 100;
-
+  // Question Screen
+  const currentQ = questions[currentQuestion - 1];
+  
   return (
     <>
-      <Head>
-        <title>Drift Diagnostic | IMAGINATION G</title>
-      </Head>
-
+      <SEOHead
+        title={`${currentQ.title} - Signal Detection | IMAGINATION G`}
+        description="Binary choice diagnostic. No middle ground. Truth or noise."
+      />
+      
       <div className="min-h-screen bg-black text-white">
-        {/* Navigation */}
-        <nav className="fixed top-0 left-0 right-0 bg-black z-50">
-          <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <Link href="/" className="text-base font-black">IMAGINATION G</Link>
-            <div className="flex items-center gap-8">
-              <Link href="/" className="text-sm hover:text-zinc-400">← Home</Link>
-              <Link href="/weapons" className="text-sm hover:text-zinc-400">Interventions</Link>
-              <Link href="/about" className="text-sm hover:text-zinc-400">About</Link>
-              <Link href="/diagnostic" className="bg-white text-black px-6 py-2 text-sm font-bold hover:bg-zinc-200 transition-colors">
-                Book a Call
-              </Link>
-            </div>
-          </div>
-        </nav>
+        <Navigation currentPage="diagnostic" />
 
-        <div className="flex flex-col items-center justify-center min-h-screen px-6">
-          <div className="max-w-4xl mx-auto w-full">
-            {/* Header */}
-            <div className="text-center mb-12">
-              <h1 className="text-6xl md:text-8xl font-black mb-4">DRIFT DIAGNOSTIC</h1>
-              <p className="text-2xl text-red-500">30 seconds to find out you're full of shit.</p>
-              <p className="text-zinc-500 mt-2">Answer fast. No thinking. Just truth.</p>
-            </div>
+        <section className="pt-24 pb-16 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-3xl mx-auto">
+              {/* Progress */}
+              <div className="mb-12">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-sm text-zinc-500">QUESTION {currentQuestion} OF {questions.length}</span>
+                  <span className="text-sm text-zinc-500">{Math.round((currentQuestion / questions.length) * 100)}% COMPLETE</span>
+                </div>
+                <div className="h-1 bg-zinc-900">
+                  <div 
+                    className="h-1 bg-red-600 transition-all duration-300"
+                    style={{ width: `${(currentQuestion / questions.length) * 100}%` }}
+                  />
+                </div>
+              </div>
 
-            {/* Question */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-black mb-4">{question.id}. {question.title}</h2>
-              <p className="text-xl text-zinc-400 mb-12">{question.question}</p>
+              {/* Question */}
+              <div className="text-center mb-16">
+                <h2 className="text-2xl font-black text-red-600 mb-8">{currentQ.title}</h2>
+                <h3 className="text-3xl md:text-4xl font-black mb-12">
+                  {currentQ.question}
+                </h3>
+              </div>
 
+              {/* Answer Options */}
               <div className="grid md:grid-cols-2 gap-6">
                 <button
                   onClick={() => handleAnswer('yes')}
-                  className="group bg-zinc-900 hover:bg-green-900 border-2 border-zinc-700 hover:border-green-500 p-8 transition-all"
+                  className="group border-2 border-green-600 p-8 hover:bg-green-600 transition-all"
                 >
-                  <h3 className="text-2xl font-black text-green-500 mb-2">{question.yesText}</h3>
-                  <p className="text-zinc-500">{question.yesSubtext}</p>
+                  <h4 className="text-2xl font-black text-green-600 group-hover:text-black mb-2">
+                    {currentQ.yesText}
+                  </h4>
+                  <p className="text-zinc-400 group-hover:text-black">
+                    {currentQ.yesSubtext}
+                  </p>
                 </button>
 
                 <button
                   onClick={() => handleAnswer('no')}
-                  className="group bg-zinc-900 hover:bg-red-900 border-2 border-zinc-700 hover:border-red-500 p-8 transition-all"
+                  className="group border-2 border-red-600 p-8 hover:bg-red-600 transition-all"
                 >
-                  <h3 className="text-2xl font-black text-red-500 mb-2">{question.noText}</h3>
-                  <p className="text-zinc-500">{question.noSubtext}</p>
+                  <h4 className="text-2xl font-black text-red-600 group-hover:text-black mb-2">
+                    {currentQ.noText}
+                  </h4>
+                  <p className="text-zinc-400 group-hover:text-black">
+                    {currentQ.noSubtext}
+                  </p>
                 </button>
               </div>
             </div>
-
-            {/* Progress */}
-            <div className="max-w-2xl mx-auto">
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-sm text-zinc-500">Question {currentQuestion} of {questions.length}</span>
-              </div>
-              <div className="h-1 bg-zinc-800 relative">
-                <div 
-                  className="h-full bg-red-500 transition-all duration-300"
-                  style={{ width: `${progressPercentage}%` }}
-                />
-              </div>
-            </div>
           </div>
-        </div>
+        </section>
       </div>
     </>
   );

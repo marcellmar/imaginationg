@@ -1,173 +1,203 @@
 import React from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+import SEOHead from '../components/SEOHead';
+import Navigation from '../components/Navigation';
+import RelatedContent from '../components/RelatedContent';
 
 const AboutPage = () => {
   return (
     <>
-      <Head>
-        <title>About IMAGINATION G - Signal Amplifiers, Not Optimizers</title>
-        <meta name="description" content="IMAGINATION G surfaces buried truth through override, not optimization. Agency over aesthetics. Signal over noise. We amplify what's real." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        
-        {/* Open Graph / Social Media Meta Tags */}
-        <meta property="og:title" content="About IG | We Amplify Signal. We Leave." />
-        <meta property="og:description" content="We don't optimize. We don't polish. We don't perfect. We override." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://imaginationg.studio/about" />
-        <meta property="og:image" content="https://imaginationg.studio/images/og-image.jpg" />
-        
-        {/* Twitter Card Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About IG | We Amplify Signal. We Leave." />
-        <meta name="twitter:description" content="We don't optimize. We don't polish. We don't perfect. We override." />
-        <meta name="twitter:image" content="https://imaginationg.studio/images/og-image.jpg" />
-      </Head>
+      <SEOHead
+        title="About IMAGINATION G - Signal Amplifiers, Not Optimizers"
+        description="IMAGINATION G surfaces buried truth through override, not optimization. Agency over aesthetics. Signal over noise. We amplify what's real."
+        ogImage="/images/og-about.svg"
+      />
 
       <div className="min-h-screen bg-black text-white">
         {/* Navigation */}
-        <nav className="fixed top-0 left-0 right-0 bg-black z-50">
-          <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <Link href="/" className="text-base font-black">IMAGINATION G</Link>
-            <div className="flex items-center gap-8">
-              <Link href="/" className="text-sm hover:text-zinc-400">← Home</Link>
-              <Link href="/weapons" className="text-sm hover:text-zinc-400">Interventions</Link>
-              <Link href="/about" className="text-sm hover:text-zinc-400">About</Link>
-              <Link 
-                href="https://outlook.office.com/owa/calendar/IG@imaginationg.studio/bookings/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-black px-6 py-2 text-sm font-bold hover:bg-zinc-200 transition-colors"
-              >
-                Book a Call
+        <Navigation currentPage="about" />
+
+        {/* Hero Section */}
+        <section className="pt-24 pb-16 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[60vh]">
+              {/* Left Column - Main Content */}
+              <div>
+                {/* System Status Badge */}
+                <div className="inline-block mb-8 text-green-400 text-xs font-mono bg-zinc-950 border border-zinc-800 px-4 py-2 rounded-full">
+                  <span className="inline-block w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                  TRUTH: AMPLIFIED
+                </div>
+
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
+                  WE DON'T<br />OPTIMIZE<span className="text-red-600">.</span>
+                </h1>
+                
+                <p className="text-xl text-zinc-400 mb-8 max-w-xl">
+                  We override. We surface buried signal. We amplify truth. We leave.
+                </p>
+              </div>
+
+              {/* Right Column - What We Are Grid */}
+              <div className="space-y-6">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="border border-zinc-800 p-6 hover:border-red-600 transition-colors">
+                    <h3 className="font-black text-red-600 mb-2">SHOW UP</h3>
+                    <p className="text-sm text-zinc-400">not consult</p>
+                  </div>
+                  <div className="border border-zinc-800 p-6 hover:border-red-600 transition-colors">
+                    <h3 className="font-black text-red-600 mb-2">SURFACE</h3>
+                    <p className="text-sm text-zinc-400">not bury</p>
+                  </div>
+                  <div className="border border-zinc-800 p-6 hover:border-red-600 transition-colors">
+                    <h3 className="font-black text-red-600 mb-2">AMPLIFY</h3>
+                    <p className="text-sm text-zinc-400">not muffle</p>
+                  </div>
+                  <div className="border border-zinc-800 p-6 hover:border-red-600 transition-colors">
+                    <h3 className="font-black text-red-600 mb-2">LEAVE</h3>
+                    <p className="text-sm text-zinc-400">not linger</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Our Code Section */}
+        <section className="py-16 px-6 border-t border-zinc-900">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl font-black mb-12 text-center">OUR CODE</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <p className="text-zinc-500 mb-2">We don't optimize noise.</p>
+                <p className="text-2xl font-black text-red-600">We amplify signal.</p>
+              </div>
+              <div className="text-center">
+                <p className="text-zinc-500 mb-2">We don't build dependencies.</p>
+                <p className="text-2xl font-black text-red-600">We build agency.</p>
+              </div>
+              <div className="text-center">
+                <p className="text-zinc-500 mb-2">We don't polish aesthetics.</p>
+                <p className="text-2xl font-black text-red-600">We ship function.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Marcus Section */}
+        <section className="py-16 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Left - Image */}
+              <div className="flex justify-center lg:justify-end">
+                <div className="relative w-64 h-64 lg:w-80 lg:h-80">
+                  <Image
+                    src="/images/marcus-davis.jpg"
+                    alt="Marcus Davis"
+                    className="object-cover rounded-lg"
+                    fill
+                  />
+                </div>
+              </div>
+
+              {/* Right - Content */}
+              <div className="max-w-xl">
+                <h2 className="text-3xl font-black mb-6">MARCUS DAVIS</h2>
+                <div className="space-y-4 text-lg text-zinc-300">
+                  <p>Built IG after 10 years of watching brilliant people optimize around truth.</p>
+                  <p>Saw too much noise. Not enough signal.</p>
+                  <p>Too many consultants polishing problems.</p>
+                  <p>Not enough people solving them.</p>
+                  <p className="text-xl font-black text-red-600 pt-4">
+                    This is the override I wish I had.
+                  </p>
+                  <p className="text-xl font-black">
+                    Now it's yours.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How We Work Section */}
+        <section className="py-16 px-6 bg-zinc-950">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl font-black mb-12 text-center">HOW WE WORK</h2>
+            <div className="max-w-3xl mx-auto">
+              <div className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <span className="text-red-600 font-black text-2xl">1</span>
+                  <p className="text-lg">You choose override over optimization</p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="text-red-600 font-black text-2xl">2</span>
+                  <p className="text-lg">You select the intervention that fits</p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="text-red-600 font-black text-2xl">3</span>
+                  <p className="text-lg">You name the buried truth</p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="text-red-600 font-black text-2xl">4</span>
+                  <p className="text-lg">We amplify your signal</p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="text-red-600 font-black text-2xl">5</span>
+                  <p className="text-lg font-black text-red-600">We leave</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 px-6 border-t border-zinc-900">
+          <div className="max-w-7xl mx-auto text-center">
+            <h3 className="text-3xl font-black mb-6">SIGNAL CLEAR?</h3>
+            <p className="text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
+              Either you override or you optimize. We're not waiting.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/interventions" className="bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors text-center">
+                DEPLOY INTERVENTION
+              </Link>
+              <Link href="/diagnostic" className="border-2 border-zinc-700 px-8 py-4 text-lg font-black hover:border-zinc-500 transition-colors text-center">
+                DETECT SIGNAL
               </Link>
             </div>
           </div>
-        </nav>
+        </section>
 
-        {/* Header */}
-        <header className="pt-32 pb-16 px-6 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight">ABOUT IG</h1>
-            <p className="text-xl md:text-2xl text-zinc-500 max-w-3xl mx-auto">
-              We don't optimize. We override.
-            </p>
-          </div>
-        </header>
-
-        {/* Main Content Grid */}
-        <main className="py-16 px-6">
+        {/* Related Content */}
+        <section className="py-16 px-6 bg-zinc-950">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 max-w-5xl mx-auto">
-              
-              {/* What We Are */}
-              <div className="border border-zinc-800 p-8">
-                <h2 className="text-3xl font-black mb-6">WHAT WE ARE</h2>
-                <div className="space-y-4 text-lg">
-                  <p>We show up.</p>
-                  <p>We surface the buried signal.</p>
-                  <p>We amplify truth over noise.</p>
-                  <p>We force override over optimize.</p>
-                  <p className="text-red-500 font-bold">We leave.</p>
-                </div>
-              </div>
-
-              {/* What We're Not */}
-              <div className="border border-zinc-800 p-8">
-                <h2 className="text-3xl font-black mb-6">WHAT WE'RE NOT</h2>
-                <div className="space-y-4 text-lg">
-                  <p>We don't optimize around problems.</p>
-                  <p>We don't polish your aesthetics.</p>
-                  <p>We don't generate comfortable noise.</p>
-                  <p>We don't maintain your systems.</p>
-                  <p className="text-red-500 font-bold">We don't care if you choose drift.</p>
-                </div>
-              </div>
-
-              {/* Our Code */}
-              <div className="border border-zinc-800 p-8 md:col-span-2">
-                <h2 className="text-3xl font-black mb-6">OUR CODE</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  <div>
-                    <p className="text-xl mb-2">We don't optimize noise.</p>
-                    <p className="text-xl font-bold text-red-500">We amplify signal.</p>
-                  </div>
-                  <div>
-                    <p className="text-xl mb-2">We don't build dependencies.</p>
-                    <p className="text-xl font-bold text-red-500">We build agency.</p>
-                  </div>
-                  <div>
-                    <p className="text-xl mb-2">We don't polish aesthetics.</p>
-                    <p className="text-xl font-bold text-red-500">We ship function.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* How We Work */}
-              <div className="border border-zinc-800 p-8">
-                <h2 className="text-3xl font-bold mb-6">HOW WE WORK</h2>
-                <div className="space-y-4 text-lg">
-                  <p className="font-bold text-red-500">You choose override first.</p>
-                  <p>You select the intervention.</p>
-                  <p>You name the buried truth.</p>
-                  <p>You amplify your signal.</p>
-                  <p>We end the call.</p>
-                </div>
-              </div>
-
-              {/* Marcus Davis */}
-              <div className="border border-zinc-800 p-8">
-                <h2 className="text-3xl font-bold mb-6">MARCUS DAVIS</h2>
-                <div className="mb-6">
-                  <div className="relative w-48 h-48">
-                    <Image
-                      src="/images/marcus-davis.jpg"
-                      alt="Marcus Davis"
-                      className="object-cover rounded-lg"
-                      fill
-                    />
-                  </div>
-                </div>
-                <div className="space-y-4 text-lg">
-                  <p>Built IG after 10 years of watching brilliant people optimize around truth.</p>
-                  <p>Saw too much noise. Not enough signal.</p>
-                  <p>This is the override I wish I had.</p>
-                  <p className="text-red-500 font-bold">Now it's yours.</p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Final CTA - similar to weapons page */}
-            <div className="text-center mt-16">
-              <div className="bg-zinc-900 p-8 inline-block">
-                <h3 className="text-2xl font-bold mb-4">SIGNAL CLEAR?</h3>
-                <p className="text-lg text-zinc-400 mb-6">Either you override or you optimize. We're not waiting.</p>
-                <div className="space-y-4">
-                  <Link 
-                    href="/weapons"
-                    className="block bg-red-500 text-white px-8 py-4 text-lg font-medium hover:bg-red-600 transition-all">
-                    DEPLOY INTERVENTION
-                  </Link>
-                  <Link 
-                    href="/diagnostic"
-                    className="block border-2 border-white text-white px-8 py-4 text-lg font-medium hover:bg-white hover:text-black transition-all">
-                    DETECT SIGNAL
-                  </Link>
-                </div>
-              </div>
-            </div>
+            <RelatedContent
+              title="Learn The Language"
+              items={[
+                {
+                  href: "/answers/glossary/nexel",
+                  title: "Discover Your Nexel",
+                  description: "Your behavioral identity marker. How you move through constraint.",
+                  color: "red"
+                },
+                {
+                  href: "/answers/glossary/morrin",
+                  title: "Enter Morrin State",
+                  description: "Post-choice existence. The moment aligned action begins.",
+                  color: "yellow"
+                },
+                {
+                  href: "/answers/glossary/strune",
+                  title: "Master Strune",
+                  description: "Reality filtration. The precise cut that removes noise.",
+                  color: "green"
+                }
+              ]}
+            />
           </div>
-        </main>
-
-        {/* Minimal Footer */}
-        <footer className="py-8 px-6 bg-zinc-900 border-t border-zinc-800">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-lg font-bold mb-2">IMAGINATION G</p>
-            <p className="text-sm text-zinc-600">© {new Date().getFullYear()} All rights reserved.</p>
-          </div>
-        </footer>
+        </section>
       </div>
     </>
   );

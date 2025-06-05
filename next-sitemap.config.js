@@ -19,8 +19,8 @@ module.exports = {
       }
     }
     
-    // High priority for weapons/services
-    if (path.includes('/weapons/') || path.includes('/services/')) {
+    // High priority for interventions/services
+    if (path.includes('/interventions/') || path.includes('/services/')) {
       return {
         loc: path,
         changefreq: 'monthly',

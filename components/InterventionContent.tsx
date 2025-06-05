@@ -2,11 +2,26 @@ import React from 'react';
 import { Check, AlertCircle, Target, Clock } from 'lucide-react';
 import Link from 'next/link';
 
-interface WeaponContentProps {
-  weaponSlug: string;
+interface InterventionContentProps {
+  interventionSlug: string;
 }
 
-const weaponData: Record<string, any> = {
+interface ProcessStep {
+  time: string;
+  action: string;
+}
+
+interface InterventionInfo {
+  outcomes: string[];
+  process: {
+    title: string;
+    steps: ProcessStep[];
+  };
+  warning: string;
+  bestFor: string[];
+}
+
+const interventionData: Record<string, InterventionInfo> = {
   'clarity-catalyst-call': {
     outcomes: [
       "Your drift named and owned",
@@ -129,11 +144,11 @@ const weaponData: Record<string, any> = {
   }
 };
 
-const WeaponContent: React.FC<WeaponContentProps> = ({ weaponSlug }) => {
-  const content = weaponData[weaponSlug];
+const InterventionContent: React.FC<InterventionContentProps> = ({ interventionSlug }) => {
+  const content = interventionData[interventionSlug];
 
   if (!content) {
-    return <div>Weapon data not found</div>;
+    return <div>Intervention data not found</div>;
   }
 
   return (
@@ -143,7 +158,7 @@ const WeaponContent: React.FC<WeaponContentProps> = ({ weaponSlug }) => {
         <div className="flex items-start gap-4">
           <AlertCircle className="text-orange-500 flex-shrink-0 mt-1" size={24} />
           <div>
-            <h3 className="text-xl font-bold mb-2">NOT SURE THIS IS YOUR WEAPON?</h3>
+            <h3 className="text-xl font-bold mb-2">NOT SURE THIS IS YOUR INTERVENTION?</h3>
             <p className="text-zinc-300 mb-4">Take the 60-second signal detection. Find out if you're amplifying signal or optimizing noise.</p>
             <Link 
               href="/diagnostic"
@@ -234,4 +249,4 @@ const WeaponContent: React.FC<WeaponContentProps> = ({ weaponSlug }) => {
   );
 };
 
-export default WeaponContent;
+export default InterventionContent;

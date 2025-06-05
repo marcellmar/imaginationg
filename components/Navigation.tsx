@@ -7,27 +7,16 @@ interface NavigationProps {
 
 const Navigation: React.FC<NavigationProps> = ({ currentPage }) => {
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-black z-50">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-zinc-900">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <Link href="/" className="text-base font-black">IMAGINATION G</Link>
-        <div className="flex items-center gap-8">
-          <Link href="/" className={`text-sm hover:text-zinc-400 transition-colors ${currentPage === 'home' ? 'text-white' : 'text-zinc-400'}`}>
-            ← Home
-          </Link>
-          <Link href="/weapons" className={`text-sm hover:text-zinc-400 transition-colors ${currentPage === 'weapons' ? 'text-white' : 'text-zinc-400'}`}>
-            Interventions
-          </Link>
-          <Link href="/about" className={`text-sm hover:text-zinc-400 transition-colors ${currentPage === 'about' ? 'text-white' : 'text-zinc-400'}`}>
-            About
-          </Link>
-          <Link 
-            href="https://outlook.office.com/owa/calendar/IG@imaginationg.studio/bookings/" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white text-black px-6 py-2 text-sm font-bold hover:bg-zinc-200 transition-colors"
-          >
-            Book a Call
-          </Link>
+        <Link href="/" className="font-black text-xl">
+          IMAGINATION <span className="text-red-600">G</span>
+        </Link>
+        <div className="flex gap-6 text-sm font-bold">
+          <Link href="/answers" className="hover:text-red-600 transition-colors">ANSWERS</Link>
+          <Link href="/diagnostic" className="hover:text-red-600 transition-colors">DIAGNOSTIC</Link>
+          <Link href="/about" className="hover:text-red-600 transition-colors">ABOUT</Link>
+          <Link href="/answers/transformation" className="hover:text-red-600 transition-colors">FILTERS</Link>
         </div>
       </div>
     </nav>

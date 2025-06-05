@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { ArrowRight, Check, Star, MessageCircle, Phone, Plus, Minus, Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,13 +9,16 @@ const ImaginationGLanding = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   // Removed email state variables
 
-  useEffect(() => {
-    const handleScroll = () => setScrollPosition(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+  const handleScroll = useCallback(() => {
+    setScrollPosition(window.scrollY);
   }, []);
 
-  const weapons = [
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
+
+  const weapons = useMemo(() => [
     {
       id: 1,
       title: "Clarity Collision",
@@ -66,9 +69,9 @@ const ImaginationGLanding = () => {
       popular: true,
       slug: "movement-sprint"
     }
-  ];
+  ], []);
 
-  const testimonials = [
+  const testimonials = useMemo(() => [
     {
       name: "Brian M.",
       company: "Founder, Peak Ventures",
@@ -87,9 +90,9 @@ const ImaginationGLanding = () => {
       text: "The Ecosystem Map revealed connections I never saw. Game-changing insights.",
       rating: 5
     }
-  ];
+  ], []);
 
-  const faqs = [
+  const faqs = useMemo(() => [
     {
       question: "Still talking? Still drifting?",
       answer: "Every moment you wait is movement lost. You know this. Pick your intervention. Move now."
@@ -110,7 +113,7 @@ const ImaginationGLanding = () => {
       question: "What's your success rate?",
       answer: "100% clarity. Movement depends on you using it."
     }
-  ];
+  ], []);
 
   const stats = [
     { label: "Drift Identified", value: "24hrs" },
@@ -508,4 +511,4 @@ const ImaginationGLanding = () => {
   );
 };
 
-export default ImaginationGLanding;
+export default React.memo(ImaginationGLanding);

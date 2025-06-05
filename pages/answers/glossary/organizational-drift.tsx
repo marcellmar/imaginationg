@@ -1,13 +1,23 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import SEOHead from '../../../components/SEOHead';
+import RelatedContent from '../../../components/RelatedContent';
 
 export default function OrganizationalDrift() {
   return (
     <>
+      <SEOHead
+        title="What is Organizational Drift? | IMAGINATION G"
+        description="Organizational drift is signal noise overwhelming buried truth, leading to optimization over override. Learn to detect and amplify signal."
+        ogType="article"
+        ogImage="/images/og-answers.svg"
+        article={{
+          publishedTime: "2025-01-01T00:00:00Z",
+          author: "IMAGINATION G"
+        }}
+      />
+      
       <Head>
-        <title>What is Organizational Drift? | IMAGINATION G</title>
-        <meta name="description" content="Organizational drift is signal noise overwhelming buried truth, leading to optimization over override. Learn to detect and amplify signal." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -173,6 +183,31 @@ export default function OrganizationalDrift() {
               LEARN SIGNAL ARCHITECTURE
             </Link>
           </div>
+          
+          {/* Related Content */}
+          <RelatedContent
+            title="Continue Your Signal Journey"
+            items={[
+              {
+                href: "/answers/glossary/signal-decay-theory",
+                title: "Signal Decay Theory",
+                description: "The mathematics of how truth degrades through organizational layers.",
+                color: "red"
+              },
+              {
+                href: "/answers/glossary/strategy-theater",
+                title: "Strategy Theater",
+                description: "Optimization performance without function. The ultimate signal killer.",
+                color: "yellow"
+              },
+              {
+                href: "/answers/glossary/clarity-catalyst",
+                title: "Clarity Catalyst",
+                description: "Human signal amplification. The antidote to organizational drift.",
+                color: "green"
+              }
+            ]}
+          />
         </div>
       </div>
     </>

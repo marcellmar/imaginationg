@@ -1,9 +1,21 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
+import { z } from 'zod';
 
-// In a real application, you would store these in environment variables
-const EMAIL_USER = process.env.EMAIL_USER || 'marcus@imaginationg.studio';
-const EMAIL_PASS = process.env.EMAIL_PASS || 'your-app-password';
+// Email credentials from environment variables
+const EMAIL_USER = process.env.EMAIL_USER;
+const EMAIL_PASS = process.env.EMAIL_PASS;
+
+// Check if email credentials are configured
+if (!EMAIL_USER || !EMAIL_PASS) {
+  console.error('Email credentials not configured. Please set EMAIL_USER and EMAIL_PASS environment variables.');
+}
+
+// Validation schema
+const cheatsheetRequestSchema = z.object({
+  email: z.string().email('Invalid email format').max(255, 'Email too long'),
+  name: z.string().max(100, 'Name too long').optional()
+});
 
 // Email template for sending the cheatsheet
 const getEmailTemplate = (recipientName: string) => `
@@ -64,19 +76,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
-  try {
-    const { email, name } = req.body;
-
-    // Validate email
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return res.status(400).json({ message: 'Valid email is required' });
-    }
-
-    // For debugging
-    console.log('Email credentials:', {
-      user: EMAIL_USER,
-      passProvided: !!EMAIL_PASS
+  // Check if email credentials are configured
+  if (!EMAIL_USER || !EMAIL_PASS) {
+    return res.status(500).json({ 
+      message: 'Email service not configured',
+      error: 'Missing email credentials' 
     });
+  }
+
+  try {
+    // Validate request body
+    const validatedData = cheatsheetRequestSchema.parse(req.body);
+    const { email, name } = validatedData;
+
 
     // For development, we'll use a simpler setup - Gmail service
     const transporter = nodemailer.createTransport({
@@ -148,6 +160,17 @@ Busyness ≠ progress.
     // Return success
     return res.status(200).json({ message: 'Cheatsheet sent successfully' });
   } catch (error) {
+    // Handle Zod validation errors
+    if (error instanceof z.ZodError) {
+      return res.status(400).json({
+        message: 'Invalid request data',
+        errors: error.errors.map(e => ({
+          field: e.path.join('.'),
+          message: e.message
+        }))
+      });
+    }
+
     console.error('Error sending email:', error);
 
     // Provide more detailed error information
@@ -164,12 +187,7 @@ Busyness ≠ progress.
 
     return res.status(500).json({
       message: errorMessage,
-      details: errorDetails,
-      emailSetup: {
-        provider: 'SMTP',
-        user: EMAIL_USER,
-        configuredCorrectly: !!EMAIL_PASS
-      }
+      details: process.env.NODE_ENV === 'development' ? errorDetails : undefined
     });
   }
 }
