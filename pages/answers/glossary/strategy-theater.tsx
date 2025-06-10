@@ -1,7 +1,89 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import LexiconDiagnostic from '../../../components/LexiconDiagnostic';
 
 export default function StrategyTheater() {
+  const strategyTheaterQuestions = [
+    {
+      id: 1,
+      question: "Do you spend more time planning than executing?",
+      yesText: "PLANNING ADDICTION",
+      yesSubtext: "Analysis over action.",
+      noText: "EXECUTION FOCUSED",
+      noSubtext: "Action over analysis."
+    },
+    {
+      id: 2,
+      question: "Do strategy sessions rarely result in immediate next steps?",
+      yesText: "DISCUSSION THEATER",
+      yesSubtext: "Talk without commitment.",
+      noText: "ACTION MEETINGS",
+      noSubtext: "Every meeting ends with moves."
+    },
+    {
+      id: 3,
+      question: "Are your frameworks more complex than your results?",
+      yesText: "FRAMEWORK FETISH",
+      yesSubtext: "Process over progress.",
+      noText: "SIMPLE SYSTEMS",
+      noSubtext: "Results over process."
+    },
+    {
+      id: 4,
+      question: "Do you create strategies but struggle with implementation?",
+      yesText: "EXECUTION GAP",
+      yesSubtext: "Plans without power.",
+      noText: "SEAMLESS FLOW",
+      noSubtext: "Strategy becomes reality."
+    },
+    {
+      id: 5,
+      question: "Do consultants create more presentations than internal teams create value?",
+      yesText: "CONSULTANT THEATER",
+      yesSubtext: "Outsourced thinking.",
+      noText: "INTERNAL VELOCITY",
+      noSubtext: "Team owns strategy."
+    }
+  ];
+
+  const calculateTheaterResults = (answers: Record<number, 'yes' | 'no'>) => {
+    const yesCount = Object.values(answers).filter(answer => answer === 'yes').length;
+    const score = Math.round((yesCount / strategyTheaterQuestions.length) * 100);
+    
+    let severity: 'low' | 'medium' | 'high' | 'critical';
+    let title: string;
+    let description: string;
+    let recommendation: string;
+    let interventionUrl: string | undefined;
+
+    if (score <= 20) {
+      severity = 'low';
+      title = 'Action-Oriented Culture';
+      description = 'Your organization maintains strong execution discipline. Strategy serves action, not the reverse.';
+      recommendation = 'Maintain this discipline. Watch for strategy creep during growth phases.';
+    } else if (score <= 40) {
+      severity = 'medium';
+      title = 'Planning Bias Emerging';
+      description = 'Some strategy theater is creeping in. Still manageable but needs attention.';
+      recommendation = 'Reduce meeting duration, increase action requirements. Every strategy session must end with concrete next steps.';
+      interventionUrl = '/interventions/first-blood-build';
+    } else if (score <= 70) {
+      severity = 'high';
+      title = 'Strategy Theater Infection';
+      description = 'Planning has become a substitute for action. Your organization is stuck in discussion loops.';
+      recommendation = 'Immediate execution discipline required. Kill all strategy sessions for 30 days. Focus on shipping.';
+      interventionUrl = '/interventions/first-blood-build';
+    } else {
+      severity = 'critical';
+      title = 'Pure Strategy Theater';
+      description = 'Your organization has become a strategy performance. Action is secondary to planning aesthetics.';
+      recommendation = 'Emergency intervention. Replace all planning with building. Consultant detox required.';
+      interventionUrl = '/interventions/the-map';
+    }
+
+    return { score, severity, title, description, recommendation, interventionUrl };
+  };
+
   return (
     <>
       <Head>
@@ -226,6 +308,14 @@ export default function StrategyTheater() {
             </div>
           </div>
 
+          {/* Diagnostic */}
+          <LexiconDiagnostic
+            lexiconTerm="strategy theater"
+            questions={strategyTheaterQuestions}
+            calculateResults={calculateTheaterResults}
+            color="red"
+          />
+
           {/* CTA */}
           <div className="border border-zinc-800 p-8 text-center">
             <h3 className="text-2xl font-black mb-4">Done with the Performance?</h3>
@@ -233,7 +323,7 @@ export default function StrategyTheater() {
               Stop performing strategy. Start amplifying signal. Get the intervention that ends the theater.
             </p>
             <Link 
-              href="/weapons/the-naming" 
+              href="/interventions/the-naming" 
               className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 transition-colors mr-4"
             >
               DEPLOY INTERVENTION

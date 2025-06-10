@@ -9,8 +9,8 @@ const AboutPage = () => {
   return (
     <>
       <SEOHead
-        title="About IMAGINATION G - Signal Amplifiers, Not Optimizers"
-        description="IMAGINATION G surfaces buried truth through override, not optimization. Agency over aesthetics. Signal over noise. We amplify what's real."
+        title="About IMAGINATION G - Portal Interventions, Not Consulting"
+        description="We don't consult. We intervene. Interactive portals break stuck patterns, ship working MVPs, and name buried truth. No optimization theater."
         ogImage="/images/og-about.svg"
       />
 
@@ -27,15 +27,15 @@ const AboutPage = () => {
                 {/* System Status Badge */}
                 <div className="inline-block mb-8 text-green-400 text-xs font-mono bg-zinc-950 border border-zinc-800 px-4 py-2 rounded-full">
                   <span className="inline-block w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-                  TRUTH: AMPLIFIED
+                  INTERVENTIONS: READY
                 </div>
 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
-                  WE DON'T<br />OPTIMIZE<span className="text-red-600">.</span>
+                  WE DON'T<br />CONSULT<span className="text-red-600">.</span>
                 </h1>
                 
                 <p className="text-xl text-zinc-400 mb-8 max-w-xl">
-                  We override. We surface buried signal. We amplify truth. We leave.
+                  We intervene. Interactive portals. Daily progress via Teams. Break patterns or ship MVPs. No meetings about meetings.
                 </p>
               </div>
 
@@ -43,20 +43,20 @@ const AboutPage = () => {
               <div className="space-y-6">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="border border-zinc-800 p-6 hover:border-red-600 transition-colors">
-                    <h3 className="font-black text-red-600 mb-2">SHOW UP</h3>
-                    <p className="text-sm text-zinc-400">not consult</p>
+                    <h3 className="font-black text-red-600 mb-2">INTERVENE</h3>
+                    <p className="text-sm text-zinc-400">not advise</p>
                   </div>
                   <div className="border border-zinc-800 p-6 hover:border-red-600 transition-colors">
-                    <h3 className="font-black text-red-600 mb-2">SURFACE</h3>
-                    <p className="text-sm text-zinc-400">not bury</p>
+                    <h3 className="font-black text-red-600 mb-2">BREAK</h3>
+                    <p className="text-sm text-zinc-400">not optimize</p>
                   </div>
                   <div className="border border-zinc-800 p-6 hover:border-red-600 transition-colors">
-                    <h3 className="font-black text-red-600 mb-2">AMPLIFY</h3>
-                    <p className="text-sm text-zinc-400">not muffle</p>
+                    <h3 className="font-black text-red-600 mb-2">SHIP</h3>
+                    <p className="text-sm text-zinc-400">not perfect</p>
                   </div>
                   <div className="border border-zinc-800 p-6 hover:border-red-600 transition-colors">
-                    <h3 className="font-black text-red-600 mb-2">LEAVE</h3>
-                    <p className="text-sm text-zinc-400">not linger</p>
+                    <h3 className="font-black text-red-600 mb-2">DEPLOY</h3>
+                    <p className="text-sm text-zinc-400">not discuss</p>
                   </div>
                 </div>
               </div>
@@ -67,19 +67,19 @@ const AboutPage = () => {
         {/* Our Code Section */}
         <section className="py-16 px-6 border-t border-zinc-900">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-black mb-12 text-center">OUR CODE</h2>
+            <h2 className="text-3xl font-black mb-12 text-center">OUR APPROACH</h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
-                <p className="text-zinc-500 mb-2">We don't optimize noise.</p>
-                <p className="text-2xl font-black text-red-600">We amplify signal.</p>
+                <p className="text-zinc-500 mb-2">We don't create strategy documents.</p>
+                <p className="text-2xl font-black text-red-600">We build portals.</p>
               </div>
               <div className="text-center">
-                <p className="text-zinc-500 mb-2">We don't build dependencies.</p>
-                <p className="text-2xl font-black text-red-600">We build agency.</p>
+                <p className="text-zinc-500 mb-2">We don't schedule more meetings.</p>
+                <p className="text-2xl font-black text-red-600">We break patterns.</p>
               </div>
               <div className="text-center">
-                <p className="text-zinc-500 mb-2">We don't polish aesthetics.</p>
-                <p className="text-2xl font-black text-red-600">We ship function.</p>
+                <p className="text-zinc-500 mb-2">We don't optimize around problems.</p>
+                <p className="text-2xl font-black text-red-600">We fix them.</p>
               </div>
             </div>
           </div>
@@ -105,15 +105,16 @@ const AboutPage = () => {
               <div className="max-w-xl">
                 <h2 className="text-3xl font-black mb-6">MARCUS DAVIS</h2>
                 <div className="space-y-4 text-lg text-zinc-300">
-                  <p>Built IG after 10 years of watching brilliant people optimize around truth.</p>
-                  <p>Saw too much noise. Not enough signal.</p>
-                  <p>Too many consultants polishing problems.</p>
-                  <p>Not enough people solving them.</p>
+                  <p>Built IG after 10 years of watching brilliant teams get stuck in optimization loops.</p>
+                  <p>Too many meetings about meetings.</p>
+                  <p>Too many strategies without action.</p>
+                  <p>Too much consulting theater.</p>
+                  <p>Not enough pattern breaking.</p>
                   <p className="text-xl font-black text-red-600 pt-4">
-                    This is the override I wish I had.
+                    These are the portals I wish I had.
                   </p>
                   <p className="text-xl font-black">
-                    Now it's yours.
+                    Now they're yours.
                   </p>
                 </div>
               </div>
@@ -124,28 +125,28 @@ const AboutPage = () => {
         {/* How We Work Section */}
         <section className="py-16 px-6 bg-zinc-950">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-black mb-12 text-center">HOW WE WORK</h2>
+            <h2 className="text-3xl font-black mb-12 text-center">HOW PORTALS WORK</h2>
             <div className="max-w-3xl mx-auto">
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <span className="text-red-600 font-black text-2xl">1</span>
-                  <p className="text-lg">You choose override over optimization</p>
+                  <p className="text-lg">Take diagnostic or choose intervention portal</p>
                 </div>
                 <div className="flex items-center gap-4">
                   <span className="text-red-600 font-black text-2xl">2</span>
-                  <p className="text-lg">You select the intervention that fits</p>
+                  <p className="text-lg">Complete pre-session form (4 questions max)</p>
                 </div>
                 <div className="flex items-center gap-4">
                   <span className="text-red-600 font-black text-2xl">3</span>
-                  <p className="text-lg">You name the buried truth</p>
+                  <p className="text-lg">Daily progress tracking via Teams</p>
                 </div>
                 <div className="flex items-center gap-4">
                   <span className="text-red-600 font-black text-2xl">4</span>
-                  <p className="text-lg">We amplify your signal</p>
+                  <p className="text-lg">Pattern breaks or MVP ships</p>
                 </div>
                 <div className="flex items-center gap-4">
                   <span className="text-red-600 font-black text-2xl">5</span>
-                  <p className="text-lg font-black text-red-600">We leave</p>
+                  <p className="text-lg font-black text-red-600">You keep moving</p>
                 </div>
               </div>
             </div>
@@ -155,16 +156,16 @@ const AboutPage = () => {
         {/* CTA Section */}
         <section className="py-16 px-6 border-t border-zinc-900">
           <div className="max-w-7xl mx-auto text-center">
-            <h3 className="text-3xl font-black mb-6">SIGNAL CLEAR?</h3>
+            <h3 className="text-3xl font-black mb-6">READY TO BREAK THE PATTERN?</h3>
             <p className="text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
-              Either you override or you optimize. We're not waiting.
+              Either you intervene or you optimize. Choose action.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/interventions" className="bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors text-center">
                 DEPLOY INTERVENTION
               </Link>
               <Link href="/diagnostic" className="border-2 border-zinc-700 px-8 py-4 text-lg font-black hover:border-zinc-500 transition-colors text-center">
-                DETECT SIGNAL
+                DETECT PATTERN
               </Link>
             </div>
           </div>

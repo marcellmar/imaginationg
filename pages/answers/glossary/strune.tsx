@@ -9,8 +9,8 @@ const StrunePage: NextPage = () => {
   return (
     <>
       <SEOHead
-        title="Strune - Self-Generated Friction | IMAGINATION G"
-        description="Strune is when movement creates its own resistance. Discover how to recognize and break self-generated friction patterns that keep organizations stuck."
+        title="Strune - Reality Filtration | IMAGINATION G"
+        description="Strune is the precise cut that removes noise and reveals what actually matters. Learn to filter signal from static."
         ogType="article"
         ogImage="/images/og-answers.svg"
         article={{
@@ -29,22 +29,34 @@ const StrunePage: NextPage = () => {
               {/* Breadcrumb */}
               <Link href="/answers" className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors mb-8">
                 <ArrowLeft size={16} />
-                Back to Answers
+                Back to Pattern Breakdown
               </Link>
 
               {/* System Status Badge */}
               <div className="inline-block mb-8 text-green-400 text-xs font-mono bg-zinc-950 border border-zinc-800 px-4 py-2 rounded-full">
                 <span className="inline-block w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-                LEXICON: STRUNE
+                PORTAL: STRUNE
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
                 STRUNE<span className="text-red-600">.</span>
               </h1>
               
-              <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
-                When movement creates its own resistance. The self-generated friction pattern.
+              <p className="text-xl text-zinc-400 mb-12 max-w-2xl">
+                Reality filtration. The precise cut that removes noise and reveals what actually matters.
               </p>
+
+              {/* Portal Navigation */}
+              <div className="border border-zinc-800 bg-zinc-950">
+                <div className="flex border-b border-zinc-800 overflow-x-auto">
+                  <div className="px-6 py-4 bg-red-600 text-white font-bold whitespace-nowrap">
+                    STRUNE ELIMINATION
+                  </div>
+                  <Link href="/answers" className="px-6 py-4 font-bold transition-colors whitespace-nowrap text-zinc-400 hover:text-white hover:bg-zinc-900">
+                    PATTERN HUB
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -56,9 +68,8 @@ const StrunePage: NextPage = () => {
               <div className="bg-zinc-950 border border-zinc-800 p-8 mb-12">
                 <h2 className="text-2xl font-black mb-4 text-red-600">QUICK ANSWER</h2>
                 <p className="text-lg leading-relaxed">
-                  Strune (stroon) is the physics pattern where forward movement generates backward drag. 
-                  It's when your own actions create the very resistance you're trying to overcome. 
-                  The harder you push, the stronger the resistance becomes—because you're creating it.
+                  Strune is your ability to cut through noise and see what's real. Some people hear 100 opinions and get confused. 
+                  Others filter down to the 3 facts that matter. Strune is precision. One clean cut instead of messy hacking.
                 </p>
               </div>
 
@@ -68,19 +79,19 @@ const StrunePage: NextPage = () => {
                 <ul className="space-y-2">
                   <li className="flex items-start gap-3">
                     <CheckCircle className="text-yellow-500 mt-0.5 flex-shrink-0" size={20} />
-                    <span>Strune = self-generated resistance patterns</span>
+                    <span>Strune = your reality filtration system</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="text-yellow-500 mt-0.5 flex-shrink-0" size={20} />
-                    <span>Your solution becomes your problem</span>
+                    <span>High strune = cut through noise instantly</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="text-yellow-500 mt-0.5 flex-shrink-0" size={20} />
-                    <span>More effort = more resistance</span>
+                    <span>Low strune = drowning in information</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="text-yellow-500 mt-0.5 flex-shrink-0" size={20} />
-                    <span>Break it by stopping, not pushing harder</span>
+                    <span>One precise cut beats endless analysis</span>
                   </li>
                 </ul>
               </div>

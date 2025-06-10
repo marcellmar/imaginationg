@@ -3,9 +3,83 @@ import Link from 'next/link';
 import SEOHead from '../../../components/SEOHead';
 import Navigation from '../../../components/Navigation';
 import RelatedContent from '../../../components/RelatedContent';
+import LexiconDiagnostic from '../../../components/LexiconDiagnostic';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
 
 const PilorPage: NextPage = () => {
+  const pilorQuestions = [
+    {
+      id: 1,
+      question: "Do problems keep recurring despite multiple 'fixes'?",
+      yesText: "RECURSIVE FAILURE",
+      yesSubtext: "System optimizing for dysfunction.",
+      noText: "CLEAN FIXES",
+      noSubtext: "Problems stay solved."
+    },
+    {
+      id: 2,
+      question: "Do your solutions create new versions of the same problem?",
+      yesText: "PROBLEM MUTATION",
+      yesSubtext: "Failure evolving to survive.",
+      noText: "ROOT RESOLUTION",
+      noSubtext: "Core issues addressed."
+    },
+    {
+      id: 3,
+      question: "Does your organization resist changes that would actually work?",
+      yesText: "DYSFUNCTION DEFENSE",
+      yesSubtext: "System protecting its failure.",
+      noText: "SOLUTION HUNGRY",
+      noSubtext: "Change is welcomed."
+    },
+    {
+      id: 4,
+      question: "Do 'temporary' workarounds become permanent features?",
+      yesText: "WORKAROUND CALCIFICATION",
+      yesSubtext: "Band-aids become architecture.",
+      noText: "PROPER SOLUTIONS",
+      noSubtext: "Fixes address root causes."
+    }
+  ];
+
+  const calculatePilorResults = (answers: Record<number, 'yes' | 'no'>) => {
+    const yesCount = Object.values(answers).filter(answer => answer === 'yes').length;
+    const score = Math.round((yesCount / pilorQuestions.length) * 100);
+    
+    let severity: 'low' | 'medium' | 'high' | 'critical';
+    let title: string;
+    let description: string;
+    let recommendation: string;
+    let interventionUrl: string | undefined;
+
+    if (score <= 25) {
+      severity = 'low';
+      title = 'Healthy Problem Resolution';
+      description = 'Your systems break failure loops effectively. Problems get solved and stay solved.';
+      recommendation = 'Maintain this discipline. Document what makes your problem-solving effective.';
+    } else if (score <= 50) {
+      severity = 'medium';
+      title = 'Early Pilor Signs';
+      description = 'Some recursive patterns are emerging. Time to strengthen your problem-solving protocols.';
+      recommendation = 'Focus on root cause analysis. Stop accepting workarounds as solutions.';
+      interventionUrl = '/interventions/the-naming';
+    } else if (score <= 75) {
+      severity = 'high';
+      title = 'Pilor Infection';
+      description = 'Your organization is trapped in failure loops. Problems are becoming self-sustaining.';
+      recommendation = 'Break the pattern. Map the failure loops and interrupt them systematically.';
+      interventionUrl = '/interventions/the-map';
+    } else {
+      severity = 'critical';
+      title = 'Terminal Pilor State';
+      description = 'Your system has optimized for dysfunction. Failure has become organizational DNA.';
+      recommendation = 'Complete system redesign required. Cannot fix from within current patterns.';
+      interventionUrl = '/interventions/the-naming';
+    }
+
+    return { score, severity, title, description, recommendation, interventionUrl };
+  };
+
   return (
     <>
       <SEOHead
@@ -250,6 +324,20 @@ const PilorPage: NextPage = () => {
           </div>
         </section>
 
+        {/* Diagnostic Section */}
+        <section className="py-16 px-6 border-t border-zinc-900">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-4xl">
+              <LexiconDiagnostic
+                lexiconTerm="pilor"
+                questions={pilorQuestions}
+                calculateResults={calculatePilorResults}
+                color="red"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-16 px-6 border-t border-zinc-900">
           <div className="max-w-7xl mx-auto text-center">
@@ -259,7 +347,7 @@ const PilorPage: NextPage = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
-                href="/services/ecosystem-map"
+                href="/interventions/the-map"
                 className="bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors"
               >
                 MAP YOUR PILOR LOOPS

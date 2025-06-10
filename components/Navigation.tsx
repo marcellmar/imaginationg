@@ -16,7 +16,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage }) => {
           <Link href="/answers" className="hover:text-red-600 transition-colors">ANSWERS</Link>
           <Link href="/diagnostic" className="hover:text-red-600 transition-colors">DIAGNOSTIC</Link>
           <Link href="/about" className="hover:text-red-600 transition-colors">ABOUT</Link>
-          <Link href="/answers/transformation" className="hover:text-red-600 transition-colors">FILTERS</Link>
+          <Link href="/start" className="hover:text-red-600 transition-colors">DETECT</Link>
         </div>
       </div>
     </nav>

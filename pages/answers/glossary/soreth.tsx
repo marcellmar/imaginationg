@@ -3,9 +3,91 @@ import Link from 'next/link';
 import SEOHead from '../../../components/SEOHead';
 import Navigation from '../../../components/Navigation';
 import RelatedContent from '../../../components/RelatedContent';
+import LexiconDiagnostic from '../../../components/LexiconDiagnostic';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
 
 const SorethPage: NextPage = () => {
+  const sorethQuestions = [
+    {
+      id: 1,
+      question: "Do simple tasks take longer than they should due to process overhead?",
+      yesText: "PROCESS SORETH",
+      yesSubtext: "Hidden friction in workflow.",
+      noText: "CLEAN EXECUTION",
+      noSubtext: "Direct action possible."
+    },
+    {
+      id: 2,
+      question: "Does your energy drain even when you're not actively working?",
+      yesText: "BACKGROUND SORETH",
+      yesSubtext: "System bleeding energy.",
+      noText: "ENERGY CONSERVED",
+      noSubtext: "No unnecessary drain."
+    },
+    {
+      id: 3,
+      question: "Do you feel exhausted after meetings that accomplish little?",
+      yesText: "MEETING SORETH",
+      yesSubtext: "Energy wasted on theater.",
+      noText: "PRODUCTIVE ENGAGEMENT",
+      noSubtext: "Energy well-invested."
+    },
+    {
+      id: 4,
+      question: "Are there invisible taxes on every decision you make?",
+      yesText: "DECISION SORETH",
+      yesSubtext: "Hidden complexity costs.",
+      noText: "CLEAR CHOICES",
+      noSubtext: "Decisions flow freely."
+    },
+    {
+      id: 5,
+      question: "Do you spend mental energy on things that don't matter?",
+      yesText: "COGNITIVE SORETH",
+      yesSubtext: "Attention leaking away.",
+      noText: "FOCUSED ENERGY",
+      noSubtext: "Attention protected."
+    }
+  ];
+
+  const calculateSorethResults = (answers: Record<number, 'yes' | 'no'>) => {
+    const yesCount = Object.values(answers).filter(answer => answer === 'yes').length;
+    const score = Math.round((yesCount / sorethQuestions.length) * 100);
+    
+    let severity: 'low' | 'medium' | 'high' | 'critical';
+    let title: string;
+    let description: string;
+    let recommendation: string;
+    let interventionUrl: string | undefined;
+
+    if (score <= 20) {
+      severity = 'low';
+      title = 'Clean Energy Systems';
+      description = 'Your systems operate with minimal hidden friction. Energy flows efficiently to productive work.';
+      recommendation = 'Maintain this efficiency. Monitor for soreth creep as you scale.';
+    } else if (score <= 40) {
+      severity = 'medium';
+      title = 'Emerging Soreth Drains';
+      description = 'Some energy is being lost to hidden friction. Early elimination can prevent compounding drain.';
+      recommendation = 'Audit your energy flows. Identify and eliminate hidden taxes on productivity.';
+      interventionUrl = '/interventions/the-map';
+    } else if (score <= 70) {
+      severity = 'high';
+      title = 'Significant Soreth Infection';
+      description = 'Hidden energy drains are substantial. Most of your energy goes to feeding the system rather than productive work.';
+      recommendation = 'Emergency soreth elimination. Map all energy drains and eliminate non-essential ones immediately.';
+      interventionUrl = '/interventions/the-map';
+    } else {
+      severity = 'critical';
+      title = 'Terminal Soreth State';
+      description = 'Your system exists primarily to feed itself. Almost all energy goes to maintaining overhead rather than creating value.';
+      recommendation = 'Complete system redesign required. Current structure is optimized for soreth, not output.';
+      interventionUrl = '/interventions/the-naming';
+    }
+
+    return { score, severity, title, description, recommendation, interventionUrl };
+  };
+
   return (
     <>
       <SEOHead
@@ -250,6 +332,20 @@ const SorethPage: NextPage = () => {
           </div>
         </section>
 
+        {/* Diagnostic Section */}
+        <section className="py-16 px-6 border-t border-zinc-900">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-4xl">
+              <LexiconDiagnostic
+                lexiconTerm="soreth"
+                questions={sorethQuestions}
+                calculateResults={calculateSorethResults}
+                color="yellow"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-16 px-6 border-t border-zinc-900">
           <div className="max-w-7xl mx-auto text-center">
@@ -259,7 +355,7 @@ const SorethPage: NextPage = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
-                href="/services/ecosystem-map"
+                href="/interventions/the-map"
                 className="bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors"
               >
                 MAP YOUR ENERGY DRAINS

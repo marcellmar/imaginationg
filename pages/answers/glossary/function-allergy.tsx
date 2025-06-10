@@ -1,7 +1,89 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import LexiconDiagnostic from '../../../components/LexiconDiagnostic';
 
 export default function FunctionAllergy() {
+  const functionAllergyQuestions = [
+    {
+      id: 1,
+      question: "Does your organization prioritize process over outcomes?",
+      yesText: "PROCESS OBSESSION",
+      yesSubtext: "Form over function.",
+      noText: "OUTCOME FOCUSED",
+      noSubtext: "Function over form."
+    },
+    {
+      id: 2,
+      question: "Do people get rewarded for following procedures rather than delivering results?",
+      yesText: "PROCEDURE REWARDS",
+      yesSubtext: "Compliance over delivery.",
+      noText: "RESULT REWARDS",
+      noSubtext: "Delivery over compliance."
+    },
+    {
+      id: 3,
+      question: "Are working solutions dismissed if they don't follow 'best practices'?",
+      yesText: "ORTHODOXY OVER FUNCTION",
+      yesSubtext: "Theory trumps reality.",
+      noText: "FUNCTION OVER ORTHODOXY",
+      noSubtext: "Reality trumps theory."
+    },
+    {
+      id: 4,
+      question: "Do teams spend more time planning than building?",
+      yesText: "PLANNING ADDICTION",
+      yesSubtext: "Preparation over production.",
+      noText: "BUILDING FOCUS",
+      noSubtext: "Production over preparation."
+    },
+    {
+      id: 5,
+      question: "Is 'doing it right' more important than getting it done?",
+      yesText: "PERFECTION PARALYSIS",
+      yesSubtext: "Perfect over functional.",
+      noText: "FUNCTIONAL DELIVERY",
+      noSubtext: "Done over perfect."
+    }
+  ];
+
+  const calculateFunctionAllergyResults = (answers: Record<number, 'yes' | 'no'>) => {
+    const yesCount = Object.values(answers).filter(answer => answer === 'yes').length;
+    const score = Math.round((yesCount / functionAllergyQuestions.length) * 100);
+    
+    let severity: 'low' | 'medium' | 'high' | 'critical';
+    let title: string;
+    let description: string;
+    let recommendation: string;
+    let interventionUrl: string | undefined;
+
+    if (score <= 20) {
+      severity = 'low';
+      title = 'Function-First Culture';
+      description = 'Your organization prioritizes outcomes over process. Function drives decisions.';
+      recommendation = 'Maintain this focus. Guard against process creep as you scale.';
+    } else if (score <= 40) {
+      severity = 'medium';
+      title = 'Early Function Allergy';
+      description = 'Some process is starting to trump function. Early correction can prevent full allergy.';
+      recommendation = 'Reemphasize outcomes. Simplify processes that block delivery.';
+      interventionUrl = '/interventions/first-blood-build';
+    } else if (score <= 70) {
+      severity = 'high';
+      title = 'Active Function Allergy';
+      description = 'Process has become more important than outcomes. Function is being systematically rejected.';
+      recommendation = 'Emergency function restoration. Kill non-essential processes immediately.';
+      interventionUrl = '/interventions/first-blood-build';
+    } else {
+      severity = 'critical';
+      title = 'Terminal Function Allergy';
+      description = 'Your organization cannot deliver function. Process theater has completely replaced outcomes.';
+      recommendation = 'Complete organizational redesign. Function allergy is terminal without radical intervention.';
+      interventionUrl = '/interventions/the-map';
+    }
+
+    return { score, severity, title, description, recommendation, interventionUrl };
+  };
+
   return (
     <>
       <Head>
@@ -343,6 +425,13 @@ export default function FunctionAllergy() {
             </div>
           </div>
 
+          <LexiconDiagnostic
+            lexiconTerm="function allergy"
+            questions={functionAllergyQuestions}
+            calculateResults={calculateFunctionAllergyResults}
+            color="red"
+          />
+
           {/* CTA */}
           <div className="border border-zinc-800 p-8 text-center">
             <h3 className="text-2xl font-black mb-4">Ready to Ship Function?</h3>
@@ -350,7 +439,7 @@ export default function FunctionAllergy() {
               Cure your Function Allergy. Get the intervention that forces function delivery over process optimization.
             </p>
             <Link 
-              href="/weapons/first-blood-build" 
+              href="/interventions/first-blood-build" 
               className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 transition-colors mr-4"
             >
               FORCE FUNCTION DELIVERY

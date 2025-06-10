@@ -1,7 +1,81 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import LexiconDiagnostic from '../../../components/LexiconDiagnostic';
 
 export default function CompetenceParadox() {
+  const competenceQuestions = [
+    {
+      id: 1,
+      question: "Do highly skilled people in your organization work around the system rather than through it?",
+      yesText: "SYSTEM BYPASS",
+      yesSubtext: "Competence creating dysfunction.",
+      noText: "SYSTEM HARMONY",
+      noSubtext: "Skills work with structure."
+    },
+    {
+      id: 2,
+      question: "Are your best performers also your biggest process violators?",
+      yesText: "COMPETENCE REBELLION",
+      yesSubtext: "Excellence breaking rules.",
+      noText: "ALIGNED EXCELLENCE",
+      noSubtext: "Performance follows process."
+    },
+    {
+      id: 3,
+      question: "Do competent individuals create complex solutions that only they understand?",
+      yesText: "KNOWLEDGE HOARDING",
+      yesSubtext: "Skill creating dependency.",
+      noText: "TRANSFERABLE SOLUTIONS",
+      noSubtext: "Knowledge shared widely."
+    },
+    {
+      id: 4,
+      question: "Do teams become less effective when star performers leave?",
+      yesText: "COMPETENCE DEPENDENCY",
+      yesSubtext: "System built around individuals.",
+      noText: "RESILIENT SYSTEMS",
+      noSubtext: "Performance survives turnover."
+    }
+  ];
+
+  const calculateCompetenceResults = (answers: Record<number, 'yes' | 'no'>) => {
+    const yesCount = Object.values(answers).filter(answer => answer === 'yes').length;
+    const score = Math.round((yesCount / competenceQuestions.length) * 100);
+    
+    let severity: 'low' | 'medium' | 'high' | 'critical';
+    let title: string;
+    let description: string;
+    let recommendation: string;
+    let interventionUrl: string | undefined;
+
+    if (score <= 25) {
+      severity = 'low';
+      title = 'Healthy Competence Integration';
+      description = 'Individual excellence enhances system function. Skills are leveraged without creating dysfunction.';
+      recommendation = 'Maintain this balance. Document how competence supports rather than undermines systems.';
+    } else if (score <= 50) {
+      severity = 'medium';
+      title = 'Emerging Competence Paradox';
+      description = 'Some skilled individuals are starting to work around rather than within systems.';
+      recommendation = 'Address system barriers that force competent people to create workarounds.';
+      interventionUrl = '/interventions/the-map';
+    } else if (score <= 75) {
+      severity = 'high';
+      title = 'Active Competence Paradox';
+      description = 'Your most skilled people are systematically undermining organizational systems through their excellence.';
+      recommendation = 'Redesign systems to channel competence constructively rather than forcing workarounds.';
+      interventionUrl = '/interventions/the-naming';
+    } else {
+      severity = 'critical';
+      title = 'Terminal Competence Paradox';
+      description = 'Individual competence and organizational function are completely at odds. Excellence creates chaos.';
+      recommendation = 'Emergency organizational redesign. Current structure is incompatible with competent performance.';
+      interventionUrl = '/interventions/the-naming';
+    }
+
+    return { score, severity, title, description, recommendation, interventionUrl };
+  };
+
   return (
     <>
       <Head>
@@ -284,6 +358,13 @@ export default function CompetenceParadox() {
             </div>
           </div>
 
+          <LexiconDiagnostic
+            lexiconTerm="competence paradox"
+            questions={competenceQuestions}
+            calculateResults={calculateCompetenceResults}
+            color="yellow"
+          />
+
           {/* CTA */}
           <div className="border border-zinc-800 p-8 text-center">
             <h3 className="text-2xl font-black mb-4">Ready to Constrain Competence?</h3>
@@ -291,7 +372,7 @@ export default function CompetenceParadox() {
               Break the competence dysfunction cycle. Get the intervention that turns individual excellence into organizational capability.
             </p>
             <Link 
-              href="/weapons/the-naming" 
+              href="/interventions/the-naming" 
               className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 transition-colors mr-4"
             >
               CONSTRAIN COMPLEXITY

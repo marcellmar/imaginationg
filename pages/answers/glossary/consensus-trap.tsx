@@ -1,7 +1,81 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import LexiconDiagnostic from '../../../components/LexiconDiagnostic';
 
 export default function ConsensusTrap() {
+  const consensusQuestions = [
+    {
+      id: 1,
+      question: "Do decisions get delayed to include more stakeholders?",
+      yesText: "INCLUSION PARALYSIS",
+      yesSubtext: "Everyone must agree.",
+      noText: "DECISIVE AUTHORITY",
+      noSubtext: "Someone owns the call."
+    },
+    {
+      id: 2,
+      question: "Do dissenting voices get silenced for 'team unity'?",
+      yesText: "ENFORCED HARMONY",
+      yesSubtext: "Comfort over truth.",
+      noText: "PROTECTED DISSENT",
+      noSubtext: "Truth over comfort."
+    },
+    {
+      id: 3,
+      question: "Are controversial ideas avoided to maintain harmony?",
+      yesText: "IDEA CENSORSHIP",
+      yesSubtext: "Safety over breakthrough.",
+      noText: "TRUTH SEEKING",
+      noSubtext: "Breakthrough over safety."
+    },
+    {
+      id: 4,
+      question: "Do meetings end without clear decisions to avoid conflict?",
+      yesText: "DECISION AVOIDANCE",
+      yesSubtext: "Maybe is the default.",
+      noText: "BINARY CHOICES",
+      noSubtext: "Yes or no is the default."
+    }
+  ];
+
+  const calculateConsensusResults = (answers: Record<number, 'yes' | 'no'>) => {
+    const yesCount = Object.values(answers).filter(answer => answer === 'yes').length;
+    const score = Math.round((yesCount / consensusQuestions.length) * 100);
+    
+    let severity: 'low' | 'medium' | 'high' | 'critical';
+    let title: string;
+    let description: string;
+    let recommendation: string;
+    let interventionUrl: string | undefined;
+
+    if (score <= 25) {
+      severity = 'low';
+      title = 'Healthy Decision Culture';
+      description = 'Your organization makes decisions efficiently. Truth matters more than comfort.';
+      recommendation = 'Maintain this decisiveness. Guard against consensus creep during scaling.';
+    } else if (score <= 50) {
+      severity = 'medium';
+      title = 'Consensus Drift';
+      description = 'Some truth is being sacrificed for agreement. Decision quality is declining.';
+      recommendation = 'Clarify decision authority. Protect dissenting voices. Set decision deadlines.';
+      interventionUrl = '/interventions/the-naming';
+    } else if (score <= 75) {
+      severity = 'high';
+      title = 'Consensus Trap Active';
+      description = 'Agreement has become more important than accuracy. Innovation is being stifled.';
+      recommendation = 'Break the consensus addiction. Assign decision owners. Reward truth-telling.';
+      interventionUrl = '/interventions/the-naming';
+    } else {
+      severity = 'critical';
+      title = 'Consensus Paralysis';
+      description = 'Your organization cannot make decisions that upset anyone. Truth has been exiled.';
+      recommendation = 'Emergency leadership intervention. Replace consensus with clear authority structures.';
+      interventionUrl = '/interventions/the-map';
+    }
+
+    return { score, severity, title, description, recommendation, interventionUrl };
+  };
+
   return (
     <>
       <Head>
@@ -360,6 +434,14 @@ export default function ConsensusTrap() {
             </div>
           </div>
 
+          {/* Diagnostic */}
+          <LexiconDiagnostic
+            lexiconTerm="consensus trap"
+            questions={consensusQuestions}
+            calculateResults={calculateConsensusResults}
+            color="yellow"
+          />
+
           {/* CTA */}
           <div className="border border-zinc-800 p-8 text-center">
             <h3 className="text-2xl font-black mb-4">Ready to Choose Truth Over Agreement?</h3>
@@ -367,7 +449,7 @@ export default function ConsensusTrap() {
               Escape the Consensus Trap. Get the intervention that amplifies signal over group comfort.
             </p>
             <Link 
-              href="/weapons/the-naming" 
+              href="/interventions/the-naming" 
               className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 transition-colors mr-4"
             >
               AMPLIFY TRUTH OVER COMFORT

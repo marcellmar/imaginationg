@@ -1,7 +1,89 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import LexiconDiagnostic from '../../../components/LexiconDiagnostic';
 
 export default function AestheticAddiction() {
+  const aestheticQuestions = [
+    {
+      id: 1,
+      question: "Do you delay shipping because it doesn't look polished enough?",
+      yesText: "POLISH PARALYSIS",
+      yesSubtext: "Aesthetics over delivery.",
+      noText: "FUNCTION FIRST",
+      noSubtext: "Delivery over aesthetics."
+    },
+    {
+      id: 2,
+      question: "Do presentations get more attention than actual results?",
+      yesText: "PRESENTATION OBSESSION",
+      yesSubtext: "Form over substance.",
+      noText: "RESULTS FOCUSED",
+      noSubtext: "Substance over form."
+    },
+    {
+      id: 3,
+      question: "Is looking professional more important than being effective?",
+      yesText: "IMAGE ADDICTION",
+      yesSubtext: "Appearance over performance.",
+      noText: "EFFECTIVENESS PRIORITY",
+      noSubtext: "Performance over appearance."
+    },
+    {
+      id: 4,
+      question: "Do you spend more time perfecting visuals than improving function?",
+      yesText: "VISUAL FIXATION",
+      yesSubtext: "Pretty over functional.",
+      noText: "FUNCTIONAL FOCUS",
+      noSubtext: "Functional over pretty."
+    },
+    {
+      id: 5,
+      question: "Are working solutions rejected for not being 'elegant' enough?",
+      yesText: "ELEGANCE TRAP",
+      yesSubtext: "Aesthetics blocking progress.",
+      noText: "PROGRESS UNLEASHED",
+      noSubtext: "Function enables aesthetics."
+    }
+  ];
+
+  const calculateAestheticResults = (answers: Record<number, 'yes' | 'no'>) => {
+    const yesCount = Object.values(answers).filter(answer => answer === 'yes').length;
+    const score = Math.round((yesCount / aestheticQuestions.length) * 100);
+    
+    let severity: 'low' | 'medium' | 'high' | 'critical';
+    let title: string;
+    let description: string;
+    let recommendation: string;
+    let interventionUrl: string | undefined;
+
+    if (score <= 20) {
+      severity = 'low';
+      title = 'Function-Driven Aesthetic';
+      description = 'You prioritize function while maintaining good design. Aesthetics serve purpose, not vanity.';
+      recommendation = 'Maintain this balance. Beauty that serves function is true elegance.';
+    } else if (score <= 40) {
+      severity = 'medium';
+      title = 'Aesthetic Drift Beginning';
+      description = 'Some aesthetic choices are starting to impede function. Course correction needed.';
+      recommendation = 'Refocus on function first. Make aesthetics serve delivery, not replace it.';
+      interventionUrl = '/interventions/first-blood-build';
+    } else if (score <= 70) {
+      severity = 'high';
+      title = 'Active Aesthetic Addiction';
+      description = 'Appearance has become more important than performance. Function is being sacrificed for form.';
+      recommendation = 'Emergency function restoration. Ship ugly but working solutions immediately.';
+      interventionUrl = '/interventions/first-blood-build';
+    } else {
+      severity = 'critical';
+      title = 'Terminal Aesthetic Addiction';
+      description = 'You cannot ship anything that isn\'t beautiful. Function has been completely subordinated to form.';
+      recommendation = 'Complete aesthetic detox required. Ban all visual optimization until function is restored.';
+      interventionUrl = '/interventions/the-naming';
+    }
+
+    return { score, severity, title, description, recommendation, interventionUrl };
+  };
+
   return (
     <>
       <Head>
@@ -300,6 +382,13 @@ export default function AestheticAddiction() {
             </div>
           </div>
 
+          <LexiconDiagnostic
+            lexiconTerm="aesthetic addiction"
+            questions={aestheticQuestions}
+            calculateResults={calculateAestheticResults}
+            color="yellow"
+          />
+
           {/* CTA */}
           <div className="border border-zinc-800 p-8 text-center">
             <h3 className="text-2xl font-black mb-4">Ready to Choose Function Over Form?</h3>
@@ -307,7 +396,7 @@ export default function AestheticAddiction() {
               Break your aesthetic addiction. Get the intervention that forces function delivery over optimization theater.
             </p>
             <Link 
-              href="/weapons/first-blood-build" 
+              href="/interventions/first-blood-build" 
               className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 transition-colors mr-4"
             >
               SHIP FUNCTION FIRST

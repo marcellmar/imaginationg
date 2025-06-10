@@ -3,9 +3,91 @@ import Link from 'next/link';
 import SEOHead from '../../../components/SEOHead';
 import Navigation from '../../../components/Navigation';
 import RelatedContent from '../../../components/RelatedContent';
+import LexiconDiagnostic from '../../../components/LexiconDiagnostic';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
 
 const KitharaPage: NextPage = () => {
+  const kitharaQuestions = [
+    {
+      id: 1,
+      question: "Do difficult conversations get postponed in your organization?",
+      yesText: "HARMONY PRESERVED",
+      yesSubtext: "Comfort over truth.",
+      noText: "CONFLICT ENGAGED",
+      noSubtext: "Truth over comfort."
+    },
+    {
+      id: 2,
+      question: "Do people agree in meetings but resist in execution?",
+      yesText: "FALSE CONSENSUS",
+      yesSubtext: "Nodding without believing.",
+      noText: "REAL ALIGNMENT",
+      noSubtext: "Agreement through conflict."
+    },
+    {
+      id: 3,
+      question: "Are real problems discussed only in private conversations?",
+      yesText: "SHADOW DISCOURSE",
+      yesSubtext: "Truth lives in hallways.",
+      noText: "OPEN DISCOURSE",
+      noSubtext: "Truth lives in meetings."
+    },
+    {
+      id: 4,
+      question: "Does your team avoid giving each other hard feedback?",
+      yesText: "FEEDBACK AVOIDANCE",
+      yesSubtext: "Kindness over growth.",
+      noText: "TRUTH TELLING",
+      noSubtext: "Growth over comfort."
+    },
+    {
+      id: 5,
+      question: "Do failures get reframed as 'learning experiences' without accountability?",
+      yesText: "SOFT ACCOUNTABILITY",
+      yesSubtext: "Everyone's a victim.",
+      noText: "CLEAR OWNERSHIP",
+      noSubtext: "Someone owns results."
+    }
+  ];
+
+  const calculateKitharaResults = (answers: Record<number, 'yes' | 'no'>) => {
+    const yesCount = Object.values(answers).filter(answer => answer === 'yes').length;
+    const score = Math.round((yesCount / kitharaQuestions.length) * 100);
+    
+    let severity: 'low' | 'medium' | 'high' | 'critical';
+    let title: string;
+    let description: string;
+    let recommendation: string;
+    let interventionUrl: string | undefined;
+
+    if (score <= 20) {
+      severity = 'low';
+      title = 'Healthy Conflict Culture';
+      description = 'Your organization handles difficult conversations well. Truth flows freely, and productive conflict drives innovation.';
+      recommendation = 'Maintain this healthy dynamic. Watch for early signs of comfort-seeking behavior.';
+    } else if (score <= 40) {
+      severity = 'medium';
+      title = 'Early Kithara Warning Signs';
+      description = 'Some false harmony is creeping in. You still have time to course-correct before it becomes cultural.';
+      recommendation = 'Create structured opportunities for difficult conversations. Normalize productive disagreement.';
+      interventionUrl = '/interventions/the-naming';
+    } else if (score <= 70) {
+      severity = 'high';
+      title = 'Significant Kithara Infection';
+      description = 'False harmony is damaging your organization. Real problems are hidden, and innovation is suffering.';
+      recommendation = 'Immediate intervention required. Break the comfort conspiracy through forced truth-telling.';
+      interventionUrl = '/interventions/the-naming';
+    } else {
+      severity = 'critical';
+      title = 'Terminal Kithara State';
+      description = 'Your organization is addicted to false peace. Truth has been exiled and reality is the enemy.';
+      recommendation = 'Emergency cultural intervention. Consider leadership changes if resistance is too strong.';
+      interventionUrl = '/interventions/the-naming';
+    }
+
+    return { score, severity, title, description, recommendation, interventionUrl };
+  };
+
   return (
     <>
       <SEOHead
@@ -239,6 +321,20 @@ const KitharaPage: NextPage = () => {
                   that navigate disagreement navigate growth. Kill conflict, kill capability.
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Diagnostic Section */}
+        <section className="py-16 px-6 border-t border-zinc-900">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-4xl">
+              <LexiconDiagnostic
+                lexiconTerm="kithara"
+                questions={kitharaQuestions}
+                calculateResults={calculateKitharaResults}
+                color="yellow"
+              />
             </div>
           </div>
         </section>

@@ -29,60 +29,71 @@ const MorrinPage: NextPage = () => {
               {/* Breadcrumb */}
               <Link href="/answers" className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors mb-8">
                 <ArrowLeft size={16} />
-                Back to Answers
+                Back to Pattern Breakdown
               </Link>
 
               {/* System Status Badge */}
               <div className="inline-block mb-8 text-green-400 text-xs font-mono bg-zinc-950 border border-zinc-800 px-4 py-2 rounded-full">
                 <span className="inline-block w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-                LEXICON: MORRIN
+                PORTAL: MORRIN
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
                 MORRIN<span className="text-red-600">.</span>
               </h1>
               
-              <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
+              <p className="text-xl text-zinc-400 mb-12 max-w-2xl">
                 Post-choice existence. The moment aligned action begins.
               </p>
+
+              {/* Portal Navigation */}
+              <div className="border border-zinc-800 bg-zinc-950">
+                <div className="flex border-b border-zinc-800 overflow-x-auto">
+                  <div className="px-6 py-4 bg-red-600 text-white font-bold whitespace-nowrap">
+                    MORRIN ACTIVATION
+                  </div>
+                  <Link href="/answers" className="px-6 py-4 font-bold transition-colors whitespace-nowrap text-zinc-400 hover:text-white hover:bg-zinc-900">
+                    PATTERN HUB
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Quick Answer Section */}
-        <section className="py-16 px-6 border-t border-zinc-900">
+        {/* Portal Content Section */}
+        <section className="py-16 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl">
-              <div className="bg-zinc-950 border border-zinc-800 p-8 mb-12">
-                <h2 className="text-2xl font-black mb-4 text-red-600">QUICK ANSWER</h2>
-                <p className="text-lg leading-relaxed">
-                  Morrin (mor-rin) is the state that exists after true choice—when all other options dissolve 
-                  and only forward movement remains. It's not determination or willpower. It's the physics of 
-                  collapsed possibility creating singular momentum.
+              
+              {/* Morrin State Portal */}
+              <div className="bg-black border-2 border-red-600 p-8 mb-8">
+                <h2 className="text-2xl font-black mb-4 text-red-600">MORRIN STATE DETECTION</h2>
+                <p className="text-lg leading-relaxed mb-6">
+                  Morrin is when you stop choosing and start moving. No more "should I?" or "what if?" 
+                  Just action. You know people in morrin—they execute without hesitation, momentum without motivation. 
+                  The path becomes obvious because all other paths disappeared.
                 </p>
-              </div>
-
-              {/* TL;DR Box */}
-              <div className="bg-black border-2 border-yellow-500 p-8 mb-12">
-                <h3 className="text-xl font-black text-yellow-500 mb-4">TL;DR</h3>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="text-yellow-500 mt-0.5 flex-shrink-0" size={20} />
-                    <span>Morrin = the state after real choice is made</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="text-yellow-500 mt-0.5 flex-shrink-0" size={20} />
-                    <span>Not motivation—it's collapsed optionality</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="text-yellow-500 mt-0.5 flex-shrink-0" size={20} />
-                    <span>Creates unstoppable forward momentum</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle className="text-yellow-500 mt-0.5 flex-shrink-0" size={20} />
-                    <span>Can't be faked or forced—only entered</span>
-                  </li>
-                </ul>
+                
+                {/* State Indicators */}
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="border border-zinc-700 p-4">
+                    <h4 className="font-bold text-red-400 mb-2">Choice Crystallization</h4>
+                    <p className="text-sm text-zinc-400">Decision finalized, action begins</p>
+                  </div>
+                  <div className="border border-zinc-700 p-4">
+                    <h4 className="font-bold text-red-400 mb-2">Execution Mode</h4>
+                    <p className="text-sm text-zinc-400">No "what if" thoughts, just movement</p>
+                  </div>
+                  <div className="border border-zinc-700 p-4">
+                    <h4 className="font-bold text-red-400 mb-2">Inevitable Flow</h4>
+                    <p className="text-sm text-zinc-400">Movement feels natural, not forced</p>
+                  </div>
+                  <div className="border border-zinc-700 p-4">
+                    <h4 className="font-bold text-red-400 mb-2">Authentic State</h4>
+                    <p className="text-sm text-zinc-400">Cannot be faked or manufactured</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -217,26 +228,56 @@ const MorrinPage: NextPage = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
+        {/* Portal Action Section */}
         <section className="py-16 px-6 border-t border-zinc-900">
-          <div className="max-w-7xl mx-auto text-center">
-            <h3 className="text-3xl font-black mb-6">READY FOR MORRIN?</h3>
-            <p className="text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
-              Stop negotiating with yourself. Make the choice that ends all choosing.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
-                href="/interventions/the-naming"
-                className="bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors"
-              >
-                ENTER MORRIN STATE
-              </Link>
-              <Link 
-                href="/answers"
-                className="border-2 border-zinc-700 px-8 py-4 text-lg font-black hover:border-zinc-500 transition-colors"
-              >
-                EXPLORE MORE CONCEPTS
-              </Link>
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-4xl">
+              
+              {/* Action Framework */}
+              <div className="bg-black border-2 border-red-600 p-8 mb-8">
+                <h3 className="text-2xl font-black mb-4 text-red-600">MORRIN ACTIVATION PROTOCOL</h3>
+                <p className="text-lg mb-6">
+                  Stop negotiating with yourself. Make the choice that ends all choosing.
+                </p>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-bold text-white mb-3">ENTRY CONDITIONS</h4>
+                    <ul className="space-y-2 text-zinc-400">
+                      <li>• Surface the buried truth</li>
+                      <li>• Name the real choice</li>
+                      <li>• Collapse all options</li>
+                      <li>• Commit completely</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white mb-3">SUSTAINED MOVEMENT</h4>
+                    <ul className="space-y-2 text-zinc-400">
+                      <li>• Trust the process</li>
+                      <li>• Execute without hesitation</li>
+                      <li>• Ignore alternative paths</li>
+                      <li>• Let momentum build</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Portal CTAs */}
+              <div className="text-center">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link 
+                    href="/interventions/the-naming"
+                    className="bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors"
+                  >
+                    ENTER MORRIN STATE
+                  </Link>
+                  <Link 
+                    href="/interventions"
+                    className="border-2 border-red-600 px-8 py-4 text-lg font-black hover:bg-red-600 transition-colors"
+                  >
+                    DEPLOY INTERVENTION
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </section>

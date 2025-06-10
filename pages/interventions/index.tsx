@@ -28,39 +28,43 @@ const InterventionsPage: NextPage = () => {
   const interventions = [
     {
       name: 'THE NAMING',
-      price: '$500',
-      duration: 'One Session. One Truth.',
-      description: 'Surface the buried signal. Say what you\'ve been building around instead of from. Out loud.',
-      url: '/interventions/the-naming'
+      price: '$750',
+      duration: 'Complete Portal Experience',
+      description: 'Pre-session prep, live truth excavation via Teams, post-session tracking. Complete clarity guaranteed.',
+      url: '/interventions/the-naming',
+      badge: 'PORTAL'
     },
     {
       name: 'THE MAP',
-      price: '$1,000',
-      duration: '7 days',
-      description: 'Map the real connections. Surface the recursive patterns you\'ve been optimizing around.',
-      url: '/interventions/the-map'
+      price: '$1,500',
+      duration: '5 Days. Clear Connections.',
+      description: 'Identify the real connections that will move your business forward. Stop wasting time on dead networks.',
+      url: '/interventions/the-map',
+      badge: 'PORTAL'
     },
     {
       name: 'THE MARKET SMACKDOWN',
-      price: '$1,500',
-      duration: '5-7 days',
-      description: 'The market signal is already there. We help you hear what you\'ve been ignoring.',
-      url: '/interventions/the-market-smackdown'
+      price: '$2,250',
+      duration: '3 Days. Clear Verdict.',
+      description: 'Simple question: Should you enter this market or not? Evidence-based GO/NO-GO decision.',
+      url: '/interventions/the-market-smackdown',
+      badge: 'PORTAL'
     },
     {
-      name: '30-DAY DRIFT BREAK',
+      name: 'THE OVERRIDE',
       price: '$3,000',
-      duration: '30 days',
-      description: '30-day real-time edits to live operations. No simulations. Just the override you named.',
-      badge: 'LIVE SYSTEM',
-      url: '/interventions/thirty-day-drift-break'
+      duration: '30 Days. Pattern Broken.',
+      description: 'Daily pattern interrupts via Teams. Break the stuck pattern that\'s killing momentum. No meetings about meetings.',
+      badge: 'PORTAL',
+      url: '/interventions/the-override'
     },
     {
-      name: 'FIRST BLOOD BUILD',
-      price: '$5,000',
-      duration: '6 weeks max',
-      description: 'Build from the truth you surfaced. Function over form. Agency over aesthetics.',
-      url: '/interventions/first-blood-build'
+      name: 'THE BUILD',
+      price: '$4,500',
+      duration: '4 Weeks. MVP or Kill.',
+      description: 'Working MVP in 4 weeks. Get first paying customer. Ship ugly, learn fast, scale or kill based on data.',
+      badge: 'PORTAL',
+      url: '/interventions/the-build'
     }
   ];
 

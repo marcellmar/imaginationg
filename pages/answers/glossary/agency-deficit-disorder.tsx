@@ -1,7 +1,89 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import LexiconDiagnostic from '../../../components/LexiconDiagnostic';
 
 export default function AgencyDeficitDisorder() {
+  const agencyQuestions = [
+    {
+      id: 1,
+      question: "Do you seek external validation before making important decisions?",
+      yesText: "VALIDATION DEPENDENT",
+      yesSubtext: "Outsourced decision making.",
+      noText: "INTERNAL AUTHORITY",
+      noSubtext: "Self-directed decisions."
+    },
+    {
+      id: 2,
+      question: "Do you need permission to act on obvious opportunities?",
+      yesText: "PERMISSION TRAPPED",
+      yesSubtext: "Agency held hostage.",
+      noText: "OPPORTUNITY SEIZED",
+      noSubtext: "Agency activated."
+    },
+    {
+      id: 3,
+      question: "Do you defer to committees instead of taking ownership?",
+      yesText: "COMMITTEE REFUGE",
+      yesSubtext: "Avoiding responsibility.",
+      noText: "OWNERSHIP SEIZED",
+      noSubtext: "Responsibility embraced."
+    },
+    {
+      id: 4,
+      question: "Do you wait for more data instead of acting on available truth?",
+      yesText: "ANALYSIS PARALYSIS",
+      yesSubtext: "Data replacing agency.",
+      noText: "TRUTH ACTION",
+      noSubtext: "Acting on available signal."
+    },
+    {
+      id: 5,
+      question: "Do you avoid decisions that might upset stakeholders?",
+      yesText: "STAKEHOLDER PARALYSIS",
+      yesSubtext: "Others' comfort over action.",
+      noText: "STAKEHOLDER OVERRIDE",
+      noSubtext: "Action over comfort."
+    }
+  ];
+
+  const calculateAgencyResults = (answers: Record<number, 'yes' | 'no'>) => {
+    const yesCount = Object.values(answers).filter(answer => answer === 'yes').length;
+    const score = Math.round((yesCount / agencyQuestions.length) * 100);
+    
+    let severity: 'low' | 'medium' | 'high' | 'critical';
+    let title: string;
+    let description: string;
+    let recommendation: string;
+    let interventionUrl: string | undefined;
+
+    if (score <= 20) {
+      severity = 'low';
+      title = 'Strong Internal Agency';
+      description = 'You maintain strong self-direction and decision-making capability. Agency is intact.';
+      recommendation = 'Protect this independence. Watch for external pressures that could erode agency.';
+    } else if (score <= 40) {
+      severity = 'medium';
+      title = 'Agency Erosion Beginning';
+      description = 'Some decision-making capability is being outsourced. Early intervention can prevent further erosion.';
+      recommendation = 'Reclaim decision authority. Practice making choices without external validation.';
+      interventionUrl = '/interventions/thirty-day-drift-break';
+    } else if (score <= 70) {
+      severity = 'high';
+      title = 'Significant Agency Deficit';
+      description = 'Most decisions require external approval. Your agency has been systematically outsourced.';
+      recommendation = 'Emergency agency restoration. Take back decision-making authority immediately.';
+      interventionUrl = '/interventions/first-blood-build';
+    } else {
+      severity = 'critical';
+      title = 'Complete Agency Collapse';
+      description = 'You cannot act without permission. Agency has been completely externalized.';
+      recommendation = 'Full agency reconstruction required. May need to exit systems that captured your agency.';
+      interventionUrl = '/interventions/the-naming';
+    }
+
+    return { score, severity, title, description, recommendation, interventionUrl };
+  };
+
   return (
     <>
       <Head>
@@ -82,12 +164,19 @@ export default function AgencyDeficitDisorder() {
             </div>
           </div>
 
+          <LexiconDiagnostic
+            lexiconTerm="agency deficit disorder"
+            questions={agencyQuestions}
+            calculateResults={calculateAgencyResults}
+            color="red"
+          />
+
           <div className="border border-zinc-800 p-8 text-center">
             <h3 className="text-2xl font-black mb-4">Ready to Restore Agency?</h3>
             <p className="text-zinc-400 mb-6">
               Break external dependency. Get the intervention that rebuilds internal decision-making capability.
             </p>
-            <Link href="/weapons/the-naming" className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 transition-colors mr-4">
+            <Link href="/interventions/the-naming" className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 transition-colors mr-4">
               REBUILD AGENCY
             </Link>
             <Link href="/diagnostic" className="inline-block border border-red-500 text-red-500 hover:bg-red-500 hover:text-black font-bold py-3 px-8 transition-colors">

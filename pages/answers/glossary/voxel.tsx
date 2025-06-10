@@ -3,9 +3,83 @@ import Link from 'next/link';
 import SEOHead from '../../../components/SEOHead';
 import Navigation from '../../../components/Navigation';
 import RelatedContent from '../../../components/RelatedContent';
+import LexiconDiagnostic from '../../../components/LexiconDiagnostic';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
 
 const VoxelPage: NextPage = () => {
+  const voxelQuestions = [
+    {
+      id: 1,
+      question: "Do you consider reality, perception, and action together when making decisions?",
+      yesText: "3D TRUTH NAVIGATION",
+      yesSubtext: "Complete voxel awareness.",
+      noText: "FLAT TRUTH",
+      noSubtext: "Missing dimensions."
+    },
+    {
+      id: 2,
+      question: "Can you see how others' perceptions differ from objective reality?",
+      yesText: "PERCEPTION MAPPING",
+      yesSubtext: "Voxel depth detected.",
+      noText: "REALITY BLIND",
+      noSubtext: "Single-layer thinking."
+    },
+    {
+      id: 3,
+      question: "Do you account for how actions will be interpreted, not just their intended outcomes?",
+      yesText: "ACTION PROJECTION",
+      yesSubtext: "Understanding ripple effects.",
+      noText: "OUTCOME TUNNEL",
+      noSubtext: "Missing interpretation layer."
+    },
+    {
+      id: 4,
+      question: "Can you navigate situations where reality and perception conflict?",
+      yesText: "VOXEL MASTERY",
+      yesSubtext: "Working in tension space.",
+      noText: "TRUTH CONFUSION",
+      noSubtext: "Cannot handle complexity."
+    }
+  ];
+
+  const calculateVoxelResults = (answers: Record<number, 'yes' | 'no'>) => {
+    const yesCount = Object.values(answers).filter(answer => answer === 'yes').length;
+    const score = Math.round((yesCount / voxelQuestions.length) * 100);
+    
+    let severity: 'low' | 'medium' | 'high' | 'critical';
+    let title: string;
+    let description: string;
+    let recommendation: string;
+    let interventionUrl: string | undefined;
+
+    if (score >= 75) {
+      severity = 'low';
+      title = 'Advanced Voxel Navigation';
+      description = 'You operate in full truth dimensionality. Reality, perception, and action are integrated in your decision-making.';
+      recommendation = 'Leverage this capability. Help others develop three-dimensional truth awareness.';
+    } else if (score >= 50) {
+      severity = 'medium';
+      title = 'Developing Voxel Awareness';
+      description = 'You see some truth dimensions but miss others. Your truth navigation is partially developed.';
+      recommendation = 'Practice integrating all three dimensions. Consider how reality, perception, and action interconnect.';
+      interventionUrl = '/interventions/the-naming';
+    } else if (score >= 25) {
+      severity = 'high';
+      title = 'Flat Truth Operations';
+      description = 'You operate primarily in one or two truth dimensions. Missing critical aspects of decision space.';
+      recommendation = 'Expand truth awareness. Learn to see reality, perception, and action as interconnected systems.';
+      interventionUrl = '/interventions/the-naming';
+    } else {
+      severity = 'critical';
+      title = 'Single-Dimensional Truth';
+      description = 'You operate in flat truth space. Missing the multidimensional nature of reality creates blind spots.';
+      recommendation = 'Fundamental truth expansion needed. Cannot navigate complex environments without voxel awareness.';
+      interventionUrl = '/interventions/the-map';
+    }
+
+    return { score, severity, title, description, recommendation, interventionUrl };
+  };
+
   return (
     <>
       <SEOHead
@@ -253,6 +327,20 @@ const VoxelPage: NextPage = () => {
                   While competitors crash in 2D, voxel thinkers find paths through impossible spaces.
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Diagnostic Section */}
+        <section className="py-16 px-6 border-t border-zinc-900">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-4xl">
+              <LexiconDiagnostic
+                lexiconTerm="voxel"
+                questions={voxelQuestions}
+                calculateResults={calculateVoxelResults}
+                color="green"
+              />
             </div>
           </div>
         </section>
