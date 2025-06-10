@@ -1580,7 +1580,7 @@ const StartPage = () => {
                           </p>
                         </div>
                       );
-                    } else if (selectedProblemType === 'stuck-patterns' || selectedFilters.includes('pattern-breaking') || hasEnergyDrains) {
+                    } else if (selectedProblemType === 'stuck-patterns' || selectedFilters.includes('pattern-breaking') || selectedFilters.some(filter => ['energy-drain', 'pattern-breaking', 'momentum-loss', 'process-dysfunction'].includes(filter))) {
                       const patternTriggers = selectedQuestions.filter(q => 
                         ['pattern-breaking', 'energy-drain', 'momentum-loss', 'process-dysfunction'].includes(q.filterId)
                       ).map(q => q.title).slice(0, 2);
