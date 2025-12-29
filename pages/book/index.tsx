@@ -3,7 +3,7 @@
  * Release excerpts along the way to June 2026 launch
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import SEOHead from '../../components/SEOHead';
 import Navigation from '../../components/Navigation';
@@ -544,27 +544,7 @@ const BookPage = () => {
         </section>
 
         {/* Email Capture */}
-        <section className="py-16 px-6 bg-zinc-950 border-t border-zinc-800">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl font-black mb-4">GET NOTIFIED</h2>
-            <p className="text-zinc-400 mb-8">
-              New chapters drop as they're written. No spam. Just signal.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="flex-1 bg-black border border-zinc-700 px-4 py-3 rounded text-white placeholder:text-zinc-600 focus:outline-none focus:border-zinc-500"
-              />
-              <button className="bg-white text-black px-6 py-3 font-bold hover:bg-zinc-200 transition-colors">
-                NOTIFY ME
-              </button>
-            </div>
-            <p className="text-xs text-zinc-600 mt-4">
-              Join 0 readers waiting for the next chapter.
-            </p>
-          </div>
-        </section>
+        <EmailCapture />
 
         {/* About the Author */}
         <section className="py-16 px-6 border-t border-zinc-900">
@@ -602,6 +582,93 @@ const BookPage = () => {
         </section>
       </div>
     </>
+  );
+};
+
+// Email Capture Component
+const EmailCapture = () => {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !email.includes('@')) {
+      setErrorMessage('Please enter a valid email');
+      setStatus('error');
+      return;
+    }
+
+    setStatus('loading');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'Book Page' }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setEmail('');
+      } else {
+        const data = await response.json();
+        setErrorMessage(data.error || 'Something went wrong');
+        setStatus('error');
+      }
+    } catch {
+      setErrorMessage('Failed to subscribe. Please try again.');
+      setStatus('error');
+    }
+  };
+
+  return (
+    <section className="py-16 px-6 bg-zinc-950">
+      <div className="max-w-4xl mx-auto text-center">
+        <h2 className="text-2xl font-black mb-4">GET CHAPTERS AS THEY DROP</h2>
+        <p className="text-zinc-400 mb-8">
+          Be the first to read each chapter as it's released. No spam. Just signal.
+        </p>
+
+        {status === 'success' ? (
+          <div className="bg-green-900/30 border border-green-800 rounded-lg p-6 max-w-md mx-auto">
+            <svg viewBox="0 0 24 24" className="w-12 h-12 text-green-500 mx-auto mb-4" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M8 12 L11 15 L16 9" />
+            </svg>
+            <p className="text-green-400 font-bold">You're in.</p>
+            <p className="text-zinc-400 text-sm mt-2">Watch your inbox for Chapter 1.</p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="your@email.com"
+              className="flex-1 bg-black border border-zinc-700 px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:border-red-600"
+              disabled={status === 'loading'}
+            />
+            <button
+              type="submit"
+              disabled={status === 'loading'}
+              className="bg-red-600 px-6 py-3 font-bold hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {status === 'loading' ? 'SUBSCRIBING...' : 'NOTIFY ME'}
+            </button>
+          </form>
+        )}
+
+        {status === 'error' && (
+          <p className="text-red-500 text-sm mt-4">{errorMessage}</p>
+        )}
+
+        <p className="text-zinc-600 text-sm mt-6">
+          ~45,000 words. 16 chapters. Your inbox, not a feed.
+        </p>
+      </div>
+    </section>
   );
 };
 
