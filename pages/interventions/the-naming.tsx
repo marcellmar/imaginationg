@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import SEOHead from '../../components/SEOHead';
 import Navigation from '../../components/Navigation';
 import RelatedContent from '../../components/RelatedContent';
-import { Check, AlertCircle, Calendar, Video, FileText, BarChart3, Clock, Users } from 'lucide-react';
+import { Check, AlertCircle, Calendar, Video, FileText, BarChart3, Clock, Users, Target } from 'lucide-react';
 
 const TheNamingPage: NextPage = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -25,18 +25,18 @@ const TheNamingPage: NextPage = () => {
   };
 
   const tabs = [
-    { id: 'overview', label: 'Overview', icon: FileText },
-    { id: 'prep', label: 'Pre-Session', icon: Clock },
+    { id: 'overview', label: 'GPI Impact', icon: FileText },
+    { id: 'prep', label: 'Dimension Audit', icon: Clock },
     { id: 'session', label: 'Live Session', icon: Video },
-    { id: 'follow-up', label: 'Follow-Up', icon: BarChart3 },
-    { id: 'book', label: 'Book Now', icon: Calendar }
+    { id: 'follow-up', label: 'GPI Tracking', icon: BarChart3 },
+    { id: 'book', label: 'Deploy', icon: Calendar }
   ];
 
   return (
     <>
       <SEOHead
-        title="THE NAMING - Surface Buried Truth | IMAGINATION G"
-        description="Surface the buried signal. Say what you've been building around instead of from. One session. One truth. $500."
+        title="THE NAMING - Reduce Decision Latency | IMAGINATION G"
+        description="Target Decision Latency and Knowledge Location dimensions. Surface what's slowing decisions. Move from particle state toward field state. One session. -0.5 GPI points."
         ogType="article"
         ogImage="/images/og-services.svg"
       />
@@ -59,15 +59,31 @@ const TheNamingPage: NextPage = () => {
               </h1>
               
               <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
-                Complete intervention experience. Pre-session prep, live truth excavation, and momentum tracking.
+                Surface what's creating decision latency. Name the knowledge that's trapped in silos. One session to reduce organizational friction.
               </p>
 
-              <div className="flex flex-wrap gap-6 items-center mb-8">
+              <div className="flex flex-wrap gap-6 items-center mb-6">
                 <span className="text-4xl font-black">$750</span>
                 <span className="text-zinc-500">|</span>
                 <span className="text-lg text-zinc-400">One Session. Complete Protocol.</span>
                 <span className="text-zinc-500">|</span>
                 <span className="text-sm text-green-400 bg-green-400/10 px-3 py-1 rounded-full">CLARITY GUARANTEED</span>
+              </div>
+
+              {/* GPI Targeting */}
+              <div className="flex flex-wrap items-center gap-4 mb-8 p-4 bg-zinc-950 border border-zinc-800 rounded-lg">
+                <Target className="text-red-600" size={20} />
+                <span className="text-xs text-zinc-500 uppercase">GPI Targets:</span>
+                <span className="text-sm font-mono bg-red-600/20 text-red-400 px-3 py-1 rounded">Decision Latency</span>
+                <span className="text-sm font-mono bg-red-600/20 text-red-400 px-3 py-1 rounded">Knowledge Location</span>
+                <span className="text-zinc-700">|</span>
+                <span className="text-xs text-zinc-500">
+                  Recommended when <span className="font-mono text-yellow-400">GPI &gt; 7.0</span>
+                </span>
+                <span className="text-zinc-700">|</span>
+                <span className="text-xs text-zinc-500">
+                  Expected: <span className="font-mono text-green-400">-0.5 points</span>
+                </span>
               </div>
             </div>
           </div>
@@ -108,35 +124,41 @@ const TheNamingPage: NextPage = () => {
               {/* Overview Tab */}
               {activeTab === 'overview' && (
                 <div className="space-y-12">
-                  <div>
-                    <h2 className="text-3xl font-black mb-8">COMPLETE INTERVENTION EXPERIENCE</h2>
-                    <div className="grid md:grid-cols-2 gap-8">
+                  {/* GPI Impact Summary */}
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div className="bg-zinc-950 border border-red-600/30 p-6">
+                      <h3 className="text-lg font-black text-red-500 mb-4">DIMENSIONS TARGETED</h3>
                       <div className="space-y-4">
-                        <div className="flex items-start gap-4">
-                          <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
-                          <p className="text-lg">Pre-session truth excavation prep</p>
+                        <div className="flex items-center justify-between">
+                          <span className="font-bold">Decision Latency</span>
+                          <span className="text-xs font-mono bg-red-600/20 text-red-400 px-2 py-1 rounded">20% weight</span>
                         </div>
-                        <div className="flex items-start gap-4">
-                          <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
-                          <p className="text-lg">Live 60-minute naming session via Teams</p>
+                        <p className="text-sm text-zinc-400">Time from signal to decision to action. Currently stuck in approval chains and unclear ownership.</p>
+                        <div className="flex items-center justify-between">
+                          <span className="font-bold">Knowledge Location</span>
+                          <span className="text-xs font-mono bg-red-600/20 text-red-400 px-2 py-1 rounded">15% weight</span>
                         </div>
-                        <div className="flex items-start gap-4">
-                          <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
-                          <p className="text-lg">Real-time session recording and notes</p>
-                        </div>
+                        <p className="text-sm text-zinc-400">Where operational knowledge lives. Trapped in institutional black boxes instead of distributed/codified.</p>
                       </div>
-                      <div className="space-y-4">
-                        <div className="flex items-start gap-4">
-                          <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
-                          <p className="text-lg">Truth summary document delivery</p>
+                    </div>
+                    <div className="bg-zinc-950 border border-green-600/30 p-6">
+                      <h3 className="text-lg font-black text-green-500 mb-4">EXPECTED OUTCOMES</h3>
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3">
+                          <Check className="text-green-500 mt-1 flex-shrink-0" size={18} />
+                          <p>Reduce overall GPI by <span className="font-mono text-green-400">0.5 points</span></p>
                         </div>
-                        <div className="flex items-start gap-4">
-                          <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
-                          <p className="text-lg">48-hour action commitment tracking</p>
+                        <div className="flex items-start gap-3">
+                          <Check className="text-green-500 mt-1 flex-shrink-0" size={18} />
+                          <p>Move Decision Latency from particle → transition state</p>
                         </div>
-                        <div className="flex items-start gap-4">
-                          <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
-                          <p className="text-lg">30-day momentum measurement</p>
+                        <div className="flex items-start gap-3">
+                          <Check className="text-green-500 mt-1 flex-shrink-0" size={18} />
+                          <p>Surface hidden knowledge blockers</p>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <Check className="text-green-500 mt-1 flex-shrink-0" size={18} />
+                          <p>Establish clear decision ownership</p>
                         </div>
                       </div>
                     </div>
@@ -148,36 +170,36 @@ const TheNamingPage: NextPage = () => {
                       <div className="flex gap-6 items-start">
                         <div className="text-red-600 font-mono text-sm w-24 flex-shrink-0">PRE-SESSION</div>
                         <div className="flex-1">
-                          <p className="text-lg mb-2">Truth excavation preparation form</p>
-                          <p className="text-zinc-400">15 minutes to surface what you've been avoiding</p>
+                          <p className="text-lg mb-2">Dimension audit preparation</p>
+                          <p className="text-zinc-400">15 minutes to identify where decisions stall and knowledge gets stuck</p>
                         </div>
                       </div>
                       <div className="flex gap-6 items-start">
                         <div className="text-red-600 font-mono text-sm w-24 flex-shrink-0">0-15 MIN</div>
                         <div className="flex-1">
-                          <p className="text-lg mb-2">Signal detection and context setting</p>
-                          <p className="text-zinc-400">Review prep work, establish safe container for truth</p>
+                          <p className="text-lg mb-2">Current state assessment</p>
+                          <p className="text-zinc-400">Map decision pathways and knowledge silos creating friction</p>
                         </div>
                       </div>
                       <div className="flex gap-6 items-start">
                         <div className="text-red-600 font-mono text-sm w-24 flex-shrink-0">15-45 MIN</div>
                         <div className="flex-1">
-                          <p className="text-lg mb-2">Truth excavation and reality testing</p>
-                          <p className="text-zinc-400">Cut through noise, surface buried signal, name what's real</p>
+                          <p className="text-lg mb-2">Friction point identification</p>
+                          <p className="text-zinc-400">Name the specific blockers creating particle-state behavior</p>
                         </div>
                       </div>
                       <div className="flex gap-6 items-start">
                         <div className="text-red-600 font-mono text-sm w-24 flex-shrink-0">45-60 MIN</div>
                         <div className="flex-1">
-                          <p className="text-lg mb-2">Action definition and commitment</p>
-                          <p className="text-zinc-400">Binary next step, recorded commitment, momentum path</p>
+                          <p className="text-lg mb-2">Field-state path definition</p>
+                          <p className="text-zinc-400">Define specific actions to reduce Decision Latency score</p>
                         </div>
                       </div>
                       <div className="flex gap-6 items-start">
-                        <div className="text-red-600 font-mono text-sm w-24 flex-shrink-0">POST-SESSION</div>
+                        <div className="text-red-600 font-mono text-sm w-24 flex-shrink-0">POST</div>
                         <div className="flex-1">
-                          <p className="text-lg mb-2">Follow-up and momentum tracking</p>
-                          <p className="text-zinc-400">48-hour check-in, 30-day progress measurement</p>
+                          <p className="text-lg mb-2">GPI re-measurement</p>
+                          <p className="text-zinc-400">30-day follow-up to measure actual dimension improvement</p>
                         </div>
                       </div>
                     </div>
@@ -185,16 +207,19 @@ const TheNamingPage: NextPage = () => {
 
                   <div className="grid md:grid-cols-3 gap-6">
                     <div className="border border-zinc-800 p-6">
-                      <h3 className="font-bold text-red-600 mb-3">FOUNDERS</h3>
-                      <p className="text-zinc-400">Ready to stop optimizing around the real problem</p>
+                      <h3 className="font-bold text-red-600 mb-2">GPI 7-10</h3>
+                      <p className="text-sm font-bold mb-2">PARTICLE STATE</p>
+                      <p className="text-zinc-400 text-sm">Decisions take months. Knowledge trapped in silos. High urgency for this intervention.</p>
                     </div>
                     <div className="border border-zinc-800 p-6">
-                      <h3 className="font-bold text-red-600 mb-3">TEAMS</h3>
-                      <p className="text-zinc-400">Stuck in analysis paralysis or false harmony</p>
+                      <h3 className="font-bold text-yellow-600 mb-2">GPI 4-6</h3>
+                      <p className="text-sm font-bold mb-2">TRANSITION STATE</p>
+                      <p className="text-zinc-400 text-sm">Mixed signals. Some decisions fast, others stalled. Good candidate for targeted improvement.</p>
                     </div>
                     <div className="border border-zinc-800 p-6">
-                      <h3 className="font-bold text-red-600 mb-3">LEADERS</h3>
-                      <p className="text-zinc-400">Done managing noise, ready to amplify signal</p>
+                      <h3 className="font-bold text-green-600 mb-2">GPI 1-3</h3>
+                      <p className="text-sm font-bold mb-2">FIELD STATE</p>
+                      <p className="text-zinc-400 text-sm">Already adaptive. May not need this intervention. Consider other dimension targets.</p>
                     </div>
                   </div>
                 </div>
@@ -204,60 +229,60 @@ const TheNamingPage: NextPage = () => {
               {activeTab === 'prep' && (
                 <div className="space-y-8">
                   <div>
-                    <h2 className="text-3xl font-black mb-4">PRE-SESSION PREPARATION</h2>
-                    <p className="text-xl text-zinc-400 mb-8">15 minutes to excavate the truth you've been avoiding. Complete this before our session.</p>
+                    <h2 className="text-3xl font-black mb-4">DIMENSION AUDIT</h2>
+                    <p className="text-xl text-zinc-400 mb-8">15 minutes to map your Decision Latency and Knowledge Location friction points. Complete before session.</p>
                   </div>
 
                   {!isSubmitted ? (
                     <form onSubmit={handlePrepSubmit} className="space-y-8">
                       <div className="bg-zinc-950 border border-zinc-800 p-8">
-                        <h3 className="text-xl font-bold mb-6">TRUTH EXCAVATION FORM</h3>
-                        
+                        <h3 className="text-xl font-bold mb-6">FRICTION POINT IDENTIFICATION</h3>
+
                         <div className="space-y-6">
                           <div>
-                            <label className="block text-lg font-bold mb-3">What are you optimizing around instead of solving?</label>
-                            <p className="text-zinc-400 text-sm mb-4">What problem are you managing instead of fixing? What are you getting good at avoiding?</p>
+                            <label className="block text-lg font-bold mb-3">Where do decisions stall?</label>
+                            <p className="text-zinc-400 text-sm mb-4">Map the approval chains, unclear ownership, and decision bottlenecks creating latency.</p>
                             <textarea
                               value={prepFormData.optimizing}
                               onChange={(e) => setPrepFormData({...prepFormData, optimizing: e.target.value})}
                               className="w-full h-32 bg-black border border-zinc-700 p-4 text-white resize-none focus:border-red-600 focus:outline-none"
-                              placeholder="Type your honest answer here..."
+                              placeholder="Describe where decisions get stuck..."
                               required
                             />
                           </div>
 
                           <div>
-                            <label className="block text-lg font-bold mb-3">What truth are you avoiding?</label>
-                            <p className="text-zinc-400 text-sm mb-4">What do you know but refuse to acknowledge? What reality are you building around?</p>
+                            <label className="block text-lg font-bold mb-3">Where is knowledge trapped?</label>
+                            <p className="text-zinc-400 text-sm mb-4">Identify silos, undocumented processes, single points of failure in your knowledge systems.</p>
                             <textarea
                               value={prepFormData.avoiding}
                               onChange={(e) => setPrepFormData({...prepFormData, avoiding: e.target.value})}
                               className="w-full h-32 bg-black border border-zinc-700 p-4 text-white resize-none focus:border-red-600 focus:outline-none"
-                              placeholder="Type your honest answer here..."
+                              placeholder="Describe knowledge bottlenecks..."
                               required
                             />
                           </div>
 
                           <div>
-                            <label className="block text-lg font-bold mb-3">What would you do if this problem was solved?</label>
-                            <p className="text-zinc-400 text-sm mb-4">If you could wave a magic wand and the real issue was gone, what would you build? How would you move?</p>
+                            <label className="block text-lg font-bold mb-3">What would field-state look like?</label>
+                            <p className="text-zinc-400 text-sm mb-4">If decisions were hours instead of weeks, if knowledge flowed freely - what would you build?</p>
                             <textarea
                               value={prepFormData.wouldDo}
                               onChange={(e) => setPrepFormData({...prepFormData, wouldDo: e.target.value})}
                               className="w-full h-32 bg-black border border-zinc-700 p-4 text-white resize-none focus:border-red-600 focus:outline-none"
-                              placeholder="Type your honest answer here..."
+                              placeholder="Describe your field-state vision..."
                               required
                             />
                           </div>
 
                           <div>
-                            <label className="block text-lg font-bold mb-3">What's the cost of continued avoidance?</label>
-                            <p className="text-zinc-400 text-sm mb-4">What happens if you keep optimizing around this instead of solving it? What are you losing?</p>
+                            <label className="block text-lg font-bold mb-3">What's the cost of current GPI?</label>
+                            <p className="text-zinc-400 text-sm mb-4">Quantify: delayed projects, missed opportunities, talent leaving due to friction.</p>
                             <textarea
                               value={prepFormData.costOfAvoidance}
                               onChange={(e) => setPrepFormData({...prepFormData, costOfAvoidance: e.target.value})}
                               className="w-full h-32 bg-black border border-zinc-700 p-4 text-white resize-none focus:border-red-600 focus:outline-none"
-                              placeholder="Type your honest answer here..."
+                              placeholder="Estimate friction costs..."
                               required
                             />
                           </div>
@@ -265,32 +290,32 @@ const TheNamingPage: NextPage = () => {
 
                         <div className="mt-8 pt-6 border-t border-zinc-800">
                           <div className="bg-yellow-500/10 border border-yellow-500 p-4 mb-6">
-                            <p className="text-yellow-500 font-bold mb-2">PREPARATION CHECKLIST</p>
+                            <p className="text-yellow-500 font-bold mb-2">AUDIT CHECKLIST</p>
                             <div className="space-y-2 text-sm">
                               <div className="flex items-center gap-2">
                                 <input type="checkbox" required className="text-red-600" />
-                                <span>I've identified what I'm optimizing around instead of solving</span>
+                                <span>I've mapped my decision latency bottlenecks</span>
                               </div>
                               <div className="flex items-center gap-2">
                                 <input type="checkbox" required className="text-red-600" />
-                                <span>I'm prepared to name the truth I've been avoiding</span>
+                                <span>I've identified knowledge silos</span>
                               </div>
                               <div className="flex items-center gap-2">
                                 <input type="checkbox" required className="text-red-600" />
-                                <span>I'm committed to hearing reality, even if it's uncomfortable</span>
+                                <span>I can quantify the cost of current friction</span>
                               </div>
                               <div className="flex items-center gap-2">
                                 <input type="checkbox" required className="text-red-600" />
-                                <span>I'm ready to take immediate action after this session</span>
+                                <span>I'm ready to define field-state actions</span>
                               </div>
                             </div>
                           </div>
-                          
+
                           <button
                             type="submit"
                             className="bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors"
                           >
-                            SUBMIT PREPARATION
+                            SUBMIT AUDIT
                           </button>
                         </div>
                       </div>
@@ -298,9 +323,9 @@ const TheNamingPage: NextPage = () => {
                   ) : (
                     <div className="bg-green-500/10 border border-green-500 p-8 text-center">
                       <Check className="text-green-500 mx-auto mb-4" size={48} />
-                      <h3 className="text-xl font-bold text-green-500 mb-4">PREPARATION COMPLETE</h3>
-                      <p className="text-lg mb-6">Your truth excavation form has been submitted. You're ready for the naming session.</p>
-                      <p className="text-zinc-400">You'll receive a confirmation email with your Teams meeting link within 15 minutes.</p>
+                      <h3 className="text-xl font-bold text-green-500 mb-4">DIMENSION AUDIT COMPLETE</h3>
+                      <p className="text-lg mb-6">Your friction points have been mapped. Ready for live session.</p>
+                      <p className="text-zinc-400">You'll receive your Teams meeting link within 15 minutes.</p>
                     </div>
                   )}
                 </div>
@@ -391,71 +416,71 @@ const TheNamingPage: NextPage = () => {
               {activeTab === 'follow-up' && (
                 <div className="space-y-8">
                   <div>
-                    <h2 className="text-3xl font-black mb-4">POST-SESSION TRACKING</h2>
-                    <p className="text-xl text-zinc-400 mb-8">Momentum maintenance and progress measurement. Your truth to action pipeline.</p>
+                    <h2 className="text-3xl font-black mb-4">GPI TRACKING</h2>
+                    <p className="text-xl text-zinc-400 mb-8">Measure actual dimension improvement. Track your move toward field state.</p>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-8">
                     <div className="bg-zinc-950 border border-zinc-800 p-6">
-                      <h3 className="text-xl font-bold mb-4">TRUTH SUMMARY</h3>
+                      <h3 className="text-xl font-bold mb-4">DIMENSION SUMMARY</h3>
                       <div className="bg-black border border-zinc-700 p-4 mb-4">
-                        <p className="text-zinc-400 text-sm mb-2">Your excavated truth will appear here after the session:</p>
+                        <p className="text-zinc-400 text-sm mb-2">Your friction points and field-state path:</p>
                         <div className="h-32 border border-zinc-800 p-3 text-zinc-500 text-sm">
-                          [Truth summary and key insights from your naming session will be populated here]
+                          [Decision Latency blockers identified + Knowledge Location gaps mapped]
                         </div>
                       </div>
                       <div className="space-y-3">
-                        <p className="font-bold text-sm">INCLUDES:</p>
+                        <p className="font-bold text-sm">DELIVERABLES:</p>
                         <ul className="space-y-1 text-sm text-zinc-400">
-                          <li>• The truth you named</li>
-                          <li>• What you were optimizing around</li>
-                          <li>• Your committed next action</li>
-                          <li>• Session recording link</li>
+                          <li>• Dimension-specific friction map</li>
+                          <li>• Field-state action plan</li>
+                          <li>• Expected GPI improvement timeline</li>
+                          <li>• Session recording</li>
                         </ul>
                       </div>
                     </div>
 
                     <div className="bg-zinc-950 border border-zinc-800 p-6">
-                      <h3 className="text-xl font-bold mb-4">ACTION COMMITMENT</h3>
+                      <h3 className="text-xl font-bold mb-4">FIELD-STATE ACTIONS</h3>
                       <div className="space-y-4">
                         <div className="bg-black border border-zinc-700 p-4">
-                          <p className="text-sm text-zinc-400 mb-2">Your binary next step:</p>
+                          <p className="text-sm text-zinc-400 mb-2">Your committed dimension improvements:</p>
                           <div className="h-20 border border-zinc-800 p-3 text-zinc-500 text-sm">
-                            [Your specific committed action will be recorded here]
+                            [Specific actions to reduce Decision Latency and improve Knowledge Location]
                           </div>
                         </div>
                         <div className="bg-yellow-500/10 border border-yellow-500 p-4">
                           <p className="text-yellow-500 font-bold text-sm mb-2">48-HOUR CHECK-IN</p>
-                          <p className="text-zinc-400 text-sm">You'll receive an automated follow-up in 48 hours asking: "Have you taken the action you committed to?"</p>
+                          <p className="text-zinc-400 text-sm">Have you implemented the first field-state action? Tracking dimension movement.</p>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   <div className="bg-zinc-950 border border-zinc-800 p-6">
-                    <h3 className="text-xl font-bold mb-6">MOMENTUM MEASUREMENT</h3>
+                    <h3 className="text-xl font-bold mb-6">GPI RE-MEASUREMENT</h3>
                     <div className="grid md:grid-cols-3 gap-6">
                       <div className="text-center">
                         <div className="text-3xl font-black text-red-600 mb-2">48 HOURS</div>
                         <p className="font-bold mb-2">Action Check</p>
-                        <p className="text-zinc-400 text-sm">Did you take your committed action? If yes, celebrate. If no, what's blocking you?</p>
+                        <p className="text-zinc-400 text-sm">First field-state action implemented. Early friction reduction signals.</p>
                       </div>
                       <div className="text-center">
                         <div className="text-3xl font-black text-yellow-500 mb-2">7 DAYS</div>
-                        <p className="font-bold mb-2">Progress Review</p>
-                        <p className="text-zinc-400 text-sm">What's changed since naming your truth? What momentum have you built?</p>
+                        <p className="font-bold mb-2">Dimension Check</p>
+                        <p className="text-zinc-400 text-sm">Re-assess Decision Latency and Knowledge Location scores. Measure movement.</p>
                       </div>
                       <div className="text-center">
                         <div className="text-3xl font-black text-green-500 mb-2">30 DAYS</div>
-                        <p className="font-bold mb-2">Impact Assessment</p>
-                        <p className="text-zinc-400 text-sm">Long-term impact measurement and future roadblock identification.</p>
+                        <p className="font-bold mb-2">GPI Re-Score</p>
+                        <p className="text-zinc-400 text-sm">Full GPI re-assessment. Validate -0.5 point improvement target.</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="bg-green-500/10 border border-green-500 p-6">
-                    <h3 className="text-xl font-bold text-green-500 mb-4">GUARANTEE: CLARITY OR REDO</h3>
-                    <p className="text-zinc-400">If you don't get complete clarity on your buried truth and next action, we'll do another session free. We don't stop until you know exactly what to do.</p>
+                    <h3 className="text-xl font-bold text-green-500 mb-4">GUARANTEE: DIMENSION IMPROVEMENT OR REDO</h3>
+                    <p className="text-zinc-400">If you don't see measurable improvement in Decision Latency or Knowledge Location within 30 days, we'll do another session free.</p>
                   </div>
                 </div>
               )}
@@ -464,8 +489,8 @@ const TheNamingPage: NextPage = () => {
               {activeTab === 'book' && (
                 <div className="space-y-8">
                   <div>
-                    <h2 className="text-3xl font-black mb-4">BOOK THE NAMING</h2>
-                    <p className="text-xl text-zinc-400 mb-8">60 minutes to surface buried truth and define your next move. Complete portal experience included.</p>
+                    <h2 className="text-3xl font-black mb-4">DEPLOY THE NAMING</h2>
+                    <p className="text-xl text-zinc-400 mb-8">60 minutes to target Decision Latency and Knowledge Location. Expected: -0.5 GPI points.</p>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-8">
@@ -576,24 +601,24 @@ const TheNamingPage: NextPage = () => {
         <section className="py-16 px-6 bg-zinc-950">
           <div className="max-w-7xl mx-auto">
             <RelatedContent
-              title="Learn The Language"
+              title="GPI Framework"
               items={[
                 {
-                  href: "/answers/glossary/nexel",
-                  title: "What is Your Nexel?",
-                  description: "Your behavioral identity marker. How you move through constraint.",
+                  href: "/gpi-framework",
+                  title: "The GPI Framework",
+                  description: "7 dimensions of organizational physics. Field state to particle state.",
                   color: "red"
                 },
                 {
-                  href: "/answers/glossary/morrin",
-                  title: "Enter Morrin State",
-                  description: "Post-choice existence. The moment aligned action begins.",
+                  href: "/diagnostic",
+                  title: "Calculate Your GPI",
+                  description: "32 questions. 7 dimensions. Know your organizational physics score.",
                   color: "yellow"
                 },
                 {
-                  href: "/diagnostic",
-                  title: "Detect Your Signal",
-                  description: "19 binary questions. Find where truth is buried.",
+                  href: "/interventions",
+                  title: "All Interventions",
+                  description: "Target specific dimensions. Deploy based on your GPI results.",
                   color: "green"
                 }
               ]}

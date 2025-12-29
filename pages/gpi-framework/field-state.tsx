@@ -1,0 +1,326 @@
+/**
+ * Field State Deep Dive Page
+ * GPI 1-3: Adaptive, fluid organizational systems
+ */
+
+import React from 'react';
+import Link from 'next/link';
+import SEOHead from '../../components/SEOHead';
+import Navigation from '../../components/Navigation';
+import { GPIStateVisual, GPISpectrum } from '../../components/gpi';
+
+const FieldStatePage = () => {
+  // Company examples with field state characteristics
+  const companyExamples = [
+    {
+      name: 'Stripe',
+      gpi: 1.5,
+      insight: 'API-first architecture enables same-day decisions. Continuous deployment means errors are caught and fixed in hours, not quarters.',
+    },
+    {
+      name: 'Notion',
+      gpi: 1.8,
+      insight: 'Purely digital product with minimal physical infrastructure. Knowledge is the product, and it flows without friction.',
+    },
+    {
+      name: 'GitLab',
+      gpi: 1.8,
+      insight: 'Handbook-first culture means knowledge is documented and accessible. Remote-first eliminated geographic friction.',
+    },
+    {
+      name: 'Shopify',
+      gpi: 2.2,
+      insight: 'Modular architecture allows rapid pivots. Merchant success is measured in real-time.',
+    },
+    {
+      name: 'Maersk',
+      gpi: 3.9,
+      insight: 'Vertical integration in shipping. Digital transformation turning a particle industry into field operations.',
+    },
+  ];
+
+  const characteristics = [
+    {
+      title: 'Signal Flows Freely',
+      description: 'Information moves without gatekeepers. Data is accessible to those who need it. Decisions are informed by real-time signals, not quarterly reports.',
+    },
+    {
+      title: 'Roles Adapt in Real-Time',
+      description: 'Job descriptions are guidelines, not prisons. People move to where they create the most value. Hierarchy exists for coordination, not control.',
+    },
+    {
+      title: 'AI-Coordinated Systems',
+      description: 'Algorithms handle routine decisions. Humans focus on judgment calls. The boundary between human and machine work is fluid and evolving.',
+    },
+    {
+      title: 'Fast Metabolism',
+      description: 'The organization processes change quickly. What takes particle organizations years takes field organizations weeks.',
+    },
+    {
+      title: 'Friction is Eliminated',
+      description: 'Inefficiency is treated as a bug, not a feature. Nobody profits from delay. Value creation is the only margin.',
+    },
+  ];
+
+  const diagnosticSignals = [
+    'Decisions happen in hours or days, not months',
+    'New employees can find answers without asking veterans',
+    'Mistakes are caught and fixed before they compound',
+    'Systems can be changed without massive investment',
+    'Top performers choose to stay',
+    'Knowledge updates continuously, not generationally',
+  ];
+
+  return (
+    <>
+      <SEOHead
+        title="Field State Organizations (GPI 1-3) | IMAGINATION G"
+        description="Field state organizations score GPI 1-3. Signal flows freely, roles adapt in real-time, friction is eliminated. Learn what makes organizations adaptive."
+        ogImage="/images/og-field-state.svg"
+      />
+
+      <div className="min-h-screen bg-black text-white">
+        <Navigation currentPage="framework" />
+
+        {/* Hero */}
+        <section className="pt-24 pb-16 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-4xl mx-auto">
+              {/* Breadcrumb */}
+              <div className="mb-8">
+                <Link href="/gpi-framework" className="text-zinc-500 hover:text-white transition-colors text-sm">
+                  ← GPI Framework
+                </Link>
+              </div>
+
+              {/* State badge */}
+              <div className="inline-flex items-center gap-3 mb-8 bg-green-950/50 border border-green-800 px-4 py-2 rounded-full">
+                <GPIStateVisual state="field" size="sm" animate={false} />
+                <span className="text-green-400 text-sm font-bold">GPI 1-3</span>
+              </div>
+
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
+                FIELD STATE<span className="text-green-500">.</span>
+              </h1>
+
+              <p className="text-2xl text-green-400 font-bold mb-4">FLUID</p>
+
+              <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
+                Organizations where signal flows freely, roles adapt in real-time, and friction
+                is treated as waste to eliminate, not margin to extract.
+              </p>
+
+              {/* Spectrum */}
+              <div className="max-w-md mb-12">
+                <GPISpectrum score={2.0} size="lg" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* What It Feels Like */}
+        <section className="py-16 px-6 bg-zinc-950">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-black mb-8">WHAT IT FEELS LIKE</h2>
+
+              <div className="bg-green-950/20 border border-green-900/50 rounded-xl p-8 mb-8">
+                <p className="text-xl text-zinc-300 leading-relaxed mb-6">
+                  You propose an idea on Monday. By Wednesday, someone's testing it. By Friday,
+                  you know if it works. If it doesn't, you've already moved on. If it does,
+                  it's shipping.
+                </p>
+                <p className="text-lg text-zinc-400 leading-relaxed">
+                  Information isn't power here. It's infrastructure. Everyone has access to the
+                  same data. Your value isn't in what you know; it's in what you figure out.
+                  The organization rewards pattern recognition, not political positioning.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="border border-zinc-800 rounded-xl p-6">
+                  <h3 className="font-bold text-green-500 mb-3">DECISIONS</h3>
+                  <p className="text-zinc-400">
+                    Hours to days. Most decisions don't require executive approval.
+                    Authority is distributed to those with context.
+                  </p>
+                </div>
+                <div className="border border-zinc-800 rounded-xl p-6">
+                  <h3 className="font-bold text-green-500 mb-3">ERRORS</h3>
+                  <p className="text-zinc-400">
+                    Caught in days, fixed in hours. Blame-free post-mortems.
+                    Mistakes are learning opportunities, not career-ending events.
+                  </p>
+                </div>
+                <div className="border border-zinc-800 rounded-xl p-6">
+                  <h3 className="font-bold text-green-500 mb-3">KNOWLEDGE</h3>
+                  <p className="text-zinc-400">
+                    Documented and accessible. New hires can find answers.
+                    The organization functions even when key people leave.
+                  </p>
+                </div>
+                <div className="border border-zinc-800 rounded-xl p-6">
+                  <h3 className="font-bold text-green-500 mb-3">CHANGE</h3>
+                  <p className="text-zinc-400">
+                    Continuous and expected. Systems are modular and replaceable.
+                    Pivots happen without massive restructuring.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Characteristics */}
+        <section className="py-16 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-black mb-8">FIELD STATE CHARACTERISTICS</h2>
+
+              <div className="space-y-6">
+                {characteristics.map((char, i) => (
+                  <div key={i} className="border-l-4 border-green-600 pl-6 py-2">
+                    <h3 className="text-xl font-bold mb-2">{char.title}</h3>
+                    <p className="text-zinc-400">{char.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Company Examples */}
+        <section className="py-16 px-6 bg-zinc-950">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-black mb-8">FIELD STATE EXAMPLES</h2>
+
+              <div className="space-y-4">
+                {companyExamples.map((company) => (
+                  <div key={company.name} className="bg-black border border-zinc-800 rounded-xl p-6">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-xl font-bold">{company.name}</h3>
+                      <span className="text-green-500 font-mono font-bold text-xl">
+                        GPI {company.gpi}
+                      </span>
+                    </div>
+                    <p className="text-zinc-400">{company.insight}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Diagnostic Signals */}
+        <section className="py-16 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-black mb-8">YOU'RE IN FIELD STATE IF...</h2>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                {diagnosticSignals.map((signal, i) => (
+                  <div key={i} className="flex items-start gap-3 bg-green-950/20 border border-green-900/30 rounded-lg p-4">
+                    <span className="text-green-500 font-bold">✓</span>
+                    <span className="text-zinc-300">{signal}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Industries */}
+        <section className="py-16 px-6 bg-zinc-950">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-black mb-8">INDUSTRIES THAT CLUSTER HERE</h2>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {[
+                  { name: 'Technology/Software', gpi: 1.5 },
+                  { name: 'Professional Services', gpi: 3.0 },
+                  { name: 'Shipping (Modern)', gpi: 3.9 },
+                  { name: 'Media & Entertainment', gpi: 2.5 },
+                ].map((industry) => (
+                  <div key={industry.name} className="bg-black border border-zinc-800 rounded-lg p-4 text-center">
+                    <div className="text-2xl font-black text-green-500 mb-1">{industry.gpi}</div>
+                    <div className="text-sm text-zinc-400">{industry.name}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 p-6 border border-zinc-800 rounded-xl">
+                <h3 className="font-bold mb-3">WHY THESE INDUSTRIES?</h3>
+                <p className="text-zinc-400">
+                  Field state organizations cluster in industries where digital transformation
+                  has removed physical constraints, where knowledge is the primary asset, and
+                  where competition punishes inefficiency rather than rewarding it.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Transition Paths */}
+        <section className="py-16 px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-black mb-8">STAYING IN FIELD STATE</h2>
+
+              <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-8">
+                <p className="text-lg text-zinc-300 mb-6">
+                  Field state isn't permanent. Organizations calcify over time. The forces
+                  that push toward particle state are constant:
+                </p>
+                <ul className="space-y-3 text-zinc-400">
+                  <li className="flex items-start gap-3">
+                    <span className="text-yellow-500">→</span>
+                    <span>Success breeds process. What worked gets codified into rules.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-yellow-500">→</span>
+                    <span>Growth breeds hierarchy. More people means more coordination overhead.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-yellow-500">→</span>
+                    <span>Age breeds tradition. "How we've always done it" becomes doctrine.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-yellow-500">→</span>
+                    <span>Regulation breeds compliance. External rules create internal rigidity.</span>
+                  </li>
+                </ul>
+                <p className="text-lg text-zinc-300 mt-6">
+                  Staying field requires constant vigilance. It's not a destination. It's a practice.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Navigation */}
+        <section className="py-16 px-6 border-t border-zinc-900">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row justify-between gap-6">
+              <Link
+                href="/gpi-framework"
+                className="border border-zinc-700 px-8 py-4 text-lg font-black hover:border-zinc-500 transition-colors text-center"
+              >
+                ← BACK TO FRAMEWORK
+              </Link>
+              <Link
+                href="/gpi-framework/transition-state"
+                className="bg-yellow-600 px-8 py-4 text-lg font-black hover:bg-yellow-700 transition-colors text-center text-black"
+              >
+                NEXT: TRANSITION STATE →
+              </Link>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
+  );
+};
+
+export default FieldStatePage;

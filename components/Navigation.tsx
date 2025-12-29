@@ -6,6 +6,15 @@ interface NavigationProps {
 }
 
 const Navigation: React.FC<NavigationProps> = ({ currentPage }) => {
+  const navItems = [
+    { key: 'framework', label: 'GPI FRAMEWORK', href: '/gpi-framework' },
+    { key: 'diagnostic', label: 'DIAGNOSTIC', href: '/diagnostic' },
+    { key: 'tools', label: 'TOOLS', href: '/tools' },
+    { key: 'insights', label: 'INSIGHTS', href: '/insights' },
+    { key: 'interventions', label: 'INTERVENTIONS', href: '/interventions' },
+    { key: 'about', label: 'ABOUT', href: '/about' },
+  ];
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-zinc-900">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -13,10 +22,17 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage }) => {
           IMAGINATION <span className="text-red-600">G</span>
         </Link>
         <div className="flex gap-6 text-sm font-bold">
-          <Link href="/answers" className="hover:text-red-600 transition-colors">ANSWERS</Link>
-          <Link href="/diagnostic" className="hover:text-red-600 transition-colors">DIAGNOSTIC</Link>
-          <Link href="/about" className="hover:text-red-600 transition-colors">ABOUT</Link>
-          <Link href="/start" className="hover:text-red-600 transition-colors">DETECT</Link>
+          {navItems.map((item) => (
+            <Link
+              key={item.key}
+              href={item.href}
+              className={`hover:text-red-600 transition-colors ${
+                currentPage === item.key ? 'text-red-600' : ''
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
       </div>
     </nav>

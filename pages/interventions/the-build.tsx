@@ -23,18 +23,18 @@ const TheBuildPage: NextPage = () => {
   };
 
   const tabs = [
-    { id: 'overview', label: 'Overview', icon: FileText },
-    { id: 'brief', label: 'Build Brief', icon: Target },
-    { id: 'sprint', label: 'Live Sprint', icon: Zap },
-    { id: 'ship', label: 'Ship & Test', icon: BarChart3 },
-    { id: 'book', label: 'Book Now', icon: Calendar }
+    { id: 'overview', label: 'GPI Impact', icon: FileText },
+    { id: 'brief', label: 'Velocity Audit', icon: Target },
+    { id: 'sprint', label: 'Rapid Build', icon: Zap },
+    { id: 'ship', label: 'GPI Tracking', icon: BarChart3 },
+    { id: 'book', label: 'Deploy', icon: Calendar }
   ];
 
   return (
     <>
       <SEOHead
-        title="THE BUILD - MVP in 4 Weeks | IMAGINATION G"
-        description="Build working MVP in 4 weeks. Get first paying customer. Proof of concept or kill it. $4,500."
+        title="THE BUILD - Accelerate Knowledge Velocity | IMAGINATION G"
+        description="Target Knowledge Velocity and Error Correction dimensions. Ship in 4 weeks. Get feedback loops running. -1.2 GPI points. Move toward field state."
         ogType="article"
         ogImage="/images/og-services.svg"
       />
@@ -57,15 +57,31 @@ const TheBuildPage: NextPage = () => {
               </h1>
               
               <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
-                Working MVP in 4 weeks. Get first paying customer. Proof of concept or kill it. Ship ugly, learn fast.
+                Accelerate knowledge velocity. Get feedback loops running in weeks not months. Ship, learn, correct errors fast. Field-state operations.
               </p>
 
-              <div className="flex flex-wrap gap-6 items-center mb-8">
+              <div className="flex flex-wrap gap-6 items-center mb-6">
                 <span className="text-4xl font-black">$4,500</span>
                 <span className="text-zinc-500">|</span>
                 <span className="text-lg text-zinc-400">4 Weeks. MVP or Kill.</span>
                 <span className="text-zinc-500">|</span>
                 <span className="text-sm text-green-400 bg-green-400/10 px-3 py-1 rounded-full">SHIP OR REFUND</span>
+              </div>
+
+              {/* GPI Targeting */}
+              <div className="flex flex-wrap items-center gap-4 mb-8 p-4 bg-zinc-950 border border-zinc-800 rounded-lg">
+                <Target className="text-red-600" size={20} />
+                <span className="text-xs text-zinc-500 uppercase">GPI Targets:</span>
+                <span className="text-sm font-mono bg-red-600/20 text-red-400 px-3 py-1 rounded">Knowledge Velocity</span>
+                <span className="text-sm font-mono bg-red-600/20 text-red-400 px-3 py-1 rounded">Error Correction</span>
+                <span className="text-zinc-700">|</span>
+                <span className="text-xs text-zinc-500">
+                  Recommended when <span className="font-mono text-yellow-400">GPI &gt; 6.0</span>
+                </span>
+                <span className="text-zinc-700">|</span>
+                <span className="text-xs text-zinc-500">
+                  Expected: <span className="font-mono text-green-400">-1.2 points</span>
+                </span>
               </div>
             </div>
           </div>
@@ -106,79 +122,130 @@ const TheBuildPage: NextPage = () => {
               {/* Overview Tab */}
               {activeTab === 'overview' && (
                 <div className="space-y-12">
+                  {/* GPI Impact Summary */}
+                  <div className="bg-zinc-950 border border-red-600/30 p-8">
+                    <h2 className="text-2xl font-black mb-6 text-red-600">GPI IMPACT SUMMARY</h2>
+                    <div className="grid md:grid-cols-3 gap-6">
+                      <div className="text-center p-4 border border-zinc-800">
+                        <div className="text-3xl font-black text-red-600 mb-2">-1.2</div>
+                        <div className="text-sm text-zinc-400">Expected GPI Reduction</div>
+                      </div>
+                      <div className="text-center p-4 border border-zinc-800">
+                        <div className="text-3xl font-black text-yellow-400 mb-2">2</div>
+                        <div className="text-sm text-zinc-400">Dimensions Targeted</div>
+                      </div>
+                      <div className="text-center p-4 border border-zinc-800">
+                        <div className="text-3xl font-black text-green-400 mb-2">4 WKS</div>
+                        <div className="text-sm text-zinc-400">To Field State</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Dimensions Targeted */}
                   <div>
-                    <h2 className="text-3xl font-black mb-8">SHIP UGLY, LEARN FAST</h2>
-                    <div className="grid md:grid-cols-2 gap-8">
-                      <div className="space-y-4">
-                        <div className="flex items-start gap-4">
-                          <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
-                          <p className="text-lg">Core function definition and scope</p>
+                    <h3 className="text-xl font-black mb-6">DIMENSIONS TARGETED</h3>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="bg-zinc-950 border border-zinc-800 p-6">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                          <h4 className="font-bold">KNOWLEDGE VELOCITY (10% of GPI)</h4>
                         </div>
-                        <div className="flex items-start gap-4">
-                          <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
-                          <p className="text-lg">Working MVP in 4 weeks</p>
-                        </div>
-                        <div className="flex items-start gap-4">
-                          <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
-                          <p className="text-lg">Daily build progress via Teams</p>
+                        <p className="text-zinc-400 mb-4">How fast does learning become action? Particle state: Slow perfection loops. Field state: Rapid learning through shipping.</p>
+                        <div className="flex justify-between text-sm">
+                          <span className="text-red-400">Before: Particle (7-10)</span>
+                          <span className="text-green-400">After: Field (1-3)</span>
                         </div>
                       </div>
-                      <div className="space-y-4">
-                        <div className="flex items-start gap-4">
-                          <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
-                          <p className="text-lg">First paying customer acquisition</p>
+                      <div className="bg-zinc-950 border border-zinc-800 p-6">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-3 h-3 bg-red-600 rounded-full"></div>
+                          <h4 className="font-bold">ERROR CORRECTION (20% of GPI)</h4>
                         </div>
-                        <div className="flex items-start gap-4">
-                          <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
-                          <p className="text-lg">Real market feedback (brutal honesty)</p>
-                        </div>
-                        <div className="flex items-start gap-4">
-                          <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
-                          <p className="text-lg">Kill or scale decision with data</p>
+                        <p className="text-zinc-400 mb-4">How quickly can mistakes be detected and fixed? Particle state: Errors hidden in process. Field state: Ship, learn, correct fast.</p>
+                        <div className="flex justify-between text-sm">
+                          <span className="text-red-400">Before: Particle (7-10)</span>
+                          <span className="text-green-400">After: Field (1-3)</span>
                         </div>
                       </div>
                     </div>
                   </div>
 
+                  {/* Expected Outcomes */}
                   <div className="bg-zinc-950 border border-zinc-800 p-8">
-                    <h3 className="text-xl font-black mb-4">THE SIMPLE PROCESS</h3>
+                    <h3 className="text-xl font-black mb-6">EXPECTED OUTCOMES</h3>
+                    <div className="grid md:grid-cols-2 gap-8">
+                      <div className="space-y-4">
+                        <div className="flex items-start gap-4">
+                          <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
+                          <p className="text-lg">Learning cycle reduced from months to weeks</p>
+                        </div>
+                        <div className="flex items-start gap-4">
+                          <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
+                          <p className="text-lg">Error detection through real user feedback</p>
+                        </div>
+                        <div className="flex items-start gap-4">
+                          <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
+                          <p className="text-lg">Knowledge Velocity score moves toward field</p>
+                        </div>
+                      </div>
+                      <div className="space-y-4">
+                        <div className="flex items-start gap-4">
+                          <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
+                          <p className="text-lg">Error Correction dimension accelerated</p>
+                        </div>
+                        <div className="flex items-start gap-4">
+                          <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
+                          <p className="text-lg">Market truth replaces internal assumptions</p>
+                        </div>
+                        <div className="flex items-start gap-4">
+                          <Check className="text-green-500 mt-1 flex-shrink-0" size={20} />
+                          <p className="text-lg">Scale or kill decision based on data</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Protocol */}
+                  <div className="bg-zinc-950 border border-zinc-800 p-8">
+                    <h3 className="text-xl font-black mb-4">THE VELOCITY PROTOCOL</h3>
                     <div className="space-y-6">
                       <div className="flex gap-6 items-start">
                         <div className="text-red-600 font-mono text-sm w-24 flex-shrink-0">WEEK 1</div>
                         <div className="flex-1">
-                          <p className="text-lg mb-2">Strip to core: What's the one thing that solves the problem?</p>
-                          <p className="text-zinc-400">Kill features, focus function, define success metric</p>
+                          <p className="text-lg mb-2">Strip to core function—eliminate velocity friction</p>
+                          <p className="text-zinc-400">Kill features that slow learning. Define the one metric that proves market fit.</p>
                         </div>
                       </div>
                       <div className="flex gap-6 items-start">
                         <div className="text-red-600 font-mono text-sm w-24 flex-shrink-0">WEEK 2-3</div>
                         <div className="flex-1">
-                          <p className="text-lg mb-2">Build the ugly version that actually works</p>
-                          <p className="text-zinc-400">Daily progress via Teams, no perfection allowed</p>
+                          <p className="text-lg mb-2">Build ugly, ship fast—maximum velocity</p>
+                          <p className="text-zinc-400">Daily progress creates daily corrections. Learning compounds.</p>
                         </div>
                       </div>
                       <div className="flex gap-6 items-start">
                         <div className="text-red-600 font-mono text-sm w-24 flex-shrink-0">WEEK 4</div>
                         <div className="flex-1">
-                          <p className="text-lg mb-2">Ship to real users, get first paying customer</p>
-                          <p className="text-zinc-400">Launch, measure, decide: scale or kill based on data</p>
+                          <p className="text-lg mb-2">Ship to users—error correction begins</p>
+                          <p className="text-zinc-400">Real feedback creates real corrections. Scale or kill based on field data.</p>
                         </div>
                       </div>
                     </div>
                   </div>
 
+                  {/* Best For */}
                   <div className="grid md:grid-cols-3 gap-6">
                     <div className="border border-zinc-800 p-6">
-                      <h3 className="font-bold text-red-600 mb-3">FOUNDERS</h3>
-                      <p className="text-zinc-400">Who've been perfecting instead of shipping for months</p>
+                      <h3 className="font-bold text-red-600 mb-3">HIGH GPI FOUNDERS</h3>
+                      <p className="text-zinc-400">Knowledge Velocity score above 7. Perfecting instead of shipping. Assumptions instead of data.</p>
                     </div>
                     <div className="border border-zinc-800 p-6">
-                      <h3 className="font-bold text-red-600 mb-3">TEAMS</h3>
-                      <p className="text-zinc-400">Ready to build ugly and test fast with real users</p>
+                      <h3 className="font-bold text-red-600 mb-3">SLOW ERROR LOOPS</h3>
+                      <p className="text-zinc-400">Error Correction score above 7. Mistakes take months to surface. Learning cycles measured in quarters.</p>
                     </div>
                     <div className="border border-zinc-800 p-6">
-                      <h3 className="font-bold text-red-600 mb-3">IDEAS</h3>
-                      <p className="text-zinc-400">That need market reality more than feature refinement</p>
+                      <h3 className="font-bold text-red-600 mb-3">PARTICLE-STATE IDEAS</h3>
+                      <p className="text-zinc-400">Too many features, not enough feedback. Need market reality to force field behavior.</p>
                     </div>
                   </div>
                 </div>
@@ -188,19 +255,24 @@ const TheBuildPage: NextPage = () => {
               {activeTab === 'brief' && (
                 <div className="space-y-8">
                   <div>
-                    <h2 className="text-3xl font-black mb-4">BUILD BRIEF</h2>
-                    <p className="text-xl text-zinc-400 mb-8">Define the core function and success metric. 5 minutes to scope what we're building.</p>
+                    <h2 className="text-3xl font-black mb-4">VELOCITY AUDIT</h2>
+                    <p className="text-xl text-zinc-400 mb-8">Identify what's slowing your Knowledge Velocity and Error Correction dimensions. 5 minutes to expose the friction.</p>
+                  </div>
+
+                  <div className="bg-zinc-950 border border-red-600/30 p-6 mb-8">
+                    <h3 className="text-lg font-bold text-red-600 mb-4">DIMENSION FRICTION ASSESSMENT</h3>
+                    <p className="text-zinc-400">This form identifies friction in your Knowledge Velocity and Error Correction dimensions. Each answer reveals where particle-state behavior is blocking field-state operations.</p>
                   </div>
 
                   {!isSubmitted ? (
                     <form onSubmit={handleBuildSubmit} className="space-y-8">
                       <div className="bg-zinc-950 border border-zinc-800 p-8">
-                        <h3 className="text-xl font-bold mb-6">MVP DEFINITION FORM</h3>
-                        
+                        <h3 className="text-xl font-bold mb-6">VELOCITY FRICTION FORM</h3>
+
                         <div className="space-y-6">
                           <div>
-                            <label className="block text-lg font-bold mb-3">What's the one core function this solves?</label>
-                            <p className="text-zinc-400 text-sm mb-4">Not features. Not nice-to-haves. The one thing it must do.</p>
+                            <label className="block text-lg font-bold mb-3">Core function—what's the one thing that must work?</label>
+                            <p className="text-zinc-400 text-sm mb-4">Not features. Strip to the single function that solves the problem. Everything else is velocity friction.</p>
                             <textarea
                               value={buildData.coreFunction}
                               onChange={(e) => setBuildData({...buildData, coreFunction: e.target.value})}
@@ -211,8 +283,8 @@ const TheBuildPage: NextPage = () => {
                           </div>
 
                           <div>
-                            <label className="block text-lg font-bold mb-3">What problem does this solve for users?</label>
-                            <p className="text-zinc-400 text-sm mb-4">Pain point, frustration, or inefficiency they currently face.</p>
+                            <label className="block text-lg font-bold mb-3">User friction—what specific pain are you solving?</label>
+                            <p className="text-zinc-400 text-sm mb-4">The particle-state problem in your users' world. What friction are they trapped in?</p>
                             <textarea
                               value={buildData.userProblem}
                               onChange={(e) => setBuildData({...buildData, userProblem: e.target.value})}
@@ -223,8 +295,8 @@ const TheBuildPage: NextPage = () => {
                           </div>
 
                           <div>
-                            <label className="block text-lg font-bold mb-3">How will we know it's working?</label>
-                            <p className="text-zinc-400 text-sm mb-4">Simple success metric. What number proves people want this?</p>
+                            <label className="block text-lg font-bold mb-3">Error correction signal—how will we know it's working?</label>
+                            <p className="text-zinc-400 text-sm mb-4">The metric that triggers error correction. What number proves market fit?</p>
                             <textarea
                               value={buildData.successMetric}
                               onChange={(e) => setBuildData({...buildData, successMetric: e.target.value})}
@@ -235,8 +307,8 @@ const TheBuildPage: NextPage = () => {
                           </div>
 
                           <div>
-                            <label className="block text-lg font-bold mb-3">What constraints do we have?</label>
-                            <p className="text-zinc-400 text-sm mb-4">Budget, timeline, technical, team, or resource limitations.</p>
+                            <label className="block text-lg font-bold mb-3">Current constraints—what limits velocity?</label>
+                            <p className="text-zinc-400 text-sm mb-4">Real constraints that affect how fast we can ship and learn.</p>
                             <textarea
                               value={buildData.constraints}
                               onChange={(e) => setBuildData({...buildData, constraints: e.target.value})}
@@ -252,7 +324,7 @@ const TheBuildPage: NextPage = () => {
                             type="submit"
                             className="bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors"
                           >
-                            SUBMIT BUILD BRIEF
+                            SUBMIT VELOCITY AUDIT
                           </button>
                         </div>
                       </div>
@@ -260,9 +332,9 @@ const TheBuildPage: NextPage = () => {
                   ) : (
                     <div className="bg-green-500/10 border border-green-500 p-8 text-center">
                       <Check className="text-green-500 mx-auto mb-4" size={48} />
-                      <h3 className="text-xl font-bold text-green-500 mb-4">BUILD BRIEF LOCKED</h3>
-                      <p className="text-lg mb-6">Scope defined. Build sprint starts in 48 hours.</p>
-                      <p className="text-zinc-400">You'll receive daily progress updates via Teams starting Monday.</p>
+                      <h3 className="text-xl font-bold text-green-500 mb-4">VELOCITY FRICTION IDENTIFIED</h3>
+                      <p className="text-lg mb-6">Core function locked. Knowledge Velocity protocol begins in 48 hours.</p>
+                      <p className="text-zinc-400">You'll receive daily velocity updates—each one a chance for error correction.</p>
                     </div>
                   )}
                 </div>
@@ -272,35 +344,60 @@ const TheBuildPage: NextPage = () => {
               {activeTab === 'sprint' && (
                 <div className="space-y-8">
                   <div>
-                    <h2 className="text-3xl font-black mb-4">LIVE BUILD SPRINT</h2>
-                    <p className="text-xl text-zinc-400 mb-8">Daily progress updates. Real builds, real progress. No perfection allowed.</p>
+                    <h2 className="text-3xl font-black mb-4">RAPID BUILD</h2>
+                    <p className="text-xl text-zinc-400 mb-8">Field-state operations. Maximum velocity. Daily error correction signals. Ship ugly, learn fast.</p>
+                  </div>
+
+                  {/* Dimension Progress */}
+                  <div className="bg-zinc-950 border border-red-600/30 p-6 mb-8">
+                    <h3 className="text-lg font-bold text-red-600 mb-4">DIMENSION PROGRESS TRACKER</h3>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-sm">Knowledge Velocity</span>
+                          <span className="text-sm text-yellow-400">ACCELERATING</span>
+                        </div>
+                        <div className="w-full bg-zinc-800 h-2">
+                          <div className="bg-yellow-400 h-2 w-1/3"></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-sm">Error Correction</span>
+                          <span className="text-sm text-zinc-500">PENDING LAUNCH</span>
+                        </div>
+                        <div className="w-full bg-zinc-800 h-2">
+                          <div className="bg-zinc-600 h-2 w-0"></div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-8">
                     <div className="bg-zinc-950 border border-zinc-800 p-6">
                       <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
                         <Hammer className="text-red-600" size={24} />
-                        BUILD PROGRESS
+                        VELOCITY PHASES
                       </h3>
                       <div className="space-y-4">
                         <div className="flex items-center justify-between">
-                          <span>Core Function Build</span>
+                          <span>Core Function Lock</span>
                           <span className="text-yellow-400">IN PROGRESS</span>
                         </div>
                         <div className="flex items-center justify-between">
-                          <span>User Interface</span>
+                          <span>Friction Elimination</span>
                           <span className="text-zinc-500">PENDING</span>
                         </div>
                         <div className="flex items-center justify-between">
-                          <span>Basic Testing</span>
+                          <span>Minimal Interface</span>
                           <span className="text-zinc-500">PENDING</span>
                         </div>
                         <div className="flex items-center justify-between">
-                          <span>User Onboarding</span>
+                          <span>Ship to Users</span>
                           <span className="text-zinc-500">PENDING</span>
                         </div>
                         <div className="flex items-center justify-between">
-                          <span>Launch Preparation</span>
+                          <span>Error Correction Loop</span>
                           <span className="text-zinc-500">PENDING</span>
                         </div>
                       </div>
@@ -309,35 +406,35 @@ const TheBuildPage: NextPage = () => {
                     <div className="bg-zinc-950 border border-zinc-800 p-6">
                       <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
                         <Zap className="text-red-600" size={24} />
-                        DAILY UPDATES
+                        DAILY VELOCITY SIGNALS
                       </h3>
                       <div className="space-y-4">
-                        <p className="text-zinc-400 text-sm">Live build progress will appear here:</p>
+                        <p className="text-zinc-400 text-sm">Each day creates new data for error correction:</p>
                         <div className="bg-black border border-zinc-700 p-3 min-h-[200px]">
-                          <p className="text-zinc-500 text-sm">[Daily progress updates, blockers, and decisions will be posted here during the 4-week sprint]</p>
+                          <p className="text-zinc-500 text-sm">[Daily velocity signals—what shipped, what blocked, what corrected—will appear during the 4-week sprint]</p>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   <div className="bg-zinc-950 border border-zinc-800 p-6">
-                    <h3 className="text-xl font-bold mb-4">SPRINT SCHEDULE</h3>
+                    <h3 className="text-xl font-bold mb-4">VELOCITY TIMELINE</h3>
                     <div className="grid md:grid-cols-4 gap-4">
-                      <div className="text-center">
+                      <div className="text-center p-4 border border-zinc-700">
                         <div className="text-red-600 font-bold mb-2">WEEK 1</div>
-                        <p className="text-sm text-zinc-400">Core function build & basic structure</p>
+                        <p className="text-sm text-zinc-400">Lock core function. Kill velocity friction.</p>
                       </div>
-                      <div className="text-center">
+                      <div className="text-center p-4 border border-zinc-700">
                         <div className="text-red-600 font-bold mb-2">WEEK 2</div>
-                        <p className="text-sm text-zinc-400">User interface & interaction flow</p>
+                        <p className="text-sm text-zinc-400">Build ugly. Maximum velocity. No perfection.</p>
                       </div>
-                      <div className="text-center">
+                      <div className="text-center p-4 border border-zinc-700">
                         <div className="text-red-600 font-bold mb-2">WEEK 3</div>
-                        <p className="text-sm text-zinc-400">Testing, debugging & optimization</p>
+                        <p className="text-sm text-zinc-400">Finish core. Prepare error correction loop.</p>
                       </div>
-                      <div className="text-center">
+                      <div className="text-center p-4 border border-zinc-700">
                         <div className="text-red-600 font-bold mb-2">WEEK 4</div>
-                        <p className="text-sm text-zinc-400">Launch prep & first user onboarding</p>
+                        <p className="text-sm text-zinc-400">Ship. First users. Error correction begins.</p>
                       </div>
                     </div>
                   </div>
@@ -346,25 +443,25 @@ const TheBuildPage: NextPage = () => {
                     <div className="bg-green-500/10 border border-green-500 p-6">
                       <h4 className="font-bold text-green-500 mb-3 flex items-center gap-2">
                         <Check size={20} />
-                        WHAT GETS BUILT
+                        FIELD-STATE OUTCOMES
                       </h4>
                       <div className="text-zinc-400 text-sm space-y-2">
-                        <p>• Core function that solves the user problem</p>
-                        <p>• Minimal viable interface (ugly but functional)</p>
-                        <p>• Basic user onboarding flow</p>
-                        <p>• Payment/signup mechanism</p>
+                        <p>• Core function that enables error correction</p>
+                        <p>• Minimal interface for maximum velocity</p>
+                        <p>• User feedback loop installed</p>
+                        <p>• Signal → correction pathway active</p>
                       </div>
                     </div>
                     <div className="bg-red-500/10 border border-red-500 p-6">
                       <h4 className="font-bold text-red-500 mb-3 flex items-center gap-2">
                         <AlertCircle size={20} />
-                        WHAT GETS CUT
+                        VELOCITY FRICTION (CUT)
                       </h4>
                       <div className="text-zinc-400 text-sm space-y-2">
-                        <p>• Beautiful design and animations</p>
-                        <p>• Advanced features and nice-to-haves</p>
-                        <p>• Perfect mobile responsiveness</p>
-                        <p>• Comprehensive error handling</p>
+                        <p>• Beautiful design (slows learning)</p>
+                        <p>• Feature completeness (blocks shipping)</p>
+                        <p>• Perfect edge cases (delays feedback)</p>
+                        <p>• Consensus requirements (particle behavior)</p>
                       </div>
                     </div>
                   </div>
@@ -375,50 +472,72 @@ const TheBuildPage: NextPage = () => {
               {activeTab === 'ship' && (
                 <div className="space-y-8">
                   <div>
-                    <h2 className="text-3xl font-black mb-4">SHIP & TEST</h2>
-                    <p className="text-xl text-zinc-400 mb-8">Launch to real users. Get first paying customer. Measure what matters. Scale or kill based on data.</p>
+                    <h2 className="text-3xl font-black mb-4">GPI TRACKING</h2>
+                    <p className="text-xl text-zinc-400 mb-8">Measure dimension changes. Track velocity acceleration. Error correction signals live.</p>
+                  </div>
+
+                  {/* GPI Re-measurement Timeline */}
+                  <div className="bg-zinc-950 border border-red-600/30 p-8">
+                    <h3 className="text-xl font-black mb-6 text-red-600">GPI RE-MEASUREMENT TIMELINE</h3>
+                    <div className="grid md:grid-cols-3 gap-6">
+                      <div className="text-center p-4 border border-zinc-700">
+                        <div className="text-2xl font-black text-yellow-400 mb-2">WEEK 2</div>
+                        <div className="text-sm text-zinc-400">Knowledge Velocity check</div>
+                        <div className="text-xs text-zinc-500 mt-2">First velocity acceleration signals</div>
+                      </div>
+                      <div className="text-center p-4 border border-zinc-700">
+                        <div className="text-2xl font-black text-yellow-400 mb-2">WEEK 4</div>
+                        <div className="text-sm text-zinc-400">Error Correction measurement</div>
+                        <div className="text-xs text-zinc-500 mt-2">First user feedback → correction cycle</div>
+                      </div>
+                      <div className="text-center p-4 border border-zinc-700">
+                        <div className="text-2xl font-black text-green-400 mb-2">WEEK 6</div>
+                        <div className="text-sm text-zinc-400">Full GPI re-score</div>
+                        <div className="text-xs text-zinc-500 mt-2">Compare to pre-intervention baseline</div>
+                      </div>
+                    </div>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-8">
                     <div className="bg-zinc-950 border border-zinc-800 p-6">
-                      <h3 className="text-xl font-bold mb-4">LAUNCH CHECKLIST</h3>
+                      <h3 className="text-xl font-bold mb-4">FIELD-STATE CHECKLIST</h3>
                       <div className="space-y-3">
                         <div className="flex items-center gap-3">
                           <Check className="text-green-500" size={18} />
-                          <span className="text-sm">Core function working end-to-end</span>
+                          <span className="text-sm">Core function ships without waiting</span>
                         </div>
                         <div className="flex items-center gap-3">
                           <Check className="text-zinc-500" size={18} />
-                          <span className="text-sm text-zinc-500">Payment system integrated</span>
+                          <span className="text-sm text-zinc-500">User feedback loop installed</span>
                         </div>
                         <div className="flex items-center gap-3">
                           <Check className="text-zinc-500" size={18} />
-                          <span className="text-sm text-zinc-500">Basic user onboarding flow</span>
+                          <span className="text-sm text-zinc-500">Error signals visible daily</span>
                         </div>
                         <div className="flex items-center gap-3">
                           <Check className="text-zinc-500" size={18} />
-                          <span className="text-sm text-zinc-500">Analytics tracking setup</span>
+                          <span className="text-sm text-zinc-500">Correction cycle under 48 hours</span>
                         </div>
                         <div className="flex items-center gap-3">
                           <Check className="text-zinc-500" size={18} />
-                          <span className="text-sm text-zinc-500">First 10 users identified</span>
+                          <span className="text-sm text-zinc-500">First paying user acquired</span>
                         </div>
                       </div>
                     </div>
 
                     <div className="bg-zinc-950 border border-zinc-800 p-6">
-                      <h3 className="text-xl font-bold mb-4">FIRST CUSTOMER TARGET</h3>
+                      <h3 className="text-xl font-bold mb-4">DIMENSION SIGNALS</h3>
                       <div className="space-y-4">
                         <div className="bg-black border border-zinc-700 p-4">
-                          <p className="text-sm font-bold text-green-400 mb-2">SUCCESS METRIC</p>
+                          <p className="text-sm font-bold text-green-400 mb-2">KNOWLEDGE VELOCITY</p>
                           <div className="h-16 border border-zinc-800 p-2 text-zinc-500 text-xs">
-                            [Your specific success metric from the build brief will be tracked here]
+                            [Learning cycle time: Days from insight → implementation tracked here]
                           </div>
                         </div>
                         <div className="bg-black border border-zinc-700 p-4">
-                          <p className="text-sm font-bold text-yellow-400 mb-2">CURRENT STATUS</p>
+                          <p className="text-sm font-bold text-yellow-400 mb-2">ERROR CORRECTION</p>
                           <div className="h-16 border border-zinc-800 p-2 text-zinc-500 text-xs">
-                            [Real-time progress toward first paying customer]
+                            [Error detection → fix cycle: Time from signal → correction tracked here]
                           </div>
                         </div>
                       </div>
@@ -426,32 +545,32 @@ const TheBuildPage: NextPage = () => {
                   </div>
 
                   <div className="bg-zinc-950 border border-zinc-800 p-6">
-                    <h3 className="text-xl font-bold mb-6">SCALE OR KILL DECISION</h3>
+                    <h3 className="text-xl font-bold mb-6">FIELD STATE DECISION</h3>
                     <div className="grid md:grid-cols-2 gap-8">
                       <div className="bg-green-500/10 border border-green-500 p-6">
-                        <h4 className="font-bold text-green-500 mb-3">SCALE SIGNALS</h4>
+                        <h4 className="font-bold text-green-500 mb-3">SCALE (FIELD ACHIEVED)</h4>
                         <div className="space-y-2 text-sm text-zinc-400">
-                          <p>• Hit success metric within 2 weeks</p>
-                          <p>• Users actively engaging daily</p>
-                          <p>• Word-of-mouth referrals happening</p>
-                          <p>• Clear path to more customers</p>
+                          <p>• Knowledge Velocity below 4</p>
+                          <p>• Error Correction under 48 hours</p>
+                          <p>• First paying customers acquired</p>
+                          <p>• Clear signal → action pathway</p>
                         </div>
                       </div>
                       <div className="bg-red-500/10 border border-red-500 p-6">
-                        <h4 className="font-bold text-red-500 mb-3">KILL SIGNALS</h4>
+                        <h4 className="font-bold text-red-500 mb-3">KILL (PARTICLE PERSISTS)</h4>
                         <div className="space-y-2 text-sm text-zinc-400">
-                          <p>• No paying customers after 3 weeks</p>
-                          <p>• Users try once and never return</p>
-                          <p>• Core problem not actually solved</p>
-                          <p>• Can't find product-market fit</p>
+                          <p>• Velocity still blocked after 4 weeks</p>
+                          <p>• Error signals ignored or invisible</p>
+                          <p>• No market fit signal detected</p>
+                          <p>• Perfection loop re-established</p>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   <div className="bg-yellow-500/10 border border-yellow-500 p-6">
-                    <h3 className="text-xl font-bold text-yellow-500 mb-4">DATA-DRIVEN DECISION</h3>
-                    <p className="text-zinc-400">After 4 weeks, we'll have real data. Based on user behavior and success metrics, we'll recommend: scale up investment, pivot the approach, or kill the project and try something else.</p>
+                    <h3 className="text-xl font-bold text-yellow-500 mb-4">GPI-BASED DECISION</h3>
+                    <p className="text-zinc-400">After 4 weeks, we'll measure actual dimension changes. If Knowledge Velocity and Error Correction moved toward field state, scale. If particle behavior persists despite intervention, kill and redirect resources.</p>
                   </div>
                 </div>
               )}
@@ -460,8 +579,8 @@ const TheBuildPage: NextPage = () => {
               {activeTab === 'book' && (
                 <div className="space-y-8">
                   <div>
-                    <h2 className="text-3xl font-black mb-4">BOOK THE BUILD</h2>
-                    <p className="text-xl text-zinc-400 mb-8">4 weeks to working MVP and first paying customer. Ship ugly, learn fast, scale or kill based on data.</p>
+                    <h2 className="text-3xl font-black mb-4">DEPLOY THE BUILD</h2>
+                    <p className="text-xl text-zinc-400 mb-8">Force field-state operations. Accelerate Knowledge Velocity. Enable Error Correction. Expected GPI reduction: -1.2 points.</p>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-8">
@@ -470,72 +589,72 @@ const TheBuildPage: NextPage = () => {
                       <div className="space-y-4 mb-8">
                         <div className="flex items-center gap-3">
                           <Check className="text-green-500" size={18} />
-                          <span>Core function definition & scope</span>
+                          <span>Velocity friction identification</span>
                         </div>
                         <div className="flex items-center gap-3">
                           <Check className="text-green-500" size={18} />
-                          <span>Working MVP in 4 weeks</span>
+                          <span>Core function lock (Week 1)</span>
                         </div>
                         <div className="flex items-center gap-3">
                           <Check className="text-green-500" size={18} />
-                          <span>Daily build progress via Teams</span>
+                          <span>Maximum velocity build (Week 2-3)</span>
                         </div>
                         <div className="flex items-center gap-3">
                           <Check className="text-green-500" size={18} />
-                          <span>Launch to real users</span>
+                          <span>Ship to users (Week 4)</span>
                         </div>
                         <div className="flex items-center gap-3">
                           <Check className="text-green-500" size={18} />
-                          <span>First paying customer acquisition</span>
+                          <span>Error correction loop installed</span>
                         </div>
                         <div className="flex items-center gap-3">
                           <Check className="text-green-500" size={18} />
-                          <span>Scale or kill recommendation</span>
+                          <span>GPI re-measurement (Week 6)</span>
                         </div>
                       </div>
-                      
-                      <Link 
+
+                      <Link
                         href="https://outlook.office.com/owa/calendar/IG@imaginationg.studio/bookings/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block w-full bg-red-600 px-8 py-4 text-lg font-black text-center hover:bg-red-700 transition-colors"
                       >
-                        SHIP UGLY →
+                        ACCELERATE VELOCITY →
                       </Link>
                     </div>
 
                     <div className="space-y-6">
-                      <div className="bg-yellow-500/10 border border-yellow-500 p-6">
-                        <h4 className="font-bold text-yellow-500 mb-3">COST OF PERFECTING</h4>
-                        <p className="text-zinc-400 mb-3">How much are you losing by not shipping?</p>
+                      <div className="bg-red-500/10 border border-red-500 p-6">
+                        <h4 className="font-bold text-red-500 mb-3">GPI IMPACT CALCULATION</h4>
+                        <p className="text-zinc-400 mb-3">How particle-state stalls compound:</p>
                         <div className="text-sm space-y-1">
                           <p>• Average perfection delay: 6+ months</p>
-                          <p>• Market opportunity lost: $50,000+</p>
-                          <p>• Competitor advantage: Immeasurable</p>
-                          <p>• Team frustration cost: High turnover</p>
+                          <p>• Each month: Learning not happening</p>
+                          <p>• Each month: Errors accumulating unseen</p>
+                          <p>• Each month: GPI score calcifying higher</p>
                         </div>
-                        <p className="text-yellow-500 font-bold mt-3">Ship now, perfect later</p>
+                        <p className="text-red-400 font-bold mt-3">Ship now. Correct errors with data, not assumptions.</p>
                       </div>
 
-                      <div className="bg-blue-500/10 border border-blue-500 p-6">
-                        <h4 className="font-bold text-blue-500 mb-3">TEAMS COLLABORATION</h4>
-                        <p className="text-zinc-400 mb-3">Daily build updates through your Microsoft Teams.</p>
+                      <div className="bg-green-500/10 border border-green-500 p-6">
+                        <h4 className="font-bold text-green-500 mb-3">DIMENSION TARGETS</h4>
+                        <p className="text-zinc-400 mb-3">What moves toward field state:</p>
                         <div className="text-sm space-y-1">
-                          <p>• Real-time progress tracking</p>
-                          <p>• Quick daily check-ins</p>
-                          <p>• Instant feedback and decisions</p>
-                          <p>• Secure team communication</p>
+                          <p>• Knowledge Velocity: 7+ → 3 or lower</p>
+                          <p>• Error Correction: 7+ → 3 or lower</p>
+                          <p>• Overall GPI: Expected -1.2 point reduction</p>
+                          <p>• Learning cycle: Months → Days</p>
                         </div>
                       </div>
 
                       <div className="bg-zinc-900 border border-zinc-700 p-6">
-                        <h4 className="font-bold mb-3">NOT SURE THIS IS RIGHT?</h4>
-                        <p className="text-zinc-400 mb-4">Take the diagnostic to see if you need building or a different intervention.</p>
-                        <Link 
+                        <h4 className="font-bold mb-3">NEED DIMENSION DIAGNOSIS?</h4>
+                        <p className="text-zinc-400 mb-4">Take the GPI diagnostic to confirm which dimensions need intervention.</p>
+                        <Link
                           href="/diagnostic"
                           className="inline-block border border-zinc-600 px-4 py-2 text-sm font-bold hover:border-zinc-400 transition-colors"
                         >
-                          TAKE THE DIAGNOSTIC
+                          GET YOUR GPI SCORE
                         </Link>
                       </div>
                     </div>
@@ -573,24 +692,24 @@ const TheBuildPage: NextPage = () => {
         <section className="py-16 px-6 bg-zinc-950">
           <div className="max-w-7xl mx-auto">
             <RelatedContent
-              title="Learn The Language"
+              title="Understand The GPI Framework"
               items={[
                 {
-                  href: "/answers/glossary/first-blood",
-                  title: "Why First Blood Matters",
-                  description: "The first cut that proves you're alive. Ship or die.",
+                  href: "/framework",
+                  title: "The GPI Framework",
+                  description: "7 dimensions that measure organizational friction. Particle vs Field state.",
                   color: "red"
                 },
                 {
-                  href: "/answers/glossary/quorr",
-                  title: "Escape Your Quorr",
-                  description: "Technical debt disguised as features. Cut to core.",
+                  href: "/diagnostic",
+                  title: "Get Your GPI Score",
+                  description: "19 binary questions. Measure your organizational state.",
                   color: "yellow"
                 },
                 {
-                  href: "/diagnostic",
-                  title: "Detect Your Signal",
-                  description: "19 binary questions. Find where truth is buried.",
+                  href: "/interventions",
+                  title: "All Interventions",
+                  description: "Find the right intervention for your GPI dimensions.",
                   color: "green"
                 }
               ]}
