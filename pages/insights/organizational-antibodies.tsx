@@ -50,6 +50,75 @@ const OrganizationalAntibodiesPage: NextPage = () => {
             <p className="text-xl text-zinc-400 max-w-2xl">
               Your organization has an immune system. It protects against foreign capabilities, even beneficial ones. Understanding the antibody response predicts which changes will succeed.
             </p>
+
+            {/* ANTIBODY VISUAL - Immune Response */}
+            <div className="mt-16 flex justify-center">
+              <div className="relative w-full max-w-md">
+                <svg viewBox="0 0 300 200" className="w-full h-auto">
+                  {/* Organization body */}
+                  <ellipse cx="150" cy="100" rx="120" ry="80" fill="#18181b" stroke="#3f3f46" strokeWidth="2" />
+                  <text x="150" y="170" textAnchor="middle" fill="#52525b" fontSize="10" fontFamily="monospace">THE ORGANIZATION</text>
+
+                  {/* New idea entering - green circle */}
+                  <circle cx="150" cy="100" r="15" fill="#22c55e">
+                    <animate attributeName="r" values="12;15;12" dur="2s" repeatCount="indefinite" />
+                  </circle>
+                  <text x="150" y="104" textAnchor="middle" fill="black" fontSize="8" fontWeight="bold">NEW</text>
+
+                  {/* Antibodies attacking from all sides */}
+                  {/* Process Antibody - top */}
+                  <g>
+                    <circle cx="150" cy="40" r="12" fill="#eab308">
+                      <animate attributeName="cy" values="35;55;35" dur="1.5s" repeatCount="indefinite" />
+                    </circle>
+                    <text x="150" y="20" textAnchor="middle" fill="#eab308" fontSize="7" fontFamily="monospace">PROCESS</text>
+                  </g>
+
+                  {/* Power Antibody - right */}
+                  <g>
+                    <circle cx="220" cy="100" r="12" fill="#ef4444">
+                      <animate attributeName="cx" values="225;195;225" dur="1.8s" repeatCount="indefinite" />
+                    </circle>
+                    <text x="255" y="103" fill="#ef4444" fontSize="7" fontFamily="monospace">POWER</text>
+                  </g>
+
+                  {/* Identity Antibody - bottom */}
+                  <g>
+                    <circle cx="150" cy="160" r="12" fill="#a855f7">
+                      <animate attributeName="cy" values="165;145;165" dur="1.6s" repeatCount="indefinite" />
+                    </circle>
+                    <text x="150" y="185" textAnchor="middle" fill="#a855f7" fontSize="7" fontFamily="monospace">IDENTITY</text>
+                  </g>
+
+                  {/* Capability Antibody - left */}
+                  <g>
+                    <circle cx="80" cy="100" r="12" fill="#f97316">
+                      <animate attributeName="cx" values="75;105;75" dur="1.7s" repeatCount="indefinite" />
+                    </circle>
+                    <text x="35" y="103" fill="#f97316" fontSize="7" fontFamily="monospace">CAPABILITY</text>
+                  </g>
+
+                  {/* Attack lines - dashed, animating toward center */}
+                  <line x1="150" y1="55" x2="150" y2="85" stroke="#eab308" strokeWidth="1" strokeDasharray="3,3">
+                    <animate attributeName="stroke-dashoffset" values="0;-12" dur="0.5s" repeatCount="indefinite" />
+                  </line>
+                  <line x1="195" y1="100" x2="165" y2="100" stroke="#ef4444" strokeWidth="1" strokeDasharray="3,3">
+                    <animate attributeName="stroke-dashoffset" values="0;-12" dur="0.5s" repeatCount="indefinite" />
+                  </line>
+                  <line x1="150" y1="145" x2="150" y2="115" stroke="#a855f7" strokeWidth="1" strokeDasharray="3,3">
+                    <animate attributeName="stroke-dashoffset" values="0;-12" dur="0.5s" repeatCount="indefinite" />
+                  </line>
+                  <line x1="105" y1="100" x2="135" y2="100" stroke="#f97316" strokeWidth="1" strokeDasharray="3,3">
+                    <animate attributeName="stroke-dashoffset" values="0;-12" dur="0.5s" repeatCount="indefinite" />
+                  </line>
+                </svg>
+
+                {/* Caption */}
+                <div className="text-center mt-4">
+                  <span className="text-xs font-mono text-zinc-600">4 antibody types attack foreign changes. Rejection is automatic.</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

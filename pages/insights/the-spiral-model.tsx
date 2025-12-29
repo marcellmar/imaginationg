@@ -51,6 +51,75 @@ const TheSpiralModelPage: NextPage = () => {
               Your body doesn't "achieve" a state. It cycles. Breathe in, breathe out. Build tissue, break tissue.
               Companies are the same. The health isn't in any single state—it's in the rhythm.
             </p>
+
+            {/* SPIRAL VISUAL - 4 Phases Cycling Upward */}
+            <div className="mt-16 flex justify-center">
+              <div className="relative w-64 h-80">
+                <svg viewBox="0 0 200 300" className="w-full h-full">
+                  {/* Spiral path - going up */}
+                  <path
+                    d="M 100 280
+                       C 160 260, 160 220, 100 200
+                       C 40 180, 40 140, 100 120
+                       C 160 100, 160 60, 100 40"
+                    fill="none"
+                    stroke="url(#spiralGradient)"
+                    strokeWidth="3"
+                    strokeDasharray="8,4"
+                    opacity="0.6"
+                  />
+
+                  {/* Gradient definition */}
+                  <defs>
+                    <linearGradient id="spiralGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+                      <stop offset="0%" stopColor="#f59e0b" />
+                      <stop offset="33%" stopColor="#ef4444" />
+                      <stop offset="66%" stopColor="#a855f7" />
+                      <stop offset="100%" stopColor="#22c55e" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* Phase markers - animated dots traveling the spiral */}
+                  <circle r="8" fill="#f59e0b">
+                    <animateMotion
+                      path="M 100 280 C 160 260, 160 220, 100 200 C 40 180, 40 140, 100 120 C 160 100, 160 60, 100 40"
+                      dur="6s"
+                      repeatCount="indefinite"
+                    />
+                  </circle>
+
+                  {/* Phase labels on the spiral */}
+                  <g className="text-xs font-mono">
+                    {/* Crystallization - bottom */}
+                    <text x="140" y="270" fill="#f59e0b" fontSize="10">CRYSTALLIZE</text>
+                    <circle cx="100" cy="280" r="4" fill="#f59e0b" opacity="0.5" />
+
+                    {/* Particle - right side */}
+                    <text x="140" y="200" fill="#ef4444" fontSize="10">PARTICLE</text>
+                    <circle cx="100" cy="200" r="4" fill="#ef4444" opacity="0.5" />
+
+                    {/* Dissolution - left side */}
+                    <text x="20" y="120" fill="#a855f7" fontSize="10">DISSOLVE</text>
+                    <circle cx="100" cy="120" r="4" fill="#a855f7" opacity="0.5" />
+
+                    {/* Field - top */}
+                    <text x="140" y="40" fill="#22c55e" fontSize="10">FIELD</text>
+                    <circle cx="100" cy="40" r="4" fill="#22c55e" opacity="0.5" />
+                  </g>
+
+                  {/* Upward arrow indicating growth */}
+                  <path d="M 100 20 L 95 30 M 100 20 L 105 30" stroke="#22c55e" strokeWidth="2" fill="none">
+                    <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" />
+                  </path>
+                  <text x="110" y="18" fill="#22c55e" fontSize="8" fontFamily="monospace">HIGHER</text>
+                </svg>
+
+                {/* Caption */}
+                <div className="absolute -bottom-8 left-0 right-0 text-center">
+                  <span className="text-xs font-mono text-zinc-600">Each cycle ends higher. You can't skip phases.</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

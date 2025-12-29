@@ -50,6 +50,87 @@ const FrictionIsMarginPage: NextPage = () => {
             <p className="text-xl text-zinc-400 max-w-2xl">
               That delay, that complexity, that confusion? Not a bug. It's someone's business model. The gap is the product.
             </p>
+
+            {/* THE GAP ECONOMY VISUAL */}
+            <div className="mt-16 flex justify-center">
+              <div className="relative w-full max-w-lg h-64">
+                {/* Left side - Organization */}
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-24 h-40 bg-zinc-900 border border-zinc-700 flex items-center justify-center">
+                  <span className="text-xs font-mono text-zinc-500 [writing-mode:vertical-lr] rotate-180">YOUR ORG</span>
+                </div>
+
+                {/* Right side - Goal */}
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-24 h-40 bg-zinc-900 border border-zinc-700 flex items-center justify-center">
+                  <span className="text-xs font-mono text-zinc-500 [writing-mode:vertical-lr] rotate-180">THE GOAL</span>
+                </div>
+
+                {/* THE GAP - where margin lives */}
+                <div className="absolute left-24 right-24 top-1/2 -translate-y-1/2 h-40 border-l border-r border-dashed border-red-600/50 flex items-center justify-center overflow-hidden">
+                  {/* Gap label */}
+                  <div className="absolute top-2 text-xs font-mono text-red-600">THE GAP</div>
+
+                  {/* Money falling into the gap */}
+                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 160">
+                    {/* Animated dollar signs falling into the gap */}
+                    {[0, 1, 2, 3, 4].map((i) => (
+                      <g key={i}>
+                        <text
+                          x={30 + i * 35}
+                          y="0"
+                          fill="#22c55e"
+                          fontSize="16"
+                          fontWeight="bold"
+                          opacity="0.8"
+                        >
+                          <animate
+                            attributeName="y"
+                            values="-20;180"
+                            dur={`${2 + i * 0.3}s`}
+                            repeatCount="indefinite"
+                            begin={`${i * 0.4}s`}
+                          />
+                          <animate
+                            attributeName="opacity"
+                            values="0;0.8;0.8;0"
+                            dur={`${2 + i * 0.3}s`}
+                            repeatCount="indefinite"
+                            begin={`${i * 0.4}s`}
+                          />
+                          $
+                        </text>
+                      </g>
+                    ))}
+
+                    {/* Pile of money at bottom */}
+                    <rect x="20" y="130" width="160" height="20" fill="#22c55e" opacity="0.3">
+                      <animate attributeName="height" values="15;25;15" dur="3s" repeatCount="indefinite" />
+                      <animate attributeName="y" values="135;125;135" dur="3s" repeatCount="indefinite" />
+                    </rect>
+                  </svg>
+
+                  {/* Bottom label */}
+                  <div className="absolute bottom-2 text-xs font-mono text-green-600">MARGIN</div>
+                </div>
+
+                {/* Blocked arrows - energy that can't get through */}
+                <svg className="absolute left-20 top-1/2 -translate-y-1/2 w-8 h-20" viewBox="0 0 30 80">
+                  <line x1="25" y1="20" x2="5" y2="20" stroke="#ef4444" strokeWidth="2" strokeDasharray="4,2">
+                    <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite" />
+                  </line>
+                  <line x1="25" y1="40" x2="5" y2="40" stroke="#ef4444" strokeWidth="2" strokeDasharray="4,2">
+                    <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" />
+                  </line>
+                  <line x1="25" y1="60" x2="5" y2="60" stroke="#ef4444" strokeWidth="2" strokeDasharray="4,2">
+                    <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite" begin="0.5s" />
+                  </line>
+                </svg>
+
+                {/* Caption */}
+                <div className="absolute -bottom-8 left-0 right-0 text-center">
+                  <span className="text-xs font-mono text-zinc-600">Energy blocked. Money flows in. The gap is the product.</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

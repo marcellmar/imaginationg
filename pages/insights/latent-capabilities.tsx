@@ -50,6 +50,52 @@ const LatentCapabilitiesPage: NextPage = () => {
             <p className="text-xl text-zinc-400 max-w-2xl">
               Most organizations have far more capability than they deploy. The constraint isn't capacity. It's coordination infrastructure.
             </p>
+
+            {/* LATENT CAPABILITY VISUAL - 30% Dormant */}
+            <div className="mt-16 flex justify-center">
+              <div className="relative w-full max-w-md">
+                {/* Capacity Grid */}
+                <div className="grid grid-cols-10 gap-2 p-6 bg-zinc-950 border border-zinc-800">
+                  {/* 70 active nodes (lit) + 30 latent nodes (dim, pulsing) */}
+                  {Array.from({ length: 100 }).map((_, i) => {
+                    const isLatent = i >= 70;
+                    return (
+                      <div
+                        key={i}
+                        className={`w-4 h-4 rounded-sm ${
+                          isLatent
+                            ? 'bg-yellow-500/20 animate-pulse'
+                            : 'bg-green-500'
+                        }`}
+                        style={{
+                          animationDelay: isLatent ? `${(i - 70) * 100}ms` : undefined,
+                          animationDuration: isLatent ? '2s' : undefined,
+                        }}
+                      />
+                    );
+                  })}
+                </div>
+
+                {/* Labels */}
+                <div className="flex justify-between mt-4 text-xs font-mono">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 bg-green-500 rounded-sm" />
+                    <span className="text-zinc-400">DEPLOYED (70%)</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 bg-yellow-500/40 rounded-sm animate-pulse" />
+                    <span className="text-yellow-500">LATENT (30%)</span>
+                  </div>
+                </div>
+
+                {/* Bottom caption */}
+                <div className="text-center mt-6">
+                  <span className="text-xs font-mono text-zinc-600">
+                    You don't need more capacity. You need coordination.
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

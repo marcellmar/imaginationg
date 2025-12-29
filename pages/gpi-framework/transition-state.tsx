@@ -129,6 +129,85 @@ const TransitionStatePage = () => {
                 The most vulnerable state. And the most opportune.
               </p>
 
+              {/* Transition State Visual - Breaking Structure */}
+              <div className="mb-12 p-8 bg-zinc-950 border border-zinc-800 rounded-xl">
+                <svg viewBox="0 0 400 150" className="w-full max-w-lg mx-auto">
+                  {/* Left side - Field-like (fluid) */}
+                  <circle r="4" fill="#22c55e" opacity="0.8">
+                    <animateMotion dur="2s" repeatCount="indefinite" path="M30,75 Q60,50 90,75" />
+                  </circle>
+                  <circle r="3" fill="#22c55e" opacity="0.7">
+                    <animateMotion dur="2.5s" repeatCount="indefinite" path="M30,60 Q60,80 90,60" />
+                  </circle>
+                  <circle cx="50" cy="75" r="10" fill="#22c55e" opacity="0.3">
+                    <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite" />
+                  </circle>
+                  <text x="60" y="115" textAnchor="middle" fill="#22c55e" fontSize="8">FLUID</text>
+
+                  {/* Center - Cracking/Breaking zone */}
+                  {/* Cracked grid structure */}
+                  <rect x="120" y="30" width="30" height="30" fill="#eab308" opacity="0.4" stroke="#eab308" strokeWidth="1">
+                    <animate attributeName="x" values="120;122;120" dur="0.5s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="155" y="30" width="30" height="30" fill="#eab308" opacity="0.5" stroke="#eab308" strokeWidth="1" />
+                  <rect x="190" y="30" width="30" height="30" fill="#eab308" opacity="0.3" stroke="#eab308" strokeWidth="1">
+                    <animate attributeName="y" values="30;28;30" dur="0.7s" repeatCount="indefinite" />
+                  </rect>
+
+                  <rect x="120" y="65" width="30" height="30" fill="#eab308" opacity="0.5" stroke="#eab308" strokeWidth="1" />
+                  <rect x="155" y="65" width="30" height="30" fill="#eab308" opacity="0.6" stroke="#eab308" strokeWidth="1">
+                    <animate attributeName="opacity" values="0.4;0.7;0.4" dur="1s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="190" y="65" width="30" height="30" fill="#eab308" opacity="0.4" stroke="#eab308" strokeWidth="1" />
+
+                  <rect x="120" y="100" width="30" height="30" fill="#eab308" opacity="0.3" stroke="#eab308" strokeWidth="1">
+                    <animate attributeName="x" values="120;118;120" dur="0.6s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="155" y="100" width="30" height="30" fill="#eab308" opacity="0.5" stroke="#eab308" strokeWidth="1" />
+                  <rect x="190" y="100" width="30" height="30" fill="#eab308" opacity="0.4" stroke="#eab308" strokeWidth="1">
+                    <animate attributeName="y" values="100;102;100" dur="0.8s" repeatCount="indefinite" />
+                  </rect>
+
+                  {/* Crack lines */}
+                  <path d="M150,30 L155,50 L148,65 L158,85 L150,100 L155,130" stroke="#eab308" strokeWidth="2" fill="none" opacity="0.8">
+                    <animate attributeName="stroke-dasharray" values="0,200;100,100;200,0" dur="3s" repeatCount="indefinite" />
+                  </path>
+                  <path d="M185,25 L180,45 L190,60 L178,80 L188,95 L180,115" stroke="#eab308" strokeWidth="2" fill="none" opacity="0.6">
+                    <animate attributeName="stroke-dasharray" values="0,200;100,100;200,0" dur="3.5s" begin="0.5s" repeatCount="indefinite" />
+                  </path>
+
+                  {/* Some particles escaping the grid */}
+                  <circle r="4" fill="#22c55e">
+                    <animate attributeName="cx" values="170;100;170" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="cy" values="80;75;80" dur="3s" repeatCount="indefinite" />
+                  </circle>
+                  <circle r="3" fill="#eab308">
+                    <animate attributeName="cx" values="170;180;170" dur="2s" repeatCount="indefinite" />
+                    <animate attributeName="cy" values="50;55;50" dur="2s" repeatCount="indefinite" />
+                  </circle>
+
+                  <text x="170" y="145" textAnchor="middle" fill="#eab308" fontSize="8">BREAKING</text>
+
+                  {/* Right side - Particle-like (rigid) */}
+                  <rect x="260" y="45" width="25" height="25" fill="#ef4444" opacity="0.7" />
+                  <rect x="290" y="45" width="25" height="25" fill="#ef4444" opacity="0.7" />
+                  <rect x="320" y="45" width="25" height="25" fill="#ef4444" opacity="0.7" />
+                  <rect x="260" y="75" width="25" height="25" fill="#ef4444" opacity="0.7" />
+                  <rect x="290" y="75" width="25" height="25" fill="#ef4444" opacity="0.7" />
+                  <rect x="320" y="75" width="25" height="25" fill="#ef4444" opacity="0.7" />
+
+                  {/* Lock on rigid side */}
+                  <rect x="285" y="58" width="15" height="12" fill="#ef4444" rx="2" />
+                  <path d="M 289 58 L 289 53 Q 292 48, 296 53 L 296 58" fill="none" stroke="#ef4444" strokeWidth="2" />
+
+                  <text x="305" y="115" textAnchor="middle" fill="#ef4444" fontSize="8">FROZEN</text>
+
+                  {/* Direction arrows */}
+                  <path d="M 95 75 L 115 75 L 110 70 M 115 75 L 110 80" stroke="#22c55e" strokeWidth="2" fill="none" opacity="0.6" />
+                  <path d="M 225 75 L 250 75 L 245 70 M 250 75 L 245 80" stroke="#ef4444" strokeWidth="2" fill="none" opacity="0.6" />
+                </svg>
+              </div>
+
               {/* Spectrum */}
               <div className="max-w-md mb-12">
                 <GPISpectrum score={5.0} size="lg" />

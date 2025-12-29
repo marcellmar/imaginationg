@@ -67,6 +67,84 @@ const KnowledgeLocationPage = () => {
                 or trapped in institutional black boxes?
               </p>
 
+              {/* Knowledge Location Visual */}
+              <div className="mb-12 p-8 bg-zinc-950 border border-zinc-800 rounded-xl">
+                <svg viewBox="0 0 400 120" className="w-full max-w-lg mx-auto">
+                  {/* Distributed (left) */}
+                  <text x="80" y="15" textAnchor="middle" fill="#22c55e" fontSize="10" fontWeight="bold">DISTRIBUTED</text>
+
+                  {/* Connected nodes */}
+                  <circle cx="50" cy="45" r="10" fill="#22c55e" opacity="0.7">
+                    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="110" cy="35" r="10" fill="#22c55e" opacity="0.7">
+                    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2s" begin="0.3s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="80" cy="75" r="10" fill="#22c55e" opacity="0.7">
+                    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2s" begin="0.6s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="50" cy="95" r="10" fill="#22c55e" opacity="0.7">
+                    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2s" begin="0.9s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="110" cy="95" r="10" fill="#22c55e" opacity="0.7">
+                    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2s" begin="1.2s" repeatCount="indefinite" />
+                  </circle>
+
+                  {/* Connections */}
+                  <line x1="50" y1="45" x2="110" y2="35" stroke="#22c55e" strokeWidth="1" opacity="0.5" />
+                  <line x1="50" y1="45" x2="80" y2="75" stroke="#22c55e" strokeWidth="1" opacity="0.5" />
+                  <line x1="110" y1="35" x2="80" y2="75" stroke="#22c55e" strokeWidth="1" opacity="0.5" />
+                  <line x1="80" y1="75" x2="50" y2="95" stroke="#22c55e" strokeWidth="1" opacity="0.5" />
+                  <line x1="80" y1="75" x2="110" y2="95" stroke="#22c55e" strokeWidth="1" opacity="0.5" />
+                  <line x1="50" y1="95" x2="110" y2="95" stroke="#22c55e" strokeWidth="1" opacity="0.5" />
+                  <line x1="50" y1="45" x2="50" y2="95" stroke="#22c55e" strokeWidth="1" opacity="0.5" />
+                  <line x1="110" y1="35" x2="110" y2="95" stroke="#22c55e" strokeWidth="1" opacity="0.5" />
+
+                  {/* Data flowing */}
+                  <circle r="3" fill="#22c55e">
+                    <animateMotion dur="2s" repeatCount="indefinite" path="M50,45 L110,35 L80,75 L50,95 L110,95 L80,75 L50,45" />
+                  </circle>
+
+                  <text x="80" y="115" textAnchor="middle" fill="#22c55e" fontSize="8">EVERYONE KNOWS</text>
+
+                  {/* Divider */}
+                  <line x1="165" y1="20" x2="165" y2="110" stroke="#3f3f46" strokeWidth="1" strokeDasharray="4,4" />
+                  <text x="200" y="70" textAnchor="middle" fill="#3f3f46" fontSize="10">VS</text>
+                  <line x1="235" y1="20" x2="235" y2="110" stroke="#3f3f46" strokeWidth="1" strokeDasharray="4,4" />
+
+                  {/* Centralized (right) */}
+                  <text x="320" y="15" textAnchor="middle" fill="#ef4444" fontSize="10" fontWeight="bold">CENTRALIZED</text>
+
+                  {/* Central brain/black box */}
+                  <rect x="295" y="45" width="50" height="40" fill="#ef4444" opacity="0.8" rx="4">
+                    <animate attributeName="opacity" values="0.6;0.9;0.6" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                  <text x="320" y="62" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">TRIBAL</text>
+                  <text x="320" y="74" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">KNOWLEDGE</text>
+
+                  {/* Disconnected people */}
+                  <circle cx="270" cy="35" r="6" fill="#ef4444" opacity="0.3" />
+                  <line x1="270" y1="35" x2="295" y2="55" stroke="#ef4444" strokeWidth="1" opacity="0.2" strokeDasharray="2,2" />
+
+                  <circle cx="370" cy="35" r="6" fill="#ef4444" opacity="0.3" />
+                  <line x1="370" y1="35" x2="345" y2="55" stroke="#ef4444" strokeWidth="1" opacity="0.2" strokeDasharray="2,2" />
+
+                  <circle cx="270" cy="95" r="6" fill="#ef4444" opacity="0.3" />
+                  <line x1="270" y1="95" x2="295" y2="75" stroke="#ef4444" strokeWidth="1" opacity="0.2" strokeDasharray="2,2" />
+
+                  <circle cx="370" cy="95" r="6" fill="#ef4444" opacity="0.3" />
+                  <line x1="370" y1="95" x2="345" y2="75" stroke="#ef4444" strokeWidth="1" opacity="0.2" strokeDasharray="2,2" />
+
+                  <text x="270" y="50" textAnchor="middle" fill="#ef4444" fontSize="6">?</text>
+                  <text x="370" y="50" textAnchor="middle" fill="#ef4444" fontSize="6">?</text>
+                  <text x="270" y="82" textAnchor="middle" fill="#ef4444" fontSize="6">?</text>
+                  <text x="370" y="82" textAnchor="middle" fill="#ef4444" fontSize="6">?</text>
+
+                  <text x="320" y="115" textAnchor="middle" fill="#ef4444" fontSize="8">ASK STEVE</text>
+                </svg>
+                <p className="text-center text-zinc-500 text-sm mt-4 font-mono">CODIFIED VS TRIBAL</p>
+              </div>
+
               <div className="max-w-md">
                 <GPISpectrum score={5.0} size="lg" showMarker={false} />
               </div>
@@ -200,19 +278,19 @@ const KnowledgeLocationPage = () => {
         <section className="py-16 px-6 bg-zinc-950">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">INTERVENTIONS THAT TARGET THIS</h2>
+              <h2 className="text-2xl font-black mb-8">ACTION GUIDE FOR THIS DIMENSION</h2>
 
               <div className="grid md:grid-cols-2 gap-6">
-                <Link href="/interventions/the-map" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">THE MAP</h3>
+                <Link href="/actions/knowledge-flow" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
+                  <h3 className="font-bold text-xl mb-2">KNOWLEDGE FLOW</h3>
                   <p className="text-zinc-500 text-sm">
-                    Surface where knowledge actually lives and create paths to access it.
+                    Free DIY playbook. Document decisions, pair new with experienced, create runbooks.
                   </p>
                 </Link>
-                <Link href="/interventions/the-naming" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">THE NAMING</h3>
+                <Link href="/actions" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-zinc-600 transition-colors">
+                  <h3 className="font-bold text-xl mb-2">ALL ACTION GUIDES</h3>
                   <p className="text-zinc-500 text-sm">
-                    Document what people know before they leave.
+                    View action guides for all 7 GPI dimensions.
                   </p>
                 </Link>
               </div>

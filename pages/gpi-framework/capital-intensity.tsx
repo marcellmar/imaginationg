@@ -67,6 +67,80 @@ const CapitalIntensityPage = () => {
                 infrastructure anchors your organization in place?
               </p>
 
+              {/* Capital Intensity Visual */}
+              <div className="mb-12 p-8 bg-zinc-950 border border-zinc-800 rounded-xl">
+                <svg viewBox="0 0 400 120" className="w-full max-w-lg mx-auto">
+                  {/* Low Intensity / Digital (left) */}
+                  <text x="80" y="15" textAnchor="middle" fill="#22c55e" fontSize="10" fontWeight="bold">DIGITAL</text>
+
+                  {/* Cloud shape */}
+                  <ellipse cx="60" cy="50" rx="25" ry="15" fill="#22c55e" opacity="0.3" />
+                  <ellipse cx="85" cy="45" rx="20" ry="12" fill="#22c55e" opacity="0.3" />
+                  <ellipse cx="100" cy="55" rx="22" ry="14" fill="#22c55e" opacity="0.3" />
+
+                  {/* Data flowing from cloud */}
+                  <circle r="2" fill="#22c55e">
+                    <animate attributeName="cy" values="65;100;65" dur="1.5s" repeatCount="indefinite" />
+                    <animate attributeName="cx" values="60;60;60" dur="1.5s" repeatCount="indefinite" />
+                  </circle>
+                  <circle r="2" fill="#22c55e">
+                    <animate attributeName="cy" values="65;100;65" dur="1.5s" begin="0.3s" repeatCount="indefinite" />
+                    <animate attributeName="cx" values="80;80;80" dur="1.5s" begin="0.3s" repeatCount="indefinite" />
+                  </circle>
+                  <circle r="2" fill="#22c55e">
+                    <animate attributeName="cy" values="65;100;65" dur="1.5s" begin="0.6s" repeatCount="indefinite" />
+                    <animate attributeName="cx" values="100;100;100" dur="1.5s" begin="0.6s" repeatCount="indefinite" />
+                  </circle>
+
+                  {/* Scale up arrow */}
+                  <path d="M 130 70 L 160 40 L 155 40 L 160 40 L 160 45" stroke="#22c55e" strokeWidth="2" fill="none">
+                    <animate attributeName="opacity" values="0.5;1;0.5" dur="1s" repeatCount="indefinite" />
+                  </path>
+                  <text x="175" y="45" fill="#22c55e" fontSize="7">SCALE</text>
+                  <text x="175" y="55" fill="#22c55e" fontSize="7">FREELY</text>
+
+                  <text x="80" y="110" textAnchor="middle" fill="#22c55e" fontSize="8">$0.1x CAPITAL/REVENUE</text>
+
+                  {/* Divider */}
+                  <line x1="190" y1="20" x2="190" y2="100" stroke="#3f3f46" strokeWidth="1" strokeDasharray="4,4" />
+                  <text x="205" y="60" textAnchor="middle" fill="#3f3f46" fontSize="10">VS</text>
+                  <line x1="220" y1="20" x2="220" y2="100" stroke="#3f3f46" strokeWidth="1" strokeDasharray="4,4" />
+
+                  {/* High Intensity / Physical (right) */}
+                  <text x="320" y="15" textAnchor="middle" fill="#ef4444" fontSize="10" fontWeight="bold">PHYSICAL</text>
+
+                  {/* Factory/refinery shape */}
+                  <rect x="245" y="50" width="40" height="40" fill="#ef4444" opacity="0.7" />
+                  <rect x="250" y="35" width="10" height="15" fill="#ef4444" opacity="0.7" />
+                  <rect x="265" y="30" width="8" height="20" fill="#ef4444" opacity="0.7" />
+                  <rect x="278" y="40" width="5" height="10" fill="#ef4444" opacity="0.7" />
+
+                  {/* Smoke/emissions */}
+                  <circle cx="255" cy="30" r="4" fill="#ef4444" opacity="0.3">
+                    <animate attributeName="cy" values="30;20;30" dur="2s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.3;0.1;0.3" dur="2s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="269" cy="25" r="3" fill="#ef4444" opacity="0.3">
+                    <animate attributeName="cy" values="25;15;25" dur="2.5s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.3;0.1;0.3" dur="2.5s" repeatCount="indefinite" />
+                  </circle>
+
+                  {/* Another building */}
+                  <rect x="300" y="55" width="35" height="35" fill="#ef4444" opacity="0.7" />
+                  <rect x="310" y="45" width="15" height="10" fill="#ef4444" opacity="0.7" />
+
+                  {/* Pipeline */}
+                  <rect x="340" y="65" width="50" height="8" fill="#ef4444" opacity="0.5" />
+                  <circle cx="395" cy="69" r="6" fill="#ef4444" opacity="0.7" />
+
+                  {/* Anchor symbol */}
+                  <path d="M 365 50 L 365 40 M 360 40 L 370 40 M 365 50 Q 355 55, 365 55 Q 375 55, 365 50" stroke="#ef4444" strokeWidth="2" fill="none" />
+
+                  <text x="320" y="110" textAnchor="middle" fill="#ef4444" fontSize="8">$5x CAPITAL/REVENUE</text>
+                </svg>
+                <p className="text-center text-zinc-500 text-sm mt-4 font-mono">WEIGHTLESS VS ANCHORED</p>
+              </div>
+
               <div className="max-w-md">
                 <GPISpectrum score={5.0} size="lg" showMarker={false} />
               </div>
@@ -202,19 +276,19 @@ const CapitalIntensityPage = () => {
         <section className="py-16 px-6 bg-zinc-950">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">INTERVENTIONS THAT TARGET THIS</h2>
+              <h2 className="text-2xl font-black mb-8">ACTION GUIDE FOR THIS DIMENSION</h2>
 
               <div className="grid md:grid-cols-2 gap-6">
-                <Link href="/interventions/the-build" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">THE BUILD</h3>
+                <Link href="/actions/capital-efficiency" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
+                  <h3 className="font-bold text-xl mb-2">CAPITAL EFFICIENCY</h3>
                   <p className="text-zinc-500 text-sm">
-                    Create digital layers that reduce physical asset dependency.
+                    Free DIY playbook. Define minimum learnable experiments, sell before you build.
                   </p>
                 </Link>
-                <Link href="/interventions/the-market-smackdown" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">MARKET SMACKDOWN</h3>
+                <Link href="/actions" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-zinc-600 transition-colors">
+                  <h3 className="font-bold text-xl mb-2">ALL ACTION GUIDES</h3>
                   <p className="text-zinc-500 text-sm">
-                    GO/NO-GO on products, services, upgrades. Right-size capital to evidence.
+                    View action guides for all 7 GPI dimensions.
                   </p>
                 </Link>
               </div>

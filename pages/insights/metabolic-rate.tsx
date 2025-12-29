@@ -50,6 +50,70 @@ const MetabolicRatePage: NextPage = () => {
             <p className="text-xl text-zinc-400 max-w-2xl">
               Every organization has a metabolic rate that determines how fast it can process change. Mismatched metabolic rates predict integration failure.
             </p>
+
+            {/* METABOLIC RATE VISUAL - Heartbeat Comparison */}
+            <div className="mt-16 flex justify-center">
+              <div className="flex gap-8">
+                {/* Fast Metabolism - Hummingbird */}
+                <div className="flex flex-col items-center">
+                  <div className="w-48 h-24 bg-zinc-950 border border-green-600/50 rounded overflow-hidden relative">
+                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 100" preserveAspectRatio="none">
+                      {/* Fast heartbeat line */}
+                      <path
+                        d="M0,50 L15,50 L20,20 L25,80 L30,50 L45,50 L50,20 L55,80 L60,50 L75,50 L80,20 L85,80 L90,50 L105,50 L110,20 L115,80 L120,50 L135,50 L140,20 L145,80 L150,50 L165,50 L170,20 L175,80 L180,50 L200,50"
+                        fill="none"
+                        stroke="#22c55e"
+                        strokeWidth="2"
+                      >
+                        <animate
+                          attributeName="d"
+                          values="M0,50 L15,50 L20,20 L25,80 L30,50 L45,50 L50,20 L55,80 L60,50 L75,50 L80,20 L85,80 L90,50 L105,50 L110,20 L115,80 L120,50 L135,50 L140,20 L145,80 L150,50 L165,50 L170,20 L175,80 L180,50 L200,50;
+                                 M-30,50 L-15,50 L-10,20 L-5,80 L0,50 L15,50 L20,20 L25,80 L30,50 L45,50 L50,20 L55,80 L60,50 L75,50 L80,20 L85,80 L90,50 L105,50 L110,20 L115,80 L120,50 L135,50 L140,20 L145,80 L150,50 L170,50"
+                          dur="0.4s"
+                          repeatCount="indefinite"
+                        />
+                      </path>
+                    </svg>
+                    <div className="absolute top-2 left-2 text-xs font-mono text-green-500">GPI 1-3</div>
+                    <div className="absolute bottom-2 right-2 text-xs font-mono text-green-400">1200 BPM</div>
+                  </div>
+                  <span className="text-xs font-mono text-green-500 mt-3">FAST METABOLISM</span>
+                  <span className="text-[10px] text-zinc-600">Weekly cycles. Continuous adaptation.</span>
+                </div>
+
+                {/* Slow Metabolism - Elephant */}
+                <div className="flex flex-col items-center">
+                  <div className="w-48 h-24 bg-zinc-950 border border-red-600/50 rounded overflow-hidden relative">
+                    <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 100" preserveAspectRatio="none">
+                      {/* Slow heartbeat line */}
+                      <path
+                        d="M0,50 L70,50 L80,25 L90,75 L100,50 L200,50"
+                        fill="none"
+                        stroke="#ef4444"
+                        strokeWidth="2"
+                      >
+                        <animate
+                          attributeName="d"
+                          values="M0,50 L70,50 L80,25 L90,75 L100,50 L200,50;
+                                 M-100,50 L-30,50 L-20,25 L-10,75 L0,50 L100,50"
+                          dur="2s"
+                          repeatCount="indefinite"
+                        />
+                      </path>
+                    </svg>
+                    <div className="absolute top-2 left-2 text-xs font-mono text-red-500">GPI 7-10</div>
+                    <div className="absolute bottom-2 right-2 text-xs font-mono text-red-400">30 BPM</div>
+                  </div>
+                  <span className="text-xs font-mono text-red-500 mt-3">SLOW METABOLISM</span>
+                  <span className="text-[10px] text-zinc-600">Quarterly cycles. Planned changes.</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Caption */}
+            <div className="text-center mt-6">
+              <span className="text-xs font-mono text-zinc-600">Neither is wrong. They're different metabolisms for different contexts.</span>
+            </div>
           </div>
         </section>
 

@@ -50,6 +50,133 @@ const WhySuccessCreatesRigidityPage: NextPage = () => {
             <p className="text-xl text-zinc-400 max-w-2xl">
               Organizations don't fail because they stop doing what made them successful. They fail because they can't stop doing what made them successful.
             </p>
+
+            {/* RIGIDITY VISUAL - Fluid to Frozen */}
+            <div className="mt-16 flex justify-center">
+              <div className="relative">
+                <div className="flex items-center gap-8">
+                  {/* Phase 1: Fluid - Adaptive */}
+                  <div className="flex flex-col items-center">
+                    <div className="relative w-24 h-32 border border-zinc-800 bg-zinc-950 overflow-hidden rounded-lg">
+                      {/* Flowing particles */}
+                      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 130">
+                        {[0, 1, 2, 3, 4].map((i) => (
+                          <circle
+                            key={i}
+                            r="6"
+                            fill="#22c55e"
+                            opacity="0.7"
+                          >
+                            <animate
+                              attributeName="cx"
+                              values={`${20 + i * 15};${80 - i * 10};${20 + i * 15}`}
+                              dur={`${2 + i * 0.5}s`}
+                              repeatCount="indefinite"
+                            />
+                            <animate
+                              attributeName="cy"
+                              values={`${20 + i * 20};${30 + i * 18};${20 + i * 20}`}
+                              dur={`${2.5 + i * 0.3}s`}
+                              repeatCount="indefinite"
+                            />
+                          </circle>
+                        ))}
+                      </svg>
+                    </div>
+                    <span className="text-xs font-mono text-green-500 mt-3">ADAPTIVE</span>
+                    <span className="text-[10px] text-zinc-600">"how we work"</span>
+                  </div>
+
+                  {/* Arrow */}
+                  <div className="flex flex-col items-center">
+                    <svg width="40" height="20" viewBox="0 0 40 20">
+                      <line x1="0" y1="10" x2="30" y2="10" stroke="#ef4444" strokeWidth="2" strokeDasharray="4,2">
+                        <animate attributeName="stroke-dashoffset" values="0;-12" dur="1s" repeatCount="indefinite" />
+                      </line>
+                      <polygon points="28,5 38,10 28,15" fill="#ef4444" />
+                    </svg>
+                    <span className="text-xs font-mono text-red-500 mt-1">SUCCESS</span>
+                  </div>
+
+                  {/* Phase 2: Crystallizing */}
+                  <div className="flex flex-col items-center">
+                    <div className="relative w-24 h-32 border border-zinc-800 bg-zinc-950 overflow-hidden rounded-lg">
+                      {/* Slowing particles */}
+                      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 130">
+                        {[0, 1, 2, 3, 4].map((i) => (
+                          <circle
+                            key={i}
+                            r="6"
+                            fill="#eab308"
+                            opacity="0.7"
+                          >
+                            <animate
+                              attributeName="cx"
+                              values={`${30 + i * 10};${40 + i * 8};${30 + i * 10}`}
+                              dur={`${4 + i * 0.5}s`}
+                              repeatCount="indefinite"
+                            />
+                            <animate
+                              attributeName="cy"
+                              values={`${25 + i * 20};${28 + i * 19};${25 + i * 20}`}
+                              dur={`${5 + i * 0.3}s`}
+                              repeatCount="indefinite"
+                            />
+                          </circle>
+                        ))}
+                      </svg>
+                    </div>
+                    <span className="text-xs font-mono text-yellow-500 mt-3">OPTIMIZING</span>
+                    <span className="text-[10px] text-zinc-600">"our process"</span>
+                  </div>
+
+                  {/* Arrow */}
+                  <div className="flex flex-col items-center">
+                    <svg width="40" height="20" viewBox="0 0 40 20">
+                      <line x1="0" y1="10" x2="30" y2="10" stroke="#ef4444" strokeWidth="2" strokeDasharray="4,2">
+                        <animate attributeName="stroke-dashoffset" values="0;-12" dur="1.5s" repeatCount="indefinite" />
+                      </line>
+                      <polygon points="28,5 38,10 28,15" fill="#ef4444" />
+                    </svg>
+                    <span className="text-xs font-mono text-red-500 mt-1">TIME</span>
+                  </div>
+
+                  {/* Phase 3: Frozen - Rigid */}
+                  <div className="flex flex-col items-center">
+                    <div className="relative w-24 h-32 border border-red-600/50 bg-zinc-950 overflow-hidden rounded-lg">
+                      {/* Frozen grid */}
+                      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 130">
+                        {/* Fixed grid pattern */}
+                        <line x1="25" y1="0" x2="25" y2="130" stroke="#ef4444" strokeWidth="1" opacity="0.3" />
+                        <line x1="50" y1="0" x2="50" y2="130" stroke="#ef4444" strokeWidth="1" opacity="0.3" />
+                        <line x1="75" y1="0" x2="75" y2="130" stroke="#ef4444" strokeWidth="1" opacity="0.3" />
+                        <line x1="0" y1="32" x2="100" y2="32" stroke="#ef4444" strokeWidth="1" opacity="0.3" />
+                        <line x1="0" y1="65" x2="100" y2="65" stroke="#ef4444" strokeWidth="1" opacity="0.3" />
+                        <line x1="0" y1="98" x2="100" y2="98" stroke="#ef4444" strokeWidth="1" opacity="0.3" />
+                        {/* Frozen circles - no movement */}
+                        {[0, 1, 2, 3, 4].map((i) => (
+                          <circle
+                            key={i}
+                            cx={25 + (i % 3) * 25}
+                            cy={32 + Math.floor(i / 3) * 33}
+                            r="6"
+                            fill="#ef4444"
+                            opacity="0.7"
+                          />
+                        ))}
+                      </svg>
+                    </div>
+                    <span className="text-xs font-mono text-red-500 mt-3">RIGID</span>
+                    <span className="text-[10px] text-zinc-600">"who we are"</span>
+                  </div>
+                </div>
+
+                {/* Caption */}
+                <div className="text-center mt-6">
+                  <span className="text-xs font-mono text-zinc-600">Success crystallizes into identity. Identity resists change.</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

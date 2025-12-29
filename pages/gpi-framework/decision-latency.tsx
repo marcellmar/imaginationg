@@ -70,6 +70,84 @@ const DecisionLatencyPage = () => {
                 recognize a need and respond to it?
               </p>
 
+              {/* Decision Timeline Visual */}
+              <div className="mb-12 p-8 bg-zinc-950 border border-zinc-800 rounded-xl">
+                <svg viewBox="0 0 400 120" className="w-full max-w-lg mx-auto">
+                  {/* Fast path (top) */}
+                  <text x="10" y="20" fill="#22c55e" fontSize="10" fontWeight="bold">FIELD STATE</text>
+
+                  {/* Signal */}
+                  <circle cx="50" cy="45" r="12" fill="#22c55e" opacity="0.8">
+                    <animate attributeName="r" values="10;14;10" dur="1s" repeatCount="indefinite" />
+                  </circle>
+                  <text x="50" y="48" textAnchor="middle" fill="black" fontSize="8" fontWeight="bold">!</text>
+
+                  {/* Fast arrow */}
+                  <line x1="65" y1="45" x2="150" y2="45" stroke="#22c55e" strokeWidth="3" strokeDasharray="4,2">
+                    <animate attributeName="stroke-dashoffset" values="0;-12" dur="0.5s" repeatCount="indefinite" />
+                  </line>
+
+                  {/* Decision */}
+                  <rect x="155" y="32" width="26" height="26" fill="#22c55e" opacity="0.8" />
+                  <text x="168" y="48" textAnchor="middle" fill="black" fontSize="8" fontWeight="bold">D</text>
+
+                  {/* Fast arrow */}
+                  <line x1="185" y1="45" x2="270" y2="45" stroke="#22c55e" strokeWidth="3" strokeDasharray="4,2">
+                    <animate attributeName="stroke-dashoffset" values="0;-12" dur="0.5s" repeatCount="indefinite" />
+                  </line>
+
+                  {/* Action */}
+                  <polygon points="290,45 320,30 350,45 320,60" fill="#22c55e" opacity="0.8">
+                    <animate attributeName="opacity" values="0.8;1;0.8" dur="0.8s" repeatCount="indefinite" />
+                  </polygon>
+                  <text x="320" y="49" textAnchor="middle" fill="black" fontSize="8" fontWeight="bold">GO</text>
+
+                  <text x="380" y="48" fill="#22c55e" fontSize="10" fontWeight="bold">Hours</text>
+
+                  {/* Slow path (bottom) */}
+                  <text x="10" y="80" fill="#ef4444" fontSize="10" fontWeight="bold">PARTICLE STATE</text>
+
+                  {/* Signal */}
+                  <circle cx="50" cy="100" r="12" fill="#ef4444" opacity="0.5">
+                    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2s" repeatCount="indefinite" />
+                  </circle>
+                  <text x="50" y="103" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">!</text>
+
+                  {/* Slow arrow with barriers */}
+                  <line x1="65" y1="100" x2="90" y2="100" stroke="#ef4444" strokeWidth="2" opacity="0.5" />
+                  <rect x="90" y="94" width="4" height="12" fill="#ef4444" opacity="0.7" />
+                  <line x1="94" y1="100" x2="110" y2="100" stroke="#ef4444" strokeWidth="2" opacity="0.5" />
+                  <rect x="110" y="94" width="4" height="12" fill="#ef4444" opacity="0.7" />
+                  <line x1="114" y1="100" x2="130" y2="100" stroke="#ef4444" strokeWidth="2" opacity="0.5" />
+                  <rect x="130" y="94" width="4" height="12" fill="#ef4444" opacity="0.7" />
+                  <line x1="134" y1="100" x2="155" y2="100" stroke="#ef4444" strokeWidth="2" opacity="0.5" />
+
+                  {/* Decision with waiting */}
+                  <rect x="155" y="87" width="26" height="26" fill="#ef4444" opacity="0.5" stroke="#ef4444" strokeWidth="2" strokeDasharray="3,3">
+                    <animate attributeName="stroke-dashoffset" values="0;-6" dur="2s" repeatCount="indefinite" />
+                  </rect>
+                  <text x="168" y="103" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">?</text>
+
+                  {/* More barriers */}
+                  <line x1="185" y1="100" x2="200" y2="100" stroke="#ef4444" strokeWidth="2" opacity="0.5" />
+                  <rect x="200" y="94" width="4" height="12" fill="#ef4444" opacity="0.7" />
+                  <line x1="204" y1="100" x2="220" y2="100" stroke="#ef4444" strokeWidth="2" opacity="0.5" />
+                  <rect x="220" y="94" width="4" height="12" fill="#ef4444" opacity="0.7" />
+                  <line x1="224" y1="100" x2="240" y2="100" stroke="#ef4444" strokeWidth="2" opacity="0.5" />
+                  <rect x="240" y="94" width="4" height="12" fill="#ef4444" opacity="0.7" />
+                  <line x1="244" y1="100" x2="260" y2="100" stroke="#ef4444" strokeWidth="2" opacity="0.5" />
+                  <rect x="260" y="94" width="4" height="12" fill="#ef4444" opacity="0.7" />
+                  <line x1="264" y1="100" x2="290" y2="100" stroke="#ef4444" strokeWidth="2" opacity="0.5" />
+
+                  {/* Delayed Action */}
+                  <polygon points="290,100 320,85 350,100 320,115" fill="#ef4444" opacity="0.3" stroke="#ef4444" strokeDasharray="3,3" />
+                  <text x="320" y="104" textAnchor="middle" fill="#ef4444" fontSize="7" fontWeight="bold">WAIT</text>
+
+                  <text x="380" y="103" fill="#ef4444" fontSize="10" fontWeight="bold">Months</text>
+                </svg>
+                <p className="text-center text-zinc-500 text-sm mt-4 font-mono">SIGNAL → DECISION → ACTION</p>
+              </div>
+
               <div className="max-w-md">
                 <GPISpectrum score={5.0} size="lg" showMarker={false} />
               </div>
@@ -214,23 +292,23 @@ const DecisionLatencyPage = () => {
           </div>
         </section>
 
-        {/* Interventions */}
+        {/* Action Guide */}
         <section className="py-16 px-6 bg-zinc-950">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">INTERVENTIONS THAT TARGET THIS</h2>
+              <h2 className="text-2xl font-black mb-8">ACTION GUIDE FOR THIS DIMENSION</h2>
 
               <div className="grid md:grid-cols-2 gap-6">
-                <Link href="/interventions/the-naming" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">THE NAMING</h3>
+                <Link href="/actions/decision-speed" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
+                  <h3 className="font-bold text-xl mb-2">DECISION SPEED</h3>
                   <p className="text-zinc-500 text-sm">
-                    Surface hidden decision bottlenecks by mapping who actually decides what.
+                    Free DIY playbook. Create decision rights matrix, force binary framing, push decisions down.
                   </p>
                 </Link>
-                <Link href="/interventions/the-market-smackdown" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">MARKET SMACKDOWN</h3>
+                <Link href="/actions" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-zinc-600 transition-colors">
+                  <h3 className="font-bold text-xl mb-2">ALL ACTION GUIDES</h3>
                   <p className="text-zinc-500 text-sm">
-                    72-hour GO/NO-GO on products, services, upgrades. Ship it or kill it.
+                    View action guides for all 7 GPI dimensions.
                   </p>
                 </Link>
               </div>

@@ -67,6 +67,75 @@ const ErrorCorrectionPage = () => {
                 recognize something isn't working and course correct?
               </p>
 
+              {/* Error Correction Loop Visual */}
+              <div className="mb-12 p-8 bg-zinc-950 border border-zinc-800 rounded-xl">
+                <svg viewBox="0 0 400 140" className="w-full max-w-lg mx-auto">
+                  {/* Fast correction (left side) */}
+                  <text x="60" y="15" textAnchor="middle" fill="#22c55e" fontSize="10" fontWeight="bold">FAST LOOP</text>
+
+                  {/* Error appears */}
+                  <circle cx="60" cy="50" r="15" fill="#ef4444" opacity="0.8">
+                    <animate attributeName="opacity" values="0.8;0;0;0;0.8" dur="2s" repeatCount="indefinite" />
+                  </circle>
+                  <text x="60" y="54" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">X</text>
+
+                  {/* Detection arrow */}
+                  <path d="M 75 50 Q 100 30, 100 70" fill="none" stroke="#22c55e" strokeWidth="2">
+                    <animate attributeName="stroke-dasharray" values="0,100;50,50;100,0" dur="2s" repeatCount="indefinite" />
+                  </path>
+
+                  {/* Fix applied */}
+                  <circle cx="60" cy="100" r="15" fill="#22c55e" opacity="0.8">
+                    <animate attributeName="opacity" values="0;0;0;0.8;0.8" dur="2s" repeatCount="indefinite" />
+                  </circle>
+                  <text x="60" y="104" textAnchor="middle" fill="black" fontSize="12" fontWeight="bold">✓</text>
+
+                  {/* Loop back arrow */}
+                  <path d="M 45 100 Q 20 75, 45 50" fill="none" stroke="#22c55e" strokeWidth="2" strokeDasharray="4,2">
+                    <animate attributeName="stroke-dashoffset" values="0;-12" dur="0.5s" repeatCount="indefinite" />
+                  </path>
+
+                  <text x="60" y="135" textAnchor="middle" fill="#22c55e" fontSize="9" fontWeight="bold">DAYS</text>
+
+                  {/* VS divider */}
+                  <line x1="140" y1="20" x2="140" y2="120" stroke="#3f3f46" strokeWidth="1" strokeDasharray="4,4" />
+
+                  {/* Slow correction (right side) */}
+                  <text x="280" y="15" textAnchor="middle" fill="#ef4444" fontSize="10" fontWeight="bold">SLOW LOOP</text>
+
+                  {/* Error persists */}
+                  <circle cx="200" cy="70" r="15" fill="#ef4444" opacity="0.8" />
+                  <text x="200" y="74" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">X</text>
+
+                  {/* Blame arrows going outward */}
+                  <line x1="215" y1="60" x2="245" y2="40" stroke="#ef4444" strokeWidth="2" opacity="0.5" />
+                  <line x1="215" y1="70" x2="250" y2="70" stroke="#ef4444" strokeWidth="2" opacity="0.5" />
+                  <line x1="215" y1="80" x2="245" y2="100" stroke="#ef4444" strokeWidth="2" opacity="0.5" />
+
+                  {/* Hidden/ignored feedback */}
+                  <rect x="250" y="30" width="30" height="20" fill="none" stroke="#ef4444" strokeWidth="1" strokeDasharray="2,2" opacity="0.5" />
+                  <text x="265" y="43" textAnchor="middle" fill="#ef4444" fontSize="7" opacity="0.5">HIDE</text>
+
+                  <rect x="255" y="60" width="30" height="20" fill="none" stroke="#ef4444" strokeWidth="1" strokeDasharray="2,2" opacity="0.5" />
+                  <text x="270" y="73" textAnchor="middle" fill="#ef4444" fontSize="7" opacity="0.5">DENY</text>
+
+                  <rect x="250" y="90" width="30" height="20" fill="none" stroke="#ef4444" strokeWidth="1" strokeDasharray="2,2" opacity="0.5" />
+                  <text x="265" y="103" textAnchor="middle" fill="#ef4444" fontSize="7" opacity="0.5">BLAME</text>
+
+                  {/* Error still there, pulsing */}
+                  <circle cx="340" cy="70" r="18" fill="#ef4444" opacity="0.6">
+                    <animate attributeName="r" values="15;20;15" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.4;0.7;0.4" dur="3s" repeatCount="indefinite" />
+                  </circle>
+                  <text x="340" y="74" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">X</text>
+                  <text x="340" y="55" textAnchor="middle" fill="#ef4444" fontSize="7">STILL</text>
+                  <text x="340" y="90" textAnchor="middle" fill="#ef4444" fontSize="7">BROKEN</text>
+
+                  <text x="280" y="135" textAnchor="middle" fill="#ef4444" fontSize="9" fontWeight="bold">YEARS</text>
+                </svg>
+                <p className="text-center text-zinc-500 text-sm mt-4 font-mono">ERROR → DETECT → CORRECT</p>
+              </div>
+
               <div className="max-w-md">
                 <GPISpectrum score={5.0} size="lg" showMarker={false} />
               </div>
@@ -194,19 +263,19 @@ const ErrorCorrectionPage = () => {
         <section className="py-16 px-6 bg-zinc-950">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">INTERVENTIONS THAT TARGET THIS</h2>
+              <h2 className="text-2xl font-black mb-8">ACTION GUIDE FOR THIS DIMENSION</h2>
 
               <div className="grid md:grid-cols-2 gap-6">
-                <Link href="/interventions/the-override" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">THE OVERRIDE</h3>
+                <Link href="/actions/error-loops" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
+                  <h3 className="font-bold text-xl mb-2">ERROR LOOPS</h3>
                   <p className="text-zinc-500 text-sm">
-                    Create mechanisms to bypass normal channels when errors need immediate fixing.
+                    Free DIY playbook. Make failure safe, pre-define kill criteria, track correction speed.
                   </p>
                 </Link>
-                <Link href="/interventions/first-blood-build" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">FIRST BLOOD BUILD</h3>
+                <Link href="/actions" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-zinc-600 transition-colors">
+                  <h3 className="font-bold text-xl mb-2">ALL ACTION GUIDES</h3>
                   <p className="text-zinc-500 text-sm">
-                    Ship fast, learn fast. Build feedback loops into everything.
+                    View action guides for all 7 GPI dimensions.
                   </p>
                 </Link>
               </div>

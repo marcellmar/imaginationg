@@ -50,6 +50,94 @@ const TheAcquisitionTrapPage: NextPage = () => {
             <p className="text-xl text-zinc-400 max-w-2xl">
               HP paid $11B for Autonomy and wrote off $8.8B. Amazon paid $13.7B for Whole Foods and created billions in value. The difference wasn't strategy. It was metabolic math.
             </p>
+
+            {/* ACQUISITION VISUAL - GPI Gap Comparison */}
+            <div className="mt-16 flex justify-center">
+              <div className="flex flex-col md:flex-row gap-8 w-full max-w-2xl">
+                {/* HP + Autonomy - FAILURE */}
+                <div className="flex-1 border border-red-600/50 bg-zinc-950 p-6">
+                  <div className="text-center mb-4">
+                    <span className="text-xs font-mono text-red-600">FAILURE</span>
+                    <h3 className="text-lg font-black">HP + AUTONOMY</h3>
+                  </div>
+
+                  {/* GPI Gap Visualization */}
+                  <div className="relative h-40 flex items-center justify-center">
+                    <svg viewBox="0 0 120 140" className="w-full h-full">
+                      {/* GPI Scale */}
+                      <line x1="60" y1="10" x2="60" y2="130" stroke="#3f3f46" strokeWidth="2" />
+
+                      {/* Scale labels */}
+                      <text x="70" y="15" fill="#52525b" fontSize="8" fontFamily="monospace">GPI 1</text>
+                      <text x="70" y="135" fill="#52525b" fontSize="8" fontFamily="monospace">GPI 10</text>
+
+                      {/* HP position - GPI 7.8 */}
+                      <circle cx="60" cy="98" r="12" fill="#ef4444" />
+                      <text x="30" y="102" fill="#ef4444" fontSize="8" fontWeight="bold">HP 7.8</text>
+
+                      {/* Autonomy position - GPI 3.1 */}
+                      <circle cx="60" cy="39" r="12" fill="#22c55e" />
+                      <text x="75" y="43" fill="#22c55e" fontSize="8" fontWeight="bold">AUTO 3.1</text>
+
+                      {/* Gap indicator */}
+                      <line x1="40" y1="39" x2="40" y2="98" stroke="#ef4444" strokeWidth="2" strokeDasharray="4,2">
+                        <animate attributeName="stroke-dashoffset" values="0;-12" dur="1s" repeatCount="indefinite" />
+                      </line>
+                      <text x="10" y="70" fill="#ef4444" fontSize="10" fontWeight="bold">4.7 GAP</text>
+                    </svg>
+                  </div>
+
+                  <div className="text-center mt-2">
+                    <span className="text-2xl font-black text-red-600">-$8.8B</span>
+                    <p className="text-xs text-zinc-600 mt-1">Gap too wide. Rejection automatic.</p>
+                  </div>
+                </div>
+
+                {/* Amazon + Whole Foods - SUCCESS */}
+                <div className="flex-1 border border-green-600/50 bg-zinc-950 p-6">
+                  <div className="text-center mb-4">
+                    <span className="text-xs font-mono text-green-600">SUCCESS</span>
+                    <h3 className="text-lg font-black">AMAZON + WHOLE FOODS</h3>
+                  </div>
+
+                  {/* GPI Gap Visualization */}
+                  <div className="relative h-40 flex items-center justify-center">
+                    <svg viewBox="0 0 120 140" className="w-full h-full">
+                      {/* GPI Scale */}
+                      <line x1="60" y1="10" x2="60" y2="130" stroke="#3f3f46" strokeWidth="2" />
+
+                      {/* Scale labels */}
+                      <text x="70" y="15" fill="#52525b" fontSize="8" fontFamily="monospace">GPI 1</text>
+                      <text x="70" y="135" fill="#52525b" fontSize="8" fontFamily="monospace">GPI 10</text>
+
+                      {/* Whole Foods position - GPI 6.1 */}
+                      <circle cx="60" cy="77" r="12" fill="#eab308" />
+                      <text x="75" y="81" fill="#eab308" fontSize="8" fontWeight="bold">WF 6.1</text>
+
+                      {/* Amazon position - GPI 3.2 */}
+                      <circle cx="60" cy="40" r="12" fill="#22c55e" />
+                      <text x="30" y="44" fill="#22c55e" fontSize="8" fontWeight="bold">AMZN 3.2</text>
+
+                      {/* Gap indicator - smaller, bridgeable */}
+                      <line x1="80" y1="40" x2="80" y2="77" stroke="#22c55e" strokeWidth="2">
+                        <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
+                      </line>
+                      <text x="85" y="60" fill="#22c55e" fontSize="10" fontWeight="bold">2.9</text>
+                    </svg>
+                  </div>
+
+                  <div className="text-center mt-2">
+                    <span className="text-2xl font-black text-green-600">+$B</span>
+                    <p className="text-xs text-zinc-600 mt-1">Gap bridgeable. Integration possible.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Caption */}
+            <div className="text-center mt-6">
+              <span className="text-xs font-mono text-zinc-600">The math predicted both outcomes before the deals closed.</span>
+            </div>
           </div>
         </section>
 

@@ -110,6 +110,72 @@ const FieldStatePage = () => {
                 is treated as waste to eliminate, not margin to extract.
               </p>
 
+              {/* Field State Visual - Flowing Energy */}
+              <div className="mb-12 p-8 bg-zinc-950 border border-zinc-800 rounded-xl">
+                <svg viewBox="0 0 400 150" className="w-full max-w-lg mx-auto">
+                  {/* Background grid - very faint, showing structure without rigidity */}
+                  <defs>
+                    <pattern id="fieldGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#22c55e" strokeWidth="0.3" opacity="0.2" />
+                    </pattern>
+                  </defs>
+                  <rect width="400" height="150" fill="url(#fieldGrid)" />
+
+                  {/* Central energy field - pulsing */}
+                  <ellipse cx="200" cy="75" rx="120" ry="50" fill="#22c55e" opacity="0.1">
+                    <animate attributeName="rx" values="100;130;100" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="ry" values="40;55;40" dur="3s" repeatCount="indefinite" />
+                  </ellipse>
+
+                  {/* Flowing particles - moving freely */}
+                  <circle r="6" fill="#22c55e" opacity="0.9">
+                    <animateMotion dur="3s" repeatCount="indefinite" path="M50,75 Q125,30 200,75 Q275,120 350,75" />
+                  </circle>
+                  <circle r="5" fill="#22c55e" opacity="0.8">
+                    <animateMotion dur="2.5s" repeatCount="indefinite" path="M50,75 Q125,110 200,75 Q275,40 350,75" />
+                  </circle>
+                  <circle r="7" fill="#22c55e" opacity="0.7">
+                    <animateMotion dur="4s" repeatCount="indefinite" path="M50,50 Q125,75 200,50 Q275,75 350,50" />
+                  </circle>
+                  <circle r="4" fill="#22c55e" opacity="0.9">
+                    <animateMotion dur="3.5s" repeatCount="indefinite" path="M50,100 Q125,75 200,100 Q275,75 350,100" />
+                  </circle>
+                  <circle r="6" fill="#22c55e" opacity="0.8">
+                    <animateMotion dur="2.8s" begin="0.5s" repeatCount="indefinite" path="M50,60 Q150,90 200,60 Q250,30 350,60" />
+                  </circle>
+
+                  {/* Adaptive nodes - breathing, not fixed */}
+                  <circle cx="80" cy="75" r="15" fill="#22c55e" opacity="0.3">
+                    <animate attributeName="r" values="12;18;12" dur="2s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="160" cy="50" r="12" fill="#22c55e" opacity="0.3">
+                    <animate attributeName="r" values="10;15;10" dur="2.5s" begin="0.3s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="200" cy="90" r="14" fill="#22c55e" opacity="0.3">
+                    <animate attributeName="r" values="11;16;11" dur="2.2s" begin="0.6s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="240" cy="55" r="13" fill="#22c55e" opacity="0.3">
+                    <animate attributeName="r" values="10;16;10" dur="2.8s" begin="0.9s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="320" cy="75" r="15" fill="#22c55e" opacity="0.3">
+                    <animate attributeName="r" values="12;18;12" dur="2s" begin="1.2s" repeatCount="indefinite" />
+                  </circle>
+
+                  {/* Wave effect spreading */}
+                  <circle cx="200" cy="75" r="30" fill="none" stroke="#22c55e" strokeWidth="1" opacity="0.5">
+                    <animate attributeName="r" values="20;80;20" dur="4s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.5;0;0.5" dur="4s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="200" cy="75" r="50" fill="none" stroke="#22c55e" strokeWidth="1" opacity="0.3">
+                    <animate attributeName="r" values="30;100;30" dur="4s" begin="1s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.3;0;0.3" dur="4s" begin="1s" repeatCount="indefinite" />
+                  </circle>
+
+                  {/* Labels */}
+                  <text x="200" y="140" textAnchor="middle" fill="#22c55e" fontSize="10" fontWeight="bold">SIGNAL FLOWS FREELY</text>
+                </svg>
+              </div>
+
               {/* Spectrum */}
               <div className="max-w-md mb-12">
                 <GPISpectrum score={2.0} size="lg" />

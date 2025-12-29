@@ -11,7 +11,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage }) => {
     { key: 'diagnostic', label: 'DIAGNOSTIC', href: '/diagnostic' },
     { key: 'tools', label: 'TOOLS', href: '/tools' },
     { key: 'insights', label: 'INSIGHTS', href: '/insights' },
-    { key: 'interventions', label: 'INTERVENTIONS', href: '/interventions' },
+    { key: 'actions', label: 'ACTIONS', href: '/actions' },
     { key: 'about', label: 'ABOUT', href: '/about' },
   ];
 

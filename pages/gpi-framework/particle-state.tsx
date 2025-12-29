@@ -129,6 +129,93 @@ const ParticleStatePage = () => {
                 the delay, the complexity: these aren't bugs. They're someone's business model.
               </p>
 
+              {/* Particle State Visual - Rigid Frozen Grid */}
+              <div className="mb-12 p-8 bg-zinc-950 border border-zinc-800 rounded-xl">
+                <svg viewBox="0 0 400 150" className="w-full max-w-lg mx-auto">
+                  {/* Rigid grid of boxes */}
+                  {/* Row 1 */}
+                  <rect x="60" y="20" width="40" height="35" fill="#ef4444" opacity="0.7" stroke="#ef4444" strokeWidth="2" />
+                  <rect x="110" y="20" width="40" height="35" fill="#ef4444" opacity="0.6" stroke="#ef4444" strokeWidth="2" />
+                  <rect x="160" y="20" width="40" height="35" fill="#ef4444" opacity="0.8" stroke="#ef4444" strokeWidth="2" />
+                  <rect x="210" y="20" width="40" height="35" fill="#ef4444" opacity="0.5" stroke="#ef4444" strokeWidth="2" />
+                  <rect x="260" y="20" width="40" height="35" fill="#ef4444" opacity="0.7" stroke="#ef4444" strokeWidth="2" />
+                  <rect x="310" y="20" width="40" height="35" fill="#ef4444" opacity="0.6" stroke="#ef4444" strokeWidth="2" />
+
+                  {/* Row 2 */}
+                  <rect x="60" y="60" width="40" height="35" fill="#ef4444" opacity="0.5" stroke="#ef4444" strokeWidth="2" />
+                  <rect x="110" y="60" width="40" height="35" fill="#ef4444" opacity="0.8" stroke="#ef4444" strokeWidth="2" />
+                  <rect x="160" y="60" width="40" height="35" fill="#ef4444" opacity="0.6" stroke="#ef4444" strokeWidth="2" />
+                  <rect x="210" y="60" width="40" height="35" fill="#ef4444" opacity="0.7" stroke="#ef4444" strokeWidth="2" />
+                  <rect x="260" y="60" width="40" height="35" fill="#ef4444" opacity="0.5" stroke="#ef4444" strokeWidth="2" />
+                  <rect x="310" y="60" width="40" height="35" fill="#ef4444" opacity="0.8" stroke="#ef4444" strokeWidth="2" />
+
+                  {/* Row 3 */}
+                  <rect x="60" y="100" width="40" height="35" fill="#ef4444" opacity="0.6" stroke="#ef4444" strokeWidth="2" />
+                  <rect x="110" y="100" width="40" height="35" fill="#ef4444" opacity="0.7" stroke="#ef4444" strokeWidth="2" />
+                  <rect x="160" y="100" width="40" height="35" fill="#ef4444" opacity="0.5" stroke="#ef4444" strokeWidth="2" />
+                  <rect x="210" y="100" width="40" height="35" fill="#ef4444" opacity="0.8" stroke="#ef4444" strokeWidth="2" />
+                  <rect x="260" y="100" width="40" height="35" fill="#ef4444" opacity="0.6" stroke="#ef4444" strokeWidth="2" />
+                  <rect x="310" y="100" width="40" height="35" fill="#ef4444" opacity="0.7" stroke="#ef4444" strokeWidth="2" />
+
+                  {/* Trapped particles in cells - trying to move but stuck */}
+                  <circle cx="80" cy="37" r="8" fill="white" opacity="0.2">
+                    <animate attributeName="cx" values="78;82;78" dur="0.5s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="180" cy="37" r="8" fill="white" opacity="0.2">
+                    <animate attributeName="cy" values="35;39;35" dur="0.6s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="280" cy="37" r="8" fill="white" opacity="0.2">
+                    <animate attributeName="cx" values="278;282;278" dur="0.4s" repeatCount="indefinite" />
+                  </circle>
+
+                  <circle cx="130" cy="77" r="8" fill="white" opacity="0.2">
+                    <animate attributeName="cx" values="128;132;128" dur="0.7s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="230" cy="77" r="8" fill="white" opacity="0.2">
+                    <animate attributeName="cy" values="75;79;75" dur="0.5s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="330" cy="77" r="8" fill="white" opacity="0.2">
+                    <animate attributeName="cx" values="328;332;328" dur="0.6s" repeatCount="indefinite" />
+                  </circle>
+
+                  <circle cx="80" cy="117" r="8" fill="white" opacity="0.2">
+                    <animate attributeName="cy" values="115;119;115" dur="0.4s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="180" cy="117" r="8" fill="white" opacity="0.2">
+                    <animate attributeName="cx" values="178;182;178" dur="0.5s" repeatCount="indefinite" />
+                  </circle>
+                  <circle cx="280" cy="117" r="8" fill="white" opacity="0.2">
+                    <animate attributeName="cy" values="115;119;115" dur="0.6s" repeatCount="indefinite" />
+                  </circle>
+
+                  {/* Locks on several cells */}
+                  <rect x="123" y="30" width="14" height="10" fill="#ef4444" rx="1" />
+                  <path d="M 126 30 L 126 26 Q 130 22, 134 26 L 134 30" fill="none" stroke="#ef4444" strokeWidth="2" />
+
+                  <rect x="223" y="70" width="14" height="10" fill="#ef4444" rx="1" />
+                  <path d="M 226 70 L 226 66 Q 230 62, 234 66 L 234 70" fill="none" stroke="#ef4444" strokeWidth="2" />
+
+                  <rect x="323" y="110" width="14" height="10" fill="#ef4444" rx="1" />
+                  <path d="M 326 110 L 326 106 Q 330 102, 334 106 L 334 110" fill="none" stroke="#ef4444" strokeWidth="2" />
+
+                  {/* Barrier walls between cells */}
+                  <line x1="100" y1="20" x2="100" y2="135" stroke="#ef4444" strokeWidth="3" opacity="0.8" />
+                  <line x1="150" y1="20" x2="150" y2="135" stroke="#ef4444" strokeWidth="3" opacity="0.8" />
+                  <line x1="200" y1="20" x2="200" y2="135" stroke="#ef4444" strokeWidth="3" opacity="0.8" />
+                  <line x1="250" y1="20" x2="250" y2="135" stroke="#ef4444" strokeWidth="3" opacity="0.8" />
+                  <line x1="300" y1="20" x2="300" y2="135" stroke="#ef4444" strokeWidth="3" opacity="0.8" />
+                  <line x1="350" y1="20" x2="350" y2="135" stroke="#ef4444" strokeWidth="3" opacity="0.8" />
+
+                  {/* Label */}
+                  <text x="200" y="147" textAnchor="middle" fill="#ef4444" fontSize="10" fontWeight="bold">FRICTION IS MARGIN</text>
+
+                  {/* Money symbols in the gaps */}
+                  <text x="100" y="80" textAnchor="middle" fill="#22c55e" fontSize="10" fontWeight="bold">$</text>
+                  <text x="200" y="50" textAnchor="middle" fill="#22c55e" fontSize="10" fontWeight="bold">$</text>
+                  <text x="300" y="120" textAnchor="middle" fill="#22c55e" fontSize="10" fontWeight="bold">$</text>
+                </svg>
+              </div>
+
               {/* Spectrum */}
               <div className="max-w-md mb-12">
                 <GPISpectrum score={8.0} size="lg" />

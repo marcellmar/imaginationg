@@ -67,6 +67,76 @@ const TalentFlowPage = () => {
                 to where it creates the most value?
               </p>
 
+              {/* Talent Flow Visual */}
+              <div className="mb-12 p-8 bg-zinc-950 border border-zinc-800 rounded-xl">
+                <svg viewBox="0 0 400 120" className="w-full max-w-lg mx-auto">
+                  {/* High Flow (left) */}
+                  <text x="80" y="15" textAnchor="middle" fill="#22c55e" fontSize="10" fontWeight="bold">HIGH FLOW</text>
+
+                  {/* Entry point */}
+                  <rect x="20" y="45" width="30" height="30" fill="none" stroke="#22c55e" strokeWidth="2" rx="4" />
+                  <text x="35" y="63" textAnchor="middle" fill="#22c55e" fontSize="8">IN</text>
+
+                  {/* Flowing people */}
+                  <circle r="5" fill="#22c55e">
+                    <animateMotion dur="2s" repeatCount="indefinite" path="M25,60 Q70,30 100,60 Q130,90 160,60" />
+                  </circle>
+                  <circle r="5" fill="#22c55e">
+                    <animateMotion dur="2s" begin="0.5s" repeatCount="indefinite" path="M25,60 Q70,80 100,60 Q130,40 160,60" />
+                  </circle>
+                  <circle r="5" fill="#22c55e">
+                    <animateMotion dur="2s" begin="1s" repeatCount="indefinite" path="M25,60 Q70,50 100,70 Q130,60 160,50" />
+                  </circle>
+
+                  {/* Team boxes they flow through */}
+                  <rect x="60" y="40" width="20" height="20" fill="#22c55e" opacity="0.3" rx="2" />
+                  <rect x="90" y="55" width="20" height="20" fill="#22c55e" opacity="0.3" rx="2" />
+                  <rect x="120" y="45" width="20" height="20" fill="#22c55e" opacity="0.3" rx="2" />
+
+                  {/* Exit point */}
+                  <rect x="150" y="45" width="30" height="30" fill="none" stroke="#22c55e" strokeWidth="2" rx="4" />
+                  <text x="165" y="63" textAnchor="middle" fill="#22c55e" fontSize="8">OUT</text>
+
+                  <text x="100" y="105" textAnchor="middle" fill="#22c55e" fontSize="8">PEOPLE MOVE FREELY</text>
+
+                  {/* Divider */}
+                  <line x1="190" y1="20" x2="190" y2="100" stroke="#3f3f46" strokeWidth="1" strokeDasharray="4,4" />
+                  <text x="205" y="60" textAnchor="middle" fill="#3f3f46" fontSize="10">VS</text>
+                  <line x1="220" y1="20" x2="220" y2="100" stroke="#3f3f46" strokeWidth="1" strokeDasharray="4,4" />
+
+                  {/* Low Flow (right) */}
+                  <text x="320" y="15" textAnchor="middle" fill="#ef4444" fontSize="10" fontWeight="bold">LOW FLOW</text>
+
+                  {/* Trapped people in boxes */}
+                  <rect x="240" y="35" width="30" height="30" fill="#ef4444" opacity="0.7" />
+                  <circle cx="255" cy="50" r="8" fill="white" opacity="0.3" />
+                  <text x="255" y="74" textAnchor="middle" fill="#ef4444" fontSize="6">STUCK</text>
+
+                  <rect x="285" y="35" width="30" height="30" fill="#ef4444" opacity="0.7" />
+                  <circle cx="300" cy="50" r="8" fill="white" opacity="0.3" />
+                  <text x="300" y="74" textAnchor="middle" fill="#ef4444" fontSize="6">STUCK</text>
+
+                  <rect x="330" y="35" width="30" height="30" fill="#ef4444" opacity="0.7" />
+                  <circle cx="345" cy="50" r="8" fill="white" opacity="0.3" />
+                  <text x="345" y="74" textAnchor="middle" fill="#ef4444" fontSize="6">STUCK</text>
+
+                  <rect x="375" y="35" width="20" height="30" fill="#ef4444" opacity="0.5" rx="2" />
+                  <text x="385" y="52" textAnchor="middle" fill="white" fontSize="7">EXIT</text>
+
+                  {/* Fleeing arrow */}
+                  <path d="M 370 85 L 390 85 L 385 80 M 390 85 L 385 90" stroke="#ef4444" strokeWidth="2" fill="none">
+                    <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" repeatCount="indefinite" />
+                  </path>
+                  <circle cx="365" cy="85" r="5" fill="#ef4444">
+                    <animate attributeName="cx" values="355;380;355" dur="2s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite" />
+                  </circle>
+
+                  <text x="320" y="105" textAnchor="middle" fill="#ef4444" fontSize="8">BEST TALENT LEAVES</text>
+                </svg>
+                <p className="text-center text-zinc-500 text-sm mt-4 font-mono">FLUID VS STAGNANT</p>
+              </div>
+
               <div className="max-w-md">
                 <GPISpectrum score={5.0} size="lg" showMarker={false} />
               </div>
@@ -190,19 +260,19 @@ const TalentFlowPage = () => {
         <section className="py-16 px-6 bg-zinc-950">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">INTERVENTIONS THAT TARGET THIS</h2>
+              <h2 className="text-2xl font-black mb-8">ACTION GUIDE FOR THIS DIMENSION</h2>
 
               <div className="grid md:grid-cols-2 gap-6">
-                <Link href="/interventions/the-map" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">THE MAP</h3>
+                <Link href="/actions/talent-mobility" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
+                  <h3 className="font-bold text-xl mb-2">TALENT MOBILITY</h3>
                   <p className="text-zinc-500 text-sm">
-                    Identify where talent is stuck and create paths to mobility.
+                    Free DIY playbook. Enable frictionless moves, reward developers, make skills visible.
                   </p>
                 </Link>
-                <Link href="/interventions/the-naming" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">THE NAMING</h3>
+                <Link href="/actions" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-zinc-600 transition-colors">
+                  <h3 className="font-bold text-xl mb-2">ALL ACTION GUIDES</h3>
                   <p className="text-zinc-500 text-sm">
-                    Surface what's actually driving talent decisions.
+                    View action guides for all 7 GPI dimensions.
                   </p>
                 </Link>
               </div>
