@@ -155,6 +155,87 @@ const GPIFrameworkPage = () => {
           </div>
         </section>
 
+        {/* The Spiral Model - NEW */}
+        <section className="py-16 px-6 bg-gradient-to-b from-black to-zinc-950 border-t border-zinc-900">
+          <div className="max-w-7xl mx-auto">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <div className="inline-block mb-4 text-purple-400 text-xs font-mono bg-purple-950/30 border border-purple-900 px-4 py-2 rounded-full">
+                  ORGANIZATIONAL DYNAMICS
+                </div>
+                <h2 className="text-3xl font-black mb-4">
+                  THE SPIRAL MODEL
+                </h2>
+                <p className="text-zinc-400 max-w-2xl mx-auto">
+                  Organizations don't "achieve" a state. They <span className="text-white font-bold">cycle</span> through them.
+                  The health isn't in any single state—it's in the rhythm.
+                </p>
+              </div>
+
+              <Link href="/gpi-framework/spiral-model" className="group block">
+                <div className="border border-purple-900 hover:border-purple-500 p-8 rounded-xl bg-black/50 transition-all">
+                  {/* Mini Spiral Visualization */}
+                  <div className="flex justify-center gap-4 mb-8 text-sm">
+                    <div className="text-center">
+                      <div className="w-16 h-16 border-2 border-amber-600 rounded-full flex items-center justify-center mb-2">
+                        <span className="text-amber-500 text-xs font-bold">CRYST</span>
+                      </div>
+                      <span className="text-zinc-600">Structure forms</span>
+                    </div>
+                    <div className="flex items-center text-zinc-600">→</div>
+                    <div className="text-center">
+                      <div className="w-16 h-16 border-2 border-red-600 rounded-full flex items-center justify-center mb-2">
+                        <span className="text-red-500 text-xs font-bold">PART</span>
+                      </div>
+                      <span className="text-zinc-600">Rigidity peaks</span>
+                    </div>
+                    <div className="flex items-center text-zinc-600">→</div>
+                    <div className="text-center">
+                      <div className="w-16 h-16 border-2 border-purple-600 rounded-full flex items-center justify-center mb-2">
+                        <span className="text-purple-500 text-xs font-bold">DISS</span>
+                      </div>
+                      <span className="text-zinc-600">Structure breaks</span>
+                    </div>
+                    <div className="flex items-center text-zinc-600">→</div>
+                    <div className="text-center">
+                      <div className="w-16 h-16 border-2 border-green-600 rounded-full flex items-center justify-center mb-2">
+                        <span className="text-green-500 text-xs font-bold">FIELD</span>
+                      </div>
+                      <span className="text-zinc-600">Adaptation</span>
+                    </div>
+                    <div className="flex items-center text-zinc-600">↻</div>
+                  </div>
+
+                  <div className="grid md:grid-cols-3 gap-6 text-center mb-8">
+                    <div>
+                      <div className="text-2xl font-black text-green-500 mb-1">VELOCITY</div>
+                      <p className="text-zinc-500 text-sm">How fast you complete cycles</p>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-black text-purple-500 mb-1">DIRECTION</div>
+                      <p className="text-zinc-500 text-sm">Ascending or descending?</p>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-black text-amber-500 mb-1">AMPLITUDE</div>
+                      <p className="text-zinc-500 text-sm">How extreme the swings</p>
+                    </div>
+                  </div>
+
+                  <div className="text-center">
+                    <p className="text-lg text-zinc-300 mb-4">
+                      Static GPI asks "what state are you in?" <br />
+                      <span className="text-white font-bold">Spiral GPI asks "where are you heading?"</span>
+                    </p>
+                    <span className="text-purple-500 font-bold group-hover:underline">
+                      EXPLORE THE SPIRAL MODEL →
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Seven Dimensions - Now Clickable */}
         <section className="py-16 px-6 bg-zinc-950">
           <div className="max-w-7xl mx-auto">
