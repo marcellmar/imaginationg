@@ -2,6 +2,9 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Script from 'next/script';
+
+const GA_TRACKING_ID = 'G-V3R0S40J79';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -18,9 +21,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           'bard.google.com',
           'copilot.microsoft.com'
         ];
-        
+
         const isAIReferral = aiDomains.some(domain => referrer.includes(domain));
-        
+
         if (isAIReferral && typeof (window as any).gtag !== 'undefined') {
           (window as any).gtag('event', 'ai_referral', {
             source: referrer,
@@ -34,7 +37,24 @@ function MyApp({ Component, pageProps }: AppProps) {
     trackAIReferral();
   }, [router.pathname]);
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      {/* Google Analytics */}
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_TRACKING_ID}');
+        `}
+      </Script>
+      <Component {...pageProps} />
+    </>
+  );
 }
 
 export default MyApp;

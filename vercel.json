@@ -1,23 +1,6 @@
 {
-  "version": 2,
   "buildCommand": "rm -f \"Landing Page Enhancements.tsx\" && npm run build",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
-  "build": {
-    "env": {
-      "NODE_ENV": "production"
-    }
-  },
+  "framework": "nextjs",
   "git": {
     "deploymentEnabled": {
       "main": true
