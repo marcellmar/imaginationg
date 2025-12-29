@@ -313,6 +313,66 @@ const InsightsPage: NextPage = () => {
           </section>
         )}
 
+        {/* Live GPI Analyses Banner */}
+        <section className="py-8 px-6">
+          <div className="max-w-7xl mx-auto">
+            <Link href="/insights/gpi-analyses" className="block group">
+              <div className="relative overflow-hidden border border-zinc-800 bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 p-8 md:p-10 hover:border-zinc-700 transition-all">
+                {/* Animated background dots */}
+                <div className="absolute inset-0 opacity-20">
+                  <svg width="100%" height="100%">
+                    {[...Array(8)].map((_, i) => (
+                      <circle
+                        key={i}
+                        r="4"
+                        fill={i % 3 === 0 ? '#ef4444' : i % 3 === 1 ? '#eab308' : '#22c55e'}
+                      >
+                        <animate
+                          attributeName="cx"
+                          values={`${10 + i * 12}%;${15 + i * 12}%;${10 + i * 12}%`}
+                          dur={`${3 + i * 0.5}s`}
+                          repeatCount="indefinite"
+                        />
+                        <animate
+                          attributeName="cy"
+                          values="30%;70%;30%"
+                          dur={`${4 + i * 0.3}s`}
+                          repeatCount="indefinite"
+                        />
+                      </circle>
+                    ))}
+                  </svg>
+                </div>
+
+                <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                  <div>
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="text-xs font-mono text-green-500 bg-green-950/50 px-3 py-1 rounded-full border border-green-900">
+                        <span className="inline-block w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+                        LIVE
+                      </span>
+                      <span className="text-xs font-mono text-zinc-500">UPDATED WEEKLY</span>
+                    </div>
+                    <h2 className="text-2xl md:text-3xl font-black mb-2 group-hover:text-red-500 transition-colors">
+                      GPI ANALYSES
+                      <ArrowRight className="inline ml-2" size={24} />
+                    </h2>
+                    <p className="text-zinc-400 max-w-xl">
+                      Weekly smackdowns, transition watches, and calcification alerts. Real companies. Real scores. Real-time.
+                    </p>
+                  </div>
+
+                  <div className="flex gap-3 flex-wrap">
+                    <span className="text-xs px-3 py-1.5 bg-red-950/50 text-red-400 rounded border border-red-900/50">WEEKLY SMACKDOWN</span>
+                    <span className="text-xs px-3 py-1.5 bg-yellow-950/50 text-yellow-400 rounded border border-yellow-900/50">TRANSITION WATCH</span>
+                    <span className="text-xs px-3 py-1.5 bg-purple-950/50 text-purple-400 rounded border border-purple-900/50">WILDCARD</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </section>
+
         {/* Other Insights Grid */}
         <section className="py-16 px-6">
           <div className="max-w-7xl mx-auto">
