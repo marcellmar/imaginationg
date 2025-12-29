@@ -3,7 +3,7 @@ import Link from 'next/link';
 import SEOHead from '../../components/SEOHead';
 import Navigation from '../../components/Navigation';
 import RelatedContent from '../../components/RelatedContent';
-import { ArrowLeft, BookOpen } from 'lucide-react';
+import { ArrowLeft, BookOpen, TrendingUp, TrendingDown, Activity } from 'lucide-react';
 
 const TheSpiralModelPage: NextPage = () => {
   return (
@@ -48,7 +48,8 @@ const TheSpiralModelPage: NextPage = () => {
             </p>
 
             <p className="text-xl text-zinc-400 max-w-2xl">
-              You can't jump from particle to field. You spiral, revisiting particle thinking at higher levels of field capability. The path isn't a line. It's a helix.
+              Your body doesn't "achieve" a state. It cycles. Breathe in, breathe out. Build tissue, break tissue.
+              Companies are the same. The health isn't in any single state—it's in the rhythm.
             </p>
           </div>
         </section>
@@ -59,11 +60,76 @@ const TheSpiralModelPage: NextPage = () => {
             <article className="prose prose-invert prose-lg max-w-none">
 
               {/* The Core Insight */}
-              <div className="border-l-4 border-red-600 pl-6 mb-12">
+              <div className="border-l-4 border-purple-600 pl-6 mb-12">
                 <p className="text-xl text-zinc-300 italic mb-0">
-                  "You can't skip phases. You can only build the capability to spiral faster."
+                  "Organizations don't transform once. They cycle. The question isn't what state you're in—it's how well you're cycling."
                 </p>
               </div>
+
+              <h2 className="text-2xl font-black mt-12 mb-6">WHY SPREADSHEETS MISS IT</h2>
+
+              <p className="text-zinc-400 mb-6">
+                "We measured engagement at 72%." Static. Frozen. No indication of direction, velocity, or phase.
+              </p>
+
+              <p className="text-zinc-400 mb-6">
+                A company with GPI 7 (particle state) isn't necessarily sick. They might be at peak crystallization,
+                about to dissolve productively. Or frozen solid, unable to change.
+                <span className="text-white font-bold"> You can't tell from a single measurement.</span>
+              </p>
+
+              <p className="text-zinc-400 mb-6">
+                This is the difference between a thermometer and an EKG. One tells you temperature.
+                The other tells you if you're alive.
+              </p>
+
+              <h2 className="text-2xl font-black mt-12 mb-6">THE FOUR PHASES</h2>
+
+              <p className="text-zinc-400 mb-8">
+                Every organization cycles through these. The question is how well.
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-6 mb-12 not-prose">
+                <div className="border-2 border-amber-600 p-6">
+                  <div className="text-amber-500 font-mono text-xs mb-2">PHASE 1</div>
+                  <h3 className="text-xl font-black text-amber-400 mb-2">CRYSTALLIZATION</h3>
+                  <p className="text-zinc-400 text-sm">
+                    What works gets repeated. Patterns emerge. Success becomes process.
+                    "Let's do that again."
+                  </p>
+                </div>
+
+                <div className="border-2 border-red-600 p-6">
+                  <div className="text-red-500 font-mono text-xs mb-2">PHASE 2</div>
+                  <h3 className="text-xl font-black text-red-400 mb-2">PARTICLE</h3>
+                  <p className="text-zinc-400 text-sm">
+                    Process becomes policy becomes culture. Maximum structure. Minimum flexibility.
+                    "This is how we do things."
+                  </p>
+                </div>
+
+                <div className="border-2 border-purple-600 p-6">
+                  <div className="text-purple-500 font-mono text-xs mb-2">PHASE 3</div>
+                  <h3 className="text-xl font-black text-purple-400 mb-2">DISSOLUTION</h3>
+                  <p className="text-zinc-400 text-sm">
+                    Reality stops matching structure. Cracks appear. The old way stops working.
+                    Structure breaks—voluntarily or violently.
+                  </p>
+                </div>
+
+                <div className="border-2 border-green-600 p-6">
+                  <div className="text-green-500 font-mono text-xs mb-2">PHASE 4</div>
+                  <h3 className="text-xl font-black text-green-400 mb-2">FIELD</h3>
+                  <p className="text-zinc-400 text-sm">
+                    Fluid. Experimental. New patterns emerge from chaos. Not random—searching.
+                    "What if we tried..."
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-zinc-400 mb-6">
+                Then back to crystallization. But <span className="text-white font-bold">higher</span>.
+              </p>
 
               <h2 className="text-2xl font-black mt-12 mb-6">THE LINEAR MYTH</h2>
 
@@ -245,6 +311,110 @@ const TheSpiralModelPage: NextPage = () => {
                 <p className="text-xl text-zinc-300 italic mb-0">
                   "Transformation isn't choosing particle or field. It's building the capability to spiral between them."
                 </p>
+              </div>
+
+              <h2 className="text-2xl font-black mt-12 mb-6">THE MEASURABLE DIMENSIONS</h2>
+
+              <p className="text-zinc-400 mb-8">
+                What the Spiral Model tracks that static metrics miss:
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-6 mb-12 not-prose">
+                <div className="border border-zinc-800 p-6">
+                  <Activity className="w-6 h-6 text-blue-500 mb-3" />
+                  <h4 className="font-bold mb-2">SPIRAL VELOCITY</h4>
+                  <p className="text-zinc-500 text-sm mb-4">How long for one full revolution?</p>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-zinc-400">Startups</span>
+                      <span className="font-mono">3-6 months</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-zinc-400">Growth stage</span>
+                      <span className="font-mono">12-18 months</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-zinc-400">Enterprise</span>
+                      <span className="font-mono">3-5 years</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-zinc-400">Dying</span>
+                      <span className="font-mono text-red-500">∞ (stuck)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="border border-zinc-800 p-6">
+                  <TrendingUp className="w-6 h-6 text-green-500 mb-3" />
+                  <h4 className="font-bold mb-2">SPIRAL DIRECTION</h4>
+                  <p className="text-zinc-500 text-sm mb-4">Net altitude change per cycle?</p>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-green-400">+1</span>
+                      <span>Ascending (each cycle ends higher)</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-zinc-400">0</span>
+                      <span>Treading water</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-red-400">-1</span>
+                      <span>Descending (each cycle ends lower)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h2 className="text-2xl font-black mt-12 mb-6">THE PATHOLOGIES</h2>
+
+              <p className="text-zinc-400 mb-8">
+                When the spiral breaks:
+              </p>
+
+              <div className="space-y-6 mb-12 not-prose">
+                <div className="border-l-4 border-amber-600 pl-6 py-2">
+                  <h4 className="font-bold text-amber-400 mb-2">CRYSTALLIZATION ADDICTION</h4>
+                  <p className="text-zinc-400 mb-2">
+                    "We need more process." Keeps adding structure. Terrified of dissolution.
+                    Eventually so rigid the spiral stops entirely.
+                  </p>
+                  <p className="text-sm text-zinc-600">
+                    GPI signal: Decision Latency keeps climbing
+                  </p>
+                </div>
+
+                <div className="border-l-4 border-purple-600 pl-6 py-2">
+                  <h4 className="font-bold text-purple-400 mb-2">DISSOLUTION PARALYSIS</h4>
+                  <p className="text-zinc-400 mb-2">
+                    "We're still restructuring." Perpetual crisis mode. Can't let patterns form.
+                    Burns out the organization.
+                  </p>
+                  <p className="text-sm text-zinc-600">
+                    GPI signal: Error Correction in constant alarm
+                  </p>
+                </div>
+
+                <div className="border-l-4 border-green-600 pl-6 py-2">
+                  <h4 className="font-bold text-green-400 mb-2">FIELD ROMANTICISM</h4>
+                  <p className="text-zinc-400 mb-2">
+                    "We're agile." Mistakes chaos for adaptability. Resists all structure.
+                    Nothing compounds.
+                  </p>
+                  <p className="text-sm text-zinc-600">
+                    GPI signal: Knowledge Velocity high, but no Structural Lock-in ever
+                  </p>
+                </div>
+
+                <div className="border-l-4 border-red-600 pl-6 py-2">
+                  <h4 className="font-bold text-red-400 mb-2">PARTICLE NOSTALGIA</h4>
+                  <p className="text-zinc-400 mb-2">
+                    "Back to basics." Every crisis met by restoring the previous particle state.
+                    Fighting the last war.
+                  </p>
+                  <p className="text-sm text-zinc-600">
+                    GPI signal: Negative Talent Flow as new people rejected
+                  </p>
+                </div>
               </div>
 
               <h2 className="text-2xl font-black mt-12 mb-6">YOUR SPIRAL POSITION</h2>
