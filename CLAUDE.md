@@ -120,3 +120,39 @@ GPI Analyses publishes 5 content series:
 3. **Calcification Alert** - High-GPI particles in the news
 4. **Field Notes** - How low-GPI companies stay fluid
 5. **Wildcard** - Unexpected insights ("can't unsee it" test)
+
+## API Routes
+
+- `/api/gpi-content` - Fetch published GPI content from Notion
+- `/api/gpi-content/[slug]` - Fetch single article by slug with blocks
+- `/api/diagnostic-submit` - Save diagnostic results to Notion + email via Resend
+- `/api/subscribe` - Email list signup
+
+## Key Pages
+
+- `/diagnostic` - 32-question GPI diagnostic with results and save modal
+- `/insights/gpi-analyses` - Content hub for all GPI articles
+- `/insights/gpi-analyses/[slug]` - Individual article pages
+- `/actions` - Action guides index
+- `/actions/[dimension]` - Dimension-specific action guides (7 pages)
+- `/gpi-framework` - GPI Framework explanation with dimension pages
+
+## Writing Style Preferences
+
+When creating content for this project:
+- **Never use em dashes (—)** - Use commas, periods, or parentheses instead
+- Keep copy sharp and direct
+- Use the GPI terminology: Field (1-3), Transitioning (4-6), Particle (7-10)
+- "Friction is margin" - core concept
+- When writing Wildcard content, it must pass the "can't unsee it" test
+
+## GPI Dimension Keys
+
+Used in code for mapping:
+- `DECISION_LATENCY` - Decision Speed
+- `ERROR_CORRECTION` - Error Correction
+- `KNOWLEDGE_LOCATION` - Knowledge Flow
+- `KNOWLEDGE_VELOCITY` - Velocity
+- `TALENT_FLOW` - Talent Mobility
+- `STRUCTURAL_LOCKIN` - Structural Lock-in
+- `CAPITAL_INTENSITY` - Capital Efficiency
