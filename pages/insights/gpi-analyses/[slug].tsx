@@ -8,6 +8,18 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import SEOHead from '../../../components/SEOHead';
 import Navigation from '../../../components/Navigation';
+import AudioPlayer from '../../../components/AudioPlayer';
+
+// Map article slugs to audio files (add new episodes here)
+const audioMap: Record<string, { src: string; duration: string; title: string }> = {
+  'shadow-work-self-checkout-heist': {
+    src: '/audio/shadow-work-heist.mp3',
+    duration: '12:34',
+    title: 'The $12 Billion Shadow Work Heist - Deep Dive',
+  },
+  // Add more episodes as needed:
+  // 'tesla-vs-byd-ev-wars': { src: '/audio/tesla-byd.mp3', duration: '15:00', title: '...' },
+};
 
 interface Company {
   id: string;
@@ -238,6 +250,17 @@ const AnalysisPage = () => {
             <p className="text-xl text-zinc-400 leading-relaxed">
               {content.teaser}
             </p>
+
+            {/* Audio Player - if available */}
+            {audioMap[content.slug] && (
+              <div className="mt-8">
+                <AudioPlayer
+                  src={audioMap[content.slug].src}
+                  title={audioMap[content.slug].title}
+                  duration={audioMap[content.slug].duration}
+                />
+              </div>
+            )}
           </div>
         </section>
 
