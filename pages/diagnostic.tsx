@@ -3,7 +3,7 @@ import Link from 'next/link';
 import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
 import { GPIRadarChart } from '../components/gpi';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Zap, Clock, Brain, Users, Gauge, Lock, DollarSign } from 'lucide-react';
 import {
   calculateFullGPI,
   getStateLabel,
@@ -13,6 +13,50 @@ import {
 } from '../lib/gpi-calculator';
 import { getIndustryList } from '../lib/gpi-industry-benchmarks';
 import type { DiagnosticAnswer, GPIFullResult, DimensionKey } from '../lib/gpi-types';
+
+// Dimension interpretations based on score
+const getDimensionInsight = (dimension: DimensionKey, score: number): { text: string; subtext: string } => {
+  const insights: Record<DimensionKey, { low: { text: string; subtext: string }; mid: { text: string; subtext: string }; high: { text: string; subtext: string } }> = {
+    DECISION_LATENCY: {
+      low: { text: "Decisions flow", subtext: "You act on information, not permissions. Momentum is natural." },
+      mid: { text: "Decisions stick sometimes", subtext: "Some choices happen fast. Others get lost in approval chains." },
+      high: { text: "Decisions die in committee", subtext: "Every choice needs sign-off. Energy leaks at every handoff." }
+    },
+    ERROR_CORRECTION: {
+      low: { text: "You course-correct fast", subtext: "Wrong turns get caught early. Ego doesn't block reversals." },
+      mid: { text: "Some mistakes linger", subtext: "You fix what you can see. Hidden errors compound quietly." },
+      high: { text: "Errors become permanent", subtext: "Mistakes get defended, not fixed. Sunk cost drives strategy." }
+    },
+    KNOWLEDGE_LOCATION: {
+      low: { text: "Knowledge flows freely", subtext: "The right people know the right things at the right time." },
+      mid: { text: "Knowledge clusters", subtext: "Some silos exist. Information moves, but with friction." },
+      high: { text: "Knowledge is hoarded", subtext: "Information is power. Silos protect territory, not outcomes." }
+    },
+    KNOWLEDGE_VELOCITY: {
+      low: { text: "Information moves fast", subtext: "Signal reaches decision-makers before it decays." },
+      mid: { text: "Information gets filtered", subtext: "Some signal gets through. Some gets lost in translation." },
+      high: { text: "Information crawls", subtext: "By the time you hear it, it's old. Context dies in transit." }
+    },
+    TALENT_FLOW: {
+      low: { text: "Talent moves to problems", subtext: "People go where they're needed. Roles flex with reality." },
+      mid: { text: "Talent gets stuck", subtext: "Some mobility exists. Org charts still trump outcomes." },
+      high: { text: "Talent is trapped", subtext: "People serve titles, not missions. The best leave first." }
+    },
+    STRUCTURAL_LOCKIN: {
+      low: { text: "Structure serves strategy", subtext: "You can pivot without permission. Form follows function." },
+      mid: { text: "Structure creates drag", subtext: "Some processes help. Others exist because they exist." },
+      high: { text: "Structure is the strategy", subtext: "The org chart is sacred. Process protects itself." }
+    },
+    CAPITAL_INTENSITY: {
+      low: { text: "Capital is efficient", subtext: "Resources flow to results. Waste gets eliminated fast." },
+      mid: { text: "Capital has friction", subtext: "Some spending is strategic. Some is habitual." },
+      high: { text: "Capital is locked up", subtext: "Budgets are territories. Efficiency threatens empires." }
+    }
+  };
+
+  const level = score <= 3 ? 'low' : score <= 6 ? 'mid' : 'high';
+  return insights[dimension][level];
+};
 
 const DiagnosticPage = () => {
   const [currentStep, setCurrentStep] = useState<'intro' | 'questions' | 'analysis' | 'results'>('intro');
@@ -168,62 +212,128 @@ const DiagnosticPage = () => {
         <div className="min-h-screen bg-black text-white">
           <Navigation currentPage="diagnostic" />
           <section className="pt-20 pb-16 px-6">
-            <div className="max-w-2xl mx-auto">
-              <div className="text-center mb-12">
+            <div className="max-w-3xl mx-auto">
+
+              {/* Hero */}
+              <div className="text-center mb-16">
                 <div className="inline-flex items-center gap-2 text-xs font-mono text-zinc-600 mb-6">
                   <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                   DIAGNOSTIC READY
                 </div>
-                <h1 className="text-3xl md:text-4xl font-black tracking-tight mb-4">
-                  GPI DIAGNOSTIC
+                <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-6">
+                  WHERE DOES YOUR<br />
+                  <span className="text-red-600">ENERGY GET STUCK?</span>
                 </h1>
-                <p className="text-zinc-500">
-                  32 questions. 7 dimensions. Where does energy get stuck?
+                <p className="text-xl text-zinc-400 max-w-xl mx-auto leading-relaxed">
+                  The Growing Pains Index measures organizational friction across 7 dimensions.
+                  Lower scores mean energy flows. Higher scores mean energy leaks.
                 </p>
+              </div>
+
+              {/* What You'll Get */}
+              <div className="grid md:grid-cols-3 gap-4 mb-12">
+                <div className="bg-zinc-950 border border-zinc-800 p-5 text-center">
+                  <div className="text-3xl font-black text-red-600 mb-2">7</div>
+                  <div className="text-sm text-zinc-400">Dimensions scored</div>
+                </div>
+                <div className="bg-zinc-950 border border-zinc-800 p-5 text-center">
+                  <div className="text-3xl font-black text-red-600 mb-2">1-10</div>
+                  <div className="text-sm text-zinc-400">Friction scale</div>
+                </div>
+                <div className="bg-zinc-950 border border-zinc-800 p-5 text-center">
+                  <div className="text-3xl font-black text-red-600 mb-2">8</div>
+                  <div className="text-sm text-zinc-400">Minutes to complete</div>
+                </div>
+              </div>
+
+              {/* The 7 Dimensions Preview */}
+              <div className="bg-zinc-950 border border-zinc-800 p-6 mb-8">
+                <div className="text-xs font-mono text-zinc-600 mb-4">WHAT WE MEASURE</div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  <div className="flex items-center gap-2 text-sm">
+                    <Clock size={14} className="text-zinc-600" />
+                    <span className="text-zinc-400">Decision Speed</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Zap size={14} className="text-zinc-600" />
+                    <span className="text-zinc-400">Error Correction</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Brain size={14} className="text-zinc-600" />
+                    <span className="text-zinc-400">Knowledge Flow</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Gauge size={14} className="text-zinc-600" />
+                    <span className="text-zinc-400">Velocity</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Users size={14} className="text-zinc-600" />
+                    <span className="text-zinc-400">Talent Mobility</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Lock size={14} className="text-zinc-600" />
+                    <span className="text-zinc-400">Structural Lock-in</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm">
+                    <DollarSign size={14} className="text-zinc-600" />
+                    <span className="text-zinc-400">Capital Efficiency</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Scale */}
+              <div className="bg-zinc-950 border border-zinc-800 p-6 mb-8">
+                <div className="text-xs font-mono text-zinc-600 mb-4">THE SCALE</div>
+                <div className="relative h-4 bg-zinc-900 rounded-full mb-3 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-500 via-yellow-500 to-red-500" />
+                </div>
+                <div className="flex justify-between text-sm">
+                  <div>
+                    <span className="text-green-500 font-bold">1-3</span>
+                    <span className="text-zinc-600 ml-2">Field (energy flows)</span>
+                  </div>
+                  <div>
+                    <span className="text-yellow-500 font-bold">4-6</span>
+                    <span className="text-zinc-600 ml-2">Transition</span>
+                  </div>
+                  <div>
+                    <span className="text-red-500 font-bold">7-10</span>
+                    <span className="text-zinc-600 ml-2">Particle (energy stuck)</span>
+                  </div>
+                </div>
               </div>
 
               {/* Industry Selection */}
               <div className="bg-zinc-950 border border-zinc-800 p-6 mb-8">
-                <div className="text-xs font-mono text-zinc-600 mb-3">SELECT INDUSTRY</div>
+                <div className="text-xs font-mono text-zinc-600 mb-3">YOUR INDUSTRY</div>
                 <select
                   value={selectedIndustry}
                   onChange={(e) => setSelectedIndustry(e.target.value)}
-                  className="w-full bg-black border border-zinc-700 p-3 text-white"
+                  className="w-full bg-black border border-zinc-700 p-4 text-white text-lg"
                 >
                   {industries.map((industry) => (
                     <option key={industry} value={industry}>{industry}</option>
                   ))}
                 </select>
-                <div className="text-xs text-zinc-600 mt-2">For benchmark comparison</div>
-              </div>
-
-              {/* Scale Preview */}
-              <div className="bg-zinc-950 border border-zinc-800 p-6 mb-8">
-                <div className="text-xs font-mono text-zinc-600 mb-4">GPI SCALE</div>
-                <div className="relative h-3 bg-zinc-900 rounded-full mb-3">
-                  <div className="absolute inset-0 bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 rounded-full" />
-                </div>
-                <div className="flex justify-between text-xs font-mono">
-                  <div>
-                    <span className="text-green-500">1</span>
-                    <span className="text-zinc-600 ml-1">Flow</span>
-                  </div>
-                  <div>
-                    <span className="text-red-500">10</span>
-                    <span className="text-zinc-600 ml-1">Friction</span>
-                  </div>
-                </div>
+                <div className="text-xs text-zinc-600 mt-2">We'll compare your results to industry benchmarks</div>
               </div>
 
               {/* Start */}
               <div className="text-center">
                 <button
                   onClick={() => setCurrentStep('questions')}
-                  className="bg-red-600 px-10 py-4 font-black hover:bg-red-700 transition-colors"
+                  className="bg-red-600 px-12 py-5 font-black text-lg hover:bg-red-700 transition-colors"
                 >
                   START DIAGNOSTIC
                 </button>
-                <p className="text-zinc-600 text-xs mt-4">~8 minutes. No email required.</p>
+                <p className="text-zinc-600 text-sm mt-4">32 yes/no questions. No email required to see results.</p>
+              </div>
+
+              {/* Trust Element */}
+              <div className="mt-12 text-center border-t border-zinc-900 pt-8">
+                <p className="text-zinc-600 text-sm">
+                  Based on analysis of organizational patterns across 500+ companies.
+                </p>
               </div>
             </div>
           </section>
@@ -371,41 +481,57 @@ const DiagnosticPage = () => {
                 </div>
               </div>
 
-              {/* Dimension Breakdown */}
+              {/* Dimension Breakdown with Insights */}
               <div className="bg-zinc-950 border border-zinc-800 p-6 mb-8">
-                <div className="text-xs font-mono text-zinc-600 mb-4">DIMENSION BREAKDOWN</div>
-                <div className="space-y-3">
+                <div className="text-xs font-mono text-zinc-600 mb-6">DIMENSION BREAKDOWN</div>
+                <div className="space-y-6">
                   {gpiResults.dimensions
                     .sort((a, b) => b.score - a.score)
                     .map((dim) => {
                       const isWeakest = dim.dimension === gpiResults.weakestDimension;
                       const isStrongest = dim.dimension === gpiResults.strongestDimension;
+                      const insight = getDimensionInsight(dim.dimension, dim.score);
+                      const scoreColor = dim.score <= 3 ? '#22c55e' : dim.score <= 6 ? '#eab308' : '#ef4444';
+
                       return (
-                        <div key={dim.dimension} className="flex items-center gap-4">
-                          <div className="w-32 text-xs font-bold truncate">
-                            {dim.label}
-                            {isWeakest && <span className="text-red-500 ml-1">*</span>}
-                            {isStrongest && <span className="text-green-500 ml-1">*</span>}
+                        <div key={dim.dimension} className={`p-4 rounded-lg border ${isWeakest ? 'border-red-900 bg-red-950/20' : isStrongest ? 'border-green-900 bg-green-950/20' : 'border-zinc-800 bg-zinc-900/50'}`}>
+                          {/* Header Row */}
+                          <div className="flex items-center justify-between mb-2">
+                            <div className="flex items-center gap-2">
+                              <span className="text-sm font-bold">
+                                {dim.label}
+                              </span>
+                              {isWeakest && <span className="text-xs bg-red-900/50 text-red-400 px-2 py-0.5 rounded">HIGHEST FRICTION</span>}
+                              {isStrongest && <span className="text-xs bg-green-900/50 text-green-400 px-2 py-0.5 rounded">LOWEST FRICTION</span>}
+                            </div>
+                            <div className="text-2xl font-black font-mono" style={{ color: scoreColor }}>
+                              {dim.score}
+                            </div>
                           </div>
-                          <div className="flex-1 h-2 bg-zinc-800 rounded-full overflow-hidden">
+
+                          {/* Progress Bar */}
+                          <div className="h-2 bg-zinc-800 rounded-full overflow-hidden mb-3">
                             <div
-                              className="h-full rounded-full"
+                              className="h-full rounded-full transition-all duration-500"
                               style={{
                                 width: `${(dim.score / 10) * 100}%`,
-                                backgroundColor: dim.score <= 3 ? '#22c55e' : dim.score <= 6 ? '#eab308' : '#ef4444'
+                                backgroundColor: scoreColor
                               }}
                             />
                           </div>
-                          <div className="w-8 text-right text-sm font-mono">
-                            {dim.score}
+
+                          {/* Insight Text */}
+                          <div>
+                            <div className="text-sm font-bold" style={{ color: scoreColor }}>
+                              {insight.text}
+                            </div>
+                            <div className="text-xs text-zinc-500 mt-1">
+                              {insight.subtext}
+                            </div>
                           </div>
                         </div>
                       );
                     })}
-                </div>
-                <div className="flex gap-4 mt-4 text-xs text-zinc-600">
-                  <span><span className="text-red-500">*</span> highest friction</span>
-                  <span><span className="text-green-500">*</span> lowest friction</span>
                 </div>
               </div>
 
