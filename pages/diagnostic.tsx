@@ -22,6 +22,14 @@ const DiagnosticPage = () => {
   const [analysisStep, setAnalysisStep] = useState(0);
   const [gpiResults, setGpiResults] = useState<GPIFullResult | null>(null);
 
+  // Save results form state
+  const [showSaveModal, setShowSaveModal] = useState(false);
+  const [saveForm, setSaveForm] = useState({ name: '', email: '', city: '', company: '' });
+  const [sendEmail, setSendEmail] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+
   const industries = getIndustryList();
 
   // 32 diagnostic questions
@@ -98,6 +106,55 @@ const DiagnosticPage = () => {
     setAnswers({});
     setAnalysisStep(0);
     setGpiResults(null);
+    setShowSaveModal(false);
+    setSaveForm({ name: '', email: '', city: '', company: '' });
+    setSaved(false);
+    setSaveError(null);
+  };
+
+  const handleSaveResults = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!gpiResults || !saveForm.name || !saveForm.email) return;
+
+    setSaving(true);
+    setSaveError(null);
+
+    try {
+      const response = await fetch('/api/diagnostic-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: saveForm.name,
+          email: saveForm.email,
+          city: saveForm.city,
+          company: saveForm.company,
+          gpiScore: gpiResults.overall,
+          stage: getStateLabel(gpiResults.state),
+          dimensions: {
+            decisionLatency: gpiResults.dimensions.find(d => d.dimension === 'DECISION_LATENCY')?.score || 0,
+            errorCorrection: gpiResults.dimensions.find(d => d.dimension === 'ERROR_CORRECTION')?.score || 0,
+            knowledgeLocation: gpiResults.dimensions.find(d => d.dimension === 'KNOWLEDGE_LOCATION')?.score || 0,
+            talentFlow: gpiResults.dimensions.find(d => d.dimension === 'TALENT_FLOW')?.score || 0,
+            knowledgeVelocity: gpiResults.dimensions.find(d => d.dimension === 'KNOWLEDGE_VELOCITY')?.score || 0,
+            structuralLockIn: gpiResults.dimensions.find(d => d.dimension === 'STRUCTURAL_LOCKIN')?.score || 0,
+            capitalIntensity: gpiResults.dimensions.find(d => d.dimension === 'CAPITAL_INTENSITY')?.score || 0,
+          },
+          industry: selectedIndustry,
+          sendEmail,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to save');
+      }
+
+      setSaved(true);
+      setShowSaveModal(false);
+    } catch (error) {
+      setSaveError('Failed to save results. Please try again.');
+    } finally {
+      setSaving(false);
+    }
   };
 
   // INTRO
@@ -377,6 +434,29 @@ const DiagnosticPage = () => {
                 </div>
               )}
 
+              {/* Save Results */}
+              {!saved && (
+                <div className="bg-zinc-950 border border-zinc-800 p-6 mb-8 text-center">
+                  <div className="text-xs font-mono text-zinc-600 mb-2">SAVE YOUR RESULTS</div>
+                  <p className="text-sm text-zinc-500 mb-4">
+                    Get your results emailed to you. Track your progress over time.
+                  </p>
+                  <button
+                    onClick={() => setShowSaveModal(true)}
+                    className="bg-red-600 px-6 py-3 font-black hover:bg-red-700 transition-colors"
+                  >
+                    EMAIL MY RESULTS
+                  </button>
+                </div>
+              )}
+
+              {saved && (
+                <div className="bg-green-950/30 border border-green-800 p-6 mb-8 text-center">
+                  <div className="text-green-500 font-bold mb-2">Results saved and emailed!</div>
+                  <p className="text-sm text-zinc-500">Check your inbox for your full GPI breakdown.</p>
+                </div>
+              )}
+
               {/* Actions */}
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link
@@ -402,6 +482,96 @@ const DiagnosticPage = () => {
               <p className="text-center text-zinc-600 text-xs mt-8">
                 Retake in 90 days to measure change.
               </p>
+
+              {/* Save Modal */}
+              {showSaveModal && (
+                <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-6">
+                  <div className="bg-zinc-950 border border-zinc-800 p-8 max-w-md w-full">
+                    <div className="flex justify-between items-center mb-6">
+                      <h3 className="text-xl font-black">SAVE YOUR RESULTS</h3>
+                      <button
+                        onClick={() => setShowSaveModal(false)}
+                        className="text-zinc-600 hover:text-white text-2xl"
+                      >
+                        &times;
+                      </button>
+                    </div>
+
+                    <form onSubmit={handleSaveResults} className="space-y-4">
+                      <div>
+                        <label className="block text-xs font-mono text-zinc-600 mb-2">NAME *</label>
+                        <input
+                          type="text"
+                          required
+                          value={saveForm.name}
+                          onChange={(e) => setSaveForm({ ...saveForm, name: e.target.value })}
+                          className="w-full bg-black border border-zinc-700 p-3 text-white focus:border-red-600 outline-none"
+                          placeholder="Your name"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-mono text-zinc-600 mb-2">EMAIL *</label>
+                        <input
+                          type="email"
+                          required
+                          value={saveForm.email}
+                          onChange={(e) => setSaveForm({ ...saveForm, email: e.target.value })}
+                          className="w-full bg-black border border-zinc-700 p-3 text-white focus:border-red-600 outline-none"
+                          placeholder="you@company.com"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-mono text-zinc-600 mb-2">COMPANY</label>
+                        <input
+                          type="text"
+                          value={saveForm.company}
+                          onChange={(e) => setSaveForm({ ...saveForm, company: e.target.value })}
+                          className="w-full bg-black border border-zinc-700 p-3 text-white focus:border-red-600 outline-none"
+                          placeholder="Your company"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-mono text-zinc-600 mb-2">CITY</label>
+                        <input
+                          type="text"
+                          value={saveForm.city}
+                          onChange={(e) => setSaveForm({ ...saveForm, city: e.target.value })}
+                          className="w-full bg-black border border-zinc-700 p-3 text-white focus:border-red-600 outline-none"
+                          placeholder="Your city"
+                        />
+                      </div>
+
+                      <div className="flex items-center gap-3 pt-2">
+                        <input
+                          type="checkbox"
+                          id="sendEmail"
+                          checked={sendEmail}
+                          onChange={(e) => setSendEmail(e.target.checked)}
+                          className="w-4 h-4 accent-red-600"
+                        />
+                        <label htmlFor="sendEmail" className="text-sm text-zinc-400">
+                          Email me my results
+                        </label>
+                      </div>
+
+                      {saveError && (
+                        <div className="text-red-500 text-sm">{saveError}</div>
+                      )}
+
+                      <button
+                        type="submit"
+                        disabled={saving}
+                        className="w-full bg-red-600 py-4 font-black hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {saving ? 'SAVING...' : 'SAVE RESULTS'}
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              )}
             </div>
           </section>
         </div>
