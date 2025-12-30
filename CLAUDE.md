@@ -87,3 +87,36 @@ When making changes:
 3. Email functionality uses nodemailer - ensure proper configuration when deploying to production
 
 4. All image paths now point to proper image files in the `/public/images/` directory
+
+## Deployment
+
+### GitHub
+- **Repository:** `marcellmar/imaginationg`
+- **Branch:** `main` (auto-deploys to Vercel)
+- **URL:** https://github.com/marcellmar/imaginationg
+
+### Vercel
+- **Project:** imaginationg
+- **Domain:** https://www.imaginationg.studio
+- **Framework:** Next.js (auto-detected)
+- **Build Command:** `npm run build`
+- **Output Directory:** `.next`
+
+### Environment Variables (Vercel)
+Required environment variables in Vercel dashboard:
+- `NOTION_API_KEY` - Notion integration token for GPI content and diagnostic submissions
+- `RESEND_API_KEY` - Resend API key for transactional emails (optional, emails won't send without it)
+
+### Notion Databases
+The site integrates with Notion for content management:
+- **GPI Analyses:** `7d636c92-c316-4bfc-9bc7-7899e575e19e` - Company/industry GPI scores
+- **GPI Content:** `2d8990ae-cd45-811a-b634-c11c51be4013` - Published articles (5 series)
+- **Diagnostic Submissions:** `2d8990ae-cd45-810c-bcf6-cf242c398775` - User diagnostic results
+
+### Content Series
+GPI Analyses publishes 5 content series:
+1. **Weekly Smackdown** - Head-to-head GPI comparisons
+2. **Transition Watch** - Companies attempting transformation
+3. **Calcification Alert** - High-GPI particles in the news
+4. **Field Notes** - How low-GPI companies stay fluid
+5. **Wildcard** - Unexpected insights ("can't unsee it" test)
