@@ -14,7 +14,7 @@ import AudioPlayer from '../../../components/AudioPlayer';
 const audioMap: Record<string, { src: string; duration: string; title: string }> = {
   'shadow-work-self-checkout-heist': {
     src: '/audio/shadow-work-heist.mp3',
-    duration: '12:34',
+    duration: '11:56',
     title: 'The $12 Billion Shadow Work Heist - Deep Dive',
   },
   // Add more episodes as needed:
