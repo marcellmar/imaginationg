@@ -243,24 +243,33 @@ const AnalysisPage = () => {
               )}
             </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6 leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-4 leading-tight">
               {content.headline}
             </h1>
+
+            {/* Audio Player - right under title */}
+            {audioMap[content.slug] && (
+              <div className="mb-6">
+                <div className="text-xs font-mono text-zinc-500 mb-2">LISTEN TO THIS ANALYSIS</div>
+                <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-3">
+                  <audio
+                    controls
+                    className="w-full"
+                    style={{ height: '40px' }}
+                  >
+                    <source src={audioMap[content.slug].src} type="audio/mpeg" />
+                  </audio>
+                  <div className="flex justify-between items-center mt-2 text-xs text-zinc-500">
+                    <span>{audioMap[content.slug].title}</span>
+                    <span>{audioMap[content.slug].duration}</span>
+                  </div>
+                </div>
+              </div>
+            )}
 
             <p className="text-xl text-zinc-400 leading-relaxed">
               {content.teaser}
             </p>
-
-            {/* Audio Player - if available */}
-            {audioMap[content.slug] && (
-              <div className="mt-8">
-                <AudioPlayer
-                  src={audioMap[content.slug].src}
-                  title={audioMap[content.slug].title}
-                  duration={audioMap[content.slug].duration}
-                />
-              </div>
-            )}
           </div>
         </section>
 
