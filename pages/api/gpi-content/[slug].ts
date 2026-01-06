@@ -149,7 +149,7 @@ export default async function handler(
       blocks,
     };
 
-    res.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate');
+    res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate');
     return res.status(200).json(content);
   } catch (error) {
     console.error('Error fetching content:', error);

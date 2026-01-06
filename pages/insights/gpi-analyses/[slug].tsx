@@ -145,6 +145,14 @@ const RenderBlock = ({ block }: { block: ContentBlock }) => {
           {renderText(block.content)}
         </blockquote>
       );
+    case 'callout':
+      return (
+        <div className="bg-zinc-900 border border-zinc-700 rounded-lg p-4 my-6">
+          <p className="text-zinc-200 font-medium">{renderText(block.content)}</p>
+        </div>
+      );
+    case 'divider':
+      return <hr className="border-zinc-800 my-8" />;
     default:
       return null;
   }
