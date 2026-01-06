@@ -6,106 +6,253 @@ import React from 'react';
 import Link from 'next/link';
 import SEOHead from '../../components/SEOHead';
 import Navigation from '../../components/Navigation';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, User, Users, Zap, Target, Gauge, Layers, RotateCcw, Grid3X3 } from 'lucide-react';
+
+interface Tool {
+  id: string;
+  name: string;
+  description: string;
+  time: string;
+  href: string;
+  icon: React.ReactNode;
+  color: string;
+}
 
 const ToolsPage = () => {
-  const tools = [
+  const primaryTool = {
+    id: 'diagnostic',
+    name: 'GPI DIAGNOSTIC',
+    description: '32 questions across 7 dimensions. Complete organizational friction assessment with industry benchmarks.',
+    time: '~8 min',
+    href: '/diagnostic',
+  };
+
+  const personalTools: Tool[] = [
     {
-      id: 'diagnostic',
-      name: 'GPI DIAGNOSTIC',
-      description: '32 questions. 7 dimensions. Full organizational assessment.',
-      time: '~8 min',
-      href: '/diagnostic',
-      primary: true,
-    },
-    {
-      id: 'five-questions',
-      name: 'FIVE QUESTIONS',
-      description: 'Personal career audit. Where does your value actually come from?',
+      id: 'career-positioning',
+      name: 'CAREER POSITIONING',
+      description: 'Role type + industry phase = your trajectory. Find your quadrant.',
       time: '~3 min',
-      href: '/tools/five-questions',
-    },
-    {
-      id: 'signal-structure',
-      name: 'SIGNAL VS STRUCTURE',
-      description: 'Role type + industry phase. Find your quadrant.',
-      time: '~2 min',
-      href: '/tools/signal-vs-structure',
+      href: '/tools/career-positioning',
+      icon: <User size={20} />,
+      color: 'yellow',
     },
   ];
+
+  const teamTools: Tool[] = [
+    {
+      id: 'team-nexel-map',
+      name: 'TEAM NEXEL MAP',
+      description: 'Map your team\'s movement patterns. Who drives momentum vs. who blocks it.',
+      time: '~5 min',
+      href: '/tools/team-nexel-map',
+      icon: <Users size={20} />,
+      color: 'blue',
+    },
+    {
+      id: 'energy-audit',
+      name: 'ENERGY AUDIT',
+      description: 'Find where organizational energy leaks. Meetings, processes, handoffs.',
+      time: '~4 min',
+      href: '/tools/energy-audit',
+      icon: <Zap size={20} />,
+      color: 'green',
+    },
+  ];
+
+  const interventionTools: Tool[] = [
+    {
+      id: 'override-protocol',
+      name: 'OVERRIDE PROTOCOL',
+      description: 'Structured intervention for stuck situations. Break the pattern.',
+      time: '~6 min',
+      href: '/tools/override-protocol',
+      icon: <RotateCcw size={20} />,
+      color: 'red',
+    },
+    {
+      id: 'block-flip',
+      name: 'BLOCK FLIP',
+      description: 'Convert blockers to enablers. Reframe resistance into momentum.',
+      time: '~4 min',
+      href: '/tools/block-flip',
+      icon: <Layers size={20} />,
+      color: 'purple',
+    },
+    {
+      id: 'micro-interventions',
+      name: 'MICRO INTERVENTIONS',
+      description: 'Small moves that shift stuck systems. Daily friction reduction.',
+      time: '~3 min',
+      href: '/tools/micro-interventions',
+      icon: <Target size={20} />,
+      color: 'cyan',
+    },
+    {
+      id: 'nexel-audit',
+      name: 'NEXEL AUDIT',
+      description: 'Diagnose your movement pattern. Spark, Sustainer, or something else.',
+      time: '~4 min',
+      href: '/tools/nexel-audit',
+      icon: <Grid3X3 size={20} />,
+      color: 'orange',
+    },
+  ];
+
+  const getColorClasses = (color: string) => {
+    const colors: Record<string, { border: string; text: string; bg: string }> = {
+      yellow: { border: 'border-yellow-600', text: 'text-yellow-500', bg: 'bg-yellow-500/10' },
+      blue: { border: 'border-blue-600', text: 'text-blue-500', bg: 'bg-blue-500/10' },
+      green: { border: 'border-green-600', text: 'text-green-500', bg: 'bg-green-500/10' },
+      red: { border: 'border-red-600', text: 'text-red-500', bg: 'bg-red-500/10' },
+      purple: { border: 'border-purple-600', text: 'text-purple-500', bg: 'bg-purple-500/10' },
+      cyan: { border: 'border-cyan-600', text: 'text-cyan-500', bg: 'bg-cyan-500/10' },
+      orange: { border: 'border-orange-600', text: 'text-orange-500', bg: 'bg-orange-500/10' },
+    };
+    return colors[color] || colors.yellow;
+  };
+
+  const ToolCard = ({ tool }: { tool: Tool }) => {
+    const colors = getColorClasses(tool.color);
+    return (
+      <Link
+        href={tool.href}
+        className={`block border border-zinc-800 hover:${colors.border} p-5 transition-all group`}
+      >
+        <div className="flex items-start gap-4">
+          <div className={`p-2 ${colors.bg} ${colors.text} rounded-lg`}>
+            {tool.icon}
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 mb-1">
+              <h3 className="font-bold text-white group-hover:text-white truncate">
+                {tool.name}
+              </h3>
+            </div>
+            <p className="text-sm text-zinc-500 mb-2 line-clamp-2">
+              {tool.description}
+            </p>
+            <span className="text-xs text-zinc-600">{tool.time}</span>
+          </div>
+          <ArrowRight
+            size={18}
+            className="text-zinc-700 group-hover:text-white group-hover:translate-x-1 transition-all flex-shrink-0 mt-1"
+          />
+        </div>
+      </Link>
+    );
+  };
 
   return (
     <>
       <SEOHead
         title="Tools | IMAGINATION G"
-        description="Diagnostic tools for measuring organizational friction. GPI diagnostic, career audits, and positioning assessments."
+        description="Diagnostic tools for measuring organizational friction. GPI diagnostic, career positioning, team mapping, and intervention protocols."
       />
 
       <div className="min-h-screen bg-black text-white">
         <Navigation currentPage="tools" />
 
         <section className="pt-20 pb-16 px-6">
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-3xl mx-auto">
 
             {/* Header */}
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 text-xs font-mono text-zinc-600 mb-6">
-                <span className="w-2 h-2 bg-red-500 rounded-full" />
-                DIAGNOSTIC TOOLS
+                <Gauge size={14} />
+                DIAGNOSTIC INSTRUMENTS
               </div>
-              <h1 className="text-3xl md:text-4xl font-black tracking-tight">
+              <h1 className="text-3xl md:text-4xl font-black tracking-tight mb-3">
                 TOOLS
               </h1>
+              <p className="text-zinc-500 max-w-lg mx-auto">
+                Measure friction. Find leverage points. Move faster.
+              </p>
             </div>
 
-            {/* Tools List */}
-            <div className="space-y-4">
-              {tools.map((tool) => (
-                <Link
-                  key={tool.id}
-                  href={tool.href}
-                  className={`block border p-6 transition-all group ${
-                    tool.primary
-                      ? 'border-red-600 hover:bg-red-600/10'
-                      : 'border-zinc-800 hover:border-zinc-600'
-                  }`}
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h2 className={`font-black ${tool.primary ? 'text-red-500' : 'text-white'} group-hover:text-white transition-colors`}>
-                          {tool.name}
-                        </h2>
-                        {tool.primary && (
-                          <span className="text-xs font-mono text-red-500 bg-red-500/10 px-2 py-0.5">
-                            FULL
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-sm text-zinc-500 mb-2">
-                        {tool.description}
-                      </p>
-                      <span className="text-xs text-zinc-600">{tool.time}</span>
+            {/* Primary Tool - Full GPI */}
+            <div className="mb-12">
+              <Link
+                href={primaryTool.href}
+                className="block border-2 border-red-600 bg-red-950/20 hover:bg-red-950/40 p-6 transition-all group"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <h2 className="text-xl font-black text-red-500">
+                        {primaryTool.name}
+                      </h2>
+                      <span className="text-xs font-mono text-red-500 bg-red-500/20 px-2 py-0.5 rounded">
+                        FULL ASSESSMENT
+                      </span>
                     </div>
-                    <ArrowRight
-                      size={20}
-                      className="text-zinc-600 group-hover:text-white group-hover:translate-x-1 transition-all mt-1"
-                    />
+                    <p className="text-zinc-400 mb-3">
+                      {primaryTool.description}
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <span className="text-xs text-zinc-600">{primaryTool.time}</span>
+                      <span className="text-xs text-zinc-600">•</span>
+                      <span className="text-xs text-zinc-600">7 dimensions</span>
+                      <span className="text-xs text-zinc-600">•</span>
+                      <span className="text-xs text-zinc-600">32 questions</span>
+                    </div>
                   </div>
-                </Link>
-              ))}
+                  <div className="bg-red-600 p-3 group-hover:bg-red-500 transition-colors">
+                    <ArrowRight size={24} />
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+            {/* Personal Tools */}
+            <div className="mb-8">
+              <h2 className="text-xs font-mono text-zinc-600 mb-4 flex items-center gap-2">
+                <User size={14} />
+                PERSONAL POSITIONING
+              </h2>
+              <div className="space-y-3">
+                {personalTools.map(tool => (
+                  <ToolCard key={tool.id} tool={tool} />
+                ))}
+              </div>
+            </div>
+
+            {/* Team Tools */}
+            <div className="mb-8">
+              <h2 className="text-xs font-mono text-zinc-600 mb-4 flex items-center gap-2">
+                <Users size={14} />
+                TEAM DIAGNOSTICS
+              </h2>
+              <div className="space-y-3">
+                {teamTools.map(tool => (
+                  <ToolCard key={tool.id} tool={tool} />
+                ))}
+              </div>
+            </div>
+
+            {/* Intervention Tools */}
+            <div className="mb-12">
+              <h2 className="text-xs font-mono text-zinc-600 mb-4 flex items-center gap-2">
+                <Zap size={14} />
+                INTERVENTION PROTOCOLS
+              </h2>
+              <div className="space-y-3">
+                {interventionTools.map(tool => (
+                  <ToolCard key={tool.id} tool={tool} />
+                ))}
+              </div>
             </div>
 
             {/* Scale Reference */}
-            <div className="mt-12 bg-zinc-950 border border-zinc-800 p-6">
+            <div className="bg-zinc-950 border border-zinc-800 p-6 rounded-xl">
               <div className="text-xs font-mono text-zinc-600 mb-4">GPI SCALE REFERENCE</div>
-              <div className="relative h-2 bg-zinc-900 rounded-full mb-3">
-                <div className="absolute inset-0 bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 rounded-full" />
+              <div className="relative h-2 bg-zinc-900 rounded-full mb-3 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-green-500 via-yellow-500 to-red-500" />
               </div>
               <div className="flex justify-between text-xs">
                 <div>
                   <span className="font-mono text-green-500">1-3</span>
-                  <span className="text-zinc-600 ml-2">Flow state</span>
+                  <span className="text-zinc-600 ml-2">Field</span>
                 </div>
                 <div>
                   <span className="font-mono text-yellow-500">4-6</span>
@@ -113,7 +260,7 @@ const ToolsPage = () => {
                 </div>
                 <div>
                   <span className="font-mono text-red-500">7-10</span>
-                  <span className="text-zinc-600 ml-2">Friction</span>
+                  <span className="text-zinc-600 ml-2">Particle</span>
                 </div>
               </div>
             </div>
@@ -122,9 +269,9 @@ const ToolsPage = () => {
             <div className="mt-8 text-center">
               <Link
                 href="/gpi-framework"
-                className="text-zinc-500 hover:text-white transition-colors text-sm"
+                className="text-zinc-500 hover:text-white transition-colors text-sm inline-flex items-center gap-2"
               >
-                Learn how GPI works →
+                Learn how the GPI framework works <ArrowRight size={14} />
               </Link>
             </div>
 

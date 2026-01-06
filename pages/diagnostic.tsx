@@ -3,7 +3,7 @@ import Link from 'next/link';
 import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
 import { GPIRadarChart } from '../components/gpi';
-import { ArrowLeft, Zap, Clock, Brain, Users, Gauge, Lock, DollarSign } from 'lucide-react';
+import { ArrowLeft, Zap, Clock, Brain, Users, Gauge, Lock, DollarSign, Lightbulb } from 'lucide-react';
 import {
   calculateFullGPI,
   getStateLabel,
@@ -12,6 +12,7 @@ import {
   getOrderedDimensions,
 } from '../lib/gpi-calculator';
 import { getIndustryList } from '../lib/gpi-industry-benchmarks';
+import { getQuestionExample } from '../lib/gpi-industry-examples';
 import type { DiagnosticAnswer, GPIFullResult, DimensionKey } from '../lib/gpi-types';
 
 // Dimension interpretations based on score
@@ -746,7 +747,7 @@ const DiagnosticPage = () => {
             )}
 
             {/* Question */}
-            <div className="mb-12">
+            <div className="mb-8">
               <div className="text-xs font-mono text-zinc-600 mb-4">
                 {GPI_DIMENSIONS[currentQ.dimension].label}
               </div>
@@ -754,6 +755,27 @@ const DiagnosticPage = () => {
                 {currentQ.question}
               </h2>
             </div>
+
+            {/* Industry-Specific Example */}
+            {(() => {
+              const example = getQuestionExample(currentQ.id, selectedIndustry);
+              if (!example) return null;
+              return (
+                <div className="bg-zinc-900/50 border border-zinc-800 rounded-lg p-4 mb-8">
+                  <div className="flex items-start gap-3">
+                    <Lightbulb size={18} className="text-yellow-500 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <div className="text-xs font-mono text-zinc-600 mb-1">
+                        IN {selectedIndustry.toUpperCase()}
+                      </div>
+                      <p className="text-sm text-zinc-400">
+                        {example}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
 
             {/* Answers */}
             <div className="grid grid-cols-2 gap-4">
