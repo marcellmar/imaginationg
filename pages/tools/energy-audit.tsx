@@ -100,7 +100,7 @@ const EnergyAuditPage = () => {
     };
   };
 
-  const getSorethRecommendations = (drains: any[]) => {
+  const getFrictionRecommendations = (drains: any[]) => {
     const recommendations: Record<string, string[]> = {
       meetings: [
         'Audit all recurring meetings - kill 30% of them',
@@ -155,8 +155,8 @@ const EnergyAuditPage = () => {
     return (
       <>
         <SEOHead
-          title="Energy Audit Tracker - Personal Soreth Detection | IMAGINATION G"
-          description="Track and optimize your energy patterns. Detect soreth (energy drains) and build sustainable high-performance habits."
+          title="Energy Audit Tracker - Friction Detection | IMAGINATION G"
+          description="Track and optimize your energy patterns. Detect friction (energy drains) that create structural drag on your performance."
           ogImage="/images/og-energy-audit.svg"
         />
         
@@ -175,16 +175,16 @@ const EnergyAuditPage = () => {
               </h1>
               
               <p className="text-xl text-zinc-400 mb-12 max-w-2xl">
-                Detect your personal soreth patterns - the invisible energy drains killing your momentum. 
+                Detect your personal friction patterns - the invisible energy drains killing your momentum.
                 Track, analyze, and optimize your energy for sustainable high performance.
               </p>
 
               <div className="grid md:grid-cols-2 gap-8 mb-12">
                 <div className="border border-zinc-800 p-6 bg-zinc-950">
-                  <h3 className="text-xl font-black mb-4 text-red-600">WHAT IS SORETH?</h3>
+                  <h3 className="text-xl font-black mb-4 text-red-600">WHAT IS FRICTION?</h3>
                   <p className="text-zinc-400 mb-4">
-                    Soreth is the accumulated drag from systems, people, and activities that drain your energy 
-                    without adding value. It's invisible but measurable.
+                    Friction is the accumulated drag from systems, people, and activities that drain your energy
+                    without adding value. Remember: friction is margin - someone profits from your inefficiency.
                   </p>
                   <div className="space-y-2 text-sm text-zinc-500">
                     <div>• Unproductive meetings</div>
@@ -204,7 +204,7 @@ const EnergyAuditPage = () => {
                     </div>
                     <div className="flex items-center gap-3">
                       <AlertTriangle className="text-red-500" size={16} />
-                      <span className="text-sm">Soreth detection across 6 categories</span>
+                      <span className="text-sm">Friction detection across 6 categories</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <Target className="text-purple-500" size={16} />
@@ -382,7 +382,7 @@ const EnergyAuditPage = () => {
               </h1>
               
               <p className="text-xl text-zinc-400 mb-8">
-                Now that we have your baseline, let's set up ongoing tracking to catch soreth patterns early.
+                Now that we have your baseline, let's set up ongoing tracking to catch friction patterns early.
               </p>
 
               <div className="space-y-8">
@@ -455,13 +455,13 @@ const EnergyAuditPage = () => {
 
   // RESULTS SCREEN
   const results = calculateResults();
-  const recommendations = getSorethRecommendations(results.energyDrains);
+  const recommendations = getFrictionRecommendations(results.energyDrains);
   
   return (
     <>
       <SEOHead
         title="Your Energy Audit Results | IMAGINATION G"
-        description="Personal energy analysis and soreth detection results with optimization recommendations."
+        description="Personal energy analysis and friction detection results with optimization recommendations."
       />
       
       <div className="min-h-screen bg-black text-white">
@@ -489,7 +489,7 @@ const EnergyAuditPage = () => {
               <p className="text-xl text-zinc-400">
                 {results.healthLevel === 'high' && "Strong energy management. Focus on optimizing high-performers."}
                 {results.healthLevel === 'moderate' && "Moderate energy health. Clear optimization opportunities."}
-                {results.healthLevel === 'low' && "Significant soreth detected. Immediate intervention needed."}
+                {results.healthLevel === 'low' && "Significant friction detected. Immediate intervention needed."}
               </p>
             </div>
 
@@ -541,7 +541,7 @@ const EnergyAuditPage = () => {
             {/* Recommendations */}
             {recommendations.length > 0 && (
               <div className="border-4 border-red-600 p-8 mb-8 bg-black">
-                <h2 className="text-2xl font-black text-red-600 mb-6">SORETH ELIMINATION PLAN</h2>
+                <h2 className="text-2xl font-black text-red-600 mb-6">FRICTION ELIMINATION PLAN</h2>
                 <div className="grid md:grid-cols-2 gap-4">
                   {recommendations.slice(0, 6).map((rec, index) => (
                     <div key={index} className="flex items-start gap-3 p-4 border border-zinc-800 bg-zinc-950">
@@ -580,24 +580,24 @@ const EnergyAuditPage = () => {
             {/* Action Options */}
             <div className="grid md:grid-cols-3 gap-4 mb-8">
               <div className="border border-zinc-700 p-6 text-center">
-                <h4 className="font-black mb-2">LEARN ABOUT SORETH</h4>
-                <p className="text-sm text-zinc-400 mb-4">Deep dive into energy management theory</p>
-                <a 
-                  href="/answers/glossary/soreth"
+                <h4 className="font-black mb-2">UNDERSTAND FRICTION</h4>
+                <p className="text-sm text-zinc-400 mb-4">Deep dive into the GPI Framework</p>
+                <a
+                  href="/answers/what-is-gpi"
                   className="text-red-600 hover:text-red-500 transition-colors text-sm font-bold"
                 >
-                  READ SORETH GUIDE →
+                  READ GPI GUIDE →
                 </a>
               </div>
               
               <div className="border border-zinc-700 p-6 text-center">
-                <h4 className="font-black mb-2">TEAM ENERGY AUDIT</h4>
-                <p className="text-sm text-zinc-400 mb-4">Assess your team's collective energy</p>
-                <a 
-                  href="/tools/team-nexel-matching"
+                <h4 className="font-black mb-2">FULL DIAGNOSTIC</h4>
+                <p className="text-sm text-zinc-400 mb-4">Get your organization's GPI score</p>
+                <a
+                  href="/diagnostic"
                   className="text-blue-600 hover:text-blue-500 transition-colors text-sm font-bold"
                 >
-                  AUDIT TEAM ENERGY →
+                  TAKE GPI DIAGNOSTIC →
                 </a>
               </div>
               

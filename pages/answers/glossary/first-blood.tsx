@@ -246,20 +246,20 @@ const FirstBloodPage: NextPage = () => {
               title="Related Concepts"
               items={[
                 {
-                  href: "/answers/glossary/quorr",
-                  title: "Escape Your Quorr",
+                  href: "/answers/glossary/structural-lock-in",
+                  title: "Escape Lock-In",
                   description: "Technical debt disguised as features. What to cut for first blood.",
                   color: "red"
                 },
                 {
-                  href: "/answers/glossary/voxel",
-                  title: "Find Your Voxel",
+                  href: "/gpi-framework",
+                  title: "Find Your Position",
                   description: "Three-dimensional truth. Where market meets reality meets action.",
                   color: "yellow"
                 },
                 {
-                  href: "/answers/glossary/zelith",
-                  title: "Hit Your Zelith",
+                  href: "/diagnostic",
+                  title: "Hit Your Breakthrough",
                   description: "Maximum pressure point. Where first blood becomes breakthrough.",
                   color: "green"
                 }

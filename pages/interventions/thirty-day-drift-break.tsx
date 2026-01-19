@@ -216,8 +216,8 @@ const ThirtyDayDriftBreakPage: NextPage = () => {
               title="Learn The Language"
               items={[
                 {
-                  href: "/answers/glossary/morrin",
-                  title: "Enter Morrin State",
+                  href: "/gpi-framework",
+                  title: "Reach Field State",
                   description: "Post-choice existence. When the drift finally breaks.",
                   color: "red"
                 },

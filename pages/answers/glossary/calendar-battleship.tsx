@@ -401,9 +401,9 @@ const CalendarBattleshipPage: NextPage = () => {
                   color: "red"
                 },
                 {
-                  href: "/answers/glossary/soreth",
-                  title: "Soreth Drains",
-                  description: "Hidden energy vampires in your systems. Meeting overhead is peak soreth.",
+                  href: "/gpi-framework",
+                  title: "Friction Points",
+                  description: "Hidden energy vampires in your systems. Meeting overhead is peak friction.",
                   color: "yellow"
                 },
                 {

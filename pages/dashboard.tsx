@@ -38,83 +38,83 @@ interface DashboardData {
   lastUpdated: string;
 }
 
-// Metric metadata
+// GPI Metric metadata - The 7 Dimensions
 const METRIC_INFO = {
-  nexel: {
-    name: 'Nexel',
-    description: 'Behavioral identity marker',
+  decisionLatency: {
+    name: 'Decision Latency',
+    description: 'Time from signal to action',
     color: 'text-blue-500',
     bgColor: 'bg-blue-500/10',
     borderColor: 'border-blue-500/20',
-    goodDirection: 'stable' // Depends on alignment
+    goodDirection: 'down' // Lower is better (faster decisions)
   },
-  morrin: {
-    name: 'Morrin',
-    description: 'Post-choice momentum',
+  errorCorrection: {
+    name: 'Error Correction',
+    description: 'Speed of feedback loops',
     color: 'text-green-500',
     bgColor: 'bg-green-500/10',
     borderColor: 'border-green-500/20',
-    goodDirection: 'up'
+    goodDirection: 'down' // Lower is better (faster correction)
   },
-  strune: {
-    name: 'Strune',
-    description: 'Self-generated resistance',
+  knowledgeLocation: {
+    name: 'Knowledge Location',
+    description: 'Where expertise lives',
     color: 'text-orange-500',
     bgColor: 'bg-orange-500/10',
     borderColor: 'border-orange-500/20',
-    goodDirection: 'down'
+    goodDirection: 'down' // Lower = distributed, higher = siloed
   },
-  pilor: {
-    name: 'Pilor',
-    description: 'Recursive failure depth',
+  talentFlow: {
+    name: 'Talent Flow',
+    description: 'Movement of people and skills',
     color: 'text-red-600',
     bgColor: 'bg-red-600/10',
     borderColor: 'border-red-600/20',
-    goodDirection: 'down'
+    goodDirection: 'down' // Lower = fluid, higher = stuck
   },
-  kithara: {
-    name: 'Kithara',
-    description: 'False harmony index',
+  knowledgeVelocity: {
+    name: 'Knowledge Velocity',
+    description: 'Speed of information flow',
     color: 'text-purple-500',
     bgColor: 'bg-purple-500/10',
     borderColor: 'border-purple-500/20',
-    goodDirection: 'down'
+    goodDirection: 'down' // Lower = fast flow, higher = bottlenecks
   },
-  soreth: {
-    name: 'Soreth',
-    description: 'Hidden energy drain',
+  structuralLockIn: {
+    name: 'Structural Lock-In',
+    description: 'Rigidity of systems and processes',
     color: 'text-pink-500',
     bgColor: 'bg-pink-500/10',
     borderColor: 'border-pink-500/20',
-    goodDirection: 'down'
+    goodDirection: 'down' // Lower = flexible, higher = rigid
   },
-  voxel: {
-    name: 'Voxel',
-    description: 'Reality alignment gap',
+  capitalIntensity: {
+    name: 'Capital Intensity',
+    description: 'Cost of change and pivot',
     color: 'text-indigo-500',
     bgColor: 'bg-indigo-500/10',
     borderColor: 'border-indigo-500/20',
-    goodDirection: 'down'
+    goodDirection: 'down' // Lower = nimble, higher = heavy
   },
-  quorr: {
-    name: 'Quorr',
-    description: 'Complexity debt',
+  gpiScore: {
+    name: 'GPI Score',
+    description: 'Overall organizational friction',
     color: 'text-yellow-500',
     bgColor: 'bg-yellow-500/10',
     borderColor: 'border-yellow-500/20',
-    goodDirection: 'down'
+    goodDirection: 'down' // Lower = Field, higher = Particle
   },
-  threnn: {
-    name: 'Threnn',
-    description: 'Momentum coefficient',
+  frictionIndex: {
+    name: 'Friction Index',
+    description: 'Composite resistance measure',
     color: 'text-cyan-500',
     bgColor: 'bg-cyan-500/10',
     borderColor: 'border-cyan-500/20',
-    goodDirection: 'up'
+    goodDirection: 'down'
   },
-  zelith: {
-    name: 'Zelith',
-    description: 'Pressure proximity',
+  adaptationRate: {
+    name: 'Adaptation Rate',
+    description: 'Speed of organizational change',
     color: 'text-red-500',
     bgColor: 'bg-red-500/10',
     borderColor: 'border-red-500/20',
@@ -180,8 +180,8 @@ const Dashboard: NextPage = () => {
   return (
     <>
       <SEOHead
-        title="IG Behavioral Physics Dashboard | IMAGINATION G"
-        description="Real-time monitoring of organizational behavioral physics. Track Nexel, Morrin, Strune, and other IG metrics."
+        title="GPI Dashboard | IMAGINATION G"
+        description="Real-time monitoring of organizational friction. Track Decision Latency, Knowledge Velocity, and all 7 GPI dimensions."
       />
 
       <div className="min-h-screen bg-black text-white">

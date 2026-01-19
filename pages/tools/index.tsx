@@ -6,7 +6,7 @@ import React from 'react';
 import Link from 'next/link';
 import SEOHead from '../../components/SEOHead';
 import Navigation from '../../components/Navigation';
-import { ArrowRight, User, Users, Zap, Target, Gauge, Layers, RotateCcw, Grid3X3 } from 'lucide-react';
+import { ArrowRight, User, Users, Gauge, Scan, Search, Radio, Zap } from 'lucide-react';
 
 interface Tool {
   id: string;
@@ -41,18 +41,9 @@ const ToolsPage = () => {
 
   const teamTools: Tool[] = [
     {
-      id: 'team-nexel-map',
-      name: 'TEAM NEXEL MAP',
-      description: 'Map your team\'s movement patterns. Who drives momentum vs. who blocks it.',
-      time: '~5 min',
-      href: '/tools/team-nexel-map',
-      icon: <Users size={20} />,
-      color: 'blue',
-    },
-    {
       id: 'energy-audit',
-      name: 'ENERGY AUDIT',
-      description: 'Find where organizational energy leaks. Meetings, processes, handoffs.',
+      name: 'FRICTION AUDIT',
+      description: 'Find where friction drains energy. Meetings, processes, handoffs. Remember: friction is margin.',
       time: '~4 min',
       href: '/tools/energy-audit',
       icon: <Zap size={20} />,
@@ -60,42 +51,33 @@ const ToolsPage = () => {
     },
   ];
 
-  const interventionTools: Tool[] = [
+  const frictionScans: Tool[] = [
     {
-      id: 'override-protocol',
-      name: 'OVERRIDE PROTOCOL',
-      description: 'Structured intervention for stuck situations. Break the pattern.',
+      id: 'stuck-scan',
+      name: 'STUCK SCAN',
+      description: 'X-ray a stuck situation. Identify the friction type and locate the blockage.',
       time: '~6 min',
       href: '/tools/override-protocol',
-      icon: <RotateCcw size={20} />,
+      icon: <Scan size={20} />,
       color: 'red',
     },
     {
-      id: 'block-flip',
-      name: 'BLOCK FLIP',
-      description: 'Convert blockers to enablers. Reframe resistance into momentum.',
+      id: 'blocker-detector',
+      name: 'BLOCKER DETECTOR',
+      description: 'Scan for hidden resistance. Surface what is actually stopping movement.',
       time: '~4 min',
       href: '/tools/block-flip',
-      icon: <Layers size={20} />,
+      icon: <Search size={20} />,
       color: 'purple',
     },
     {
-      id: 'micro-interventions',
-      name: 'MICRO INTERVENTIONS',
-      description: 'Small moves that shift stuck systems. Daily friction reduction.',
+      id: 'friction-radar',
+      name: 'FRICTION RADAR',
+      description: 'Detect micro-friction in daily operations. Find the small drags that compound.',
       time: '~3 min',
       href: '/tools/micro-interventions',
-      icon: <Target size={20} />,
+      icon: <Radio size={20} />,
       color: 'cyan',
-    },
-    {
-      id: 'nexel-audit',
-      name: 'NEXEL AUDIT',
-      description: 'Diagnose your movement pattern. Spark, Sustainer, or something else.',
-      time: '~4 min',
-      href: '/tools/nexel-audit',
-      icon: <Grid3X3 size={20} />,
-      color: 'orange',
     },
   ];
 
@@ -147,7 +129,7 @@ const ToolsPage = () => {
     <>
       <SEOHead
         title="Tools | IMAGINATION G"
-        description="Diagnostic tools for measuring organizational friction. GPI diagnostic, career positioning, team mapping, and intervention protocols."
+        description="Diagnostic tools for measuring organizational friction. GPI diagnostic, career positioning, and friction audit."
       />
 
       <div className="min-h-screen bg-black text-white">
@@ -230,17 +212,46 @@ const ToolsPage = () => {
               </div>
             </div>
 
-            {/* Intervention Tools */}
+            {/* Friction Scans - Coming Soon */}
             <div className="mb-12">
               <h2 className="text-xs font-mono text-zinc-600 mb-4 flex items-center gap-2">
-                <Zap size={14} />
-                INTERVENTION PROTOCOLS
+                <Scan size={14} />
+                FRICTION SCANS
+                <span className="text-yellow-500 bg-yellow-500/10 px-2 py-0.5 rounded text-[10px]">
+                  COMING SOON
+                </span>
               </h2>
-              <div className="space-y-3">
-                {interventionTools.map(tool => (
-                  <ToolCard key={tool.id} tool={tool} />
-                ))}
+              <div className="space-y-3 opacity-50">
+                {frictionScans.map(tool => {
+                  const colors = getColorClasses(tool.color);
+                  return (
+                    <div
+                      key={tool.id}
+                      className="block border border-zinc-800 p-5 cursor-not-allowed"
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className={`p-2 ${colors.bg} ${colors.text} rounded-lg`}>
+                          {tool.icon}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-1">
+                            <h3 className="font-bold text-zinc-500 truncate">
+                              {tool.name}
+                            </h3>
+                          </div>
+                          <p className="text-sm text-zinc-600 mb-2 line-clamp-2">
+                            {tool.description}
+                          </p>
+                          <span className="text-xs text-zinc-700">{tool.time}</span>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
+              <p className="text-xs text-zinc-600 mt-3 text-center">
+                These scans are being calibrated. Check back soon.
+              </p>
             </div>
 
             {/* Scale Reference */}

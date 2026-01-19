@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import SEOHead from '../../components/SEOHead';
 import Navigation from '../../components/Navigation';
-import { AlertTriangle, ArrowRight, ArrowLeft, Zap, Clock, Target, CheckCircle, X, RefreshCw, Download, Play } from 'lucide-react';
+import { AlertTriangle, ArrowRight, ArrowLeft, Scan, Clock, Target, CheckCircle, X, RefreshCw, Download, Play, Radio } from 'lucide-react';
 
-const OverrideProtocolPage = () => {
+const StuckScanPage = () => {
   const [currentStep, setCurrentStep] = useState<'intro' | 'assessment' | 'protocol' | 'execution' | 'debrief'>('intro');
   const [crisisType, setCrisisType] = useState('');
   const [urgencyLevel, setUrgencyLevel] = useState<number>(0);
@@ -273,9 +273,9 @@ const OverrideProtocolPage = () => {
     return (
       <>
         <SEOHead
-          title="Override Protocol - Crisis Breakthrough Process | IMAGINATION G"
-          description="Emergency pattern breaking protocol for when teams are completely stuck. Systematic crisis resolution in 90 minutes."
-          ogImage="/images/og-override-protocol.svg"
+          title="Stuck Scan - X-Ray Blocked Situations | IMAGINATION G"
+          description="Diagnostic scan for stuck situations. Identify blockage type, locate the friction, and surface the path forward in 90 minutes."
+          ogImage="/images/og-stuck-scan.svg"
         />
         
         <div className="min-h-screen bg-black text-white">
@@ -285,35 +285,35 @@ const OverrideProtocolPage = () => {
             <div className="max-w-4xl mx-auto">
               <div className="inline-block mb-8 text-red-400 text-xs font-mono bg-zinc-950 border border-zinc-800 px-4 py-2 rounded-full">
                 <span className="inline-block w-2 h-2 bg-red-400 rounded-full mr-2 animate-pulse"></span>
-                OVERRIDE PROTOCOL: STANDBY
+                STUCK SCAN: READY
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
-                OVERRIDE<br />PROTOCOL<span className="text-red-600">.</span>
+                STUCK<br />SCAN<span className="text-red-600">.</span>
               </h1>
-              
+
               <p className="text-xl text-zinc-400 mb-12 max-w-2xl">
-                Emergency pattern breaking for crisis situations. When teams are completely stuck 
-                and normal processes have failed, the Override Protocol forces breakthrough in 90 minutes.
+                X-ray a stuck situation. When teams are blocked and normal approaches have failed,
+                this scan locates the friction and surfaces the path forward in 90 minutes.
               </p>
 
               <div className="bg-red-950 border-2 border-red-600 p-8 mb-12">
-                <h2 className="text-2xl font-black text-red-400 mb-4">⚠️ WARNING: EMERGENCY USE ONLY</h2>
+                <h2 className="text-2xl font-black text-red-400 mb-4">⚠️ WHEN TO RUN THIS SCAN</h2>
                 <div className="space-y-3 text-red-200">
-                  <p>The Override Protocol temporarily suspends normal team processes and decision-making.</p>
-                  <p>Use only when:</p>
+                  <p>The Stuck Scan is designed for situations where something is genuinely blocked.</p>
+                  <p>Use when:</p>
                   <ul className="list-disc list-inside space-y-1 ml-4">
-                    <li>Crisis situation with immediate consequences</li>
-                    <li>Normal problem-solving has completely failed</li>
-                    <li>Team is paralyzed or in destructive patterns</li>
-                    <li>You have authority to override standard processes</li>
+                    <li>Team or project is stuck with no clear path forward</li>
+                    <li>Normal problem-solving has failed to identify the blockage</li>
+                    <li>Friction source is unclear or hidden</li>
+                    <li>You need to surface what is actually stopping movement</li>
                   </ul>
                 </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-8 mb-12">
                 <div className="border border-zinc-800 p-6 bg-zinc-950">
-                  <h3 className="text-xl font-black mb-4 text-red-600">PROTOCOL OVERVIEW</h3>
+                  <h3 className="text-xl font-black mb-4 text-red-600">SCAN PHASES</h3>
                   <div className="space-y-4 text-sm">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center text-xs font-black">1</div>
@@ -358,11 +358,11 @@ const OverrideProtocolPage = () => {
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
                       <Target className="text-green-500" size={16} />
-                      <span className="text-sm">Decision made within 90 minutes</span>
+                      <span className="text-sm">Blockage identified within 90 minutes</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Zap className="text-yellow-500" size={16} />
-                      <span className="text-sm">Immediate action initiated</span>
+                      <Scan className="text-yellow-500" size={16} />
+                      <span className="text-sm">Friction source located</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <Clock className="text-blue-500" size={16} />
@@ -381,11 +381,11 @@ const OverrideProtocolPage = () => {
                   onClick={() => setCurrentStep('assessment')}
                   className="bg-red-600 px-12 py-6 text-2xl font-black hover:bg-red-700 transition-colors mb-4"
                 >
-                  ASSESS CRISIS SITUATION
+                  BEGIN STUCK SCAN
                 </button>
                 <p className="text-zinc-600 text-sm">
-                  <AlertTriangle className="inline mr-1" size={14} />
-                  This will initiate emergency protocol assessment
+                  <Scan className="inline mr-1" size={14} />
+                  This will start the diagnostic assessment
                 </p>
               </div>
             </div>
@@ -400,10 +400,10 @@ const OverrideProtocolPage = () => {
     return (
       <>
         <SEOHead
-          title="Crisis Assessment - Override Protocol | IMAGINATION G"
-          description="Assess your crisis situation to determine appropriate override response"
+          title="Blockage Assessment - Stuck Scan | IMAGINATION G"
+          description="Assess your stuck situation to determine blockage type and friction location"
         />
-        
+
         <div className="min-h-screen bg-black text-white">
           <Navigation />
 
@@ -415,21 +415,21 @@ const OverrideProtocolPage = () => {
                   className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors mb-6"
                 >
                   <ArrowLeft size={20} />
-                  Back to Protocol Overview
+                  Back to Scan Overview
                 </button>
 
                 <h1 className="text-4xl font-black mb-6">
-                  CRISIS<br />ASSESSMENT<span className="text-red-600">.</span>
+                  BLOCKAGE<br />ASSESSMENT<span className="text-red-600">.</span>
                 </h1>
-                
+
                 <p className="text-xl text-zinc-400 mb-8">
-                  Identify your crisis type and urgency level to calibrate the override response.
+                  Identify your blockage type and severity level to calibrate the scan response.
                 </p>
               </div>
 
               <div className="space-y-8">
                 <div>
-                  <h2 className="text-2xl font-black mb-6">SELECT CRISIS TYPE</h2>
+                  <h2 className="text-2xl font-black mb-6">SELECT BLOCKAGE TYPE</h2>
                   <div className="grid gap-4">
                     {crisisTypes.map((crisis) => (
                       <button
@@ -460,7 +460,7 @@ const OverrideProtocolPage = () => {
                         </div>
 
                         <div>
-                          <h4 className="font-bold text-white mb-2">CRISIS INDICATORS:</h4>
+                          <h4 className="font-bold text-white mb-2">BLOCKAGE INDICATORS:</h4>
                           <ul className="space-y-1 text-sm text-zinc-400">
                             {crisis.indicators.map((indicator, index) => (
                               <li key={index}>• {indicator}</li>
@@ -499,12 +499,12 @@ const OverrideProtocolPage = () => {
                     </div>
                     
                     <div className="mt-6 bg-zinc-950 border border-zinc-800 p-6">
-                      <h3 className="font-bold mb-3">URGENCY CALIBRATION:</h3>
+                      <h3 className="font-bold mb-3">SEVERITY CALIBRATION:</h3>
                       <div className="text-sm text-zinc-400 space-y-2">
-                        <div><strong>1-2:</strong> Can wait days/weeks - consider standard problem-solving</div>
-                        <div><strong>3:</strong> Needs resolution within days - Override Protocol appropriate</div>
-                        <div><strong>4:</strong> Needs resolution within hours - Override Protocol recommended</div>
-                        <div><strong>5:</strong> Needs resolution immediately - Override Protocol essential</div>
+                        <div><strong>1-2:</strong> Can wait days/weeks. Consider standard problem-solving first.</div>
+                        <div><strong>3:</strong> Needs resolution within days. Stuck Scan appropriate.</div>
+                        <div><strong>4:</strong> Needs resolution within hours. Stuck Scan recommended.</div>
+                        <div><strong>5:</strong> Needs resolution immediately. Stuck Scan essential.</div>
                       </div>
                     </div>
                   </div>
@@ -512,20 +512,20 @@ const OverrideProtocolPage = () => {
 
                 {crisisType && urgencyLevel > 0 && (
                   <div className="border-4 border-red-600 p-8 bg-red-950">
-                    <h3 className="text-2xl font-black text-red-400 mb-4">PROTOCOL READINESS</h3>
+                    <h3 className="text-2xl font-black text-red-400 mb-4">SCAN READINESS</h3>
                     <div className="mb-6">
                       <p className="text-red-200 mb-4">
-                        Crisis Type: <strong>{crisisTypes.find(c => c.id === crisisType)?.title}</strong>
+                        Blockage Type: <strong>{crisisTypes.find(c => c.id === crisisType)?.title}</strong>
                       </p>
                       <p className="text-red-200 mb-4">
-                        Urgency Level: <strong>{urgencyLevel}/5</strong>
+                        Severity Level: <strong>{urgencyLevel}/5</strong>
                       </p>
                     </div>
 
                     {urgencyLevel >= 3 ? (
                       <div>
                         <p className="text-red-200 mb-6">
-                          Override Protocol is <strong>RECOMMENDED</strong> for this crisis level.
+                          Stuck Scan is <strong>RECOMMENDED</strong> for this severity level.
                           Estimated completion time: 90 minutes.
                         </p>
                         <button
@@ -533,21 +533,21 @@ const OverrideProtocolPage = () => {
                           className="bg-red-600 px-8 py-4 text-xl font-black hover:bg-red-700 transition-colors"
                         >
                           <Play className="inline mr-2" size={20} />
-                          INITIATE OVERRIDE PROTOCOL
+                          BEGIN STUCK SCAN
                         </button>
                       </div>
                     ) : (
                       <div>
                         <p className="text-yellow-200 mb-6">
-                          This crisis level may not require full Override Protocol. 
-                          Consider using standard problem-solving tools first.
+                          This severity level may not require full Stuck Scan.
+                          Consider using standard diagnostic tools first.
                         </p>
                         <div className="flex gap-4">
                           <button
                             onClick={startProtocol}
                             className="border-2 border-red-600 px-6 py-3 font-bold hover:bg-red-600 transition-colors"
                           >
-                            PROCEED WITH OVERRIDE
+                            PROCEED WITH SCAN
                           </button>
                           <a
                             href="/tools"
@@ -577,22 +577,22 @@ const OverrideProtocolPage = () => {
     return (
       <>
         <SEOHead
-          title={`${currentPhase.title} - Override Protocol | IMAGINATION G`}
-          description={`Executing ${currentPhase.title} phase of Override Protocol`}
+          title={`${currentPhase.title} - Stuck Scan | IMAGINATION G`}
+          description={`Executing ${currentPhase.title} phase of Stuck Scan`}
         />
-        
+
         <div className="min-h-screen bg-black text-white">
           <Navigation />
 
           <section className="pt-24 pb-16 px-6">
             <div className="max-w-4xl mx-auto">
-              {/* Protocol Header */}
+              {/* Scan Header */}
               <div className="mb-8">
                 <div className="flex justify-between items-center mb-4">
                   <div>
                     <div className="inline-block mb-2 text-red-400 text-xs font-mono bg-zinc-950 border border-zinc-800 px-4 py-2 rounded-full">
                       <span className="inline-block w-2 h-2 bg-red-400 rounded-full mr-2 animate-pulse"></span>
-                      OVERRIDE ACTIVE • {calculateTimeElapsed()} ELAPSED
+                      SCAN ACTIVE • {calculateTimeElapsed()} ELAPSED
                     </div>
                     <div className="text-lg font-bold text-zinc-400">
                       PHASE {currentPhase.phase} OF {protocolPhases.length}
@@ -713,10 +713,10 @@ const OverrideProtocolPage = () => {
     return (
       <>
         <SEOHead
-          title="Protocol Execution - Override Protocol | IMAGINATION G"
-          description="Track execution and progress of Override Protocol decisions"
+          title="Scan Results - Stuck Scan | IMAGINATION G"
+          description="Track execution and progress of Stuck Scan findings"
         />
-        
+
         <div className="min-h-screen bg-black text-white">
           <Navigation />
 
@@ -725,22 +725,22 @@ const OverrideProtocolPage = () => {
               <div className="text-center mb-12">
                 <div className="inline-block mb-8 text-green-400 text-xs font-mono bg-zinc-950 border border-zinc-800 px-4 py-2 rounded-full">
                   <span className="inline-block w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-                  PROTOCOL COMPLETE • EXECUTION PHASE
+                  SCAN COMPLETE • EXECUTION PHASE
                 </div>
 
                 <h1 className="text-4xl md:text-5xl font-black mb-6">
                   EXECUTION<br />TRACKING<span className="text-red-600">.</span>
                 </h1>
-                
+
                 <p className="text-xl text-zinc-400 mb-8">
-                  Override Protocol completed in {calculateTimeElapsed()}. Now tracking execution and results.
+                  Stuck Scan completed in {calculateTimeElapsed()}. Now tracking execution and results.
                 </p>
               </div>
 
               {/* Execution Dashboard */}
               <div className="grid md:grid-cols-3 gap-8 mb-12">
                 <div className="border border-green-600 p-6 bg-green-950">
-                  <h3 className="font-black text-green-400 mb-4">PROTOCOL STATUS</h3>
+                  <h3 className="font-black text-green-400 mb-4">SCAN STATUS</h3>
                   <div className="space-y-2 text-sm">
                     <div>Phases Completed: {completedSteps.length}/{protocolPhases.length}</div>
                     <div>Execution Time: {calculateTimeElapsed()}</div>
@@ -770,9 +770,9 @@ const OverrideProtocolPage = () => {
                 </div>
               </div>
 
-              {/* Protocol Summary */}
+              {/* Scan Summary */}
               <div className="bg-zinc-950 border border-zinc-800 p-8 mb-12">
-                <h2 className="text-2xl font-black mb-6">PROTOCOL EXECUTION SUMMARY</h2>
+                <h2 className="text-2xl font-black mb-6">SCAN EXECUTION SUMMARY</h2>
                 <div className="grid md:grid-cols-2 gap-8">
                   {protocolPhases.map((phase, index) => {
                     const isCompleted = completedSteps.includes(index);
@@ -828,31 +828,31 @@ const OverrideProtocolPage = () => {
                 >
                   <Target className="mx-auto mb-3" size={24} />
                   <h4 className="font-black mb-2">CONDUCT DEBRIEF</h4>
-                  <p className="text-sm text-zinc-400">Analyze protocol effectiveness</p>
+                  <p className="text-sm text-zinc-400">Analyze scan effectiveness</p>
                 </button>
                 
                 <button
                   onClick={() => {
                     // Implement export functionality
                     const reportData = { crisisType, urgencyLevel, protocolData, executionTime };
-                    console.log('Override Protocol Report:', reportData);
+                    console.log('Stuck Scan Report:', reportData);
                   }}
                   className="border border-blue-600 p-6 text-center hover:bg-blue-600 transition-colors"
                 >
                   <Download className="mx-auto mb-3" size={24} />
                   <h4 className="font-black mb-2">EXPORT REPORT</h4>
-                  <p className="text-sm text-zinc-400">Save protocol execution log</p>
+                  <p className="text-sm text-zinc-400">Save scan execution log</p>
                 </button>
-                
+
                 <a
                   href="/tools/micro-interventions"
                   className="border border-green-600 p-6 text-center hover:bg-green-600 transition-colors"
                 >
-                  <Zap className="mx-auto mb-3" size={24} />
-                  <h4 className="font-black mb-2">DAILY PRACTICES</h4>
-                  <p className="text-sm text-zinc-400">Prevent future crises</p>
+                  <Radio className="mx-auto mb-3" size={24} />
+                  <h4 className="font-black mb-2">FRICTION RADAR</h4>
+                  <p className="text-sm text-zinc-400">Detect micro-friction daily</p>
                 </a>
-                
+
                 <button
                   onClick={() => {
                     setCurrentStep('intro');
@@ -866,8 +866,8 @@ const OverrideProtocolPage = () => {
                   className="border border-zinc-700 p-6 text-center hover:border-zinc-500 transition-colors"
                 >
                   <RefreshCw className="mx-auto mb-3" size={24} />
-                  <h4 className="font-black mb-2">RESET PROTOCOL</h4>
-                  <p className="text-sm text-zinc-400">Prepare for new crisis</p>
+                  <h4 className="font-black mb-2">RESET SCAN</h4>
+                  <p className="text-sm text-zinc-400">Prepare for new blockage</p>
                 </button>
               </div>
             </div>
@@ -881,21 +881,21 @@ const OverrideProtocolPage = () => {
   return (
     <>
       <SEOHead
-        title="Protocol Debrief - Override Protocol | IMAGINATION G"
-        description="Analyze Override Protocol effectiveness and extract learnings"
+        title="Scan Debrief - Stuck Scan | IMAGINATION G"
+        description="Analyze Stuck Scan effectiveness and extract learnings"
       />
-      
+
       <div className="min-h-screen bg-black text-white">
         <Navigation />
 
         <section className="pt-24 pb-16 px-6">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl font-black mb-6">
-              PROTOCOL<br />DEBRIEF<span className="text-red-600">.</span>
+              SCAN<br />DEBRIEF<span className="text-red-600">.</span>
             </h1>
-            
+
             <p className="text-xl text-zinc-400 mb-12">
-              Analyze protocol effectiveness and extract learnings for future crisis prevention.
+              Analyze scan effectiveness and extract learnings for future blockage prevention.
             </p>
 
             <div className="space-y-8">
@@ -921,4 +921,4 @@ const OverrideProtocolPage = () => {
   );
 };
 
-export default OverrideProtocolPage;
+export default StuckScanPage;

@@ -1,9 +1,10 @@
 /**
  * Book Section - The Growing Pains Index
  * Release excerpts along the way to June 2026 launch
+ * Pulls chapter data from Notion database
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import SEOHead from '../../components/SEOHead';
 import Navigation from '../../components/Navigation';
@@ -18,6 +19,7 @@ interface Chapter {
   status: ChapterStatus;
   slug?: string;
   keyLine?: string;
+  wordCount?: number;
 }
 
 interface Part {
@@ -27,146 +29,240 @@ interface Part {
   chapters: Chapter[];
 }
 
+// Notion chapter data from API
+interface NotionChapter {
+  id: string;
+  order: number;
+  title: string;
+  slug: string;
+  status: 'Outline' | 'Drafting' | 'Review' | 'Complete';
+  wordCount: number;
+  voiceCheck: boolean;
+}
+
+// Map Notion status to display status
+const mapNotionStatus = (notionStatus: string, wordCount: number): ChapterStatus => {
+  if (wordCount === 0 || notionStatus === 'Outline') {
+    return 'locked';
+  }
+  if (notionStatus === 'Drafting') {
+    return 'coming_soon';
+  }
+  // Review or Complete with content
+  return 'published';
+};
+
 const BookPage = () => {
+  const [chapterStatuses, setChapterStatuses] = useState<Map<number, { status: ChapterStatus; slug: string; wordCount: number }>>(new Map());
+  const [publishedCount, setPublishedCount] = useState(0);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch chapter data from Notion
+  useEffect(() => {
+    const fetchChapters = async () => {
+      try {
+        const response = await fetch('/api/chapters');
+        if (response.ok) {
+          const data = await response.json();
+          const statusMap = new Map<number, { status: ChapterStatus; slug: string; wordCount: number }>();
+          let published = 0;
+
+          data.chapters.forEach((ch: NotionChapter) => {
+            const displayStatus = mapNotionStatus(ch.status, ch.wordCount);
+            statusMap.set(ch.order, {
+              status: displayStatus,
+              slug: ch.slug,
+              wordCount: ch.wordCount,
+            });
+            if (displayStatus === 'published') {
+              published++;
+            }
+          });
+
+          setChapterStatuses(statusMap);
+          setPublishedCount(published);
+        }
+      } catch (error) {
+        console.error('Failed to fetch chapters:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchChapters();
+  }, []);
+
+  // Static book structure with titles, subtitles, and key lines
   const bookParts: Part[] = [
     {
       number: 'I',
       title: 'THE TRAP',
-      subtitle: 'Understanding the Physics',
+      subtitle: 'What the Connection Age Built',
       chapters: [
         {
           number: 1,
           title: 'Why Success Creates Rigidity',
           subtitle: 'The paradox: Every optimization creates a dependency',
-          status: 'coming_soon',
-          slug: 'chapter-1',
+          status: chapterStatuses.get(1)?.status || 'locked',
+          slug: chapterStatuses.get(1)?.slug || 'chapter-1',
+          wordCount: chapterStatuses.get(1)?.wordCount || 0,
           keyLine: 'Success doesn\'t cause failure. The inability to unlearn success does.',
         },
         {
           number: 2,
-          title: 'The Particle Phase',
-          subtitle: 'When optimization becomes prison',
-          status: 'locked',
-          keyLine: 'Particle isn\'t bad. Particle that can\'t recognize itself is fatal.',
+          title: 'You\'re Invested in the Waste',
+          subtitle: 'When you\'re the friction you complain about',
+          status: chapterStatuses.get(2)?.status || 'locked',
+          slug: chapterStatuses.get(2)?.slug || 'chapter-2',
+          wordCount: chapterStatuses.get(2)?.wordCount || 0,
+          keyLine: 'The gap is the product. Friction isn\'t entropy. Friction is margin.',
         },
         {
           number: 3,
-          title: 'The Field Phase',
-          subtitle: 'When connection creates chaos',
-          status: 'locked',
-          keyLine: 'Field isn\'t the opposite of particle. It\'s a different physics.',
+          title: 'The Optimization That Won (Then)',
+          subtitle: 'How Connection Age logic made sense',
+          status: chapterStatuses.get(3)?.status || 'locked',
+          slug: chapterStatuses.get(3)?.slug || 'chapter-3',
+          wordCount: chapterStatuses.get(3)?.wordCount || 0,
+          keyLine: 'The old game wasn\'t wrong. It was contextual. The context changed.',
         },
         {
           number: 4,
-          title: 'The Spiral',
-          subtitle: 'Why transformation isn\'t linear',
-          status: 'locked',
-          keyLine: 'You can\'t skip phases. You can only build the capability to spiral faster.',
+          title: 'The Connection That\'s Failing (Now)',
+          subtitle: 'What worked yesterday is breaking today',
+          status: chapterStatuses.get(4)?.status || 'locked',
+          slug: chapterStatuses.get(4)?.slug || 'chapter-4',
+          wordCount: chapterStatuses.get(4)?.wordCount || 0,
+          keyLine: 'The floor didn\'t disappear. The game changed.',
         },
       ],
     },
     {
       number: 'II',
       title: 'THE LANGUAGE',
-      subtitle: 'Seeing the Patterns',
+      subtitle: 'Seeing the Cage Dissolve',
       chapters: [
         {
           number: 5,
-          title: 'GPI Scoring',
-          subtitle: 'How to measure where you are',
-          status: 'locked',
-          keyLine: 'GPI doesn\'t measure what you\'re doing. It measures what you can do next.',
+          title: 'You Can\'t Skip the Transition',
+          subtitle: 'The spiral between phases',
+          status: chapterStatuses.get(5)?.status || 'locked',
+          slug: chapterStatuses.get(5)?.slug || 'chapter-5',
+          wordCount: chapterStatuses.get(5)?.wordCount || 0,
+          keyLine: 'You can\'t skip phases. You can only build the capability to spiral faster.',
         },
         {
           number: 6,
-          title: 'Metabolic Rate',
-          subtitle: 'The speed of organizational change',
-          status: 'locked',
-          keyLine: 'Speed is a function of infrastructure. Change the infrastructure, change the speed.',
+          title: 'Knowing Where You Are',
+          subtitle: 'The GPI diagnostic',
+          status: chapterStatuses.get(6)?.status || 'locked',
+          slug: chapterStatuses.get(6)?.slug || 'chapter-6',
+          wordCount: chapterStatuses.get(6)?.wordCount || 0,
+          keyLine: 'GPI doesn\'t measure what you\'re doing. It measures what you can do next.',
         },
         {
           number: 7,
-          title: 'Organizational Antibodies',
-          subtitle: 'Why good ideas get rejected',
-          status: 'locked',
-          keyLine: 'Antibodies don\'t reject change. They reject foreign metabolisms.',
+          title: 'The Speed Gap',
+          subtitle: 'Metabolic rate determines options',
+          status: chapterStatuses.get(7)?.status || 'locked',
+          slug: chapterStatuses.get(7)?.slug || 'chapter-7',
+          wordCount: chapterStatuses.get(7)?.wordCount || 0,
+          keyLine: 'Speed is a function of infrastructure. Change the infrastructure, change the speed.',
         },
         {
           number: 8,
-          title: 'Latent Capabilities',
-          subtitle: 'Assets you have but don\'t use',
-          status: 'locked',
-          keyLine: 'You don\'t need more capacity. You need coordination infrastructure.',
+          title: 'When the Org Rejects the Future',
+          subtitle: 'Organizational antibodies explained',
+          status: chapterStatuses.get(8)?.status || 'locked',
+          slug: chapterStatuses.get(8)?.slug || 'chapter-8',
+          wordCount: chapterStatuses.get(8)?.wordCount || 0,
+          keyLine: 'Antibodies don\'t reject change. They reject foreign metabolisms.',
         },
       ],
     },
     {
       number: 'III',
       title: 'THE MIRROR',
-      subtitle: 'Case Studies',
+      subtitle: 'Who\'s Escaping, Who\'s Not',
       chapters: [
         {
           number: 9,
-          title: 'The Transformation That Failed',
-          subtitle: 'UPS: When capacity can\'t become connection',
-          status: 'locked',
-          keyLine: 'Infrastructure is destiny only if you let it be.',
+          title: 'What You Have But Don\'t Use',
+          subtitle: 'Latent capabilities analysis',
+          status: chapterStatuses.get(9)?.status || 'locked',
+          slug: chapterStatuses.get(9)?.slug || 'chapter-9',
+          wordCount: chapterStatuses.get(9)?.wordCount || 0,
+          keyLine: 'You don\'t need more capacity. You need coordination infrastructure.',
         },
         {
           number: 10,
-          title: 'The Transformation That Worked',
-          subtitle: 'Amazon: Spiraling between phases',
-          status: 'locked',
-          keyLine: 'Transformation isn\'t choosing particle or field. It\'s building the capability to spiral.',
+          title: 'UPS: Stuck in the Connection Age',
+          subtitle: 'The transformation that failed',
+          status: chapterStatuses.get(10)?.status || 'locked',
+          slug: chapterStatuses.get(10)?.slug || 'chapter-10',
+          wordCount: chapterStatuses.get(10)?.wordCount || 0,
+          keyLine: 'Infrastructure is destiny only if you let it be.',
         },
         {
           number: 11,
-          title: 'The Acquisition That Made Sense',
-          subtitle: 'Amazon/Whole Foods: Metabolic compatibility',
-          status: 'locked',
-          keyLine: 'Acquisition success is metabolic compatibility, not strategic logic.',
+          title: 'Amazon: From Books to Coordination',
+          subtitle: 'The transformation that worked',
+          status: chapterStatuses.get(11)?.status || 'locked',
+          slug: chapterStatuses.get(11)?.slug || 'chapter-11',
+          wordCount: chapterStatuses.get(11)?.wordCount || 0,
+          keyLine: 'They sold books to birth the Connection Age. Now they\'re building the Coordination Age.',
         },
         {
           number: 12,
-          title: 'The Acquisition That Didn\'t',
-          subtitle: 'HP/Autonomy: Antibody rejection',
-          status: 'locked',
-          keyLine: 'You can\'t acquire capabilities your metabolism can\'t process.',
+          title: 'Whole Foods: Compatible Metabolisms',
+          subtitle: 'The acquisition that made sense',
+          status: chapterStatuses.get(12)?.status || 'locked',
+          slug: chapterStatuses.get(12)?.slug || 'chapter-12',
+          wordCount: chapterStatuses.get(12)?.wordCount || 0,
+          keyLine: 'Acquisition success is metabolic compatibility, not strategic logic.',
         },
       ],
     },
     {
       number: 'IV',
       title: 'THE DOOR',
-      subtitle: 'What You Can Do',
+      subtitle: 'The Coordination Age',
       chapters: [
         {
           number: 13,
-          title: 'If You\'re an Employee',
-          subtitle: 'Recognizing when to leave',
-          status: 'locked',
-          keyLine: 'Organizations don\'t change because employees want them to.',
+          title: 'HP/Autonomy: Wrong Era Acquisition',
+          subtitle: 'When metabolisms reject each other',
+          status: chapterStatuses.get(13)?.status || 'locked',
+          slug: chapterStatuses.get(13)?.slug || 'chapter-13',
+          wordCount: chapterStatuses.get(13)?.wordCount || 0,
+          keyLine: 'You can\'t acquire capabilities your metabolism can\'t process.',
         },
         {
           number: 14,
-          title: 'If You\'re a Manager',
-          subtitle: 'Working within constraints',
-          status: 'locked',
-          keyLine: 'You can\'t transform the system. But you can prepare people.',
+          title: 'When to Leave',
+          subtitle: 'The employee\'s decision',
+          status: chapterStatuses.get(14)?.status || 'locked',
+          slug: chapterStatuses.get(14)?.slug || 'chapter-14',
+          wordCount: chapterStatuses.get(14)?.wordCount || 0,
+          keyLine: 'Organizations don\'t change because employees want them to.',
         },
         {
           number: 15,
-          title: 'If You\'re an Executive',
-          subtitle: 'Choosing feasible moves',
-          status: 'locked',
-          keyLine: 'You have power to choose direction. Physics determine what\'s achievable.',
+          title: 'What You Can Actually Do',
+          subtitle: 'Working within constraints',
+          status: chapterStatuses.get(15)?.status || 'locked',
+          slug: chapterStatuses.get(15)?.slug || 'chapter-15',
+          wordCount: chapterStatuses.get(15)?.wordCount || 0,
+          keyLine: 'You can\'t transform the system. But you can prepare people.',
         },
         {
           number: 16,
-          title: 'If You\'re a Board Member',
-          subtitle: 'Asking better questions',
-          status: 'locked',
-          keyLine: 'Boards that understand metabolic physics enable spiral. Boards that don\'t, prevent it.',
+          title: 'What\'s Actually Possible',
+          subtitle: 'Choosing feasible moves',
+          status: chapterStatuses.get(16)?.status || 'locked',
+          slug: chapterStatuses.get(16)?.slug || 'chapter-16',
+          wordCount: chapterStatuses.get(16)?.wordCount || 0,
+          keyLine: 'You have power to choose direction. Physics determine what\'s achievable.',
         },
       ],
     },
@@ -264,32 +360,55 @@ const BookPage = () => {
                   <rect x="20" y="45" width="360" height="10" fill="#27272a" rx="5" />
 
                   {/* Progress fill - animate based on chapters released */}
-                  <rect x="20" y="45" width="22" height="10" fill="#22c55e" rx="5">
+                  <rect
+                    x="20"
+                    y="45"
+                    width={Math.max(22, publishedCount * 22.5)}
+                    height="10"
+                    fill="#22c55e"
+                    rx="5"
+                  >
                     <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite" />
                   </rect>
 
                   {/* Chapter markers */}
-                  {[...Array(16)].map((_, i) => (
-                    <g key={i}>
-                      <circle
-                        cx={20 + (i * 22.5)}
-                        cy="50"
-                        r="6"
-                        fill={i === 0 ? '#eab308' : '#3f3f46'}
-                        stroke={i === 0 ? '#eab308' : '#52525b'}
-                        strokeWidth="2"
-                      />
-                      <text
-                        x={20 + (i * 22.5)}
-                        y="75"
-                        textAnchor="middle"
-                        fill={i === 0 ? '#eab308' : '#52525b'}
-                        fontSize="8"
-                      >
-                        {i + 1}
-                      </text>
-                    </g>
-                  ))}
+                  {[...Array(16)].map((_, i) => {
+                    const chapterStatus = chapterStatuses.get(i + 1)?.status || 'locked';
+                    const isPublished = chapterStatus === 'published';
+                    const isComingSoon = chapterStatus === 'coming_soon';
+
+                    let fillColor = '#3f3f46'; // locked
+                    let strokeColor = '#52525b';
+                    if (isPublished) {
+                      fillColor = '#22c55e';
+                      strokeColor = '#22c55e';
+                    } else if (isComingSoon) {
+                      fillColor = '#eab308';
+                      strokeColor = '#eab308';
+                    }
+
+                    return (
+                      <g key={i}>
+                        <circle
+                          cx={20 + (i * 22.5)}
+                          cy="50"
+                          r="6"
+                          fill={fillColor}
+                          stroke={strokeColor}
+                          strokeWidth="2"
+                        />
+                        <text
+                          x={20 + (i * 22.5)}
+                          y="75"
+                          textAnchor="middle"
+                          fill={isPublished ? '#22c55e' : isComingSoon ? '#eab308' : '#52525b'}
+                          fontSize="8"
+                        >
+                          {i + 1}
+                        </text>
+                      </g>
+                    );
+                  })}
 
                   {/* Part dividers */}
                   <text x="65" y="30" textAnchor="middle" fill="#52525b" fontSize="8">I</text>
@@ -302,7 +421,7 @@ const BookPage = () => {
                   <text x="380" y="95" textAnchor="end" fill="#71717a" fontSize="8">JUNE 2026</text>
                 </svg>
                 <p className="text-center text-zinc-500 text-sm mt-4 font-mono">
-                  0 / 16 CHAPTERS RELEASED
+                  {loading ? '...' : `${publishedCount} / 16 CHAPTERS RELEASED`}
                 </p>
               </div>
             </div>
@@ -519,25 +638,60 @@ const BookPage = () => {
                 ))}
 
                 {/* Conclusion */}
-                <div className="border border-zinc-800 rounded-xl overflow-hidden opacity-60">
-                  <div className="px-6 py-4">
+                {(() => {
+                  const conclusionStatus = chapterStatuses.get(17)?.status || 'locked';
+                  const conclusionSlug = chapterStatuses.get(17)?.slug || 'conclusion';
+                  const isPublished = conclusionStatus === 'published';
+                  const isComingSoon = conclusionStatus === 'coming_soon';
+
+                  const content = (
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <svg viewBox="0 0 24 24" className="w-5 h-5 text-zinc-600" fill="none" stroke="currentColor" strokeWidth="2">
-                          <rect x="5" y="11" width="14" height="10" rx="2" />
-                          <path d="M8 11 L8 7 Q12 3, 16 7 L16 11" />
-                        </svg>
+                        {isPublished ? (
+                          <svg viewBox="0 0 24 24" className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" strokeWidth="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M8 12 L11 15 L16 9" />
+                          </svg>
+                        ) : isComingSoon ? (
+                          <svg viewBox="0 0 24 24" className="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" strokeWidth="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 6 L12 12 L16 14" />
+                          </svg>
+                        ) : (
+                          <svg viewBox="0 0 24 24" className="w-5 h-5 text-zinc-600" fill="none" stroke="currentColor" strokeWidth="2">
+                            <rect x="5" y="11" width="14" height="10" rx="2" />
+                            <path d="M8 11 L8 7 Q12 3, 16 7 L16 11" />
+                          </svg>
+                        )}
                         <div>
-                          <h3 className="font-bold">CONCLUSION: The Coordination Age</h3>
-                          <p className="text-sm text-zinc-500">The paradigm shift from Connection to Coordination</p>
+                          <h3 className="font-bold">CONCLUSION: You Are the Books</h3>
+                          <p className="text-sm text-zinc-500">The 150-year detour is ending. People become the product again.</p>
                         </div>
                       </div>
-                      <span className="text-xs bg-zinc-800 text-zinc-500 px-2 py-1 rounded font-mono">
-                        LOCKED
-                      </span>
+                      {isPublished ? (
+                        <span className="text-xs bg-green-900/50 text-green-400 px-2 py-1 rounded font-mono">READ NOW</span>
+                      ) : isComingSoon ? (
+                        <span className="text-xs bg-yellow-900/50 text-yellow-400 px-2 py-1 rounded font-mono">COMING SOON</span>
+                      ) : (
+                        <span className="text-xs bg-zinc-800 text-zinc-500 px-2 py-1 rounded font-mono">LOCKED</span>
+                      )}
                     </div>
-                  </div>
-                </div>
+                  );
+
+                  return (
+                    <div className={`border border-zinc-800 rounded-xl overflow-hidden ${!isPublished && !isComingSoon ? 'opacity-60' : isComingSoon ? 'bg-yellow-950/10' : ''}`}>
+                      <div className="px-6 py-4">
+                        {isPublished ? (
+                          <Link href={`/book/${conclusionSlug}`} className="block hover:bg-zinc-900/50">
+                            {content}
+                          </Link>
+                        ) : (
+                          content
+                        )}
+                      </div>
+                    </div>
+                  );
+                })()}
               </div>
             </div>
           </div>
@@ -697,6 +851,12 @@ const ChapterRow = ({
         )}
         {chapter.keyLine && chapter.status !== 'locked' && (
           <p className="text-sm text-zinc-400 italic">"{chapter.keyLine}"</p>
+        )}
+        {/* Show word count and reading time for chapters with content */}
+        {chapter.wordCount && chapter.wordCount > 0 && chapter.status !== 'locked' && (
+          <p className="text-xs text-zinc-600 mt-2 font-mono">
+            {chapter.wordCount.toLocaleString()} words · ~{Math.ceil(chapter.wordCount / 250)} min read
+          </p>
         )}
       </div>
     </div>

@@ -143,13 +143,13 @@ const StartPage = () => {
       {
         id: 7,
         category: "EXECUTION BLOCKS",
-        title: "NEXEL MISALIGNMENT",
+        title: "WORK STYLE FRICTION",
         question: "Are team members working against their natural problem-solving styles?",
-        yesText: "NEXEL FIGHTING",
+        yesText: "STYLE MISMATCH",
         yesSubtext: "Working against the grain",
-        noText: "NEXEL ALIGNED",
+        noText: "STYLE ALIGNED",
         noSubtext: "Everyone in their zone",
-        filterId: "nexel-aligned",
+        filterId: "work-style-aligned",
         color: "blue",
         diy: true
       },
@@ -188,7 +188,7 @@ const StartPage = () => {
         yesSubtext: "Right people, right tasks",
         noText: "FORCED FIT",
         noSubtext: "Square pegs, round holes",
-        filterId: "nexel-aligned",
+        filterId: "work-style-aligned",
         color: "blue",
         diy: true
       },
@@ -320,7 +320,7 @@ const StartPage = () => {
         yesSubtext: "Working with your grain",
         noText: "FORCED WORK",
         noSubtext: "Working against your grain",
-        filterId: "nexel-aligned",
+        filterId: "work-style-aligned",
         color: "blue",
         diy: true
       },
@@ -937,13 +937,13 @@ const StartPage = () => {
     {
       id: 7,
       category: "BLOCKING PATTERNS",
-      title: "NEXEL MISALIGNMENT",
+      title: "WORK STYLE FRICTION",
       question: "Do you feel like you're fighting against your natural problem-solving style?",
-      yesText: "NEXEL FIGHTING",
+      yesText: "STYLE FRICTION",
       yesSubtext: "Working against your grain",
-      noText: "NEXEL ALIGNED",
+      noText: "STYLE ALIGNED",
       noSubtext: "Working with your grain",
-      filterId: "wrong-nexel",
+      filterId: "work-style-friction",
       color: "red",
       diy: true
     },
@@ -1023,20 +1023,20 @@ const StartPage = () => {
       yesSubtext: "Work with natural strengths",
       noText: "WEAKNESS FOCUSED",
       noSubtext: "Fix weaknesses first",
-      filterId: "nexel-aligned",
+      filterId: "work-style-aligned",
       color: "green",
       diy: true
     },
     {
       id: 14,
       category: "DESIRED OPERATIONS",
-      title: "TEAM NEXEL MATCHING",
+      title: "TEAM WORK STYLE MATCHING",
       question: "Should tasks be matched to people's natural problem-solving styles?",
-      yesText: "NEXEL MATCHER",
+      yesText: "STYLE MATCHER",
       yesSubtext: "Match tasks to people's styles",
       noText: "UNIVERSAL APPROACH",
       noSubtext: "Same approach for everyone",
-      filterId: "team-nexel",
+      filterId: "team-work-style",
       color: "green",
       diy: true
     },
@@ -1485,11 +1485,11 @@ const StartPage = () => {
                     const diyCount = selectedQuestions.filter(q => q.diy).length;
                     const professionalCount = selectedQuestions.filter(q => !q.diy).length;
                     
-                    const hasNexelIssues = selectedFilters.some(filter => 
-                      ['wrong-nexel', 'nexel-aligned', 'team-nexel', 'energy-drain'].includes(filter)
+                    const hasWorkStyleIssues = selectedFilters.some(filter =>
+                      ['work-style-friction', 'work-style-aligned', 'team-work-style', 'energy-drain'].includes(filter)
                     );
-                    const hasTeamIssues = selectedFilters.some(filter => 
-                      ['team-harmony', 'team-nexel', 'conflict-clarity'].includes(filter)
+                    const hasTeamIssues = selectedFilters.some(filter =>
+                      ['team-harmony', 'team-work-style', 'conflict-clarity'].includes(filter)
                     );
                     const hasEarlyStage = selectedFilters.some(filter => 
                       ['pre-awareness', 'awareness', 'consideration'].includes(filter)

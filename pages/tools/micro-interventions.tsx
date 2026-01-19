@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import SEOHead from '../../components/SEOHead';
 import Navigation from '../../components/Navigation';
-import { Clock, Zap, Target, Users, RefreshCw, CheckCircle, ArrowRight, Calendar, Timer } from 'lucide-react';
+import { Clock, Radio, Target, Users, RefreshCw, CheckCircle, ArrowRight, Calendar, Timer } from 'lucide-react';
 
-const MicroInterventionsPage = () => {
+const FrictionRadarPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedTimeframe, setSelectedTimeframe] = useState('all');
-  const [completedInterventions, setCompletedInterventions] = useState<string[]>([]);
+  const [completedScans, setCompletedScans] = useState<string[]>([]);
 
   const categories = [
     { id: 'all', name: 'All', color: 'zinc' },
@@ -25,7 +25,7 @@ const MicroInterventionsPage = () => {
     { id: '30min', name: '30 Minutes' }
   ];
 
-  const microInterventions = [
+  const frictionScans = [
     {
       id: 'binary-next',
       title: 'BINARY NEXT ACTION',
@@ -87,7 +87,7 @@ const MicroInterventionsPage = () => {
         'Adjust next hour to favor energy-giving activities',
         'Set phone reminder to check again in 2 hours'
       ],
-      impact: 'Builds energy awareness and prevents accumulating soreth',
+      impact: 'Builds energy awareness and prevents friction buildup',
       frequency: '3x daily: morning, afternoon, evening'
     },
     {
@@ -155,19 +155,19 @@ const MicroInterventionsPage = () => {
       frequency: 'Daily for any stalled project'
     },
     {
-      id: 'nexel-match',
-      title: 'QUICK NEXEL CHECK',
+      id: 'signal-check',
+      title: 'SIGNAL VS STRUCTURE CHECK',
       category: 'team',
       timeframe: '2min',
-      description: 'Match current task to person with right problem-solving style',
+      description: 'Match current task to the right work type: creating value or maintaining systems',
       instructions: [
         'Look at task you\'re about to assign/do',
-        'Ask: "Does this need routing, breaking, connecting, or clarifying?"',
-        'Think who on team naturally does that best',
-        'Either delegate to them or ask for quick consultation',
-        'Note the match for future similar tasks'
+        'Ask: "Is this Signal work (creating visible value) or Structure work (maintaining systems)?"',
+        'Signal work needs fast iteration and direct feedback loops',
+        'Structure work needs documentation and handoff clarity',
+        'Ensure the right person with right context handles each type'
       ],
-      impact: 'Optimizes task-person fit and team efficiency',
+      impact: 'Reduces friction by matching work type to appropriate approach',
       frequency: 'Before starting any collaborative task'
     },
     {
@@ -220,17 +220,17 @@ const MicroInterventionsPage = () => {
     }
   ];
 
-  const filteredInterventions = microInterventions.filter(intervention => {
-    const categoryMatch = selectedCategory === 'all' || intervention.category === selectedCategory;
-    const timeMatch = selectedTimeframe === 'all' || intervention.timeframe === selectedTimeframe;
+  const filteredScans = frictionScans.filter(scan => {
+    const categoryMatch = selectedCategory === 'all' || scan.category === selectedCategory;
+    const timeMatch = selectedTimeframe === 'all' || scan.timeframe === selectedTimeframe;
     return categoryMatch && timeMatch;
   });
 
   const markCompleted = (id: string) => {
-    if (completedInterventions.includes(id)) {
-      setCompletedInterventions(prev => prev.filter(item => item !== id));
+    if (completedScans.includes(id)) {
+      setCompletedScans(prev => prev.filter(item => item !== id));
     } else {
-      setCompletedInterventions(prev => [...prev, id]);
+      setCompletedScans(prev => [...prev, id]);
     }
   };
 
@@ -248,9 +248,9 @@ const MicroInterventionsPage = () => {
   return (
     <>
       <SEOHead
-        title="Micro-Interventions Hub - Quick Daily Practices | IMAGINATION G"
-        description="Quick 2-30 minute interventions for daily pattern breaking. Build momentum through small, consistent actions."
-        ogImage="/images/og-micro-interventions.svg"
+        title="Friction Radar - Detect Daily Micro-Friction | IMAGINATION G"
+        description="Detect and eliminate micro-friction in daily operations. Quick 2-30 minute scans that compound into major improvements."
+        ogImage="/images/og-friction-radar.svg"
       />
       
       <div className="min-h-screen bg-black text-white">
@@ -262,35 +262,35 @@ const MicroInterventionsPage = () => {
             <div className="max-w-4xl mx-auto text-center mb-16">
               <div className="inline-block mb-8 text-green-400 text-xs font-mono bg-zinc-950 border border-zinc-800 px-4 py-2 rounded-full">
                 <span className="inline-block w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-                MICRO-INTERVENTIONS: READY
+                FRICTION RADAR: SCANNING
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
-                MICRO<br />INTERVENTIONS<span className="text-red-600">.</span>
+                FRICTION<br />RADAR<span className="text-red-600">.</span>
               </h1>
-              
+
               <p className="text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
-                Quick 2-30 minute practices for daily pattern breaking. Build momentum through 
-                small, consistent actions that compound into major improvements.
+                Detect micro-friction in daily operations. Quick 2-30 minute scans
+                that find the small drags compounding into major slowdowns.
               </p>
 
               <div className="grid md:grid-cols-3 gap-6 mb-12">
                 <div className="border border-zinc-800 p-6 bg-zinc-950">
-                  <Zap className="text-red-500 mx-auto mb-3" size={32} />
-                  <h3 className="font-black mb-2">INSTANT IMPACT</h3>
-                  <p className="text-sm text-zinc-400">See results immediately, build momentum daily</p>
+                  <Radio className="text-red-500 mx-auto mb-3" size={32} />
+                  <h3 className="font-black mb-2">INSTANT DETECTION</h3>
+                  <p className="text-sm text-zinc-400">Surface friction immediately, build awareness daily</p>
                 </div>
-                
+
                 <div className="border border-zinc-800 p-6 bg-zinc-950">
                   <RefreshCw className="text-green-500 mx-auto mb-3" size={32} />
                   <h3 className="font-black mb-2">COMPOUND EFFECT</h3>
-                  <p className="text-sm text-zinc-400">Small actions compound into major pattern shifts</p>
+                  <p className="text-sm text-zinc-400">Small scans compound into major friction reduction</p>
                 </div>
-                
+
                 <div className="border border-zinc-800 p-6 bg-zinc-950">
                   <Target className="text-blue-500 mx-auto mb-3" size={32} />
                   <h3 className="font-black mb-2">SPECIFIC TRIGGERS</h3>
-                  <p className="text-sm text-zinc-400">Know exactly when and how to use each intervention</p>
+                  <p className="text-sm text-zinc-400">Know exactly when and how to use each scan</p>
                 </div>
               </div>
             </div>
@@ -338,20 +338,20 @@ const MicroInterventionsPage = () => {
               </div>
 
               <div className="text-center text-zinc-500 text-sm">
-                Showing {filteredInterventions.length} of {microInterventions.length} interventions •{' '}
-                {completedInterventions.length} completed today
+                Showing {filteredScans.length} of {frictionScans.length} scans •{' '}
+                {completedScans.length} completed today
               </div>
             </div>
 
-            {/* Interventions Grid */}
+            {/* Scans Grid */}
             <div className="grid lg:grid-cols-2 gap-8">
-              {filteredInterventions.map((intervention) => {
-                const isCompleted = completedInterventions.includes(intervention.id);
-                const categoryColor = getCategoryColor(intervention.category);
+              {filteredScans.map((scan) => {
+                const isCompleted = completedScans.includes(scan.id);
+                const categoryColor = getCategoryColor(scan.category);
                 
                 return (
                   <div
-                    key={intervention.id}
+                    key={scan.id}
                     className={`border-2 p-8 bg-zinc-950 transition-all ${
                       isCompleted
                         ? 'border-green-600 bg-green-950'
@@ -363,19 +363,19 @@ const MicroInterventionsPage = () => {
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
                           <div className={`px-2 py-1 border border-${categoryColor}-600 bg-${categoryColor}-950 text-xs font-mono`}>
-                            {categories.find(c => c.id === intervention.category)?.name}
+                            {categories.find(c => c.id === scan.category)?.name}
                           </div>
                           <div className="flex items-center gap-1 text-xs text-zinc-500">
-                            {getTimeIcon(intervention.timeframe)}
-                            {intervention.timeframe}
+                            {getTimeIcon(scan.timeframe)}
+                            {scan.timeframe}
                           </div>
                         </div>
-                        <h3 className="text-xl font-black mb-2">{intervention.title}</h3>
-                        <p className="text-zinc-400 text-sm leading-relaxed">{intervention.description}</p>
+                        <h3 className="text-xl font-black mb-2">{scan.title}</h3>
+                        <p className="text-zinc-400 text-sm leading-relaxed">{scan.description}</p>
                       </div>
-                      
+
                       <button
-                        onClick={() => markCompleted(intervention.id)}
+                        onClick={() => markCompleted(scan.id)}
                         className={`ml-4 w-8 h-8 border-2 rounded-full flex items-center justify-center transition-colors ${
                           isCompleted
                             ? 'border-green-500 bg-green-500'
@@ -388,9 +388,9 @@ const MicroInterventionsPage = () => {
 
                     {/* Instructions */}
                     <div className="mb-6">
-                      <h4 className="font-bold text-white mb-3">HOW TO DO IT:</h4>
+                      <h4 className="font-bold text-white mb-3">HOW TO RUN THIS SCAN:</h4>
                       <ol className="space-y-2">
-                        {intervention.instructions.map((step, index) => (
+                        {scan.instructions.map((step, index) => (
                           <li key={index} className="flex items-start gap-3 text-sm text-zinc-300">
                             <span className="w-5 h-5 bg-red-600 rounded-full flex items-center justify-center text-xs font-black flex-shrink-0 mt-0.5">
                               {index + 1}
@@ -404,13 +404,13 @@ const MicroInterventionsPage = () => {
                     {/* Impact & Frequency */}
                     <div className="space-y-4">
                       <div className="border border-zinc-700 p-3">
-                        <h5 className="text-xs font-bold text-zinc-500 mb-1">IMPACT:</h5>
-                        <p className="text-sm text-zinc-300">{intervention.impact}</p>
+                        <h5 className="text-xs font-bold text-zinc-500 mb-1">WHAT IT DETECTS:</h5>
+                        <p className="text-sm text-zinc-300">{scan.impact}</p>
                       </div>
-                      
+
                       <div className="border border-zinc-700 p-3">
-                        <h5 className="text-xs font-bold text-zinc-500 mb-1">WHEN TO USE:</h5>
-                        <p className="text-sm text-zinc-300">{intervention.frequency}</p>
+                        <h5 className="text-xs font-bold text-zinc-500 mb-1">WHEN TO SCAN:</h5>
+                        <p className="text-sm text-zinc-300">{scan.frequency}</p>
                       </div>
                     </div>
                   </div>
@@ -418,9 +418,9 @@ const MicroInterventionsPage = () => {
               })}
             </div>
 
-            {filteredInterventions.length === 0 && (
+            {filteredScans.length === 0 && (
               <div className="text-center py-16">
-                <p className="text-zinc-500 text-lg">No interventions match your current filters.</p>
+                <p className="text-zinc-500 text-lg">No scans match your current filters.</p>
                 <button
                   onClick={() => {
                     setSelectedCategory('all');
@@ -438,43 +438,43 @@ const MicroInterventionsPage = () => {
         {/* Daily Practice */}
         <section className="py-16 px-6 bg-zinc-950">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-black mb-8 text-center">BUILD A DAILY PRACTICE</h2>
-            
+            <h2 className="text-3xl font-black mb-8 text-center">BUILD A DAILY SCANNING PRACTICE</h2>
+
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               <div className="text-center">
                 <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-xl font-black">1</span>
                 </div>
                 <h3 className="font-black mb-2">START SMALL</h3>
-                <p className="text-sm text-zinc-400">Pick 1-2 interventions that fit your current stuck patterns</p>
+                <p className="text-sm text-zinc-400">Pick 1-2 scans that detect your current friction patterns</p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-xl font-black">2</span>
                 </div>
                 <h3 className="font-black mb-2">SET TRIGGERS</h3>
-                <p className="text-sm text-zinc-400">Link interventions to specific situations or times of day</p>
+                <p className="text-sm text-zinc-400">Link scans to specific situations or times of day</p>
               </div>
-              
+
               <div className="text-center">
                 <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-xl font-black">3</span>
                 </div>
-                <h3 className="font-black mb-2">TRACK RESULTS</h3>
-                <p className="text-sm text-zinc-400">Notice what changes after 1 week of consistent practice</p>
+                <h3 className="font-black mb-2">TRACK DETECTIONS</h3>
+                <p className="text-sm text-zinc-400">Notice what friction surfaces after 1 week of consistent scanning</p>
               </div>
             </div>
 
             <div className="border border-zinc-800 p-8 text-center">
-              <h3 className="text-xl font-black mb-4">COMPLETED TODAY: {completedInterventions.length}</h3>
+              <h3 className="text-xl font-black mb-4">SCANS COMPLETED TODAY: {completedScans.length}</h3>
               <p className="text-zinc-400 mb-6">
-                Consistency beats intensity. Small actions done daily create lasting pattern changes.
+                Consistency beats intensity. Small scans done daily surface friction before it compounds.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
-                  onClick={() => setCompletedInterventions([])}
+                  onClick={() => setCompletedScans([])}
                   className="border-2 border-zinc-700 px-6 py-3 font-bold hover:border-zinc-500 transition-colors"
                 >
                   RESET TODAY'S PROGRESS
@@ -494,4 +494,4 @@ const MicroInterventionsPage = () => {
   );
 };
 
-export default MicroInterventionsPage;
+export default FrictionRadarPage;

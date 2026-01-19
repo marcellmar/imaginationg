@@ -222,8 +222,8 @@ const FirstBloodBuildPage: NextPage = () => {
                   color: "red"
                 },
                 {
-                  href: "/answers/glossary/quorr",
-                  title: "Escape Your Quorr",
+                  href: "/answers/glossary/structural-lock-in",
+                  title: "Escape Lock-In",
                   description: "Technical debt disguised as features. Cut to core.",
                   color: "yellow"
                 },
