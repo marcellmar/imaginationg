@@ -110,16 +110,18 @@ Required environment variables in Vercel dashboard:
 ### Notion Databases
 The site integrates with Notion for content management:
 - **GPI Analyses:** `7d636c92-c316-4bfc-9bc7-7899e575e19e` - Company/industry GPI scores
-- **GPI Content:** `2d8990ae-cd45-811a-b634-c11c51be4013` - Published articles (5 series)
+- **GPI Content:** `2d8990ae-cd45-811a-b634-c11c51be4013` - Published articles (7 series)
 - **Diagnostic Submissions:** `2d8990ae-cd45-810c-bcf6-cf242c398775` - User diagnostic results
 
 ### Content Series
-GPI Analyses publishes 5 content series:
+GPI Analyses publishes 7 content series:
 1. **Weekly Smackdown** - Head-to-head GPI comparisons
 2. **Transition Watch** - Companies attempting transformation
 3. **Calcification Alert** - High-GPI particles in the news
 4. **Field Notes** - How low-GPI companies stay fluid
 5. **Wildcard** - Unexpected insights ("can't unsee it" test)
+6. **The Autopsy** - Forensic breakdown of dead companies
+7. **Vital Signs** - Ongoing metabolic monitoring, early warnings
 
 ## API Routes
 
@@ -139,12 +141,55 @@ GPI Analyses publishes 5 content series:
 
 ## Writing Style Preferences
 
-When creating content for this project:
-- **Never use em dashes (—)** - Use commas, periods, or parentheses instead
-- Keep copy sharp and direct
-- Use the GPI terminology: Field (1-3), Transitioning (4-6), Particle (7-10)
-- "Friction is margin" - core concept
-- When writing Wildcard content, it must pass the "can't unsee it" test
+All GPI content on this website follows Marcus's book voice. See the brain at `/book-consulting/active-spirals/constructed-artifacts/gpi-book-writing-skill.md` for full guidelines.
+
+**Structure:**
+- Numbered sections (## 1., ## 2., ## 3., etc.)
+- Very short paragraphs, often single sentences
+- No formal headers, no signposting
+- Let ideas flow naturally
+
+**Voice:**
+- **Never use em dashes (—)** - Use commas, periods, or "and" instead
+- Contractions everywhere (don't, can't, won't)
+- Specific numbers always ($352M, 5%, 6.7 not "significant" or "major")
+- Bar conversation, not boardroom presentation
+- Read aloud test: if it sounds like a deck, rewrite
+
+**Kill ALL AI patterns:**
+- NO "Here's the..." or "Here's what..."
+- NO "What to watch" or "What this means" signposting
+- NO "That's not X. That's Y." line-break reversals
+- NO "Furthermore," "Moreover," "Additionally"
+- NO sentence triplets or mirror structures
+- NO instructional framing ("Let me show you")
+
+**What works:**
+- Short declarative punchlines: "Direction of travel is clear."
+- Questions that land: "You don't ask that question when the parks are full."
+- Direct statements without setup: "The tell." not "Here's the tell."
+- Specific numbers: "Attendance down 1%. Per-guest spending up 5%."
+- Simple transitions: Just start the next paragraph
+
+**GPI terminology:**
+- Field (1.0-3.0): Fluid, adaptive
+- Transitioning (3.1-6.9): Mixed state
+- Particle (7.0-10.0): Rigid, calcified
+- Core concept: "Friction is margin"
+
+**Series-specific:**
+- Wildcard content must pass the "can't unsee it" test
+- Vital Signs: numbered sections, see Disney example in brain
+
+**Sources as inline hyperlinks:**
+Make the word/number itself the clickable link (different color). No "Sources:" section.
+
+Examples:
+- "Attendance fell [1%](url)" → reader clicks "1%"
+- "[$352M](url) operating income" → reader clicks "$352M"
+- "CFO [said it](url)" → reader clicks "said it"
+
+Don't link: analysis, GPI scores, opinions.
 
 ## GPI Dimension Keys
 

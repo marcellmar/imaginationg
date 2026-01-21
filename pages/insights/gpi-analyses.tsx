@@ -38,12 +38,6 @@ const seriesConfig: Record<string, { color: string; bg: string; icon: string; de
     icon: '🔄',
     description: 'Companies attempting transformation',
   },
-  'Wildcard': {
-    color: 'text-purple-500',
-    bg: 'bg-purple-950/30 border-purple-900',
-    icon: '🃏',
-    description: 'Unexpected GPI scores',
-  },
   'Calcification Alert': {
     color: 'text-orange-500',
     bg: 'bg-orange-950/30 border-orange-900',
@@ -55,6 +49,24 @@ const seriesConfig: Record<string, { color: string; bg: string; icon: string; de
     bg: 'bg-green-950/30 border-green-900',
     icon: '📡',
     description: 'How low-GPI companies stay fluid',
+  },
+  'Wildcard': {
+    color: 'text-purple-500',
+    bg: 'bg-purple-950/30 border-purple-900',
+    icon: '🃏',
+    description: 'Unexpected GPI scores',
+  },
+  'The Autopsy': {
+    color: 'text-zinc-400',
+    bg: 'bg-zinc-950/30 border-zinc-800',
+    icon: '🪦',
+    description: 'Forensic breakdown of dead companies',
+  },
+  'Vital Signs': {
+    color: 'text-blue-500',
+    bg: 'bg-blue-950/30 border-blue-900',
+    icon: '🩺',
+    description: 'Ongoing metabolic monitoring',
   },
 };
 
