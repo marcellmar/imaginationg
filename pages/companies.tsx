@@ -3,6 +3,7 @@ import Link from 'next/link';
 import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { hasSnapshot } from '../lib/snapshots';
 
 interface Company {
   id: string;
@@ -171,6 +172,11 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount }) => {
                           {company.fortune500Rank && (
                             <span className="text-xs text-zinc-600">
                               F500 #{company.fortune500Rank}
+                            </span>
+                          )}
+                          {hasSnapshot(company.name) && (
+                            <span className="text-xs text-cyan-500 bg-cyan-500/10 px-1.5 py-0.5 rounded">
+                              SNAPSHOT
                             </span>
                           )}
                         </div>
