@@ -129,16 +129,16 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
         </section>
 
         {/* Latest Analyses + GPI Visualization */}
-        {featuredContent && (
-          <section className="py-12 px-6 border-t border-zinc-900">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid lg:grid-cols-5 gap-8 items-start">
-                {/* Left: Two Latest Articles (3 columns) */}
-                <div className="lg:col-span-3">
-                  <div className="text-xs font-mono text-zinc-600 mb-6">LATEST ANALYSES</div>
+        <section className="py-12 px-6 border-t border-zinc-900">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-5 gap-8 items-start">
+              {/* Left: Two Latest Articles (3 columns) */}
+              <div className="lg:col-span-3">
+                <div className="text-xs font-mono text-zinc-600 mb-6">LATEST ANALYSES</div>
 
-                  <div className="space-y-4">
-                    {/* First Article */}
+                <div className="space-y-4">
+                  {/* First Article */}
+                  {featuredContent ? (
                     <Link href={featuredContent.slug ? `/insights/gpi-analyses/${featuredContent.slug}` : '/insights/gpi-analyses'} className="block group">
                       <div className="border border-zinc-800 p-6 hover:border-red-600/50 transition-all">
                         <div className="flex items-center gap-3 mb-3">
@@ -156,39 +156,71 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
                         )}
                       </div>
                     </Link>
-
-                    {/* Second Article */}
-                    {seriesContent[0] && (
-                      <Link href={seriesContent[0].slug ? `/insights/gpi-analyses/${seriesContent[0].slug}` : '/insights/gpi-analyses'} className="block group">
-                        <div className="border border-zinc-800 p-6 hover:border-red-600/50 transition-all">
-                          <div className="flex items-center gap-3 mb-3">
-                            <span className={`text-xs font-mono ${seriesConfig[seriesContent[0].series]?.color || 'text-red-500'} bg-red-500/10 px-2 py-1`}>
-                              {seriesConfig[seriesContent[0].series]?.label || seriesContent[0].series.toUpperCase()}
-                            </span>
-                          </div>
-                          <h2 className="text-xl md:text-2xl font-black mb-3 group-hover:text-red-500 transition-colors">
-                            {seriesContent[0].headline}
-                          </h2>
-                          {seriesContent[0].teaser && (
-                            <p className="text-zinc-400 text-sm line-clamp-2">
-                              {seriesContent[0].teaser}
-                            </p>
-                          )}
+                  ) : (
+                    <Link href="/insights/gpi-analyses" className="block group">
+                      <div className="border border-zinc-800 p-6 hover:border-red-600/50 transition-all">
+                        <div className="flex items-center gap-3 mb-3">
+                          <span className="text-xs font-mono text-red-500 bg-red-500/10 px-2 py-1">
+                            GPI ANALYSES
+                          </span>
                         </div>
-                      </Link>
-                    )}
-                  </div>
-                </div>
+                        <h2 className="text-xl md:text-2xl font-black mb-3 group-hover:text-red-500 transition-colors">
+                          View All Company Analyses
+                        </h2>
+                        <p className="text-zinc-400 text-sm">
+                          66+ companies scored across 7 dimensions. See who's fluid and who's calcified.
+                        </p>
+                      </div>
+                    </Link>
+                  )}
 
-                {/* Right: GPI Visualization (2 columns) */}
-                <div className="hidden lg:block lg:col-span-2">
-                  <div className="text-xs font-mono text-zinc-600 mb-6">GPI SCAN</div>
-                  <GPISpectrumHero />
+                  {/* Second Article */}
+                  {seriesContent[0] ? (
+                    <Link href={seriesContent[0].slug ? `/insights/gpi-analyses/${seriesContent[0].slug}` : '/insights/gpi-analyses'} className="block group">
+                      <div className="border border-zinc-800 p-6 hover:border-red-600/50 transition-all">
+                        <div className="flex items-center gap-3 mb-3">
+                          <span className={`text-xs font-mono ${seriesConfig[seriesContent[0].series]?.color || 'text-red-500'} bg-red-500/10 px-2 py-1`}>
+                            {seriesConfig[seriesContent[0].series]?.label || seriesContent[0].series.toUpperCase()}
+                          </span>
+                        </div>
+                        <h2 className="text-xl md:text-2xl font-black mb-3 group-hover:text-red-500 transition-colors">
+                          {seriesContent[0].headline}
+                        </h2>
+                        {seriesContent[0].teaser && (
+                          <p className="text-zinc-400 text-sm line-clamp-2">
+                            {seriesContent[0].teaser}
+                          </p>
+                        )}
+                      </div>
+                    </Link>
+                  ) : (
+                    <Link href="/deals" className="block group">
+                      <div className="border border-zinc-800 p-6 hover:border-purple-600/50 transition-all">
+                        <div className="flex items-center gap-3 mb-3">
+                          <span className="text-xs font-mono text-purple-500 bg-purple-500/10 px-2 py-1">
+                            M&A ANALYSIS
+                          </span>
+                        </div>
+                        <h2 className="text-xl md:text-2xl font-black mb-3 group-hover:text-purple-500 transition-colors">
+                          Netflix + WBD Deal Analysis
+                        </h2>
+                        <p className="text-zinc-400 text-sm">
+                          When two companies merge, their friction multiplies. GPI Delta: 3.8
+                        </p>
+                      </div>
+                    </Link>
+                  )}
                 </div>
               </div>
+
+              {/* Right: GPI Visualization (2 columns) */}
+              <div className="hidden lg:block lg:col-span-2">
+                <div className="text-xs font-mono text-zinc-600 mb-6">GPI SCAN</div>
+                <GPISpectrumHero />
+              </div>
             </div>
-          </section>
-        )}
+          </div>
+        </section>
 
         {/* Content Series - From Notion */}
         {seriesContent.length > 0 && (
