@@ -227,7 +227,7 @@ export const getServerSideProps: GetServerSideProps<CompaniesPageProps> = async 
     let startCursor: string | undefined = undefined;
 
     while (hasMore) {
-      const response = await fetch(
+      const response: Response = await fetch(
         `https://api.notion.com/v1/databases/${GPI_ANALYSES_DB}/query`,
         {
           method: 'POST',
