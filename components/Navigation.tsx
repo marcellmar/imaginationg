@@ -10,6 +10,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
+    { key: 'home', label: 'HOME', href: '/' },
     { key: 'companies', label: 'COMPANIES', href: '/companies' },
     { key: 'deals', label: 'DEALS', href: '/deals' },
     { key: 'insights', label: 'INSIGHTS', href: '/insights' },
