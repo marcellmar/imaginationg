@@ -88,3 +88,26 @@ export const companiesWithSnapshots: Set<string> = new Set([
 export function hasSnapshot(companyName: string): boolean {
   return companiesWithSnapshots.has(companyName.toLowerCase());
 }
+
+export function getSnapshotSlug(companyName: string): string | null {
+  const name = companyName.toLowerCase();
+  if (!companiesWithSnapshots.has(name)) return null;
+
+  // Map company names to their snapshot slugs
+  const slugMap: Record<string, string> = {
+    'disney': 'disney',
+    'netflix': 'netflix',
+    'tesla': 'tesla',
+    'amazon': 'amazon',
+    'boeing': 'boeing',
+    'nvidia': 'nvidia',
+    'walmart': 'walmart',
+    'apple': 'apple',
+    'meta': 'meta',
+    'microsoft': 'microsoft',
+    'alphabet': 'alphabet',
+    'google': 'alphabet',
+  };
+
+  return slugMap[name] || null;
+}

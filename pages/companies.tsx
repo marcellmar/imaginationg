@@ -3,7 +3,7 @@ import Link from 'next/link';
 import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import { hasSnapshot } from '../lib/snapshots';
+import { hasSnapshot, getSnapshotSlug } from '../lib/snapshots';
 
 interface Company {
   id: string;
@@ -151,37 +151,49 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount }) => {
                     </div>
                   </div>
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-                    {stateCompanies.map((company) => (
-                      <div
-                        key={company.id}
-                        className="border border-zinc-800 bg-black/50 p-4 hover:border-zinc-700 transition-colors"
-                      >
-                        <div className="flex justify-between items-start mb-2">
-                          <div>
-                            <div className="font-bold text-white">{company.name}</div>
-                            {company.ticker && (
-                              <div className="text-xs text-zinc-600">{company.ticker}</div>
+                    {stateCompanies.map((company) => {
+                      const snapshotSlug = getSnapshotSlug(company.name);
+                      const cardContent = (
+                        <div
+                          className={`border border-zinc-800 bg-black/50 p-4 transition-colors ${
+                            snapshotSlug ? 'hover:border-cyan-500/50 cursor-pointer' : 'hover:border-zinc-700'
+                          }`}
+                        >
+                          <div className="flex justify-between items-start mb-2">
+                            <div>
+                              <div className="font-bold text-white">{company.name}</div>
+                              {company.ticker && (
+                                <div className="text-xs text-zinc-600">{company.ticker}</div>
+                              )}
+                            </div>
+                            <div className={`text-2xl font-black ${getScoreColor(company.gpiScore)}`}>
+                              {company.gpiScore?.toFixed(1) || '—'}
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2 mt-3">
+                            <span className="text-xs text-zinc-500">{company.sector}</span>
+                            {company.fortune500Rank && (
+                              <span className="text-xs text-zinc-600">
+                                F500 #{company.fortune500Rank}
+                              </span>
+                            )}
+                            {hasSnapshot(company.name) && (
+                              <span className="text-xs text-cyan-500 bg-cyan-500/10 px-1.5 py-0.5 rounded">
+                                SNAPSHOT
+                              </span>
                             )}
                           </div>
-                          <div className={`text-2xl font-black ${getScoreColor(company.gpiScore)}`}>
-                            {company.gpiScore?.toFixed(1) || '—'}
-                          </div>
                         </div>
-                        <div className="flex items-center gap-2 mt-3">
-                          <span className="text-xs text-zinc-500">{company.sector}</span>
-                          {company.fortune500Rank && (
-                            <span className="text-xs text-zinc-600">
-                              F500 #{company.fortune500Rank}
-                            </span>
-                          )}
-                          {hasSnapshot(company.name) && (
-                            <span className="text-xs text-cyan-500 bg-cyan-500/10 px-1.5 py-0.5 rounded">
-                              SNAPSHOT
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                    ))}
+                      );
+
+                      return snapshotSlug ? (
+                        <Link key={company.id} href={`/companies/${snapshotSlug}`}>
+                          {cardContent}
+                        </Link>
+                      ) : (
+                        <div key={company.id}>{cardContent}</div>
+                      );
+                    })}
                   </div>
                 </div>
               );
