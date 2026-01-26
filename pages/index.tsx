@@ -128,51 +128,60 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
           </div>
         </section>
 
-        {/* Featured Analysis + GPI Visualization Side by Side */}
+        {/* Latest Analyses + GPI Visualization */}
         {featuredContent && (
           <section className="py-12 px-6 border-t border-zinc-900">
             <div className="max-w-6xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-8 items-start">
-                {/* Left: Featured Article */}
-                <div>
-                  <div className="text-xs font-mono text-zinc-600 mb-6">LATEST ANALYSIS</div>
+              <div className="grid lg:grid-cols-5 gap-8 items-start">
+                {/* Left: Two Latest Articles (3 columns) */}
+                <div className="lg:col-span-3">
+                  <div className="text-xs font-mono text-zinc-600 mb-6">LATEST ANALYSES</div>
 
-                  <Link href={featuredContent.slug ? `/insights/gpi-analyses/${featuredContent.slug}` : '/insights/gpi-analyses'} className="block group">
-                    <div className="border border-zinc-800 p-8 hover:border-red-600/50 transition-all h-full">
-                      <div className="flex items-center gap-3 mb-4">
-                        <span className={`text-xs font-mono ${seriesConfig[featuredContent.series]?.color || 'text-red-500'} bg-red-500/10 px-2 py-1`}>
-                          {seriesConfig[featuredContent.series]?.label || featuredContent.series.toUpperCase()}
-                        </span>
-                      </div>
-
-                      <h2 className="text-2xl md:text-3xl font-black mb-4 group-hover:text-red-500 transition-colors">
-                        {featuredContent.headline}
-                      </h2>
-
-                      {featuredContent.teaser && (
-                        <p className="text-zinc-400 mb-6">
-                          {featuredContent.teaser}
-                        </p>
-                      )}
-
-                      {featuredContent.companies.length > 0 && (
-                        <div className="flex flex-wrap items-center gap-4 text-sm">
-                          {featuredContent.companies.slice(0, 2).map((company) => (
-                            <div key={company.id} className="flex items-center gap-2">
-                              <span className="text-zinc-600">{company.name}</span>
-                              <span className={`font-bold ${getScoreColor(company.gpiScore)}`}>
-                                {company.gpiScore?.toFixed(1) || '—'}
-                              </span>
-                            </div>
-                          ))}
+                  <div className="space-y-4">
+                    {/* First Article */}
+                    <Link href={featuredContent.slug ? `/insights/gpi-analyses/${featuredContent.slug}` : '/insights/gpi-analyses'} className="block group">
+                      <div className="border border-zinc-800 p-6 hover:border-red-600/50 transition-all">
+                        <div className="flex items-center gap-3 mb-3">
+                          <span className={`text-xs font-mono ${seriesConfig[featuredContent.series]?.color || 'text-red-500'} bg-red-500/10 px-2 py-1`}>
+                            {seriesConfig[featuredContent.series]?.label || featuredContent.series.toUpperCase()}
+                          </span>
                         </div>
-                      )}
-                    </div>
-                  </Link>
+                        <h2 className="text-xl md:text-2xl font-black mb-3 group-hover:text-red-500 transition-colors">
+                          {featuredContent.headline}
+                        </h2>
+                        {featuredContent.teaser && (
+                          <p className="text-zinc-400 text-sm line-clamp-2">
+                            {featuredContent.teaser}
+                          </p>
+                        )}
+                      </div>
+                    </Link>
+
+                    {/* Second Article */}
+                    {seriesContent[0] && (
+                      <Link href={seriesContent[0].slug ? `/insights/gpi-analyses/${seriesContent[0].slug}` : '/insights/gpi-analyses'} className="block group">
+                        <div className="border border-zinc-800 p-6 hover:border-red-600/50 transition-all">
+                          <div className="flex items-center gap-3 mb-3">
+                            <span className={`text-xs font-mono ${seriesConfig[seriesContent[0].series]?.color || 'text-red-500'} bg-red-500/10 px-2 py-1`}>
+                              {seriesConfig[seriesContent[0].series]?.label || seriesContent[0].series.toUpperCase()}
+                            </span>
+                          </div>
+                          <h2 className="text-xl md:text-2xl font-black mb-3 group-hover:text-red-500 transition-colors">
+                            {seriesContent[0].headline}
+                          </h2>
+                          {seriesContent[0].teaser && (
+                            <p className="text-zinc-400 text-sm line-clamp-2">
+                              {seriesContent[0].teaser}
+                            </p>
+                          )}
+                        </div>
+                      </Link>
+                    )}
+                  </div>
                 </div>
 
-                {/* Right: GPI Visualization */}
-                <div className="hidden lg:block">
+                {/* Right: GPI Visualization (2 columns) */}
+                <div className="hidden lg:block lg:col-span-2">
                   <div className="text-xs font-mono text-zinc-600 mb-6">GPI SCAN</div>
                   <GPISpectrumHero />
                 </div>

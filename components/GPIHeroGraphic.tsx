@@ -31,7 +31,7 @@ export const GPISpectrumHero: React.FC = () => {
         {/* 7 Dimension Bars */}
         {sampleDimensions.map((dim, i) => {
           const y = 44 + i * 34;
-          const barWidth = dim.score * 22;
+          const barWidth = (dim.score / 10) * 220; // Score out of 10, bar is 220px wide
           return (
             <g key={dim.label}>
               {/* Label - right aligned */}
