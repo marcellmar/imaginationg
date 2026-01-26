@@ -110,19 +110,20 @@ const GPIAnalysesPage = () => {
   return (
     <>
       <SEOHead
-        title="GPI Analyses | IMAGINATION G"
-        description="Weekly analyses of companies through the Growing Pains Index lens. Smackdowns, transition watches, and calcification alerts."
+        title="GPI Analyses | GPI Studio"
+        description="66+ company analyses through the GPI lens. Smackdowns, Vital Signs, Autopsies. Who's calcifying. Who's not."
       />
 
       <div className="min-h-screen bg-black text-white">
-        <Navigation currentPage="insights" />
+        <Navigation currentPage="analyses" />
 
         {/* Hero */}
-        <section className="pt-24 pb-12 px-6 border-b border-zinc-900">
+        <section className="pt-28 pb-12 px-6 border-b border-zinc-900">
           <div className="max-w-7xl mx-auto">
-            <Link href="/insights" className="text-zinc-500 text-sm hover:text-white mb-4 inline-block">
-              ← Back to Insights
-            </Link>
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-zinc-600 mb-6">
+              <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+              66+ COMPANIES ANALYZED
+            </div>
             <h1 className="text-4xl md:text-5xl font-black mb-4">
               GPI ANALYSES<span className="text-red-600">.</span>
             </h1>
@@ -179,7 +180,7 @@ const GPIAnalysesPage = () => {
                 <p className="text-zinc-500 max-w-md mx-auto">
                   {filter
                     ? `No ${filter} content published yet. Check back soon.`
-                    : 'Content is coming soon. First analyses drop in January 2025.'}
+                    : 'First analyses publishing soon. 66+ companies already scored.'}
                 </p>
               </div>
             ) : (
@@ -267,18 +268,26 @@ const GPIAnalysesPage = () => {
         {/* CTA */}
         <section className="py-16 px-6 border-t border-zinc-900">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl font-black mb-4">WANT YOUR COMPANY ANALYZED?</h2>
+            <h2 className="text-2xl font-black mb-4">CURIOUS ABOUT YOUR OWN SCORE?</h2>
             <p className="text-zinc-400 mb-8">
-              Get a full GPI breakdown of your organization or competitors.
+              32 questions. 7 dimensions. See where your organization's energy gets stuck.
             </p>
             <Link
               href="/diagnostic"
               className="inline-block bg-red-600 px-8 py-4 font-bold hover:bg-red-700 transition-colors"
             >
-              START WITH THE DIAGNOSTIC
+              TAKE THE DIAGNOSTIC
             </Link>
           </div>
         </section>
+
+        {/* Footer */}
+        <footer className="py-8 px-6 border-t border-zinc-900">
+          <div className="max-w-4xl mx-auto flex justify-between items-center text-sm text-zinc-600">
+            <div>GPI.STUDIO</div>
+            <div>© IMAGINATION G LLC</div>
+          </div>
+        </footer>
       </div>
     </>
   );

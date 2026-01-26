@@ -7,19 +7,17 @@ interface NavigationProps {
 
 const Navigation: React.FC<NavigationProps> = ({ currentPage }) => {
   const navItems = [
-    { key: 'book', label: 'BOOK', href: '/book' },
-    { key: 'framework', label: 'GPI FRAMEWORK', href: '/gpi-framework' },
-    { key: 'diagnostic', label: 'DIAGNOSTIC', href: '/diagnostic' },
-    { key: 'tools', label: 'TOOLS', href: '/tools' },
-    { key: 'insights', label: 'INSIGHTS', href: '/insights' },
+    { key: 'analyses', label: 'ANALYSES', href: '/insights/gpi-analyses' },
+    { key: 'framework', label: 'FRAMEWORK', href: '/gpi-framework' },
     { key: 'about', label: 'ABOUT', href: '/about' },
+    { key: 'diagnostic', label: 'DIAGNOSTIC', href: '/diagnostic' },
   ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-zinc-900">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <Link href="/" className="font-black text-xl">
-          IMAGINATION <span className="text-red-600">G</span>
+        <Link href="/" className="font-black text-xl tracking-tight">
+          GPI<span className="text-red-600">.</span>STUDIO
         </Link>
         <div className="flex gap-6 text-sm font-bold">
           {navItems.map((item) => (

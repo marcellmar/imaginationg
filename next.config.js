@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['imaginationg.studio', 'www.imaginationg.studio'],
+    domains: ['gpi.studio', 'imaginationg.studio', 'www.imaginationg.studio'],
   },
   // Experimental features for Next.js 15
   experimental: {

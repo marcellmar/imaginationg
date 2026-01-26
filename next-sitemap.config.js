@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://www.imaginationg.studio',
+  siteUrl: 'https://gpi.studio',
   generateRobotsTxt: false, // We have custom robots.txt
   changefreq: 'weekly',
   priority: 0.7,

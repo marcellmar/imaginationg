@@ -23,7 +23,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   noindex = false
 }) => {
   const router = useRouter();
-  const siteUrl = 'https://www.imaginationg.studio';
+  const siteUrl = 'https://gpi.studio';
   const canonicalUrl = `${siteUrl}${router.asPath.split('?')[0]}`;
   const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 
@@ -52,7 +52,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta property="og:image" content={fullOgImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:site_name" content="IMAGINATION G" />
+      <meta property="og:site_name" content="GPI Studio" />
       <meta property="og:locale" content="en_US" />
       
       {/* Twitter Card Tags */}

@@ -1,5 +1,5 @@
-# IMAGINATION G - Robots.txt
-# Last updated: 2025-05-30
+# GPI Studio - Robots.txt
+# Last updated: 2026-01-26
 
 # AI Engine Crawlers - Full Access
 User-agent: GPTBot
@@ -75,4 +75,4 @@ Disallow: /_next/
 Disallow: /node_modules/
 
 # Sitemap Location
-Sitemap: https://www.imaginationg.studio/sitemap.xml
+Sitemap: https://gpi.studio/sitemap.xml

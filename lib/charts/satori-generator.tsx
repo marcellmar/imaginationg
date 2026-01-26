@@ -27,8 +27,10 @@ async function loadFonts() {
   // Try local fonts first
   try {
     const fontDir = path.join(process.cwd(), 'public', 'fonts');
-    fontData = fs.readFileSync(path.join(fontDir, 'Inter-Regular.woff'));
-    fontBoldData = fs.readFileSync(path.join(fontDir, 'Inter-Bold.woff'));
+    const regularBuffer = fs.readFileSync(path.join(fontDir, 'Inter-Regular.woff'));
+    const boldBuffer = fs.readFileSync(path.join(fontDir, 'Inter-Bold.woff'));
+    fontData = regularBuffer.buffer.slice(regularBuffer.byteOffset, regularBuffer.byteOffset + regularBuffer.byteLength);
+    fontBoldData = boldBuffer.buffer.slice(boldBuffer.byteOffset, boldBuffer.byteOffset + boldBuffer.byteLength);
     return { regular: fontData, bold: fontBoldData };
   } catch {
     // Fallback to fetch

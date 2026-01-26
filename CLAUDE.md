@@ -97,7 +97,7 @@ When making changes:
 
 ### Vercel
 - **Project:** imaginationg
-- **Domain:** https://www.imaginationg.studio
+- **Domain:** https://gpi.studio
 - **Framework:** Next.js (auto-detected)
 - **Build Command:** `npm run build`
 - **Output Directory:** `.next`
