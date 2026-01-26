@@ -106,7 +106,7 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
             </h1>
 
             <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
-              We measure the difference. {totalAnalyses}+ companies scored. 7 dimensions. The pattern is clear.
+              We measure the difference. {totalAnalyses > 0 ? `${totalAnalyses} companies scored.` : 'Companies scored.'} 7 dimensions. The pattern is clear.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -208,8 +208,8 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
         {/* The Proof */}
         <section className="py-16 px-6 bg-zinc-950">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="text-6xl md:text-7xl font-black text-red-600 mb-4">{totalAnalyses}+</div>
-            <div className="text-xl font-bold mb-4">COMPANIES SCORED</div>
+            <div className="text-6xl md:text-7xl font-black text-red-600 mb-4">{totalAnalyses || '—'}</div>
+            <div className="text-xl font-bold mb-4">COMPANIES ANALYZED</div>
             <p className="text-zinc-500 mb-8 max-w-lg mx-auto">
               Fortune 500s. Retailers. Media giants. Tech. Same 7 dimensions. Same physics. Different scores.
             </p>
@@ -336,14 +336,14 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
 
   let featuredContent: ContentItem | null = null;
   let seriesContent: ContentItem[] = [];
-  let totalAnalyses = 66; // Default fallback
+  let totalAnalyses = 0;
 
   if (!NOTION_API_KEY) {
     return { props: { featuredContent, seriesContent, totalAnalyses } };
   }
 
   try {
-    // Fetch published content from Notion
+    // Fetch published content from GPI Content database
     const contentResponse = await fetch(
       `https://api.notion.com/v1/databases/${GPI_CONTENT_DB}/query`,
       {
@@ -364,44 +364,9 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
     if (contentResponse.ok) {
       const contentData = await contentResponse.json();
 
-      // Collect company IDs
-      const companyIds = new Set<string>();
-      for (const page of contentData.results) {
-        for (const rel of page.properties['Featured Companies']?.relation || []) {
-          companyIds.add(rel.id);
-        }
-      }
-
-      // Fetch company details
-      const companiesMap = new Map<string, Company>();
-      for (const id of Array.from(companyIds)) {
-        try {
-          const companyRes = await fetch(`https://api.notion.com/v1/pages/${id}`, {
-            headers: {
-              'Authorization': `Bearer ${NOTION_API_KEY}`,
-              'Notion-Version': '2022-06-28',
-            },
-          });
-          if (companyRes.ok) {
-            const companyPage = await companyRes.json();
-            const props = companyPage.properties;
-            companiesMap.set(id, {
-              id,
-              name: props.Name?.title?.[0]?.plain_text || 'Unknown',
-              gpiScore: props['GPI Score']?.number || null,
-              stage: props['Transformation Stage']?.select?.name || 'Unknown',
-              sector: props.Sector?.select?.name || 'Unknown',
-            });
-          }
-        } catch (e) {
-          console.error(`Failed to fetch company ${id}:`, e);
-        }
-      }
-
-      // Transform content
+      // Transform content (no company linking needed)
       const allContent: ContentItem[] = contentData.results.map((page: any) => {
         const props = page.properties;
-        const companyRels = props['Featured Companies']?.relation || [];
         return {
           id: page.id,
           headline: props.Headline?.title?.[0]?.plain_text || '',
@@ -409,7 +374,7 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
           publishDate: props['Publish Date']?.date?.start || '',
           teaser: props.Teaser?.rich_text?.[0]?.plain_text || '',
           slug: props.Slug?.rich_text?.[0]?.plain_text || '',
-          companies: companyRels.map((r: any) => companiesMap.get(r.id)).filter(Boolean),
+          companies: [],
         };
       });
 
@@ -439,28 +404,34 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
       }
     }
 
-    // Count total analyses
-    const analysesResponse = await fetch(
-      `https://api.notion.com/v1/databases/${GPI_ANALYSES_DB}/query`,
-      {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${NOTION_API_KEY}`,
-          'Content-Type': 'application/json',
-          'Notion-Version': '2022-06-28',
-        },
-        body: JSON.stringify({ page_size: 1 }),
-      }
-    );
+    // Count total companies in GPI Analyses database (paginate to get full count)
+    let hasMore = true;
+    let startCursor: string | undefined = undefined;
 
-    if (analysesResponse.ok) {
-      // Get total count from has_more and results
-      const analysesData = await analysesResponse.json();
-      // Notion doesn't give total count directly, so we estimate or do a full query
-      // For now, keep the fallback or do another query
-      if (analysesData.results) {
-        // Quick estimate: if has_more is true, there are more than page_size
-        totalAnalyses = analysesData.has_more ? 66 : analysesData.results.length;
+    while (hasMore) {
+      const analysesResponse = await fetch(
+        `https://api.notion.com/v1/databases/${GPI_ANALYSES_DB}/query`,
+        {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${NOTION_API_KEY}`,
+            'Content-Type': 'application/json',
+            'Notion-Version': '2022-06-28',
+          },
+          body: JSON.stringify({
+            page_size: 100,
+            ...(startCursor && { start_cursor: startCursor }),
+          }),
+        }
+      );
+
+      if (analysesResponse.ok) {
+        const analysesData = await analysesResponse.json();
+        totalAnalyses += analysesData.results.length;
+        hasMore = analysesData.has_more;
+        startCursor = analysesData.next_cursor;
+      } else {
+        hasMore = false;
       }
     }
 
