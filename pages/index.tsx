@@ -69,7 +69,7 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
     <>
       <SEOHead
         title="GPI Studio | Organizational Physics"
-        description="Some companies move. Some companies calcify. We measure the difference. 100+ company analyses across 7 dimensions."
+        description="Some companies move. Some companies calcify. We measure the difference. 101 company analyses across 7 dimensions."
         ogImage="/images/og-home.svg"
       />
 
@@ -168,7 +168,7 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
                           View All Company Analyses
                         </h2>
                         <p className="text-zinc-400 text-sm">
-                          100+ companies scored across 7 dimensions. See who's fluid and who's calcified.
+                          101 companies scored across 7 dimensions. See who's fluid and who's calcified.
                         </p>
                       </div>
                     </Link>
@@ -259,7 +259,7 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
         <section className="py-16 px-6 bg-zinc-950">
           <div className="max-w-4xl mx-auto text-center">
             <div className="text-6xl md:text-7xl font-black mb-4">
-              <span className="text-red-600">{totalAnalyses || '100'}</span>
+              <span className="text-red-600">{totalAnalyses || '101'}</span>
               <span className="text-zinc-500 text-4xl md:text-5xl ml-4">AND COUNTING</span>
             </div>
             <div className="text-xl font-bold mb-4">COMPANIES ANALYZED</div>
