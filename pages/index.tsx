@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
+import { GPISpectrumHero } from '../components/GPIHeroGraphic';
 import { ArrowRight } from 'lucide-react';
 
 interface Company {
@@ -109,7 +110,7 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
               We measure the difference. {totalAnalyses > 0 ? `${totalAnalyses} companies scored.` : 'Companies scored.'} 7 dimensions. The pattern is clear.
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 mb-12">
               <Link
                 href="/insights/gpi-analyses"
                 className="inline-flex items-center gap-2 bg-red-600 px-6 py-3 font-bold hover:bg-red-700 transition-colors group"
@@ -124,6 +125,9 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
                 UNDERSTAND THE FRAMEWORK
               </Link>
             </div>
+
+            {/* GPI Spectrum Visualization */}
+            <GPISpectrumHero />
           </div>
         </section>
 

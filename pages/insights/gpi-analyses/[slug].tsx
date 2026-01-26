@@ -9,6 +9,7 @@ import Link from 'next/link';
 import SEOHead from '../../../components/SEOHead';
 import Navigation from '../../../components/Navigation';
 import AudioPlayer from '../../../components/AudioPlayer';
+import { SeriesHero } from '../../../components/GPIHeroGraphic';
 
 // Map article slugs to audio files (add new episodes here)
 const audioMap: Record<string, { src: string; duration: string; title: string }> = {
@@ -236,10 +237,16 @@ const AnalysisPage = () => {
               ← Back to GPI Analyses
             </Link>
 
+            {/* Series Hero Graphic */}
+            <div className="mb-8">
+              <SeriesHero
+                series={content.series}
+                headline={content.headline}
+                companies={content.companies.map(c => ({ name: c.name, gpi: c.gpiScore || 0 }))}
+              />
+            </div>
+
             <div className="flex items-center gap-3 mb-4">
-              <span className={`text-sm font-bold px-3 py-1 rounded ${config.bg} ${config.color}`}>
-                {config.icon} {content.series.toUpperCase()}
-              </span>
               {content.publishDate && (
                 <span className="text-sm text-zinc-500">
                   {new Date(content.publishDate).toLocaleDateString('en-US', {
