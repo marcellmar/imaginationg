@@ -5,77 +5,78 @@
 
 import React from 'react';
 
-// Homepage Hero - Animated spectrum visualization
+// Homepage Hero - Animated GPI scan matching framework style
 export const GPISpectrumHero: React.FC = () => {
+  const sampleDimensions = [
+    { label: 'DECISION', score: 7.2, color: '#ef4444' },
+    { label: 'ERROR', score: 5.8, color: '#eab308' },
+    { label: 'KNOWLEDGE', score: 8.1, color: '#ef4444' },
+    { label: 'STRUCTURE', score: 6.5, color: '#eab308' },
+    { label: 'TALENT', score: 3.2, color: '#22c55e' },
+    { label: 'CAPITAL', score: 7.0, color: '#ef4444' },
+    { label: 'VELOCITY', score: 4.5, color: '#eab308' },
+  ];
+
   return (
-    <div className="relative w-full h-64 md:h-80 overflow-hidden rounded-lg border border-zinc-800">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-green-950/50 via-yellow-950/50 to-red-950/50" />
+    <div className="w-full">
+      <svg viewBox="0 0 500 340" className="w-full h-auto">
+        {/* Background */}
+        <rect x="0" y="0" width="500" height="340" fill="#09090b" rx="8" />
 
-      {/* Animated particles */}
-      <div className="absolute inset-0">
-        {/* Field particles (green, moving fast) */}
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={`field-${i}`}
-            className="absolute w-2 h-2 bg-green-500 rounded-full animate-pulse"
-            style={{
-              left: `${5 + i * 3}%`,
-              top: `${20 + Math.sin(i) * 30}%`,
-              animationDelay: `${i * 0.2}s`,
-              animationDuration: '1.5s',
-            }}
-          />
-        ))}
+        {/* Header */}
+        <text x="250" y="28" textAnchor="middle" fill="#52525b" fontSize="10" fontFamily="monospace">
+          GPI DIMENSIONAL SCAN
+        </text>
 
-        {/* Transitioning particles (yellow, medium speed) */}
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={`trans-${i}`}
-            className="absolute w-3 h-3 bg-yellow-500 rounded-full opacity-70"
-            style={{
-              left: `${35 + i * 5}%`,
-              top: `${30 + Math.cos(i) * 20}%`,
-              animation: `pulse ${2 + i * 0.3}s ease-in-out infinite`,
-              animationDelay: `${i * 0.3}s`,
-            }}
-          />
-        ))}
+        {/* 7 Dimension Bars */}
+        {sampleDimensions.map((dim, i) => {
+          const y = 50 + i * 38;
+          return (
+            <g key={dim.label}>
+              {/* Label */}
+              <text x="20" y={y + 14} fill="#71717a" fontSize="11" fontFamily="monospace">{dim.label}</text>
 
-        {/* Particle state (red, slow/stuck) */}
-        {[...Array(5)].map((_, i) => (
-          <div
-            key={`particle-${i}`}
-            className="absolute w-4 h-4 bg-red-500 rounded-sm opacity-60"
-            style={{
-              left: `${70 + i * 5}%`,
-              top: `${25 + i * 10}%`,
-              animation: `pulse ${4 + i * 0.5}s ease-in-out infinite`,
-            }}
-          />
-        ))}
-      </div>
+              {/* Bar background */}
+              <rect x="100" y={y} width="300" height="20" fill="#27272a" rx="3" />
 
-      {/* Spectrum bar */}
-      <div className="absolute bottom-0 left-0 right-0 h-2">
-        <div className="h-full bg-gradient-to-r from-green-500 via-yellow-500 to-red-500" />
-      </div>
+              {/* Bar fill - animated */}
+              <rect x="100" y={y} width="0" height="20" fill={dim.color} rx="3" opacity="0.85">
+                <animate
+                  attributeName="width"
+                  from="0"
+                  to={dim.score * 30}
+                  dur="1.2s"
+                  fill="freeze"
+                  begin={`${i * 0.12}s`}
+                />
+              </rect>
 
-      {/* Labels */}
-      <div className="absolute bottom-6 left-0 right-0 flex justify-between px-8 text-xs font-mono">
-        <span className="text-green-500">FIELD</span>
-        <span className="text-yellow-500">TRANSITIONING</span>
-        <span className="text-red-500">PARTICLE</span>
-      </div>
+              {/* Score */}
+              <text x="420" y={y + 14} fill={dim.color} fontSize="13" fontWeight="bold" fontFamily="monospace">
+                {dim.score.toFixed(1)}
+              </text>
 
-      {/* Score markers */}
-      <div className="absolute bottom-3 left-0 right-0 flex justify-between px-8 text-[10px] text-zinc-600 font-mono">
-        <span>1.0</span>
-        <span>3.0</span>
-        <span>5.0</span>
-        <span>7.0</span>
-        <span>10.0</span>
-      </div>
+              {/* Pulse indicator for high scores */}
+              {dim.score >= 7 && (
+                <circle cx="455" cy={y + 10} r="5" fill={dim.color}>
+                  <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+              )}
+            </g>
+          );
+        })}
+
+        {/* Divider */}
+        <line x1="20" y1="320" x2="480" y2="320" stroke="#27272a" strokeWidth="1" />
+
+        {/* Overall Score */}
+        <text x="20" y="305" fill="#71717a" fontSize="11" fontFamily="monospace">COMPOSITE GPI</text>
+        <text x="420" y="305" fill="#ef4444" fontSize="18" fontWeight="bold" fontFamily="monospace">6.0</text>
+
+        {/* State indicator */}
+        <rect x="300" y="288" width="100" height="20" fill="#27272a" rx="3" />
+        <text x="350" y="302" textAnchor="middle" fill="#eab308" fontSize="9" fontFamily="monospace">TRANSITION STATE</text>
+      </svg>
     </div>
   );
 };
