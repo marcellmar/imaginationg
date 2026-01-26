@@ -457,7 +457,7 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
       }
     }
 
-    // Count total companies in GPI Analyses database (paginate to get full count)
+    // Count total companies in GPI Analyses database (paginate to get full count, exclude deals)
     let hasMore = true;
     let startCursor: string | undefined = undefined;
 
@@ -480,7 +480,13 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
 
       if (analysesResponse.ok) {
         const analysesData = await analysesResponse.json();
-        totalAnalyses += analysesData.results.length;
+        // Count only companies, not deals
+        for (const page of analysesData.results) {
+          const name = page.properties?.Name?.title?.[0]?.plain_text || '';
+          if (!name.toLowerCase().includes('deal')) {
+            totalAnalyses++;
+          }
+        }
         hasMore = analysesData.has_more;
         startCursor = analysesData.next_cursor;
       } else {
