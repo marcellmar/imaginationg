@@ -18,47 +18,65 @@ export const GPISpectrumHero: React.FC = () => {
   ];
 
   return (
-    <div className="w-full">
-      <svg viewBox="0 0 500 340" className="w-full h-auto">
+    <div className="w-full border border-zinc-800 rounded-lg overflow-hidden">
+      <svg viewBox="0 0 400 320" className="w-full h-auto">
         {/* Background */}
-        <rect x="0" y="0" width="500" height="340" fill="#09090b" rx="8" />
+        <rect x="0" y="0" width="400" height="320" fill="#09090b" />
 
         {/* Header */}
-        <text x="250" y="28" textAnchor="middle" fill="#52525b" fontSize="10" fontFamily="monospace">
+        <text x="200" y="24" textAnchor="middle" fill="#52525b" fontSize="9" fontFamily="monospace">
           GPI DIMENSIONAL SCAN
         </text>
 
         {/* 7 Dimension Bars */}
         {sampleDimensions.map((dim, i) => {
-          const y = 50 + i * 38;
+          const y = 44 + i * 34;
+          const barWidth = dim.score * 22;
           return (
             <g key={dim.label}>
-              {/* Label */}
-              <text x="20" y={y + 14} fill="#71717a" fontSize="11" fontFamily="monospace">{dim.label}</text>
+              {/* Label - right aligned */}
+              <text
+                x="75"
+                y={y + 11}
+                textAnchor="end"
+                fill="#71717a"
+                fontSize="10"
+                fontFamily="monospace"
+              >
+                {dim.label}
+              </text>
 
               {/* Bar background */}
-              <rect x="100" y={y} width="300" height="20" fill="#27272a" rx="3" />
+              <rect x="85" y={y} width="220" height="18" fill="#27272a" rx="2" />
 
               {/* Bar fill - animated */}
-              <rect x="100" y={y} width="0" height="20" fill={dim.color} rx="3" opacity="0.85">
+              <rect x="85" y={y} width="0" height="18" fill={dim.color} rx="2" opacity="0.85">
                 <animate
                   attributeName="width"
                   from="0"
-                  to={dim.score * 30}
-                  dur="1.2s"
+                  to={barWidth}
+                  dur="1s"
                   fill="freeze"
-                  begin={`${i * 0.12}s`}
+                  begin={`${i * 0.1}s`}
                 />
               </rect>
 
-              {/* Score */}
-              <text x="420" y={y + 14} fill={dim.color} fontSize="13" fontWeight="bold" fontFamily="monospace">
+              {/* Score - right aligned */}
+              <text
+                x="330"
+                y={y + 12}
+                textAnchor="end"
+                fill={dim.color}
+                fontSize="12"
+                fontWeight="bold"
+                fontFamily="monospace"
+              >
                 {dim.score.toFixed(1)}
               </text>
 
               {/* Pulse indicator for high scores */}
               {dim.score >= 7 && (
-                <circle cx="455" cy={y + 10} r="5" fill={dim.color}>
+                <circle cx="350" cy={y + 9} r="4" fill={dim.color}>
                   <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite" />
                 </circle>
               )}
@@ -67,15 +85,23 @@ export const GPISpectrumHero: React.FC = () => {
         })}
 
         {/* Divider */}
-        <line x1="20" y1="320" x2="480" y2="320" stroke="#27272a" strokeWidth="1" />
+        <line x1="20" y1="290" x2="380" y2="290" stroke="#27272a" strokeWidth="1" />
 
-        {/* Overall Score */}
-        <text x="20" y="305" fill="#71717a" fontSize="11" fontFamily="monospace">COMPOSITE GPI</text>
-        <text x="420" y="305" fill="#ef4444" fontSize="18" fontWeight="bold" fontFamily="monospace">6.0</text>
+        {/* Bottom row */}
+        <text x="85" y="308" textAnchor="start" fill="#71717a" fontSize="10" fontFamily="monospace">
+          COMPOSITE GPI
+        </text>
 
-        {/* State indicator */}
-        <rect x="300" y="288" width="100" height="20" fill="#27272a" rx="3" />
-        <text x="350" y="302" textAnchor="middle" fill="#eab308" fontSize="9" fontFamily="monospace">TRANSITION STATE</text>
+        {/* State indicator pill */}
+        <rect x="200" y="295" width="90" height="18" fill="#eab30822" rx="9" stroke="#eab308" strokeWidth="1" />
+        <text x="245" y="307" textAnchor="middle" fill="#eab308" fontSize="8" fontFamily="monospace">
+          TRANSITIONING
+        </text>
+
+        {/* Score */}
+        <text x="330" y="308" textAnchor="end" fill="#ef4444" fontSize="16" fontWeight="bold" fontFamily="monospace">
+          6.0
+        </text>
       </svg>
     </div>
   );

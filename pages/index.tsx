@@ -110,7 +110,7 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
               We measure the difference. {totalAnalyses > 0 ? `${totalAnalyses} companies scored.` : 'Companies scored.'} 7 dimensions. The pattern is clear.
             </p>
 
-            <div className="flex flex-wrap gap-4 mb-12">
+            <div className="flex flex-wrap gap-4">
               <Link
                 href="/insights/gpi-analyses"
                 className="inline-flex items-center gap-2 bg-red-600 px-6 py-3 font-bold hover:bg-red-700 transition-colors group"
@@ -125,53 +125,58 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
                 UNDERSTAND THE FRAMEWORK
               </Link>
             </div>
-
-            {/* GPI Spectrum Visualization */}
-            <GPISpectrumHero />
           </div>
         </section>
 
-        {/* Featured Analysis - From Notion */}
+        {/* Featured Analysis + GPI Visualization Side by Side */}
         {featuredContent && (
           <section className="py-12 px-6 border-t border-zinc-900">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-xs font-mono text-zinc-600 mb-6">LATEST ANALYSIS</div>
+            <div className="max-w-6xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-8 items-start">
+                {/* Left: Featured Article */}
+                <div>
+                  <div className="text-xs font-mono text-zinc-600 mb-6">LATEST ANALYSIS</div>
 
-              <Link href={featuredContent.slug ? `/insights/gpi-analyses/${featuredContent.slug}` : '/insights/gpi-analyses'} className="block group">
-                <div className="border border-zinc-800 p-8 hover:border-red-600/50 transition-all">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className={`text-xs font-mono ${seriesConfig[featuredContent.series]?.color || 'text-red-500'} bg-red-500/10 px-2 py-1`}>
-                      {seriesConfig[featuredContent.series]?.label || featuredContent.series.toUpperCase()}
-                    </span>
-                  </div>
+                  <Link href={featuredContent.slug ? `/insights/gpi-analyses/${featuredContent.slug}` : '/insights/gpi-analyses'} className="block group">
+                    <div className="border border-zinc-800 p-8 hover:border-red-600/50 transition-all h-full">
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className={`text-xs font-mono ${seriesConfig[featuredContent.series]?.color || 'text-red-500'} bg-red-500/10 px-2 py-1`}>
+                          {seriesConfig[featuredContent.series]?.label || featuredContent.series.toUpperCase()}
+                        </span>
+                      </div>
 
-                  <h2 className="text-2xl md:text-3xl font-black mb-4 group-hover:text-red-500 transition-colors">
-                    {featuredContent.headline}
-                  </h2>
+                      <h2 className="text-2xl md:text-3xl font-black mb-4 group-hover:text-red-500 transition-colors">
+                        {featuredContent.headline}
+                      </h2>
 
-                  {featuredContent.teaser && (
-                    <p className="text-zinc-400 mb-6 max-w-2xl">
-                      {featuredContent.teaser}
-                    </p>
-                  )}
+                      {featuredContent.teaser && (
+                        <p className="text-zinc-400 mb-6">
+                          {featuredContent.teaser}
+                        </p>
+                      )}
 
-                  {featuredContent.companies.length > 0 && (
-                    <div className="flex items-center gap-6 text-sm">
-                      {featuredContent.companies.slice(0, 2).map((company) => (
-                        <div key={company.id} className="flex items-center gap-3">
-                          <span className="text-zinc-600">{company.name}</span>
-                          <span className={`font-bold ${getScoreColor(company.gpiScore)}`}>
-                            {company.gpiScore?.toFixed(1) || '—'}
-                          </span>
-                          <span className={`text-xs ${getScoreColor(company.gpiScore)}`}>
-                            {getStageLabel(company.stage)}
-                          </span>
+                      {featuredContent.companies.length > 0 && (
+                        <div className="flex flex-wrap items-center gap-4 text-sm">
+                          {featuredContent.companies.slice(0, 2).map((company) => (
+                            <div key={company.id} className="flex items-center gap-2">
+                              <span className="text-zinc-600">{company.name}</span>
+                              <span className={`font-bold ${getScoreColor(company.gpiScore)}`}>
+                                {company.gpiScore?.toFixed(1) || '—'}
+                              </span>
+                            </div>
+                          ))}
                         </div>
-                      ))}
+                      )}
                     </div>
-                  )}
+                  </Link>
                 </div>
-              </Link>
+
+                {/* Right: GPI Visualization */}
+                <div className="hidden lg:block">
+                  <div className="text-xs font-mono text-zinc-600 mb-6">GPI SCAN</div>
+                  <GPISpectrumHero />
+                </div>
+              </div>
             </div>
           </section>
         )}
