@@ -1,12 +1,60 @@
-import type { NextPage } from 'next';
+import type { NextPage, GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
 import { ArrowRight } from 'lucide-react';
 
-const Home: NextPage = () => {
+interface Company {
+  id: string;
+  name: string;
+  gpiScore: number | null;
+  stage: string;
+  sector: string;
+}
+
+interface ContentItem {
+  id: string;
+  headline: string;
+  series: string;
+  publishDate: string;
+  teaser: string;
+  slug: string;
+  companies: Company[];
+}
+
+interface HomeProps {
+  featuredContent: ContentItem | null;
+  seriesContent: ContentItem[];
+  totalAnalyses: number;
+}
+
+const seriesConfig: Record<string, { color: string; label: string }> = {
+  'Weekly Smackdown': { color: 'text-red-500', label: 'WEEKLY SMACKDOWN' },
+  'Vital Signs': { color: 'text-blue-500', label: 'VITAL SIGNS' },
+  'Calcification Alert': { color: 'text-orange-500', label: 'CALCIFICATION ALERT' },
+  'The Autopsy': { color: 'text-zinc-400', label: 'THE AUTOPSY' },
+  'Field Notes': { color: 'text-green-500', label: 'FIELD NOTES' },
+  'Transition Watch': { color: 'text-yellow-500', label: 'TRANSITION WATCH' },
+  'Wildcard': { color: 'text-purple-500', label: 'WILDCARD' },
+};
+
+const getScoreColor = (score: number | null) => {
+  if (!score) return 'text-zinc-500';
+  if (score <= 3) return 'text-green-500';
+  if (score <= 6.9) return 'text-yellow-500';
+  return 'text-red-500';
+};
+
+const getStageLabel = (stage: string) => {
+  if (stage === 'Field') return 'FIELD';
+  if (stage === 'Transitioning') return 'TRANSITIONING';
+  if (stage === 'Particle') return 'PARTICLE';
+  return stage.toUpperCase();
+};
+
+const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalyses }) => {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
@@ -58,7 +106,7 @@ const Home: NextPage = () => {
             </h1>
 
             <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
-              We measure the difference. 66 companies scored. 7 dimensions. The pattern is clear.
+              We measure the difference. {totalAnalyses}+ companies scored. 7 dimensions. The pattern is clear.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -79,86 +127,88 @@ const Home: NextPage = () => {
           </div>
         </section>
 
-        {/* Featured Analysis */}
-        <section className="py-12 px-6 border-t border-zinc-900">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-xs font-mono text-zinc-600 mb-6">LATEST ANALYSIS</div>
+        {/* Featured Analysis - From Notion */}
+        {featuredContent && (
+          <section className="py-12 px-6 border-t border-zinc-900">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-xs font-mono text-zinc-600 mb-6">LATEST ANALYSIS</div>
 
-            <Link href="/insights/gpi-analyses" className="block group">
-              <div className="border border-zinc-800 p-8 hover:border-red-600/50 transition-all">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-xs font-mono text-red-500 bg-red-500/10 px-2 py-1">VITAL SIGNS</span>
-                </div>
-
-                <h2 className="text-2xl md:text-3xl font-black mb-4 group-hover:text-red-500 transition-colors">
-                  Disney's Metabolic Stress
-                </h2>
-
-                <p className="text-zinc-400 mb-6 max-w-2xl">
-                  Attendance down 1%. Per-guest spending up 5%. You don't ask that question when the parks are full. GPI 6.7, transitioning.
-                </p>
-
-                <div className="flex items-center gap-6 text-sm">
-                  <div>
-                    <span className="text-zinc-600">GPI Score</span>
-                    <span className="ml-2 text-yellow-500 font-bold">6.7</span>
+              <Link href={featuredContent.slug ? `/insights/gpi-analyses/${featuredContent.slug}` : '/insights/gpi-analyses'} className="block group">
+                <div className="border border-zinc-800 p-8 hover:border-red-600/50 transition-all">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className={`text-xs font-mono ${seriesConfig[featuredContent.series]?.color || 'text-red-500'} bg-red-500/10 px-2 py-1`}>
+                      {seriesConfig[featuredContent.series]?.label || featuredContent.series.toUpperCase()}
+                    </span>
                   </div>
-                  <div>
-                    <span className="text-zinc-600">State</span>
-                    <span className="ml-2 text-yellow-500 font-bold">TRANSITIONING</span>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
-        </section>
 
-        {/* Content Series */}
-        <section className="py-12 px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-xs font-mono text-zinc-600 mb-6">CONTENT SERIES</div>
+                  <h2 className="text-2xl md:text-3xl font-black mb-4 group-hover:text-red-500 transition-colors">
+                    {featuredContent.headline}
+                  </h2>
 
-            <div className="grid md:grid-cols-3 gap-4">
-              {/* Weekly Smackdown */}
-              <Link href="/insights/gpi-analyses" className="block group">
-                <div className="border border-zinc-800 p-6 h-full hover:border-red-600/50 transition-all">
-                  <div className="text-xs font-mono text-red-500 mb-3">WEEKLY SMACKDOWN</div>
-                  <h3 className="font-bold mb-2 group-hover:text-red-500 transition-colors">Netflix vs WBD</h3>
-                  <p className="text-sm text-zinc-500">
-                    Who wins when physics decides? One company pivots. The other prays.
-                  </p>
-                </div>
-              </Link>
+                  {featuredContent.teaser && (
+                    <p className="text-zinc-400 mb-6 max-w-2xl">
+                      {featuredContent.teaser}
+                    </p>
+                  )}
 
-              {/* Calcification Alert */}
-              <Link href="/insights/gpi-analyses" className="block group">
-                <div className="border border-zinc-800 p-6 h-full hover:border-red-600/50 transition-all">
-                  <div className="text-xs font-mono text-red-500 mb-3">CALCIFICATION ALERT</div>
-                  <h3 className="font-bold mb-2 group-hover:text-red-500 transition-colors">Saks Fifth Avenue</h3>
-                  <p className="text-sm text-zinc-500">
-                    GPI 8.2. This isn't a rough quarter. This is physics.
-                  </p>
-                </div>
-              </Link>
-
-              {/* The Autopsy */}
-              <Link href="/insights/gpi-analyses" className="block group">
-                <div className="border border-zinc-800 p-6 h-full hover:border-red-600/50 transition-all">
-                  <div className="text-xs font-mono text-red-500 mb-3">THE AUTOPSY</div>
-                  <h3 className="font-bold mb-2 group-hover:text-red-500 transition-colors">Blockbuster</h3>
-                  <p className="text-sm text-zinc-500">
-                    They had meetings about the meetings about the threat. Death by decision latency.
-                  </p>
+                  {featuredContent.companies.length > 0 && (
+                    <div className="flex items-center gap-6 text-sm">
+                      {featuredContent.companies.slice(0, 2).map((company) => (
+                        <div key={company.id} className="flex items-center gap-3">
+                          <span className="text-zinc-600">{company.name}</span>
+                          <span className={`font-bold ${getScoreColor(company.gpiScore)}`}>
+                            {company.gpiScore?.toFixed(1) || '—'}
+                          </span>
+                          <span className={`text-xs ${getScoreColor(company.gpiScore)}`}>
+                            {getStageLabel(company.stage)}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </Link>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
+
+        {/* Content Series - From Notion */}
+        {seriesContent.length > 0 && (
+          <section className="py-12 px-6">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-xs font-mono text-zinc-600 mb-6">CONTENT SERIES</div>
+
+              <div className="grid md:grid-cols-3 gap-4">
+                {seriesContent.slice(0, 3).map((item) => (
+                  <Link
+                    key={item.id}
+                    href={item.slug ? `/insights/gpi-analyses/${item.slug}` : '/insights/gpi-analyses'}
+                    className="block group"
+                  >
+                    <div className="border border-zinc-800 p-6 h-full hover:border-red-600/50 transition-all">
+                      <div className={`text-xs font-mono ${seriesConfig[item.series]?.color || 'text-red-500'} mb-3`}>
+                        {seriesConfig[item.series]?.label || item.series.toUpperCase()}
+                      </div>
+                      <h3 className="font-bold mb-2 group-hover:text-red-500 transition-colors">
+                        {item.headline}
+                      </h3>
+                      {item.teaser && (
+                        <p className="text-sm text-zinc-500 line-clamp-2">
+                          {item.teaser}
+                        </p>
+                      )}
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* The Proof */}
         <section className="py-16 px-6 bg-zinc-950">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="text-6xl md:text-7xl font-black text-red-600 mb-4">66+</div>
+            <div className="text-6xl md:text-7xl font-black text-red-600 mb-4">{totalAnalyses}+</div>
             <div className="text-xl font-bold mb-4">COMPANIES SCORED</div>
             <p className="text-zinc-500 mb-8 max-w-lg mx-auto">
               Fortune 500s. Retailers. Media giants. Tech. Same 7 dimensions. Same physics. Different scores.
@@ -277,6 +327,154 @@ const Home: NextPage = () => {
       </div>
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
+  const NOTION_API_KEY = process.env.NOTION_API_KEY;
+  const GPI_CONTENT_DB = '2d8990ae-cd45-811a-b634-c11c51be4013';
+  const GPI_ANALYSES_DB = '7d636c92-c316-4bfc-9bc7-7899e575e19e';
+
+  let featuredContent: ContentItem | null = null;
+  let seriesContent: ContentItem[] = [];
+  let totalAnalyses = 66; // Default fallback
+
+  if (!NOTION_API_KEY) {
+    return { props: { featuredContent, seriesContent, totalAnalyses } };
+  }
+
+  try {
+    // Fetch published content from Notion
+    const contentResponse = await fetch(
+      `https://api.notion.com/v1/databases/${GPI_CONTENT_DB}/query`,
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${NOTION_API_KEY}`,
+          'Content-Type': 'application/json',
+          'Notion-Version': '2022-06-28',
+        },
+        body: JSON.stringify({
+          filter: { property: 'Status', select: { equals: 'Published' } },
+          sorts: [{ property: 'Publish Date', direction: 'descending' }],
+          page_size: 10,
+        }),
+      }
+    );
+
+    if (contentResponse.ok) {
+      const contentData = await contentResponse.json();
+
+      // Collect company IDs
+      const companyIds = new Set<string>();
+      for (const page of contentData.results) {
+        for (const rel of page.properties['Featured Companies']?.relation || []) {
+          companyIds.add(rel.id);
+        }
+      }
+
+      // Fetch company details
+      const companiesMap = new Map<string, Company>();
+      for (const id of Array.from(companyIds)) {
+        try {
+          const companyRes = await fetch(`https://api.notion.com/v1/pages/${id}`, {
+            headers: {
+              'Authorization': `Bearer ${NOTION_API_KEY}`,
+              'Notion-Version': '2022-06-28',
+            },
+          });
+          if (companyRes.ok) {
+            const companyPage = await companyRes.json();
+            const props = companyPage.properties;
+            companiesMap.set(id, {
+              id,
+              name: props.Name?.title?.[0]?.plain_text || 'Unknown',
+              gpiScore: props['GPI Score']?.number || null,
+              stage: props['Transformation Stage']?.select?.name || 'Unknown',
+              sector: props.Sector?.select?.name || 'Unknown',
+            });
+          }
+        } catch (e) {
+          console.error(`Failed to fetch company ${id}:`, e);
+        }
+      }
+
+      // Transform content
+      const allContent: ContentItem[] = contentData.results.map((page: any) => {
+        const props = page.properties;
+        const companyRels = props['Featured Companies']?.relation || [];
+        return {
+          id: page.id,
+          headline: props.Headline?.title?.[0]?.plain_text || '',
+          series: props.Series?.select?.name || '',
+          publishDate: props['Publish Date']?.date?.start || '',
+          teaser: props.Teaser?.rich_text?.[0]?.plain_text || '',
+          slug: props.Slug?.rich_text?.[0]?.plain_text || '',
+          companies: companyRels.map((r: any) => companiesMap.get(r.id)).filter(Boolean),
+        };
+      });
+
+      // Set featured (most recent) and series content (next 3 different series)
+      if (allContent.length > 0) {
+        featuredContent = allContent[0];
+
+        // Get unique series for the cards
+        const seenSeries = new Set<string>();
+        if (featuredContent.series) seenSeries.add(featuredContent.series);
+
+        for (const item of allContent.slice(1)) {
+          if (!seenSeries.has(item.series) && seriesContent.length < 3) {
+            seriesContent.push(item);
+            seenSeries.add(item.series);
+          }
+        }
+
+        // If not enough unique series, fill with remaining
+        if (seriesContent.length < 3) {
+          for (const item of allContent.slice(1)) {
+            if (!seriesContent.includes(item) && seriesContent.length < 3) {
+              seriesContent.push(item);
+            }
+          }
+        }
+      }
+    }
+
+    // Count total analyses
+    const analysesResponse = await fetch(
+      `https://api.notion.com/v1/databases/${GPI_ANALYSES_DB}/query`,
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${NOTION_API_KEY}`,
+          'Content-Type': 'application/json',
+          'Notion-Version': '2022-06-28',
+        },
+        body: JSON.stringify({ page_size: 1 }),
+      }
+    );
+
+    if (analysesResponse.ok) {
+      // Get total count from has_more and results
+      const analysesData = await analysesResponse.json();
+      // Notion doesn't give total count directly, so we estimate or do a full query
+      // For now, keep the fallback or do another query
+      if (analysesData.results) {
+        // Quick estimate: if has_more is true, there are more than page_size
+        totalAnalyses = analysesData.has_more ? 66 : analysesData.results.length;
+      }
+    }
+
+  } catch (error) {
+    console.error('Error fetching Notion content:', error);
+  }
+
+  return {
+    props: {
+      featuredContent,
+      seriesContent,
+      totalAnalyses,
+    },
+  };
 };
 
 export default Home;
