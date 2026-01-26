@@ -9,7 +9,7 @@ import Link from 'next/link';
 import SEOHead from '../../../components/SEOHead';
 import Navigation from '../../../components/Navigation';
 import AudioPlayer from '../../../components/AudioPlayer';
-import { SeriesHero } from '../../../components/GPIHeroGraphic';
+import { ArticleGraphic } from '../../../components/ArticleGraphics';
 
 // Map article slugs to audio files (add new episodes here)
 const audioMap: Record<string, { src: string; duration: string; title: string }> = {
@@ -237,12 +237,12 @@ const AnalysisPage = () => {
               ← Back to GPI Analyses
             </Link>
 
-            {/* Series Hero Graphic */}
+            {/* Content-Aware Article Graphic */}
             <div className="mb-8">
-              <SeriesHero
+              <ArticleGraphic
                 series={content.series}
                 headline={content.headline}
-                companies={content.companies.map(c => ({ name: c.name, gpi: c.gpiScore || 0 }))}
+                companies={content.companies}
               />
             </div>
 
