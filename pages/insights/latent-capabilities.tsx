@@ -99,265 +99,151 @@ const LatentCapabilitiesPage: NextPage = () => {
           </div>
         </section>
 
-        {/* Article Content */}
+        {/* Content */}
         <section className="py-8 px-6">
-          <div className="max-w-4xl mx-auto">
-            <article className="prose prose-invert prose-lg max-w-none">
+          <div className="max-w-3xl mx-auto space-y-16">
 
-              {/* The Core Insight */}
-              <div className="border-l-4 border-red-600 pl-6 mb-12">
-                <p className="text-xl text-zinc-300 italic mb-0">
-                  "You don't need more capacity. You need coordination infrastructure."
-                </p>
+            {/* Opening */}
+            <div className="space-y-4 text-zinc-300">
+              <p>When organizations hit constraints, the default response: hire more people, buy more equipment, expand facilities. Add capacity.</p>
+              <p>Most organizations aren't capacity-constrained. They're coordination-constrained.</p>
+              <p className="text-white text-xl font-bold pt-4">The capability already exists. It's just not accessible.</p>
+            </div>
+
+            {/* Quote */}
+            <div className="bg-zinc-950 border border-zinc-800 p-8">
+              <p className="text-2xl text-white italic">"You don't need more capacity. You need coordination infrastructure."</p>
+            </div>
+
+            {/* Big Number */}
+            <div className="text-center py-8">
+              <p className="text-6xl font-black text-yellow-500">30%</p>
+              <p className="text-xl text-zinc-400 mt-2">more capability than they deploy</p>
+              <p className="text-sm text-zinc-600 mt-4">Consistent across industries. 20-40% range, averaging 30%.</p>
+            </div>
+
+            {/* Pharmacy Example */}
+            <div className="border-l-2 border-red-600 pl-6 space-y-4">
+              <h2 className="text-xs font-mono text-red-500 mb-4">THE PHARMACY PARADOX</h2>
+              <p className="text-zinc-300">Independent pharmacies have excess capacity. Each can fill more prescriptions than they receive.</p>
+              <p className="text-zinc-300">Meanwhile, CVS runs at maximum utilization, turning customers away.</p>
+              <p className="text-white font-bold">The independents have capability. CVS has coordination. Neither has both.</p>
+            </div>
+
+            {/* 4 Types Grid */}
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="bg-yellow-950/20 border border-yellow-900/50 p-6">
+                <p className="text-yellow-500 font-bold text-sm mb-2">SKILL LATENCY</p>
+                <p className="text-zinc-300 text-sm">The engineer who's also a designer. The sales rep who speaks Mandarin. Rigid roles trap unused skills.</p>
               </div>
-
-              <h2 className="text-2xl font-black mt-12 mb-6">THE CAPACITY ILLUSION</h2>
-
-              <p className="text-zinc-400 mb-6">
-                When organizations hit constraints, the default response is predictable: hire more people, buy more equipment, expand facilities. Add capacity.
-              </p>
-
-              <p className="text-zinc-400 mb-6">
-                But here's what the GPI reveals: most organizations aren't capacity-constrained. They're coordination-constrained. The capability already exists. It's just not accessible.
-              </p>
-
-              <p className="text-zinc-400 mb-6">
-                <span className="text-white font-bold">Latent capability is the gap between what exists and what's deployed.</span> It's the skill your employee has that you never use. The connection between departments that never activates. The asset sitting idle while demand goes unmet elsewhere.
-              </p>
-
-              <div className="bg-zinc-950 border border-zinc-800 p-8 my-12">
-                <h3 className="text-xl font-black text-red-600 mb-4">THE PHARMACY PARADOX</h3>
-                <p className="text-zinc-400 mb-4">
-                  Independent pharmacies across a region have excess capacity. Each one can fill more prescriptions than they receive. Meanwhile, CVS locations run at maximum utilization, turning customers away during peak hours.
-                </p>
-                <p className="text-zinc-400">
-                  The independent pharmacies have latent capability. CVS has coordination infrastructure (centralized systems, brand recognition, insurance integrations). Neither has both. The one that figures out how to coordinate distributed capacity wins.
-                </p>
+              <div className="bg-yellow-950/20 border border-yellow-900/50 p-6">
+                <p className="text-yellow-500 font-bold text-sm mb-2">NETWORK LATENCY</p>
+                <p className="text-zinc-300 text-sm">Sales knows what customers need. Product never hears it. The nodes exist. No signal flows.</p>
               </div>
-
-              <h2 className="text-2xl font-black mt-12 mb-6">TYPES OF LATENT CAPABILITY</h2>
-
-              <p className="text-zinc-400 mb-6">
-                Latent capability hides in different forms. Each type requires different coordination infrastructure to unlock.
-              </p>
-
-              <div className="space-y-8 my-12">
-                <div className="border border-zinc-800 p-8 bg-black">
-                  <h3 className="text-xl font-black text-yellow-500 mb-4">SKILL LATENCY</h3>
-                  <p className="text-zinc-400 mb-4">
-                    Capabilities people have that the organization doesn't deploy. The engineer who's also a graphic designer. The sales rep who speaks Mandarin. The manager who built databases before moving to management.
-                  </p>
-                  <p className="text-zinc-400 mb-4">
-                    Rigid role definitions create skill latency. When job descriptions determine what people do (rather than what they can do), capability sits unused.
-                  </p>
-                  <p className="text-zinc-500 text-sm">
-                    <span className="text-white">GPI Impact:</span> High Talent Flow scores (7-10) indicate skill latency. People are locked in roles, not flowing to problems.
-                  </p>
-                </div>
-
-                <div className="border border-zinc-800 p-8 bg-black">
-                  <h3 className="text-xl font-black text-yellow-500 mb-4">NETWORK LATENCY</h3>
-                  <p className="text-zinc-400 mb-4">
-                    Connections that exist but aren't activated. The sales team knows what customers need, but product never hears it. The operations team solved a problem that engineering is still working on. Information exists in one silo while another silo searches for it.
-                  </p>
-                  <p className="text-zinc-400 mb-4">
-                    Network latency is a coordination failure. The nodes exist. The edges exist. But no signal flows.
-                  </p>
-                  <p className="text-zinc-500 text-sm">
-                    <span className="text-white">GPI Impact:</span> High Knowledge Location scores (7-10) indicate network latency. Information is trapped, not flowing.
-                  </p>
-                </div>
-
-                <div className="border border-zinc-800 p-8 bg-black">
-                  <h3 className="text-xl font-black text-yellow-500 mb-4">TEMPORAL LATENCY</h3>
-                  <p className="text-zinc-400 mb-4">
-                    Capacity that exists but at the wrong time. Restaurants empty at 3pm while catering orders go unfulfilled. Consultants idle between projects while urgent requests wait in queue. Delivery trucks half-empty on return routes.
-                  </p>
-                  <p className="text-zinc-400 mb-4">
-                    Temporal latency is a scheduling coordination problem. Capacity exists. Demand exists. They just don't meet.
-                  </p>
-                  <p className="text-zinc-500 text-sm">
-                    <span className="text-white">GPI Impact:</span> High Decision Latency scores (7-10) often mask temporal latency. Slow systems can't match supply and demand in real-time.
-                  </p>
-                </div>
-
-                <div className="border border-zinc-800 p-8 bg-black">
-                  <h3 className="text-xl font-black text-yellow-500 mb-4">SPATIAL LATENCY</h3>
-                  <p className="text-zinc-400 mb-4">
-                    Assets that exist but in the wrong place. Medical equipment underutilized in one hospital, scarce in another. Inventory sitting in warehouse A while warehouse B has stockouts. Expertise concentrated in headquarters while field offices struggle.
-                  </p>
-                  <p className="text-zinc-400 mb-4">
-                    Spatial latency is a logistics coordination problem. Assets are owned but not positioned where value can be created.
-                  </p>
-                  <p className="text-zinc-500 text-sm">
-                    <span className="text-white">GPI Impact:</span> High Structural Lock-In scores (7-10) create spatial latency. Infrastructure can't flex to where it's needed.
-                  </p>
-                </div>
+              <div className="bg-yellow-950/20 border border-yellow-900/50 p-6">
+                <p className="text-yellow-500 font-bold text-sm mb-2">TEMPORAL LATENCY</p>
+                <p className="text-zinc-300 text-sm">Restaurants empty at 3pm while catering goes unfilled. Capacity exists. Demand exists. They don't meet.</p>
               </div>
+              <div className="bg-yellow-950/20 border border-yellow-900/50 p-6">
+                <p className="text-yellow-500 font-bold text-sm mb-2">SPATIAL LATENCY</p>
+                <p className="text-zinc-300 text-sm">Equipment underused in hospital A, scarce in hospital B. Assets owned but not positioned for value.</p>
+              </div>
+            </div>
 
-              <h2 className="text-2xl font-black mt-12 mb-6">THE COORDINATION GAP</h2>
+            {/* Where 30% hides */}
+            <div className="bg-zinc-950 border border-zinc-800 p-8">
+              <h2 className="text-xs font-mono text-zinc-500 mb-6">WHERE THE 30% HIDES</h2>
+              <div className="space-y-2 font-mono text-sm">
+                <div className="flex justify-between"><span>Skills beyond job descriptions</span><span className="text-yellow-400">~8-12%</span></div>
+                <div className="flex justify-between"><span>Off-peak capacity</span><span className="text-yellow-400">~10-15%</span></div>
+                <div className="flex justify-between"><span>Cross-functional knowledge</span><span className="text-yellow-400">~5-8%</span></div>
+                <div className="flex justify-between"><span>Mispositioned assets</span><span className="text-yellow-400">~5-10%</span></div>
+              </div>
+            </div>
 
-              <p className="text-zinc-400 mb-6">
-                Latent capability has always existed. What's new is our ability to activate it.
-              </p>
+            {/* Coase Quote */}
+            <div className="border-l-2 border-yellow-500 pl-6 space-y-4">
+              <p className="text-zinc-300">In 1937, economist Ronald Coase asked why firms exist. His answer: transaction costs. It's cheaper to coordinate inside than contract outside.</p>
+              <p className="text-white font-bold text-xl">What happens when coordination costs approach zero?</p>
+              <p className="text-zinc-300">Firm boundaries dissolve. The independents can coordinate like a chain without being a chain.</p>
+            </div>
 
-              <p className="text-zinc-400 mb-6">
-                In 1937, economist Ronald Coase asked why firms exist at all. His answer: transaction costs. It's cheaper to coordinate work inside a company than to contract for it outside. Firms exist because coordination across markets is expensive.
-              </p>
+            {/* Marketplace vs Infrastructure */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-red-950/20 border border-red-900/50 p-6">
+                <p className="text-red-500 font-bold text-sm mb-2">MARKETPLACE MODEL</p>
+                <p className="text-zinc-500 text-xs mb-2">Uber, Airbnb, Upwork</p>
+                <p className="text-zinc-300 text-sm">Extracts value from coordination. Platform captures margin. Providers commoditized.</p>
+              </div>
+              <div className="bg-green-950/20 border border-green-900/50 p-6">
+                <p className="text-green-500 font-bold text-sm mb-2">INFRASTRUCTURE MODEL</p>
+                <p className="text-zinc-500 text-xs mb-2">The emerging alternative</p>
+                <p className="text-zinc-300 text-sm">Enables coordination without extraction. Providers retain value. Competition on quality.</p>
+              </div>
+            </div>
 
-              <p className="text-zinc-400 mb-6">
-                <span className="text-white font-bold">What happens when coordination costs approach zero?</span>
-              </p>
-
-              <p className="text-zinc-400 mb-6">
-                Firm boundaries dissolve. Latent capability becomes accessible. The independent pharmacies can coordinate like a chain without being a chain. The freelance specialists can operate like a firm without the firm.
-              </p>
-
-              <div className="bg-black border border-zinc-800 p-8 my-12">
-                <h3 className="text-xl font-black mb-6">MARKETPLACE VS INFRASTRUCTURE</h3>
-                <div className="grid md:grid-cols-2 gap-8">
+            {/* Activation Steps */}
+            <div className="bg-zinc-950 border border-zinc-800 p-8">
+              <h2 className="text-xs font-mono text-zinc-500 mb-6">ACTIVATING LATENT CAPABILITY</h2>
+              <div className="space-y-4">
+                <div className="flex gap-4 items-start">
+                  <span className="text-red-600 font-mono text-lg">1</span>
                   <div>
-                    <h4 className="font-black text-red-500 mb-3">MARKETPLACE MODEL</h4>
-                    <p className="text-zinc-400 text-sm mb-2">Uber, Airbnb, Upwork</p>
-                    <ul className="text-zinc-500 text-sm space-y-1">
-                      <li>• Extracts value from coordination</li>
-                      <li>• Platform captures margin</li>
-                      <li>• Providers commoditized</li>
-                      <li>• Race to bottom on price</li>
-                    </ul>
+                    <p className="text-white font-bold">VISIBILITY</p>
+                    <p className="text-zinc-400 text-sm">See what exists. Map skills beyond job descriptions.</p>
                   </div>
+                </div>
+                <div className="flex gap-4 items-start">
+                  <span className="text-red-600 font-mono text-lg">2</span>
                   <div>
-                    <h4 className="font-black text-green-500 mb-3">INFRASTRUCTURE MODEL</h4>
-                    <p className="text-zinc-400 text-sm mb-2">The emerging alternative</p>
-                    <ul className="text-zinc-500 text-sm space-y-1">
-                      <li>• Enables coordination without extraction</li>
-                      <li>• Providers retain value</li>
-                      <li>• Capability differentiated</li>
-                      <li>• Competition on quality</li>
-                    </ul>
+                    <p className="text-white font-bold">ACCESSIBILITY</p>
+                    <p className="text-zinc-400 text-sm">Make capability findable. Build search infrastructure.</p>
                   </div>
                 </div>
-              </div>
-
-              <h2 className="text-2xl font-black mt-12 mb-6">ACTIVATING LATENT CAPABILITY</h2>
-
-              <p className="text-zinc-400 mb-6">
-                The process of activating latent capability follows a pattern:
-              </p>
-
-              <div className="bg-zinc-950 border border-zinc-800 p-8 my-12">
-                <div className="space-y-6">
-                  <div className="flex gap-6">
-                    <div className="text-red-600 font-mono text-lg w-8">1</div>
-                    <div>
-                      <h4 className="font-black mb-2">VISIBILITY</h4>
-                      <p className="text-zinc-400">First, see what exists. Map skills beyond job descriptions. Document connections between nodes. Track temporal utilization patterns. Inventory spatial distribution of assets.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-6">
-                    <div className="text-red-600 font-mono text-lg w-8">2</div>
-                    <div>
-                      <h4 className="font-black mb-2">ACCESSIBILITY</h4>
-                      <p className="text-zinc-400">Make capability findable. Build the search infrastructure. Create the matching algorithms. Enable the discovery that currently doesn't happen.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-6">
-                    <div className="text-red-600 font-mono text-lg w-8">3</div>
-                    <div>
-                      <h4 className="font-black mb-2">ACTIVATION</h4>
-                      <p className="text-zinc-400">Remove friction from deployment. Reduce the approval layers. Simplify the logistics. Make it easier to use latent capability than to request new capacity.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-6">
-                    <div className="text-red-600 font-mono text-lg w-8">4</div>
-                    <div>
-                      <h4 className="font-black mb-2">FEEDBACK</h4>
-                      <p className="text-zinc-400">Learn from activation. Which latent capabilities create value? Which coordination patterns work? Build the intelligence layer that makes activation smarter over time.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <h2 className="text-2xl font-black mt-12 mb-6">THE 30% FINDING</h2>
-
-              <p className="text-zinc-400 mb-6">
-                Across industries, a consistent pattern emerges: organizations typically have 20-40% more capability than they deploy. The average is around 30%.
-              </p>
-
-              <p className="text-zinc-400 mb-6">
-                That's not waste in the traditional sense. It's not people slacking or equipment broken. It's capability that exists in the wrong form, wrong place, or wrong time. It's latency, not laziness.
-              </p>
-
-              <div className="bg-black border border-zinc-800 p-8 my-12">
-                <h3 className="text-xl font-black mb-6">WHERE THE 30% HIDES</h3>
-                <div className="space-y-3 font-mono text-sm">
-                  <div className="flex justify-between items-center border-b border-zinc-800 pb-2">
-                    <span>Skills beyond job descriptions</span>
-                    <span className="text-yellow-400">~8-12%</span>
-                  </div>
-                  <div className="flex justify-between items-center border-b border-zinc-800 pb-2">
-                    <span>Off-peak capacity</span>
-                    <span className="text-yellow-400">~10-15%</span>
-                  </div>
-                  <div className="flex justify-between items-center border-b border-zinc-800 pb-2">
-                    <span>Cross-functional knowledge</span>
-                    <span className="text-yellow-400">~5-8%</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span>Mispositioned assets</span>
-                    <span className="text-yellow-400">~5-10%</span>
-                  </div>
-                </div>
-              </div>
-
-              <p className="text-zinc-400 mb-6">
-                <span className="text-white font-bold">What would 30% more capability mean for your organization?</span> Not 30% more headcount. Not 30% more budget. Just activating what already exists.
-              </p>
-
-              <h2 className="text-2xl font-black mt-12 mb-6">GPI AND LATENT CAPABILITY</h2>
-
-              <p className="text-zinc-400 mb-6">
-                High GPI scores create latent capability. Low GPI scores activate it.
-              </p>
-
-              <div className="bg-zinc-950 border border-zinc-800 p-8 my-12">
-                <div className="space-y-4">
+                <div className="flex gap-4 items-start">
+                  <span className="text-red-600 font-mono text-lg">3</span>
                   <div>
-                    <h4 className="font-black text-red-500 mb-2">PARTICLE STATE (GPI 7-10)</h4>
-                    <p className="text-zinc-400">Rigid role definitions trap skill latency. Siloed knowledge creates network latency. Slow decisions cause temporal latency. Fixed infrastructure generates spatial latency. Particle state maximizes latent capability by preventing coordination.</p>
+                    <p className="text-white font-bold">ACTIVATION</p>
+                    <p className="text-zinc-400 text-sm">Remove friction. Fewer approvals. Simpler logistics.</p>
                   </div>
+                </div>
+                <div className="flex gap-4 items-start">
+                  <span className="text-red-600 font-mono text-lg">4</span>
                   <div>
-                    <h4 className="font-black text-green-500 mb-2">FIELD STATE (GPI 1-3)</h4>
-                    <p className="text-zinc-400">Fluid roles release skill latency. Connected knowledge eliminates network latency. Fast decisions capture temporal opportunities. Flexible infrastructure solves spatial mismatches. Field state minimizes latent capability by enabling coordination.</p>
+                    <p className="text-white font-bold">FEEDBACK</p>
+                    <p className="text-zinc-400 text-sm">Learn from activation. Build intelligence over time.</p>
                   </div>
                 </div>
               </div>
+            </div>
 
-              <p className="text-zinc-400 mb-6">
-                The path from particle to field isn't about adding capability. It's about activating the capability that's already latent. The coordination infrastructure that enables field state is the same infrastructure that unlocks latent capability.
-              </p>
-
-              <div className="bg-red-600/10 border border-red-600/30 p-8 my-12">
-                <h3 className="text-xl font-black text-red-600 mb-4">KEY INSIGHT</h3>
-                <p className="text-lg text-zinc-300">
-                  Before you add capacity, audit latency. Before you hire, coordinate. Before you buy, activate. The capability you need probably already exists. The question is whether you have the coordination infrastructure to deploy it. You don't need more. You need to use what you have.
-                </p>
+            {/* GPI and Latent */}
+            <div className="space-y-4">
+              <h2 className="text-xs font-mono text-zinc-500 mb-4">GPI AND LATENT CAPABILITY</h2>
+              <div className="space-y-2 text-sm">
+                <p><span className="text-red-500 font-bold">Particle State (GPI 7-10):</span> <span className="text-zinc-400">Maximizes latent capability by preventing coordination.</span></p>
+                <p><span className="text-green-500 font-bold">Field State (GPI 1-3):</span> <span className="text-zinc-400">Minimizes latent capability by enabling coordination.</span></p>
               </div>
+            </div>
 
-            </article>
+            {/* Closing */}
+            <div className="bg-red-600/10 border border-red-600/30 p-8 space-y-4">
+              <p className="text-white font-bold text-2xl">Before you add capacity, audit latency.</p>
+              <p className="text-zinc-300">Before you hire, coordinate. Before you buy, activate.</p>
+              <p className="text-zinc-300">The capability you need probably already exists.</p>
+              <p className="text-red-500 font-bold text-xl pt-4">You don't need more. You need to use what you have.</p>
+            </div>
 
             {/* Book Teaser */}
-            <div className="border border-zinc-800 p-8 mt-16 flex items-center gap-6">
+            <div className="border border-zinc-800 p-8 flex items-center gap-6">
               <BookOpen size={48} className="text-zinc-600 flex-shrink-0" />
               <div>
                 <p className="text-zinc-500 text-sm uppercase mb-1">From the upcoming book</p>
                 <p className="text-xl font-black">The Growing Pains Index</p>
-                <p className="text-zinc-400">Chapter 8: Latent Capabilities</p>
+                <p className="text-zinc-400">Chapter 9: What You Have But Don't Use</p>
               </div>
             </div>
+
           </div>
         </section>
 

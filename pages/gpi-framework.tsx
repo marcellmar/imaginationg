@@ -2,402 +2,399 @@ import React from 'react';
 import Link from 'next/link';
 import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
-import { getOrderedDimensions } from '../lib/gpi-calculator';
 import { ArrowRight } from 'lucide-react';
 
-// Dimension slug mapping
-const DIMENSION_SLUGS: Record<string, string> = {
-  DECISION_LATENCY: 'decision-latency',
-  KNOWLEDGE_LOCATION: 'knowledge-location',
-  ERROR_CORRECTION: 'error-correction',
-  STRUCTURAL_LOCKIN: 'structural-lock-in',
-  TALENT_FLOW: 'talent-flow',
-  CAPITAL_INTENSITY: 'capital-intensity',
-  KNOWLEDGE_VELOCITY: 'knowledge-velocity',
-};
-
-// Custom icons for each dimension
-const DecisionIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
-    <circle cx="12" cy="6" r="3" stroke="currentColor" strokeWidth="2" />
-    <path d="M12 9 L12 14 M12 14 L7 19 M12 14 L17 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-  </svg>
-);
-
-const KnowledgeLocationIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
-    <circle cx="12" cy="12" r="3" fill="currentColor" />
-    <circle cx="5" cy="5" r="2" stroke="currentColor" strokeWidth="1.5" />
-    <circle cx="19" cy="5" r="2" stroke="currentColor" strokeWidth="1.5" />
-    <circle cx="5" cy="19" r="2" stroke="currentColor" strokeWidth="1.5" />
-    <circle cx="19" cy="19" r="2" stroke="currentColor" strokeWidth="1.5" />
-    <line x1="7" y1="7" x2="10" y2="10" stroke="currentColor" strokeWidth="1" strokeDasharray="2,2" />
-    <line x1="17" y1="7" x2="14" y2="10" stroke="currentColor" strokeWidth="1" strokeDasharray="2,2" />
-  </svg>
-);
-
-const ErrorCorrectionIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
-    <path d="M4 12 L8 16 L20 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M4 12 L8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.4" />
-  </svg>
-);
-
-const StructuralLockIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
-    <rect x="4" y="4" width="6" height="6" stroke="currentColor" strokeWidth="2" />
-    <rect x="14" y="4" width="6" height="6" stroke="currentColor" strokeWidth="2" />
-    <rect x="4" y="14" width="6" height="6" stroke="currentColor" strokeWidth="2" />
-    <rect x="14" y="14" width="6" height="6" stroke="currentColor" strokeWidth="2" />
-    <line x1="10" y1="7" x2="14" y2="7" stroke="currentColor" strokeWidth="1.5" />
-    <line x1="7" y1="10" x2="7" y2="14" stroke="currentColor" strokeWidth="1.5" />
-    <line x1="17" y1="10" x2="17" y2="14" stroke="currentColor" strokeWidth="1.5" />
-    <line x1="10" y1="17" x2="14" y2="17" stroke="currentColor" strokeWidth="1.5" />
-  </svg>
-);
-
-const TalentFlowIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
-    <circle cx="6" cy="12" r="3" stroke="currentColor" strokeWidth="2" />
-    <circle cx="18" cy="12" r="3" stroke="currentColor" strokeWidth="2" />
-    <path d="M9 12 L15 12" stroke="currentColor" strokeWidth="2" />
-    <path d="M13 9 L15 12 L13 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
-const CapitalIntensityIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
-    <rect x="3" y="8" width="18" height="12" rx="2" stroke="currentColor" strokeWidth="2" />
-    <path d="M12 12 L12 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <path d="M9 14 L15 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <path d="M7 8 L7 5 L17 5 L17 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
-const KnowledgeVelocityIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
-    <path d="M4 12 L20 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <path d="M16 8 L20 12 L16 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M4 6 L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
-    <path d="M4 18 L12 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
-  </svg>
-);
-
-const DIMENSION_ICONS: Record<string, React.ReactNode> = {
-  DECISION_LATENCY: <DecisionIcon />,
-  KNOWLEDGE_LOCATION: <KnowledgeLocationIcon />,
-  ERROR_CORRECTION: <ErrorCorrectionIcon />,
-  STRUCTURAL_LOCKIN: <StructuralLockIcon />,
-  TALENT_FLOW: <TalentFlowIcon />,
-  CAPITAL_INTENSITY: <CapitalIntensityIcon />,
-  KNOWLEDGE_VELOCITY: <KnowledgeVelocityIcon />,
-};
-
 const GPIFrameworkPage = () => {
-  const dimensions = getOrderedDimensions();
-
   return (
     <>
       <SEOHead
-        title="The Growing Pains Index (GPI) Framework | IMAGINATION G"
-        description="GPI measures organizational physics across 7 dimensions. Scores from 1 (field state - adaptive) to 10 (particle state - rigid). Diagnostic exposure, not consulting theater."
+        title="The GPI Framework | Organizational Physics"
+        description="GPI measures era fit. High scores mean Connection Era infrastructure. Low scores mean Coordination Era readiness. 7 dimensions. 1 question: which world are you built for?"
         ogImage="/images/og-gpi-framework.svg"
       />
 
       <div className="min-h-screen bg-black text-white">
         <Navigation currentPage="framework" />
 
-        {/* Hero with Main Visual */}
-        <section className="pt-24 pb-16 px-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="inline-block mb-8 text-green-400 text-xs font-mono bg-zinc-950 border border-zinc-800 px-4 py-2 rounded-full">
-                  <span className="inline-block w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-                  FRAMEWORK DOCUMENTATION
-                </div>
+        {/* Hero */}
+        <section className="pt-28 pb-16 px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-zinc-600 mb-6">
+              <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+              THE FRAMEWORK
+            </div>
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
-                  THE GROWING<br />PAINS INDEX<span className="text-red-600">.</span>
-                </h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
+              GPI MEASURES<br />ERA FIT<span className="text-red-600">.</span>
+            </h1>
 
-                <p className="text-xl text-zinc-400 mb-8 max-w-xl">
-                  7 dimensions. 3 states. 1 score that measures where energy gets stuck in your organization.
+            <p className="text-xl text-zinc-400 mb-4 max-w-2xl">
+              Is your organization built for the world that exists, or the world that used to exist?
+            </p>
+
+            <p className="text-xl text-white font-bold">
+              7 dimensions. 1 score. The answer.
+            </p>
+          </div>
+        </section>
+
+        {/* The Era Shift - Text focused */}
+        <section className="py-16 px-6 border-t border-zinc-900 bg-zinc-950">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12">
+              {/* Connection Era */}
+              <div className="space-y-4">
+                <div className="text-xs font-mono text-red-500">1995 — NOW (ENDING)</div>
+                <h2 className="text-3xl font-black text-red-500">CONNECTION ERA</h2>
+                <p className="text-zinc-400">
+                  Success meant being connected. Who you knew. What networks you belonged to. How much access you had.
                 </p>
-
-                <Link
-                  href="/diagnostic"
-                  className="inline-flex items-center gap-2 bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors"
-                >
-                  CALCULATE YOUR GPI
-                  <ArrowRight size={20} />
-                </Link>
+                <p className="text-zinc-400">
+                  Organizations built infrastructure for connection: platforms, hierarchies, approval chains, meetings.
+                </p>
+                <p className="text-zinc-500 text-sm">
+                  That infrastructure is now the friction.
+                </p>
+                <div className="pt-4">
+                  <span className="text-red-500 font-mono text-sm">HIGH GPI = CONNECTION ERA</span>
+                </div>
               </div>
 
-              {/* MAIN VISUAL - 7 Dimension Diagnostic Display */}
-              <div className="flex justify-center">
-                <div className="relative w-full max-w-md">
-                  <svg viewBox="0 0 300 320" className="w-full h-auto">
-                    {/* Background */}
-                    <rect x="0" y="0" width="300" height="320" fill="#09090b" rx="8" />
-
-                    {/* Header */}
-                    <text x="150" y="30" textAnchor="middle" fill="#52525b" fontSize="10" fontFamily="monospace">GPI DIMENSIONAL SCAN</text>
-
-                    {/* 7 Dimension Bars */}
-                    {[
-                      { label: 'DECISION', score: 7.5, color: '#ef4444' },
-                      { label: 'ERROR', score: 6.0, color: '#eab308' },
-                      { label: 'KNOWLEDGE', score: 8.0, color: '#ef4444' },
-                      { label: 'STRUCTURE', score: 5.5, color: '#eab308' },
-                      { label: 'TALENT', score: 4.0, color: '#22c55e' },
-                      { label: 'CAPITAL', score: 6.5, color: '#eab308' },
-                      { label: 'VELOCITY', score: 7.0, color: '#ef4444' },
-                    ].map((dim, i) => {
-                      const y = 50 + i * 35;
-                      return (
-                        <g key={dim.label}>
-                          {/* Label */}
-                          <text x="20" y={y + 12} fill="#71717a" fontSize="9" fontFamily="monospace">{dim.label}</text>
-
-                          {/* Bar background */}
-                          <rect x="85" y={y} width="150" height="16" fill="#27272a" rx="2" />
-
-                          {/* Bar fill - animated */}
-                          <rect x="85" y={y} width="0" height="16" fill={dim.color} rx="2" opacity="0.8">
-                            <animate
-                              attributeName="width"
-                              from="0"
-                              to={dim.score * 15}
-                              dur="1s"
-                              fill="freeze"
-                              begin={`${i * 0.1}s`}
-                            />
-                          </rect>
-
-                          {/* Score */}
-                          <text x="245" y={y + 12} fill={dim.color} fontSize="11" fontWeight="bold" fontFamily="monospace">
-                            {dim.score.toFixed(1)}
-                          </text>
-
-                          {/* Pulse indicator for high scores */}
-                          {dim.score >= 7 && (
-                            <circle cx="270" cy={y + 8} r="4" fill={dim.color}>
-                              <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite" />
-                            </circle>
-                          )}
-                        </g>
-                      );
-                    })}
-
-                    {/* Divider */}
-                    <line x1="20" y1="300" x2="280" y2="300" stroke="#27272a" strokeWidth="1" />
-
-                    {/* Overall Score */}
-                    <text x="20" y="285" fill="#71717a" fontSize="10" fontFamily="monospace">COMPOSITE GPI</text>
-                    <text x="245" y="285" fill="#ef4444" fontSize="16" fontWeight="bold" fontFamily="monospace">6.4</text>
-
-                    {/* State indicator */}
-                    <rect x="180" y="303" width="100" height="14" fill="#27272a" rx="2" />
-                    <text x="230" y="313" textAnchor="middle" fill="#eab308" fontSize="8" fontFamily="monospace">TRANSITION STATE</text>
-                  </svg>
-
-                  <div className="text-center mt-4">
-                    <span className="text-xs font-mono text-zinc-600">Each dimension reveals a different friction point.</span>
-                  </div>
+              {/* Coordination Era */}
+              <div className="space-y-4">
+                <div className="text-xs font-mono text-green-500">EMERGING</div>
+                <h2 className="text-3xl font-black text-green-500">COORDINATION ERA</h2>
+                <p className="text-zinc-400">
+                  Connection is free now. Everyone is connected. What's scarce is coordination.
+                </p>
+                <p className="text-zinc-400">
+                  The ability to move without hierarchy. To decide without delay. To ship without permission chains.
+                </p>
+                <p className="text-zinc-500 text-sm">
+                  52% of Fortune 500 from 2000 are gone.
+                </p>
+                <div className="pt-4">
+                  <span className="text-green-500 font-mono text-sm">LOW GPI = COORDINATION ERA</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* GPI Scale */}
+        {/* The Scale - Simple */}
         <section className="py-12 px-6 border-t border-zinc-900">
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-green-500 font-bold text-xl">1</span>
-              <span className="text-yellow-500 font-bold text-xl">5</span>
-              <span className="text-red-500 font-bold text-xl">10</span>
+            <div className="flex items-center justify-between mb-3">
+              <div>
+                <span className="text-green-500 font-black text-3xl">1</span>
+                <span className="text-zinc-600 text-sm ml-2">FIELD</span>
+              </div>
+              <div>
+                <span className="text-yellow-500 font-black text-3xl">5</span>
+                <span className="text-zinc-600 text-sm ml-2">TRANSITION</span>
+              </div>
+              <div>
+                <span className="text-zinc-600 text-sm mr-2">PARTICLE</span>
+                <span className="text-red-500 font-black text-3xl">10</span>
+              </div>
             </div>
-            <div className="h-4 bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 rounded mb-2"></div>
-            <div className="flex justify-between text-sm text-zinc-500">
-              <span>FIELD STATE</span>
-              <span>TRANSITION</span>
-              <span>PARTICLE STATE</span>
+            <div className="h-3 bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 rounded-full"></div>
+            <div className="flex justify-between mt-3 text-xs font-mono text-zinc-600">
+              <span>COORDINATION READY</span>
+              <span>CONNECTION INFRASTRUCTURE</span>
             </div>
           </div>
         </section>
 
-        {/* Three States */}
-        <section className="py-16 px-6">
-          <div className="max-w-7xl mx-auto">
+        {/* Three States with Animated Visuals */}
+        <section className="py-16 px-6 bg-zinc-950">
+          <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl font-black mb-4 text-center">THREE STATES</h2>
-            <p className="text-center text-zinc-500 mb-12 max-w-xl mx-auto">
-              Where does your organization sit?
+            <p className="text-center text-zinc-500 mb-12">
+              Where does energy flow? Where does it get stuck?
             </p>
 
-            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8">
               {/* Field State */}
-              <Link href="/gpi-framework/field-state" className="group">
-                <div className="border border-green-600/50 hover:border-green-600 p-8 bg-zinc-950 transition-all">
-                  {/* Visual */}
-                  <div className="h-24 mb-6 flex items-center justify-center">
-                    <svg viewBox="0 0 100 60" className="w-full h-full">
-                      {[0, 1, 2, 3, 4].map((i) => (
-                        <circle key={i} r="5" fill="#22c55e" opacity="0.7">
-                          <animate
-                            attributeName="cx"
-                            values={`${10 + i * 10};${80 - i * 5};${10 + i * 10}`}
-                            dur={`${2 + i * 0.3}s`}
-                            repeatCount="indefinite"
-                          />
-                          <animate
-                            attributeName="cy"
-                            values={`${15 + i * 10};${20 + i * 8};${15 + i * 10}`}
-                            dur={`${2 + i * 0.3}s`}
-                            repeatCount="indefinite"
-                          />
-                        </circle>
-                      ))}
-                    </svg>
-                  </div>
-                  <div className="text-2xl font-black text-green-500 mb-1">FIELD STATE</div>
-                  <div className="text-lg font-mono text-zinc-500 mb-4">GPI 1-3</div>
-                  <p className="text-zinc-400 text-sm">Distributed intelligence. Rapid adaptation. Energy flows freely.</p>
-                  <div className="text-green-500 text-xs font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                    LEARN MORE →
-                  </div>
+              <div className="text-center">
+                <div className="relative w-32 h-32 mx-auto mb-6">
+                  <svg viewBox="0 0 100 100" className="w-full h-full">
+                    {/* Flowing particles - organic movement */}
+                    {[...Array(12)].map((_, i) => (
+                      <circle
+                        key={i}
+                        r="3"
+                        fill="#22c55e"
+                        opacity="0.8"
+                      >
+                        <animate
+                          attributeName="cx"
+                          values={`${20 + Math.random() * 60};${30 + Math.random() * 40};${20 + Math.random() * 60}`}
+                          dur={`${3 + Math.random() * 2}s`}
+                          repeatCount="indefinite"
+                        />
+                        <animate
+                          attributeName="cy"
+                          values={`${20 + Math.random() * 60};${40 + Math.random() * 30};${20 + Math.random() * 60}`}
+                          dur={`${4 + Math.random() * 2}s`}
+                          repeatCount="indefinite"
+                        />
+                      </circle>
+                    ))}
+                    {/* Flowing connections */}
+                    <path
+                      d="M20,50 Q50,30 80,50 Q50,70 20,50"
+                      fill="none"
+                      stroke="#22c55e"
+                      strokeWidth="0.5"
+                      opacity="0.3"
+                    >
+                      <animate
+                        attributeName="d"
+                        values="M20,50 Q50,30 80,50 Q50,70 20,50;M20,50 Q50,70 80,50 Q50,30 20,50;M20,50 Q50,30 80,50 Q50,70 20,50"
+                        dur="4s"
+                        repeatCount="indefinite"
+                      />
+                    </path>
+                  </svg>
                 </div>
-              </Link>
+                <div className="text-5xl font-black text-green-500 mb-2">1-3</div>
+                <div className="text-xl font-black text-white mb-3">FIELD</div>
+                <p className="text-zinc-500 text-sm">
+                  Coordination ready. Energy flows freely. Decisions happen at the edge.
+                </p>
+              </div>
 
               {/* Transition State */}
-              <Link href="/gpi-framework/transition-state" className="group">
-                <div className="border border-yellow-600/50 hover:border-yellow-600 p-8 bg-zinc-950 transition-all">
-                  {/* Visual */}
-                  <div className="h-24 mb-6 flex items-center justify-center">
-                    <svg viewBox="0 0 100 60" className="w-full h-full">
-                      {[0, 1, 2, 3, 4].map((i) => (
-                        <circle key={i} r="5" fill="#eab308" opacity="0.7">
-                          <animate
-                            attributeName="cx"
-                            values={`${20 + i * 12};${40 + i * 8};${20 + i * 12}`}
-                            dur={`${3 + i * 0.5}s`}
-                            repeatCount="indefinite"
-                          />
-                          <animate
-                            attributeName="cy"
-                            values={`${15 + i * 10};${18 + i * 9};${15 + i * 10}`}
-                            dur={`${3.5 + i * 0.4}s`}
-                            repeatCount="indefinite"
-                          />
-                        </circle>
-                      ))}
-                      <line x1="50" y1="5" x2="50" y2="55" stroke="#eab308" strokeWidth="1" opacity="0.3" strokeDasharray="2,2" />
-                    </svg>
-                  </div>
-                  <div className="text-2xl font-black text-yellow-500 mb-1">TRANSITION</div>
-                  <div className="text-lg font-mono text-zinc-500 mb-4">GPI 4-6</div>
-                  <p className="text-zinc-400 text-sm">Mixed systems. High turbulence. Critical transformation window.</p>
-                  <div className="text-yellow-500 text-xs font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                    LEARN MORE →
-                  </div>
+              <div className="text-center">
+                <div className="relative w-32 h-32 mx-auto mb-6">
+                  <svg viewBox="0 0 100 100" className="w-full h-full">
+                    {/* Mixed - some flowing, some stuck */}
+                    {[...Array(6)].map((_, i) => (
+                      <circle
+                        key={`flow-${i}`}
+                        r="3"
+                        fill="#eab308"
+                        opacity="0.8"
+                      >
+                        <animate
+                          attributeName="cx"
+                          values={`${25 + Math.random() * 50};${35 + Math.random() * 30};${25 + Math.random() * 50}`}
+                          dur={`${4 + Math.random() * 2}s`}
+                          repeatCount="indefinite"
+                        />
+                        <animate
+                          attributeName="cy"
+                          values={`${25 + Math.random() * 50};${45 + Math.random() * 20};${25 + Math.random() * 50}`}
+                          dur={`${5 + Math.random() * 2}s`}
+                          repeatCount="indefinite"
+                        />
+                      </circle>
+                    ))}
+                    {/* Stuck particles */}
+                    {[[30, 30], [70, 30], [30, 70], [70, 70], [50, 50]].map(([cx, cy], i) => (
+                      <circle
+                        key={`stuck-${i}`}
+                        cx={cx}
+                        cy={cy}
+                        r="4"
+                        fill="#eab308"
+                        opacity="0.5"
+                      >
+                        <animate
+                          attributeName="r"
+                          values="4;5;4"
+                          dur="2s"
+                          repeatCount="indefinite"
+                        />
+                      </circle>
+                    ))}
+                    {/* Partial grid lines */}
+                    <line x1="30" y1="25" x2="30" y2="75" stroke="#eab308" strokeWidth="0.5" opacity="0.2" />
+                    <line x1="70" y1="25" x2="70" y2="75" stroke="#eab308" strokeWidth="0.5" opacity="0.2" />
+                  </svg>
                 </div>
-              </Link>
+                <div className="text-5xl font-black text-yellow-500 mb-2">4-6</div>
+                <div className="text-xl font-black text-white mb-3">TRANSITION</div>
+                <p className="text-zinc-500 text-sm">
+                  Mixed infrastructure. Some energy flows, some gets trapped. Critical window.
+                </p>
+              </div>
 
               {/* Particle State */}
-              <Link href="/gpi-framework/particle-state" className="group">
-                <div className="border border-red-600/50 hover:border-red-600 p-8 bg-zinc-950 transition-all">
-                  {/* Visual */}
-                  <div className="h-24 mb-6 flex items-center justify-center">
-                    <svg viewBox="0 0 100 60" className="w-full h-full">
-                      {/* Grid */}
-                      <line x1="30" y1="5" x2="30" y2="55" stroke="#ef4444" strokeWidth="1" opacity="0.4" />
-                      <line x1="50" y1="5" x2="50" y2="55" stroke="#ef4444" strokeWidth="1" opacity="0.4" />
-                      <line x1="70" y1="5" x2="70" y2="55" stroke="#ef4444" strokeWidth="1" opacity="0.4" />
-                      <line x1="10" y1="20" x2="90" y2="20" stroke="#ef4444" strokeWidth="1" opacity="0.4" />
-                      <line x1="10" y1="40" x2="90" y2="40" stroke="#ef4444" strokeWidth="1" opacity="0.4" />
-                      {/* Frozen particles */}
-                      <circle cx="30" cy="20" r="5" fill="#ef4444" opacity="0.7" />
-                      <circle cx="50" cy="20" r="5" fill="#ef4444" opacity="0.7" />
-                      <circle cx="70" cy="40" r="5" fill="#ef4444" opacity="0.7" />
-                      <circle cx="30" cy="40" r="5" fill="#ef4444" opacity="0.7" />
-                      <circle cx="50" cy="40" r="5" fill="#ef4444" opacity="0.7" />
-                    </svg>
-                  </div>
-                  <div className="text-2xl font-black text-red-500 mb-1">PARTICLE STATE</div>
-                  <div className="text-lg font-mono text-zinc-500 mb-4">GPI 7-10</div>
-                  <p className="text-zinc-400 text-sm">Centralized control. Rigid hierarchies. Energy trapped at boundaries.</p>
-                  <div className="text-red-500 text-xs font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                    LEARN MORE →
-                  </div>
+              <div className="text-center">
+                <div className="relative w-32 h-32 mx-auto mb-6">
+                  <svg viewBox="0 0 100 100" className="w-full h-full">
+                    {/* Rigid grid */}
+                    {[20, 40, 60, 80].map((x) => (
+                      <line key={`v-${x}`} x1={x} y1="15" x2={x} y2="85" stroke="#dc2626" strokeWidth="0.5" opacity="0.3" />
+                    ))}
+                    {[20, 40, 60, 80].map((y) => (
+                      <line key={`h-${y}`} x1="15" y1={y} x2="85" y2={y} stroke="#dc2626" strokeWidth="0.5" opacity="0.3" />
+                    ))}
+                    {/* Stuck particles at intersections */}
+                    {[[20,20],[40,20],[60,20],[80,20],
+                      [20,40],[40,40],[60,40],[80,40],
+                      [20,60],[40,60],[60,60],[80,60],
+                      [20,80],[40,80],[60,80],[80,80]].map(([cx, cy], i) => (
+                      <circle
+                        key={i}
+                        cx={cx}
+                        cy={cy}
+                        r="4"
+                        fill="#dc2626"
+                        opacity="0.7"
+                      >
+                        <animate
+                          attributeName="opacity"
+                          values="0.7;0.5;0.7"
+                          dur={`${2 + i * 0.1}s`}
+                          repeatCount="indefinite"
+                        />
+                      </circle>
+                    ))}
+                  </svg>
                 </div>
-              </Link>
+                <div className="text-5xl font-black text-red-500 mb-2">7-10</div>
+                <div className="text-xl font-black text-white mb-3">PARTICLE</div>
+                <p className="text-zinc-500 text-sm">
+                  Connection era infrastructure. Energy trapped. Hierarchy routes everything.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Seven Dimensions */}
-        <section className="py-16 px-6 bg-zinc-950">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-black mb-4 text-center">SEVEN DIMENSIONS</h2>
-            <p className="text-center text-zinc-400 mb-12 max-w-xl mx-auto">
-              Each dimension measures a different aspect of organizational friction.
+        {/* 7 Dimensions with Icons */}
+        <section className="py-16 px-6 border-t border-zinc-900">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl font-black mb-4 text-center">7 DIMENSIONS</h2>
+            <p className="text-center text-zinc-500 mb-12">
+              Each measures the same thing differently: which era are you built for?
             </p>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-6xl mx-auto">
-              {dimensions.map((dim) => (
-                <Link
-                  key={dim.key}
-                  href={`/gpi-framework/${DIMENSION_SLUGS[dim.key]}`}
-                  className="group"
-                >
-                  <div className="border border-zinc-800 hover:border-red-600 p-6 bg-black transition-all h-full">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 bg-red-600/20 text-red-500 flex items-center justify-center rounded group-hover:bg-red-600 group-hover:text-white transition-all">
-                        {DIMENSION_ICONS[dim.key]}
+            <div className="grid md:grid-cols-2 gap-4">
+              {[
+                {
+                  name: 'DECISION LATENCY',
+                  slug: 'decision-latency',
+                  weight: '20%',
+                  question: 'How long to decide?',
+                  low: 'Hours',
+                  high: 'Months',
+                  icon: (
+                    <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M12 6v6l4 2" />
+                    </svg>
+                  )
+                },
+                {
+                  name: 'ERROR CORRECTION',
+                  slug: 'error-correction',
+                  weight: '20%',
+                  question: 'How fast do you learn?',
+                  low: 'Immediate pivot',
+                  high: 'Repeat failures',
+                  icon: (
+                    <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M4 12a8 8 0 018-8m8 8a8 8 0 01-8 8" />
+                      <polyline points="4,8 4,12 8,12" />
+                      <polyline points="20,16 20,12 16,12" />
+                    </svg>
+                  )
+                },
+                {
+                  name: 'KNOWLEDGE LOCATION',
+                  slug: 'knowledge-location',
+                  weight: '15%',
+                  question: 'Where does expertise live?',
+                  low: 'Distributed',
+                  high: 'Siloed',
+                  icon: (
+                    <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <circle cx="12" cy="5" r="2" />
+                      <circle cx="5" cy="19" r="2" />
+                      <circle cx="19" cy="19" r="2" />
+                      <path d="M12 7v4m-5.5 5.5L10 14m4 0l3.5 2.5" />
+                    </svg>
+                  )
+                },
+                {
+                  name: 'STRUCTURAL LOCK-IN',
+                  slug: 'structural-lock-in',
+                  weight: '15%',
+                  question: 'Can you reconfigure?',
+                  low: 'Fluid teams',
+                  high: 'Frozen org chart',
+                  icon: (
+                    <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <rect x="3" y="3" width="7" height="7" />
+                      <rect x="14" y="3" width="7" height="7" />
+                      <rect x="3" y="14" width="7" height="7" />
+                      <rect x="14" y="14" width="7" height="7" />
+                    </svg>
+                  )
+                },
+                {
+                  name: 'TALENT FLOW',
+                  slug: 'talent-flow',
+                  weight: '10%',
+                  question: 'Do the best people rise?',
+                  low: 'Merit moves',
+                  high: 'Politics wins',
+                  icon: (
+                    <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <circle cx="12" cy="7" r="4" />
+                      <path d="M5 21v-2a4 4 0 014-4h6a4 4 0 014 4v2" />
+                    </svg>
+                  )
+                },
+                {
+                  name: 'CAPITAL INTENSITY',
+                  slug: 'capital-intensity',
+                  weight: '10%',
+                  question: 'Cost to pivot?',
+                  low: 'Light assets',
+                  high: 'Heavy infrastructure',
+                  icon: (
+                    <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <rect x="2" y="7" width="20" height="14" rx="2" />
+                      <path d="M16 3v4M8 3v4" />
+                      <circle cx="12" cy="14" r="3" />
+                    </svg>
+                  )
+                },
+                {
+                  name: 'KNOWLEDGE VELOCITY',
+                  slug: 'knowledge-velocity',
+                  weight: '10%',
+                  question: 'How fast does learning spread?',
+                  low: 'Instant',
+                  high: 'Gets stuck',
+                  icon: (
+                    <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                    </svg>
+                  )
+                },
+              ].map((dim) => (
+                <Link key={dim.name} href={`/gpi-framework/${dim.slug}`} className="group">
+                  <div className="border border-zinc-800 p-6 hover:border-red-600/50 transition-colors h-full">
+                    <div className="flex justify-between items-start mb-3">
+                      <div className="flex items-center gap-3">
+                        <span className="text-zinc-600 group-hover:text-red-500 transition-colors">{dim.icon}</span>
+                        <h3 className="font-black text-white group-hover:text-red-500 transition-colors">{dim.name}</h3>
                       </div>
-                      <span className="text-xs font-mono text-zinc-600 bg-zinc-900 px-2 py-1 rounded">
-                        {Math.round(dim.weight * 100)}%
-                      </span>
+                      <span className="text-xs font-mono text-zinc-600 bg-zinc-900 px-2 py-1">{dim.weight}</span>
                     </div>
-                    <h3 className="text-lg font-black mb-2">{dim.label.toUpperCase()}</h3>
-                    <p className="text-zinc-500 text-sm mb-4">{dim.description}</p>
-                    <div className="space-y-1 text-xs">
-                      <div className="flex gap-2">
-                        <span className="text-green-500 font-mono w-8">1-3:</span>
-                        <span className="text-zinc-600">{dim.lowDescription}</span>
-                      </div>
-                      <div className="flex gap-2">
-                        <span className="text-red-500 font-mono w-8">7-10:</span>
-                        <span className="text-zinc-600">{dim.highDescription}</span>
-                      </div>
+                    <p className="text-zinc-400 text-sm mb-4">{dim.question}</p>
+                    <div className="flex justify-between text-xs">
+                      <span className="text-green-500">{dim.low}</span>
+                      <span className="text-red-500">{dim.high}</span>
                     </div>
                   </div>
                 </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* How It Works */}
-        <section className="py-16 px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-black mb-12 text-center">HOW GPI WORKS</h2>
-
-            <div className="space-y-6">
-              {[
-                { num: '01', title: 'DIAGNOSTIC', desc: '32 binary questions map to 7 dimensions', color: 'red' },
-                { num: '02', title: 'WEIGHTED SCORE', desc: 'Each dimension weighted by organizational impact', color: 'yellow' },
-                { num: '03', title: 'STATE CLASSIFICATION', desc: 'Field (1-3), Transition (4-6), or Particle (7-10)', color: 'green' },
-                { num: '04', title: 'FRICTION MAP', desc: 'Radar chart shows where energy gets stuck', color: 'blue' },
-              ].map((step) => (
-                <div key={step.num} className="flex gap-6 items-start">
-                  <div className={`text-2xl font-mono font-bold text-${step.color}-500`}>{step.num}</div>
-                  <div>
-                    <h3 className="text-xl font-black mb-1">{step.title}</h3>
-                    <p className="text-zinc-500">{step.desc}</p>
-                  </div>
-                </div>
               ))}
             </div>
           </div>
@@ -405,17 +402,37 @@ const GPIFrameworkPage = () => {
 
         {/* CTA */}
         <section className="py-16 px-6 border-t border-zinc-900">
-          <div className="max-w-7xl mx-auto text-center">
-            <h2 className="text-3xl font-black mb-6">MEASURE YOUR GPI</h2>
-            <p className="text-xl text-zinc-400 mb-8 max-w-xl mx-auto">
-              32 questions. 7 dimensions. See where energy gets stuck.
-            </p>
-            <Link
-              href="/diagnostic"
-              className="inline-flex items-center gap-2 bg-red-600 px-12 py-6 text-2xl font-black hover:bg-red-700 transition-colors"
-            >
-              START DIAGNOSTIC
-              <ArrowRight size={24} />
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl font-black mb-4">
+                  WHICH ERA ARE<br />YOU BUILT FOR<span className="text-red-600">?</span>
+                </h2>
+                <p className="text-zinc-400 mb-6">
+                  32 questions. 7 dimensions. See if your organization is ready for what's next.
+                </p>
+                <Link
+                  href="/diagnostic"
+                  className="inline-flex items-center gap-2 bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors group"
+                >
+                  TAKE THE DIAGNOSTIC
+                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+
+              <div className="text-center">
+                <div className="text-7xl font-black text-zinc-800">?</div>
+                <p className="text-zinc-600 text-sm mt-4">Your score is waiting.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer link */}
+        <section className="py-8 px-6 border-t border-zinc-900">
+          <div className="max-w-4xl mx-auto text-center">
+            <Link href="/companies" className="text-zinc-600 hover:text-white transition-colors text-sm">
+              See how 101+ companies scored →
             </Link>
           </div>
         </section>

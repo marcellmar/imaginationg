@@ -95,8 +95,31 @@ const MergeIcon = () => (
   </svg>
 );
 
+const InvestmentIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none">
+    <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="2" />
+    <line x1="12" y1="12" x2="6" y2="20" stroke="currentColor" strokeWidth="2" />
+    <line x1="12" y1="12" x2="12" y2="20" stroke="currentColor" strokeWidth="2" />
+    <line x1="12" y1="12" x2="18" y2="20" stroke="currentColor" strokeWidth="2" />
+    <circle cx="6" cy="20" r="2" fill="#eab308" />
+    <circle cx="12" cy="20" r="2" fill="#3b82f6" />
+    <circle cx="18" cy="20" r="2" fill="#a855f7" />
+  </svg>
+);
+
 const InsightsPage: NextPage = () => {
   const insights: InsightCard[] = [
+    {
+      slug: 'invested-in-the-waste',
+      title: 'You\'re Invested in the Waste',
+      subtitle: 'And the System Made You That Way',
+      description: 'The gap between how things should work and how they actually work isn\'t dysfunction. It\'s a product. Someone is selling it. That someone might be you.',
+      readTime: '7 min read',
+      dimension: 'STRUCTURAL LOCK-IN',
+      featured: true,
+      icon: <InvestmentIcon />,
+      color: 'red'
+    },
     {
       slug: 'why-success-creates-rigidity',
       title: 'Why Success Creates Rigidity',
@@ -104,7 +127,6 @@ const InsightsPage: NextPage = () => {
       description: 'Organizations don\'t fail because they stop doing what made them successful. They fail because they can\'t stop doing it.',
       readTime: '8 min read',
       dimension: 'ALL DIMENSIONS',
-      featured: true,
       icon: <FreezeIcon />,
       color: 'red'
     },

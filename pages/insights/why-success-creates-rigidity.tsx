@@ -164,11 +164,12 @@ const WhySuccessCreatesRigidityPage: NextPage = () => {
             </div>
 
             {/* Book Teaser */}
-            <div className="border border-zinc-800 p-6 flex items-center gap-6">
-              <BookOpen size={32} className="text-zinc-600 flex-shrink-0" />
+            <div className="border border-zinc-800 p-8 flex items-center gap-6">
+              <BookOpen size={48} className="text-zinc-600 flex-shrink-0" />
               <div>
-                <p className="text-zinc-500 text-xs uppercase">From the book</p>
-                <p className="text-lg font-black">The Growing Pains Index</p>
+                <p className="text-zinc-500 text-sm uppercase mb-1">From the upcoming book</p>
+                <p className="text-xl font-black">The Growing Pains Index</p>
+                <p className="text-zinc-400">Chapter 1: Why Success Creates Rigidity</p>
               </div>
             </div>
 
@@ -211,7 +212,7 @@ const WhySuccessCreatesRigidityPage: NextPage = () => {
                   href: "/insights/the-spiral-model",
                   title: "The Spiral Model",
                   description: "Why transformation isn't linear.",
-                  color: "cyan"
+                  color: "green"
                 }
               ]}
             />

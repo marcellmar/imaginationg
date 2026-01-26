@@ -134,207 +134,135 @@ const FrictionIsMarginPage: NextPage = () => {
           </div>
         </section>
 
-        {/* Article Content */}
+        {/* Content */}
         <section className="py-8 px-6">
-          <div className="max-w-4xl mx-auto">
-            <article className="prose prose-invert prose-lg max-w-none">
+          <div className="max-w-3xl mx-auto space-y-16">
 
-              {/* The Core Insight */}
-              <div className="border-l-4 border-red-600 pl-6 mb-12">
-                <p className="text-xl text-zinc-300 italic mb-0">
-                  "Friction isn't entropy. Friction is margin."
-                </p>
+            {/* Opening */}
+            <div className="space-y-4 text-zinc-300">
+              <p>Every organization has friction. Delays between departments. Handoffs that lose information. Approvals that add weeks.</p>
+              <p>The standard assumption: this is waste. Inefficiency. Something to eliminate.</p>
+              <p className="text-white text-xl font-bold pt-4">The reality: every point of friction is someone's revenue stream.</p>
+            </div>
+
+            {/* Big Numbers */}
+            <div className="grid grid-cols-2 gap-4 text-center">
+              <div className="bg-zinc-900 p-6">
+                <p className="text-4xl font-black text-green-500">$1.3B</p>
+                <p className="text-zinc-500 text-sm mt-2">Prior authorization industry</p>
               </div>
+              <div className="bg-zinc-900 p-6">
+                <p className="text-4xl font-black text-green-500">30%</p>
+                <p className="text-zinc-500 text-sm mt-2">Growth in one year</p>
+              </div>
+            </div>
 
-              <h2 className="text-2xl font-black mt-12 mb-6">THE INVISIBLE ECONOMY</h2>
+            {/* Quote */}
+            <div className="bg-zinc-950 border border-zinc-800 p-8">
+              <p className="text-2xl text-white italic">"Friction isn't entropy. Friction is margin."</p>
+            </div>
 
-              <p className="text-zinc-400 mb-6">
-                Every organization has friction. Delays between departments. Handoffs that lose information. Approvals that add weeks. Complexity that requires specialists to navigate.
-              </p>
+            {/* The Gap Economy */}
+            <div className="border-l-2 border-red-600 pl-6 space-y-4">
+              <h2 className="text-xs font-mono text-red-500 mb-4">THE GAP ECONOMY</h2>
+              <p className="text-zinc-300"><span className="text-white font-bold">Healthcare:</span> Revenue comes from the delay itself. Not from resolving it.</p>
+              <p className="text-zinc-300"><span className="text-white font-bold">Enterprise Software:</span> Products designed to require consultants. Complexity is the billing mechanism.</p>
+              <p className="text-zinc-300"><span className="text-white font-bold">Recruiting:</span> 15-25% of first-year salary. Value comes from information asymmetry.</p>
+            </div>
 
-              <p className="text-zinc-400 mb-6">
-                The standard assumption: this is waste. Inefficiency. Something to eliminate.
-              </p>
+            {/* Hospital Stats */}
+            <div className="text-center py-8">
+              <p className="text-6xl font-black text-red-600">2:1</p>
+              <p className="text-xl text-zinc-400 mt-2">ratio of paperwork to treatment</p>
+              <p className="text-sm text-zinc-600 mt-4">$687B administration vs $346B direct care</p>
+            </div>
 
-              <p className="text-zinc-400 mb-6">
-                The reality: <span className="text-white font-bold">every point of friction is someone's revenue stream</span>.
-              </p>
-
-              <p className="text-zinc-400 mb-6">
-                That approval layer? It employs a department. That integration challenge? It justifies a team. That knowledge silo? It protects a career. The complexity that slows you down is the same complexity that funds someone's paycheck.
-              </p>
-
-              <div className="bg-zinc-950 border border-zinc-800 p-8 my-12">
-                <h3 className="text-xl font-black text-red-600 mb-6">THE GAP ECONOMY</h3>
-                <div className="space-y-6">
-                  <div className="border-b border-zinc-800 pb-4">
-                    <p className="text-white font-bold mb-2">Healthcare Prior Authorization</p>
-                    <p className="text-zinc-400 text-sm">$1.3 billion industry. Grew 30% in one year. Revenue comes from the delay itself, not from resolving it.</p>
-                  </div>
-                  <div className="border-b border-zinc-800 pb-4">
-                    <p className="text-white font-bold mb-2">Enterprise Software Implementation</p>
-                    <p className="text-zinc-400 text-sm">Products designed to require consultants. Complexity isn't a flaw. It's the billing mechanism.</p>
-                  </div>
-                  <div className="border-b border-zinc-800 pb-4">
-                    <p className="text-white font-bold mb-2">Recruiting Industry</p>
-                    <p className="text-zinc-400 text-sm">15-25% of first-year salary as fee. Value comes from information asymmetry, connecting known to unknown.</p>
-                  </div>
-                  <div>
-                    <p className="text-white font-bold mb-2">Hospital Administration</p>
-                    <p className="text-zinc-400 text-sm">$687 billion on administration vs $346 billion on direct care. 2:1 ratio of paperwork to treatment.</p>
-                  </div>
+            {/* What happens when you try */}
+            <div className="bg-zinc-950 border border-zinc-800 p-8">
+              <h2 className="text-xs font-mono text-zinc-500 mb-6">WHAT HAPPENS WHEN YOU TRY TO ELIMINATE FRICTION</h2>
+              <div className="space-y-4">
+                <div className="flex gap-4">
+                  <span className="text-red-600 font-mono">→</span>
+                  <p className="text-zinc-300"><span className="text-white">Remove an approval step.</span> The approvers fight it. Their authority is the friction.</p>
+                </div>
+                <div className="flex gap-4">
+                  <span className="text-red-600 font-mono">→</span>
+                  <p className="text-zinc-300"><span className="text-white">Automate a manual process.</span> The process owners resist. Their jobs are the friction.</p>
+                </div>
+                <div className="flex gap-4">
+                  <span className="text-red-600 font-mono">→</span>
+                  <p className="text-zinc-300"><span className="text-white">Share siloed knowledge.</span> The experts block it. Their scarcity is the friction.</p>
+                </div>
+                <div className="flex gap-4">
+                  <span className="text-red-600 font-mono">→</span>
+                  <p className="text-zinc-300"><span className="text-white">Simplify a complex system.</span> The vendors fight it. Their consultants bill the friction.</p>
                 </div>
               </div>
+            </div>
 
-              <h2 className="text-2xl font-black mt-12 mb-6">THE GAP IS THE PRODUCT</h2>
-
-              <p className="text-zinc-400 mb-6">
-                In particle state organizations (GPI 7-10), friction isn't accidental. It's structural.
-              </p>
-
-              <p className="text-zinc-400 mb-6">
-                Consider what happens when you try to eliminate friction:
-              </p>
-
-              <div className="bg-black border border-zinc-800 p-8 my-12">
-                <div className="space-y-6">
-                  <div className="flex gap-4">
-                    <span className="text-red-600 font-mono">→</span>
-                    <div>
-                      <p className="text-white font-bold">Propose removing an approval step</p>
-                      <p className="text-zinc-500 text-sm">The approvers fight it. Their authority is the friction.</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <span className="text-red-600 font-mono">→</span>
-                    <div>
-                      <p className="text-white font-bold">Suggest automating a manual process</p>
-                      <p className="text-zinc-500 text-sm">The process owners resist. Their jobs are the friction.</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <span className="text-red-600 font-mono">→</span>
-                    <div>
-                      <p className="text-white font-bold">Try to share siloed knowledge</p>
-                      <p className="text-zinc-500 text-sm">The experts block it. Their scarcity is the friction.</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <span className="text-red-600 font-mono">→</span>
-                    <div>
-                      <p className="text-white font-bold">Attempt to simplify a complex system</p>
-                      <p className="text-zinc-500 text-sm">The vendors fight it. Their consultants bill the friction.</p>
-                    </div>
-                  </div>
-                </div>
+            {/* Enterprise stats */}
+            <div className="grid grid-cols-2 gap-4 text-center">
+              <div className="bg-zinc-900 p-6">
+                <p className="text-4xl font-black text-red-500">371</p>
+                <p className="text-zinc-500 text-sm mt-2">apps in average enterprise</p>
               </div>
-
-              <p className="text-zinc-400 mb-6">
-                This isn't conspiracy. It's economics. <span className="text-white font-bold">People rationally defend revenue sources, even when those sources are organizational drag.</span>
-              </p>
-
-              <h2 className="text-2xl font-black mt-12 mb-6">THE VENDOR ECOSYSTEM</h2>
-
-              <p className="text-zinc-400 mb-6">
-                Outside your organization, an entire industry profits from your friction.
-              </p>
-
-              <p className="text-zinc-400 mb-6">
-                Enterprise software that requires consultants to implement? That's not poor design. It's the business model. The implementation complexity generates more revenue than the software license.
-              </p>
-
-              <p className="text-zinc-400 mb-6">
-                Consulting firms that "fix" broken processes? They have no incentive to fix them permanently. A solved problem is a lost client. Chronic dysfunction is recurring revenue.
-              </p>
-
-              <div className="border-l-4 border-yellow-500 pl-6 my-12">
-                <p className="text-xl text-zinc-300 italic mb-0">
-                  "Why would vendors fix problems that are their revenue stream?"
-                </p>
+              <div className="bg-zinc-900 p-6">
+                <p className="text-4xl font-black text-red-500">51%</p>
+                <p className="text-zinc-500 text-sm mt-2">of SaaS licenses unused</p>
               </div>
+            </div>
 
-              <p className="text-zinc-400 mb-6">
-                The average enterprise uses 371 applications. 51% of SaaS licenses go unused. Each integration point is friction. Each friction point is billable.
-              </p>
+            {/* Vendor Quote */}
+            <div className="border-l-2 border-yellow-500 pl-6">
+              <p className="text-xl text-white italic">"Why would vendors fix problems that are their revenue stream?"</p>
+            </div>
 
-              <h2 className="text-2xl font-black mt-12 mb-6">GPI DIMENSION: STRUCTURAL LOCK-IN</h2>
+            {/* Lock-in creates margin */}
+            <div className="space-y-4 text-zinc-300">
+              <h2 className="text-xs font-mono text-zinc-500 mb-4">LOCK-IN CREATES FRICTION MARGIN</h2>
+              <p>Legacy system dependencies <span className="text-red-500">= maintenance vendor revenue</span></p>
+              <p>Custom integrations <span className="text-red-500">= consultant billable hours</span></p>
+              <p>Proprietary data formats <span className="text-red-500">= switching cost protection</span></p>
+              <p>Complex approval workflows <span className="text-red-500">= middle management justification</span></p>
+            </div>
 
-              <p className="text-zinc-400 mb-6">
-                The Structural Lock-In dimension measures how much your infrastructure dictates your strategy. High lock-in (scores 8-10) means friction is literally built into your systems.
-              </p>
+            {/* Clarity is violence */}
+            <div className="bg-red-600/10 border border-red-600/30 p-8 space-y-4">
+              <p className="text-white font-bold text-2xl">Clarity is violence to people whose power depends on ambiguity.</p>
+              <p className="text-zinc-300">When you measure Decision Latency and expose that decisions take 6 weeks when they could take 6 hours, you're threatening the approval chain's relevance.</p>
+              <p className="text-zinc-300">GPI doesn't just measure friction. It exposes margin.</p>
+              <p className="text-red-500 font-bold text-xl pt-4">That's what makes it dangerous.</p>
+            </div>
 
-              <div className="bg-zinc-950 border border-zinc-800 p-8 my-12">
-                <h3 className="text-xl font-black mb-6">LOCK-IN CREATES FRICTION MARGIN</h3>
-                <div className="space-y-4 font-mono text-sm">
-                  <div className="flex justify-between items-center border-b border-zinc-800 pb-2">
-                    <span>Legacy system dependencies</span>
-                    <span className="text-red-400">= maintenance vendor revenue</span>
-                  </div>
-                  <div className="flex justify-between items-center border-b border-zinc-800 pb-2">
-                    <span>Custom integrations</span>
-                    <span className="text-red-400">= consultant billable hours</span>
-                  </div>
-                  <div className="flex justify-between items-center border-b border-zinc-800 pb-2">
-                    <span>Proprietary data formats</span>
-                    <span className="text-red-400">= switching cost protection</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span>Complex approval workflows</span>
-                    <span className="text-red-400">= middle management justification</span>
-                  </div>
-                </div>
+            {/* Field vs Particle */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-green-950/20 border border-green-900/50 p-6">
+                <p className="text-green-500 font-bold text-sm mb-2">FIELD STATE (GPI 1-3)</p>
+                <p className="text-zinc-300">Friction is waste. Energy flows freely. Decisions at the edge. Makes money by reducing friction for users.</p>
               </div>
-
-              <h2 className="text-2xl font-black mt-12 mb-6">CLARITY IS VIOLENCE</h2>
-
-              <p className="text-zinc-400 mb-6">
-                This explains why attempts to measure and expose friction meet such resistance.
-              </p>
-
-              <p className="text-zinc-400 mb-6">
-                <span className="text-white font-bold">Clarity is violence to people whose power depends on ambiguity.</span>
-              </p>
-
-              <p className="text-zinc-400 mb-6">
-                When you measure Decision Latency and expose that decisions take 6 weeks when they could take 6 hours, you're threatening the approval chain's relevance. When you map Knowledge Location and show that information is hoarded rather than shared, you're threatening gatekeepers' power. When you calculate the cost of Structural Lock-In, you're threatening vendors' contracts.
-              </p>
-
-              <p className="text-zinc-400 mb-6">
-                GPI doesn't just measure friction. It exposes margin. That's what makes it dangerous to particle state defenders.
-              </p>
-
-              <h2 className="text-2xl font-black mt-12 mb-6">THE FIELD STATE ALTERNATIVE</h2>
-
-              <p className="text-zinc-400 mb-6">
-                In field state (GPI 1-3), friction is treated as waste, not margin.
-              </p>
-
-              <p className="text-zinc-400 mb-6">
-                Energy flows freely. Decisions happen at the edge. Knowledge finds problems. The coordination infrastructure enables rather than extracts.
-              </p>
-
-              <p className="text-zinc-400 mb-6">
-                The difference isn't ideology. It's economics. Field state organizations make money by reducing friction for users, not by monetizing friction against them.
-              </p>
-
-              <div className="bg-red-600/10 border border-red-600/30 p-8 my-12">
-                <h3 className="text-xl font-black text-red-600 mb-4">KEY INSIGHT</h3>
-                <p className="text-lg text-zinc-300">
-                  The gap is the product. The delay is the margin. The complexity is the business model. Until you understand friction economics, you can't overcome them. The first step is measuring who profits from your particle state.
-                </p>
+              <div className="bg-red-950/20 border border-red-900/50 p-6">
+                <p className="text-red-500 font-bold text-sm mb-2">PARTICLE STATE (GPI 7-10)</p>
+                <p className="text-zinc-300">Friction is structural. Energy gets stuck. Approvals pile up. Makes money by monetizing friction against users.</p>
               </div>
+            </div>
 
-            </article>
+            {/* Closing */}
+            <div className="text-center py-8 space-y-4">
+              <p className="text-2xl font-black text-white">The gap is the product.</p>
+              <p className="text-zinc-400">The delay is the margin. The complexity is the business model.</p>
+              <p className="text-xl text-white font-bold pt-4">The first step is measuring who profits from your particle state.</p>
+            </div>
 
             {/* Book Teaser */}
-            <div className="border border-zinc-800 p-8 mt-16 flex items-center gap-6">
+            <div className="border border-zinc-800 p-8 flex items-center gap-6">
               <BookOpen size={48} className="text-zinc-600 flex-shrink-0" />
               <div>
                 <p className="text-zinc-500 text-sm uppercase mb-1">From the upcoming book</p>
                 <p className="text-xl font-black">The Growing Pains Index</p>
-                <p className="text-zinc-400">Chapter 1: Why Success Creates Rigidity</p>
+                <p className="text-zinc-400">Chapter 2: You're Invested in the Waste</p>
               </div>
             </div>
+
           </div>
         </section>
 
