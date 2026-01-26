@@ -34,19 +34,54 @@ const getStageColor = (stage: string) => {
   return 'text-zinc-500 bg-zinc-500/10';
 };
 
+const stageOrder = ['Field', 'Transitioning', 'Particle'];
+
+const stageConfig: Record<string, { label: string; description: string; color: string; bgColor: string }> = {
+  'Field': {
+    label: 'FIELD STATE',
+    description: 'Fluid, adaptive, fast-moving',
+    color: 'text-green-500',
+    bgColor: 'border-green-500/30',
+  },
+  'Transitioning': {
+    label: 'TRANSITIONING',
+    description: 'Mixed signals, could go either way',
+    color: 'text-yellow-500',
+    bgColor: 'border-yellow-500/30',
+  },
+  'Particle': {
+    label: 'PARTICLE STATE',
+    description: 'Rigid, calcified, slow to change',
+    color: 'text-red-500',
+    bgColor: 'border-red-500/30',
+  },
+};
+
 const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount }) => {
-  // Group by sector
-  const bySector: Record<string, Company[]> = {};
+  // Group by state
+  const byState: Record<string, Company[]> = {
+    'Field': [],
+    'Transitioning': [],
+    'Particle': [],
+  };
+
   for (const company of companies) {
-    const sector = company.sector || 'Other';
-    if (!bySector[sector]) bySector[sector] = [];
-    bySector[sector].push(company);
+    const state = company.stage || 'Particle';
+    if (byState[state]) {
+      byState[state].push(company);
+    } else {
+      byState['Particle'].push(company); // Default unknown to Particle
+    }
   }
 
-  // Sort sectors by company count
-  const sortedSectors = Object.keys(bySector).sort(
-    (a, b) => bySector[b].length - bySector[a].length
-  );
+  // Sort each state by GPI score (lowest first for Field, highest first for Particle)
+  for (const state of stageOrder) {
+    if (state === 'Field') {
+      byState[state].sort((a, b) => (a.gpiScore || 0) - (b.gpiScore || 0));
+    } else {
+      byState[state].sort((a, b) => (a.gpiScore || 10) - (b.gpiScore || 10));
+    }
+  }
 
   return (
     <>
@@ -66,7 +101,8 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount }) => {
               GPI DATABASE
             </div>
             <h1 className="text-4xl md:text-5xl font-black mb-4">
-              {totalCount} COMPANIES ANALYZED<span className="text-red-600">.</span>
+              {totalCount} COMPANIES<span className="text-red-600">.</span>{' '}
+              <span className="text-zinc-500">AND COUNTING.</span>
             </h1>
             <p className="text-xl text-zinc-400 max-w-2xl">
               Same 7 dimensions. Same physics. Different scores. See who can move and who's stuck.
@@ -92,21 +128,32 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount }) => {
           </div>
         </section>
 
-        {/* Companies by Sector */}
+        {/* Companies by State */}
         <section className="py-12 px-6">
           <div className="max-w-6xl mx-auto">
-            {sortedSectors.map((sector) => (
-              <div key={sector} className="mb-12">
-                <h2 className="text-xs font-mono text-zinc-600 mb-4 uppercase tracking-wider">
-                  {sector} ({bySector[sector].length})
-                </h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {bySector[sector]
-                    .sort((a, b) => (a.gpiScore || 10) - (b.gpiScore || 10))
-                    .map((company) => (
+            {stageOrder.map((state) => {
+              const config = stageConfig[state];
+              const stateCompanies = byState[state];
+              if (stateCompanies.length === 0) return null;
+
+              return (
+                <div key={state} className={`mb-12 p-6 border ${config.bgColor} rounded-lg`}>
+                  <div className="flex items-center justify-between mb-6">
+                    <div>
+                      <h2 className={`text-lg font-black ${config.color}`}>
+                        {config.label}
+                      </h2>
+                      <p className="text-sm text-zinc-500">{config.description}</p>
+                    </div>
+                    <div className={`text-3xl font-black ${config.color}`}>
+                      {stateCompanies.length}
+                    </div>
+                  </div>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {stateCompanies.map((company) => (
                       <div
                         key={company.id}
-                        className="border border-zinc-800 p-4 hover:border-zinc-700 transition-colors"
+                        className="border border-zinc-800 bg-black/50 p-4 hover:border-zinc-700 transition-colors"
                       >
                         <div className="flex justify-between items-start mb-2">
                           <div>
@@ -120,9 +167,7 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount }) => {
                           </div>
                         </div>
                         <div className="flex items-center gap-2 mt-3">
-                          <span className={`text-xs font-mono px-2 py-0.5 ${getStageColor(company.stage)}`}>
-                            {company.stage?.toUpperCase() || 'UNKNOWN'}
-                          </span>
+                          <span className="text-xs text-zinc-500">{company.sector}</span>
                           {company.fortune500Rank && (
                             <span className="text-xs text-zinc-600">
                               F500 #{company.fortune500Rank}
@@ -131,9 +176,10 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount }) => {
                         </div>
                       </div>
                     ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
