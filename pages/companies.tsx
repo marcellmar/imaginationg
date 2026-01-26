@@ -249,9 +249,14 @@ export const getServerSideProps: GetServerSideProps<CompaniesPageProps> = async 
 
         for (const page of data.results) {
           const props = page.properties;
+          const name = props.Name?.title?.[0]?.plain_text || 'Unknown';
+
+          // Skip deals - they have their own page
+          if (name.toLowerCase().includes('deal')) continue;
+
           companies.push({
             id: page.id,
-            name: props.Name?.title?.[0]?.plain_text || 'Unknown',
+            name,
             gpiScore: props['GPI Score']?.number || null,
             stage: props['Transformation Stage']?.select?.name || 'Unknown',
             sector: props.Sector?.select?.name || 'Other',

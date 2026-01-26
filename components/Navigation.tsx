@@ -8,6 +8,7 @@ interface NavigationProps {
 const Navigation: React.FC<NavigationProps> = ({ currentPage }) => {
   const navItems = [
     { key: 'companies', label: 'COMPANIES', href: '/companies' },
+    { key: 'deals', label: 'DEALS', href: '/deals' },
     { key: 'articles', label: 'ARTICLES', href: '/insights/gpi-analyses' },
     { key: 'framework', label: 'FRAMEWORK', href: '/gpi-framework' },
     { key: 'diagnostic', label: 'DIAGNOSTIC', href: '/diagnostic' },
