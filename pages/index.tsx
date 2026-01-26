@@ -258,7 +258,10 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
         {/* The Proof */}
         <section className="py-16 px-6 bg-zinc-950">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="text-6xl md:text-7xl font-black text-red-600 mb-4">{totalAnalyses || '—'}</div>
+            <div className="text-6xl md:text-7xl font-black mb-4">
+              <span className="text-red-600">{totalAnalyses || '66'}</span>
+              <span className="text-zinc-500 text-4xl md:text-5xl ml-4">AND COUNTING</span>
+            </div>
             <div className="text-xl font-bold mb-4">COMPANIES ANALYZED</div>
             <p className="text-zinc-500 mb-8 max-w-lg mx-auto">
               Fortune 500s. Retailers. Media giants. Tech. Same 7 dimensions. Same physics. Different scores.
