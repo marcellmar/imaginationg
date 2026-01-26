@@ -362,7 +362,7 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
 
   try {
     // Fetch published content from GPI Content database
-    const contentResponse = await fetch(
+    const contentResponse: Response = await fetch(
       `https://api.notion.com/v1/databases/${GPI_CONTENT_DB}/query`,
       {
         method: 'POST',
@@ -427,7 +427,7 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
     let startCursor: string | undefined = undefined;
 
     while (hasMore) {
-      const analysesResponse = await fetch(
+      const analysesResponse: Response = await fetch(
         `https://api.notion.com/v1/databases/${GPI_ANALYSES_DB}/query`,
         {
           method: 'POST',
