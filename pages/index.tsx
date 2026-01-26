@@ -214,10 +214,10 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
               Fortune 500s. Retailers. Media giants. Tech. Same 7 dimensions. Same physics. Different scores.
             </p>
             <Link
-              href="/insights/gpi-analyses"
+              href="/companies"
               className="inline-flex items-center gap-2 text-red-500 font-bold hover:text-red-400 transition-colors group"
             >
-              BROWSE ALL ANALYSES
+              SEE ALL COMPANIES
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
