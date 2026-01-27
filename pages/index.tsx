@@ -366,7 +366,11 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
                 <div className="text-7xl md:text-8xl font-black text-red-600 mb-2">
                   {totalAnalyses || '101'}
                 </div>
-                <div className="text-2xl font-black text-zinc-400 mb-4">COMPANIES SCORED</div>
+                <div className="text-2xl font-black text-zinc-400 mb-1">COMPANIES SCORED</div>
+                <div className="text-sm font-mono text-zinc-600 mb-4 flex items-center justify-center lg:justify-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                  AND COUNTING
+                </div>
                 <p className="text-zinc-500 mb-6">
                   Fortune 500s. Retailers. Media giants. Tech disruptors. Same 7 dimensions. Same physics. Different scores.
                 </p>
