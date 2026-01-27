@@ -14,6 +14,13 @@ const getScoreColor = (score: number) => {
   return 'text-red-500';
 };
 
+// Calculate state from score (source of truth)
+const getStateFromScore = (score: number): string => {
+  if (score <= 3.0) return 'Field';
+  if (score < 7.0) return 'Transitioning';
+  return 'Particle';
+};
+
 const getStateColor = (state: string) => {
   if (state.toLowerCase().includes('field')) return 'bg-green-500/20 text-green-500 border-green-500/50';
   if (state.toLowerCase().includes('particle')) return 'bg-red-500/20 text-red-500 border-red-500/50';
@@ -59,8 +66,8 @@ const CompanyPage: NextPage<CompanyPageProps> = ({ snapshot }) => {
         <section className="pb-8 px-6 border-b border-zinc-900">
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className={`text-xs font-mono px-2 py-1 border rounded ${getStateColor(snapshot.state)}`}>
-                {snapshot.state.toUpperCase()}
+              <span className={`text-xs font-mono px-2 py-1 border rounded ${getStateColor(getStateFromScore(snapshot.gpiScore))}`}>
+                {getStateFromScore(snapshot.gpiScore).toUpperCase()}
               </span>
               {snapshot.ticker && (
                 <span className="text-xs font-mono text-zinc-500">{snapshot.ticker}</span>

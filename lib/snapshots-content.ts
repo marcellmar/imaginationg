@@ -363,7 +363,7 @@ export const snapshotsContent: Record<string, CompanySnapshot> = {
     slug: 'apple',
     name: 'Apple',
     analysisDate: '2026-01-18',
-    gpiScore: 4.30,
+    gpiScore: 4.3,
     state: 'Transitioning',
     ticker: 'AAPL',
     marketCap: '~$3.5T',
@@ -1376,6 +1376,1434 @@ export const snapshotsContent: Record<string, CompanySnapshot> = {
     ],
     quotable: '27 people managing $1 trillion is either the purest expression of organizational fluidity or a governance risk hiding in plain sight.',
   },
+
+  'mars': {
+    slug: 'mars',
+    name: 'Mars, Incorporated',
+    analysisDate: '2026-01-20',
+    gpiScore: 5.65,
+    state: 'Transitioning (upper)',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 6, explanation: 'Glassdoor consistent: "Decisions take forever," "frustratingly slow," "unclear who is accountable." Network-driven culture concentrates decisions within key networks rather than distributing authority. Kellanova integration adds 50,000+ associates to already slow architecture. Avoided calling layoffs "layoffs" to dodge severance—decision took weeks to communicate.' },
+      { dimension: 'Error Correction', score: 6, explanation: '3rd major layoff in 5 years despite 20%+ earnings. This is reactive cost optimization, not proactive adaptation. Kellanova signals strategic direction, but integration execution reveals friction. Territory Sales Manager role destabilized. Error correction operates on quarterly/annual cycles, not continuous iteration.' },
+      { dimension: 'Knowledge Location', score: 5, explanation: '18-month-old AI working group shows distributed capability. Manufacturing AI/ML demonstrates technical knowledge distribution. But "network driven rather than hierarchical" means knowledge concentrated in key networks, not widely available. Microsoft partnership exists but execution centralized through corporate working group.' },
+      { dimension: 'Structural Lock-In', score: 6, explanation: '$36B Kellanova acquisition adds massive integration complexity. 315 executives suggest substantial management overhead. 150,000 employees across CPG and integrated snacking brands. Chicago remains HQ for expanded snacking business—preserving dual-HQ structure (McLean + Chicago).' },
+      { dimension: 'Talent Flow', score: 6, explanation: 'Multiple restructurings, "associates being let go following FTC approval," outsourcing to India across functions. 85% would recommend to friend is decent, but layoffs during high earnings signal optimization over growth. Territory Sales Manager "no longer a stable position."' },
+      { dimension: 'Capital Intensity', score: 5, explanation: '$2B manufacturing investment through 2026 shows significant physical infrastructure. CPG model requires substantial production facilities (80 globally). But brand value (M&M\'S, Snickers, Pedigree, etc.) provides leverage. Private ownership allows patient capital.' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'AI in manufacturing (predictive maintenance, quality control), marketing (GenAI for communications, translation). Microsoft partnership for digital transformation. But 10 responsible AI principles and corporate working group suggest centralized governance rather than distributed execution.' }
+    ],
+    pattern: '"Integration as Calcification Test"',
+    patternDescription: 'Mars is betting that private ownership\'s patient capital can absorb acquisition scale without inheriting public-company rigidity. The test is already underway. Kellanova brought 50,000 people trained in one cultural OS (publicly-traded quarterly cadence) into another (family-owned collaborative deliberation). The question isn\'t whether Mars can integrate Kellanova. It\'s whether Mars can integrate Kellanova without becoming Kellanova\'s worst habits. The 2-3 week notification windows for reorganization, the semantic gymnastics around "not calling layoffs layoffs," the outsourcing without strategic clarity—these are symptoms of a system that\'s adding structure faster than it\'s adding clarity. Mars doesn\'t have a performance problem. It has a decision architecture problem. And $36B in acquisit',
+    keyNumbers: [
+
+    ],
+    enablers: [
+      'Private ownership',
+      'Manufacturing modernization',
+      'Digital transformation',
+      'Brand strength',
+      'AI governance',
+      'Market position'
+    ],
+    friction: [
+      'Decision latency culture',
+      'Integration complexity',
+      'Layoff cycles',
+      'Network-driven opacity',
+      '315 executives',
+      'Collaborative paralysis'
+    ],
+  },
+
+  'dominion-energy': {
+    slug: 'dominion-energy',
+    name: 'Dominion Energy',
+    analysisDate: '2026-01-20',
+    gpiScore: 6.8,
+    state: 'Transitioning (upper)',
+    marketCap: '$52.20',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 7, explanation: 'Every rate increase requires state commission approval. Federal stop-work order required litigation and court injunction to restart $11.2B offshore wind project. Decisions move at regulatory speed, not market speed.' },
+      { dimension: 'Error Correction', score: 6, explanation: 'Quick legal response to federal challenges, but 16.95% workforce cut suggests reactive cost-cutting. No evidence of killing failed projects. Offshore wind continues despite cost escalations.' },
+      { dimension: 'Knowledge Location', score: 6, explanation: 'Three regulated segments (VA, SC, Contracted Energy), no shared platforms. Knowledge in people, not systems. Serving AI industry but no internal AI adoption visible.' },
+      { dimension: 'Structural Lock-In', score: 8, explanation: '$50.1B capex locked into multi-decade depreciation. 176 offshore wind turbines. Can\'t exit regulated territories. Every pivot requires stranded asset calculations and regulatory approval.' },
+      { dimension: 'Talent Flow', score: 6, explanation: 'Traditional utility career paths. COO retirement with internal succession. Limited mobility, people leave rather than redeploy. Glassdoor cites limited career growth.' },
+      { dimension: 'Capital Intensity', score: 9, explanation: '$50.1B capex over 5 years. $11.2B single project. Revenue per employee $1.08M reflects asset leverage. Can\'t change direction without stranded assets.' },
+      { dimension: 'Knowledge Velocity', score: 6, explanation: 'Quarterly earnings cycles, regulatory filing cadence. No real-time dashboards. Glassdoor reviews cite poor and disengaged management, suggesting information filtering.' }
+    ],
+    pattern: 'Infrastructure as Destiny',
+    patternDescription: 'When you own 176 offshore wind turbines and commit $50B to grid infrastructure, you don\'t adapt to market signals. You adapt the market to your depreciation schedule. The AI boom is a gift, driving 5% annual demand growth. But Dominion can only respond one way: build more infrastructure, file for more rate increases, and wait for regulatory approval. They\'re powering the future while trapped in the physics of the past.',
+    keyNumbers: [
+      'Revenue: $15.81B (TTM), up 8.36% YoY',
+      'Employees: 14,700 (down 16.95% from 2024)',
+      'Founded: 1983 (incorporated), HQ: Richmond, Virginia',
+      'Structure: Public company, NYSE: D',
+      'Leadership: Robert M. Blue, Chairman, President and CEO (since April 2021)',
+      'Market Cap: $52.20 billion',
+      'Fortune 500 Rank: #216',
+      'Customers: 2.8M electricity (VA/NC), 500K gas (SC)'
+    ],
+    enablers: [
+      'AI Data Center Positioning',
+      'Offshore Wind Execution',
+      'Legal Agility',
+      'Capital Access',
+      'Regulatory Support',
+      'Revenue Growth'
+    ],
+    friction: [
+      'Regulatory Dependency',
+      'Federal Vulnerability',
+      'Workforce Reduction',
+      'Capital Intensity Trap',
+      'Management Issues',
+      'Information Silos'
+    ],
+    quotable: 'You can\'t pivot when you own 176 offshore wind turbines.',
+  },
+
+  'rtx': {
+    slug: 'rtx',
+    name: 'RTX Corporation (Raytheon)',
+    analysisDate: '2026-01-19',
+    gpiScore: 6.55,
+    state: 'Transitioning (upper)',
+    marketCap: '$270.7B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 7, explanation: '186K employees, three segments, government contract delays, "least responsive" per Trump' },
+      { dimension: 'Error Correction', score: 6, explanation: '$950M settlement for years-long fraud, powder metal defect ongoing, three-year monitor required' },
+      { dimension: 'Knowledge Location', score: 6, explanation: '"Siloed operations" cited in restructuring, post-merger cultures still distinct' },
+      { dimension: 'Structural Lock-In', score: 7, explanation: '$217B backlog path dependency, 20-year DOD contracts, capital-intensive manufacturing' },
+      { dimension: 'Talent Flow', score: 6, explanation: '"Promotions non-existent" per Glassdoor, need to "push hard" for advancement' },
+      { dimension: 'Capital Intensity', score: 8, explanation: 'Aerospace manufacturing inherently capital-heavy, single defect drains $1B+ annually' },
+      { dimension: 'Knowledge Velocity', score: 6, explanation: 'Weekly meetings "rehash status," but AI investments (CADS, BBN) show acceleration attempts' }
+    ],
+    pattern: 'Organizational Pattern',
+    patternDescription: '',
+    keyNumbers: [
+      'Revenue: $80.7B (2025)',
+      'Market Cap: $270.7B (January 2026)',
+      'Employees: 186,000',
+      'Founded: 1922, HQ: Arlington, VA',
+      'Structure: Public (NYSE: RTX), formed 2020 merger',
+      'CEO: Christopher T. Calio (Chairman and CEO since 2025)',
+      'Fortune 500: #54, Fortune Global 500: #153',
+      'Backlog: $217B (60% commercial, 40% defense)'
+    ],
+    enablers: [
+      'New CEO Christopher Calio with fresh perspective',
+      'Reorganization from 4 to 3 segments reduces silos',
+      'AI identified as core transformative technology',
+      '$217B backlog funds transformation',
+      '60/40 commercial-defense diversification',
+      'AI-powered CADS system shows product innovation'
+    ],
+    friction: [
+      '$950M+ settlement reveals systemic compliance failures',
+      'Powder metal defect draining $1.1-1.3B annually',
+      'Presidential pressure on buybacks and production',
+      'Three post-merger cultures still not integrated',
+      'Glassdoor',
+      'Government contracts create structural latency'
+    ],
+    quotable: 'The defense giant that merged its way to scale now carries the compliance costs of that complexity.',
+  },
+
+  'kenvue': {
+    slug: 'kenvue',
+    name: 'Kenvue',
+    analysisDate: '2026-01-20',
+    gpiScore: 5.4,
+    state: 'Transitioning (upper)',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 6, explanation: 'Workforce reduction took 18 months from announcement to execution, still unwinding J&J transition service agreement' },
+      { dimension: 'Error Correction', score: 6, explanation: 'CEO swap and brand portfolio review show willingness to adapt, but layoffs are primary mechanism with $550M restructuring costs over two years' },
+      { dimension: 'Knowledge Location', score: 5, explanation: 'Microsoft Azure AI partnership is forward-looking, but Glassdoor cites complicated systems and onboarding challenges from J&J legacy transition' },
+      { dimension: 'Structural Lock-In', score: 5, explanation: 'Asset-light brands provide flexibility, but $550M restructuring costs and 5-year Microsoft partnership create dependencies' },
+      { dimension: 'Talent Flow', score: 6, explanation: 'Multiple layoff rounds (880 total), Glassdoor 3.3/5.0 for career opportunities, 62% recommend to friend, external hires for CEO and CFO' },
+      { dimension: 'Capital Intensity', score: 4, explanation: 'Consumer health brands are intellectual property heavy, not manufacturing heavy, can divest underperforming products (Clean & Clear, Maui Moisture)' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'AI tools piloted but not deployed, Glassdoor mentions analysis paralysis and overly complicated systems' }
+    ],
+    pattern: 'Organizational Pattern',
+    patternDescription: '',
+    keyNumbers: [
+      'Revenue: $15.0B TTM (December 2025), $15.45B FY2024',
+      'Employees: 22,000 (down from ~23,000 pre-restructuring)',
+      'Founded: February 23, 2022 (named Kenvue September 2022, IPO May 2023)',
+      'Headquarters: Summit, New Jersey',
+      'Structure: Public (NYSE: KVUE), $32.1B market cap',
+      'CEO: Kirk Perry (appointed November 2, 2025, former P&G/Google exec)',
+      'Previous CEO: Thibaut Mongon (departed July 2025)',
+      'CFO: Amit Banati (joined May 2025 from Kellanova)'
+    ],
+    enablers: [
+      'Microsoft 5-year AI partnership with Azure, digital twins, Copilot tools piloted across supply chain and content creation',
+      'New CEO Kirk Perry brings 30 years CPG and tech transformation experience from P&G, Google, Circana',
+      'Asset-light brand portfolio (Tylenol, Neutrogena, Listerine, Band-Aid) provides strategic flexibility',
+      'Cost optimization program targeting $350M annual savings by 2026',
+      'Portfolio rationalization underway, exploring sale of underperforming brands (Clean and Clear, Maui Moisture)',
+      'New CFO Amit Banati from Kellanova brings external financial discipline'
+    ],
+    friction: [
+      'Multiple layoff rounds (880 total, 4%) indicate cost-cutting as primary adaptation mechanism, not process redesign',
+      'Restructuring costs of $550M over two years (2024-2025) show high organizational friction',
+      'Still unwinding J&J transition service agreement years after May 2023 spinoff, indicating path dependence',
+      'Glassdoor 3.6/5.0 with complaints about complicated systems, analysis paralysis, onboarding challenges',
+      'Low employee recommendation rate (62%) and career opportunity score (3.3/5.0) signal talent flow issues',
+      'CEO transition after only two years (Mongon July 2023 to July 2025) indicates strategic misalignment'
+    ],
+    quotable: 'Two years out of the J&J nest and Kenvue is still figuring out how to fly.',
+  },
+
+  'procter-gamble': {
+    slug: 'procter-gamble',
+    name: 'Procter & Gamble',
+    analysisDate: '2026-01-19',
+    gpiScore: 5.45,
+    state: 'Transitioning (upper)',
+    marketCap: '$338B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 6, explanation: '5-SBU structure with separate CEOs, 26 executives, 6 regional presidents creates multiple decision layers' },
+      { dimension: 'Error Correction', score: 5, explanation: '7,000 layoffs show willingness to adapt, but reactive to pressure; greenwashing lawsuits addressed defensively' },
+      { dimension: 'Knowledge Location', score: 5, explanation: 'Heavy AI investment (Project Genie, insightsPG, Consumer 360) but SBU and geographic structure creates silos' },
+      { dimension: 'Structural Lock-In', score: 6, explanation: '109K employees, 100+ manufacturing sites, $1B+ to restructure; change is expensive' },
+      { dimension: 'Talent Flow', score: 5, explanation: 'Good Glassdoor scores (4.0 career), but awards flattening individual performance recognition' },
+      { dimension: 'Capital Intensity', score: 6, explanation: 'Manufacturing company with 100+ physical sites; strategic pivots mean writing off capacity' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'AI tools accelerating (12% productivity gain), but US sales decline surprised market showing filtered info' }
+    ],
+    pattern: 'The Institutional Metabolism',
+    patternDescription: 'P&G at 5.45 represents a company where 187 years of success created the organizational mass that now constrains it. They are not calcified. They are not agile. They are institutional: moving at the speed that institutions move, adapting at the pace that institutions adapt. The restructuring, AI investments, and leadership transition are all correct responses. The question is whether institutional change speed can match market change speed.',
+    keyNumbers: [
+      'Revenue: $84.9B TTM (Q1 FY2026: $22.4B, +3% YoY)',
+      'Employees: 109,000 (7,000 non-manufacturing cuts planned over 2 years)',
+      'Founded: 1837, HQ: Cincinnati, Ohio',
+      'Structure: Public (NYSE: PG), traded since 1890',
+      'Leadership: Shailesh Jejurikar (CEO, Jan 2026), Jon Moeller (Executive Chairman)',
+      'Market Cap: $338B (38th globally)',
+      'Fortune 500 Rank: #51',
+      'Glassdoor: 4.1/5.0, 82% recommend'
+    ],
+    enablers: [
+      'Heavy AI investment',
+      'Microsoft partnership digitizing 100+ manufacturing sites with IIoT and digital twins',
+      '69-year dividend increase streak demonstrates transformation funding stability',
+      '23.2% operating margin (highest in CPG) provides financial cushion',
+      'New CEO brings fresh mandate while Moeller maintains continuity',
+      'GenAI driving 12% productivity gains (Harvard study)'
+    ],
+    friction: [
+      '5-SBU structure with separate CEOs creates category silos',
+      'Historical culture described as slow, conformist and risk-averse',
+      'Greenwashing lawsuits show sustainability messaging-reality gap',
+      'Compensation structure flattens individual performance incentives',
+      'US sales decline surprised market, suggesting information filtering',
+      'Two-year restructuring timeline vs. market speed of change'
+    ],
+    quotable: 'P&G built brands, manufacturing, and distribution for a different era. The AI investments and restructuring are attempts to accelerate without destroying what works.',
+  },
+
+  'lockheed-martin': {
+    slug: 'lockheed-martin',
+    name: 'Lockheed Martin',
+    analysisDate: '2026-01-19',
+    gpiScore: 6.65,
+    state: 'Transitioning (upper)',
+    marketCap: '$133.7B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 7, explanation: 'Multi-layered approval chains involving Pentagon, Congress, JPO. Block 4 delay from 2026 to 2030s demonstrates cascade effect.' },
+      { dimension: 'Error Correction', score: 7, explanation: 'TR-3 upgrade 3 years late. Received on-time bonuses while delivering late. 800+ deficiencies still open. Layoffs as primary adaptation.' },
+      { dimension: 'Knowledge Location', score: 5, explanation: 'AI Factory (10,000 engineers) and LMText Navigator show sharing intent, but security clearances create compartmentalization.' },
+      { dimension: 'Structural Lock-In', score: 8, explanation: '$485B in F-35 sunk costs. Single customer (Pentagon). Cannot pivot from core programs. 1995 merger still shapes structure.' },
+      { dimension: 'Talent Flow', score: 5, explanation: 'Good engagement (84% recommend) but limited mobility due to clearances. "Raises 2-3%" complaints. Leaders promoted from within.' },
+      { dimension: 'Capital Intensity', score: 8, explanation: 'Massive manufacturing infrastructure. Long depreciation cycles. PAC-3 capacity increase took years. Cannot repurpose F-35 lines.' },
+      { dimension: 'Knowledge Velocity', score: 6, explanation: 'AI accelerating internal flow (10x productivity for data scientists). But $3.5B losses arrived as "surprises." 4,000+ missing parts accumulated.' }
+    ],
+    pattern: 'Organizational Pattern',
+    patternDescription: '',
+    keyNumbers: [
+      'Revenue: $73.4B TTM (Q3 2025)',
+      'Market Cap: $133.7B (up 19.48% YoY)',
+      'Employees: 121,000',
+      'Founded: March 15, 1995 (Lockheed + Martin Marietta merger)',
+      'HQ: North Bethesda, Maryland',
+      'Stock: LMT (NYSE), Fortune 500 Rank #57',
+      'CEO: Jim Taiclet (since March 2021)',
+      'F-35 Deliveries: 191 in 2025 (record), 1,300 total to 12 nations'
+    ],
+    enablers: [
+      'AI Factory serving 10,000+ engineers',
+      'LMText Navigator deployed enterprise-wide',
+      'IBM Granite LLM integration',
+      '$20M annual cost savings from centralized data science',
+      'Record 191 F-35 deliveries in 2025',
+      'New CIO Maria Demaree elevating AI as strategic priority'
+    ],
+    friction: [
+      'F-35 Block 4 delayed to mid-2030s ($6B+ overruns)',
+      'TR-3 upgrade 3 years late',
+      '$3.5B classified program losses in 2025',
+      '4,000+ missing parts, 52 aircraft idle',
+      'GAO found on-time bonuses paid for late deliveries',
+      'Investor class action lawsuit pending'
+    ],
+    quotable: 'The company exists to build weapons systems that take decades to develop, require absolute security, and serve a single customer who cannot easily switch suppliers. This creates structural lock-in by design.',
+  },
+
+  'pixar': {
+    slug: 'pixar',
+    name: 'Pixar Animation Studios',
+    analysisDate: '2026-01-26',
+    gpiScore: 3.2,
+    state: 'Transitioning (upper)',
+    employees: 1233,
+    revenue: '$232M (2026), down from $770M peak (2024)',
+    founded: 1986,
+    dimensions: [
+      { dimension: 'Decision Latency', score: 5, explanation: 'The Braintrust model is legendary - candid feedback flows freely, directors retain authority, iterative process is embedded. But Pixar is a subsidiary. Strategic decisions (streaming vs theatrical, budget, slate) flow through Disney corporate. The 2024 pivot from streaming content back to theatrical features was Bob Iger\'s mandate, not Pixar\'s choice. Creative decisions move fast. Strategic decisions bottleneck through Burbank.' },
+      { dimension: 'Error Correction', score: 6, explanation: 'Strong iterative culture. "All our movies suck at first" is embedded philosophy. Elemental recovered from $29M opening to $496M global through word-of-mouth. But at the portfolio level, error correction is slow. Elio\'s $21M opening (worst in Pixar history) follows a pattern: no successful new theatrical IP launch since Coco in 2017. That\'s 8 years of failing to launch original franchises theatrically. Inside Out 2\'s $1.69B success masks the deeper problem - only sequels work now.' },
+      { dimension: 'Knowledge Location', score: 5, explanation: 'The Braintrust embeds knowledge in people, not documents. Creative expertise concentrates in long-tenured directors (Docter, Stanton, Unkrich). But Glassdoor reviews cite "entrenched, conservative decision-making" and "pervasive fear of change." Knowledge stays with the same names. The upcoming slate (Toy Story 5: Stanton, Incredibles 3: Sohn, Coco 2: Unkrich) is the same directors cycling through franchise sequels.' },
+      { dimension: 'Structural Lock-In', score: 7, explanation: 'Triple lock-in: 1. **Corporate**: Disney controls budget, slate, strategy. Pixar can\'t greenlight its own films. 2. **Franchise**: 4 of 5 announced films are sequels (Toy Story 5, Incredibles 3, Coco 2, plus Minions-style dependence). Only Hoppers and Gatto are original. 3. **Cost Structure**: $250M budget for Elio vs Illumination\'s $70M. Less margin for failure, more pressure to play safe.' },
+      { dimension: 'Talent Flow', score: 6, explanation: 'Glassdoor: "extremely limited opportunities for career advancement," "no training, professional development, or upward mobility," "very low salary especially for positions held predominantly by women." Pay is below market for Bay Area. The 14% layoffs (175 people, May 2024) were deep cuts. But the brand still attracts creative talent. 73% would recommend to a friend. The work is meaningful, even if the career paths are blocked.' },
+      { dimension: 'Capital Intensity', score: 7, explanation: 'Animation is inherently capital-intensive, but Pixar\'s budgets are industry-highest. $250M for Elio vs $70M for Illumination films. Inside Out 2 worked ($1.69B on ~$200M budget). Elio didn\'t ($21M opening on $250M budget). When you spend $250M, you need $600M+ just to break even. Illumination can fail cheaply. Pixar can\'t.' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'The Braintrust spreads creative knowledge within films. But organization-wide, Glassdoor reviews cite "unstructured organizational structure with ambiguous roles," "zero transparency from all leadership levels," and "departments allergic to accountability." Knowledge moves well within projects, but the broader organization has friction.' }
+    ],
+    pattern: 'Creative Subsidiary Trap',
+    patternDescription: 'Pixar built the most effective creative process in animation history. The Braintrust. Iterative development. Candor culture. Directors with authority. These are legitimately excellent. But Pixar doesn\'t control its own destiny. - Disney controls the budget - Disney controls the slate - Disney controls the strategy - Disney decides streaming vs theatrical - Disney mandates the layoffs The Braintrust can make Toy Story 5 excellent. It can\'t decide whether Pixar should make Toy Story 5 at all. The creative process is Field-state. The strategic position is Particle-state. This is the subsidiary trap: exceptional execution capability trapped inside corporate control structure. The same pattern hits studio divisions, acquired startups, and any creative unit absorbed into a larger parent. 8 years',
+    keyNumbers: [
+      '$1.69B - Inside Out 2 global box office (2024)',
+      '$21M - Elio opening weekend, worst in Pixar history (2025)',
+      '14% - Workforce reduction in May 2024 layoffs',
+      '8 years - Since last successful original theatrical franchise launch (Coco, 2017)',
+      '4 of 5 - Upcoming announced films that are sequels',
+      '$250M - Elio budget vs $70M typical Illumination budget'
+    ],
+    enablers: [
+      'Braintrust model - Candid feedback, director authority, iterative process',
+      'Brand equity - Pixar name still means quality to audiences',
+      'Talent magnetism - Creative people want to work there despite low pay',
+      'Inside Out 2 success - Proved theatrical animation still works when executed well'
+    ],
+    friction: [
+      'Disney control - Strategic decisions made in Burbank, not Emeryville',
+      'Sequel dependence - Can\'t launch new IP theatrically, relies on existing franchises',
+      'Cost structure - $250M budgets leave no room for experimentation',
+      'Talent stagnation - Same directors, limited advancement, below-market pay',
+      'Original IP drought - 8 years without new theatrical franchise success'
+    ],
+    quotable: 'Pixar has the best creative process in animation. It just doesn\'t control what that process gets applied to. The Braintrust can make any film excellent. Disney decides which films get made. That\'s the gap between creative capability and strategic agency.',
+  },
+
+  'elevance': {
+    slug: 'elevance',
+    name: 'Elevance Health',
+    analysisDate: '2026-01-19',
+    gpiScore: 5.35,
+    state: 'Transitioning (upper)',
+    marketCap: '$83.31B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 6, explanation: '104,200 employees, 14-state BCBS structure, star ratings lawsuit reveals litigation over adaptation' },
+      { dimension: 'Error Correction', score: 5, explanation: '$1B+ penalties, $12.88M mental health settlement, but did exit unprofitable PDP market' },
+      { dimension: 'Knowledge Location', score: 5, explanation: 'Sydney Health (25% growth), HealthOS, 60K using AI tools, but Glassdoor cites siloed divisions' },
+      { dimension: 'Structural Lock-In', score: 6, explanation: 'BCBS Association structure locks geographic footprint, Carelon integration adds complexity' },
+      { dimension: 'Talent Flow', score: 5, explanation: '3.4 Glassdoor, good benefits, but 160+ reviews cite constant reorgs, ~10K layoffs ongoing' },
+      { dimension: 'Capital Intensity', score: 5, explanation: 'Services-focused but $hundreds of millions in tech investment, regulatory requirements add friction' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'AI tools accelerate flow, but 22.5% income drop in Q3 caused 12% stock crash (surprises)' }
+    ],
+    pattern: 'Technology as Triage',
+    patternDescription: 'Elevance represents the healthcare insurer caught between regulatory pressure, margin compression, and organizational mass. The pattern: use AI investments as the transformation narrative while using layoffs as the actual adaptation mechanism. Sydney Health, HealthOS, Spark, and OpenAI partnerships signal genuine technology commitment. But the ~10,000 rolling layoffs, the star ratings lawsuit arguing basic math, and $1B in cumulative fines suggest an organization that fights its environment rather than adapting to it.',
+    keyNumbers: [
+      'Revenue: $194.82B TTM (December 2025), up 11.93% YoY',
+      'Employees: 104,200 (rolling layoffs affecting ~10,000)',
+      'Founded: 1944, HQ: Indianapolis, Indiana',
+      'Structure: Public (NYSE: ELV), largest for-profit BCBS licensee in 14 states',
+      'Leadership: Gail Boudreaux, CEO since 2017',
+      'Market Cap: $83.31B (January 2026)',
+      'Fortune 500: #20 (2024)',
+      'Medical Members: 46 million (109 million total consumers)'
+    ],
+    enablers: [
+      'Sydney Health app with 25% usage growth and AI virtual assistant',
+      'HealthOS platform centralizing clinical and operational data',
+      '60,000+ associates using AI productivity tools',
+      'OpenAI partnership for employee AI certification training',
+      'Spark internal toolkit for document analysis and automation',
+      'Strategic exit from unprofitable PDP market segment'
+    ],
+    friction: [
+      'Rolling layoffs affecting ~10,000 employees',
+      '$1.048B cumulative penalties across 572 violations',
+      'Lost Medicare Advantage star ratings lawsuit (basic math dispute)',
+      '14-state BCBS structure creating coordination overhead',
+      '125 basis point Medicaid margin decline expected in 2026',
+      'Securities class action lawsuit pending'
+    ],
+    quotable: 'The star ratings lawsuit is a GPI diagnostic in microcosm: doubling down on a losing position rather than accepting reality and adjusting.',
+  },
+
+  'pepsico': {
+    slug: 'pepsico',
+    name: 'PepsiCo',
+    analysisDate: '2026-01-19',
+    gpiScore: 4.85,
+    state: 'Transitioning (upper)',
+    marketCap: '$202.08B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 5, explanation: 'Traditional hierarchy, but Elliott pressure accelerated decisions within months; Texoma pilot shows silos being addressed' },
+      { dimension: 'Error Correction', score: 5, explanation: 'Closing underperforming plants and cutting 20% SKUs shows correction; but needed activist pressure to act; layoffs as primary mechanism' },
+      { dimension: 'Knowledge Location', score: 4, explanation: 'Digital twin partnership creating "single intelligent ecosystem" with real-time data from all operations; unusual AI investment for CPG' },
+      { dimension: 'Structural Lock-In', score: 5, explanation: 'Diversified portfolio provides flexibility vs pure-play competitors; but 319K employees and merger legacy create switching costs' },
+      { dimension: 'Talent Flow', score: 5, explanation: '3.8/5 Glassdoor, 74% recommend; internal promotions visible; but weak work-life balance (3.2/5), management cited as con' },
+      { dimension: 'Capital Intensity', score: 6, explanation: 'Heavy manufacturing footprint; digital twin aims to reduce CapEx 10-15%; closing facilities costs money before saving it' },
+      { dimension: 'Knowledge Velocity', score: 4, explanation: 'AI enabling real-time ops visibility; can test thousands of layouts; but 319K employees create natural information delays' }
+    ],
+    pattern: 'Technology as Transformation Lever',
+    patternDescription: 'PepsiCo is inverting the typical transformation playbook. Rather than restructuring the organization first and then deploying technology, they\'re using AI-powered digital twins to force operational change. If technology can detect 90% of issues in simulation before reaching the warehouse floor, the company can move faster despite its mass. Elliott provided the external catalyst. Siemens/NVIDIA provides the mechanism. Early pilots show the bet working: 20% throughput, 10-15% CapEx reduction.',
+    keyNumbers: [
+      'Revenue: $92.36B TTM (January 2026)',
+      'Employees: 319,000 (revenue per employee: $289,549)',
+      'Market Cap: $202.08B (down 3.38% YoY)',
+      'Founded: June 8, 1965, HQ: Purchase, New York',
+      'CEO: Ramon Laguarta (since 2018)',
+      'Fortune 500 Rank: #41',
+      'Structure: Public (NASDAQ: PEP), diversified food (58%) and beverage (42%)',
+      'Glassdoor: 3.8/5.0 overall, 74% recommend, 63% positive outlook'
+    ],
+    enablers: [
+      'Industry-first digital twin partnership with Siemens and NVIDIA at enterprise scale',
+      'Early pilot results',
+      '90% of operational issues detectable in simulation before implementation',
+      'Diversified portfolio provides strategic flexibility vs pure-play competitors',
+      'Strong brand portfolio with category leadership (Lay\'s, Doritos, Gatorade)',
+      'Leadership restructure with focused accountability'
+    ],
+    friction: [
+      'Required activist pressure to force strategic changes',
+      'Layoffs as primary adaptation mechanism',
+      'Glassdoor',
+      '319,000 employees creates organizational mass',
+      'High capital intensity in manufacturing footprint',
+      'Merger legacy from 60 years of integrations'
+    ],
+    quotable: 'PepsiCo needed a $4B activist stake to do what physics suggested years ago: cut the SKUs that weren\'t pulling their weight.',
+  },
+
+  'stellantis': {
+    slug: 'stellantis',
+    name: 'Stellantis N.V.',
+    analysisDate: '2026-01-19',
+    gpiScore: 6.3,
+    state: 'Transitioning (upper)',
+    marketCap: '$31.6B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 7, explanation: '14-brand, three-continent structure requires decisions to navigate multiple regions, union agreements, and legacy brand considerations. Tavares EV strategy persisted for years before 70% profit collapse forced correction.' },
+      { dimension: 'Error Correction', score: 6, explanation: 'Eventually corrects but slowly. CEO resigned after internal friction with board. Uses layoffs as primary adaptation mechanism (3,200+ at peak). Q4 2025 showed first sales growth in two years.' },
+      { dimension: 'Knowledge Location', score: 5, explanation: '14 brands across three continents creates natural silos. Glassdoor top complaint: "lack of guidance from management." Investing in Mistral AI and digital twins to centralize knowledge.' },
+      { dimension: 'Structural Lock-In', score: 7, explanation: 'Merger created permanent complexity. Cannot easily exit brands, regions, or legacy commitments. UAW agreements constrain flexibility. $13B US expansion deepens lock-in.' },
+      { dimension: 'Talent Flow', score: 6, explanation: 'Glassdoor 3.7/5.0. Massive layoffs disrupt normal talent flow. New leadership bringing in fresh talent (Ciancia from Mercedes-Benz) but churn creates friction.' },
+      { dimension: 'Capital Intensity', score: 8, explanation: 'Inherently capital-intensive automotive manufacturing. $13B US expansion largest in 100-year history. Factories span multiple continents with high fixed costs and union labor.' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: '70% profit drop surprised markets, suggesting filtered information at senior levels. Manufacturing AI reducing quality issues 40%. Information moves faster at factory level than corporate level.' }
+    ],
+    pattern: 'Merger Complexity Trap',
+    patternDescription: 'Stellantis represents the archetypal case of a mega-merger creating organizational mass that overwhelms any synergy benefits. The FCA-PSA combination was supposed to create scale advantages. Instead, it created a 14-brand, three-continent, dual-culture entity that cannot pivot, cannot simplify, and cannot respond to market changes faster than more focused competitors.',
+    keyNumbers: [
+      'Revenue: EUR 156.9B (2024), down 17% YoY',
+      'Employees: 248,243 globally',
+      'Founded: January 16, 2021 (FCA + PSA merger)',
+      'Headquarters: Hoofddorp, Netherlands (CEO operates from Auburn Hills, Michigan)',
+      'Market Cap: $31.6B (down 38% since 2021 formation)',
+      'CEO: Antonio Filosa (since May 2025)',
+      'Brands: 14 (Jeep, Ram, Dodge, Chrysler, Fiat, Peugeot, Citroen, Alfa Romeo, Maserati, Opel, Vauxhall, Lancia, DS, Abarth)',
+      'Net Profit: Down 70% in 2024'
+    ],
+    enablers: [
+      'New CEO with 25-year company tenure brings insider credibility for change',
+      'Streamlined leadership',
+      'AI manufacturing investments delivering measurable results (40% quality improvement)',
+      'Mistral AI partnership moving to enterprise-wide deployment',
+      'Q4 2025 sales growth breaking two-year decline pattern',
+      'Strong brand portfolio with Jeep and Ram anchoring US strategy'
+    ],
+    friction: [
+      '14 brands create inherent complexity and cannibalization risk',
+      'Post-merger culture integration still incomplete after five years',
+      'Market cap down 38% since formation',
+      'Layoffs as primary adaptation mechanism damages institutional knowledge',
+      'Glassdoor complaints about "lack of guidance from management" (149 reviews)',
+      'Union agreements (UAW) constrain workforce flexibility'
+    ],
+    quotable: '14 brands is not a portfolio, it\'s a complexity tax.',
+  },
+
+  'ge-vernova': {
+    slug: 'ge-vernova',
+    name: 'GE Vernova',
+    analysisDate: '2026-01-20',
+    gpiScore: 6.3,
+    state: 'Transitioning (upper)',
+    ticker: 'GEV',
+    marketCap: '$170B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 6, explanation: 'Three segment CEOs enable some distribution, but offshore wind bled for years before action. Capital allocation quick, operational decisions slow.' },
+      { dimension: 'Error Correction', score: 7, explanation: 'Layoffs are the primary adaptation mechanism. Years of offshore wind losses before restructuring. No evidence of fast pivots or experimentation.' },
+      { dimension: 'Knowledge Location', score: 5, explanation: 'Deploying Gen AI agents, cloud with AWS, APM, and digital twins. But three-segment structure creates silos. "Finance is a one-man show."' },
+      { dimension: 'Structural Lock-In', score: 7, explanation: 'Inherited GE Power, Renewable, Digital, and Financial Services. 80-GW backlog into 2029. Offshore wind can\'t be quickly exited. GE legacy systems.' },
+      { dimension: 'Talent Flow', score: 6, explanation: '4% headcount reduction via layoffs, not strategic reshaping. Roles contracted out to cheaper labor markets. No internal mobility evidence.' },
+      { dimension: 'Capital Intensity', score: 8, explanation: 'Manufactures turbines and electrification equipment. Massive infrastructure, long-cycle sales, service contracts. Not asset-light.' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'AI and cloud migration should help, but 76,800 across 100+ countries creates latency. Three-segment structure filters info. AI tools still rolling out.' }
+    ],
+    pattern: 'The Spin-Off Paradox',
+    patternDescription: 'GE Vernova was created to escape GE legacy mass, but inherited the organizational DNA, structural commitments, and cultural behaviors that made GE slow. The spin unlocked financial flexibility (doubled dividend, $10B buyback), but operational flexibility remains constrained by 80-GW backlog commitments, capital-intensive manufacturing, and layoffs-as-adaptation behavior. AI tools and cloud migration are on the roadmap, but the error correction pattern (years of offshore wind losses before action) suggests culture change lags structural change. The company has the architecture for fluidity but not yet the operating system.',
+    keyNumbers: [
+      'Revenue: $37.67B TTM (2024: $34.93B, 2023: $33.23B)',
+      'Market Cap: $170B (varies $169B-$185B)',
+      'Employees: 76,800 (down 4% YoY from 80,000)',
+      'Founded: February 28, 2023 (incorporated April 2, 2024)',
+      'HQ: Cambridge, Massachusetts',
+      'Stock Ticker: GEV (NYSE)',
+      'CEO: Scott Strazik (appointed April 2024)',
+      'Gas Turbine Backlog: 80 GW stretching into 2029'
+    ],
+    enablers: [
+      'AI Data Center Demand',
+      'Gen AI Deployment',
+      'Cloud Migration',
+      'Segment Growth',
+      'Financial Flexibility',
+      'Digital Twin and APM Technology'
+    ],
+    friction: [
+      'Layoffs as Primary Correction',
+      'Offshore Wind Losses',
+      'GE Legacy Culture',
+      '80-GW Backlog Lock-In',
+      'Knowledge Silos',
+      'Capital Intensity'
+    ],
+    quotable: 'When your primary adaptation mechanism is layoffs, not strategic pivots, you are calcifying.',
+  },
+
+  'xpo': {
+    slug: 'xpo',
+    name: 'XPO, Inc.',
+    analysisDate: '2026-01-19',
+    gpiScore: 4.2,
+    state: 'Transitioning (lower)',
+    marketCap: '$18.1B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 4, explanation: 'XPO Connect automates 99.7% of load matching; spinoffs eliminated cross-unit coordination; lean executive team under Harik' },
+      { dimension: 'Error Correction', score: 4, explanation: 'Strategic unbundling via GXO/RXO spinoffs; capitalized on Yellow bankruptcy; settlements handled pragmatically' },
+      { dimension: 'Knowledge Location', score: 3, explanation: '$3B+ digital investment moved knowledge into centralized AI systems; machine learning selects carriers in real-time' },
+      { dimension: 'Structural Lock-In', score: 5, explanation: 'LTL requires terminals, trucks, trailers; 30% excess door capacity is both runway and sunk cost; European operations add complexity' },
+      { dimension: 'Talent Flow', score: 5, explanation: 'Glassdoor 3.5/5.0 at industry average; mixed reviews on micromanagement vs career opportunity; training gaps noted' },
+      { dimension: 'Capital Intensity', score: 5, explanation: 'Asset-heavy LTL business; Yellow acquisition expanded physical footprint; moderating CapEx because build-out is complete' },
+      { dimension: 'Knowledge Velocity', score: 4, explanation: 'AI-led scheduling uses real-time data; XPO Connect provides end-to-end visibility; asymmetric info flow per Glassdoor' }
+    ],
+    pattern: 'The Focused Operator',
+    patternDescription: 'XPO represents a rare case of a serial acquirer who learned that addition by subtraction creates more value than empire-building. Brad Jacobs built a $16B conglomerate through dozens of acquisitions, then methodically dismantled it to reveal a pure-play LTL carrier. The spinoffs were not admissions of failure but recognition that different businesses required different organizational physics. The pattern shows that sometimes the path to lower GPI runs through amputation rather than transformation.',
+    keyNumbers: [
+      'Revenue: $8.06B TTM (2.83% YoY growth in Q3 2025)',
+      'Market Cap: $18.1B (117.38M shares outstanding)',
+      'Employees: 38,000 (down from peak after spinoffs)',
+      'Founded: May 1989 (acquired by Brad Jacobs September 2011)',
+      'Headquarters: Greenwich, Connecticut',
+      'Stock: XPO (NYSE), listed June 2012',
+      'Fortune 500 Rank: #190 (led transportation sector for 5 consecutive years)',
+      'Leadership: Mario Harik (Chairman and CEO since December 2025)'
+    ],
+    enablers: [
+      'Technology-first leadership',
+      'Strategic simplification',
+      'AI integration',
+      'Excess capacity',
+      'Opportunistic acquisition',
+      'Clean leadership transition'
+    ],
+    friction: [
+      'Asset-heavy business model',
+      'Front-line employee experience',
+      'Compliance history',
+      'Driver classification issues',
+      'Training gaps',
+      'Layoffs as adaptation'
+    ],
+    quotable: '99.7% of load matching decisions happen without humans. XPO proves you can automate decisions faster than you can change the culture that makes them.',
+  },
+
+  'northrop-grumman': {
+    slug: 'northrop-grumman',
+    name: 'Northrop Grumman',
+    analysisDate: '2026-01-19',
+    gpiScore: 6.5,
+    state: 'Transitioning (upper)',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 7, explanation: '97K employees, 25+ executives, 87% government revenue dictates procurement-driven timelines. Sentinel flight test slipped 2+ years.' },
+      { dimension: 'Error Correction', score: 7, explanation: 'Sentinel breached Nunn-McCurdy at 81% cost overrun. Layoffs as primary adaptation. But Digital Pathfinder achieves <1% rework.' },
+      { dimension: 'Knowledge Location', score: 5, explanation: '$2B digital ecosystem connects design-manufacturing-testing. NVIDIA Omniverse deployed. But classification requirements create inherent silos.' },
+      { dimension: 'Structural Lock-In', score: 7, explanation: 'Sentinel cabling assumption failed, requiring thousands of miles new fiber. B-21 needs infrastructure at 3 bases. Facility closures take 9+ months.' },
+      { dimension: 'Talent Flow', score: 6, explanation: '3.9 Glassdoor, 78% recommend. But 3-year cliff vesting, 2.5% "awful" raises, limited advancement, degree over merit emphasis.' },
+      { dimension: 'Capital Intensity', score: 8, explanation: '$2B+ digital infrastructure. B-21 at $700M/aircraft, $10.3B FY2026. Sentinel at $125B+. Congress added $2.5B risk reduction.' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'NVIDIA Omniverse enables real-time simulation. Digital twins predict integration. But Sentinel cost breach not self-identified.' }
+    ],
+    pattern: 'Organizational Pattern',
+    patternDescription: '',
+    keyNumbers: [
+      'Revenue: $40.9B TTM (2025)',
+      'Employees: 97,000',
+      'Founded: 1939, HQ: Falls Church, Virginia',
+      'Structure: Public (NYSE: NOC), ~$93B market cap',
+      'Leadership: Kathy Warden, Chair, CEO and President since 2019',
+      'Fortune 500 Rank: #110',
+      'Government Revenue: 87% federal, 12% international',
+      'P/E Ratio: 23.94, Dividend Yield: 1.3%'
+    ],
+    enablers: [
+      '$2B+ digital ecosystem connecting design, manufacturing, testing',
+      'Digital Pathfinder achieving <1% rework vs 15-20% industry average',
+      'NVIDIA Omniverse partnership for AI spacecraft operations',
+      'AI-designed spacecraft propulsion (physics AI foundation models)',
+      'Digital twins predicting integration challenges',
+      'B-21 flight testing matching simulation predictions'
+    ],
+    friction: [
+      'Sentinel 81% cost overrun triggering Nunn-McCurdy breach',
+      'Cabling reuse assumption failure not caught until mid-program',
+      'Layoffs as primary adaptation mechanism (1,500 cut)',
+      '9+ month facility closure timelines',
+      '3-year stock vesting cliff',
+      '2.5% average raises ("awful" per Glassdoor)'
+    ],
+    quotable: 'Northrop Grumman proves you can innovate at the edge while remaining anchored at the core.',
+  },
+
+  'cvs': {
+    slug: 'cvs',
+    name: 'CVS Health',
+    analysisDate: '2026-01-19',
+    gpiScore: 5.75,
+    state: 'Transitioning (upper)',
+    marketCap: '$102B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 6, explanation: 'M-form divisional structure with 218 executives creates layers. Aetna ACA exit took years despite losses. Leadership consolidating (CEO now Chairman).' },
+      { dimension: 'Error Correction', score: 6, explanation: 'Four-year ACA error before exit. Layoffs primary mechanism (5,000+ jobs). Exits business lines rather than fixes them. $1B AI savings shows some learning.' },
+      { dimension: 'Knowledge Location', score: 5, explanation: 'Consolidated 4 care management systems to 1. Still 40% specialty Rx via paper/fax. $20B tech bet to create "single digital interface" proves current siloing.' },
+      { dimension: 'Structural Lock-In', score: 6, explanation: '$69B Aetna debt persists 7 years. 9,000+ locations, 300K employees make pivot expensive. 1,500+ apps migrated to Azure reveals legacy lock-in.' },
+      { dimension: 'Talent Flow', score: 5, explanation: '3.2/5.0 Glassdoor, 44% recommend. HR rated 2.8/5.0. Burnout complaints. "No bumping rights" in layoffs. Some divisional mobility exists.' },
+      { dimension: 'Capital Intensity', score: 7, explanation: 'Asset-heavy: 9,000+ retail, 1,200+ clinics, distribution infrastructure. $69B acquisition debt. $20B tech commitment. High pivot costs.' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: '"Slow pace of information flow" noted. AI improving: 90 min/day nurse savings, 30% call center reduction. Four systems consolidated to one.' }
+    ],
+    pattern: 'Technology as Integration Substitute',
+    patternDescription: 'CVS is betting that AI can achieve what seven years of post-acquisition integration could not. Rather than restructure the organization, they are building a technology layer on top of the divisions, hoping software can create connections that management structure did not. This is revealing: when organization cannot adapt, overlay technology. It may work, or it may be the most expensive bandage in healthcare history.',
+    keyNumbers: [
+      'Revenue: $394B TTM (Q3 2025), 6.82% YoY growth',
+      'Market Cap: $102B (January 2026), up 83.5% in one year',
+      'Employees: 300,000 across all 50 states, Puerto Rico, Brazil',
+      'Founded: 1963 in Lowell, MA as Consumer Value Stores',
+      'Headquarters: Woonsocket, Rhode Island',
+      'Fortune 500 Rank: #5 (2025), up from #6',
+      'CEO: David Joyner (since October 2024), also Chairman (since January 2026)',
+      'Stock: CVS (NYSE), trading at $80.70, near 52-week high of $85.15'
+    ],
+    enablers: [
+      '$20B technology investment over 10 years',
+      'AI-native platform built with AI at core, not bolted on',
+      '$1B already saved through AI efficiency',
+      'Leadership consolidation',
+      'Microsoft Azure partnership for cloud modernization',
+      'Care management systems consolidated from four to one'
+    ],
+    friction: [
+      'Seven years post-Aetna, integration still incomplete',
+      'Layoffs as primary adaptation mechanism',
+      'Aetna ACA losses persisted four years before exit',
+      '3.2/5.0 Glassdoor with burnout complaints',
+      'M-form structure creates decision paralysis',
+      '40% specialty prescriptions still paper/fax'
+    ],
+    quotable: 'CVS bought integration and got complexity. Now they are spending $20B more hoping software can do what strategy could not.',
+  },
+
+  'hewlett-packard-enterprise': {
+    slug: 'hewlett-packard-enterprise',
+    name: 'Hewlett Packard Enterprise',
+    analysisDate: '2026-01-20',
+    gpiScore: 5.85,
+    state: 'Transitioning (upper)',
+    marketCap: '$32.2B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 6, explanation: '18-month layoff timeline, slow Juniper integration, board approvals for cost-cutting, "show-me story" from Goldman' },
+      { dimension: 'Error Correction', score: 6, explanation: 'Layoffs as primary adaptation, tariff impact hit before action, AI deployment alongside cuts not instead of' },
+      { dimension: 'Knowledge Location', score: 5, explanation: 'GreenLake platform centralizing, AI agents in finance, but Juniper integration creating silos, 250 PoCs not scaled' },
+      { dimension: 'Structural Lock-In', score: 6, explanation: '$14B Juniper taking year to integrate, hardware-heavy model despite GreenLake, HQ move shows flexibility but slow' },
+      { dimension: 'Talent Flow', score: 6, explanation: 'Career opportunities rated 3.7/5 (lowest), 5% workforce cut, localized layoffs, advancement concerns' },
+      { dimension: 'Capital Intensity', score: 7, explanation: 'Hardware business (servers, networking, AI infrastructure), $14B acquisition, owns GreenLake infrastructure' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'AI agents and GreenLake Intelligence in development, but 67K employees create filtering, tariff surprise suggests gaps' }
+    ],
+    pattern: 'The Split That Didn\'t Solve It',
+    patternDescription: 'HPE was born from the 2015 HP split, a bet that smaller meant faster. Eleven years later, the company has 67,000 employees and still reaches for layoffs when margins compress. The Juniper acquisition is the latest attempt to buy transformation, shifting to higher-margin networking. But integration takes 18 months, and when tariffs hit, the response is arithmetic, not architecture. HPE has the tools (GreenLake, AI agents, agentic operations) but deploys them alongside cost-cutting, not instead of it. Structural changes designed for agility get absorbed by organizational mass.',
+    keyNumbers: [
+      'Revenue: $34.3B (TTM, October 2025)',
+      'Employees: 67,000 (down from 61,000 in Oct 2024 due to Juniper, then cutting 2,500 over 18 months)',
+      'Founded: November 1, 2015 (split from HP Inc.), HQ: Spring, Texas',
+      'Structure: Public company, NYSE: HPE',
+      'Leadership: Antonio Neri, President and CEO (since February 2018)',
+      'Market Cap: $32.2B (January 2026)',
+      'Fortune 500 Rank: 122',
+      'Glassdoor: 4.0/5.0 (20,885 reviews), 83% recommend to friend, 66% positive outlook'
+    ],
+    enablers: [
+      'Juniper Networks acquisition ($14B, July 2025) positions as #2 in enterprise networking, higher-margin business',
+      'GreenLake platform shift from product to as-a-service model, reducing customer capital intensity',
+      'GreenLake Intelligence (agentic AI operations framework) provides multi-cloud, multi-vendor visibility',
+      'AI agents deployed in finance (Deloitte/Nvidia partnership) automating processes',
+      '250 AI proof-of-concept trials showing experimentation culture',
+      'AI revenue projected $7.4B (21% of total) in FY2026, significant growth'
+    ],
+    friction: [
+      'Layoffs as primary error correction (2,500 jobs, 5%) instead of structural change',
+      'Tariff impact reactive not proactive, margins hit before action',
+      'Juniper integration taking over a year to reach 50% EBIT contribution',
+      '18-month cost reduction timeline shows bureaucratic cycles',
+      '67,000 employees create organizational mass, multiple management layers',
+      'Career opportunities rating 3.7/5 indicates talent flow challenges'
+    ],
+    quotable: 'Juniper Networks was supposed to be the transformation lever. The 2,500 layoffs say otherwise.',
+  },
+
+  'coca-cola': {
+    slug: 'coca-cola',
+    name: 'Coca-Cola',
+    analysisDate: '2026-01-19',
+    gpiScore: 5.05,
+    state: 'Transitioning (upper)',
+    marketCap: '$303B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 5, explanation: 'CEO succession announced 4 months in advance, restructuring in "phases or waves," $1.1B deal took 2 years to reach production' },
+      { dimension: 'Error Correction', score: 5, explanation: 'Proactive transformation, not reactive crisis; added 10+ billion-dollar brands under Quincey; surgical 2.5% layoffs vs 15-20% at peers' },
+      { dimension: 'Knowledge Location', score: 5, explanation: '$1.1B Microsoft partnership to integrate fragmented digital network; bottler digital twins provide near-real-time visibility' },
+      { dimension: 'Structural Lock-In', score: 6, explanation: 'Franchised bottler network creates coordination complexity; locked into beverages (unlike PepsiCo diversification)' },
+      { dimension: 'Talent Flow', score: 5, explanation: '30-year internal ladder to CEO (Braun, Quincey); Glassdoor 3.8/5 for career opportunities; geographic rotation pattern' },
+      { dimension: 'Capital Intensity', score: 4, explanation: 'Asset-light model (brands, not production); 6x revenue-to-market-cap multiple shows brand value dominates' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'Azure OpenAI deployed, digital twins operational, but agentic pilots only graduating to production in early 2026' }
+    ],
+    pattern: 'The Brand Empire Transformation',
+    patternDescription: 'Coca-Cola represents a company that owns the most recognized brand on Earth and now has to figure out how to make that brand think at AI speed. Asset-light structure enables flexibility, but franchise network complexity creates coordination drag. The $1.1B Microsoft bet is not about technology. It is about whether software can accelerate a 134-year-old organization faster than carbonated muscle memory can slow it down.',
+    keyNumbers: [
+      'Revenue: $47.66B TTM (5% quarterly growth)',
+      'Market Cap: $303B (41st most valuable globally)',
+      'Employees: 69,700 (75 layoffs planned, 2.5% of HQ)',
+      'Founded: 1892, Atlanta, Georgia',
+      'Stock: KO (NYSE), Dividend King since 1920',
+      'Fortune 500 Rank: 87',
+      'CEO: Henrique Braun (effective March 31, 2026)',
+      'Executive Chairman: James Quincey (March 2026)'
+    ],
+    enablers: [
+      '$1.1B Microsoft partnership with Azure and OpenAI integration',
+      'First-ever CDO role created with enterprise-wide integration mandate',
+      'Proactive CEO succession planning (9-year tenure, orderly transition)',
+      'Asset-light model enables faster pivots than manufacturing-heavy peers',
+      'Digital twin technology showing measurable results (20% energy, 9% water savings)',
+      'Strong employee sentiment (81% recommend, 74% positive outlook)'
+    ],
+    friction: [
+      'Franchised bottler network creates coordination complexity across independent entities',
+      'Restructuring in "phases or waves" signals institutional caution, not agility',
+      'Pure beverage focus constrains diversification options (unlike PepsiCo)',
+      '30-year internal ladder for CEO suggests closed leadership pipeline',
+      'AI production deployment still months away despite $1.1B investment',
+      'Macroeconomic swings, commodity costs, and water security acknowledged as AI offset risks'
+    ],
+    quotable: 'The brand is the moat. The question is whether the operating system behind it can evolve.',
+  },
+
+  'arthur-j-gallagher': {
+    slug: 'arthur-j-gallagher',
+    name: 'Arthur J. Gallagher & Co.',
+    analysisDate: '2026-01-19',
+    gpiScore: 4.15,
+    state: 'Transitioning (lower)',
+    marketCap: '$65',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 4, explanation: 'Family control enables fast strategic decisions; 48 acquisitions in 2024. But 56K employees and VP micromanagement slow the middle.' },
+      { dimension: 'Error Correction', score: 4, explanation: '2023 restructuring shows willingness to cut ($7.2M charge, 300 layoffs). AI investments real (GAIA cuts delivery 80%). Correction is operational, not cultural.' },
+      { dimension: 'Knowledge Location', score: 4, explanation: 'GAIA centralizes analytics in cloud. Gallagher Drive provides real-time intelligence. But Glassdoor reveals siloed departments with no structured onboarding.' },
+      { dimension: 'Structural Lock-In', score: 5, explanation: '600+ acquisitions create permanent integration complexity. Each deal brings legacy systems, cultures, comp structures. AssuredPartners adds $2.9B revenue and integration debt.' },
+      { dimension: 'Talent Flow', score: 5, explanation: 'Glassdoor 3.5/5.0. Rigid pay system requiring 91% audit score for raises. Family at top three positions may limit non-family advancement.' },
+      { dimension: 'Capital Intensity', score: 3, explanation: 'Asset-light insurance brokerage model. $13B revenue with 56K employees = $232K per head. Digital-first AI strategy reduces physical needs.' },
+      { dimension: 'Knowledge Velocity', score: 4, explanation: 'GAIA cuts delivery times 80%. NLP/ML streamline claims triage. But 600+ acquired companies means 600+ legacy information pathways being rationalized.' }
+    ],
+    pattern: 'The Acquisition Federation',
+    patternDescription: 'Gallagher has built a fourth global brokerage through relentless M&A execution, completing 600+ deals and adding 48 in 2024 alone. The family dynasty at the top moves fast, but each acquisition brings its own systems, cultures, and integration debt. AI platforms like GAIA and Gallagher Drive are the answer to a question that acquisitions created: how do you unify an empire built from hundreds of independent kingdoms?',
+    keyNumbers: [
+      'Revenue: $13.02B TTM (January 2026), up 20% YoY',
+      'Employees: 56,000 globally',
+      'Founded: 1927, Rolling Meadows, Illinois',
+      'Structure: Public (NYSE: AJG), family-led dynasty',
+      'Leadership: J. Patrick Gallagher Jr. (CEO 30 years), Thomas J. Gallagher (President), Patrick M. Gallagher (COO)',
+      'Market Cap: $65-79B',
+      'US Market Share: 4.4% (tied with Marsh, behind Aon at 6.9%)',
+      'Global Rank: 3rd largest insurance broker by revenue'
+    ],
+    enablers: [
+      'Family control enables fast strategic decisions without board politics',
+      'GAIA platform cutting delivery times by 80%',
+      'Asset-light model allows cheaper pivots than capital-intensive competitors',
+      'Middle-market focus provides agility advantages over enterprise brokers',
+      'Proven M&A execution machine with 600+ completed deals',
+      '6-8% organic growth guidance shows underlying business strength'
+    ],
+    friction: [
+      '600+ acquisitions create permanent integration complexity',
+      'Pockets of toxic workplace culture reported on Glassdoor',
+      'Rigid pay system requiring 91% audit score for raises',
+      'VP micromanagement in some departments',
+      'Family control may limit non-family executive advancement',
+      'No structured onboarding or training in some areas'
+    ],
+    quotable: 'Gallagher acquires faster than it integrates. The top moves at field speed while the middle absorbs acquisition after acquisition.',
+  },
+
+  'broadcom': {
+    slug: 'broadcom',
+    name: 'Broadcom Inc.',
+    analysisDate: '2026-01-20',
+    gpiScore: 5.45,
+    state: 'Transitioning (upper)',
+    ticker: 'AVGO',
+    marketCap: '$1.67',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 5, explanation: '19-year CEO creates centralized decision-making, but VMware integration shows execution capability. Decisions concentrate upward, not at the edge.' },
+      { dimension: 'Error Correction', score: 6, explanation: 'Primary mechanism is layoffs (3,014 total cuts post-VMware). Constant restructuring per Glassdoor suggests churn rather than course correction. China threat caught them off guard.' },
+      { dimension: 'Knowledge Location', score: 5, explanation: '90% ASIC share and 80% Ethernet share show deep technical moats. But Glassdoor mentions political promotion dynamics and VMware integration creating siloed divisions.' },
+      { dimension: 'Structural Lock-In', score: 6, explanation: '$69B VMware acquisition created permanent dual-structure complexity. Employee count opacity, constant restructuring, locked into subscription model. Reconfiguring would be costly and slow.' },
+      { dimension: 'Talent Flow', score: 7, explanation: '49% recommend rate (below 50% threshold), 3.3/5 Glassdoor rating. Constant restructuring creating fear culture. Political layoffs of technical sales engineers. Firmly particle range.' },
+      { dimension: 'Capital Intensity', score: 4, explanation: 'Fabless semiconductor design is capital-light. VMware software is capital-efficient. Can pivot without long depreciation cycles, but VMware integration adds operational complexity cost.' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'AI revenue doubling YoY shows fast market feedback. But China regulatory threat surprised them (4.2% stock drop). Glassdoor mentions fairness issues suggesting filtered information flows.' }
+    ],
+    pattern: 'The AI Windfall Masking Mass',
+    patternDescription: 'Broadcom has the hottest product in tech right now (custom AI accelerators), with a $73 billion backlog and 100% YoY growth creating a revenue tailwind that hides organizational problems. But underneath the stock rally is a company that just added $69 billion in complexity with VMware and is using layoffs as its error correction mechanism. The market sees the AI windfall. The GPI sees the mass accumulation. When your culture is eroding (49% recommend rate) and your response to integration challenges is cutting 3,000+ people, you\'re not transforming, you\'re calcifying while the money still flows.',
+    keyNumbers: [
+      'Revenue: $63.88B TTM (January 2026), up from $54.52B in 2024',
+      'Market Cap: $1.67 trillion (7th most valuable company globally)',
+      'Employees: 37,000 (post-VMware, varying reports from 33,000-37,000)',
+      'Founded: 1961 as HP Associates, Broadcom name from 1991',
+      'Headquarters: Palo Alto, California',
+      'CEO: Hock E. Tan (19.75 years tenure, appointed March 2006)',
+      'Stock Ticker: AVGO (NASDAQ)',
+      'Fortune 500 Rank: 134'
+    ],
+    enablers: [
+      '90% share in custom ASICs, 80% in high-speed Ethernet, $73B backlog',
+      'AI semiconductor revenue expected to hit $8.2B in Q1 2026 (up 100% YoY)',
+      'Hyperscaler partnerships',
+      'VMware subscription model creating predictable recurring revenue',
+      'Fabless model enabling strategic flexibility',
+      'Wi-Fi 8 platform launch (January 2026)'
+    ],
+    friction: [
+      'VMware integration drag ($69B acquisition, employee count opacity)',
+      'Layoffs as primary adaptation (2,767 post-VMware, 247 more in Dec 2025/Jan 2026)',
+      'Culture erosion (3.3/5 Glassdoor, 49% recommend, constant restructuring)',
+      'Work-life balance and management issues per Glassdoor',
+      'Political talent flows (fairness concerns in promotions, political layoffs)',
+      'China regulatory threat (Beijing targeting VMware in SOEs, 4.2% stock drop)'
+    ],
+    quotable: 'The market sees the AI windfall. The GPI sees the mass accumulation.',
+  },
+
+  'dicks-sporting-goods': {
+    slug: 'dicks-sporting-goods',
+    name: 'Dick\'s Sporting Goods',
+    analysisDate: '2025-12-25',
+    gpiScore: 6.0,
+    state: 'Transitioning (upper)',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 6, explanation: '0.20' },
+      { dimension: 'Knowledge Location', score: 5, explanation: '0.15' },
+      { dimension: 'Error Correction', score: 5, explanation: '0.20' },
+      { dimension: 'Structural Lock-In', score: 7, explanation: '0.15' },
+      { dimension: 'Talent Flow', score: 6, explanation: '0.10' },
+      { dimension: 'Capital Intensity', score: 7, explanation: '0.10' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: '0.10' }
+    ],
+    pattern: 'Organizational Pattern',
+    patternDescription: '',
+    keyNumbers: [
+
+    ],
+    enablers: [
+
+    ],
+    friction: [
+
+    ],
+  },
+
+  'southern-company': {
+    slug: 'southern-company',
+    name: 'Southern Company',
+    analysisDate: '2026-01-20',
+    gpiScore: 6.55,
+    state: 'Transitioning (upper)',
+    ticker: 'SO',
+    marketCap: '$95.51B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 7, explanation: 'Regulated utility with Board → CEO → Management Council (247 execs) → 28,600 employees. Data center response was extending coal plants (regulatory approval process, not market speed).' },
+      { dimension: 'Error Correction', score: 6, explanation: 'Coal extensions = doubling down on fossil fuel instead of accelerating clean transition. AI pilots show experimentation, but Glassdoor declining 3% suggests not correcting employee satisfaction erosion.' },
+      { dimension: 'Knowledge Location', score: 5, explanation: 'Deploying AI platforms (digital twins, meter hub, customer lakehouse) to centralize data, but 247 execs and vertically integrated structure create silos. Pilots not yet enterprise-wide.' },
+      { dimension: 'Structural Lock-In', score: 8, explanation: 'Owns 44 GW rate-regulated capacity, extending coal plants, vertically integrated across generation/transmission/distribution/gas. $166B EV on $28.9B revenue = massive fixed asset base.' },
+      { dimension: 'Talent Flow', score: 5, explanation: 'Traditional utility careers, recent COO from within. Pension/401k = tenure-based comp. 80% recommend but declining ratings. No layoffs = stability but no talent refresh.' },
+      { dimension: 'Capital Intensity', score: 9, explanation: 'Utility sector = highest capital intensity. $166B EV, 30-50 year plant depreciation cycles. Every strategic decision measured in billions and multi-year timelines.' },
+      { dimension: 'Knowledge Velocity', score: 6, explanation: 'AI platforms improving operational data flow, but regulatory reporting is quarterly/annual. Glassdoor decline while company reports growth suggests leadership feedback lag.' }
+    ],
+    pattern: 'Regulated Rigidity with AI Aspiration',
+    patternDescription: 'Southern represents the utility business model encountering the AI era: capital-intensive infrastructure that can\'t pivot meeting demand for energy from technologies built to move fast. The company is extending coal plants to power data centers while deploying AI to optimize operations it structurally cannot transform. This is optimization within constraints, not escape from constraints.',
+    keyNumbers: [
+      'Revenue: $28.91B trailing twelve months (2025)',
+      'Employees: 28,600',
+      'Market Cap: $95.51B (January 2026)',
+      'Enterprise Value: $166B',
+      'Founded: November 9, 1945, Headquarters: Atlanta, Georgia',
+      'Stock Ticker: SO (NYSE)',
+      'Fortune 500 Rank: 119',
+      'Leadership: Christopher C. Womack (Chairman, President, CEO), Stanley W. Connally Jr. (EVP, COO since Jan 2025), David P. Poroch (EVP, CFO)'
+    ],
+    enablers: [
+      'AI platform deployment (digital twins, Meter Intelligence Hub, customer lakehouse, regulatory AI)',
+      'Data center growth (8 GW contracts, 50+ GW pipeline, 8% annual growth forecast)',
+      'PowerSecure partnership (152 MW delivered since Aug 2024)',
+      'Strong financials ($95.5B market cap, 7% EPS growth)',
+      'Employee stability (80% recommend, no layoffs)',
+      'Market leadership (ranks 1st in quality, pricing, service vs competitors)'
+    ],
+    friction: [
+      'Coal plant extensions (locking in fossil fuel for another decade)',
+      'Capital intensity trap ($166B EV on $28.9B revenue)',
+      'Regulatory pacing (state commission approvals create month-long cycles)',
+      'Executive layering (247 execs, new COO layer added)',
+      'Declining employee sentiment (Glassdoor down 3%, "harshly underpaid" comments)',
+      'Vertically integrated lock-in (can\'t spin off divisions)'
+    ],
+    quotable: 'Utilities don\'t pivot, they file rate cases.',
+  },
+
+  'cigna': {
+    slug: 'cigna',
+    name: 'The Cigna Group',
+    analysisDate: '2026-01-19',
+    gpiScore: 5.35,
+    state: 'Transitioning (upper)',
+    marketCap: '$74.5B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 6, explanation: '16-year CEO tenure, C-suite reshuffling needed 6 years post-merger to consolidate authority' },
+      { dimension: 'Error Correction', score: 5, explanation: 'Rebate-free model shift shows adaptability, but data breach went undetected for over a year' },
+      { dimension: 'Knowledge Location', score: 5, explanation: 'Evernorth data pipeline enables AI, but Glassdoor cites finger-pointing culture and silos' },
+      { dimension: 'Structural Lock-In', score: 6, explanation: '$67B merger still being integrated, legacy PBM model constrained until 2028 transition' },
+      { dimension: 'Talent Flow', score: 6, explanation: '3+ years of layoffs, declining Glassdoor, office politics over performance' },
+      { dimension: 'Capital Intensity', score: 4, explanation: 'Services-based model with 15.5% ROE, relatively capital-light vs vertically integrated peers' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'AI tools (80%+ satisfaction) accelerate flow, but micromanagement and merger complexity slow it' }
+    ],
+    pattern: 'Merger Hangover',
+    patternDescription: 'Cigna made a $67B bet on vertical integration with Express Scripts, and six years later they are still trying to digest it. Big acquisition creates complexity, complexity requires restructuring, restructuring means layoffs, layoffs damage culture, damaged culture slows integration, slow integration triggers more restructuring. Breaking this cycle requires either a pause (unlikely) or technology that bypasses organizational resistance (the AI bet).',
+    keyNumbers: [
+      'Revenue: $247.1B (2024), up 27% YoY',
+      'Net Income: $3.4B (2024), down 34% YoY',
+      'Market Cap: $74.5B (January 2026)',
+      'Employees: 73,500 (after multiple rounds of layoffs)',
+      'Fortune 500 Rank: #13 (2025), Connecticut\'s largest company',
+      'Founded: 1792 (INA) / 1982 merger creating Cigna',
+      'Headquarters: Bloomfield, Connecticut',
+      'CEO: David Cordani (since 2009, 16 years)'
+    ],
+    enablers: [
+      'Rebate-free pharmacy model transition by 2028',
+      'AI Center of Enablement with cross-functional governance',
+      'AI member assistant with 80%+ satisfaction',
+      'Cancer early detection AI (22-27 days earlier)',
+      'COO consolidation creating unified authority',
+      'Capital-light service model (15.5% ROE)'
+    ],
+    friction: [
+      '3+ years of continuous layoffs',
+      'Express Scripts integration still incomplete after 6 years',
+      'Glassdoor 3.6/5.0 (declining), finger-pointing culture',
+      'Data breach undiscovered Oct 2024-Nov 2025',
+      'DOJ Medicare Advantage fraud lawsuit ($1.4B alleged)',
+      'Algorithm-based claim denial controversy ($500K CA fine)'
+    ],
+    quotable: 'Cigna is essentially performing open-heart surgery while running a marathon.',
+  },
+
+  'unitedhealth': {
+    slug: 'unitedhealth',
+    name: 'UnitedHealth Group',
+    analysisDate: '2026-01-18',
+    gpiScore: 6,
+    state: 'Transitioning (upper)',
+    marketCap: '$314.19B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 7, explanation: '400K employees, massive leadership churn 2025, committee-driven Medicare response' },
+      { dimension: 'Error Correction', score: 6, explanation: 'AI denial scandal persisted despite 90% error rate, defamation lawyers vs. reform' },
+      { dimension: 'Knowledge Location', score: 5, explanation: '1,000 AI apps and United AI Studio, but siloed divisions, fragmented Optum systems' },
+      { dimension: 'Structural Lock-In', score: 7, explanation: 'Vertical integration creates interdependencies, Medicare dependency, legacy systems' },
+      { dimension: 'Talent Flow', score: 6, explanation: 'Metric-driven surveillance culture, keystroke monitoring, veteran layoffs' },
+      { dimension: 'Capital Intensity', score: 4, explanation: 'Insurance/services relatively asset-light, but clinic network and AI investments' },
+      { dimension: 'Knowledge Velocity', score: 6, explanation: 'AI tools improving frontline speed, but medical cost surprises show filtering' }
+    ],
+    pattern: 'Mass Under Fire',
+    patternDescription: 'UnitedHealth represents the paradox of scale in healthcare: big enough to dominate but too big to adapt. The same vertical integration that made them America\'s largest health company creates the structural lock-in that makes transformation painful. When problems emerge, the organization responds with particle behaviors: lawyers instead of reform, layoffs instead of redesign, leadership churn instead of strategic clarity.',
+    keyNumbers: [
+      'Revenue: $435.15B TTM (2026), up from $400.27B in 2024',
+      'Market Cap: $314.19B (down 31.69% YoY, lost $288B in one month)',
+      'Employees: 400,000 (30,000 offered buyouts in early 2026)',
+      'Founded: 1977, HQ: Eden Prairie, Minnesota',
+      'Structure: Public (NYSE: UNH), P/E 18x vs. 5-year average 25x',
+      'Leadership: CEO Stephen Hemsley (returned 2025), CFO Wayne DeVeydt (since Aug 2025)',
+      'Fortune 500 Rank: #3 (up from #4)',
+      'Members: 51 million globally'
+    ],
+    enablers: [
+      '1,000 AI applications in production across claims, transcription, customer service',
+      'United AI Studio platform with AI Review Board governance',
+      '20,000 engineers using AI tools, 60 million lines of AI-validated code',
+      '$1 billion projected AI cost savings by 2026',
+      'Smart Choice tool saving members $123 per provider visit',
+      'Rural Payment Acceleration Pilot (30 to 15 day Medicare payment)'
+    ],
+    friction: [
+      'CEO assassination and public backlash against insurance industry',
+      'Federal criminal investigation for possible Medicare fraud',
+      'AI claims denial scandal with 90% error rate persisting despite lawsuits',
+      '30,000 employee buyout program, layoffs as primary adaptation mechanism',
+      '"Historically high" medical costs surprised leadership, information flow gaps',
+      'Massive leadership churn in 2025 (CEO, CFO, Optum CEO, division CEOs)'
+    ],
+    quotable: 'The largest healthcare company in America is in crisis mode. A CEO assassination, federal fraud investigations, $288 billion in lost market value, and 30,000 employee buyouts reveal an organization where mass has become a liability.',
+  },
+
+  'state-farm': {
+    slug: 'state-farm',
+    name: 'State Farm',
+    analysisDate: '2026-01-19',
+    gpiScore: 5.45,
+    state: 'Transitioning (upper)',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 6, explanation: 'Mutual structure requires board consensus, agent network of 19,200+ adds complexity, "State Farm nice" culture avoids conflict' },
+      { dimension: 'Error Correction', score: 6, explanation: 'Oklahoma racketeering lawsuit alleges systematic claims denial program, AM Best downgrade from A++ to A+, voluntary exit first since 2017' },
+      { dimension: 'Knowledge Location', score: 5, explanation: '326 AI patents and digital knowledge assistant deployed, but agent network creates silos and high turnover means knowledge walks out' },
+      { dimension: 'Structural Lock-In', score: 6, explanation: 'Mutual structure limits capital flexibility, cannot pivot to direct-to-consumer like GEICO, 102 years of legacy processes' },
+      { dimension: 'Talent Flow', score: 5, explanation: '55% recommend on Glassdoor, high turnover cited, training compressed from 1 year to 6 months, CEO is 30-year veteran' },
+      { dimension: 'Capital Intensity', score: 4, explanation: 'Insurance is asset-light vs manufacturing, but mutual structure limits capital access, $7.5B wildfire exposure' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'Digital knowledge assistant and Salesforce deployed, but reviews say "not keeping up with trends," outsourcing fragments knowledge' }
+    ],
+    pattern: 'The Good Neighbor Paradox',
+    patternDescription: 'State Farm promises to be "like a good neighbor," but lawsuits tell a different story. The company invests in transformation tools while maintaining the behaviors of rigidity. The "State Farm nice" culture prevents the difficult decisions transformation requires. The mutual structure that protects from short-term pressure also insulates from urgent correction signals.',
+    keyNumbers: [
+      'Revenue: $123B (2024), up from $104.2B in 2023',
+      'Employees: 65,000 (13,000 at Bloomington HQ)',
+      'Founded: June 1922, Bloomington, Illinois',
+      'Structure: Mutual (policyholder-owned, not publicly traded)',
+      'Leadership: Jon Farney, President and CEO (June 2024)',
+      'Fortune 500 Rank: #36 (2025)',
+      'Net Worth: $143.2B (2021)',
+      'Market Share: 16.78% (largest US auto insurer)'
+    ],
+    enablers: [
+      '326 AI patents filed since 2014, industry-leading',
+      '$1.66B venture funding deployed',
+      'New CDIO Joe Park from Yum Brands',
+      'Digital knowledge assistant for contact centers',
+      'Underwriting/billing automation rolling out',
+      'Market position (16.78% share) provides scale'
+    ],
+    friction: [
+      'Oklahoma racketeering lawsuit ("Hail Focus Initiative")',
+      'LA County wildfire claims investigation',
+      'AM Best downgrade from A++ to A+',
+      'Glassdoor declining 4% YoY, only 55% recommend',
+      'High turnover, most leave within first year',
+      '"Unbearable metrics" and micromanagement'
+    ],
+    quotable: 'State Farm has 326 AI patents but faces a racketeering lawsuit for systematic claims denial. The gap between innovation investment and operational reality is the whole story.',
+  },
+
+  'general-dynamics': {
+    slug: 'general-dynamics',
+    name: 'General Dynamics',
+    analysisDate: '2026-01-19',
+    gpiScore: 5.6,
+    state: 'Transitioning (upper)',
+    marketCap: '$99B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 5, explanation: 'Four autonomous segments, but embedded in government procurement cycles' },
+      { dimension: 'Error Correction', score: 5, explanation: 'Delivers where Boeing fails, but uses layoffs as primary adaptation (97 WARN notices)' },
+      { dimension: 'Knowledge Location', score: 5, explanation: 'GDIT building AI infrastructure, but four segments have different cultures' },
+      { dimension: 'Structural Lock-In', score: 7, explanation: 'Decades-long submarine and tank programs, cannot exit without destroying business' },
+      { dimension: 'Talent Flow', score: 5, explanation: 'Mission Systems 4.0 Glassdoor vs parent 3.3, severe submarine welder shortage' },
+      { dimension: 'Capital Intensity', score: 8, explanation: 'Nuclear shipyards, Gulfstream plants, tank facilities cannot be repurposed' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'DOGMA system and AI partnerships, but security classification limits sharing' }
+    ],
+    pattern: 'Execution Anchor',
+    patternDescription: 'GD succeeds precisely because it cannot move quickly. In a world where Boeing fumbles, GD delivers. The same capital intensity and structural lock-in that limit flexibility also create barriers competitors cannot breach. Nuclear submarine construction is not a business you enter. GD has anchored itself to essential programs, and that anchor is both burden and competitive moat.',
+    keyNumbers: [
+      'Revenue: $51.5B TTM (Q3 2025), up 11.85% YoY',
+      'Employees: 117,000',
+      'Founded: 1952, HQ: Reston, Virginia',
+      'Structure: Public (NYSE: GD)',
+      'Leadership: Phebe Novakovic, Chairman and CEO (since 2013)',
+      'Market Cap: $99B (January 2026)',
+      'Fortune 500 Rank: #89',
+      'Backlog: $109.8B'
+    ],
+    enablers: [
+      'Federated structure with segment presidents enables local decision-making',
+      'GDIT AI investment (AWS, Google Cloud, Centers of Excellence)',
+      '$1.5 trillion defense supercycle provides unprecedented demand visibility',
+      'Program execution track record vs Boeing gives competitive advantage',
+      '31-year dividend growth streak demonstrates consistent capital allocation',
+      'Gulfstream aerospace growth (30% YoY) shows commercial diversification'
+    ],
+    friction: [
+      'Capital intensity (8/10) limits strategic pivots',
+      'Structural lock-in (7/10) from decades-long programs',
+      'Labor shortage for specialized nuclear submarine talent',
+      'Supply chain bottlenecks for large castings and forgings',
+      'Layoffs as error correction mechanism (97 WARN notices, 10,847 affected)',
+      'Siloed business units with different cultures (3.3 vs 4.0 Glassdoor)'
+    ],
+    quotable: 'General Dynamics proves that capital intensity and government dependence do not doom a company to calcification, but its $95B backlog is both moat and anchor.',
+  },
+
+  'allstate': {
+    slug: 'allstate',
+    name: 'Allstate Corporation',
+    analysisDate: '2026-01-19',
+    gpiScore: 5.55,
+    state: 'Transitioning (upper)',
+    marketCap: '$54.8B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 6, explanation: '18-year CEO tenure, command and control culture, agent comp changes announced 1+ year ahead' },
+      { dimension: 'Error Correction', score: 6, explanation: 'Annual layoffs as adaptation, litigate-then-settle pattern on data privacy lawsuits' },
+      { dimension: 'Knowledge Location', score: 5, explanation: 'Cloud-first since 2019, AI copilot standardizing knowledge, but agent network creates silos' },
+      { dimension: 'Structural Lock-In', score: 6, explanation: '93-year-old company, agent network investment, National General integration ongoing' },
+      { dimension: 'Talent Flow', score: 6, explanation: '53% recommend on Glassdoor, annual layoffs creating fear, slow career progression' },
+      { dimension: 'Capital Intensity', score: 4, explanation: 'Asset-light insurance model, cloud reducing infrastructure, $1.19M revenue per employee' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'Gen AI accelerating specific channels (43-sec claims), but hierarchy slows human layers' }
+    ],
+    pattern: 'Layoffs as Error Correction',
+    patternDescription: 'Allstate exemplifies organizations that mistake workforce reduction for organizational adaptation. The company runs annual layoff cycles while simultaneously investing billions in AI and cloud transformation. The technology is getting faster; the culture is getting more fearful. This creates a two-speed organization: digital processes moving at 43-second speed, human processes paralyzed by job insecurity. You cannot achieve fluidity through fear.',
+    keyNumbers: [
+      'Revenue: $66.2B TTM (December 2025), up 12.3% from 2023',
+      'Market Cap: $54.8B (January 2026)',
+      'Employees: 55,400 (Q1 2024: 8% workforce reduction)',
+      'Founded: April 17, 1931 (as part of Sears, Roebuck & Co.)',
+      'Headquarters: Northbrook, Illinois',
+      'CEO: Tom Wilson (since 2007, Chair since 2008)',
+      'Fortune 500 Rank: #79 (2019 reference)',
+      'Stock: ALL (NYSE), PE Ratio 6.75, EPS $30.85'
+    ],
+    enablers: [
+      'Cloud-first transformation since 2019 (AWS, Google BigQuery, Azure multicloud)',
+      'AI copilot deployed to all 14,000 claims investigators',
+      'Claims filing time reduced from 4 minutes to 43 seconds',
+      '40% of business processes digitized',
+      'ALLI AI system for customer interactions launched',
+      'BCG partnership tripled prediction model performance'
+    ],
+    friction: [
+      'Annual layoff cycles (8% in Q1 2024 alone)',
+      'Multiple data privacy lawsuits',
+      'Litigate-then-settle pattern',
+      'Command and control management culture',
+      'Agent compensation restructuring threatening smaller agencies',
+      'National General acquisition integration still ongoing 5+ years later'
+    ],
+    quotable: 'Claims time dropped 82%, but Glassdoor reviews still warn about slow career progression. The technology is improving; the organizational health is not.',
+  },
+
+  'nextera-energy': {
+    slug: 'nextera-energy',
+    name: 'NextEra Energy',
+    analysisDate: '2026-01-20',
+    gpiScore: 5.9,
+    state: 'Transitioning (upper)',
+    marketCap: '$167B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 6, explanation: 'Traditional utility hierarchy with CEO, subsidiary CEOs, EVPs, multi-state regulatory coordination. Google partnership shows strategic agility, but core operations remain bureaucratic.' },
+      { dimension: 'Error Correction', score: 5, explanation: 'Annual layoffs and Accelerate 3.0 initiatives suggest using headcount cuts as primary adaptation. But strategic pivot to AI data centers and Symmetry acquisition show real course correction capability. Mixed.' },
+      { dimension: 'Knowledge Location', score: 5, explanation: 'Google Cloud AI tools (TimesFM 2.5, WeatherNext 2) deploying enterprise-wide by mid-2026. But dual structure (FPL regulated, Energy Resources competitive) creates legacy silos. Transitioning.' },
+      { dimension: 'Structural Lock-In', score: 7, explanation: 'Utility business model means massive infrastructure (power plants, transmission, distribution) with decade-plus commitments. Gigawatt data centers with dedicated generation represent billions in capital. Cannot pivot without stranding assets.' },
+      { dimension: 'Talent Flow', score: 6, explanation: 'Internal promotions exist (Bores to FPL President). But 59.7 hour weeks, 3.5/5 work-life balance, annual layoff cycles create churn and uncertainty. Glassdoor mentions "no job security."' },
+      { dimension: 'Capital Intensity', score: 8, explanation: 'Fundamentally capital-intensive infrastructure business. Building power plants, acquiring gas suppliers (Symmetry), developing renewables, constructing data centers. 30-50 year asset lives, high fixed costs, long depreciation.' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'AI tools for real-time equipment monitoring and predictive maintenance launching mid-2026. But currently traditional quarterly reporting cadence and regulatory filing schedules. Improving but not field-state yet.' }
+    ],
+    pattern: 'Software Overlay on Hardware Reality',
+    patternDescription: 'NextEra is trying to use AI and software partnerships to accelerate an organization fundamentally constrained by physics. Google Cloud can give them real-time equipment monitoring and predictive maintenance, but it cannot change the fact that power plants take years to build, transmission lines require regulatory approval, and capital commitments span decades. The AI tools address knowledge velocity and decision latency at the operational edge, but the core business model remains capital-intensive infrastructure with regulatory oversight. They are betting software can compress the decision-to-action cycle even when the actions themselves remain bound by construction timelines and approval processes. High capital intensity (8) meets improving knowledge velocity (5 trending down). This is wh',
+    keyNumbers: [
+      'Revenue: $26.3B (LTM, up 0.2% YoY)',
+      'Market Cap: $167B (January 2026, largest utility globally)',
+      'Employees: 16,800 across US and Canada',
+      'Founded: 1925, HQ: Juno Beach, Florida',
+      'Structure: Public company (NYSE: NEE)',
+      'Leadership: John W. Ketchum (Chairman, President, CEO)',
+      'Fortune 500 Rank: #117 by market cap',
+      'Glassdoor: 3.9/5, 71% recommend'
+    ],
+    enablers: [
+      'Google Cloud enterprise-wide AI deployment with TimesFM 2.5, WeatherNext 2, and power flow modeling',
+      'First commercial AI grid management product launching mid-2026 via Google Cloud Marketplace',
+      'Strategic pivot to AI data center power demand, raising 2026 EPS guidance based on market shift',
+      'Multi-gigawatt data center partnerships with Google and positioning for sustained growth',
+      'Symmetry Energy acquisition (Q1 2026) expanding into gas supply to support data center demand',
+      'Largest renewable energy infrastructure developer position enabling clean energy data center pitch'
+    ],
+    friction: [
+      'Annual layoff cycles (5% in 2024, rumored 35-40% Houston cuts in 2026) creating employee uncertainty',
+      '"Accelerate 3.0" restructuring initiatives perceived as recurring headcount reductions rather than strategic transformation',
+      'Work-life balance rated 3.5/5 with employees reporting 59.7 hour average weeks in some groups',
+      'Glassdoor reviews mentioning "no job security" and "every year job cuts" despite strong financial performance',
+      'Massive capital intensity ($167B market cap utility with gigawatt-scale infrastructure) limiting strategic flexibility',
+      'Multi-state regulated operations requiring coordination with state utility commissions slowing decision-making'
+    ],
+    quotable: 'The largest utility by market cap is betting Google can do what physics cannot: make gigawatt-scale infrastructure move at software speed.',
+  },
+
+  'duke-energy': {
+    slug: 'duke-energy',
+    name: 'Duke Energy',
+    analysisDate: '2026-01-20',
+    gpiScore: 6.65,
+    state: 'Transitioning (upper)',
+    marketCap: '$90.35B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 7, explanation: 'Multi-month regulatory approvals across seven states, annual decision cycles for major moves' },
+      { dimension: 'Error Correction', score: 6, explanation: 'Three rounds of layoffs in three years using same playbook, coal exit takes until 2035' },
+      { dimension: 'Knowledge Location', score: 5, explanation: 'AWS partnership codifying knowledge but fighting 122 years of utility silos across seven states' },
+      { dimension: 'Structural Lock-In', score: 8, explanation: '$100B sunk in 40-60 year infrastructure, nuclear reactors, regulated service territories by law' },
+      { dimension: 'Talent Flow', score: 6, explanation: '4.0/5 Glassdoor, limited advancement per reviews, 40-year tenures, layoff churn not healthy flow' },
+      { dimension: 'Capital Intensity', score: 9, explanation: '$19B/year average capex, nuclear reactors cost billions, can\'t SaaS electricity distribution' },
+      { dimension: 'Knowledge Velocity', score: 6, explanation: 'AWS cuts simulation from weeks to 15 minutes, but 26K employees and quarterly rhythms slow it back down' }
+    ],
+    pattern: 'Capital as Transformation Substitute',
+    patternDescription: 'Duke Energy is trying to spend its way out of organizational inertia. They\'ve invested $100B in the last decade and are planning $190B more over the next ten years. The AWS partnership brings cutting-edge AI. The nuclear expansion signals long-term strategic thinking. But the organization itself, measured by decision latency, error correction, and talent flow, moves at utility speed while the market demands tech speed.',
+    keyNumbers: [
+      'Revenue: $31.66B (TTM, up 4.8% YoY)',
+      'Employees: 26,413',
+      'Founded: 1904, HQ: Charlotte, North Carolina',
+      'Structure: Public company (NYSE: DUK)',
+      'Leadership: Harry Sideris, CEO (since April 2025)',
+      'Market Cap: $90.35B (January 2026)',
+      'Fortune 500 Rank: 150',
+      'Glassdoor: 4.0/5.0, 75% recommend to a friend'
+    ],
+    enablers: [
+      'AWS partnership reducing grid simulation from weeks to 15 minutes using generative AI',
+      'Nuclear expansion with small modular reactor permit applications',
+      'AI integration across grid operations (DISTRIBUTECH 2026 presentations)',
+      'Serving fastest-growing US region (Southern states, data center boom)',
+      '$190B capital plan, largest regulated investment in industry',
+      '13 gigawatts of new generation coming online through 2030'
+    ],
+    friction: [
+      'Layoffs as primary adaptation tool (third round in three years)',
+      'Regulatory latency across seven state jurisdictions',
+      '$100B infrastructure lock-in with 40-60 year depreciation',
+      'Coal exit not until 2035 (three decades after climate risk clear)',
+      'Glassdoor notes limited career mobility and routine work',
+      'Annual decision cycles when market moves quarterly'
+    ],
+    quotable: 'Duke Energy is betting $190B that you can buy your way out of particle state. The grid is modernizing. The org chart is not.',
+  },
+
+  'general-motors': {
+    slug: 'general-motors',
+    name: 'General Motors',
+    analysisDate: '2026-01-19',
+    gpiScore: 5.9,
+    state: 'Transitioning (upper)',
+    marketCap: '$76B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 6, explanation: 'Glassdoor cites "approval from multiple teams for small changes," but Barra\'s consolidated leadership enables strategic pivots' },
+      { dimension: 'Error Correction', score: 5, explanation: 'Taking $7.6B in EV write-downs shows adaptation, but relies on layoffs rather than process change' },
+      { dimension: 'Knowledge Location', score: 5, explanation: 'Building "data factory" with NVIDIA digital twins, but four brand divisions create natural silos' },
+      { dimension: 'Structural Lock-In', score: 7, explanation: '116-year legacy, billions in factory infrastructure, $7.6B write-down shows cost of direction change' },
+      { dimension: 'Talent Flow', score: 6, explanation: 'UAW structure limits flexibility, Glassdoor shows "declining trust in leadership"' },
+      { dimension: 'Capital Intensity', score: 8, explanation: 'Manufacturing requires massive physical assets, every pivot costs billions' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'Ultifi platform enables OTA updates, but "lack of transparency" persists per Glassdoor' }
+    ],
+    pattern: 'The Detroit Paradox',
+    patternDescription: 'GM is simultaneously too big to pivot quickly and too profitable to fail slowly. Record profits ($14.9B), record stock (+55%), and U.S. sales leadership mean no burning platform forces transformation. Yet $7.6B in EV write-downs reveals the cost of moving slower than the market. The company can see the software-defined future clearly but must drag the weight of a century of steel to get there.',
+    keyNumbers: [
+      'Revenue: $187.4B (2024), up 9.08% YoY',
+      'Employees: 162,000 ($1.16M revenue per employee)',
+      'Market Cap: $76B (NYSE: GM)',
+      'Fortune 500 Rank: #6',
+      'Founded: September 16, 1908 in Detroit, Michigan',
+      'Structure: Public company, four brand divisions',
+      'Leadership: Mary Barra, Chair and CEO since 2014',
+      '2025 Projected Net Profit: $12-13B (after record $14.9B in 2024)'
+    ],
+    enablers: [
+      'Mary Barra as Chair/CEO since 2014-2016 provides leadership continuity',
+      '$10.9B annual ICT spending building digital infrastructure',
+      'Ultifi software platform enabling vehicle-as-platform model',
+      'Google Gemini integration (2026) bringing external AI',
+      'NVIDIA Omniverse digital twins reducing manufacturing cycles',
+      'Record profitability provides transformation capital'
+    ],
+    friction: [
+      '116-year legacy creating structural lock-in across dozens of facilities',
+      '162,000 employees and four brand divisions create complexity',
+      'Process inconsistency "from team to team"',
+      'Glassdoor',
+      'UAW union structure limiting talent flexibility',
+      'Capital intensity'
+    ],
+    quotable: 'GM is betting $10.9B in annual tech spending can drag 116 years of steel into a software-defined future.',
+  },
+
+  'qualcomm': {
+    slug: 'qualcomm',
+    name: 'Qualcomm',
+    analysisDate: '2026-01-20',
+    gpiScore: 4.75,
+    state: 'Transitioning (upper)',
+    marketCap: '$176B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 5, explanation: 'Fast tech execution (9% PC share in 18 months), but activist pressure needed to spur restructuring, hierarchical in some divisions' },
+      { dimension: 'Error Correction', score: 5, explanation: 'Recognized Apple problem and pivoted hard to automotive/PC/robotics, but layoffs are primary adaptation tool, not process redesign' },
+      { dimension: 'Knowledge Location', score: 4, explanation: 'IP licensing core business (distributed), but Glassdoor cites too many internal tools and legacy systems creating silos' },
+      { dimension: 'Structural Lock-In', score: 5, explanation: 'Fabless model reduces capital lock-in, entering new markets successfully, but public company quarterly pressure and legacy mobile dependency' },
+      { dimension: 'Talent Flow', score: 5, explanation: '78% recommend but promotions slow and opaque, morale down 5% over 12 months, layoff churn not healthy mobility' },
+      { dimension: 'Capital Intensity', score: 4, explanation: 'Fabless model is asset-light, but heavy R&D required, $2.5B acquisition shows flexibility, IP licensing high-margin' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'Fast product launches (CES 2026), but internal tools create friction, hierarchical filtering in some teams' }
+    ],
+    pattern: 'Diversification Under Pressure',
+    patternDescription: 'Qualcomm had to be pushed to transform. The Apple revenue loss and activist investor letter forced the restructuring. But once in motion, the company executes well. They\'re entering new markets (automotive, PC, robotics) with real products and real partnerships, not PowerPoints. The GPI shows the tension. Fast tech development, slower organizational reconfiguration. They\'re betting technology velocity can compensate for institutional inertia. At 4.75, the bet is working, but it\'s not physics-defying.',
+    keyNumbers: [
+      'Revenue: $44.3B (FY2025), up 13.7%',
+      'Employees: 49,000',
+      'Founded: 1985, HQ: San Diego, CA',
+      'Structure: Public (NASDAQ: QCOM)',
+      'Leadership: Cristiano Amon, CEO (since June 2021)',
+      'Market Cap: $176B (Jan 2026)',
+      'Fortune 500 Rank: #137',
+      'Glassdoor: 3.9/5.0, 78% recommend, down 5% over 12 months'
+    ],
+    enablers: [
+      '9% PC market share captured in 18 months (aggressive market entry)',
+      '400 million vehicles with Snapdragon Digital Chassis (massive automotive footprint)',
+      'CES 2026 robotics initiative (Dragonwing IQ10 processors, $1T market projection by 2040)',
+      'Five IoT acquisitions expanding capabilities (Arduino, Edge Impulse, Augentix, Focus.AI, Foundries.io)',
+      '$2.5B Alphawave acquisition pending (UK connectivity chips)',
+      'Strong partnerships with Google, Toyota, Leapmotor'
+    ],
+    friction: [
+      'Layoffs as primary adaptation mechanism (226 workers cut Nov 2024, more planned 2026)',
+      'Activist investor pressure required to spur restructuring (not internal initiative)',
+      'Glassdoor rating down 5% over 12 months (employee morale dropping)',
+      'Promotions slow and opaque (political vs merit-based)',
+      'Too many internal tools and legacy systems (knowledge silos)',
+      'Hierarchical decision-making in some divisions'
+    ],
+    quotable: 'The company that powers every smartphone is betting it can power everything else. At 4.75, the bet is working, but the physics of a 49,000-person public company are real.',
+  },
+
+  'accenture': {
+    slug: 'accenture',
+    name: 'Accenture',
+    analysisDate: '2026-01-20',
+    gpiScore: 4.45,
+    state: 'Transitioning (lower)',
+    marketCap: '$177.5',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 5, explanation: 'CEO can execute major moves quickly (Faculty acquisition, $865M restructuring), but 784,000 employees across 120 countries still require multiple approval layers. Glassdoor 3.6/5.0 culture rating suggests mixed autonomy.' },
+      { dimension: 'Error Correction', score: 4, explanation: 'Aggressive workforce rebalancing (22,000 layoffs in 2025) while training 550,000 on AI. CEO explicitly exiting workers who cannot reskill. Acquiring AI-native firms (Faculty). AI talent grew from 40,000 to 77,000 in two years. Forced adaptation, not organic.' },
+      { dimension: 'Knowledge Location', score: 4, explanation: 'Training 550,000 on gen AI shows scale distribution capability. Faculty acquisition brings 400 specialists. Glassdoor 4.0/5.0 diversity suggests openness. But consulting traditionally has partner knowledge hoarding. New AI specialist class (77,000) may create new silos.' },
+      { dimension: 'Structural Lock-In', score: 5, explanation: 'Can execute $865M restructuring and integrate acquisitions. Public company creates quarterly earnings pressure. 784,000 employees in 120+ countries = massive coordination costs. Can shift service lines but changing how everyone works is like turning a container ship.' },
+      { dimension: 'Talent Flow', score: 5, explanation: 'Layoffs create forced churn, not organic mobility. Consulting up-or-out model is rigidity disguised as movement. Training 70,000 in agentic AI shows some internal mobility. Glassdoor 3.6/5.0 career opportunities. Exec team averages 24 years tenure (low top turnover).' },
+      { dimension: 'Capital Intensity', score: 3, explanation: 'Asset-light services business. Can pivot to new service lines without massive capex. Acquisitions (Faculty $1B+) buy talent, not factories. 22,000 layoffs in one year proves workforce is scalable. Variable-cost heavy (salaries) vs fixed-cost (infrastructure).' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'Training 550,000 shows push at scale, but 784,000 across 120 countries creates lag. Glassdoor 3.7/5.0 suggests moderate transparency. Large consulting firms filter info through layers (analysts to partners to execs). AI platforms should accelerate but adoption in progress.' }
+    ],
+    pattern: 'Organizational Pattern',
+    patternDescription: '',
+    keyNumbers: [
+      'Revenue: $70.72 billion TTM (January 2026), $69.67 billion fiscal 2025',
+      'Employees: 784,000 as of Q1 FY2026 (down from 779,000 at FY2025 year-end)',
+      'Founded: 1989 (as Andersen Consulting), rebranded 2001',
+      'Headquarters: Dublin, Ireland',
+      'Structure: Public company (ACN on NYSE since 2001, IPO at $14.50)',
+      'Leadership: Julie Sweet, Chair & CEO (since September 2019)',
+      'Market cap: $177.5 billion (January 2026)',
+      'Fortune 500 rank: #279'
+    ],
+    enablers: [
+      'Massive AI reskilling',
+      'AI talent growth',
+      'Strategic acquisitions',
+      'Decisive leadership',
+      'Gartner recognition',
+      'Asset-light model'
+    ],
+    friction: [
+      'Organizational mass',
+      'Layoffs as primary adaptation',
+      'Executive tenure',
+      'Public market pressure',
+      'Below-market growth',
+      'Traditional consulting model'
+    ],
+    quotable: 'Accenture is laying off 22,000 people while training 550,000 on AI. The question is whether the institution can transform faster than its clients need it to.',
+  },
+
+
+  'amd': {
+    slug: 'amd',
+    name: 'AMD',
+    analysisDate: '2026-01-26',
+    gpiScore: 4.05,
+    state: 'Transitioning (lower)',
+    marketCap: '$422.76B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 4, explanation: 'Lisa Su provides decisive leadership. Gaming collapse (69%) met with swift 4% layoffs and full AI pivot. CES 2026 showed ambitious roadmap.' },
+      { dimension: 'Error Correction', score: 4, explanation: 'Transformed from near-bankruptcy to $422B. Willing to exit failing segments. ZT Systems acquisition shows proactive capability building.' },
+      { dimension: 'Knowledge Location', score: 4, explanation: 'Engineering-driven culture with MIT PhD CEO. Best Places to Work 4 years running. Open tech (FSR 3). Some size-related coordination challenges.' },
+      { dimension: 'Structural Lock-In', score: 5, explanation: 'Fabless model provides flexibility. But locked into TSMC dependency and x86 licensing with Intel. Multi-segment portfolio creates complexity.' },
+      { dimension: 'Talent Flow', score: 4, explanation: 'Glassdoor 4.0/5.0, 83% recommend. Strong benefits. Promotes technical excellence. Competing with Nvidia for AI talent.' },
+      { dimension: 'Capital Intensity', score: 3, explanation: 'Fabless = low capital intensity. R&D focused, no owned fabs. Can pivot without write-downs. Revenue per employee $1.14M.' },
+      { dimension: 'Knowledge Velocity', score: 4, explanation: 'Transparent product roadmaps. Lisa Su keynotes show direct communication. 82% positive business outlook on Glassdoor.' }
+    ],
+    pattern: 'The Fabless Pivot Machine',
+    patternDescription: 'AMD proves that semiconductor companies do not have to be Particle-state. The conventional wisdom says chip companies need massive capital, decade-long product cycles, and glacial decision-making. AMD rejected that model. By spinning off GlobalFoundries, staying engineering-focused under a technical CEO, and maintaining the willingness to exit failing segments, AMD became the most agile major semiconductor company in the world.',
+    keyNumbers: [
+      'Revenue: $32B TTM (up 31.83% YoY)',
+      'Market Cap: $422.76B (25th globally)',
+      'Employees: 28,000',
+      'Founded: May 1, 1969, HQ: Santa Clara, CA',
+      'Structure: Public (NASDAQ: AMD)',
+      'Leadership: Dr. Lisa Su, CEO (since October 2014)',
+      'Fortune 500 Rank: #167 (2025)',
+      'Stock Performance: Up 76% over past 12 months'
+    ],
+    enablers: [
+      'Fabless model enables pivots without factory write-downs',
+      'Lisa Su leadership provides 10+ years of strategic consistency',
+      'Engineering-driven culture with technical CEO (MIT PhD)',
+      'Strong Glassdoor scores (4.0/5.0, 83% recommend)',
+      'CES 2026 roadmap shows clear AI vision (Helios, MI455X, MI500)',
+      'Strategic acquisitions ($4.9B ZT Systems) rather than reactive cuts'
+    ],
+    friction: [
+      'TSMC dependency creates supply chain risk and capacity constraints',
+      'x86 licensing with Intel limits some strategic flexibility',
+      'Nvidia dominance in high-end AI GPUs creates constant competitive pressure',
+      'Gaming segment decline (69%) requires careful portfolio management',
+      'Company size (28,000 employees) makes cross-functional coordination harder',
+      'Talent competition with Nvidia for AI engineers intensifying'
+    ],
+    quotable: 'AMD at 4.05 vs Intel at 7.0 is not just a scoring difference. It is the difference between a company that can transform and one that cannot.',
+  },
+
 };
 
 export function getSnapshotBySlug(slug: string): CompanySnapshot | null {

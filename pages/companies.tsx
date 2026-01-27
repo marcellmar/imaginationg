@@ -1,8 +1,9 @@
 import type { NextPage, GetServerSideProps } from 'next';
 import Link from 'next/link';
+import { useState, useMemo } from 'react';
 import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, Search, X, Filter, ChevronDown } from 'lucide-react';
 import { hasSnapshot, getSnapshotSlug } from '../lib/snapshots';
 
 interface Company {
@@ -19,6 +20,7 @@ interface Company {
 interface CompaniesPageProps {
   companies: Company[];
   totalCount: number;
+  sectors: string[];
 }
 
 const getScoreColor = (score: number | null) => {
@@ -26,13 +28,6 @@ const getScoreColor = (score: number | null) => {
   if (score <= 3) return 'text-green-500';
   if (score <= 6.9) return 'text-yellow-500';
   return 'text-red-500';
-};
-
-const getStageColor = (stage: string) => {
-  if (stage === 'Field') return 'text-green-500 bg-green-500/10';
-  if (stage === 'Transitioning') return 'text-yellow-500 bg-yellow-500/10';
-  if (stage === 'Particle') return 'text-red-500 bg-red-500/10';
-  return 'text-zinc-500 bg-zinc-500/10';
 };
 
 const stageOrder = ['Field', 'Transitioning', 'Particle'];
@@ -58,31 +53,90 @@ const stageConfig: Record<string, { label: string; description: string; color: s
   },
 };
 
-const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount }) => {
-  // Group by state
-  const byState: Record<string, Company[]> = {
-    'Field': [],
-    'Transitioning': [],
-    'Particle': [],
+const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sectors }) => {
+  // Search and filter state
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedSector, setSelectedSector] = useState<string>('');
+  const [selectedStages, setSelectedStages] = useState<string[]>(['Field', 'Transitioning', 'Particle']);
+  const [gpiMin, setGpiMin] = useState<string>('');
+  const [gpiMax, setGpiMax] = useState<string>('');
+  const [snapshotOnly, setSnapshotOnly] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
+
+  // Filter companies
+  const filteredCompanies = useMemo(() => {
+    return companies.filter((company) => {
+      // Text search (name or ticker)
+      if (searchQuery) {
+        const query = searchQuery.toLowerCase();
+        const nameMatch = company.name.toLowerCase().includes(query);
+        const tickerMatch = company.ticker?.toLowerCase().includes(query);
+        if (!nameMatch && !tickerMatch) return false;
+      }
+
+      // Sector filter
+      if (selectedSector && company.sector !== selectedSector) return false;
+
+      // Stage filter
+      const stage = company.stage || 'Particle';
+      if (!selectedStages.includes(stage)) return false;
+
+      // GPI range filter
+      if (gpiMin && company.gpiScore !== null && company.gpiScore < parseFloat(gpiMin)) return false;
+      if (gpiMax && company.gpiScore !== null && company.gpiScore > parseFloat(gpiMax)) return false;
+
+      // Snapshot filter
+      if (snapshotOnly && !hasSnapshot(company.name)) return false;
+
+      return true;
+    });
+  }, [companies, searchQuery, selectedSector, selectedStages, gpiMin, gpiMax, snapshotOnly]);
+
+  // Group filtered companies by state
+  const byState: Record<string, Company[]> = useMemo(() => {
+    const grouped: Record<string, Company[]> = {
+      'Field': [],
+      'Transitioning': [],
+      'Particle': [],
+    };
+
+    for (const company of filteredCompanies) {
+      const state = company.stage || 'Particle';
+      if (grouped[state]) {
+        grouped[state].push(company);
+      } else {
+        grouped['Particle'].push(company);
+      }
+    }
+
+    // Sort each state by GPI score
+    for (const state of stageOrder) {
+      if (state === 'Field') {
+        grouped[state].sort((a, b) => (a.gpiScore || 0) - (b.gpiScore || 0));
+      } else {
+        grouped[state].sort((a, b) => (a.gpiScore || 10) - (b.gpiScore || 10));
+      }
+    }
+
+    return grouped;
+  }, [filteredCompanies]);
+
+  const toggleStage = (stage: string) => {
+    setSelectedStages((prev) =>
+      prev.includes(stage) ? prev.filter((s) => s !== stage) : [...prev, stage]
+    );
   };
 
-  for (const company of companies) {
-    const state = company.stage || 'Particle';
-    if (byState[state]) {
-      byState[state].push(company);
-    } else {
-      byState['Particle'].push(company); // Default unknown to Particle
-    }
-  }
+  const clearFilters = () => {
+    setSearchQuery('');
+    setSelectedSector('');
+    setSelectedStages(['Field', 'Transitioning', 'Particle']);
+    setGpiMin('');
+    setGpiMax('');
+    setSnapshotOnly(false);
+  };
 
-  // Sort each state by GPI score (lowest first for Field, highest first for Particle)
-  for (const state of stageOrder) {
-    if (state === 'Field') {
-      byState[state].sort((a, b) => (a.gpiScore || 0) - (b.gpiScore || 0));
-    } else {
-      byState[state].sort((a, b) => (a.gpiScore || 10) - (b.gpiScore || 10));
-    }
-  }
+  const hasActiveFilters = searchQuery || selectedSector || selectedStages.length !== 3 || gpiMin || gpiMax || snapshotOnly;
 
   return (
     <>
@@ -95,7 +149,7 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount }) => {
         <Navigation currentPage="companies" />
 
         {/* Header */}
-        <section className="pt-28 pb-12 px-6 border-b border-zinc-900">
+        <section className="pt-28 pb-8 px-6 border-b border-zinc-900">
           <div className="max-w-6xl mx-auto">
             <div className="inline-flex items-center gap-2 text-xs font-mono text-zinc-600 mb-4">
               <span className="w-2 h-2 bg-red-500 rounded-full" />
@@ -111,20 +165,171 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount }) => {
           </div>
         </section>
 
-        {/* Legend */}
-        <section className="py-6 px-6 border-b border-zinc-900 bg-zinc-950">
-          <div className="max-w-6xl mx-auto flex flex-wrap gap-6 text-sm">
-            <div className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-green-500" />
-              <span className="text-zinc-400">Field (1.0-3.0)</span>
+        {/* Search and Filters */}
+        <section className="py-4 px-6 border-b border-zinc-900 bg-zinc-950 sticky top-16 z-40">
+          <div className="max-w-6xl mx-auto">
+            {/* Search Bar Row */}
+            <div className="flex flex-col md:flex-row gap-3">
+              {/* Search Input */}
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" size={18} />
+                <input
+                  type="text"
+                  placeholder="Search by name or ticker..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full bg-zinc-900 border border-zinc-800 rounded px-10 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:border-zinc-600 transition-colors"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white"
+                  >
+                    <X size={16} />
+                  </button>
+                )}
+              </div>
+
+              {/* Sector Dropdown */}
+              <div className="relative">
+                <select
+                  value={selectedSector}
+                  onChange={(e) => setSelectedSector(e.target.value)}
+                  className="appearance-none bg-zinc-900 border border-zinc-800 rounded px-4 py-2.5 pr-10 text-white focus:outline-none focus:border-zinc-600 transition-colors cursor-pointer min-w-[180px]"
+                >
+                  <option value="">All Sectors</option>
+                  {sectors.map((sector) => (
+                    <option key={sector} value={sector}>
+                      {sector}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none" size={16} />
+              </div>
+
+              {/* Filter Toggle Button */}
+              <button
+                onClick={() => setShowFilters(!showFilters)}
+                className={`flex items-center gap-2 px-4 py-2.5 border rounded transition-colors ${
+                  showFilters || hasActiveFilters
+                    ? 'bg-zinc-800 border-zinc-700 text-white'
+                    : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700'
+                }`}
+              >
+                <Filter size={16} />
+                <span className="hidden sm:inline">Filters</span>
+                {hasActiveFilters && (
+                  <span className="w-2 h-2 rounded-full bg-red-500" />
+                )}
+              </button>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-yellow-500" />
-              <span className="text-zinc-400">Transitioning (3.1-6.9)</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-red-500" />
-              <span className="text-zinc-400">Particle (7.0-10.0)</span>
+
+            {/* Expanded Filters */}
+            {showFilters && (
+              <div className="mt-4 pt-4 border-t border-zinc-800">
+                <div className="flex flex-wrap gap-6">
+                  {/* Stage Filter */}
+                  <div>
+                    <div className="text-xs text-zinc-500 mb-2 font-mono">STAGE</div>
+                    <div className="flex gap-2">
+                      {stageOrder.map((stage) => {
+                        const config = stageConfig[stage];
+                        const isSelected = selectedStages.includes(stage);
+                        return (
+                          <button
+                            key={stage}
+                            onClick={() => toggleStage(stage)}
+                            className={`px-3 py-1.5 text-sm rounded border transition-colors ${
+                              isSelected
+                                ? `${config.color} ${config.bgColor} border-current`
+                                : 'text-zinc-500 border-zinc-700 hover:border-zinc-600'
+                            }`}
+                          >
+                            {stage}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* GPI Range */}
+                  <div>
+                    <div className="text-xs text-zinc-500 mb-2 font-mono">GPI RANGE</div>
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="number"
+                        placeholder="Min"
+                        value={gpiMin}
+                        onChange={(e) => setGpiMin(e.target.value)}
+                        min="1"
+                        max="10"
+                        step="0.1"
+                        className="w-20 bg-zinc-900 border border-zinc-800 rounded px-3 py-1.5 text-white text-sm placeholder-zinc-600 focus:outline-none focus:border-zinc-600"
+                      />
+                      <span className="text-zinc-600">—</span>
+                      <input
+                        type="number"
+                        placeholder="Max"
+                        value={gpiMax}
+                        onChange={(e) => setGpiMax(e.target.value)}
+                        min="1"
+                        max="10"
+                        step="0.1"
+                        className="w-20 bg-zinc-900 border border-zinc-800 rounded px-3 py-1.5 text-white text-sm placeholder-zinc-600 focus:outline-none focus:border-zinc-600"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Snapshot Only */}
+                  <div>
+                    <div className="text-xs text-zinc-500 mb-2 font-mono">OPTIONS</div>
+                    <button
+                      onClick={() => setSnapshotOnly(!snapshotOnly)}
+                      className={`px-3 py-1.5 text-sm rounded border transition-colors ${
+                        snapshotOnly
+                          ? 'text-cyan-500 border-cyan-500/50 bg-cyan-500/10'
+                          : 'text-zinc-500 border-zinc-700 hover:border-zinc-600'
+                      }`}
+                    >
+                      Snapshots only
+                    </button>
+                  </div>
+
+                  {/* Clear Filters */}
+                  {hasActiveFilters && (
+                    <div className="flex items-end">
+                      <button
+                        onClick={clearFilters}
+                        className="px-3 py-1.5 text-sm text-zinc-500 hover:text-white transition-colors"
+                      >
+                        Clear all
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Results Count */}
+            <div className="mt-3 flex items-center justify-between text-sm">
+              <div className="text-zinc-500">
+                Showing <span className="text-white font-medium">{filteredCompanies.length}</span> of {totalCount} companies
+              </div>
+              {/* Quick Legend */}
+              <div className="hidden md:flex gap-4 text-xs">
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-green-500" />
+                  <span className="text-zinc-500">Field</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-yellow-500" />
+                  <span className="text-zinc-500">Transitioning</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-red-500" />
+                  <span className="text-zinc-500">Particle</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -132,72 +337,84 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount }) => {
         {/* Companies by State */}
         <section className="py-12 px-6">
           <div className="max-w-6xl mx-auto">
-            {stageOrder.map((state) => {
-              const config = stageConfig[state];
-              const stateCompanies = byState[state];
-              if (stateCompanies.length === 0) return null;
+            {filteredCompanies.length === 0 ? (
+              <div className="text-center py-16">
+                <div className="text-zinc-500 text-lg mb-4">No companies match your filters.</div>
+                <button
+                  onClick={clearFilters}
+                  className="text-red-500 hover:text-red-400 transition-colors"
+                >
+                  Clear filters
+                </button>
+              </div>
+            ) : (
+              stageOrder.map((state) => {
+                const config = stageConfig[state];
+                const stateCompanies = byState[state];
+                if (stateCompanies.length === 0) return null;
 
-              return (
-                <div key={state} className={`mb-12 p-6 border ${config.bgColor} rounded-lg`}>
-                  <div className="flex items-center justify-between mb-6">
-                    <div>
-                      <h2 className={`text-lg font-black ${config.color}`}>
-                        {config.label}
-                      </h2>
-                      <p className="text-sm text-zinc-500">{config.description}</p>
+                return (
+                  <div key={state} className={`mb-12 p-6 border ${config.bgColor} rounded-lg`}>
+                    <div className="flex items-center justify-between mb-6">
+                      <div>
+                        <h2 className={`text-lg font-black ${config.color}`}>
+                          {config.label}
+                        </h2>
+                        <p className="text-sm text-zinc-500">{config.description}</p>
+                      </div>
+                      <div className={`text-3xl font-black ${config.color}`}>
+                        {stateCompanies.length}
+                      </div>
                     </div>
-                    <div className={`text-3xl font-black ${config.color}`}>
-                      {stateCompanies.length}
-                    </div>
-                  </div>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-                    {stateCompanies.map((company) => {
-                      const snapshotSlug = getSnapshotSlug(company.name);
-                      const cardContent = (
-                        <div
-                          className={`border border-zinc-800 bg-black/50 p-4 transition-colors ${
-                            snapshotSlug ? 'hover:border-cyan-500/50 cursor-pointer' : 'hover:border-zinc-700'
-                          }`}
-                        >
-                          <div className="flex justify-between items-start mb-2">
-                            <div>
-                              <div className="font-bold text-white">{company.name}</div>
-                              {company.ticker && (
-                                <div className="text-xs text-zinc-600">{company.ticker}</div>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {stateCompanies.map((company) => {
+                        const snapshotSlug = getSnapshotSlug(company.name);
+                        const cardContent = (
+                          <div
+                            className={`border border-zinc-800 bg-black/50 p-4 transition-colors ${
+                              snapshotSlug ? 'hover:border-cyan-500/50 cursor-pointer' : 'hover:border-zinc-700'
+                            }`}
+                          >
+                            <div className="flex justify-between items-start mb-2">
+                              <div>
+                                <div className="font-bold text-white">{company.name}</div>
+                                {company.ticker && (
+                                  <div className="text-xs text-zinc-600">{company.ticker}</div>
+                                )}
+                              </div>
+                              <div className={`text-2xl font-black ${getScoreColor(company.gpiScore)}`}>
+                                {company.gpiScore?.toFixed(1) || '—'}
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-2 mt-3">
+                              <span className="text-xs text-zinc-500">{company.sector}</span>
+                              {company.fortune500Rank && (
+                                <span className="text-xs text-zinc-600">
+                                  F500 #{company.fortune500Rank}
+                                </span>
+                              )}
+                              {hasSnapshot(company.name) && (
+                                <span className="text-xs text-cyan-500 bg-cyan-500/10 px-1.5 py-0.5 rounded">
+                                  SNAPSHOT
+                                </span>
                               )}
                             </div>
-                            <div className={`text-2xl font-black ${getScoreColor(company.gpiScore)}`}>
-                              {company.gpiScore?.toFixed(1) || '—'}
-                            </div>
                           </div>
-                          <div className="flex items-center gap-2 mt-3">
-                            <span className="text-xs text-zinc-500">{company.sector}</span>
-                            {company.fortune500Rank && (
-                              <span className="text-xs text-zinc-600">
-                                F500 #{company.fortune500Rank}
-                              </span>
-                            )}
-                            {hasSnapshot(company.name) && (
-                              <span className="text-xs text-cyan-500 bg-cyan-500/10 px-1.5 py-0.5 rounded">
-                                SNAPSHOT
-                              </span>
-                            )}
-                          </div>
-                        </div>
-                      );
+                        );
 
-                      return snapshotSlug ? (
-                        <Link key={company.id} href={`/companies/${snapshotSlug}`}>
-                          {cardContent}
-                        </Link>
-                      ) : (
-                        <div key={company.id}>{cardContent}</div>
-                      );
-                    })}
+                        return snapshotSlug ? (
+                          <Link key={company.id} href={`/companies/${snapshotSlug}`}>
+                            {cardContent}
+                          </Link>
+                        ) : (
+                          <div key={company.id}>{cardContent}</div>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })
+            )}
           </div>
         </section>
 
@@ -235,9 +452,10 @@ export const getServerSideProps: GetServerSideProps<CompaniesPageProps> = async 
   const GPI_ANALYSES_DB = '7d636c92-c316-4bfc-9bc7-7899e575e19e';
 
   const companies: Company[] = [];
+  const sectorsSet = new Set<string>();
 
   if (!NOTION_API_KEY) {
-    return { props: { companies, totalCount: 0 } };
+    return { props: { companies, totalCount: 0, sectors: [] } };
   }
 
   try {
@@ -272,12 +490,15 @@ export const getServerSideProps: GetServerSideProps<CompaniesPageProps> = async 
           // Skip deals - they have their own page
           if (name.toLowerCase().includes('deal')) continue;
 
+          const sector = props.Sector?.select?.name || 'Other';
+          sectorsSet.add(sector);
+
           companies.push({
             id: page.id,
             name,
             gpiScore: props['GPI Score']?.number || null,
             stage: props['Transformation Stage']?.select?.name || 'Unknown',
-            sector: props.Sector?.select?.name || 'Other',
+            sector,
             ticker: props.Ticker?.rich_text?.[0]?.plain_text || '',
             employees: props['Employee Count']?.number || null,
             fortune500Rank: props['Fortune 500 Rank']?.number || null,
@@ -294,10 +515,14 @@ export const getServerSideProps: GetServerSideProps<CompaniesPageProps> = async 
     console.error('Error fetching companies:', error);
   }
 
+  // Sort sectors alphabetically
+  const sectors = Array.from(sectorsSet).sort();
+
   return {
     props: {
       companies,
       totalCount: companies.length,
+      sectors,
     },
   };
 };
