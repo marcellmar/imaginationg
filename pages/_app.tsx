@@ -4,6 +4,13 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+    dataLayer?: any[];
+  }
+}
+
 const GA_TRACKING_ID = 'G-V3R0S40J79';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -24,8 +31,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 
         const isAIReferral = aiDomains.some(domain => referrer.includes(domain));
 
-        if (isAIReferral && typeof (window as any).gtag !== 'undefined') {
-          (window as any).gtag('event', 'ai_referral', {
+        if (isAIReferral && window.gtag) {
+          window.gtag('event', 'ai_referral', {
             source: referrer,
             landing_page: router.pathname,
             timestamp: new Date().toISOString()

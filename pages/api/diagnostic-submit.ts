@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { z } from 'zod';
 
 const NOTION_API_KEY = process.env.NOTION_API_KEY;
 const DIAGNOSTIC_DB = '2d8990ae-cd45-810c-bcf6-cf242c398775';
@@ -23,6 +24,26 @@ interface DiagnosticSubmission {
   industry: string;
   sendEmail?: boolean;
 }
+
+const DiagnosticSchema = z.object({
+  name: z.string().min(1).max(100),
+  email: z.string().email().max(255),
+  city: z.string().max(100).optional(),
+  company: z.string().max(200).optional(),
+  gpiScore: z.number().min(1).max(10),
+  stage: z.enum(['Field', 'Transitioning', 'Particle']),
+  dimensions: z.object({
+    decisionLatency: z.number().min(1).max(10),
+    errorCorrection: z.number().min(1).max(10),
+    knowledgeLocation: z.number().min(1).max(10),
+    talentFlow: z.number().min(1).max(10),
+    knowledgeVelocity: z.number().min(1).max(10),
+    structuralLockIn: z.number().min(1).max(10),
+    capitalIntensity: z.number().min(1).max(10),
+  }),
+  industry: z.string().min(1).max(100),
+  sendEmail: z.boolean().optional(),
+});
 
 async function sendResultsEmail(submission: DiagnosticSubmission) {
   if (!RESEND_API_KEY) {
@@ -138,10 +159,17 @@ export default async function handler(
     return res.status(500).json({ error: 'Server configuration error' });
   }
 
-  const submission: DiagnosticSubmission = req.body;
-
-  if (!submission.name || !submission.email || !submission.gpiScore) {
-    return res.status(400).json({ error: 'Missing required fields' });
+  // Validate request body
+  try {
+    var submission = DiagnosticSchema.parse(req.body);
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return res.status(400).json({
+        error: 'Invalid request data',
+        details: error.errors
+      });
+    }
+    return res.status(400).json({ error: 'Invalid request' });
   }
 
   try {

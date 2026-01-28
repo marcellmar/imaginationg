@@ -6,6 +6,7 @@
  */
 
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { z } from 'zod';
 import {
   generateRadarChart,
   generateComparisonChart,
@@ -34,6 +35,30 @@ interface GenerateRequest {
   };
 }
 
+const CompanyDataSchema = z.object({
+  name: z.string().min(1).max(200),
+  ticker: z.string().max(10).optional(),
+  scores: z.record(z.number().min(1).max(10)),
+  gpi: z.number().min(1).max(10),
+  state: z.enum(['Field', 'Transitioning', 'Particle']),
+});
+
+const ChartRequestSchema = z.object({
+  type: z.enum(['radar', 'comparison', 'scorecard']),
+  format: z.enum(['svg', 'png', 'webp', 'social', 'print']).optional(),
+  company: CompanyDataSchema.optional(),
+  company1: CompanyDataSchema.optional(),
+  company2: CompanyDataSchema.optional(),
+  options: z.object({
+    width: z.number().max(4000).optional(),
+    height: z.number().max(4000).optional(),
+    scale: z.number().min(1).max(4).optional(),
+    showLabels: z.boolean().optional(),
+    showValues: z.boolean().optional(),
+    showFooter: z.boolean().optional(),
+  }).optional(),
+});
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -42,8 +67,21 @@ export default async function handler(
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  // Validate request body
+  let body: GenerateRequest;
   try {
-    const body: GenerateRequest = req.body;
+    body = ChartRequestSchema.parse(req.body);
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return res.status(400).json({
+        error: 'Invalid request data',
+        details: error.errors
+      });
+    }
+    return res.status(400).json({ error: 'Invalid request' });
+  }
+
+  try {
     const { type, format = 'png', options = {} } = body;
 
     let svg: string;

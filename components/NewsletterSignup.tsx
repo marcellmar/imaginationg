@@ -24,11 +24,10 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
       return;
     }
 
-    // In a real implementation, this would call an API endpoint
-    // to add the email to a newsletter service like Mailchimp, ConvertKit, etc.
-    console.log('Email subscription:', email);
-    
-    // Simulate success
+    // TODO: Connect to newsletter service (Resend/Mailchimp/ConvertKit)
+    // await fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ email }) });
+
+    // Simulate success (remove when API connected)
     setSubmitted(true);
     setEmail('');
     setError('');
