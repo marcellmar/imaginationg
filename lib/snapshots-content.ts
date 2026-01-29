@@ -4587,6 +4587,75 @@ export const snapshotsContent: Record<string, CompanySnapshot> = {
     quotable: 'Carvana nearly died but survived because it could learn and adapt faster than traditional competitors through AI-enabled error correction.',
   },
 
+
+  'koch-industries': {
+    slug: 'koch-industries',
+    name: 'Koch Industries',
+    analysisDate: '2026-01-29',
+    gpiScore: 7.05,
+    state: 'Particle',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 7, explanation: 'Co-CEO structure introduced in 2023 adds approval layers between Charles Koch and Dave Robertson. 59 years of Charles Koch leadership (since 1967) creates institutional path dependency. Private ownership removes market forcing function for speed. Decisions flow through Wichita headquarters across 120,000 employees in 50 countries.' },
+      { dimension: 'Error Correction', score: 6, explanation: 'Exiting oil/fuels trading in 2025 demonstrates strategic adaptability. Active AI deployment for 2+ years with Sema4.ai partnership. Koch Disruptive Technologies venture arm signals innovation appetite. But 84-year-old company with family control limits pivot speed.' },
+      { dimension: 'Knowledge Location', score: 7, explanation: 'Centralized in Wichita, Kansas creates talent acquisition friction. Glassdoor reviews cite location as major drawback. 3.7/5 rating with only 68% recommending. High turnover mentioned by employees.' },
+      { dimension: 'Structural Lock-In', score: 8, explanation: 'Petroleum refining origins create massive capital asset lock-in. Chemical plants, refineries, manufacturing facilities cannot be easily repurposed. $125B revenue requires enormous infrastructure. Legacy 1940s industrial mindset embedded in organizational DNA.' },
+      { dimension: 'Talent Flow', score: 7, explanation: 'Glassdoor reviews report fire and hire every day with very high turnover. Wichita location challenge drives talent exits. Only 68% would recommend. Family ownership creates limited upward mobility paths.' },
+      { dimension: 'Capital Intensity', score: 9, explanation: 'Oil refining, chemical production, and manufacturing are ultra-capital-intensive. Every dollar of revenue requires massive infrastructure investment. Energy costs at $2.98/gallon impact operations. Legacy assets from 1940s-1980s require constant maintenance capital.' },
+      { dimension: 'Knowledge Velocity', score: 6, explanation: 'AI adoption for 2+ years shows commitment to modernization. Sema4.ai partnership, Data First Architecture with Snowflake. Koch Disruptive Technologies invests in emerging companies. But 84-year-old company culture slows knowledge circulation.' }
+    ],
+    pattern: 'The Private Particle',
+    patternDescription: 'Koch Industries represents the private particle pattern: a family-owned industrial conglomerate that has calcified not from market failure but from overwhelming success. 84 years of continuous operation, 59 years under the same chairman, and $125 billion in revenue have created organizational mass that resists acceleration. The company can optimize within existing lanes but cannot escape the gravitational pull of billions invested in refineries, chemical plants, and manufacturing facilities. Private ownership removes the market forcing function, allowing the particle state to persist indefinitely.',
+    keyNumbers: [
+      'Revenue: $125 billion (2024 estimates)',
+      'Employees: 120,000 worldwide across 50+ countries',
+      'Ownership: Private (second-largest US private company after Cargill)',
+      'Founded: 1940 by Fred C. Koch (petroleum refining process innovation)',
+      'Headquarters: Wichita, Kansas',
+      'Leadership: Charles Koch (Chairman/Co-CEO since 1967), Dave Robertson (Vice Chairman/Co-CEO since 2023)',
+      'Glassdoor Rating: 3.7/5 (2,065+ reviews), 68% would recommend',
+      'Key Subsidiaries: Georgia-Pacific, Invista, Guardian Industries, Molex'
+    ],
+    enablers: [
+      'AI adoption for 2+ years with Sema4.ai partnership',
+      'Koch Disruptive Technologies venture arm active',
+      'Strategic exit from oil/fuels trading (2025)',
+      'Data First Architecture with Snowflake',
+      'Private ownership provides patient capital',
+      'Diversified portfolio reduces sector risk'
+    ],
+    friction: [
+      '59 years of Charles Koch leadership creates path dependency',
+      'Co-CEO structure adds decision layers',
+      'Ultra-high capital intensity from refineries/chemicals',
+      'Wichita headquarters creates talent challenges',
+      'High employee turnover reported',
+      'Family ownership limits transformation pressure'
+    ],
+    quotable: 'Koch Industries will continue generating massive revenue and operating profitably for decades. But it will not achieve field state fluidity. The accumulated mass is too great, the leadership tenure too long, and the capital intensity too high.',
+  },
+
+  'netflix-wbd-deal-analysis': {
+    slug: 'netflix-wbd-deal-analysis',
+    name: 'Netflix Wbd Deal Analysis',
+    analysisDate: '2026-01-16',
+    gpiScore: 3.5,
+    state: 'Transitioning (lower)',
+    dimensions: [
+
+    ],
+    pattern: 'Organ Transplant',
+    patternDescription: 'This acquisition is not a merger. It is an organ transplant. Netflix is receiving WB Studios and HBO like a transplant recipient receives a heart. The body (Netflix) must accept the organ (WBD assets) without rejecting it or being overwhelmed by it. Success requires: - Immunosuppression: Netflix must temporarily suppress its culture instincts to prevent rejection - Gradual integration: Blood supply (cash flow, data systems) first, then nervous system (decision processes), then muscles (execution) - Long recovery: Full metabolic alignment takes 3-5 years minimum Failure modes: - Rejection: Netflix culture attacks WBD assets, talent flees - Infection: WBD particle-state infects Netflix, calcification spreads - Organ failure: WBD assets underperform due to neglect or mismanagement',
+    keyNumbers: [
+
+    ],
+    enablers: [
+
+    ],
+    friction: [
+
+    ],
+  },
+
 };
 
 export function getSnapshotBySlug(slug: string): CompanySnapshot | null {

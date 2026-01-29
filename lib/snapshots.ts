@@ -190,6 +190,9 @@ export const companiesWithSnapshots: Set<string> = new Set(['tesla',
   'rivian',
   '23andme',
   'carvana',
+  'koch industries',
+  'koch-industries',
+  'netflix-wbd-deal-analysis',
 ]);
 
 export function hasSnapshot(companyName: string): boolean {
@@ -365,6 +368,10 @@ export function getSnapshotSlug(companyName: string): string | null {
     'rivian': 'rivian',
     '23andme': '23andme',
     'carvana': 'carvana',
+    'koch-industries': 'koch-industries',
+    'koch industries': 'koch-industries',
+    'netflix-wbd-deal-analysis': 'netflix-wbd-deal-analysis',
+    'netflix wbd deal analysis': 'netflix-wbd-deal-analysis',
   };
 
   return slugMap[name] || null;
