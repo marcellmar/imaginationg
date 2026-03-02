@@ -277,52 +277,46 @@ const InsightsPage: NextPage = () => {
           </div>
         </section>
 
-        {/* Featured: Netflix */}
+        {/* Featured + Content Series side by side */}
         <section className="py-8 px-6">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-4">
+
+            {/* Live Analysis */}
             <Link href={`/insights/${featured.slug}`} className="block group">
-              <div className="border-2 border-red-600 p-8 md:p-12 hover:bg-red-600/5 transition-all">
-                <div className="flex items-center gap-4 mb-4">
+              <div className="border-2 border-red-600 p-8 hover:bg-red-600/5 transition-all h-full">
+                <div className="flex items-center gap-3 mb-4">
                   <span className="flex items-center gap-1.5 text-xs font-mono text-red-500">
                     <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
                     LIVE ANALYSIS
                   </span>
                   <span className="text-xs text-zinc-600">Feb 26, 2026</span>
-                  <span className="text-xs text-zinc-600">ACQUISITIONS · METABOLIC COMPATIBILITY</span>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-black mb-3 group-hover:text-red-500 transition-colors">
+                <h2 className="text-2xl md:text-3xl font-black mb-3 group-hover:text-red-500 transition-colors">
                   {featured.title}
-                  <ArrowRight className="inline ml-3" size={28} />
+                  <ArrowRight className="inline ml-2" size={22} />
                 </h2>
-                <p className="text-lg text-zinc-400 max-w-3xl">{featured.description}</p>
+                <p className="text-zinc-400 text-sm">{featured.description}</p>
               </div>
             </Link>
-          </div>
-        </section>
 
-        {/* GPI Content Series */}
-        <section className="py-8 px-6">
-          <div className="max-w-7xl mx-auto">
+            {/* GPI Content Series */}
             <Link href="/insights/gpi-analyses" className="block group">
-              <div className="border border-zinc-800 bg-zinc-950 p-8 md:p-10 hover:border-zinc-600 transition-all">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                  <div>
-                    <div className="text-xs font-mono text-zinc-500 mb-3">GPI CONTENT SERIES</div>
-                    <h2 className="text-2xl md:text-3xl font-black mb-2 group-hover:text-red-500 transition-colors">
-                      WEEKLY SMACKDOWNS. AUTOPSIES. VITAL SIGNS.
-                      <ArrowRight className="inline ml-2" size={22} />
-                    </h2>
-                    <p className="text-zinc-400 max-w-xl text-sm">Real companies. Real scores. Head-to-head comparisons, forensic breakdowns, and metabolic monitoring updated weekly.</p>
-                  </div>
-                  <div className="flex gap-2 flex-wrap flex-shrink-0">
-                    <span className="text-xs px-3 py-1.5 bg-red-950/50 text-red-400 border border-red-900/50">⚔️ SMACKDOWN</span>
-                    <span className="text-xs px-3 py-1.5 bg-zinc-900 text-zinc-400 border border-zinc-800">🪦 AUTOPSY</span>
-                    <span className="text-xs px-3 py-1.5 bg-blue-950/50 text-blue-400 border border-blue-900/50">🩺 VITAL SIGNS</span>
-                    <span className="text-xs px-3 py-1.5 bg-yellow-950/50 text-yellow-400 border border-yellow-900/50">🔄 TRANSITION</span>
-                  </div>
+              <div className="border border-zinc-800 bg-zinc-950 p-8 hover:border-zinc-600 transition-all h-full">
+                <div className="text-xs font-mono text-zinc-500 mb-4">GPI CONTENT SERIES</div>
+                <h2 className="text-2xl md:text-3xl font-black mb-3 group-hover:text-red-500 transition-colors">
+                  SMACKDOWNS. AUTOPSIES. VITAL SIGNS.
+                  <ArrowRight className="inline ml-2" size={22} />
+                </h2>
+                <p className="text-zinc-400 text-sm mb-6">Real companies. Real scores. Head-to-head comparisons, forensic breakdowns, and metabolic monitoring.</p>
+                <div className="flex gap-2 flex-wrap">
+                  <span className="text-xs px-3 py-1.5 bg-red-950/50 text-red-400 border border-red-900/50">⚔️ SMACKDOWN</span>
+                  <span className="text-xs px-3 py-1.5 bg-zinc-900 text-zinc-400 border border-zinc-800">🪦 AUTOPSY</span>
+                  <span className="text-xs px-3 py-1.5 bg-blue-950/50 text-blue-400 border border-blue-900/50">🩺 VITAL SIGNS</span>
+                  <span className="text-xs px-3 py-1.5 bg-yellow-950/50 text-yellow-400 border border-yellow-900/50">🔄 TRANSITION</span>
                 </div>
               </div>
             </Link>
+
           </div>
         </section>
 
