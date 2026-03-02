@@ -12,21 +12,21 @@ import { GPISpectrum } from '../../components/gpi';
 const KnowledgeLocationPage = () => {
   const examples = {
     low: [
-      { company: 'GitLab', gpi: 1.8, detail: 'Everything in the public handbook. New hires productive in days.' },
-      { company: 'Notion', gpi: 1.8, detail: 'Documentation-first culture. Knowledge is the product.' },
+      { company: 'GitLab', gpi: 1.8, detail: 'Fully remote, fully documented. The handbook is the org. New hires are productive in days because institutional knowledge is accessible, not personal.' },
+      { company: 'Notion', gpi: 1.8, detail: 'Docs are the default communication layer. If it\'s not written down, it didn\'t happen.' },
     ],
     high: [
-      { company: 'Epic Systems', gpi: 7.3, detail: 'Proprietary systems. Training takes months. Knowledge is moat.' },
-      { company: 'Construction', gpi: 8.0, detail: 'Apprenticeship model. Knowledge transfers person-to-person.' },
+      { company: 'Epic Systems', gpi: 7.3, detail: 'Proprietary stack with years of institutional knowledge baked in. Implementation takes months because knowledge transfer is the product.' },
+      { company: 'Comcast', gpi: 6.95, detail: 'Siloed across business units. Knowledge lives in relationships and org charts, not systems. Each unit operates as its own black box.' },
     ],
   };
 
   const diagnosticQuestions = [
-    'Can new hires find answers without asking veterans?',
-    'Is operational knowledge documented or tribal?',
-    'What happens when key people leave?',
-    'Can you onboard someone without dedicated training?',
-    'Is information shared across teams or hoarded?',
+    'What happens operationally when your most experienced person is unavailable for a week?',
+    'Can a new hire find the answer to a process question without asking someone?',
+    'How many things work because of a specific person rather than a documented process?',
+    'Does the org document decisions or just outcomes?',
+    'How much time do veterans spend answering the same questions repeatedly?',
   ];
 
   return (
@@ -63,8 +63,7 @@ const KnowledgeLocationPage = () => {
               </h1>
 
               <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
-                Where operational knowledge resides. Is it distributed and codified,
-                or trapped in institutional black boxes?
+                Where operational knowledge actually lives. Documented and findable, or in someone's head and leaving with them when they go.
               </p>
 
               {/* Knowledge Location Visual */}
@@ -160,19 +159,17 @@ const KnowledgeLocationPage = () => {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-green-950/20 border border-green-900/50 rounded-xl p-6">
                   <div className="text-green-500 font-mono font-bold mb-2">SCORE 1-3</div>
-                  <h3 className="text-xl font-bold mb-3">Distributed / Codified</h3>
+                  <h3 className="text-xl font-bold mb-3">Findable without asking</h3>
                   <p className="text-zinc-400">
-                    Knowledge is documented, searchable, and accessible. New people can find
-                    answers. The organization functions even when key people leave.
+                    A new hire can find most answers without asking a veteran. Processes are written down because writing them down is how the org thinks. The org functions when the expert is on vacation.
                   </p>
                 </div>
 
                 <div className="bg-red-950/20 border border-red-900/50 rounded-xl p-6">
                   <div className="text-red-500 font-mono font-bold mb-2">SCORE 7-10</div>
-                  <h3 className="text-xl font-bold mb-3">Institutional Black Box</h3>
+                  <h3 className="text-xl font-bold mb-3">Ask Steve</h3>
                   <p className="text-zinc-400">
-                    Knowledge lives in people's heads. Veterans are irreplaceable. New hires
-                    take months to become productive. Departure = knowledge loss.
+                    Knowledge lives in relationships and relationships have single points of failure. When the expert leaves, the knowledge goes with them. Onboarding isn't a process. It's a relationship you have to earn.
                   </p>
                 </div>
               </div>
@@ -183,23 +180,19 @@ const KnowledgeLocationPage = () => {
         <section className="py-16 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">WHY IT MATTERS</h2>
+              <h2 className="text-2xl font-black mb-8">THE TRIBAL TAX</h2>
 
               <div className="space-y-6">
                 <div className="border-l-4 border-red-600 pl-6 py-4">
                   <p className="text-lg text-zinc-300">
-                    <strong className="text-white">"Knowledge is power"</strong> is the problem.
-                    When people hoard knowledge, the organization becomes hostage to individuals.
-                    Bus factor of 1 = organizational fragility.
+                    Tribal knowledge looks like <strong className="text-white">institutional wisdom</strong> until someone retires. Then it looks like starting over.
                   </p>
                 </div>
 
                 <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-6">
-                  <h3 className="font-bold mb-4">THE DOCUMENTATION PARADOX</h3>
+                  <h3 className="font-bold mb-4">THE PRODUCTIVITY ILLUSION</h3>
                   <p className="text-zinc-400">
-                    Organizations that don't document say they're "too busy." But the busyness
-                    comes from answering the same questions repeatedly, onboarding the same
-                    skills over and over, and rebuilding tribal knowledge after every departure.
+                    Teams running on tribal knowledge look efficient because their veterans move fast. New people take months to get useful. That onboarding cost is invisible because it's distributed across hundreds of conversations. Document it and the cost becomes obvious. Don't, and you pay it forever. Most orgs choose not to see it.
                   </p>
                 </div>
 
@@ -270,29 +263,6 @@ const KnowledgeLocationPage = () => {
                     <span className="text-zinc-300">{q}</span>
                   </div>
                 ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 px-6 bg-zinc-950">
-          <div className="max-w-7xl mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">ACTION GUIDE FOR THIS DIMENSION</h2>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <Link href="/actions/knowledge-flow" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">KNOWLEDGE FLOW</h3>
-                  <p className="text-zinc-500 text-sm">
-                    Free DIY playbook. Document decisions, pair new with experienced, create runbooks.
-                  </p>
-                </Link>
-                <Link href="/actions" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-zinc-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">ALL ACTION GUIDES</h3>
-                  <p className="text-zinc-500 text-sm">
-                    View action guides for all 7 GPI dimensions.
-                  </p>
-                </Link>
               </div>
             </div>
           </div>

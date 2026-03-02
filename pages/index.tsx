@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
-import { ArrowRight, BookOpen } from 'lucide-react';
+import { ArrowRight, BookOpen, Clock, RotateCcw, MapPin, Lock, Users, Building2, Zap } from 'lucide-react';
 
 interface Company {
   id: string;
@@ -115,15 +115,15 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
                 </div>
 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
-                  YOU'RE NOT DROWNING<br />IN DYSFUNCTION<span className="text-red-600">.</span>
+                  YOUR ORG HAS A<br />METABOLIC RATE<span className="text-red-600">.</span>
                 </h1>
 
                 <p className="text-xl text-zinc-400 mb-4 max-w-2xl">
-                  You're drowning in success. Success that outlived its context.
+                  Most friction doesn't show up on a P&L. It shows up in how long decisions take, whether mistakes get fixed or defended, whether your best people have room to move.
                 </p>
 
                 <p className="text-xl text-white font-bold">
-                  We measure where the energy gets stuck.
+                  We measure it.
                 </p>
               </div>
 
@@ -257,149 +257,33 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
           </div>
         </section>
 
-        {/* Book Teaser + Featured Insight */}
-        <section className="py-16 px-6 border-t border-zinc-900 bg-zinc-950">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Left: Book Context */}
-              <div>
-                <div className="flex items-center gap-3 mb-6">
-                  <BookOpen size={20} className="text-red-600" />
-                  <span className="text-xs font-mono text-zinc-500">FROM THE UPCOMING BOOK</span>
-                </div>
-
-                <h2 className="text-3xl md:text-4xl font-black mb-4 leading-tight">
-                  THE GROWING<br />PAINS INDEX<span className="text-red-600">.</span>
-                </h2>
-
-                <p className="text-lg text-zinc-400 mb-6">
-                  Why organizations that succeed eventually fail. Why the things that work become the things that trap you. Why you're invested in the waste.
-                </p>
-
-                <p className="text-zinc-500 mb-8">
-                  16 chapters. The physics of why everything feels stuck.
-                </p>
-
-                <Link
-                  href="/insights"
-                  className="inline-flex items-center gap-2 text-white font-bold hover:text-red-500 transition-colors group"
-                >
-                  READ THE INSIGHTS
-                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
+        {/* THIS JUST HAPPENED */}
+        <section className="px-6 border-t border-red-900/50 bg-red-950/10">
+          <div className="max-w-6xl mx-auto">
+            <Link
+              href="/insights/netflix-let-paramount-win"
+              className="flex items-center justify-between py-4 group"
+            >
+              <div className="flex items-center gap-4">
+                <span className="flex items-center gap-1.5 text-xs font-mono text-red-500">
+                  <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
+                  THIS JUST HAPPENED
+                </span>
+                <span className="text-xs font-mono text-zinc-600">FEB 26, 2026</span>
+                <span className="text-sm font-bold text-white group-hover:text-red-500 transition-colors">
+                  Netflix Let Paramount Win. The GPI gap predicted it in December.
+                </span>
               </div>
-
-              {/* Right: Featured Insight Card */}
-              <Link href="/insights/invested-in-the-waste" className="block group">
-                <div className="border-2 border-red-600/50 bg-black p-8 hover:border-red-600 transition-all relative overflow-hidden">
-                  {/* Background visual hint */}
-                  <div className="absolute top-4 right-4 opacity-20">
-                    <svg width="80" height="80" viewBox="0 0 80 80">
-                      <circle cx="40" cy="20" r="12" stroke="#ef4444" strokeWidth="2" fill="none" />
-                      <line x1="40" y1="32" x2="20" y2="70" stroke="#ef4444" strokeWidth="2" />
-                      <line x1="40" y1="32" x2="40" y2="70" stroke="#ef4444" strokeWidth="2" />
-                      <line x1="40" y1="32" x2="60" y2="70" stroke="#ef4444" strokeWidth="2" />
-                      <circle cx="20" cy="70" r="6" fill="#eab308" />
-                      <circle cx="40" cy="70" r="6" fill="#3b82f6" />
-                      <circle cx="60" cy="70" r="6" fill="#a855f7" />
-                    </svg>
-                  </div>
-
-                  <div className="relative">
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="text-xs font-mono text-red-500 bg-red-500/10 px-2 py-1">FEATURED</span>
-                      <span className="text-xs font-mono text-zinc-600">CHAPTER 2</span>
-                    </div>
-
-                    <h3 className="text-2xl font-black mb-3 group-hover:text-red-500 transition-colors">
-                      You're Invested in the Waste
-                      <ArrowRight className="inline ml-2 opacity-0 group-hover:opacity-100 transition-opacity" size={20} />
-                    </h3>
-
-                    <p className="text-zinc-400 mb-4">
-                      The gap between how things should work and how they actually work isn't dysfunction. It's a product. Someone is selling it.
-                    </p>
-
-                    <p className="text-red-500 font-bold">
-                      That someone might be you.
-                    </p>
-                  </div>
-                </div>
-              </Link>
-            </div>
+              <span className="text-xs font-mono text-red-500 group-hover:text-red-400 transition-colors whitespace-nowrap">
+                READ →
+              </span>
+            </Link>
           </div>
         </section>
 
-        {/* Framework + Proof Combined */}
-        <section className="py-16 px-6 border-t border-zinc-900">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Left: The Framework */}
-              <div>
-                <div className="text-xs font-mono text-zinc-600 mb-4">THE FRAMEWORK</div>
-                <h2 className="text-3xl font-black mb-6">
-                  7 DIMENSIONS<span className="text-red-600">.</span><br />
-                  ONE SCORE<span className="text-red-600">.</span>
-                </h2>
-                <p className="text-zinc-400 mb-6">
-                  GPI measures where energy gets trapped. Decision latency. Error correction. Knowledge flow. The physics of why your organization moves or doesn't.
-                </p>
-
-                {/* 7 Dimensions - Compact */}
-                <div className="grid grid-cols-2 gap-2 mb-6">
-                  {[
-                    { name: 'Decision Latency', desc: 'Speed to yes' },
-                    { name: 'Error Correction', desc: 'Speed to fix' },
-                    { name: 'Knowledge Location', desc: 'Where expertise lives' },
-                    { name: 'Structural Lock-In', desc: 'Process rigidity' },
-                    { name: 'Talent Flow', desc: 'Movement to impact' },
-                    { name: 'Capital Intensity', desc: 'Cost to pivot' },
-                    { name: 'Knowledge Velocity', desc: 'Learning spread' },
-                  ].map((dim, i) => (
-                    <div key={i} className="bg-zinc-900/50 p-3">
-                      <div className="text-xs font-bold text-white">{dim.name}</div>
-                      <div className="text-xs text-zinc-600">{dim.desc}</div>
-                    </div>
-                  ))}
-                </div>
-
-                <Link
-                  href="/gpi-framework"
-                  className="inline-flex items-center gap-2 text-white font-bold hover:text-red-500 transition-colors group"
-                >
-                  UNDERSTAND THE FRAMEWORK
-                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-
-              {/* Right: The Proof */}
-              <div className="text-center lg:text-left">
-                <div className="text-7xl md:text-8xl font-black text-red-600 mb-2">
-                  {totalAnalyses || '101'}
-                </div>
-                <div className="text-2xl font-black text-zinc-400 mb-1">COMPANIES SCORED</div>
-                <div className="text-sm font-mono text-zinc-600 mb-4 flex items-center justify-center lg:justify-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
-                  AND COUNTING
-                </div>
-                <p className="text-zinc-500 mb-6">
-                  Fortune 500s. Retailers. Media giants. Tech disruptors. Same 7 dimensions. Same physics. Different scores.
-                </p>
-                <Link
-                  href="/companies"
-                  className="inline-flex items-center gap-2 text-red-500 font-bold hover:text-red-400 transition-colors group"
-                >
-                  SEE ALL COMPANIES
-                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Latest Analyses - 3 Cards */}
-        <section className="py-12 px-6 bg-zinc-950">
-          <div className="max-w-5xl mx-auto">
+        {/* Latest Analyses */}
+        <section className="py-12 px-6 border-t border-zinc-900 bg-zinc-950">
+          <div className="max-w-6xl mx-auto">
             <div className="flex items-center justify-between mb-6">
               <div className="text-xs font-mono text-zinc-600">LATEST ANALYSES</div>
               <Link href="/insights/gpi-analyses" className="text-xs font-mono text-red-500 hover:text-red-400">
@@ -438,27 +322,27 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
                     <div className="border border-zinc-800 p-6 h-full hover:border-red-600/50 transition-all bg-black">
                       <div className="text-xs font-mono text-red-500 mb-3">WEEKLY SMACKDOWN</div>
                       <h3 className="font-bold mb-2 group-hover:text-red-500 transition-colors">
-                        Company vs Company
+                        Head-to-Head GPI
                       </h3>
-                      <p className="text-sm text-zinc-500">Head-to-head GPI battles. Who moves. Who's stuck.</p>
-                    </div>
-                  </Link>
-                  <Link href="/insights/gpi-analyses" className="block group">
-                    <div className="border border-zinc-800 p-6 h-full hover:border-yellow-600/50 transition-all bg-black">
-                      <div className="text-xs font-mono text-yellow-500 mb-3">TRANSITION WATCH</div>
-                      <h3 className="font-bold mb-2 group-hover:text-yellow-500 transition-colors">
-                        Companies in Motion
-                      </h3>
-                      <p className="text-sm text-zinc-500">Tracking organizations attempting transformation.</p>
+                      <p className="text-sm text-zinc-500">Two companies. Same lens. One moves, one doesn't.</p>
                     </div>
                   </Link>
                   <Link href="/insights/gpi-analyses" className="block group">
                     <div className="border border-zinc-800 p-6 h-full hover:border-orange-600/50 transition-all bg-black">
                       <div className="text-xs font-mono text-orange-500 mb-3">CALCIFICATION ALERT</div>
                       <h3 className="font-bold mb-2 group-hover:text-orange-500 transition-colors">
-                        Warning Signs
+                        The Physics Say Trouble
                       </h3>
-                      <p className="text-sm text-zinc-500">When the physics say trouble is coming.</p>
+                      <p className="text-sm text-zinc-500">When the score tells you what the earnings call won't.</p>
+                    </div>
+                  </Link>
+                  <Link href="/insights/gpi-analyses" className="block group">
+                    <div className="border border-zinc-800 p-6 h-full hover:border-blue-600/50 transition-all bg-black">
+                      <div className="text-xs font-mono text-blue-500 mb-3">VITAL SIGNS</div>
+                      <h3 className="font-bold mb-2 group-hover:text-blue-500 transition-colors">
+                        Reading the Monitors
+                      </h3>
+                      <p className="text-sm text-zinc-500">Metabolic stress before the market sees it.</p>
                     </div>
                   </Link>
                 </>
@@ -467,17 +351,143 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
           </div>
         </section>
 
-        {/* Newsletter + Diagnostic Combined */}
+        {/* Framework */}
         <section className="py-16 px-6 border-t border-zinc-900">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12">
-              {/* Newsletter */}
+          <div className="max-w-5xl mx-auto">
+            <div className="text-xs font-mono text-zinc-600 mb-4">THE FRAMEWORK</div>
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
               <div>
-                <h2 className="text-2xl font-black mb-4">GET THE ANALYSIS</h2>
-                <p className="text-zinc-500 mb-6">
-                  Weekly breakdowns. Who's calcifying. Who's not. No spam. Just physics.
+                <h2 className="text-3xl font-black mb-4">
+                  SEVEN SIGNALS<span className="text-red-600">.</span>
+                </h2>
+                <p className="text-zinc-400 mb-8">
+                  GPI doesn't measure sentiment or culture scores. It measures the physical properties of how an org moves. Seven dimensions. Each one tells you something about where energy is leaking.
+                </p>
+                <Link
+                  href="/gpi-framework"
+                  className="inline-flex items-center gap-2 text-white font-bold hover:text-red-500 transition-colors group"
+                >
+                  SEE THE FRAMEWORK
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+
+              <div className="space-y-0">
+                {[
+                  { slug: 'decision-latency', name: 'Decision Latency', icon: Clock },
+                  { slug: 'error-correction', name: 'Error Correction', icon: RotateCcw },
+                  { slug: 'knowledge-location', name: 'Knowledge Location', icon: MapPin },
+                  { slug: 'structural-lock-in', name: 'Structural Lock-In', icon: Lock },
+                  { slug: 'talent-flow', name: 'Talent Flow', icon: Users },
+                  { slug: 'capital-intensity', name: 'Capital Intensity', icon: Building2 },
+                  { slug: 'knowledge-velocity', name: 'Knowledge Velocity', icon: Zap },
+                ].map((dim, i) => {
+                  const Icon = dim.icon;
+                  return (
+                    <Link
+                      key={i}
+                      href={`/gpi-framework/${dim.slug}`}
+                      className="flex items-center gap-3 py-3 border-b border-zinc-900 hover:border-red-900 group transition-colors"
+                    >
+                      <Icon size={14} className="text-zinc-600 group-hover:text-red-500 transition-colors flex-shrink-0" />
+                      <span className="text-sm font-bold text-zinc-300 group-hover:text-white transition-colors">
+                        {dim.name}
+                      </span>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Book Teaser + Featured Insight */}
+        <section className="py-16 px-6 border-t border-zinc-900 bg-zinc-950">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Left: Book Context */}
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <BookOpen size={20} className="text-red-600" />
+                  <span className="text-xs font-mono text-zinc-500">FROM THE UPCOMING BOOK</span>
+                </div>
+
+                <h2 className="text-3xl md:text-4xl font-black mb-4 leading-tight">
+                  THE GROWING<br />PAINS INDEX<span className="text-red-600">.</span>
+                </h2>
+
+                <p className="text-lg text-zinc-400 mb-4">
+                  Calcification isn't dysfunction. It's the operating system that built you, running past its environment.
                 </p>
 
+                <p className="text-zinc-500 mb-4">
+                  After scoring 100+ companies across seven dimensions, one pattern keeps appearing: the decisions that made the org work are the same ones making it not work. The playbook didn't fail. The terrain shifted. And nobody updated the playbook.
+                </p>
+
+                <p className="text-zinc-500 mb-8">
+                  That's not a strategy problem. That's physics.
+                </p>
+
+                <Link
+                  href="/insights"
+                  className="inline-flex items-center gap-2 text-white font-bold hover:text-red-500 transition-colors group"
+                >
+                  READ THE INSIGHTS
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+
+              {/* Right: Featured Insight Card */}
+              <Link href="/insights/invested-in-the-waste" className="block group">
+                <div className="border-2 border-red-600/50 bg-black p-8 hover:border-red-600 transition-all relative overflow-hidden">
+                  <div className="absolute top-4 right-4 opacity-20">
+                    <svg width="80" height="80" viewBox="0 0 80 80">
+                      <circle cx="40" cy="20" r="12" stroke="#ef4444" strokeWidth="2" fill="none" />
+                      <line x1="40" y1="32" x2="20" y2="70" stroke="#ef4444" strokeWidth="2" />
+                      <line x1="40" y1="32" x2="40" y2="70" stroke="#ef4444" strokeWidth="2" />
+                      <line x1="40" y1="32" x2="60" y2="70" stroke="#ef4444" strokeWidth="2" />
+                      <circle cx="20" cy="70" r="6" fill="#eab308" />
+                      <circle cx="40" cy="70" r="6" fill="#3b82f6" />
+                      <circle cx="60" cy="70" r="6" fill="#a855f7" />
+                    </svg>
+                  </div>
+
+                  <div className="relative">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="text-xs font-mono text-red-500 bg-red-500/10 px-2 py-1">FEATURED</span>
+                      <span className="text-xs font-mono text-zinc-600">CHAPTER 2</span>
+                    </div>
+
+                    <h3 className="text-2xl font-black mb-3 group-hover:text-red-500 transition-colors">
+                      You're Invested in the Waste
+                      <ArrowRight className="inline ml-2 opacity-0 group-hover:opacity-100 transition-opacity" size={20} />
+                    </h3>
+
+                    <p className="text-zinc-400 mb-4">
+                      The gap between how things should work and how they actually work isn't dysfunction. It's a product. Someone is selling it.
+                    </p>
+
+                    <p className="text-red-500 font-bold">
+                      That someone might be you.
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Bottom CTAs */}
+        <section className="py-16 px-6 border-t border-zinc-900">
+          <div className="max-w-4xl mx-auto space-y-12">
+
+            {/* Newsletter */}
+            <div className="flex flex-col md:flex-row md:items-center gap-6">
+              <div className="flex-1">
+                <div className="text-xs font-mono text-zinc-600 mb-2">WEEKLY ANALYSIS</div>
+                <p className="text-zinc-400">Who's calcifying. Who's not. No spam.</p>
+              </div>
+              <div className="md:w-80">
                 {subscribed ? (
                   <div className="text-green-500 font-bold">You're in. Watch your inbox.</div>
                 ) : (
@@ -492,29 +502,45 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
                     />
                     <button
                       type="submit"
-                      className="bg-red-600 px-6 py-3 font-bold hover:bg-red-700 transition-colors whitespace-nowrap"
+                      className="bg-red-600 px-5 py-3 font-bold hover:bg-red-700 transition-colors whitespace-nowrap"
                     >
-                      SUBSCRIBE
+                      IN
                     </button>
                   </form>
                 )}
               </div>
-
-              {/* Diagnostic */}
-              <div className="flex flex-col justify-center">
-                <h2 className="text-2xl font-black mb-4">MEASURE YOURSELF</h2>
-                <p className="text-zinc-500 mb-6">
-                  32 questions. 7 dimensions. See where your organization gets stuck.
-                </p>
-                <Link
-                  href="/diagnostic"
-                  className="inline-flex items-center gap-2 border-2 border-zinc-700 px-6 py-3 font-bold hover:border-red-600 hover:text-red-500 transition-colors w-fit group"
-                >
-                  TAKE THE DIAGNOSTIC
-                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
             </div>
+
+            {/* Diagnostic */}
+            <div className="flex flex-col md:flex-row md:items-center gap-6 pt-8 border-t border-zinc-900">
+              <div className="flex-1">
+                <div className="text-xs font-mono text-zinc-600 mb-2">SELF-DIAGNOSTIC</div>
+                <p className="text-zinc-400">32 questions. 8 minutes. Know your score and your highest friction point.</p>
+              </div>
+              <Link
+                href="/diagnostic"
+                className="inline-flex items-center gap-2 border border-zinc-700 px-6 py-3 font-bold hover:border-red-600 hover:text-red-500 transition-colors group whitespace-nowrap"
+              >
+                TAKE THE DIAGNOSTIC
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
+            {/* Consult */}
+            <div className="flex flex-col md:flex-row md:items-center gap-6 pt-8 border-t border-zinc-900">
+              <div className="flex-1">
+                <div className="text-xs font-mono text-zinc-600 mb-2">LIVE SESSION</div>
+                <p className="text-zinc-400">Want to run this on your org? One hour. I map the friction live. First session free.</p>
+              </div>
+              <Link
+                href="/consult"
+                className="inline-flex items-center gap-2 bg-red-600 px-6 py-3 font-bold hover:bg-red-700 transition-colors group whitespace-nowrap"
+              >
+                BOOK A SESSION
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
           </div>
         </section>
 

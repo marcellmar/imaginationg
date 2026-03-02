@@ -12,21 +12,21 @@ import { GPISpectrum } from '../../components/gpi';
 const DecisionLatencyPage = () => {
   const examples = {
     low: [
-      { company: 'Stripe', gpi: 1.5, detail: 'API decisions ship same-day. No committee reviews for standard changes.' },
-      { company: 'Spotify', gpi: 2.5, detail: 'Squad autonomy means most decisions happen at team level.' },
+      { company: 'Stripe', gpi: 1.5, detail: 'API changes ship in hours. Standard decisions don\'t require committee review. Authority is distributed by design.' },
+      { company: 'Spotify', gpi: 2.5, detail: 'Squad model means most decisions never leave the team. Escalation is the exception, not the default.' },
     ],
     high: [
-      { company: 'Exxon Mobil', gpi: 6.8, detail: 'Multi-year capital allocation cycles. Board approval for major investments.' },
-      { company: 'Government', gpi: 9.0, detail: 'Legislative cycles, budget years, regulatory review periods.' },
+      { company: 'Comcast', gpi: 6.95, detail: '33% family voting control since 2002. 894 executives in the org. Decisions travel through all of it before anything moves.' },
+      { company: 'WBD', gpi: 7.4, detail: 'Merger integration locked leadership into quarterly budget cycles. Strategic calls take months to finalize.' },
     ],
   };
 
   const diagnosticQuestions = [
-    'Can a team ship a feature without executive approval?',
-    'How long does budget reallocation take?',
-    'Can decisions be reversed within the same quarter?',
-    'Do routine decisions require multiple sign-offs?',
-    'Is there a fast-track process for urgent decisions?',
+    'How many people have to approve a budget shift under $50K?',
+    'When did you last change something significant without a project kickoff?',
+    'How long does it take to kill a failing initiative?',
+    'Who can say yes without asking someone else first?',
+    'Are urgent decisions faster, or do they still follow the same path?',
   ];
 
   return (
@@ -66,8 +66,7 @@ const DecisionLatencyPage = () => {
               </h1>
 
               <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
-                Time from signal to decision to action. How fast can your organization
-                recognize a need and respond to it?
+                How fast the org moves from "we need to decide" to decided. Every layer between signal and action is a tax. Most orgs don't know how much they're paying.
               </p>
 
               {/* Decision Timeline Visual */}
@@ -164,21 +163,17 @@ const DecisionLatencyPage = () => {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-green-950/20 border border-green-900/50 rounded-xl p-6">
                   <div className="text-green-500 font-mono font-bold mb-2">SCORE 1-3</div>
-                  <h3 className="text-xl font-bold mb-3">Real-time / Continuous</h3>
+                  <h3 className="text-xl font-bold mb-3">Decisions happen near the work</h3>
                   <p className="text-zinc-400">
-                    Decisions happen in hours to days. Authority is distributed. Most choices
-                    don't require executive approval. Teams are empowered to act on local
-                    information without escalation.
+                    Authority sits close to the problem. Teams decide without escalating. Budget moves in days, not quarters. Nobody waits for a meeting to fix an obvious problem.
                   </p>
                 </div>
 
                 <div className="bg-red-950/20 border border-red-900/50 rounded-xl p-6">
                   <div className="text-red-500 font-mono font-bold mb-2">SCORE 7-10</div>
-                  <h3 className="text-xl font-bold mb-3">Annual / Generational</h3>
+                  <h3 className="text-xl font-bold mb-3">Decisions travel up and down</h3>
                   <p className="text-zinc-400">
-                    Decisions take months to years. Budget cycles, committee reviews, and
-                    stakeholder alignment create massive latency. By the time you decide,
-                    the opportunity has often passed.
+                    Decisions go upward to people far from the work, then back down. By the time approval lands, the context has shifted. The org doesn't move slowly on purpose. It built a structure that can't do anything else.
                   </p>
                 </div>
               </div>
@@ -190,19 +185,23 @@ const DecisionLatencyPage = () => {
         <section className="py-16 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">WHY 20% WEIGHT?</h2>
+              <h2 className="text-2xl font-black mb-8">THE CEILING</h2>
 
               <div className="space-y-6">
                 <p className="text-lg text-zinc-300">
-                  Decision Latency is the <strong className="text-white">metabolic rate</strong> of
-                  the organization. It determines how fast everything else can move.
+                  Decision Latency is the <strong className="text-white">metabolic rate</strong> of the organization. Speed everything else can move at is capped by how fast this one thing moves.
                 </p>
 
                 <div className="border-l-4 border-red-600 pl-6 py-4">
                   <p className="text-zinc-400">
-                    You can have brilliant people, perfect information, and flawless processes.
-                    But if decisions take six months, you're still moving at six-month speed.
-                    Decision Latency is the ceiling on organizational velocity.
+                    Each sign-off adds time without adding value. A decision that needs five approvals doesn't get five times better. It gets five times slower. Most of the cost isn't the delay itself, it's what doesn't happen while you're waiting.
+                  </p>
+                </div>
+
+                <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-6">
+                  <h3 className="font-bold mb-4">THE APPROVAL CHAIN TAX</h3>
+                  <p className="text-zinc-400">
+                    Approval chains don't exist to slow things down. They exist because someone, at some point, made a mistake and added a checkpoint. Then someone else made a different mistake and added another one. The checkpoints accumulate. The mistakes they were designed to prevent become rare. The latency becomes permanent.
                   </p>
                 </div>
 
@@ -217,7 +216,7 @@ const DecisionLatencyPage = () => {
                   </div>
                   <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-4">
                     <div className="text-3xl font-black text-red-500 mb-2">80%</div>
-                    <p className="text-sm text-zinc-500">Of slow decisions are process, not analysis</p>
+                    <p className="text-sm text-zinc-500">Of slow decisions are process problems, not analysis problems</p>
                   </div>
                 </div>
               </div>
@@ -287,30 +286,6 @@ const DecisionLatencyPage = () => {
                   fast, autonomous decision-making, score 1-3. If most answers suggest
                   multi-layered approval and long timelines, score 7-10.
                 </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Action Guide */}
-        <section className="py-16 px-6 bg-zinc-950">
-          <div className="max-w-7xl mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">ACTION GUIDE FOR THIS DIMENSION</h2>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <Link href="/actions/decision-speed" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">DECISION SPEED</h3>
-                  <p className="text-zinc-500 text-sm">
-                    Free DIY playbook. Create decision rights matrix, force binary framing, push decisions down.
-                  </p>
-                </Link>
-                <Link href="/actions" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-zinc-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">ALL ACTION GUIDES</h3>
-                  <p className="text-zinc-500 text-sm">
-                    View action guides for all 7 GPI dimensions.
-                  </p>
-                </Link>
               </div>
             </div>
           </div>

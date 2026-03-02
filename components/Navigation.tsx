@@ -12,7 +12,6 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage }) => {
   const navItems = [
     { key: 'home', label: 'HOME', href: '/' },
     { key: 'companies', label: 'COMPANIES', href: '/companies' },
-    { key: 'deals', label: 'DEALS', href: '/deals' },
     { key: 'insights', label: 'INSIGHTS', href: '/insights' },
     { key: 'framework', label: 'FRAMEWORK', href: '/gpi-framework' },
     { key: 'diagnostic', label: 'DIAGNOSTIC', href: '/diagnostic' },

@@ -12,21 +12,21 @@ import { GPISpectrum } from '../../components/gpi';
 const KnowledgeVelocityPage = () => {
   const examples = {
     low: [
-      { company: 'OpenAI', gpi: 1.2, detail: 'Knowledge updates in days. Research to production in weeks.' },
-      { company: 'Netflix', gpi: 2.0, detail: 'A/B tests inform decisions in real-time. Algorithms learn continuously.' },
+      { company: 'OpenAI', gpi: 1.2, detail: 'Research to production in weeks. What they learn goes into the product in near real-time.' },
+      { company: 'Netflix', gpi: 2.0, detail: 'A/B tests inform decisions continuously. The algorithm learns faster than any team can plan.' },
     ],
     high: [
-      { company: 'Construction', gpi: 8.0, detail: 'Apprenticeship model. Best practices take decades to spread.' },
-      { company: 'Government', gpi: 9.0, detail: 'Policy knowledge trapped in bureaucratic silos. Updates are generational.' },
+      { company: 'WBD', gpi: 7.4, detail: 'Post-merger org has competing knowledge bases from legacy Time Warner and Discovery. Best practices from one don\'t reach the other.' },
+      { company: 'Comcast', gpi: 6.95, detail: 'Fragmented analytics and legacy systems slow information flow. Leadership operates on reports, not signal.' },
     ],
   };
 
   const diagnosticQuestions = [
-    'How fast does operational knowledge update across the organization?',
-    'Are best practices shared and adopted quickly?',
-    'Is learning embedded in daily operations?',
-    'How long until a new insight becomes standard practice?',
-    'Does knowledge spread horizontally or only vertically?',
+    'How long does it take for a front-line insight to change how work actually gets done?',
+    'Who decides what knowledge gets escalated and what stays in the team?',
+    'Do best practices spread laterally between teams or only vertically through management?',
+    'When did leadership last learn something from a junior employee that changed a decision?',
+    'How does the org capture what it learns from failed projects?',
   ];
 
   return (
@@ -63,8 +63,7 @@ const KnowledgeVelocityPage = () => {
               </h1>
 
               <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
-                How fast operational knowledge updates and spreads. The speed of
-                organizational learning in the wild.
+                How fast what the org learns becomes what the org does. The gap between knowing something works better and actually doing it better. That gap is the metabolism.
               </p>
 
               {/* Knowledge Velocity Visual */}
@@ -163,21 +162,17 @@ const KnowledgeVelocityPage = () => {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-green-950/20 border border-green-900/50 rounded-xl p-6">
                   <div className="text-green-500 font-mono font-bold mb-2">SCORE 1-3</div>
-                  <h3 className="text-xl font-bold mb-3">Real-Time Algorithmic</h3>
+                  <h3 className="text-xl font-bold mb-3">Insight reaches decision-makers fast</h3>
                   <p className="text-zinc-400">
-                    Learning happens continuously. Insights propagate instantly.
-                    The organization's collective intelligence updates in real-time.
-                    What works spreads. What doesn't, dies.
+                    What the front line learns reaches leadership before it decays. Best practices spread horizontally, not just top-down. The org learns in weeks, not quarters.
                   </p>
                 </div>
 
                 <div className="bg-red-950/20 border border-red-900/50 rounded-xl p-6">
                   <div className="text-red-500 font-mono font-bold mb-2">SCORE 7-10</div>
-                  <h3 className="text-xl font-bold mb-3">Generational Transfer</h3>
+                  <h3 className="text-xl font-bold mb-3">Good ideas die in silos</h3>
                   <p className="text-zinc-400">
-                    Knowledge passes through apprenticeship. Best practices take
-                    years to spread. Learning happens when people retire and new
-                    ones bring different assumptions.
+                    By the time an insight travels through enough layers to become policy, the context has changed and the people who generated it have moved on. The org knows things it can't act on.
                   </p>
                 </div>
               </div>
@@ -188,28 +183,22 @@ const KnowledgeVelocityPage = () => {
         <section className="py-16 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">WHY IT MATTERS</h2>
+              <h2 className="text-2xl font-black mb-8">THE FILTER</h2>
 
               <div className="space-y-6">
                 <div className="border-l-4 border-red-600 pl-6 py-4">
                   <p className="text-lg text-zinc-300">
-                    <strong className="text-white">Knowledge velocity is the clock speed of adaptation.</strong>
-                    How fast the organization can recognize "this works better" and make
-                    it the new standard determines how fast it can evolve.
+                    Knowledge velocity is the gap between what the org knows and what the org does. In high-velocity orgs, that gap is hours. In low-velocity orgs, it's years. <strong className="text-white">Same information. Different metabolism.</strong>
                   </p>
                 </div>
 
                 <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-6">
-                  <h3 className="font-bold mb-4">THE AI ACCELERATION</h3>
+                  <h3 className="font-bold mb-4">WHY THE GAP GROWS</h3>
                   <p className="text-zinc-400 mb-4">
-                    AI is compressing knowledge velocity timescales. What used to take
-                    months of analysis now takes minutes. Organizations that can't absorb
-                    and act on insights quickly will be outpaced by those that can.
+                    Information gets filtered going up. People tell leadership what leadership wants to hear, not what's actually happening. The top operates on curated data while the front line operates on reality. Decisions get made on a model of the org that stopped being accurate six months ago.
                   </p>
                   <p className="text-zinc-400">
-                    The gap between high and low knowledge velocity organizations
-                    is widening. Those stuck at 7-10 will fall further behind as
-                    field-state competitors learn faster and faster.
+                    The filter isn't malicious. It's self-preservation. Delivering bad news in a blame culture is career risk. So people don't. The org calcifies around the filtered version of itself.
                   </p>
                 </div>
 
@@ -284,29 +273,6 @@ const KnowledgeVelocityPage = () => {
                     <span className="text-zinc-300">{q}</span>
                   </div>
                 ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 px-6 bg-zinc-950">
-          <div className="max-w-7xl mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">ACTION GUIDE FOR THIS DIMENSION</h2>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <Link href="/actions/velocity-boost" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">VELOCITY BOOST</h3>
-                  <p className="text-zinc-500 text-sm">
-                    Free DIY playbook. Create signal routes, weekly learning rituals, embed info in workflow.
-                  </p>
-                </Link>
-                <Link href="/actions" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-zinc-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">ALL ACTION GUIDES</h3>
-                  <p className="text-zinc-500 text-sm">
-                    View action guides for all 7 GPI dimensions.
-                  </p>
-                </Link>
               </div>
             </div>
           </div>

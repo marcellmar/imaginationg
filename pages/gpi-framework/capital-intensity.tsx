@@ -12,21 +12,21 @@ import { GPISpectrum } from '../../components/gpi';
 const CapitalIntensityPage = () => {
   const examples = {
     low: [
-      { company: 'Notion', gpi: 1.5, detail: 'Purely digital. Server costs are the main infrastructure.' },
-      { company: 'Stripe', gpi: 1.5, detail: 'Software layer on financial rails. No physical footprint.' },
+      { company: 'Notion', gpi: 1.5, detail: 'Purely digital. Infrastructure cost scales with revenue. No physical constraint on what to build next.' },
+      { company: 'Stripe', gpi: 1.5, detail: 'Software layer on top of financial rails. The business can grow without proportional capital.' },
     ],
     high: [
-      { company: 'Phillips 66', gpi: 6.4, detail: 'Refineries, pipelines, storage. Billions in physical assets.' },
-      { company: 'Exxon Mobil', gpi: 6.8, detail: 'Multi-decade asset commitments. Infrastructure that spans continents.' },
+      { company: 'Comcast', gpi: 6.95, detail: '$124B in revenue tied to infrastructure that takes decades and billions to replace. Broadband is the business and the constraint.' },
+      { company: 'Phillips 66', gpi: 6.4, detail: '40-year refineries. Physical infrastructure priced at original investment. Unwinding it means taking losses nobody wants to authorize.' },
     ],
   };
 
   const diagnosticQuestions = [
-    'How much physical infrastructure is required to operate?',
-    'Can the business scale without proportional capital investment?',
-    'What\'s the ratio of digital to physical assets?',
-    'How long do major investments take to pay back?',
-    'What\'s the exit cost if you need to change direction?',
+    'What percentage of operating cost is maintaining existing physical assets?',
+    'What would it cost to exit your current infrastructure in two years?',
+    'Which strategic decisions get made to protect existing asset utilization?',
+    'How much of your capex goes to new capability vs replacing what\'s aging?',
+    'What does the org look like if it couldn\'t build anything physical for three years?',
   ];
 
   return (
@@ -63,8 +63,7 @@ const CapitalIntensityPage = () => {
               </h1>
 
               <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
-                Ratio of physical to digital/human capital. How much physical
-                infrastructure anchors your organization in place?
+                How much physical infrastructure anchors the org in place. Every dollar locked in physical assets is a dollar that can't move. Every building or refinery is a bet on a specific future that gets harder to unwind every year.
               </p>
 
               {/* Capital Intensity Visual */}
@@ -156,19 +155,17 @@ const CapitalIntensityPage = () => {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-green-950/20 border border-green-900/50 rounded-xl p-6">
                   <div className="text-green-500 font-mono font-bold mb-2">SCORE 1-3</div>
-                  <h3 className="text-xl font-bold mb-3">Purely Digital</h3>
+                  <h3 className="text-xl font-bold mb-3">Can pivot without selling assets</h3>
                   <p className="text-zinc-400">
-                    Minimal physical footprint. Cloud infrastructure. Can scale or pivot
-                    without building anything. Human and digital capital dominate.
+                    Minimal physical footprint. Scaling doesn't require building anything new. The org's commitments live in code and contracts, not concrete.
                   </p>
                 </div>
 
                 <div className="bg-red-950/20 border border-red-900/50 rounded-xl p-6">
                   <div className="text-red-500 font-mono font-bold mb-2">SCORE 7-10</div>
-                  <h3 className="text-xl font-bold mb-3">Infrastructure-Locked</h3>
+                  <h3 className="text-xl font-bold mb-3">The infrastructure makes decisions</h3>
                   <p className="text-zinc-400">
-                    Massive physical assets. Factories, refineries, hospitals, campuses.
-                    Capital decisions made decades ago still constrain today.
+                    Executives are measured on returns from capital already deployed. Changing direction means writing down assets, which means admitting the prior bet was wrong. So the prior bet runs until it can't.
                   </p>
                 </div>
               </div>
@@ -179,25 +176,19 @@ const CapitalIntensityPage = () => {
         <section className="py-16 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">WHY IT MATTERS</h2>
+              <h2 className="text-2xl font-black mb-8">THE GRAVITY PROBLEM</h2>
 
               <div className="space-y-6">
                 <div className="border-l-4 border-red-600 pl-6 py-4">
                   <p className="text-lg text-zinc-300">
-                    <strong className="text-white">Physical capital creates inertia.</strong>
-                    When you've invested billions in refineries, you don't pivot to solar.
-                    When you've built a hospital, you don't switch to telemedicine.
-                    Capital intensity determines how fast you can change direction.
+                    Capital intensity determines how fast you can change direction. Not because you can't see where you need to go. Because you've spent decades building <strong className="text-white">the road that goes the other way</strong>.
                   </p>
                 </div>
 
                 <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-6">
-                  <h3 className="font-bold mb-4">THE SUNK COST PRISON</h3>
+                  <h3 className="font-bold mb-4">THE STRANDED ASSET PROBLEM</h3>
                   <p className="text-zinc-400">
-                    High capital intensity creates powerful incentives to protect existing
-                    investments, even when they're becoming obsolete. Executives are measured
-                    on returns from capital already deployed, not on adaptation to new realities.
-                    This creates structural resistance to transformation.
+                    When assets are worth more running than written down, the org optimizes for utilization. Rational at the asset level. At the org level it means strategy is shaped by what you already built, not what the market needs. The asset starts making the decisions. You're along for the ride.
                   </p>
                 </div>
 
@@ -268,29 +259,6 @@ const CapitalIntensityPage = () => {
                     <span className="text-zinc-300">{q}</span>
                   </div>
                 ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 px-6 bg-zinc-950">
-          <div className="max-w-7xl mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">ACTION GUIDE FOR THIS DIMENSION</h2>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <Link href="/actions/capital-efficiency" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">CAPITAL EFFICIENCY</h3>
-                  <p className="text-zinc-500 text-sm">
-                    Free DIY playbook. Define minimum learnable experiments, sell before you build.
-                  </p>
-                </Link>
-                <Link href="/actions" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-zinc-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">ALL ACTION GUIDES</h3>
-                  <p className="text-zinc-500 text-sm">
-                    View action guides for all 7 GPI dimensions.
-                  </p>
-                </Link>
               </div>
             </div>
           </div>

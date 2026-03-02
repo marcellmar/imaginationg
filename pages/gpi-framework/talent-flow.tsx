@@ -12,21 +12,21 @@ import { GPISpectrum } from '../../components/gpi';
 const TalentFlowPage = () => {
   const examples = {
     low: [
-      { company: 'Spotify', gpi: 2.5, detail: 'Internal mobility is the norm. People move between squads regularly.' },
-      { company: 'Google', gpi: 2.8, detail: '20% time, internal transfers, low friction between teams.' },
+      { company: 'Spotify', gpi: 2.5, detail: 'Squad model with fluid membership. Moving between squads is a normal career move, not an exception that requires HR approval.' },
+      { company: 'Amazon', gpi: 2.2, detail: 'Internal transfers are a legitimate career path. Talent gets routed toward problems, not locked into org boxes.' },
     ],
     high: [
-      { company: 'Education', gpi: 7.5, detail: 'Tenure locks people in place. Hiring is political. Departure is rare.' },
-      { company: 'Government', gpi: 9.0, detail: 'Civil service protections. Rigid hierarchies. Low voluntary turnover.' },
+      { company: 'Comcast', gpi: 6.95, detail: 'Wage compression and legacy culture make internal mobility difficult. High performers calculate that their leverage is higher somewhere else.' },
+      { company: 'WBD', gpi: 7.4, detail: 'Post-merger org has multiple competing power structures. Moving between them requires political navigation, not just performance.' },
     ],
   };
 
   const diagnosticQuestions = [
-    'Can top performers move between teams easily?',
-    'Is hiring responsive to actual needs?',
-    'Do talented people choose to stay?',
-    'How hard is it to exit underperformers?',
-    'Is promotion based on merit or tenure?',
+    'When did someone last move from one team to a completely different function internally?',
+    'What\'s the process for acknowledging that a role is no longer needed?',
+    'Do your best people get more meaningful work or more approval layers?',
+    'Can you identify who\'s checked out but staying?',
+    'Is internal mobility seen as disloyalty or development?',
   ];
 
   return (
@@ -63,8 +63,7 @@ const TalentFlowPage = () => {
               </h1>
 
               <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
-                Ease of entry, exit, and mobility. How fluidly can talent move
-                to where it creates the most value?
+                How easily people move through the org, and whether the movement goes toward the highest-leverage problems. Stagnation isn't just an HR issue. Stuck people do stuck work.
               </p>
 
               {/* Talent Flow Visual */}
@@ -152,19 +151,17 @@ const TalentFlowPage = () => {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-green-950/20 border border-green-900/50 rounded-xl p-6">
                   <div className="text-green-500 font-mono font-bold mb-2">SCORE 1-3</div>
-                  <h3 className="text-xl font-bold mb-3">Highly Fluid</h3>
+                  <h3 className="text-xl font-bold mb-3">People move toward hard problems</h3>
                   <p className="text-zinc-400">
-                    People move to where they're needed. Internal mobility is common.
-                    Hiring is fast and responsive. Top performers stay because they want to.
+                    Strong performers go where they're needed. Internal mobility is common enough that it's not a big deal. The best stay because they have room to grow, not because leaving is difficult.
                   </p>
                 </div>
 
                 <div className="bg-red-950/20 border border-red-900/50 rounded-xl p-6">
                   <div className="text-red-500 font-mono font-bold mb-2">SCORE 7-10</div>
-                  <h3 className="text-xl font-bold mb-3">Exodus or Stagnation</h3>
+                  <h3 className="text-xl font-bold mb-3">Roles outlast their usefulness</h3>
                   <p className="text-zinc-400">
-                    Either a revolving door or a prison. People leave for better opportunities
-                    or they're trapped by golden handcuffs. Nobody moves internally.
+                    The best performers eventually calculate that their leverage is higher somewhere else and leave. What stays behind is a selection effect. The org gets more calcified at every level.
                   </p>
                 </div>
               </div>
@@ -175,24 +172,19 @@ const TalentFlowPage = () => {
         <section className="py-16 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">WHY IT MATTERS</h2>
+              <h2 className="text-2xl font-black mb-8">THE SLOW DRAIN</h2>
 
               <div className="space-y-6">
                 <div className="border-l-4 border-red-600 pl-6 py-4">
                   <p className="text-lg text-zinc-300">
-                    <strong className="text-white">Talent flow is organizational circulation.</strong>
-                    When flow stops, the organization becomes stagnant. Ideas stop spreading.
-                    Skills stop developing. The best people leave for places where they can grow.
+                    Organizations don't fail from bad people. They fail from the gradual concentration of people who've run out of reasons to try. <strong className="text-white">That concentration is the signal.</strong>
                   </p>
                 </div>
 
                 <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-6">
-                  <h3 className="font-bold mb-4">THE TALENT PARADOX</h3>
+                  <h3 className="font-bold mb-4">THE SELECTION EFFECT</h3>
                   <p className="text-zinc-400">
-                    Organizations with low talent flow often think they have a hiring problem.
-                    They actually have a staying problem. The best people self-select out,
-                    leaving those who can't or won't leave. This creates a negative cycle
-                    that makes the organization even less attractive.
+                    Low talent flow looks like a retention problem. It's usually a mobility problem. When people can't move to different work inside the org, the only signal available to a high performer is to leave entirely. The best self-select out. What remains increasingly self-selects for compliance over capability. The org hires harder to fill the same hole.
                   </p>
                 </div>
               </div>
@@ -252,29 +244,6 @@ const TalentFlowPage = () => {
                     <span className="text-zinc-300">{q}</span>
                   </div>
                 ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 px-6 bg-zinc-950">
-          <div className="max-w-7xl mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">ACTION GUIDE FOR THIS DIMENSION</h2>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <Link href="/actions/talent-mobility" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">TALENT MOBILITY</h3>
-                  <p className="text-zinc-500 text-sm">
-                    Free DIY playbook. Enable frictionless moves, reward developers, make skills visible.
-                  </p>
-                </Link>
-                <Link href="/actions" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-zinc-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">ALL ACTION GUIDES</h3>
-                  <p className="text-zinc-500 text-sm">
-                    View action guides for all 7 GPI dimensions.
-                  </p>
-                </Link>
               </div>
             </div>
           </div>

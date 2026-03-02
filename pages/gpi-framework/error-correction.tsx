@@ -12,21 +12,21 @@ import { GPISpectrum } from '../../components/gpi';
 const ErrorCorrectionPage = () => {
   const examples = {
     low: [
-      { company: 'Netflix', gpi: 2.0, detail: 'A/B testing everything. Failed experiments killed in days, not years.' },
-      { company: 'Amazon', gpi: 2.2, detail: 'Two-pizza teams can reverse decisions. Bias toward action over analysis.' },
+      { company: 'Netflix', gpi: 2.0, detail: 'Failed experiments get killed in days. Every product decision has pre-defined kill criteria. Being wrong fast is the goal.' },
+      { company: 'Amazon', gpi: 2.2, detail: 'Two-pizza teams can reverse decisions without executive permission. Reversibility is a design principle.' },
     ],
     high: [
-      { company: 'Healthcare', gpi: 8.5, detail: 'Medical errors persist for decades. Systemic issues require regulatory intervention.' },
-      { company: 'Education', gpi: 7.5, detail: 'Curriculum changes take years. Bad teaching practices protected by tenure.' },
+      { company: 'WBD', gpi: 7.4, detail: 'Streaming strategy reversed direction multiple times. Each reversal took 12+ months to execute. The org can\'t correct at market speed.' },
+      { company: 'Comcast', gpi: 6.95, detail: 'The Versant spinoff decision took years to execute after the signal was clear. Structural complexity extends every correction cycle.' },
     ],
   };
 
   const diagnosticQuestions = [
-    'How long does it take to identify a mistake after it happens?',
-    'Can bad decisions be reversed without career consequences?',
-    'Are there blame-free post-mortems?',
-    'How quickly can a failed initiative be killed?',
-    'Do the same mistakes recur across teams/years?',
+    'What\'s the fastest a bad decision has ever been reversed here?',
+    'Do people share bad news or manage it?',
+    'When was the last time a project got killed mid-execution?',
+    'Are post-mortems blameless or political?',
+    'How long has your longest known problem been unresolved?',
   ];
 
   return (
@@ -63,8 +63,7 @@ const ErrorCorrectionPage = () => {
               </h1>
 
               <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
-                Time for identifying and fixing mistakes. How fast can your organization
-                recognize something isn't working and course correct?
+                How fast the org catches its own mistakes and reverses them. Mistakes aren't the problem. Mistakes that compound for years are.
               </p>
 
               {/* Error Correction Loop Visual */}
@@ -151,19 +150,17 @@ const ErrorCorrectionPage = () => {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-green-950/20 border border-green-900/50 rounded-xl p-6">
                   <div className="text-green-500 font-mono font-bold mb-2">SCORE 1-3</div>
-                  <h3 className="text-xl font-bold mb-3">Self-Correcting</h3>
+                  <h3 className="text-xl font-bold mb-3">Failure is data</h3>
                   <p className="text-zinc-400">
-                    Errors are detected in hours, fixed in days. Systems have built-in feedback
-                    loops. Failure is data, not disgrace. Post-mortems lead to actual changes.
+                    Errors surface fast because there's no cost to surfacing them. Wrong turns get reversed, not buried. Post-mortems lead to actual changes. Being wrong fast is fine.
                   </p>
                 </div>
 
                 <div className="bg-red-950/20 border border-red-900/50 rounded-xl p-6">
                   <div className="text-red-500 font-mono font-bold mb-2">SCORE 7-10</div>
-                  <h3 className="text-xl font-bold mb-3">Generational</h3>
+                  <h3 className="text-xl font-bold mb-3">Mistakes become commitments</h3>
                   <p className="text-zinc-400">
-                    Errors persist until someone retires or gets fired. Systemic problems become
-                    "how we do things." The same mistakes recur decade after decade.
+                    The org learns to defend what isn't working rather than fix it, because fixing it means admitting it was wrong. The same problems recur. People know about them. Nobody fixes them.
                   </p>
                 </div>
               </div>
@@ -174,28 +171,23 @@ const ErrorCorrectionPage = () => {
         <section className="py-16 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">WHY 20% WEIGHT?</h2>
+              <h2 className="text-2xl font-black mb-8">THE COMPOUND COST</h2>
 
               <div className="space-y-6">
                 <p className="text-lg text-zinc-300">
-                  Error Correction determines <strong className="text-white">learning velocity</strong>.
-                  Organizations that can't fix mistakes can't improve.
+                  The cost of a mistake isn't the mistake. It's the duration. A bad call caught in a week costs a week. The same call running uncorrected for three years costs <strong className="text-white">three years of compounded dysfunction</strong>.
                 </p>
 
                 <div className="border-l-4 border-red-600 pl-6 py-4">
                   <p className="text-zinc-400">
-                    The cost of an error isn't the error itself. It's how long it compounds.
-                    A mistake caught in a day costs a day. The same mistake persisting for
-                    five years costs five years of compounded dysfunction.
+                    When failure is career-ending, people hide failure. Hidden failures compound. The org develops antibodies against surfacing bad news, which means leadership runs on filtered information. The errors don't get smaller. They just get invisible.
                   </p>
                 </div>
 
                 <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-6">
-                  <h3 className="font-bold mb-4">THE BLAME DYNAMIC</h3>
+                  <h3 className="font-bold mb-4">WHY MISTAKES PERSIST</h3>
                   <p className="text-zinc-400">
-                    In high-error-correction organizations, mistakes are learning opportunities.
-                    In low-error-correction organizations, mistakes are career-ending events.
-                    When failure is punished, people hide failures. Hidden failures compound.
+                    Sunk cost has veto power. Once an org has invested enough in a direction, changing course reads as admitting the original call was wrong. The people who made that call are often the same people who'd have to authorize the reversal. So they don't. Not because they're bad at their jobs. Because the incentive structure rewards defending the decision over correcting it.
                   </p>
                 </div>
               </div>
@@ -255,29 +247,6 @@ const ErrorCorrectionPage = () => {
                     <span className="text-zinc-300">{q}</span>
                   </div>
                 ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 px-6 bg-zinc-950">
-          <div className="max-w-7xl mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">ACTION GUIDE FOR THIS DIMENSION</h2>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <Link href="/actions/error-loops" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">ERROR LOOPS</h3>
-                  <p className="text-zinc-500 text-sm">
-                    Free DIY playbook. Make failure safe, pre-define kill criteria, track correction speed.
-                  </p>
-                </Link>
-                <Link href="/actions" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-zinc-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">ALL ACTION GUIDES</h3>
-                  <p className="text-zinc-500 text-sm">
-                    View action guides for all 7 GPI dimensions.
-                  </p>
-                </Link>
               </div>
             </div>
           </div>

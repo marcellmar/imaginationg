@@ -12,21 +12,21 @@ import { GPISpectrum } from '../../components/gpi';
 const StructuralLockInPage = () => {
   const examples = {
     low: [
-      { company: 'Shopify', gpi: 2.2, detail: 'Modular architecture. Can swap out components without rebuilding everything.' },
-      { company: 'Stripe', gpi: 1.5, detail: 'API-first design. Decoupled services that can evolve independently.' },
+      { company: 'Shopify', gpi: 2.2, detail: 'Modular architecture means components can be swapped without rebuilding everything. The platform bends when strategy changes.' },
+      { company: 'Stripe', gpi: 1.5, detail: 'API-first. Decoupled services. Architecture designed for optionality, not permanence.' },
     ],
     high: [
-      { company: 'Healthcare', gpi: 8.5, detail: 'EMR systems with 10+ year switching costs. Regulatory entanglement.' },
-      { company: 'Phillips 66', gpi: 6.4, detail: '40+ year refineries. Physical infrastructure that can\'t be unwound.' },
+      { company: 'Comcast', gpi: 6.95, detail: '$124B+ in total assets tied to cable infrastructure, parks, studios, and linear TV rights. Every strategic option runs through that constraint first.' },
+      { company: 'Phillips 66', gpi: 6.4, detail: '40-year refineries priced at original investment. Unwinding them means taking losses nobody wants to authorize.' },
     ],
   };
 
   const diagnosticQuestions = [
-    'How much would it cost to replace your core systems?',
-    'Are there vendor lock-ins or proprietary dependencies?',
-    'Can processes be redesigned without massive investment?',
-    'How entangled are your systems with each other?',
-    'What percentage of budget goes to maintaining legacy?',
+    'What would it cost to replace your core platform in two years?',
+    'How many processes exist because of a vendor contract?',
+    'If you had to pivot your delivery model in 90 days, what would break?',
+    'What percentage of budget goes to maintaining existing infrastructure vs new capability?',
+    'Who benefits organizationally from things staying the same?',
   ];
 
   return (
@@ -63,8 +63,7 @@ const StructuralLockInPage = () => {
               </h1>
 
               <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
-                Degree to which legacy systems prevent adaptation. How trapped are you
-                by decisions made decades ago?
+                How much the current structure constrains what's possible next. Not just technology. Org charts, vendor contracts, physical infrastructure, anything that makes changing direction expensive.
               </p>
 
               {/* Structural Lock-In Visual */}
@@ -163,19 +162,17 @@ const StructuralLockInPage = () => {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-green-950/20 border border-green-900/50 rounded-xl p-6">
                   <div className="text-green-500 font-mono font-bold mb-2">SCORE 1-3</div>
-                  <h3 className="text-xl font-bold mb-3">Modular / Flexible</h3>
+                  <h3 className="text-xl font-bold mb-3">Pivoting doesn't require rebuilding</h3>
                   <p className="text-zinc-400">
-                    Systems can be swapped out independently. Technical debt is managed.
-                    Architecture decisions are reversible. Low switching costs.
+                    The org can replace components without breaking everything else. Contracts are short. Architecture is modular. What got you here doesn't have to be what gets you there.
                   </p>
                 </div>
 
                 <div className="bg-red-950/20 border border-red-900/50 rounded-xl p-6">
                   <div className="text-red-500 font-mono font-bold mb-2">SCORE 7-10</div>
-                  <h3 className="text-xl font-bold mb-3">Structural Paralysis</h3>
+                  <h3 className="text-xl font-bold mb-3">The org is committed to its current form</h3>
                   <p className="text-zinc-400">
-                    Everything is entangled. Changing one thing breaks five others.
-                    Legacy systems that nobody understands but everyone depends on.
+                    Changing how work gets done requires changing the org itself. Expensive, slow, and politically dangerous. Touch one thing, break five. So it doesn't happen.
                   </p>
                 </div>
               </div>
@@ -186,23 +183,19 @@ const StructuralLockInPage = () => {
         <section className="py-16 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">WHY IT MATTERS</h2>
+              <h2 className="text-2xl font-black mb-8">THE WEIGHT OF LEGACY</h2>
 
               <div className="space-y-6">
                 <div className="border-l-4 border-red-600 pl-6 py-4">
                   <p className="text-lg text-zinc-300">
-                    <strong className="text-white">Lock-in is compound interest on bad decisions.</strong>
-                    Every year you don't address it, the cost of change increases.
-                    Eventually, change becomes "impossible". Not technically, but economically.
+                    High lock-in doesn't make transformation impossible. It makes it expensive enough that <strong className="text-white">the people with authority to approve it are the same people whose power depends on things staying the same</strong>.
                   </p>
                 </div>
 
                 <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-6">
                   <h3 className="font-bold mb-4">THE MAINTENANCE TAX</h3>
                   <p className="text-zinc-400 mb-4">
-                    Organizations with high structural lock-in spend 60-80% of IT budget
-                    maintaining existing systems. That leaves 20-40% for innovation.
-                    Field-state organizations invert this ratio.
+                    Organizations with high structural lock-in spend 60-80% of IT budget maintaining what already exists. Not because they planned it that way. Because the existing infrastructure demands to be fed. What's left over for new capability is whatever the maintenance doesn't eat first.
                   </p>
                   <div className="grid grid-cols-2 gap-4 text-center">
                     <div className="bg-black p-4 rounded-lg">
@@ -272,29 +265,6 @@ const StructuralLockInPage = () => {
                     <span className="text-zinc-300">{q}</span>
                   </div>
                 ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 px-6 bg-zinc-950">
-          <div className="max-w-7xl mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">ACTION GUIDE FOR THIS DIMENSION</h2>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <Link href="/actions/unlock-structure" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-red-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">UNLOCK STRUCTURE</h3>
-                  <p className="text-zinc-500 text-sm">
-                    Free DIY playbook. Run experiments, question every "we have to", make reversibility default.
-                  </p>
-                </Link>
-                <Link href="/actions" className="bg-black border border-zinc-800 rounded-xl p-6 hover:border-zinc-600 transition-colors">
-                  <h3 className="font-bold text-xl mb-2">ALL ACTION GUIDES</h3>
-                  <p className="text-zinc-500 text-sm">
-                    View action guides for all 7 GPI dimensions.
-                  </p>
-                </Link>
               </div>
             </div>
           </div>
