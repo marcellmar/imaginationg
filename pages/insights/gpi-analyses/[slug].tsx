@@ -412,10 +412,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const transformRichText = (richText: NotionRichText[]) =>
       richText?.map((t) => ({
         text: t.plain_text,
-        href: t.href || undefined,
-        bold: t.annotations?.bold,
-        italic: t.annotations?.italic,
-        code: t.annotations?.code,
+        href: t.href || null,
+        bold: t.annotations?.bold || false,
+        italic: t.annotations?.italic || false,
+        code: t.annotations?.code || false,
       })) || [];
 
     const blocks: ContentBlock[] = blocksData.results?.map((block: NotionBlock) => {
