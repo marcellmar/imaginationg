@@ -1,4 +1,4 @@
-import type { NextPage, GetServerSideProps } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
 import Link from 'next/link';
 import { useState, useMemo } from 'react';
 import SEOHead from '../components/SEOHead';
@@ -447,7 +447,7 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
   );
 };
 
-export const getServerSideProps: GetServerSideProps<CompaniesPageProps> = async () => {
+export const getStaticProps: GetStaticProps<CompaniesPageProps> = async () => {
   const NOTION_API_KEY = process.env.NOTION_API_KEY;
   const GPI_ANALYSES_DB = '7d636c92-c316-4bfc-9bc7-7899e575e19e';
 
@@ -524,6 +524,7 @@ export const getServerSideProps: GetServerSideProps<CompaniesPageProps> = async 
       totalCount: companies.length,
       sectors,
     },
+    revalidate: 60,
   };
 };
 

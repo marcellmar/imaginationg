@@ -16,7 +16,7 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -24,13 +24,21 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
       return;
     }
 
-    // TODO: Connect to newsletter service (Resend/Mailchimp/ConvertKit)
-    // await fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ email }) });
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'GPI Studio' }),
+      });
 
-    // Simulate success (remove when API connected)
-    setSubmitted(true);
-    setEmail('');
-    setError('');
+      if (!res.ok) throw new Error('Failed');
+
+      setSubmitted(true);
+      setEmail('');
+      setError('');
+    } catch {
+      setError('Something went wrong. Try again.');
+    }
   };
 
   const bgClass = darkBackground 

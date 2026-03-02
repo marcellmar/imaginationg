@@ -1,4 +1,4 @@
-import type { NextPage, GetServerSideProps } from 'next';
+import type { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import Link from 'next/link';
 import SEOHead from '../../components/SEOHead';
 import Navigation from '../../components/Navigation';
@@ -187,14 +187,20 @@ const DealPage: NextPage<DealPageProps> = ({ deal }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<DealPageProps> = async ({ params }) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const { getAllDeals } = await import('../../lib/deals-content');
+  const deals = getAllDeals();
+  const paths = deals.map((d) => ({ params: { slug: d.slug } }));
+  return { paths, fallback: 'blocking' };
+};
+
+export const getStaticProps: GetStaticProps<DealPageProps> = async ({ params }) => {
   const slug = params?.slug as string;
   const deal = getDealBySlug(slug);
 
   return {
-    props: {
-      deal,
-    },
+    props: { deal },
+    revalidate: 3600,
   };
 };
 

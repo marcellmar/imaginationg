@@ -193,6 +193,11 @@ export const companiesWithSnapshots: Set<string> = new Set(['tesla',
   'koch industries',
   'koch-industries',
   'netflix-wbd-deal-analysis',
+  'walmart-inc',
+  'walmart-2026-02-01-complete',
+  'pilot-company',
+  'pilot company',
+  'canva',
 ]);
 
 export function hasSnapshot(companyName: string): boolean {
@@ -372,6 +377,14 @@ export function getSnapshotSlug(companyName: string): string | null {
     'koch industries': 'koch-industries',
     'netflix-wbd-deal-analysis': 'netflix-wbd-deal-analysis',
     'netflix wbd deal analysis': 'netflix-wbd-deal-analysis',
+    'walmart-inc': 'walmart-inc',
+    'walmart inc': 'walmart-inc',
+    'walmart-2026-02-01-complete': 'walmart-2026-02-01-complete',
+    'walmart 2026 02 01 complete': 'walmart-2026-02-01-complete',
+    'pilot-company': 'pilot-company',
+    'pilot company': 'pilot-company',
+    'pilot': 'pilot-company',
+    'canva': 'canva',
   };
 
   return slugMap[name] || null;

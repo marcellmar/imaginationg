@@ -1,4 +1,4 @@
-import type { NextPage, GetServerSideProps } from 'next';
+import type { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import Link from 'next/link';
 import SEOHead from '../../components/SEOHead';
 import Navigation from '../../components/Navigation';
@@ -210,14 +210,20 @@ const CompanyPage: NextPage<CompanyPageProps> = ({ snapshot }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<CompanyPageProps> = async ({ params }) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const { getAllSnapshots } = await import('../../lib/snapshots-content');
+  const snapshots = getAllSnapshots();
+  const paths = snapshots.map((s) => ({ params: { slug: s.slug } }));
+  return { paths, fallback: 'blocking' };
+};
+
+export const getStaticProps: GetStaticProps<CompanyPageProps> = async ({ params }) => {
   const slug = params?.slug as string;
   const snapshot = getSnapshotBySlug(slug);
 
   return {
-    props: {
-      snapshot,
-    },
+    props: { snapshot },
+    revalidate: 3600,
   };
 };
 

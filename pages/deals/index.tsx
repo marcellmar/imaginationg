@@ -1,4 +1,4 @@
-import type { NextPage, GetServerSideProps } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
 import Link from 'next/link';
 import SEOHead from '../../components/SEOHead';
 import Navigation from '../../components/Navigation';
@@ -162,13 +162,12 @@ const Deals: NextPage<DealsPageProps> = ({ deals }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps<DealsPageProps> = async () => {
+export const getStaticProps: GetStaticProps<DealsPageProps> = async () => {
   const deals = getAllDeals();
 
   return {
-    props: {
-      deals,
-    },
+    props: { deals },
+    revalidate: 3600,
   };
 };
 

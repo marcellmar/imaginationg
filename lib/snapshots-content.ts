@@ -316,7 +316,7 @@ export const snapshotsContent: Record<string, CompanySnapshot> = {
     slug: 'walmart',
     name: 'Walmart',
     analysisDate: '2026-01-18',
-    gpiScore: 4.65,
+    gpiScore: 5.2,
     state: 'Transitioning',
     ticker: 'WMT',
     marketCap: '~$600B',
@@ -4638,7 +4638,7 @@ export const snapshotsContent: Record<string, CompanySnapshot> = {
     slug: 'netflix-wbd-deal-analysis',
     name: 'Netflix Wbd Deal Analysis',
     analysisDate: '2026-01-16',
-    gpiScore: 3.5,
+    gpiScore: 7.05,
     state: 'Transitioning (lower)',
     dimensions: [
 
@@ -4653,6 +4653,180 @@ export const snapshotsContent: Record<string, CompanySnapshot> = {
     ],
     friction: [
 
+    ],
+  },
+
+
+  'walmart-inc': {
+    slug: 'walmart-inc',
+    name: 'Walmart Inc',
+    analysisDate: '2026-02-01',
+    gpiScore: 5.2,
+    state: 'Transitioning (upper)',
+    marketCap: '$710B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 5, explanation: 'Centralized Bentonville HQ with moderate store manager autonomy, fast follower on e-commerce but not innovator' },
+      { dimension: 'Error Correction', score: 5, explanation: 'Healthcare exit shows willingness to kill failures, but grocery low-margin trap persists, slow adaptation to Amazon threat' },
+      { dimension: 'Knowledge Location', score: 4, explanation: 'Strong RetailLink data system, VIZIO acquisition betting on customer data, but advertising platform 10 years behind Amazon' },
+      { dimension: 'Structural Lock-In', score: 6, explanation: '10,750 stores cannot pivot to pure e-commerce, grocery = low-margin business model lock, own most property (inflexible)' },
+      { dimension: 'Talent Flow', score: 5, explanation: '2.1M employees = hiring machine but bureaucratic, wage increases for retention ($14-19/hr avg), Arkansas HQ not tech talent hub' },
+      { dimension: 'Capital Intensity', score: 7, explanation: 'Massive: 10,750 stores + 164 distribution centers + inventory = enormous fixed assets, real estate ownership limits pivoting' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'Fast pandemic response (pickup/delivery), automation accelerating, VIZIO data play, but still playing catch-up to Amazon' }
+    ],
+    pattern: 'Scale as Calcification Accelerator',
+    patternDescription: '. Walmart proves that scale amplifies organizational mass. At 10,750 stores and 2.1M employees, every strategic pivot requires moving enormous capital and human systems. The VIZIO acquisition and Walmart+ membership are not transformation - they are optimizations within the existing particle. The company can improve margins and add revenue streams, but cannot escape the physics of its physical footprint. Unlike Disney (discretionary spend vulnerability), Walmart has grocery necessity moat. But like Disney, it cannot ask "what if we started over digitally?" The stores aren\'t going away. The question is whether 27% e-commerce growth and advertising revenue can overcome 7/10 capital intensity before Amazon\'s relentless pressure calcifies the core further.',
+    keyNumbers: [
+      'Revenue: $648.1B (FY2025, ended Jan 2025) - world\'s largest retailer',
+      'Employees: 2.1M globally (one of world\'s largest employers)',
+      'Founded: 1962, HQ: Bentonville, Arkansas',
+      'Structure: Public (NYSE: WMT), Walton family owns ~50%',
+      'Market cap: $710B (Feb 2026)',
+      'Fortune 500 Rank: #1 (consistently)',
+      'Customer base: 270M+ weekly customers across 19 countries',
+      'Operating income: $27.0B (FY2025)'
+    ],
+    enablers: [
+      'Necessity moat',
+      'Omnichannel working',
+      'Automation investments',
+      'VIZIO acquisition',
+      'Error correction',
+      'Financial strength'
+    ],
+    friction: [
+      'Physical footprint lock-in',
+      'Low-margin trap',
+      'Capital intensity',
+      'E-commerce slowing',
+      'Advertising nascent',
+      'Arkansas disadvantage'
+    ],
+    quotable: '10,750 stores don\'t pivot. They optimize.',
+  },
+
+
+  'walmart-2026-02-01-complete': {
+    slug: 'walmart-2026-02-01-complete',
+    name: 'Walmart 2026 02 01 Complete',
+    analysisDate: '2026-02-01',
+    gpiScore: 6.05,
+    state: 'Transitioning (upper)',
+    marketCap: '$954B',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 6, explanation: 'Centralized Bentonville HQ, RTO mandate forcing office consolidation, decisions flow through headquarters' },
+      { dimension: 'Error Correction', score: 6, explanation: 'Healthcare exit shows adaptability, but 1,500 layoffs = cutting people not fixing process, supply chain 60% China' },
+      { dimension: 'Knowledge Location', score: 4, explanation: 'Strong RetailLink system, VIZIO data, Google Gemini partnership, but RTO suggests knowledge must be office-bound' },
+      { dimension: 'Structural Lock-In', score: 7, explanation: '10,750 stores + 164 distribution centers = massive physical lock-in, RTO reveals cannot operate distributed' },
+      { dimension: 'Talent Flow', score: 7, explanation: 'RTO caused quits, 1,500 tech layoffs, Arkansas recruiting disadvantage, Glassdoor 3.4/5 only 55% recommend' },
+      { dimension: 'Capital Intensity', score: 8, explanation: 'Enormous: 10,750 stores, $40B debt, 65% automation adds MORE capital, grocery = high inventory low margin' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'Google Gemini = "tinkering to transformation", accelerating but 5 years behind Amazon, RTO slows digital flow' }
+    ],
+    pattern: 'The RTO Calcification Cascade',
+    patternDescription: 'The January 2026 return-to-office mandate is not a workplace policy. It is an organizational physics revelation. When forced to choose between distributed knowledge work (flexible, modern, aligned with AI-driven future) and centralized control (rigid, legacy, aligned with 1962 Bentonville model), Walmart chose control. This decision cascades through every dimension. Decision Latency increases because decisions must physically flow through Bentonville offices rather than flowing digitally. Talent Flow calcifies because tech workers will not relocate to Arkansas, they quit instead. Knowledge Velocity decreases because information becomes office-bound rather than cloud-native. The RTO mandate, combined with CEO transition, complete C-suite overhaul, 1,500 tech layoffs, and "streamline operati',
+    keyNumbers: [
+      'Revenue: $703B (trailing twelve months), $681B FY2025',
+      'Market Cap: $954B (Jan 2026), +31% year-over-year',
+      'Employees: 2.3M globally (1.6M in US)',
+      'Stores: 10,750 globally (4,605 US, 5,566 international)',
+      'Distribution: 164 US centers, 184 international facilities, 29 e-commerce fulfillment centers',
+      'Fortune 500 Rank: #1 (consistently)',
+      'Glassdoor: 3.4/5 stars, 55% recommend to friend',
+      'E-commerce: 27% YoY growth (slowing from 35%)'
+    ],
+    enablers: [
+      'Google Gemini partnership positioning AI as customer interface, external knowledge injection',
+      'VIZIO $2.3B acquisition bringing 18M smart TV data streams for advertising intelligence',
+      '65% store automation by FY2026, 60% e-commerce fulfillment automation',
+      'Mature RetailLink supply chain data system providing vendor visibility',
+      'Grocery necessity moat creating customer dependency (recession-resistant)',
+      'Omnichannel integration working (4,700+ pickup locations, 2,900 international delivery)'
+    ],
+    friction: [
+      'RTO mandate forcing office consolidation, caused employee quits and protests',
+      'Complete C-suite overhaul Feb 2026 creating top-layer instability and transition friction',
+      '1,500 tech layoffs signaling talent exodus, "layoffs as adaptation" pattern',
+      '10,750 stores + 164 distribution centers = massive physical footprint lock-in',
+      'Grocery low-margin trap (2-3% vs Amazon 5-6%) limiting reinvestment velocity',
+      'Arkansas headquarters creating tech talent recruiting disadvantage vs coastal competitors'
+    ],
+    quotable: 'The RTO mandate is not a workplace policy. It\'s an organizational physics revelation.',
+  },
+
+
+  'pilot-company': {
+    slug: 'pilot-company',
+    name: 'Pilot Company',
+    analysisDate: '2026-03-02',
+    gpiScore: 5.5,
+    state: 'Transitioning (upper)',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 4, explanation: 'Berkshire\'s hands-off ownership gives real operational autonomy; lean executive structure keeps decisions close to operations' },
+      { dimension: 'Error Correction', score: 5, explanation: 'Mixed: fuel rebate fraud ran for years before external detection (2013 FBI investigation); post-Berkshire controls improved but governance failure was severe' },
+      { dimension: 'Knowledge Location', score: 5, explanation: 'CTO with Data and AI team, Jasper AI deployed, new mobile app (Jan 2026); distributing knowledge across 900 locations is inherently hard' },
+      { dimension: 'Structural Lock-In', score: 7, explanation: 'Defines the analysis: owns third-largest tanker fleet, 900+ physical locations with restaurant franchises, truck service centers, 6,200 diesel lanes' },
+      { dimension: 'Talent Flow', score: 6, explanation: 'Glassdoor 3.2/5.0, 48% recommend; Indeed management 2.7/5.0; "you are a number" culture post-Berkshire; Comparably executive team C- (bottom 30%)' },
+      { dimension: 'Capital Intensity', score: 8, explanation: 'Highest score: $1B just to remodel existing stores; new travel centers require land, construction, fuel infrastructure, restaurant buildouts' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'No earnings calls as Berkshire subsidiary; zero external visibility; Data and AI team building internal capabilities but opaque externally' }
+    ],
+    pattern: '"The Infrastructure Prisoner"',
+    patternDescription: 'Pilot built the largest travel center network in North America by owning the physical ground between everywhere and everywhere else. That dominance is real. It\'s also a prison. Every dollar that has to go into maintaining, remodeling, and expanding 900 physical locations is a dollar that can\'t go into speed, flexibility, or reinvention.',
+    keyNumbers: [
+
+    ],
+    enablers: [
+      'Berkshire ownership removes quarterly earnings pressure, enabling long-term capital deployment',
+      '$1B New Horizons initiative remodeling 400+ locations',
+      'Tesla Semi charging partnership (2026) as heavy-haul EV infrastructure leader',
+      '2,000 EV charging stations at 500 locations committed by end of 2026',
+      'CTO with dedicated Data and AI team',
+      'Jasper AI deployment for content creation'
+    ],
+    friction: [
+      'Revenue down two straight years (~22% in 2023, 17.4% in 2024)',
+      'SG&A up 10.3% while revenues collapsed',
+      'Pre-tax earnings down 42% in 2024',
+      'Fraud scandal legacy',
+      'Haslam family vs. Berkshire lawsuit (2023) over final 20% valuation',
+      'Love\'s opening more new locations than Pilot in 2024-25'
+    ],
+  },
+
+
+  'canva': {
+    slug: 'canva',
+    name: 'Canva',
+    analysisDate: '2026-02-12',
+    gpiScore: 3.2,
+    state: 'Transitioning (lower)',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 3, explanation: 'All three co-founders in CEO/COO/CPO roles; Affinity acquisition closed in ~2 months; no board veto layer slowing calls' },
+      { dimension: 'Error Correction', score: 4, explanation: 'Fast on product and talent corrections; slow on pricing (300%+ Teams hike backfired); AI layoffs showed willingness to act on data quickly' },
+      { dimension: 'Knowledge Location', score: 3, explanation: 'Cloud-native, 800M monthly AI interactions, active engineering blog, AI Discovery Week all-hands; 260M users create strong data feedback loops' },
+      { dimension: 'Structural Lock-In', score: 3, explanation: 'Pure SaaS, no factories or physical assets; moved consumer to enterprise without major reorg; Affinity integrated smoothly' },
+      { dimension: 'Talent Flow', score: 4, explanation: 'Glassdoor 3.9/5.0, 68% recommend; Comparably eNPS bottom 35% of similar companies; favoritism complaints; AI layoffs unsettled workforce' },
+      { dimension: 'Capital Intensity', score: 2, explanation: 'Asset-light: $589M total funding to $42B valuation, profitable at scale, no manufacturing or physical retail' },
+      { dimension: 'Knowledge Velocity', score: 3, explanation: 'Information moves fast at current size; IPO prep adding governance layers; private company means limited external transparency' }
+    ],
+    pattern: '"Designing Its Own Gravity"',
+    patternDescription: 'Canva is a company that eliminated friction for 260 million people, and now it\'s generating friction internally as it scales. The same growth that made Canva a $42B company is producing organizational mass: more employees, more offices, more governance, more investor expectations. The question isn\'t whether Canva will calcify. It\'s whether the founders can engineer their way around the physics.',
+    keyNumbers: [
+
+    ],
+    enablers: [
+      'Founder-led structure with all three co-founders in executive roles, eliminating principal-agent problems',
+      '800M monthly AI interactions and company-wide AI Discovery Week',
+      'Asset-light SaaS model',
+      '260M monthly active users creating a data flywheel',
+      'Affinity acquisition executed in two months, then made free',
+      'Profitable at scale with no dependency on external capital'
+    ],
+    friction: [
+      'IPO preparation adding governance, compliance, and structural layers',
+      '300%+ Teams pricing hike damaged trust with core user base',
+      'Comparably eNPS in bottom 35%, Glassdoor declining',
+      'AI-driven layoffs unsettled workforce and contradicted augmentation narrative',
+      'Favoritism complaints with employees reporting stagnation',
+      '$42B valuation creating investor pressure that may override organizational health'
     ],
   },
 

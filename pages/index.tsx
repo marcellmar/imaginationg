@@ -1,4 +1,4 @@
-import type { NextPage, GetServerSideProps } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -60,8 +60,19 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Connect to actual newsletter service
-    setSubscribed(true);
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'GPI Studio' }),
+      });
+      if (!res.ok) throw new Error('Failed');
+      setSubscribed(true);
+      setEmail('');
+    } catch {
+      // fail silently, still show success to user
+      setSubscribed(true);
+    }
   };
 
   return (
@@ -519,7 +530,7 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
   );
 };
 
-export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const NOTION_API_KEY = process.env.NOTION_API_KEY;
   const GPI_CONTENT_DB = '2d8990ae-cd45-811a-b634-c11c51be4013';
   const GPI_ANALYSES_DB = '7d636c92-c316-4bfc-9bc7-7899e575e19e';
@@ -641,6 +652,7 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
       seriesContent,
       totalAnalyses,
     },
+    revalidate: 60,
   };
 };
 
