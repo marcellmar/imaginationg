@@ -19,39 +19,39 @@ import type { DiagnosticAnswer, GPIFullResult, DimensionKey } from '../lib/gpi-t
 const getDimensionInsight = (dimension: DimensionKey, score: number): { text: string; subtext: string } => {
   const insights: Record<DimensionKey, { low: { text: string; subtext: string }; mid: { text: string; subtext: string }; high: { text: string; subtext: string } }> = {
     DECISION_LATENCY: {
-      low: { text: "Decisions flow", subtext: "You act on information, not permissions. Momentum is natural." },
-      mid: { text: "Decisions stick sometimes", subtext: "Some choices happen fast. Others get lost in approval chains." },
-      high: { text: "Decisions die in committee", subtext: "Every choice needs sign-off. Energy leaks at every handoff." }
+      low: { text: "Decisions happen at the speed of information", subtext: "Authority sits close to the problem. No approval chain between signal and action." },
+      mid: { text: "Some decisions flow, some stall", subtext: "Smaller calls move fast. Anything significant starts traveling upward and slowing down." },
+      high: { text: "Decisions are metabolically expensive", subtext: "Every choice passes through layers that add time without adding value. The org burns energy just to move." }
     },
     ERROR_CORRECTION: {
-      low: { text: "You course-correct fast", subtext: "Wrong turns get caught early. Ego doesn't block reversals." },
-      mid: { text: "Some mistakes linger", subtext: "You fix what you can see. Hidden errors compound quietly." },
-      high: { text: "Errors become permanent", subtext: "Mistakes get defended, not fixed. Sunk cost drives strategy." }
+      low: { text: "The system catches its own mistakes", subtext: "Wrong turns surface fast. There's no political cost to reversing, so reversals happen." },
+      mid: { text: "Visible errors get fixed. Hidden ones don't.", subtext: "The org corrects what it can see. What's buried in process or protected by seniority compounds." },
+      high: { text: "Sunk cost has veto power", subtext: "Mistakes become commitments. Changing course reads as admitting failure, so the org defends what isn't working." }
     },
     KNOWLEDGE_LOCATION: {
-      low: { text: "Knowledge flows freely", subtext: "The right people know the right things at the right time." },
-      mid: { text: "Knowledge clusters", subtext: "Some silos exist. Information moves, but with friction." },
-      high: { text: "Knowledge is hoarded", subtext: "Information is power. Silos protect territory, not outcomes." }
+      low: { text: "The right person knows and is reachable", subtext: "Operational knowledge is distributed and findable. Nobody's head is the single point of failure." },
+      mid: { text: "Knowledge clusters around people and teams", subtext: "Some information moves freely. Some of it lives in relationships and informal networks that not everyone can access." },
+      high: { text: "Knowledge is a currency here", subtext: "Information concentrates where it protects status. Silos aren't accidents, they're architecture. The org can't see itself clearly from inside." }
     },
     KNOWLEDGE_VELOCITY: {
-      low: { text: "Information moves fast", subtext: "Signal reaches decision-makers before it decays." },
-      mid: { text: "Information gets filtered", subtext: "Some signal gets through. Some gets lost in translation." },
-      high: { text: "Information crawls", subtext: "By the time you hear it, it's old. Context dies in transit." }
+      low: { text: "Signal reaches decision-makers before it decays", subtext: "What the front line sees, leadership hears quickly. Bad news travels as fast as good news." },
+      mid: { text: "Information moves, but it gets filtered", subtext: "Some signal gets through intact. Some gets softened, reframed, or timed for political convenience before it arrives." },
+      high: { text: "Leadership is running on old data", subtext: "By the time information reaches the people who need it, context has shifted. Decisions get made on what was true, not what is." }
     },
     TALENT_FLOW: {
-      low: { text: "Talent moves to problems", subtext: "People go where they're needed. Roles flex with reality." },
-      mid: { text: "Talent gets stuck", subtext: "Some mobility exists. Org charts still trump outcomes." },
-      high: { text: "Talent is trapped", subtext: "People serve titles, not missions. The best leave first." }
+      low: { text: "People move toward the hardest problems", subtext: "Strong performers go where they're needed. Titles don't outweigh outcomes." },
+      mid: { text: "Mobility exists but org charts create drag", subtext: "People can move, but there's friction. The structure shapes who goes where more than the work does." },
+      high: { text: "Roles outlast their usefulness", subtext: "People serve positions, not problems. The best performers eventually calculate that their leverage is higher somewhere else." }
     },
     STRUCTURAL_LOCKIN: {
-      low: { text: "Structure serves strategy", subtext: "You can pivot without permission. Form follows function." },
-      mid: { text: "Structure creates drag", subtext: "Some processes help. Others exist because they exist." },
-      high: { text: "Structure is the strategy", subtext: "The org chart is sacred. Process protects itself." }
+      low: { text: "The structure bends when reality requires it", subtext: "Pivoting doesn't require a reorganization. Process is a tool, not a law." },
+      mid: { text: "Some structure helps. Some structure just persists.", subtext: "Certain processes earn their place. Others exist because dismantling them is harder than tolerating them." },
+      high: { text: "The org is metabolically committed to its current form", subtext: "Changing how work gets done requires changing the org itself. That's expensive, slow, and politically dangerous. So it mostly doesn't happen." }
     },
     CAPITAL_INTENSITY: {
-      low: { text: "Capital is efficient", subtext: "Resources flow to results. Waste gets eliminated fast." },
-      mid: { text: "Capital has friction", subtext: "Some spending is strategic. Some is habitual." },
-      high: { text: "Capital is locked up", subtext: "Budgets are territories. Efficiency threatens empires." }
+      low: { text: "Resources follow results", subtext: "Spending is tied to outcomes. Money moves when the work moves. Budgets aren't defended, they're allocated." },
+      mid: { text: "Some spending is strategic. Some is inertia.", subtext: "Resources go to the right places often enough. But some capital is locked in legacy commitments that haven't been reconsidered." },
+      high: { text: "Budget cycles shape strategy more than strategy shapes budgets", subtext: "Capital is territorial. Defending last year's allocation takes as much energy as doing the work. Efficiency is a threat to the people who benefit from the current structure." }
     }
   };
 
@@ -79,38 +79,45 @@ const DiagnosticPage = () => {
 
   // 32 diagnostic questions
   const questions = [
-    { id: 1, dimension: "DECISION_LATENCY" as DimensionKey, question: "Did you make a significant decision this week without seeking external validation?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 2, dimension: "DECISION_LATENCY" as DimensionKey, question: "When faced with decisions, do you force them into YES/NO rather than maybe/later?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 3, dimension: "DECISION_LATENCY" as DimensionKey, question: "Do most decisions happen within 24 hours of being raised?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 4, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Have you killed or reversed a decision this month when evidence changed?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 5, dimension: "DECISION_LATENCY" as DimensionKey, question: "Do you make decisions with incomplete information rather than waiting for certainty?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 6, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "Do you delegate decisions to the person closest to the problem?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 7, dimension: "ERROR_CORRECTION" as DimensionKey, question: "When you change your mind, do you examine what bias led you astray?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 8, dimension: "DECISION_LATENCY" as DimensionKey, question: "Do you regularly revisit and kill decisions that no longer serve you?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 9, dimension: "KNOWLEDGE_VELOCITY" as DimensionKey, question: "Did you spend more time building than planning this week?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 10, dimension: "KNOWLEDGE_VELOCITY" as DimensionKey, question: "Did you ship something visible to users this week?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 11, dimension: "KNOWLEDGE_VELOCITY" as DimensionKey, question: "Can you ship improvements without anyone else's approval?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 12, dimension: "TALENT_FLOW" as DimensionKey, question: "Are you moving faster now than 3 months ago?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 13, dimension: "KNOWLEDGE_VELOCITY" as DimensionKey, question: "Do you ship smaller versions rather than waiting for the full vision?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 14, dimension: "KNOWLEDGE_VELOCITY" as DimensionKey, question: "Do you get real user feedback within 48 hours of shipping?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 15, dimension: "KNOWLEDGE_VELOCITY" as DimensionKey, question: "Can you implement feedback and ship improvements within a week?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 16, dimension: "TALENT_FLOW" as DimensionKey, question: "Do you regularly kill features that aren't working?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 17, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Have you challenged a core assumption about your business this month?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 18, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Did you have a productive disagreement that led to clarity this week?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 19, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Can you explain your business model in one sentence?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 20, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Are you profitable or have a clear path within 12 months?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 21, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Do you talk to customers who've canceled or chosen competitors?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 22, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Do you know your real unit economics and customer lifetime value?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 23, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Do team members openly disagree with you in meetings?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 24, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Do you study what competitors do better than you?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 25, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "Did your last 3 meetings result in immediate actions?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 26, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "Do you feel energized after working on core activities?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 27, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "Are your processes helping you move faster?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 28, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "Do you match tasks to people's natural problem-solving styles?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 29, dimension: "CAPITAL_INTENSITY" as DimensionKey, question: "Do you default to async communication over meetings?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 30, dimension: "CAPITAL_INTENSITY" as DimensionKey, question: "Do you automate repetitive tasks rather than hiring?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 31, dimension: "CAPITAL_INTENSITY" as DimensionKey, question: "Do you measure leading indicators, not just lagging ones?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 32, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "Do you regularly remove systems that no longer serve you?", yes: "Yes", no: "No", fieldAnswer: true },
+    // DECISION_LATENCY (5)
+    { id: 1, dimension: "DECISION_LATENCY" as DimensionKey, question: "Did your team make a meaningful decision this week without waiting for approval from above?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 2, dimension: "DECISION_LATENCY" as DimensionKey, question: "Have you seen a decision sit unmade for more than a week because no one was sure who owned it?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 3, dimension: "DECISION_LATENCY" as DimensionKey, question: "Can your team commit $10,000 or more without requiring senior approval?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 4, dimension: "DECISION_LATENCY" as DimensionKey, question: "In your org, does a typical decision require sign-off from more than three people?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 5, dimension: "DECISION_LATENCY" as DimensionKey, question: "When a problem surfaces, does your team act on it within 24 hours more often than not?", yes: "Yes", no: "No", fieldAnswer: true },
+    // ERROR_CORRECTION (5)
+    { id: 6, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Has your org publicly reversed or killed a major initiative in the last 6 months?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 7, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Are there projects in your org that everyone knows are failing but no one is killing?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 8, dimension: "ERROR_CORRECTION" as DimensionKey, question: "When new evidence contradicts a decision, does your org change course quickly?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 9, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Has a 'we've already invested too much to stop' argument ever kept a dead project alive in your org?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 10, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Do you actively seek out the people who disagree with your current strategy?", yes: "Yes", no: "No", fieldAnswer: true },
+    // KNOWLEDGE_LOCATION (5)
+    { id: 11, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "If your three most critical people left tomorrow, would their knowledge leave with them?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 12, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Do you regularly find out about decisions that affect your work after they've already been made?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 13, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Can you clearly explain why your top competitor is winning or losing right now?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 14, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Is there information in your org that certain people protect and others can't easily access?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 15, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Do team members openly challenge leadership's assumptions in regular meetings?", yes: "Yes", no: "No", fieldAnswer: true },
+    // KNOWLEDGE_VELOCITY (4)
+    { id: 16, dimension: "KNOWLEDGE_VELOCITY" as DimensionKey, question: "In your org, does bad news reach leadership faster than good news?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 17, dimension: "KNOWLEDGE_VELOCITY" as DimensionKey, question: "Has your org been caught off guard by something front-line employees saw coming for months?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 18, dimension: "KNOWLEDGE_VELOCITY" as DimensionKey, question: "Do the people making decisions have real-time access to what people doing the work actually know?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 19, dimension: "KNOWLEDGE_VELOCITY" as DimensionKey, question: "Does it typically take more than a month for a market shift to change your team's priorities?", yes: "Yes", no: "No", fieldAnswer: false },
+    // TALENT_FLOW (4)
+    { id: 20, dimension: "TALENT_FLOW" as DimensionKey, question: "Do your best performers consistently move toward your org's most important problems?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 21, dimension: "TALENT_FLOW" as DimensionKey, question: "Is there someone in your org who everyone knows is in the wrong role but stays anyway?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 22, dimension: "TALENT_FLOW" as DimensionKey, question: "Have you lost strong performers in the last year because they couldn't get things done here?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 23, dimension: "TALENT_FLOW" as DimensionKey, question: "Does promotion in your org correlate more with tenure and relationships than with results?", yes: "Yes", no: "No", fieldAnswer: false },
+    // STRUCTURAL_LOCKIN (5)
+    { id: 24, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "Could your team fundamentally change how it operates within 90 days if the market required it?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 25, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "Are there processes in your org that exist mainly because they've always existed?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 26, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "Does your technology infrastructure actively limit what you can do strategically?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 27, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "Do recurring meetings stay on the calendar year after year without being reconsidered?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 28, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "When your org tries something genuinely new, does the existing structure actively resist it?", yes: "Yes", no: "No", fieldAnswer: false },
+    // CAPITAL_INTENSITY (4)
+    { id: 29, dimension: "CAPITAL_INTENSITY" as DimensionKey, question: "Do departments in your org spend aggressively at year-end primarily to protect next year's budget?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 30, dimension: "CAPITAL_INTENSITY" as DimensionKey, question: "Is your budget process primarily about defending last year's allocations rather than funding this year's priorities?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 31, dimension: "CAPITAL_INTENSITY" as DimensionKey, question: "In a typical week, do your meetings consume more time than the decisions they produce can justify?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 32, dimension: "CAPITAL_INTENSITY" as DimensionKey, question: "Are your best resources (people, money, attention) visibly going toward your org's most important problems?", yes: "Yes", no: "No", fieldAnswer: true },
   ];
 
   const handleAnswer = (answer: 'yes' | 'no') => {
@@ -174,7 +181,7 @@ const DiagnosticPage = () => {
           city: saveForm.city,
           company: saveForm.company,
           gpiScore: gpiResults.overall,
-          stage: getStateLabel(gpiResults.state),
+          stage: gpiResults.state === 'field' ? 'Field' : gpiResults.state === 'transitioning' ? 'Transitioning' : 'Particle',
           dimensions: {
             decisionLatency: gpiResults.dimensions.find(d => d.dimension === 'DECISION_LATENCY')?.score || 0,
             errorCorrection: gpiResults.dimensions.find(d => d.dimension === 'ERROR_CORRECTION')?.score || 0,
@@ -216,70 +223,33 @@ const DiagnosticPage = () => {
             <div className="max-w-3xl mx-auto">
 
               {/* Hero */}
-              <div className="text-center mb-16">
+              <div className="mb-12">
                 <div className="inline-flex items-center gap-2 text-xs font-mono text-zinc-600 mb-6">
                   <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                   DIAGNOSTIC READY
                 </div>
-                <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-6">
-                  WHERE DOES YOUR<br />
-                  <span className="text-red-600">ENERGY GET STUCK?</span>
-                </h1>
-                <p className="text-xl text-zinc-400 max-w-xl mx-auto leading-relaxed">
-                  The Growing Pains Index measures organizational friction across 7 dimensions.
-                  Lower scores mean energy flows. Higher scores mean energy leaks.
+                <div className="flex flex-col md:flex-row md:items-start gap-6 mb-6">
+                  <h1 className="text-4xl md:text-5xl font-black tracking-tight flex-1">
+                    YOUR ORG HAS A<br />
+                    <span className="text-red-600">METABOLIC RATE.</span>
+                  </h1>
+                  <div className="border border-zinc-700 p-4 md:w-64 shrink-0">
+                    <div className="text-xs font-mono text-zinc-500 mb-2">SELECT YOUR INDUSTRY</div>
+                    <select
+                      value={selectedIndustry}
+                      onChange={(e) => setSelectedIndustry(e.target.value)}
+                      className="w-full bg-black text-white text-sm py-1 focus:outline-none"
+                    >
+                      {industries.map((industry) => (
+                        <option key={industry} value={industry}>{industry}</option>
+                      ))}
+                    </select>
+                    <p className="text-xs text-zinc-700 mt-2">Used to benchmark your results.</p>
+                  </div>
+                </div>
+                <p className="text-xl text-zinc-400 max-w-2xl leading-relaxed">
+                  Most friction isn't visible on a P&L. It shows up in how long decisions take, whether mistakes get fixed or defended, and whether your best people have room to move. This measures all of it. 32 questions. 8 minutes.
                 </p>
-              </div>
-
-              {/* What You'll Get */}
-              <div className="grid md:grid-cols-3 gap-4 mb-12">
-                <div className="bg-zinc-950 border border-zinc-800 p-5 text-center">
-                  <div className="text-3xl font-black text-red-600 mb-2">7</div>
-                  <div className="text-sm text-zinc-400">Dimensions scored</div>
-                </div>
-                <div className="bg-zinc-950 border border-zinc-800 p-5 text-center">
-                  <div className="text-3xl font-black text-red-600 mb-2">1-10</div>
-                  <div className="text-sm text-zinc-400">Friction scale</div>
-                </div>
-                <div className="bg-zinc-950 border border-zinc-800 p-5 text-center">
-                  <div className="text-3xl font-black text-red-600 mb-2">8</div>
-                  <div className="text-sm text-zinc-400">Minutes to complete</div>
-                </div>
-              </div>
-
-              {/* The 7 Dimensions Preview */}
-              <div className="bg-zinc-950 border border-zinc-800 p-6 mb-8">
-                <div className="text-xs font-mono text-zinc-600 mb-4">WHAT WE MEASURE</div>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                  <div className="flex items-center gap-2 text-sm">
-                    <Clock size={14} className="text-zinc-600" />
-                    <span className="text-zinc-400">Decision Speed</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Zap size={14} className="text-zinc-600" />
-                    <span className="text-zinc-400">Error Correction</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Brain size={14} className="text-zinc-600" />
-                    <span className="text-zinc-400">Knowledge Flow</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Gauge size={14} className="text-zinc-600" />
-                    <span className="text-zinc-400">Velocity</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Users size={14} className="text-zinc-600" />
-                    <span className="text-zinc-400">Talent Mobility</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Lock size={14} className="text-zinc-600" />
-                    <span className="text-zinc-400">Structural Lock-in</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm">
-                    <DollarSign size={14} className="text-zinc-600" />
-                    <span className="text-zinc-400">Capital Efficiency</span>
-                  </div>
-                </div>
               </div>
 
               {/* Scale */}
@@ -291,32 +261,74 @@ const DiagnosticPage = () => {
                 <div className="flex justify-between text-sm">
                   <div>
                     <span className="text-green-500 font-bold">1-3</span>
-                    <span className="text-zinc-600 ml-2">Field (energy flows)</span>
+                    <span className="text-zinc-600 ml-2">Field — energy flows</span>
                   </div>
                   <div>
                     <span className="text-yellow-500 font-bold">4-6</span>
-                    <span className="text-zinc-600 ml-2">Transition</span>
+                    <span className="text-zinc-600 ml-2">Transitioning</span>
                   </div>
                   <div>
                     <span className="text-red-500 font-bold">7-10</span>
-                    <span className="text-zinc-600 ml-2">Particle (energy stuck)</span>
+                    <span className="text-zinc-600 ml-2">Particle — energy stuck</span>
                   </div>
                 </div>
+                <p className="text-xs text-zinc-600 mt-4">This is a read, not a grade. A high score in the right environment isn't a failure. It's information about where you are and what it costs you to move from here.</p>
               </div>
 
-              {/* Industry Selection */}
+              {/* The 7 Dimensions Preview */}
               <div className="bg-zinc-950 border border-zinc-800 p-6 mb-8">
-                <div className="text-xs font-mono text-zinc-600 mb-3">YOUR INDUSTRY</div>
-                <select
-                  value={selectedIndustry}
-                  onChange={(e) => setSelectedIndustry(e.target.value)}
-                  className="w-full bg-black border border-zinc-700 p-4 text-white text-lg"
-                >
-                  {industries.map((industry) => (
-                    <option key={industry} value={industry}>{industry}</option>
-                  ))}
-                </select>
-                <div className="text-xs text-zinc-600 mt-2">We'll compare your results to industry benchmarks</div>
+                <div className="text-xs font-mono text-zinc-600 mb-6">SEVEN DIMENSIONS OF ORGANIZATIONAL FRICTION</div>
+                <div className="space-y-5">
+                  <div className="flex items-start gap-4">
+                    <Clock size={15} className="text-zinc-600 mt-0.5 shrink-0" />
+                    <div>
+                      <span className="text-white font-bold">Decision Latency</span>
+                      <p className="text-zinc-500 text-sm mt-0.5">Every layer between signal and action is a tax. Most orgs don't know how much they're paying.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <Zap size={15} className="text-zinc-600 mt-0.5 shrink-0" />
+                    <div>
+                      <span className="text-white font-bold">Error Correction</span>
+                      <p className="text-zinc-500 text-sm mt-0.5">Mistakes aren't the problem. Mistakes that compound for years because no one can say the project is dead, that's the problem.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <Brain size={15} className="text-zinc-600 mt-0.5 shrink-0" />
+                    <div>
+                      <span className="text-white font-bold">Knowledge Location</span>
+                      <p className="text-zinc-500 text-sm mt-0.5">If it lives in someone's head and they leave, it's gone. If it lives in a doc no one can find, same result.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <Lock size={15} className="text-zinc-600 mt-0.5 shrink-0" />
+                    <div>
+                      <span className="text-white font-bold">Structural Lock-In</span>
+                      <p className="text-zinc-500 text-sm mt-0.5">Not just technology. Org charts, vendor contracts, legacy processes. Anything that makes changing direction expensive.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <Users size={15} className="text-zinc-600 mt-0.5 shrink-0" />
+                    <div>
+                      <span className="text-white font-bold">Talent Flow</span>
+                      <p className="text-zinc-500 text-sm mt-0.5">Stuck people do stuck work. When mobility inside the org is low, the best performers calculate that their leverage is higher somewhere else.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <DollarSign size={15} className="text-zinc-600 mt-0.5 shrink-0" />
+                    <div>
+                      <span className="text-white font-bold">Capital Intensity</span>
+                      <p className="text-zinc-500 text-sm mt-0.5">Every dollar locked in physical assets is a dollar that can't move. High capital intensity means strategy gets shaped by what you already built.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <Gauge size={15} className="text-zinc-600 mt-0.5 shrink-0" />
+                    <div>
+                      <span className="text-white font-bold">Knowledge Velocity</span>
+                      <p className="text-zinc-500 text-sm mt-0.5">The gap between knowing something works better and actually doing it better. That gap is the metabolism.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Start */}
@@ -333,7 +345,7 @@ const DiagnosticPage = () => {
               {/* Trust Element */}
               <div className="mt-12 text-center border-t border-zinc-900 pt-8">
                 <p className="text-zinc-600 text-sm">
-                  Based on analysis of organizational patterns across 500+ companies.
+                  Patterns drawn from analysis of 500+ organizations across 40+ industries.
                 </p>
               </div>
             </div>
@@ -536,37 +548,48 @@ const DiagnosticPage = () => {
                 </div>
               </div>
 
-              {/* Recommendation */}
+              {/* Highest friction callout */}
               {gpiResults.weakestDimension && (
                 <div className="border border-zinc-800 p-6 mb-8">
-                  <div className="text-xs font-mono text-zinc-600 mb-2">START HERE</div>
+                  <div className="text-xs font-mono text-zinc-600 mb-2">HIGHEST FRICTION</div>
                   <div className="text-lg font-black mb-2">
                     {GPI_DIMENSIONS[gpiResults.weakestDimension].label}
                   </div>
-                  <p className="text-sm text-zinc-500 mb-4">
-                    Your highest friction dimension. Reducing this score will have the biggest impact.
+                  <p className="text-sm text-zinc-500">
+                    This is where the org burns the most energy for the least movement. Fix this first or everything else runs uphill.
                   </p>
-                  <Link
-                    href={`/actions/${gpiResults.weakestDimension === 'DECISION_LATENCY' ? 'decision-speed' :
-                           gpiResults.weakestDimension === 'ERROR_CORRECTION' ? 'error-loops' :
-                           gpiResults.weakestDimension === 'KNOWLEDGE_LOCATION' ? 'knowledge-flow' :
-                           gpiResults.weakestDimension === 'STRUCTURAL_LOCKIN' ? 'unlock-structure' :
-                           gpiResults.weakestDimension === 'TALENT_FLOW' ? 'talent-mobility' :
-                           gpiResults.weakestDimension === 'CAPITAL_INTENSITY' ? 'capital-efficiency' :
-                           'velocity-boost'}`}
-                    className="inline-block bg-red-600 px-6 py-3 font-black hover:bg-red-700 transition-colors"
-                  >
-                    VIEW ACTION GUIDE
-                  </Link>
                 </div>
               )}
+
+              {/* Consult CTA */}
+              <div className="border border-red-900/50 bg-red-950/10 p-6 mb-8">
+                <div className="text-xs font-mono text-red-500 mb-3">NEXT STEP</div>
+                <h3 className="text-xl font-black mb-2">
+                  Bring this to a live session.
+                </h3>
+                <p className="text-sm text-zinc-400 mb-2">
+                  One hour. You share context on the org. I run GPI on it live and show you exactly where the friction is coming from and what to do about it.
+                </p>
+                {gpiResults.weakestDimension && (
+                  <p className="text-sm text-zinc-500 mb-5">
+                    Your highest friction is <span className="text-white font-bold">{GPI_DIMENSIONS[gpiResults.weakestDimension].label}</span>. That's where we'd start.
+                  </p>
+                )}
+                <a
+                  href={`/consult?gpi=${gpiResults.overall}&dim=${gpiResults.weakestDimension}`}
+                  className="inline-block bg-red-600 px-8 py-3 font-black hover:bg-red-700 transition-colors"
+                >
+                  BOOK A SESSION
+                </a>
+                <p className="text-xs text-zinc-600 mt-3">First session free. No pitch.</p>
+              </div>
 
               {/* Save Results */}
               {!saved && (
                 <div className="bg-zinc-950 border border-zinc-800 p-6 mb-8 text-center">
                   <div className="text-xs font-mono text-zinc-600 mb-2">SAVE YOUR RESULTS</div>
                   <p className="text-sm text-zinc-500 mb-4">
-                    Get your results emailed to you. Track your progress over time.
+                    Get the full breakdown emailed. Share it with whoever needs to see it.
                   </p>
                   <button
                     onClick={() => setShowSaveModal(true)}
@@ -586,12 +609,6 @@ const DiagnosticPage = () => {
 
               {/* Actions */}
               <div className="flex flex-wrap gap-4 justify-center">
-                <Link
-                  href="/actions"
-                  className="border border-zinc-700 px-6 py-3 font-bold hover:border-zinc-500 transition-colors"
-                >
-                  ALL ACTION GUIDES
-                </Link>
                 <Link
                   href="/gpi-framework"
                   className="border border-zinc-700 px-6 py-3 font-bold hover:border-zinc-500 transition-colors"
@@ -709,6 +726,17 @@ const DiagnosticPage = () => {
   // QUESTIONS
   const currentQ = questions[currentQuestion - 1];
   const progress = (currentQuestion / questions.length) * 100;
+  const partialAnswers: DiagnosticAnswer[] = Object.entries(answers).map(([qId, answer]) => {
+    const question = questions.find(q => q.id === parseInt(qId));
+    return {
+      questionId: parseInt(qId),
+      answer: answer === 'yes' ? question?.fieldAnswer ?? true : !(question?.fieldAnswer ?? true),
+    };
+  });
+  const partialGPI = partialAnswers.length > 0 ? calculateFullGPI(partialAnswers, selectedIndustry) : null;
+  const liveColor = partialGPI
+    ? (partialGPI.overall <= 3 ? '#22c55e' : partialGPI.overall <= 6 ? '#eab308' : '#ef4444')
+    : '#555';
 
   return (
     <>
@@ -723,8 +751,16 @@ const DiagnosticPage = () => {
 
             {/* Progress */}
             <div className="mb-8">
-              <div className="flex justify-between text-xs font-mono text-zinc-600 mb-2">
+              <div className="flex justify-between items-center text-xs font-mono text-zinc-600 mb-2">
                 <span>{currentQuestion} / {questions.length}</span>
+                {partialGPI && (
+                  <span
+                    className="text-sm font-black tabular-nums transition-colors duration-300"
+                    style={{ color: liveColor }}
+                  >
+                    GPI {partialGPI.overall}
+                  </span>
+                )}
                 <span>{Math.round(progress)}%</span>
               </div>
               <div className="h-1 bg-zinc-900 rounded-full">
