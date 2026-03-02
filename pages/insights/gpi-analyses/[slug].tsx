@@ -139,9 +139,9 @@ const RenderBlock = ({ block }: { block: ContentBlock }) => {
     case 'heading_3':
       return <h3 className="text-xl font-bold mt-6 mb-3">{renderText(block.content)}</h3>;
     case 'bulleted_list_item':
-      return <li className="text-zinc-300 ml-6 mb-2 list-disc">{renderText(block.content)}</li>;
+      return <li className="text-zinc-300 mb-2">{renderText(block.content)}</li>;
     case 'numbered_list_item':
-      return <li className="text-zinc-300 ml-6 mb-2 list-decimal">{renderText(block.content)}</li>;
+      return <li className="text-zinc-300 mb-2">{renderText(block.content)}</li>;
     case 'quote':
       return (
         <blockquote className="border-l border-zinc-600 pl-6 py-2 my-6 text-xl text-zinc-400 italic">
@@ -159,6 +159,26 @@ const RenderBlock = ({ block }: { block: ContentBlock }) => {
     default:
       return null;
   }
+};
+
+const groupBlocks = (blocks: ContentBlock[]): (ContentBlock | ContentBlock[])[] => {
+  const result: (ContentBlock | ContentBlock[])[] = [];
+  let i = 0;
+  while (i < blocks.length) {
+    const block = blocks[i];
+    if (block.type === 'bulleted_list_item' || block.type === 'numbered_list_item') {
+      const group: ContentBlock[] = [block];
+      while (i + 1 < blocks.length && blocks[i + 1].type === block.type) {
+        i++;
+        group.push(blocks[i]);
+      }
+      result.push(group);
+    } else {
+      result.push(block);
+    }
+    i++;
+  }
+  return result;
 };
 
 const AnalysisPage = ({ content }: Props) => {
@@ -267,9 +287,18 @@ const AnalysisPage = ({ content }: Props) => {
         <section className="py-12 px-6">
           <div className="max-w-4xl mx-auto">
             <article className="prose prose-invert max-w-none">
-              {content.blocks.map((block) => (
-                <RenderBlock key={block.id} block={block} />
-              ))}
+              {groupBlocks(content.blocks).map((group, i) => {
+                if (Array.isArray(group)) {
+                  const type = group[0].type;
+                  if (type === 'bulleted_list_item') {
+                    return <ul key={i} className="list-disc ml-6 mb-4">{group.map(b => <RenderBlock key={b.id} block={b} />)}</ul>;
+                  }
+                  if (type === 'numbered_list_item') {
+                    return <ol key={i} className="list-decimal ml-6 mb-4">{group.map(b => <RenderBlock key={b.id} block={b} />)}</ol>;
+                  }
+                }
+                return <RenderBlock key={(group as ContentBlock).id} block={group as ContentBlock} />;
+              })}
             </article>
           </div>
         </section>
