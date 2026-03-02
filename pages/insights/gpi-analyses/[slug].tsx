@@ -65,21 +65,21 @@ interface Props {
 }
 
 const seriesConfig: Record<string, { color: string; bg: string; icon: string }> = {
-  'Weekly Smackdown': { color: 'text-red-500', bg: 'bg-red-950/30', icon: '⚔️' },
-  'Transition Watch': { color: 'text-yellow-500', bg: 'bg-yellow-950/30', icon: '🔄' },
-  'Wildcard': { color: 'text-purple-500', bg: 'bg-purple-950/30', icon: '🃏' },
-  'Calcification Alert': { color: 'text-orange-500', bg: 'bg-orange-950/30', icon: '🚨' },
-  'Field Notes': { color: 'text-green-500', bg: 'bg-green-950/30', icon: '📡' },
-  'The Autopsy': { color: 'text-zinc-400', bg: 'bg-zinc-950/30', icon: '🪦' },
-  'Vital Signs': { color: 'text-blue-500', bg: 'bg-blue-950/30', icon: '🩺' },
+  'Weekly Smackdown': { color: 'text-zinc-300', bg: 'bg-zinc-950', icon: '⚔️' },
+  'Transition Watch': { color: 'text-zinc-300', bg: 'bg-zinc-950', icon: '🔄' },
+  'Wildcard': { color: 'text-zinc-300', bg: 'bg-zinc-950', icon: '🃏' },
+  'Calcification Alert': { color: 'text-zinc-300', bg: 'bg-zinc-950', icon: '🚨' },
+  'Field Notes': { color: 'text-zinc-300', bg: 'bg-zinc-950', icon: '📡' },
+  'The Autopsy': { color: 'text-zinc-400', bg: 'bg-zinc-950', icon: '🪦' },
+  'Vital Signs': { color: 'text-zinc-300', bg: 'bg-zinc-950', icon: '🩺' },
 };
 
 const getStageColor = (stage: string) => {
   switch (stage) {
-    case 'Field': return 'text-green-500 border-green-500';
-    case 'Transitioning': return 'text-yellow-500 border-yellow-500';
-    case 'Particle': return 'text-red-500 border-red-500';
-    default: return 'text-zinc-500 border-zinc-500';
+    case 'Field': return 'text-white border-zinc-500';
+    case 'Transitioning': return 'text-zinc-300 border-zinc-600';
+    case 'Particle': return 'text-zinc-400 border-zinc-700';
+    default: return 'text-zinc-500 border-zinc-800';
   }
 };
 
@@ -103,11 +103,11 @@ const GPIRadar = ({ company }: { company: Company }) => {
             title={`${dim.label}: ${dim.value}/10`}
           >
             <div
-              className={`absolute bottom-0 left-0 right-0 ${
-                (dim.value || 0) <= 3 ? 'bg-green-500' :
-                (dim.value || 0) <= 6 ? 'bg-yellow-500' : 'bg-red-500'
-              }`}
-              style={{ height: `${((dim.value || 0) / 10) * 100}%` }}
+              className="absolute bottom-0 left-0 right-0 bg-white"
+              style={{
+                height: `${((dim.value || 0) / 10) * 100}%`,
+                opacity: 0.12 + ((dim.value || 0) / 10) * 0.65,
+              }}
             />
           </div>
           <span className="text-[10px] text-zinc-500 mt-1">{dim.label}</span>
@@ -121,7 +121,7 @@ const GPIRadar = ({ company }: { company: Company }) => {
 const RenderBlock = ({ block }: { block: ContentBlock }) => {
   const renderText = (content: ContentBlock['content']) => {
     return content.map((part, i) => {
-      if (part.href) return <a key={i} href={part.href} className="text-red-500 hover:underline">{part.text}</a>;
+      if (part.href) return <a key={i} href={part.href} className="text-amber-500/80 hover:underline">{part.text}</a>;
       if (part.bold) return <strong key={i}>{part.text}</strong>;
       if (part.italic) return <em key={i}>{part.text}</em>;
       if (part.code) return <code key={i} className="bg-zinc-800 px-1 rounded">{part.text}</code>;
@@ -144,7 +144,7 @@ const RenderBlock = ({ block }: { block: ContentBlock }) => {
       return <li className="text-zinc-300 ml-6 mb-2 list-decimal">{renderText(block.content)}</li>;
     case 'quote':
       return (
-        <blockquote className="border-l-4 border-red-600 pl-6 py-2 my-6 text-xl text-zinc-400 italic">
+        <blockquote className="border-l border-zinc-600 pl-6 py-2 my-6 text-xl text-zinc-400 italic">
           {renderText(block.content)}
         </blockquote>
       );
@@ -240,7 +240,7 @@ const AnalysisPage = ({ content }: Props) => {
                         {company.stage}
                       </span>
                       <div className="text-center">
-                        <div className="text-3xl font-black font-mono">{company.gpiScore?.toFixed(1)}</div>
+                        <div className="text-3xl font-black font-mono" style={{ color: 'rgba(234,179,8,0.82)' }}>{company.gpiScore?.toFixed(1)}</div>
                         <div className="text-xs text-zinc-500">GPI SCORE</div>
                       </div>
                     </div>
@@ -283,7 +283,7 @@ const AnalysisPage = ({ content }: Props) => {
             </p>
             <Link
               href="/diagnostic"
-              className="inline-block bg-red-600 px-8 py-4 font-bold hover:bg-red-700 transition-colors"
+              className="inline-block bg-white text-black px-8 py-4 font-bold hover:bg-zinc-200 transition-colors"
             >
               START DIAGNOSTIC
             </Link>
