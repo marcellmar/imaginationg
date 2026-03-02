@@ -1,25 +1,24 @@
 /**
  * Individual GPI Analysis Page
- * Dynamic route that fetches content from Notion
+ * Pre-rendered via getStaticPaths, revalidates every hour.
  */
 
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import type { GetStaticPaths, GetStaticProps } from 'next';
+import React from 'react';
 import Link from 'next/link';
 import SEOHead from '../../../components/SEOHead';
 import Navigation from '../../../components/Navigation';
-import AudioPlayer from '../../../components/AudioPlayer';
 import { ArticleGraphic } from '../../../components/ArticleGraphics';
 
-// Map article slugs to audio files (add new episodes here)
+const NOTION_API_KEY = process.env.NOTION_API_KEY;
+const GPI_CONTENT_DB = '2d8990ae-cd45-811a-b634-c11c51be4013';
+
 const audioMap: Record<string, { src: string; duration: string; title: string }> = {
   'shadow-work-self-checkout-heist': {
     src: '/audio/shadow-work-heist.mp3',
     duration: '11:56',
     title: 'The $12 Billion Shadow Work Heist - Deep Dive',
   },
-  // Add more episodes as needed:
-  // 'tesla-vs-byd-ev-wars': { src: '/audio/tesla-byd.mp3', duration: '15:00', title: '...' },
 };
 
 interface Company {
@@ -61,12 +60,18 @@ interface AnalysisContent {
   blocks: ContentBlock[];
 }
 
+interface Props {
+  content: AnalysisContent;
+}
+
 const seriesConfig: Record<string, { color: string; bg: string; icon: string }> = {
   'Weekly Smackdown': { color: 'text-red-500', bg: 'bg-red-950/30', icon: '⚔️' },
   'Transition Watch': { color: 'text-yellow-500', bg: 'bg-yellow-950/30', icon: '🔄' },
   'Wildcard': { color: 'text-purple-500', bg: 'bg-purple-950/30', icon: '🃏' },
   'Calcification Alert': { color: 'text-orange-500', bg: 'bg-orange-950/30', icon: '🚨' },
   'Field Notes': { color: 'text-green-500', bg: 'bg-green-950/30', icon: '📡' },
+  'The Autopsy': { color: 'text-zinc-400', bg: 'bg-zinc-950/30', icon: '🪦' },
+  'Vital Signs': { color: 'text-blue-500', bg: 'bg-blue-950/30', icon: '🩺' },
 };
 
 const getStageColor = (stage: string) => {
@@ -116,14 +121,11 @@ const GPIRadar = ({ company }: { company: Company }) => {
 const RenderBlock = ({ block }: { block: ContentBlock }) => {
   const renderText = (content: ContentBlock['content']) => {
     return content.map((part, i) => {
-      let element = <span key={i}>{part.text}</span>;
-
-      if (part.bold) element = <strong key={i}>{part.text}</strong>;
-      if (part.italic) element = <em key={i}>{part.text}</em>;
-      if (part.code) element = <code key={i} className="bg-zinc-800 px-1 rounded">{part.text}</code>;
-      if (part.href) element = <a key={i} href={part.href} className="text-red-500 hover:underline">{part.text}</a>;
-
-      return element;
+      if (part.href) return <a key={i} href={part.href} className="text-red-500 hover:underline">{part.text}</a>;
+      if (part.bold) return <strong key={i}>{part.text}</strong>;
+      if (part.italic) return <em key={i}>{part.text}</em>;
+      if (part.code) return <code key={i} className="bg-zinc-800 px-1 rounded">{part.text}</code>;
+      return <span key={i}>{part.text}</span>;
     });
   };
 
@@ -159,65 +161,7 @@ const RenderBlock = ({ block }: { block: ContentBlock }) => {
   }
 };
 
-const AnalysisPage = () => {
-  const router = useRouter();
-  const { slug } = router.query;
-  const [content, setContent] = useState<AnalysisContent | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (!slug) return;
-
-    const fetchContent = async () => {
-      try {
-        const response = await fetch(`/api/gpi-content/${slug}`);
-        if (!response.ok) {
-          if (response.status === 404) {
-            setError('Analysis not found');
-          } else {
-            setError('Failed to load analysis');
-          }
-          return;
-        }
-        const data = await response.json();
-        setContent(data);
-      } catch (err) {
-        setError('Failed to load analysis');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchContent();
-  }, [slug]);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center">
-        <div className="text-center">
-          <div className="inline-block w-8 h-8 border-2 border-zinc-700 border-t-red-600 rounded-full animate-spin" />
-          <p className="text-zinc-500 mt-4">Loading analysis...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (error || !content) {
-    return (
-      <div className="min-h-screen bg-black text-white">
-        <Navigation currentPage="insights" />
-        <div className="pt-32 text-center px-6">
-          <h1 className="text-4xl font-black mb-4">404</h1>
-          <p className="text-zinc-500 mb-8">{error || 'Analysis not found'}</p>
-          <Link href="/insights/gpi-analyses" className="text-red-500 hover:underline">
-            ← Back to GPI Analyses
-          </Link>
-        </div>
-      </div>
-    );
-  }
-
+const AnalysisPage = ({ content }: Props) => {
   const config = seriesConfig[content.series] || seriesConfig['Wildcard'];
 
   return (
@@ -237,7 +181,6 @@ const AnalysisPage = () => {
               ← Back to GPI Analyses
             </Link>
 
-            {/* Content-Aware Article Graphic */}
             <div className="mb-8">
               <ArticleGraphic
                 series={content.series}
@@ -262,16 +205,11 @@ const AnalysisPage = () => {
               {content.headline}
             </h1>
 
-            {/* Audio Player - right under title */}
             {audioMap[content.slug] && (
               <div className="mb-6">
                 <div className="text-xs font-mono text-zinc-500 mb-2">LISTEN TO THIS ANALYSIS</div>
                 <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-3">
-                  <audio
-                    controls
-                    className="w-full"
-                    style={{ height: '40px' }}
-                  >
+                  <audio controls className="w-full" style={{ height: '40px' }}>
                     <source src={audioMap[content.slug].src} type="audio/mpeg" />
                   </audio>
                   <div className="flex justify-between items-center mt-2 text-xs text-zinc-500">
@@ -282,9 +220,7 @@ const AnalysisPage = () => {
               </div>
             )}
 
-            <p className="text-xl text-zinc-400 leading-relaxed">
-              {content.teaser}
-            </p>
+            <p className="text-xl text-zinc-400 leading-relaxed">{content.teaser}</p>
           </div>
         </section>
 
@@ -310,10 +246,8 @@ const AnalysisPage = () => {
                     </div>
                   </div>
 
-                  {/* Dimension Bars */}
                   <GPIRadar company={company} />
 
-                  {/* Friction Points */}
                   {company.frictionPoints.length > 0 && (
                     <div className="mt-6 flex flex-wrap gap-2">
                       {company.frictionPoints.map((point) => (
@@ -358,6 +292,160 @@ const AnalysisPage = () => {
       </div>
     </>
   );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  if (!NOTION_API_KEY) return { paths: [], fallback: 'blocking' };
+
+  try {
+    const response = await fetch(
+      `https://api.notion.com/v1/databases/${GPI_CONTENT_DB}/query`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${NOTION_API_KEY}`,
+          'Content-Type': 'application/json',
+          'Notion-Version': '2022-06-28',
+        },
+        body: JSON.stringify({
+          filter: { property: 'Status', select: { equals: 'Published' } },
+        }),
+      }
+    );
+
+    const data = await response.json();
+    const paths = data.results
+      .map((page: { properties: { Slug: { rich_text: { plain_text: string }[] } } }) => {
+        const slug = page.properties.Slug?.rich_text?.[0]?.plain_text;
+        return slug ? { params: { slug } } : null;
+      })
+      .filter(Boolean);
+
+    return { paths, fallback: 'blocking' };
+  } catch {
+    return { paths: [], fallback: 'blocking' };
+  }
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const slug = params?.slug as string;
+
+  if (!NOTION_API_KEY) return { notFound: true };
+
+  try {
+    // Find the page by slug
+    const searchResponse = await fetch(
+      `https://api.notion.com/v1/databases/${GPI_CONTENT_DB}/query`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${NOTION_API_KEY}`,
+          'Content-Type': 'application/json',
+          'Notion-Version': '2022-06-28',
+        },
+        body: JSON.stringify({
+          filter: {
+            and: [
+              { property: 'Slug', rich_text: { equals: slug } },
+              { property: 'Status', select: { equals: 'Published' } },
+            ],
+          },
+        }),
+      }
+    );
+
+    const searchData = await searchResponse.json();
+    if (!searchData.results || searchData.results.length === 0) return { notFound: true };
+
+    const page = searchData.results[0];
+    const pageId = page.id;
+    const props = page.properties;
+
+    // Fetch blocks and companies in parallel
+    const [blocksResponse, ...companyResponses] = await Promise.all([
+      fetch(`https://api.notion.com/v1/blocks/${pageId}/children?page_size=100`, {
+        headers: { Authorization: `Bearer ${NOTION_API_KEY}`, 'Notion-Version': '2022-06-28' },
+      }),
+      ...(props['Featured Companies']?.relation?.map((r: { id: string }) =>
+        fetch(`https://api.notion.com/v1/pages/${r.id}`, {
+          headers: { Authorization: `Bearer ${NOTION_API_KEY}`, 'Notion-Version': '2022-06-28' },
+        })
+      ) || []),
+    ]);
+
+    const blocksData = await blocksResponse.json();
+
+    const companies: Company[] = await Promise.all(
+      companyResponses.map(async (res) => {
+        const companyData = await res.json();
+        const p = companyData.properties;
+        return {
+          id: companyData.id,
+          name: p.Name?.title?.[0]?.plain_text || 'Unknown',
+          gpiScore: p['GPI Score']?.number || null,
+          stage: p['Transformation Stage']?.select?.name || 'Unknown',
+          sector: p.Sector?.select?.name || 'Unknown',
+          decisionLatency: p['Decision Latency']?.number,
+          errorCorrection: p['Error Correction']?.number,
+          knowledgeLocation: p['Knowledge Location']?.number,
+          talentFlow: p['Talent Flow']?.number,
+          knowledgeVelocity: p['Knowledge Velocity']?.number,
+          structuralLockIn: p['Structural Lock-In']?.number,
+          capitalIntensity: p['Capital Intensity']?.number,
+          frictionPoints: p['Key Friction Points']?.multi_select?.map((s: { name: string }) => s.name) || [],
+        };
+      })
+    );
+
+    interface NotionRichText {
+      plain_text: string;
+      href?: string | null;
+      annotations?: { bold?: boolean; italic?: boolean; code?: boolean };
+    }
+
+    interface NotionBlock {
+      id: string;
+      type: string;
+      [key: string]: unknown;
+    }
+
+    const transformRichText = (richText: NotionRichText[]) =>
+      richText?.map((t) => ({
+        text: t.plain_text,
+        href: t.href || undefined,
+        bold: t.annotations?.bold,
+        italic: t.annotations?.italic,
+        code: t.annotations?.code,
+      })) || [];
+
+    const blocks: ContentBlock[] = blocksData.results?.map((block: NotionBlock) => {
+      const blockType = block.type;
+      const blockContent = block[blockType] as { rich_text?: NotionRichText[] };
+      return {
+        id: block.id,
+        type: blockType,
+        content: transformRichText(blockContent?.rich_text || []),
+      };
+    }) || [];
+
+    const content: AnalysisContent = {
+      id: pageId,
+      headline: props.Headline?.title?.[0]?.plain_text || '',
+      series: props.Series?.select?.name || '',
+      publishDate: props['Publish Date']?.date?.start || '',
+      teaser: props.Teaser?.rich_text?.[0]?.plain_text || '',
+      slug: props.Slug?.rich_text?.[0]?.plain_text || '',
+      companies,
+      blocks,
+    };
+
+    return {
+      props: { content },
+      revalidate: 3600, // 1 hour
+    };
+  } catch {
+    return { notFound: true };
+  }
 };
 
 export default AnalysisPage;
