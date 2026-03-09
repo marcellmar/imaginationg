@@ -1,5 +1,6 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
+import SEOHead from '../../components/SEOHead';
 
 interface Dimension {
   label: string;
@@ -58,16 +59,15 @@ interface Props {
 }
 
 function scoreColor(score: number): string {
-  if (score <= 3) return '#22c55e';
-  if (score <= 5) return '#eab308';
-  if (score <= 7) return '#f97316';
-  return '#ef4444';
+  if (score <= 3) return '#1c1917';
+  if (score <= 6) return '#78716c';
+  return '#dc2626';
 }
 
 function stageColor(stage: string): string {
-  if (stage === 'Field') return '#22c55e';
-  if (stage === 'Transitioning') return '#eab308';
-  return '#ef4444';
+  if (stage === 'Field') return '#1c1917';
+  if (stage === 'Transitioning') return '#78716c';
+  return '#dc2626';
 }
 
 const VitalsPage: NextPage<Props> = ({ data, slug }) => {
@@ -83,8 +83,11 @@ const VitalsPage: NextPage<Props> = ({ data, slug }) => {
 
   return (
     <>
+      <SEOHead
+        title={`${data.company} Vital Signs | GPI Studio`}
+        description={`GPI vital signs for ${data.company}. Score: ${data.gpiScore}/10. Stage: ${data.stage}. Pattern: ${data.pattern}. 7-dimension organizational diagnostic.`}
+      />
       <Head>
-        <title>{data.company} Vital Signs | GPI.STUDIO</title>
         <style>{`
           @media print {
             .no-print { display: none !important; }

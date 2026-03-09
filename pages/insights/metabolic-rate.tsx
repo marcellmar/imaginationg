@@ -14,7 +14,7 @@ const MetabolicRatePage: NextPage = () => {
         title="Metabolic Rate - The Speed of Organizational Change | GPI Studio"
         description="Every organization has a metabolic rate that determines how fast it can process change. Mismatched rates predict integration failure."
         ogType="article"
-        ogImage="/images/og-insights.svg"
+        ogImage="/images/og/metabolic-rate.png"
         article={{
           publishedTime: "2025-01-15T00:00:00Z",
           author: "Marcus Davis"

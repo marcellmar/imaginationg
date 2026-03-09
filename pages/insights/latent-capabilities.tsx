@@ -14,7 +14,7 @@ const LatentCapabilitiesPage: NextPage = () => {
         title="Latent Capabilities - Assets You Have But Don't Use | GPI Studio"
         description="Most organizations have far more capability than they deploy. The constraint isn't capacity. It's coordination infrastructure."
         ogType="article"
-        ogImage="/images/og-insights.svg"
+        ogImage="/images/og/latent-capabilities.png"
         article={{
           publishedTime: "2025-01-15T00:00:00Z",
           author: "Marcus Davis"

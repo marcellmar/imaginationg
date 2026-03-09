@@ -13,7 +13,7 @@ const GPIFrameworkPage = () => {
       <SEOHead
         title="The GPI Framework | Organizational Physics"
         description="GPI is a map, not a report card. Seven dimensions. One score. What kind of organism are you, and are you built for the terrain you're actually in?"
-        ogImage="/images/og-gpi-framework.svg"
+        ogImage="/images/og/framework.png"
       />
 
       <div className="min-h-screen bg-stone-50 text-stone-900">

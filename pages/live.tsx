@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import SEOHead from '../components/SEOHead';
 import { useState } from 'react';
 import { GPIRadarChart } from '../components/gpi';
 import type { DimensionScore, DimensionKey } from '../lib/gpi-types';
@@ -39,16 +40,15 @@ function getStage(gpi: number): string {
 }
 
 function scoreColor(score: number): string {
-  if (score <= 3) return '#22c55e';
-  if (score <= 5) return '#eab308';
-  if (score <= 7) return '#f97316';
-  return '#ef4444';
+  if (score <= 3) return '#1c1917';
+  if (score <= 6) return '#78716c';
+  return '#dc2626';
 }
 
 function stageColor(stage: string): string {
-  if (stage === 'Field') return '#22c55e';
-  if (stage === 'Transitioning') return '#eab308';
-  return '#ef4444';
+  if (stage === 'Field') return '#1c1917';
+  if (stage === 'Transitioning') return '#78716c';
+  return '#dc2626';
 }
 
 interface Signal { label: string; detail: string; }
@@ -93,8 +93,11 @@ const LivePage: NextPage = () => {
 
   return (
     <>
+      <SEOHead
+        title="GPI Live Calculator | GPI Studio"
+        description="Build a live GPI scorecard. Score any company across 7 dimensions of organizational friction, see the radar chart, and export a print-ready report."
+      />
       <Head>
-        <title>GPI Live | gpi.studio</title>
         <style>{`
           @media print {
             .no-print { display: none !important; }

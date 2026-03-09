@@ -14,7 +14,7 @@ const NetflixLetParamountWinPage: NextPage = () => {
         title="Netflix Let Paramount Win | GPI Studio"
         description="Paramount paid $110.9B for Warner Bros. Discovery. Netflix walked with $2.8B and a 13% stock jump. The GPI gap predicted this in December."
         ogType="article"
-        ogImage="/images/og-insights.svg"
+        ogImage="/images/og/netflix-paramount.png"
         article={{
           publishedTime: "2026-02-26T00:00:00Z",
           author: "Marcus Davis"

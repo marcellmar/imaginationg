@@ -17,7 +17,7 @@ interface SEOHeadProps {
 const SEOHead: React.FC<SEOHeadProps> = ({
   title,
   description,
-  ogImage = '/images/og-default.jpg',
+  ogImage = '/images/og/home.png',
   ogType = 'website',
   article,
   noindex = false
@@ -80,6 +80,61 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       
       {/* Robots */}
       {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+      {/* JSON-LD Structured Data */}
+      {article && ogType === 'article' ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": title,
+              "description": description,
+              "image": fullOgImage,
+              "url": canonicalUrl,
+              "datePublished": article.publishedTime,
+              ...(article.modifiedTime && { "dateModified": article.modifiedTime }),
+              "author": {
+                "@type": "Person",
+                "name": article.author || "Marcus Davis",
+                "url": "https://gpi.studio"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "GPI Studio",
+                "url": "https://gpi.studio",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://gpi.studio/images/gpi-studio-linkedin-logo.png"
+                }
+              },
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": canonicalUrl
+              }
+            })
+          }}
+        />
+      ) : ogType === 'website' && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": title,
+              "description": description,
+              "url": canonicalUrl,
+              "publisher": {
+                "@type": "Organization",
+                "name": "GPI Studio",
+                "url": "https://gpi.studio"
+              }
+            })
+          }}
+        />
+      )}
     </Head>
   );
 };

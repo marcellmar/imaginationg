@@ -1,40 +1,24 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl: 'https://gpi.studio',
-  generateRobotsTxt: false, // We have custom robots.txt
+  generateRobotsTxt: false, // We maintain robots.txt manually (AI crawler rules)
   changefreq: 'weekly',
   priority: 0.7,
   sitemapSize: 5000,
-  exclude: ['/api/*'],
+  exclude: ['/api/*', '/admin/*'],
   generateIndexSitemap: false,
-  // Custom transformation for better AI crawler optimization
   transform: async (config, path) => {
-    // Higher priority for answer pages and core content
-    if (path.includes('/answers/')) {
-      return {
-        loc: path,
-        changefreq: 'weekly',
-        priority: 0.9,
-        lastmod: new Date().toISOString(),
-      }
-    }
-    
-    // High priority for interventions/services
-    if (path.includes('/interventions/') || path.includes('/services/')) {
-      return {
-        loc: path,
-        changefreq: 'monthly',
-        priority: 0.8,
-        lastmod: new Date().toISOString(),
-      }
-    }
-    
-    // Standard priority for other pages
+    const highPriority = ['/', '/diagnostic', '/insights', '/gpi-framework', '/companies'];
+    const isHighPriority = highPriority.includes(path);
+    const isArticle = path.startsWith('/insights/') && path !== '/insights';
+    const isCompany = path.startsWith('/companies/') && path !== '/companies';
+    const isFramework = path.startsWith('/gpi-framework/') && path !== '/gpi-framework';
+
     return {
       loc: path,
-      changefreq: config.changefreq,
-      priority: config.priority,
+      changefreq: isHighPriority ? 'daily' : 'weekly',
+      priority: isHighPriority ? 1.0 : (isArticle || isCompany) ? 0.8 : isFramework ? 0.8 : 0.7,
       lastmod: new Date().toISOString(),
-    }
+    };
   },
 }

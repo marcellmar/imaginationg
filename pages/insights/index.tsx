@@ -132,7 +132,7 @@ const InsightsPage: NextPage<InsightsPageProps> = ({ companies, totalCompanies }
       <SEOHead
         title="Insights | GPI Studio"
         description="Live analyses, case studies, and organizational physics. GPI patterns, metabolic rates, and the forces that determine whether you transform or calcify."
-        ogImage="/images/og-insights.svg"
+        ogImage="/images/og/insights.png"
       />
 
       <div className="min-h-screen bg-stone-50 text-stone-900">

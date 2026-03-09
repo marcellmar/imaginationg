@@ -14,7 +14,7 @@ const InvestedInTheWastePage: NextPage = () => {
         title="You're Invested in the Waste | GPI Studio"
         description="The gap between how things should work and how they actually work isn't an accident. It's a product. Someone is selling it. That someone might be you."
         ogType="article"
-        ogImage="/images/og-insights.svg"
+        ogImage="/images/og/invested-in-the-waste.png"
         article={{
           publishedTime: "2025-01-26T00:00:00Z",
           author: "Marcus Davis"

@@ -14,7 +14,7 @@ const OrganizationalAntibodiesPage: NextPage = () => {
         title="Organizational Antibodies - Why Good Ideas Get Rejected | GPI Studio"
         description="Your organization has an immune system that protects against foreign capabilities, even beneficial ones. Understanding the antibody response."
         ogType="article"
-        ogImage="/images/og-insights.svg"
+        ogImage="/images/og/organizational-antibodies.png"
         article={{
           publishedTime: "2025-01-15T00:00:00Z",
           author: "Marcus Davis"

@@ -15,7 +15,7 @@ const FrictionIsMarginPage: NextPage = () => {
         title="Friction Is Margin - The Economics of Dysfunction | GPI Studio"
         description="That delay, complexity, and confusion isn't a bug. It's someone's business model. The gap is the product. Understanding friction economics."
         ogType="article"
-        ogImage="/images/og-insights.svg"
+        ogImage="/images/og/friction-is-margin.png"
         article={{
           publishedTime: "2025-01-15T00:00:00Z",
           author: "Marcus Davis"

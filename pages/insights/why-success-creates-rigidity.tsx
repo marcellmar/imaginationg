@@ -15,7 +15,7 @@ const WhySuccessCreatesRigidityPage: NextPage = () => {
         title="Why Success Creates Rigidity | GPI Studio"
         description="Organizations don't fail because they stop doing what made them successful. They fail because they can't stop."
         ogType="article"
-        ogImage="/images/og-insights.svg"
+        ogImage="/images/og/success-creates-rigidity.png"
         article={{
           publishedTime: "2025-01-15T00:00:00Z",
           author: "Marcus Davis"

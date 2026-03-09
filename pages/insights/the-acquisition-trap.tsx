@@ -15,7 +15,7 @@ const TheAcquisitionTrapPage: NextPage = () => {
         title="The Acquisition Trap - Why Strategic Logic Isn't Enough | GPI Studio"
         description="HP paid $11B for Autonomy and wrote off $8.8B. Amazon paid $13.7B for Whole Foods and created billions in value. The difference wasn't strategy. It was metabolic math."
         ogType="article"
-        ogImage="/images/og-insights.svg"
+        ogImage="/images/og/acquisition-trap.png"
         article={{
           publishedTime: "2025-01-15T00:00:00Z",
           author: "Marcus Davis"

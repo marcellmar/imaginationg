@@ -14,7 +14,7 @@ const TheSpiralModelPage: NextPage = () => {
         title="The Spiral Model - Why Transformation Isn't Linear | GPI Studio"
         description="You can't jump from particle to field. Organizational evolution spirals, revisiting particle thinking at higher levels of field capability."
         ogType="article"
-        ogImage="/images/og-insights.svg"
+        ogImage="/images/og/spiral-model.png"
         article={{
           publishedTime: "2025-01-15T00:00:00Z",
           author: "Marcus Davis"

@@ -68,7 +68,7 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
       <SEOHead
         title="GPI Studio | Organizational Physics"
         description="Some companies move. Some companies calcify. We measure the difference. Seven dimensions of organizational physics."
-        ogImage="/images/og-home.svg"
+        ogImage="/images/og/home.png"
       />
 
       <Head>
