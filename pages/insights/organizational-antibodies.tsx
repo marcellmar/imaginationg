@@ -19,35 +19,35 @@ const OrganizationalAntibodiesPage: NextPage = () => {
         }}
       />
 
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-stone-50 text-stone-900">
         <Navigation currentPage="insights" />
 
         {/* Hero Section */}
         <section className="pt-24 pb-16 px-6">
           <div className="max-w-4xl mx-auto">
             {/* Breadcrumb */}
-            <Link href="/insights" className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors mb-8">
+            <Link href="/insights" className="inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors mb-8">
               <ArrowLeft size={16} />
               Back to Insights
             </Link>
 
             {/* Meta */}
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-mono text-red-600 bg-red-600/10 px-3 py-1 rounded">GPI FOUNDATIONS</span>
-              <span className="text-xs text-zinc-500">9 min read</span>
-              <span className="text-xs text-zinc-600">•</span>
-              <span className="text-xs text-zinc-500">ERROR CORRECTION</span>
+              <span className="text-xs font-mono text-red-600 bg-red-50 px-3 py-1 rounded">GPI FOUNDATIONS</span>
+              <span className="text-xs text-stone-500">9 min read</span>
+              <span className="text-xs text-stone-400">•</span>
+              <span className="text-xs text-stone-500">ERROR CORRECTION</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-[1.1]">
               ORGANIZATIONAL<br />ANTIBODIES<span className="text-red-600">.</span>
             </h1>
 
-            <p className="text-2xl text-zinc-500 mb-8">
+            <p className="text-2xl text-stone-500 mb-8">
               Why Good Ideas Get Rejected
             </p>
 
-            <p className="text-xl text-zinc-400 max-w-2xl">
+            <p className="text-xl text-stone-500 max-w-2xl">
               Your organization has an immune system. It protects against foreign capabilities, even beneficial ones. Understanding the antibody response predicts which changes will succeed.
             </p>
 
@@ -56,8 +56,8 @@ const OrganizationalAntibodiesPage: NextPage = () => {
               <div className="relative w-full max-w-md">
                 <svg viewBox="0 0 300 200" className="w-full h-auto">
                   {/* Organization body */}
-                  <ellipse cx="150" cy="100" rx="120" ry="80" fill="#18181b" stroke="#3f3f46" strokeWidth="2" />
-                  <text x="150" y="170" textAnchor="middle" fill="#52525b" fontSize="10" fontFamily="monospace">THE ORGANIZATION</text>
+                  <ellipse cx="150" cy="100" rx="120" ry="80" fill="#f5f5f4" stroke="#d6d3d1" strokeWidth="2" />
+                  <text x="150" y="170" textAnchor="middle" fill="#a8a29e" fontSize="10" fontFamily="monospace">THE ORGANIZATION</text>
 
                   {/* New idea entering - green circle */}
                   <circle cx="150" cy="100" r="15" fill="#22c55e">
@@ -115,7 +115,7 @@ const OrganizationalAntibodiesPage: NextPage = () => {
 
                 {/* Caption */}
                 <div className="text-center mt-4">
-                  <span className="text-xs font-mono text-zinc-600">4 antibody types attack foreign changes. Rejection is automatic.</span>
+                  <span className="text-xs font-mono text-stone-400">4 antibody types attack foreign changes. Rejection is automatic.</span>
                 </div>
               </div>
             </div>
@@ -127,79 +127,79 @@ const OrganizationalAntibodiesPage: NextPage = () => {
           <div className="max-w-3xl mx-auto space-y-16">
 
             {/* Opening */}
-            <div className="space-y-4 text-zinc-300">
+            <div className="space-y-4 text-stone-600">
               <p>You've seen it happen. Someone proposes a better process, a smarter tool, a more efficient structure. The idea is clearly good. The evidence is strong.</p>
-              <p className="text-white text-2xl font-black py-4">And the organization kills it.</p>
+              <p className="text-stone-900 text-2xl font-black py-4">And the organization kills it.</p>
               <p>Not through malice. Not through stupidity. Through something that functions exactly like an immune response.</p>
             </div>
 
             {/* Quote */}
-            <div className="bg-zinc-950 border border-zinc-800 p-8">
-              <p className="text-2xl text-white italic">"Antibodies don't reject change. They reject foreign metabolisms."</p>
+            <div className="bg-white border border-stone-200 p-8">
+              <p className="text-2xl text-stone-900 italic">"Antibodies don't reject change. They reject foreign metabolisms."</p>
             </div>
 
             {/* Biological parallel */}
             <div className="border-l-2 border-red-600 pl-6 space-y-4">
               <h2 className="text-xs font-mono text-red-500 mb-4">THE BIOLOGICAL PARALLEL</h2>
-              <p className="text-zinc-300">When you receive an organ transplant, your immune system doesn't evaluate whether the new kidney is "better."</p>
-              <p className="text-zinc-300">It detects that the tissue is foreign and mobilizes to destroy it.</p>
-              <p className="text-white font-bold">Organizations work the same way.</p>
+              <p className="text-stone-600">When you receive an organ transplant, your immune system doesn't evaluate whether the new kidney is "better."</p>
+              <p className="text-stone-600">It detects that the tissue is foreign and mobilizes to destroy it.</p>
+              <p className="text-stone-900 font-bold">Organizations work the same way.</p>
             </div>
 
             {/* 4 Antibody Types - Grid */}
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-yellow-950/20 border border-yellow-900/50 p-6">
                 <p className="text-yellow-500 font-bold text-sm mb-2">PROCESS ANTIBODIES</p>
-                <p className="text-zinc-500 text-xs mb-3">"We've always done it this way"</p>
-                <p className="text-zinc-300 text-sm">Protecting known workflows. Change introduces chaos of relearning.</p>
+                <p className="text-stone-500 text-xs mb-3">"We've always done it this way"</p>
+                <p className="text-stone-600 text-sm">Protecting known workflows. Change introduces chaos of relearning.</p>
               </div>
               <div className="bg-red-950/20 border border-red-900/50 p-6">
                 <p className="text-red-500 font-bold text-sm mb-2">POWER ANTIBODIES</p>
-                <p className="text-zinc-500 text-xs mb-3">"Who approved this change?"</p>
-                <p className="text-zinc-300 text-sm">Protecting hierarchical authority. Power structures are survival structures.</p>
+                <p className="text-stone-500 text-xs mb-3">"Who approved this change?"</p>
+                <p className="text-stone-600 text-sm">Protecting hierarchical authority. Power structures are survival structures.</p>
               </div>
               <div className="bg-purple-950/20 border border-purple-900/50 p-6">
                 <p className="text-purple-500 font-bold text-sm mb-2">IDENTITY ANTIBODIES</p>
-                <p className="text-zinc-500 text-xs mb-3">"That's not who we are"</p>
-                <p className="text-zinc-300 text-sm">Protecting self-concept. Identity is the deepest defense layer.</p>
+                <p className="text-stone-500 text-xs mb-3">"That's not who we are"</p>
+                <p className="text-stone-600 text-sm">Protecting self-concept. Identity is the deepest defense layer.</p>
               </div>
               <div className="bg-orange-950/20 border border-orange-900/50 p-6">
                 <p className="text-orange-500 font-bold text-sm mb-2">CAPABILITY ANTIBODIES</p>
-                <p className="text-zinc-500 text-xs mb-3">"We don't have the skills"</p>
-                <p className="text-zinc-300 text-sm">Protecting against competency threats. Existing expertise feels existential threat.</p>
+                <p className="text-stone-500 text-xs mb-3">"We don't have the skills"</p>
+                <p className="text-stone-600 text-sm">Protecting against competency threats. Existing expertise feels existential threat.</p>
               </div>
             </div>
 
             {/* Response Cycle */}
-            <div className="bg-zinc-950 border border-zinc-800 p-8">
-              <h2 className="text-xs font-mono text-zinc-500 mb-6">THE RESPONSE CYCLE</h2>
+            <div className="bg-white border border-stone-200 p-8">
+              <h2 className="text-xs font-mono text-stone-500 mb-6">THE RESPONSE CYCLE</h2>
               <div className="space-y-4">
                 <div className="flex gap-4 items-start">
                   <span className="text-red-600 font-mono text-lg">1</span>
                   <div>
-                    <p className="text-white font-bold">DETECTION</p>
-                    <p className="text-zinc-400 text-sm">"Something foreign has entered." Days to weeks.</p>
+                    <p className="text-stone-900 font-bold">DETECTION</p>
+                    <p className="text-stone-500 text-sm">"Something foreign has entered." Days to weeks.</p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
                   <span className="text-red-600 font-mono text-lg">2</span>
                   <div>
-                    <p className="text-white font-bold">THREAT ASSESSMENT</p>
-                    <p className="text-zinc-400 text-sm">"Does this threaten our operation?" Weeks to months.</p>
+                    <p className="text-stone-900 font-bold">THREAT ASSESSMENT</p>
+                    <p className="text-stone-500 text-sm">"Does this threaten our operation?" Weeks to months.</p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
                   <span className="text-red-600 font-mono text-lg">3</span>
                   <div>
-                    <p className="text-white font-bold">MOBILIZATION</p>
-                    <p className="text-zinc-400 text-sm">"Rally defenses." Meetings multiply. Objections surface. Months.</p>
+                    <p className="text-stone-900 font-bold">MOBILIZATION</p>
+                    <p className="text-stone-500 text-sm">"Rally defenses." Meetings multiply. Objections surface. Months.</p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
                   <span className="text-red-600 font-mono text-lg">4</span>
                   <div>
-                    <p className="text-white font-bold">REJECTION OR INTEGRATION</p>
-                    <p className="text-zinc-400 text-sm">"Expel or adapt." Usually expelled. Months to years.</p>
+                    <p className="text-stone-900 font-bold">REJECTION OR INTEGRATION</p>
+                    <p className="text-stone-500 text-sm">"Expel or adapt." Usually expelled. Months to years.</p>
                   </div>
                 </div>
               </div>
@@ -207,53 +207,53 @@ const OrganizationalAntibodiesPage: NextPage = () => {
 
             {/* GPI vs Antibody Strength */}
             <div className="space-y-4">
-              <h2 className="text-xs font-mono text-zinc-500 mb-4">ANTIBODY STRENGTH BY GPI</h2>
+              <h2 className="text-xs font-mono text-stone-500 mb-4">ANTIBODY STRENGTH BY GPI</h2>
               <div className="space-y-2 font-mono text-sm">
-                <div className="flex items-center gap-4"><span className="text-green-500">GPI 1-3:</span> <span className="text-zinc-400">Weak antibodies. Changes absorbed. Continuous adaptation.</span></div>
-                <div className="flex items-center gap-4"><span className="text-yellow-500">GPI 4-6:</span> <span className="text-zinc-400">Moderate antibodies. Some changes absorbed. Slower learning.</span></div>
-                <div className="flex items-center gap-4"><span className="text-red-500">GPI 7-10:</span> <span className="text-zinc-400">Strong antibodies. Most changes rejected. Learning stalled.</span></div>
+                <div className="flex items-center gap-4"><span className="text-green-500">GPI 1-3:</span> <span className="text-stone-500">Weak antibodies. Changes absorbed. Continuous adaptation.</span></div>
+                <div className="flex items-center gap-4"><span className="text-yellow-500">GPI 4-6:</span> <span className="text-stone-500">Moderate antibodies. Some changes absorbed. Slower learning.</span></div>
+                <div className="flex items-center gap-4"><span className="text-red-500">GPI 7-10:</span> <span className="text-stone-500">Strong antibodies. Most changes rejected. Learning stalled.</span></div>
               </div>
             </div>
 
             {/* The Problem */}
             <div className="border-l-2 border-yellow-500 pl-6 space-y-4">
-              <p className="text-xl text-white italic">"You can't transplant field state capabilities into particle state organizations without metabolic preparation."</p>
-              <p className="text-zinc-400">The rejection is automatic.</p>
+              <p className="text-xl text-stone-900 italic">"You can't transplant field state capabilities into particle state organizations without metabolic preparation."</p>
+              <p className="text-stone-500">The rejection is automatic.</p>
             </div>
 
             {/* Why arguments don't work */}
-            <div className="space-y-4 text-zinc-300">
+            <div className="space-y-4 text-stone-600">
               <p>The standard change management playbook: communicate better, get executive sponsorship, demonstrate ROI, build coalitions.</p>
               <p>This is like telling someone with an organ transplant to "just convince their immune system" that the kidney is good.</p>
-              <p className="text-white font-bold text-xl pt-4">Antibodies don't respond to arguments. They respond to metabolic compatibility.</p>
+              <p className="text-stone-900 font-bold text-xl pt-4">Antibodies don't respond to arguments. They respond to metabolic compatibility.</p>
             </div>
 
             {/* Preparation strategies */}
-            <div className="bg-zinc-950 border border-zinc-800 p-8">
-              <h2 className="text-xs font-mono text-zinc-500 mb-6">PREPARING THE IMMUNE SYSTEM</h2>
+            <div className="bg-white border border-stone-200 p-8">
+              <h2 className="text-xs font-mono text-stone-500 mb-6">PREPARING THE IMMUNE SYSTEM</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <p className="text-green-400 font-bold mb-2">METABOLIC MATCHING</p>
-                  <p className="text-zinc-400 text-sm">Introduce changes close to current GPI. Build incrementally.</p>
+                  <p className="text-stone-500 text-sm">Introduce changes close to current GPI. Build incrementally.</p>
                 </div>
                 <div>
                   <p className="text-green-400 font-bold mb-2">CAPABILITY BUILDING</p>
-                  <p className="text-zinc-400 text-sm">Build infrastructure first. Small wins before marathons.</p>
+                  <p className="text-stone-500 text-sm">Build infrastructure first. Small wins before marathons.</p>
                 </div>
                 <div>
                   <p className="text-green-400 font-bold mb-2">ANTIBODY IDENTIFICATION</p>
-                  <p className="text-zinc-400 text-sm">Map which types will activate. Sequence to build tolerance.</p>
+                  <p className="text-stone-500 text-sm">Map which types will activate. Sequence to build tolerance.</p>
                 </div>
                 <div>
                   <p className="text-green-400 font-bold mb-2">METABOLIC QUARANTINE</p>
-                  <p className="text-zinc-400 text-sm">Keep new capabilities isolated until absorption is possible.</p>
+                  <p className="text-stone-500 text-sm">Keep new capabilities isolated until absorption is possible.</p>
                 </div>
               </div>
             </div>
 
             {/* When antibodies win */}
-            <div className="space-y-4 text-zinc-300">
-              <h2 className="text-xs font-mono text-zinc-500 mb-4">WHEN ANTIBODIES WIN</h2>
+            <div className="space-y-4 text-stone-600">
+              <h2 className="text-xs font-mono text-stone-500 mb-4">WHEN ANTIBODIES WIN</h2>
               <p>• The organization reinforces its particle state identity</p>
               <p>• Future change becomes harder (antibodies "remember" threats)</p>
               <p>• Change agents leave or are expelled</p>
@@ -261,19 +261,19 @@ const OrganizationalAntibodiesPage: NextPage = () => {
             </div>
 
             {/* Closing */}
-            <div className="bg-red-600/10 border border-red-600/30 p-8 space-y-4">
-              <p className="text-white font-bold text-2xl">Every rejected improvement makes the next improvement less likely.</p>
-              <p className="text-zinc-300">Antibodies don't just kill individual changes. They strengthen resistance to all future change.</p>
+            <div className="bg-red-50 border border-red-200 p-8 space-y-4">
+              <p className="text-stone-900 font-bold text-2xl">Every rejected improvement makes the next improvement less likely.</p>
+              <p className="text-stone-600">Antibodies don't just kill individual changes. They strengthen resistance to all future change.</p>
               <p className="text-red-500 font-bold text-xl pt-4">The immune system can't be argued with. It must be prepared.</p>
             </div>
 
             {/* Book Teaser */}
-            <div className="border border-zinc-800 p-8 flex items-center gap-6">
-              <BookOpen size={48} className="text-zinc-600 flex-shrink-0" />
+            <div className="border border-stone-200 p-8 flex items-center gap-6">
+              <BookOpen size={48} className="text-stone-400 flex-shrink-0" />
               <div>
-                <p className="text-zinc-500 text-sm uppercase mb-1">From the upcoming book</p>
+                <p className="text-stone-500 text-sm uppercase mb-1">From the upcoming book</p>
                 <p className="text-xl font-black">The Growing Pains Index</p>
-                <p className="text-zinc-400">Chapter 8: Antibodies</p>
+                <p className="text-stone-500">Chapter 8: Antibodies</p>
               </div>
             </div>
 
@@ -281,15 +281,15 @@ const OrganizationalAntibodiesPage: NextPage = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 px-6 border-t border-zinc-900">
+        <section className="py-16 px-6 border-t border-stone-200">
           <div className="max-w-7xl mx-auto text-center">
             <h3 className="text-3xl font-black mb-6">IDENTIFY YOUR ANTIBODIES</h3>
-            <p className="text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-stone-500 mb-8 max-w-2xl mx-auto">
               Measure your organization's metabolic state. Understand which changes will be rejected and which can be absorbed.
             </p>
             <Link
               href="/diagnostic"
-              className="inline-block bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors"
+              className="inline-block bg-red-600 text-white px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors"
             >
               TAKE THE GPI DIAGNOSTIC
             </Link>
@@ -297,7 +297,7 @@ const OrganizationalAntibodiesPage: NextPage = () => {
         </section>
 
         {/* Related Content */}
-        <section className="py-16 px-6 bg-zinc-950">
+        <section className="py-16 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <RelatedContent
               title="Continue Reading"

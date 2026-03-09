@@ -217,14 +217,14 @@ const DiagnosticPage = () => {
           title="GPI Diagnostic | IMAGINATION G"
           description="Measure your Growing Pains Index. 32 questions. 7 dimensions. See where energy gets stuck."
         />
-        <div className="min-h-screen bg-black text-white">
+        <div className="min-h-screen bg-stone-50 text-stone-900">
           <Navigation currentPage="diagnostic" />
           <section className="pt-20 pb-16 px-6">
             <div className="max-w-3xl mx-auto">
 
               {/* Hero */}
               <div className="mb-12">
-                <div className="inline-flex items-center gap-2 text-xs font-mono text-zinc-600 mb-6">
+                <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-6">
                   <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                   DIAGNOSTIC READY
                 </div>
@@ -233,99 +233,99 @@ const DiagnosticPage = () => {
                     YOUR ORG HAS A<br />
                     <span className="text-red-600">METABOLIC RATE.</span>
                   </h1>
-                  <div className="border border-zinc-700 p-4 md:w-64 shrink-0">
-                    <div className="text-xs font-mono text-zinc-500 mb-2">SELECT YOUR INDUSTRY</div>
+                  <div className="border border-stone-300 p-4 md:w-64 shrink-0">
+                    <div className="text-xs font-mono text-stone-500 mb-2">SELECT YOUR INDUSTRY</div>
                     <select
                       value={selectedIndustry}
                       onChange={(e) => setSelectedIndustry(e.target.value)}
-                      className="w-full bg-black text-white text-sm py-1 focus:outline-none"
+                      className="w-full bg-stone-50 text-stone-900 text-sm py-1 focus:outline-none"
                     >
                       {industries.map((industry) => (
                         <option key={industry} value={industry}>{industry}</option>
                       ))}
                     </select>
-                    <p className="text-xs text-zinc-700 mt-2">Used to benchmark your results.</p>
+                    <p className="text-xs text-stone-400 mt-2">Used to benchmark your results.</p>
                   </div>
                 </div>
-                <p className="text-xl text-zinc-400 max-w-2xl leading-relaxed">
+                <p className="text-xl text-stone-500 max-w-2xl leading-relaxed">
                   Most friction isn't visible on a P&L. It shows up in how long decisions take, whether mistakes get fixed or defended, and whether your best people have room to move. This measures all of it. 32 questions. 8 minutes.
                 </p>
               </div>
 
               {/* Scale */}
-              <div className="bg-zinc-950 border border-zinc-800 p-6 mb-8">
-                <div className="text-xs font-mono text-zinc-600 mb-4">THE SCALE</div>
-                <div className="relative h-4 bg-zinc-900 rounded-full mb-3 overflow-hidden">
+              <div className="bg-white border border-stone-200 p-6 mb-8">
+                <div className="text-xs font-mono text-stone-400 mb-4">THE SCALE</div>
+                <div className="relative h-4 bg-stone-100 rounded-full mb-3 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-r from-green-500 via-yellow-500 to-red-500" />
                 </div>
                 <div className="flex justify-between text-sm">
                   <div>
                     <span className="text-green-500 font-bold">1-3</span>
-                    <span className="text-zinc-600 ml-2">Field — energy flows</span>
+                    <span className="text-stone-400 ml-2">Field — energy flows</span>
                   </div>
                   <div>
                     <span className="text-yellow-500 font-bold">4-6</span>
-                    <span className="text-zinc-600 ml-2">Transitioning</span>
+                    <span className="text-stone-400 ml-2">Transitioning</span>
                   </div>
                   <div>
                     <span className="text-red-500 font-bold">7-10</span>
-                    <span className="text-zinc-600 ml-2">Particle — energy stuck</span>
+                    <span className="text-stone-400 ml-2">Particle — energy stuck</span>
                   </div>
                 </div>
-                <p className="text-xs text-zinc-600 mt-4">This is a read, not a grade. A high score in the right environment isn't a failure. It's information about where you are and what it costs you to move from here.</p>
+                <p className="text-xs text-stone-400 mt-4">This is a read, not a grade. A high score in the right environment isn't a failure. It's information about where you are and what it costs you to move from here.</p>
               </div>
 
               {/* The 7 Dimensions Preview */}
-              <div className="bg-zinc-950 border border-zinc-800 p-6 mb-8">
-                <div className="text-xs font-mono text-zinc-600 mb-6">SEVEN DIMENSIONS OF ORGANIZATIONAL FRICTION</div>
+              <div className="bg-white border border-stone-200 p-6 mb-8">
+                <div className="text-xs font-mono text-stone-400 mb-6">SEVEN DIMENSIONS OF ORGANIZATIONAL FRICTION</div>
                 <div className="space-y-5">
                   <div className="flex items-start gap-4">
-                    <Clock size={15} className="text-zinc-600 mt-0.5 shrink-0" />
+                    <Clock size={15} className="text-stone-400 mt-0.5 shrink-0" />
                     <div>
-                      <span className="text-white font-bold">Decision Latency</span>
-                      <p className="text-zinc-500 text-sm mt-0.5">Every layer between signal and action is a tax. Most orgs don't know how much they're paying.</p>
+                      <span className="text-stone-900 font-bold">Decision Latency</span>
+                      <p className="text-stone-500 text-sm mt-0.5">Every layer between signal and action is a tax. Most orgs don't know how much they're paying.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <Zap size={15} className="text-zinc-600 mt-0.5 shrink-0" />
+                    <Zap size={15} className="text-stone-400 mt-0.5 shrink-0" />
                     <div>
-                      <span className="text-white font-bold">Error Correction</span>
-                      <p className="text-zinc-500 text-sm mt-0.5">Mistakes aren't the problem. Mistakes that compound for years because no one can say the project is dead, that's the problem.</p>
+                      <span className="text-stone-900 font-bold">Error Correction</span>
+                      <p className="text-stone-500 text-sm mt-0.5">Mistakes aren't the problem. Mistakes that compound for years because no one can say the project is dead, that's the problem.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <Brain size={15} className="text-zinc-600 mt-0.5 shrink-0" />
+                    <Brain size={15} className="text-stone-400 mt-0.5 shrink-0" />
                     <div>
-                      <span className="text-white font-bold">Knowledge Location</span>
-                      <p className="text-zinc-500 text-sm mt-0.5">If it lives in someone's head and they leave, it's gone. If it lives in a doc no one can find, same result.</p>
+                      <span className="text-stone-900 font-bold">Knowledge Location</span>
+                      <p className="text-stone-500 text-sm mt-0.5">If it lives in someone's head and they leave, it's gone. If it lives in a doc no one can find, same result.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <Lock size={15} className="text-zinc-600 mt-0.5 shrink-0" />
+                    <Lock size={15} className="text-stone-400 mt-0.5 shrink-0" />
                     <div>
-                      <span className="text-white font-bold">Structural Lock-In</span>
-                      <p className="text-zinc-500 text-sm mt-0.5">Not just technology. Org charts, vendor contracts, legacy processes. Anything that makes changing direction expensive.</p>
+                      <span className="text-stone-900 font-bold">Structural Lock-In</span>
+                      <p className="text-stone-500 text-sm mt-0.5">Not just technology. Org charts, vendor contracts, legacy processes. Anything that makes changing direction expensive.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <Users size={15} className="text-zinc-600 mt-0.5 shrink-0" />
+                    <Users size={15} className="text-stone-400 mt-0.5 shrink-0" />
                     <div>
-                      <span className="text-white font-bold">Talent Flow</span>
-                      <p className="text-zinc-500 text-sm mt-0.5">Stuck people do stuck work. When mobility inside the org is low, the best performers calculate that their leverage is higher somewhere else.</p>
+                      <span className="text-stone-900 font-bold">Talent Flow</span>
+                      <p className="text-stone-500 text-sm mt-0.5">Stuck people do stuck work. When mobility inside the org is low, the best performers calculate that their leverage is higher somewhere else.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <DollarSign size={15} className="text-zinc-600 mt-0.5 shrink-0" />
+                    <DollarSign size={15} className="text-stone-400 mt-0.5 shrink-0" />
                     <div>
-                      <span className="text-white font-bold">Capital Intensity</span>
-                      <p className="text-zinc-500 text-sm mt-0.5">Every dollar locked in physical assets is a dollar that can't move. High capital intensity means strategy gets shaped by what you already built.</p>
+                      <span className="text-stone-900 font-bold">Capital Intensity</span>
+                      <p className="text-stone-500 text-sm mt-0.5">Every dollar locked in physical assets is a dollar that can't move. High capital intensity means strategy gets shaped by what you already built.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <Gauge size={15} className="text-zinc-600 mt-0.5 shrink-0" />
+                    <Gauge size={15} className="text-stone-400 mt-0.5 shrink-0" />
                     <div>
-                      <span className="text-white font-bold">Knowledge Velocity</span>
-                      <p className="text-zinc-500 text-sm mt-0.5">The gap between knowing something works better and actually doing it better. That gap is the metabolism.</p>
+                      <span className="text-stone-900 font-bold">Knowledge Velocity</span>
+                      <p className="text-stone-500 text-sm mt-0.5">The gap between knowing something works better and actually doing it better. That gap is the metabolism.</p>
                     </div>
                   </div>
                 </div>
@@ -335,16 +335,16 @@ const DiagnosticPage = () => {
               <div className="text-center">
                 <button
                   onClick={() => setCurrentStep('questions')}
-                  className="bg-red-600 px-12 py-5 font-black text-lg hover:bg-red-700 transition-colors"
+                  className="bg-red-600 text-white px-12 py-5 font-black text-lg hover:bg-red-700 transition-colors"
                 >
                   START DIAGNOSTIC
                 </button>
-                <p className="text-zinc-600 text-sm mt-4">32 yes/no questions. No email required to see results.</p>
+                <p className="text-stone-400 text-sm mt-4">32 yes/no questions. No email required to see results.</p>
               </div>
 
               {/* Trust Element */}
-              <div className="mt-12 text-center border-t border-zinc-900 pt-8">
-                <p className="text-zinc-600 text-sm">
+              <div className="mt-12 text-center border-t border-stone-200 pt-8">
+                <p className="text-stone-400 text-sm">
                   Patterns drawn from analysis of 500+ organizations across 40+ industries.
                 </p>
               </div>
@@ -361,7 +361,7 @@ const DiagnosticPage = () => {
     return (
       <>
         <SEOHead title="Calculating GPI | IMAGINATION G" description="Processing diagnostic results." />
-        <div className="min-h-screen bg-black text-white">
+        <div className="min-h-screen bg-stone-50 text-stone-900">
           <Navigation currentPage="diagnostic" />
           <section className="pt-20 pb-16 px-6">
             <div className="max-w-md mx-auto text-center">
@@ -373,20 +373,20 @@ const DiagnosticPage = () => {
               <div className="space-y-3 text-left mb-8">
                 {dims.map((dim, i) => (
                   <div key={dim.key} className="flex items-center gap-3 text-sm">
-                    <div className={`w-2 h-2 rounded-full transition-colors ${analysisStep > i ? 'bg-green-500' : 'bg-zinc-700'}`} />
-                    <span className={analysisStep > i ? 'text-zinc-400' : 'text-zinc-600'}>
+                    <div className={`w-2 h-2 rounded-full transition-colors ${analysisStep > i ? 'bg-green-500' : 'bg-stone-300'}`} />
+                    <span className={analysisStep > i ? 'text-stone-500' : 'text-stone-400'}>
                       {dim.label}
                     </span>
                     {analysisStep > i && <span className="text-green-500 text-xs">done</span>}
                   </div>
                 ))}
                 <div className="flex items-center gap-3 text-sm">
-                  <div className={`w-2 h-2 rounded-full transition-colors ${analysisStep > 7 ? 'bg-green-500' : 'bg-zinc-700'}`} />
-                  <span className={analysisStep > 7 ? 'text-zinc-400' : 'text-zinc-600'}>Composite score</span>
+                  <div className={`w-2 h-2 rounded-full transition-colors ${analysisStep > 7 ? 'bg-green-500' : 'bg-stone-300'}`} />
+                  <span className={analysisStep > 7 ? 'text-stone-500' : 'text-stone-400'}>Composite score</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
-                  <div className={`w-2 h-2 rounded-full transition-colors ${analysisStep > 8 ? 'bg-green-500' : 'bg-zinc-700'}`} />
-                  <span className={analysisStep > 8 ? 'text-zinc-400' : 'text-zinc-600'}>Industry comparison</span>
+                  <div className={`w-2 h-2 rounded-full transition-colors ${analysisStep > 8 ? 'bg-green-500' : 'bg-stone-300'}`} />
+                  <span className={analysisStep > 8 ? 'text-stone-500' : 'text-stone-400'}>Industry comparison</span>
                 </div>
               </div>
             </div>
@@ -415,7 +415,7 @@ const DiagnosticPage = () => {
           title={`GPI: ${gpiResults.overall} | IMAGINATION G`}
           description={`Your Growing Pains Index is ${gpiResults.overall}. ${stateLabel}.`}
         />
-        <div className="min-h-screen bg-black text-white">
+        <div className="min-h-screen bg-stone-50 text-stone-900">
           <Navigation currentPage="diagnostic" />
           <section className="pt-20 pb-16 px-6">
             <div className="max-w-5xl mx-auto">
@@ -434,8 +434,8 @@ const DiagnosticPage = () => {
 
                 {/* Score */}
                 <div className="flex flex-col items-center lg:items-end">
-                  <div className="bg-zinc-950 border border-zinc-800 p-8 w-full max-w-sm">
-                    <div className="text-xs font-mono text-zinc-600 mb-4">GROWING PAINS INDEX</div>
+                  <div className="bg-white border border-stone-200 p-8 w-full max-w-sm">
+                    <div className="text-xs font-mono text-stone-400 mb-4">GROWING PAINS INDEX</div>
                     <div className="flex items-baseline gap-2 mb-4">
                       <span
                         className="text-7xl font-black tabular-nums"
@@ -443,12 +443,12 @@ const DiagnosticPage = () => {
                       >
                         {gpiResults.overall}
                       </span>
-                      <span className="text-2xl text-zinc-700">/10</span>
+                      <span className="text-2xl text-stone-400">/10</span>
                     </div>
                     <div className="text-sm font-bold mb-4" style={{ color: stateColor === 'green' ? '#22c55e' : stateColor === 'yellow' ? '#eab308' : '#ef4444' }}>
                       {stateLabel.toUpperCase()}
                     </div>
-                    <div className="relative h-2 bg-zinc-900 rounded-full mb-4">
+                    <div className="relative h-2 bg-stone-100 rounded-full mb-4">
                       <div
                         className="absolute top-0 left-0 h-full rounded-full"
                         style={{
@@ -465,12 +465,12 @@ const DiagnosticPage = () => {
 
                   {/* Key Stats */}
                   <div className="grid grid-cols-2 gap-4 mt-4 w-full max-w-sm">
-                    <div className="bg-zinc-950 border border-zinc-800 p-4 text-center">
-                      <div className="text-xs text-zinc-600 mb-1">PERCENTILE</div>
+                    <div className="bg-white border border-stone-200 p-4 text-center">
+                      <div className="text-xs text-stone-400 mb-1">PERCENTILE</div>
                       <div className="text-2xl font-black">{gpiResults.industryComparison.percentile}th</div>
                     </div>
-                    <div className="bg-zinc-950 border border-zinc-800 p-4 text-center">
-                      <div className="text-xs text-zinc-600 mb-1">VS INDUSTRY</div>
+                    <div className="bg-white border border-stone-200 p-4 text-center">
+                      <div className="text-xs text-stone-400 mb-1">VS INDUSTRY</div>
                       <div className={`text-2xl font-black ${gpiResults.industryComparison.position === 'above' ? 'text-green-500' : gpiResults.industryComparison.position === 'below' ? 'text-red-500' : 'text-yellow-500'}`}>
                         {gpiResults.industryComparison.position === 'above' ? 'BETTER' : gpiResults.industryComparison.position === 'below' ? 'WORSE' : 'AVG'}
                       </div>
@@ -488,15 +488,15 @@ const DiagnosticPage = () => {
                     highlightWeakest={true}
                     animated={true}
                   />
-                  <div className="text-xs font-mono text-zinc-600 mt-2 text-center lg:text-left">
+                  <div className="text-xs font-mono text-stone-400 mt-2 text-center lg:text-left">
                     HOVER FOR DETAILS
                   </div>
                 </div>
               </div>
 
               {/* Dimension Breakdown with Insights */}
-              <div className="bg-zinc-950 border border-zinc-800 p-6 mb-8">
-                <div className="text-xs font-mono text-zinc-600 mb-6">DIMENSION BREAKDOWN</div>
+              <div className="bg-white border border-stone-200 p-6 mb-8">
+                <div className="text-xs font-mono text-stone-400 mb-6">DIMENSION BREAKDOWN</div>
                 <div className="space-y-6">
                   {gpiResults.dimensions
                     .sort((a, b) => b.score - a.score)
@@ -507,14 +507,14 @@ const DiagnosticPage = () => {
                       const scoreColor = dim.score <= 3 ? '#22c55e' : dim.score <= 6 ? '#eab308' : '#ef4444';
 
                       return (
-                        <div key={dim.dimension} className={`p-4 rounded-lg border ${isWeakest ? 'border-red-900 bg-red-950/20' : isStrongest ? 'border-green-900 bg-green-950/20' : 'border-zinc-800 bg-zinc-900/50'}`}>
+                        <div key={dim.dimension} className={`p-4 rounded-lg border ${isWeakest ? 'border-red-200 bg-red-50' : isStrongest ? 'border-green-900 bg-green-950/20' : 'border-stone-200 bg-stone-100/50'}`}>
                           {/* Header Row */}
                           <div className="flex items-center justify-between mb-2">
                             <div className="flex items-center gap-2">
                               <span className="text-sm font-bold">
                                 {dim.label}
                               </span>
-                              {isWeakest && <span className="text-xs bg-red-900/50 text-red-400 px-2 py-0.5 rounded">HIGHEST FRICTION</span>}
+                              {isWeakest && <span className="text-xs bg-red-50 text-red-600 px-2 py-0.5 rounded">HIGHEST FRICTION</span>}
                               {isStrongest && <span className="text-xs bg-green-900/50 text-green-400 px-2 py-0.5 rounded">LOWEST FRICTION</span>}
                             </div>
                             <div className="text-2xl font-black font-mono" style={{ color: scoreColor }}>
@@ -523,7 +523,7 @@ const DiagnosticPage = () => {
                           </div>
 
                           {/* Progress Bar */}
-                          <div className="h-2 bg-zinc-800 rounded-full overflow-hidden mb-3">
+                          <div className="h-2 bg-stone-200 rounded-full overflow-hidden mb-3">
                             <div
                               className="h-full rounded-full transition-all duration-500"
                               style={{
@@ -538,7 +538,7 @@ const DiagnosticPage = () => {
                             <div className="text-sm font-bold" style={{ color: scoreColor }}>
                               {insight.text}
                             </div>
-                            <div className="text-xs text-zinc-500 mt-1">
+                            <div className="text-xs text-stone-500 mt-1">
                               {insight.subtext}
                             </div>
                           </div>
@@ -550,50 +550,50 @@ const DiagnosticPage = () => {
 
               {/* Highest friction callout */}
               {gpiResults.weakestDimension && (
-                <div className="border border-zinc-800 p-6 mb-8">
-                  <div className="text-xs font-mono text-zinc-600 mb-2">HIGHEST FRICTION</div>
+                <div className="border border-stone-200 p-6 mb-8">
+                  <div className="text-xs font-mono text-stone-400 mb-2">HIGHEST FRICTION</div>
                   <div className="text-lg font-black mb-2">
                     {GPI_DIMENSIONS[gpiResults.weakestDimension].label}
                   </div>
-                  <p className="text-sm text-zinc-500">
+                  <p className="text-sm text-stone-500">
                     This is where the org burns the most energy for the least movement. Fix this first or everything else runs uphill.
                   </p>
                 </div>
               )}
 
               {/* Consult CTA */}
-              <div className="border border-red-900/50 bg-red-950/10 p-6 mb-8">
-                <div className="text-xs font-mono text-red-500 mb-3">NEXT STEP</div>
+              <div className="border border-red-200 bg-red-50 p-6 mb-8">
+                <div className="text-xs font-mono text-red-600 mb-3">NEXT STEP</div>
                 <h3 className="text-xl font-black mb-2">
                   Bring this to a live session.
                 </h3>
-                <p className="text-sm text-zinc-400 mb-2">
+                <p className="text-sm text-stone-500 mb-2">
                   One hour. You share context on the org. I run GPI on it live and show you exactly where the friction is coming from and what to do about it.
                 </p>
                 {gpiResults.weakestDimension && (
-                  <p className="text-sm text-zinc-500 mb-5">
-                    Your highest friction is <span className="text-white font-bold">{GPI_DIMENSIONS[gpiResults.weakestDimension].label}</span>. That's where we'd start.
+                  <p className="text-sm text-stone-500 mb-5">
+                    Your highest friction is <span className="text-stone-900 font-bold">{GPI_DIMENSIONS[gpiResults.weakestDimension].label}</span>. That's where we'd start.
                   </p>
                 )}
                 <a
                   href={`/consult?gpi=${gpiResults.overall}&dim=${gpiResults.weakestDimension}`}
-                  className="inline-block bg-red-600 px-8 py-3 font-black hover:bg-red-700 transition-colors"
+                  className="inline-block bg-red-600 text-white px-8 py-3 font-black hover:bg-red-700 transition-colors"
                 >
                   BOOK A SESSION
                 </a>
-                <p className="text-xs text-zinc-600 mt-3">First session free. No pitch.</p>
+                <p className="text-xs text-stone-400 mt-3">First session free. No pitch.</p>
               </div>
 
               {/* Save Results */}
               {!saved && (
-                <div className="bg-zinc-950 border border-zinc-800 p-6 mb-8 text-center">
-                  <div className="text-xs font-mono text-zinc-600 mb-2">SAVE YOUR RESULTS</div>
-                  <p className="text-sm text-zinc-500 mb-4">
+                <div className="bg-white border border-stone-200 p-6 mb-8 text-center">
+                  <div className="text-xs font-mono text-stone-400 mb-2">SAVE YOUR RESULTS</div>
+                  <p className="text-sm text-stone-500 mb-4">
                     Get the full breakdown emailed. Share it with whoever needs to see it.
                   </p>
                   <button
                     onClick={() => setShowSaveModal(true)}
-                    className="bg-red-600 px-6 py-3 font-black hover:bg-red-700 transition-colors"
+                    className="bg-red-600 text-white px-6 py-3 font-black hover:bg-red-700 transition-colors"
                   >
                     EMAIL MY RESULTS
                   </button>
@@ -603,7 +603,7 @@ const DiagnosticPage = () => {
               {saved && (
                 <div className="bg-green-950/30 border border-green-800 p-6 mb-8 text-center">
                   <div className="text-green-500 font-bold mb-2">Results saved and emailed!</div>
-                  <p className="text-sm text-zinc-500">Check your inbox for your full GPI breakdown.</p>
+                  <p className="text-sm text-stone-500">Check your inbox for your full GPI breakdown.</p>
                 </div>
               )}
 
@@ -611,31 +611,31 @@ const DiagnosticPage = () => {
               <div className="flex flex-wrap gap-4 justify-center">
                 <Link
                   href="/gpi-framework"
-                  className="border border-zinc-700 px-6 py-3 font-bold hover:border-zinc-500 transition-colors"
+                  className="border border-stone-300 px-6 py-3 font-bold hover:border-stone-400 transition-colors"
                 >
                   UNDERSTAND GPI
                 </Link>
                 <button
                   onClick={restartDiagnostic}
-                  className="border border-zinc-700 px-6 py-3 font-bold hover:border-zinc-500 transition-colors"
+                  className="border border-stone-300 px-6 py-3 font-bold hover:border-stone-400 transition-colors"
                 >
                   RETAKE
                 </button>
               </div>
 
-              <p className="text-center text-zinc-600 text-xs mt-8">
+              <p className="text-center text-stone-400 text-xs mt-8">
                 Retake in 90 days to measure change.
               </p>
 
               {/* Save Modal */}
               {showSaveModal && (
-                <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-6">
-                  <div className="bg-zinc-950 border border-zinc-800 p-8 max-w-md w-full">
+                <div className="fixed inset-0 bg-stone-900/80 flex items-center justify-center z-50 p-6">
+                  <div className="bg-white border border-stone-200 p-8 max-w-md w-full">
                     <div className="flex justify-between items-center mb-6">
                       <h3 className="text-xl font-black">SAVE YOUR RESULTS</h3>
                       <button
                         onClick={() => setShowSaveModal(false)}
-                        className="text-zinc-600 hover:text-white text-2xl"
+                        className="text-stone-400 hover:text-stone-900 text-2xl"
                       >
                         &times;
                       </button>
@@ -643,47 +643,47 @@ const DiagnosticPage = () => {
 
                     <form onSubmit={handleSaveResults} className="space-y-4">
                       <div>
-                        <label className="block text-xs font-mono text-zinc-600 mb-2">NAME *</label>
+                        <label className="block text-xs font-mono text-stone-400 mb-2">NAME *</label>
                         <input
                           type="text"
                           required
                           value={saveForm.name}
                           onChange={(e) => setSaveForm({ ...saveForm, name: e.target.value })}
-                          className="w-full bg-black border border-zinc-700 p-3 text-white focus:border-red-600 outline-none"
+                          className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-red-600 outline-none"
                           placeholder="Your name"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-mono text-zinc-600 mb-2">EMAIL *</label>
+                        <label className="block text-xs font-mono text-stone-400 mb-2">EMAIL *</label>
                         <input
                           type="email"
                           required
                           value={saveForm.email}
                           onChange={(e) => setSaveForm({ ...saveForm, email: e.target.value })}
-                          className="w-full bg-black border border-zinc-700 p-3 text-white focus:border-red-600 outline-none"
+                          className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-red-600 outline-none"
                           placeholder="you@company.com"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-mono text-zinc-600 mb-2">COMPANY</label>
+                        <label className="block text-xs font-mono text-stone-400 mb-2">COMPANY</label>
                         <input
                           type="text"
                           value={saveForm.company}
                           onChange={(e) => setSaveForm({ ...saveForm, company: e.target.value })}
-                          className="w-full bg-black border border-zinc-700 p-3 text-white focus:border-red-600 outline-none"
+                          className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-red-600 outline-none"
                           placeholder="Your company"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-mono text-zinc-600 mb-2">CITY</label>
+                        <label className="block text-xs font-mono text-stone-400 mb-2">CITY</label>
                         <input
                           type="text"
                           value={saveForm.city}
                           onChange={(e) => setSaveForm({ ...saveForm, city: e.target.value })}
-                          className="w-full bg-black border border-zinc-700 p-3 text-white focus:border-red-600 outline-none"
+                          className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-red-600 outline-none"
                           placeholder="Your city"
                         />
                       </div>
@@ -696,19 +696,19 @@ const DiagnosticPage = () => {
                           onChange={(e) => setSendEmail(e.target.checked)}
                           className="w-4 h-4 accent-red-600"
                         />
-                        <label htmlFor="sendEmail" className="text-sm text-zinc-400">
+                        <label htmlFor="sendEmail" className="text-sm text-stone-500">
                           Email me my results
                         </label>
                       </div>
 
                       {saveError && (
-                        <div className="text-red-500 text-sm">{saveError}</div>
+                        <div className="text-red-600 text-sm">{saveError}</div>
                       )}
 
                       <button
                         type="submit"
                         disabled={saving}
-                        className="w-full bg-red-600 py-4 font-black hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full bg-red-600 text-white py-4 font-black hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {saving ? 'SAVING...' : 'SAVE RESULTS'}
                       </button>
@@ -736,7 +736,7 @@ const DiagnosticPage = () => {
   const partialGPI = partialAnswers.length > 0 ? calculateFullGPI(partialAnswers, selectedIndustry) : null;
   const liveColor = partialGPI
     ? (partialGPI.overall <= 3 ? '#22c55e' : partialGPI.overall <= 6 ? '#eab308' : '#ef4444')
-    : '#555';
+    : '#a8a29e';
 
   return (
     <>
@@ -744,14 +744,14 @@ const DiagnosticPage = () => {
         title={`Question ${currentQuestion} | GPI Diagnostic`}
         description={currentQ.question}
       />
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-stone-50 text-stone-900">
         <Navigation currentPage="diagnostic" />
         <section className="pt-20 pb-16 px-6">
           <div className="max-w-xl mx-auto">
 
             {/* Progress */}
             <div className="mb-8">
-              <div className="flex justify-between items-center text-xs font-mono text-zinc-600 mb-2">
+              <div className="flex justify-between items-center text-xs font-mono text-stone-400 mb-2">
                 <span>{currentQuestion} / {questions.length}</span>
                 {partialGPI && (
                   <span
@@ -763,7 +763,7 @@ const DiagnosticPage = () => {
                 )}
                 <span>{Math.round(progress)}%</span>
               </div>
-              <div className="h-1 bg-zinc-900 rounded-full">
+              <div className="h-1 bg-stone-100 rounded-full">
                 <div
                   className="h-1 bg-red-600 rounded-full transition-all duration-300"
                   style={{ width: `${progress}%` }}
@@ -775,7 +775,7 @@ const DiagnosticPage = () => {
             {currentQuestion > 1 && (
               <button
                 onClick={() => setCurrentQuestion(currentQuestion - 1)}
-                className="flex items-center gap-2 text-zinc-600 hover:text-zinc-400 transition-colors text-sm mb-8"
+                className="flex items-center gap-2 text-stone-400 hover:text-stone-500 transition-colors text-sm mb-8"
               >
                 <ArrowLeft size={16} />
                 Back
@@ -784,7 +784,7 @@ const DiagnosticPage = () => {
 
             {/* Question */}
             <div className="mb-8">
-              <div className="text-xs font-mono text-zinc-600 mb-4">
+              <div className="text-xs font-mono text-stone-400 mb-4">
                 {GPI_DIMENSIONS[currentQ.dimension].label}
               </div>
               <h2 className="text-xl md:text-2xl font-black leading-tight">
@@ -797,14 +797,14 @@ const DiagnosticPage = () => {
               const example = getQuestionExample(currentQ.id, selectedIndustry);
               if (!example) return null;
               return (
-                <div className="bg-zinc-900/50 border border-zinc-800 rounded-lg p-4 mb-8">
+                <div className="bg-stone-100/50 border border-stone-200 rounded-lg p-4 mb-8">
                   <div className="flex items-start gap-3">
                     <Lightbulb size={18} className="text-yellow-500 mt-0.5 flex-shrink-0" />
                     <div>
-                      <div className="text-xs font-mono text-zinc-600 mb-1">
+                      <div className="text-xs font-mono text-stone-400 mb-1">
                         IN {selectedIndustry.toUpperCase()}
                       </div>
-                      <p className="text-sm text-zinc-400">
+                      <p className="text-sm text-stone-500">
                         {example}
                       </p>
                     </div>

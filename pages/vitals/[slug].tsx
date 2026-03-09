@@ -73,8 +73,8 @@ function stageColor(stage: string): string {
 const VitalsPage: NextPage<Props> = ({ data, slug }) => {
   if (!data) {
     return (
-      <div style={{ background: '#000', color: '#fff', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <p style={{ color: '#666' }}>No vital signs found for "{slug}".</p>
+      <div style={{ background: '#fafaf9', color: '#1c1917', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <p style={{ color: '#a8a29e' }}>No vital signs found for "{slug}".</p>
       </div>
     );
   }
@@ -88,12 +88,12 @@ const VitalsPage: NextPage<Props> = ({ data, slug }) => {
         <style>{`
           @media print {
             .no-print { display: none !important; }
-            body { background: #000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            body { background: #fafaf9 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
             .card { page-break-inside: avoid; }
           }
           @page { size: letter; margin: 0.5in; }
           * { box-sizing: border-box; }
-          body { margin: 0; padding: 0; background: #000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+          body { margin: 0; padding: 0; background: #fafaf9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
         `}</style>
       </Head>
 
@@ -112,7 +112,7 @@ const VitalsPage: NextPage<Props> = ({ data, slug }) => {
         <a
           href="/"
           style={{
-            display: 'inline-block', marginLeft: 12, color: '#666', fontSize: 11,
+            display: 'inline-block', marginLeft: 12, color: '#a8a29e', fontSize: 11,
             letterSpacing: 2, textTransform: 'uppercase', textDecoration: 'none',
           }}
         >
@@ -121,14 +121,14 @@ const VitalsPage: NextPage<Props> = ({ data, slug }) => {
       </div>
 
       {/* Card */}
-      <div className="card" style={{ maxWidth: 760, margin: '0 auto', padding: '48px 40px', color: '#fff' }}>
+      <div className="card" style={{ maxWidth: 760, margin: '0 auto', padding: '48px 40px', color: '#1c1917' }}>
 
         {/* Header */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 36, borderBottom: '1px solid #222', paddingBottom: 28 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 36, borderBottom: '1px solid #e7e5e4', paddingBottom: 28 }}>
           <div>
-            <p style={{ margin: '0 0 6px', fontSize: 10, letterSpacing: 3, color: '#555', textTransform: 'uppercase' }}>GPI VITAL SIGNS</p>
+            <p style={{ margin: '0 0 6px', fontSize: 10, letterSpacing: 3, color: '#a8a29e', textTransform: 'uppercase' }}>GPI VITAL SIGNS</p>
             <h1 style={{ margin: '0 0 4px', fontSize: 36, fontWeight: 900, lineHeight: 1 }}>{data.company}</h1>
-            {data.ticker && <p style={{ margin: 0, fontSize: 12, color: '#555', letterSpacing: 1 }}>{data.ticker}</p>}
+            {data.ticker && <p style={{ margin: 0, fontSize: 12, color: '#a8a29e', letterSpacing: 1 }}>{data.ticker}</p>}
           </div>
           <div style={{ textAlign: 'right' }}>
             <div style={{ fontSize: 52, fontWeight: 900, lineHeight: 1, color: scoreColor(data.gpiScore) }}>
@@ -142,26 +142,26 @@ const VitalsPage: NextPage<Props> = ({ data, slug }) => {
 
         {/* Pattern */}
         <div style={{ marginBottom: 36 }}>
-          <p style={{ margin: '0 0 8px', fontSize: 10, letterSpacing: 3, color: '#555', textTransform: 'uppercase' }}>THE PATTERN</p>
+          <p style={{ margin: '0 0 8px', fontSize: 10, letterSpacing: 3, color: '#a8a29e', textTransform: 'uppercase' }}>THE PATTERN</p>
           <h2 style={{ margin: '0 0 12px', fontSize: 22, fontWeight: 900 }}>{data.pattern}</h2>
-          <p style={{ margin: 0, fontSize: 14, color: '#999', lineHeight: 1.6 }}>{data.patternSummary}</p>
+          <p style={{ margin: 0, fontSize: 14, color: '#78716c', lineHeight: 1.6 }}>{data.patternSummary}</p>
         </div>
 
         {/* Dimensions */}
         <div style={{ marginBottom: 36 }}>
-          <p style={{ margin: '0 0 16px', fontSize: 10, letterSpacing: 3, color: '#555', textTransform: 'uppercase' }}>DIMENSION SCORES</p>
+          <p style={{ margin: '0 0 16px', fontSize: 10, letterSpacing: 3, color: '#a8a29e', textTransform: 'uppercase' }}>DIMENSION SCORES</p>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px 24px' }}>
             {data.dimensions.map(d => (
-              <div key={d.short} style={{ borderBottom: '1px solid #1a1a1a', paddingBottom: 10 }}>
+              <div key={d.short} style={{ borderBottom: '1px solid #e7e5e4', paddingBottom: 10 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 4 }}>
-                  <span style={{ fontSize: 12, color: '#ccc', fontWeight: 600 }}>{d.label}</span>
+                  <span style={{ fontSize: 12, color: '#44403c', fontWeight: 600 }}>{d.label}</span>
                   <span style={{ fontSize: 20, fontWeight: 900, color: scoreColor(d.score) }}>{d.score}</span>
                 </div>
                 {/* Score bar */}
-                <div style={{ height: 3, background: '#1a1a1a', marginBottom: 4 }}>
+                <div style={{ height: 3, background: '#e7e5e4', marginBottom: 4 }}>
                   <div style={{ height: 3, width: `${d.score * 10}%`, background: scoreColor(d.score) }} />
                 </div>
-                <p style={{ margin: 0, fontSize: 11, color: '#555' }}>{d.note}</p>
+                <p style={{ margin: 0, fontSize: 11, color: '#a8a29e' }}>{d.note}</p>
               </div>
             ))}
           </div>
@@ -169,22 +169,22 @@ const VitalsPage: NextPage<Props> = ({ data, slug }) => {
 
         {/* Critical signals */}
         <div style={{ marginBottom: 36 }}>
-          <p style={{ margin: '0 0 16px', fontSize: 10, letterSpacing: 3, color: '#555', textTransform: 'uppercase' }}>CRITICAL SIGNALS</p>
+          <p style={{ margin: '0 0 16px', fontSize: 10, letterSpacing: 3, color: '#a8a29e', textTransform: 'uppercase' }}>CRITICAL SIGNALS</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
             {data.criticalSignals.map((s, i) => (
               <div key={i} style={{ borderLeft: `3px solid ${i === 0 ? '#ef4444' : '#f97316'}`, paddingLeft: 14 }}>
-                <p style={{ margin: '0 0 4px', fontSize: 13, fontWeight: 700, color: '#fff' }}>{s.label}</p>
-                <p style={{ margin: 0, fontSize: 12, color: '#777', lineHeight: 1.5 }}>{s.detail}</p>
+                <p style={{ margin: '0 0 4px', fontSize: 13, fontWeight: 700, color: '#1c1917' }}>{s.label}</p>
+                <p style={{ margin: 0, fontSize: 12, color: '#78716c', lineHeight: 1.5 }}>{s.detail}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Footer */}
-        <div style={{ borderTop: '1px solid #1a1a1a', paddingTop: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <p style={{ margin: 0, fontSize: 10, color: '#444', letterSpacing: 2, textTransform: 'uppercase' }}>GPI.STUDIO</p>
-          <p style={{ margin: 0, fontSize: 10, color: '#444' }}>{data.analysisDate}</p>
-          <p style={{ margin: 0, fontSize: 10, color: '#333' }}>Growing Pains Index &trade;</p>
+        <div style={{ borderTop: '1px solid #e7e5e4', paddingTop: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <p style={{ margin: 0, fontSize: 10, color: '#a8a29e', letterSpacing: 2, textTransform: 'uppercase' }}>GPI.STUDIO</p>
+          <p style={{ margin: 0, fontSize: 10, color: '#a8a29e' }}>{data.analysisDate}</p>
+          <p style={{ margin: 0, fontSize: 10, color: '#d6d3d1' }}>Growing Pains Index &trade;</p>
         </div>
 
       </div>

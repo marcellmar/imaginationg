@@ -85,7 +85,7 @@ const GPISpectrum: React.FC<GPISpectrumProps> = ({
             style={{ left: `${percentage}%`, transform: 'translateX(-50%)' }}
           >
             <div
-              className={`${classes.marker} bg-white rounded-full border-2 border-zinc-900 shadow-lg ${
+              className={`${classes.marker} bg-stone-900 rounded-full border-2 border-stone-200 shadow-lg ${
                 animate ? 'animate-pulse' : ''
               }`}
             />
@@ -99,7 +99,7 @@ const GPISpectrum: React.FC<GPISpectrumProps> = ({
 
       {/* State labels */}
       {showLabels && (
-        <div className={`flex justify-between mt-1 ${classes.text} text-zinc-500`}>
+        <div className={`flex justify-between mt-1 ${classes.text} text-stone-500`}>
           <span>Field</span>
           <span>Transition</span>
           <span>Particle</span>

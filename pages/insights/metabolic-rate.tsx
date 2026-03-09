@@ -19,35 +19,35 @@ const MetabolicRatePage: NextPage = () => {
         }}
       />
 
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-stone-50 text-stone-900">
         <Navigation currentPage="insights" />
 
         {/* Hero Section */}
         <section className="pt-24 pb-16 px-6">
           <div className="max-w-4xl mx-auto">
             {/* Breadcrumb */}
-            <Link href="/insights" className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors mb-8">
+            <Link href="/insights" className="inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors mb-8">
               <ArrowLeft size={16} />
               Back to Insights
             </Link>
 
             {/* Meta */}
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-mono text-red-600 bg-red-600/10 px-3 py-1 rounded">GPI FOUNDATIONS</span>
-              <span className="text-xs text-zinc-500">9 min read</span>
-              <span className="text-xs text-zinc-600">•</span>
-              <span className="text-xs text-zinc-500">ALL DIMENSIONS</span>
+              <span className="text-xs font-mono text-red-600 bg-red-50 px-3 py-1 rounded">GPI FOUNDATIONS</span>
+              <span className="text-xs text-stone-500">9 min read</span>
+              <span className="text-xs text-stone-400">•</span>
+              <span className="text-xs text-stone-500">ALL DIMENSIONS</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-[1.1]">
               METABOLIC<br />RATE<span className="text-red-600">.</span>
             </h1>
 
-            <p className="text-2xl text-zinc-500 mb-8">
+            <p className="text-2xl text-stone-500 mb-8">
               The Speed of Organizational Change
             </p>
 
-            <p className="text-xl text-zinc-400 max-w-2xl">
+            <p className="text-xl text-stone-500 max-w-2xl">
               Every organization has a metabolic rate that determines how fast it can process change. Mismatched metabolic rates predict integration failure.
             </p>
 
@@ -56,7 +56,7 @@ const MetabolicRatePage: NextPage = () => {
               <div className="flex gap-8">
                 {/* Fast Metabolism - Hummingbird */}
                 <div className="flex flex-col items-center">
-                  <div className="w-48 h-24 bg-zinc-950 border border-green-600/50 rounded overflow-hidden relative">
+                  <div className="w-48 h-24 bg-white border border-green-600/50 rounded overflow-hidden relative">
                     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 100" preserveAspectRatio="none">
                       {/* Fast heartbeat line */}
                       <path
@@ -78,12 +78,12 @@ const MetabolicRatePage: NextPage = () => {
                     <div className="absolute bottom-2 right-2 text-xs font-mono text-green-400">1200 BPM</div>
                   </div>
                   <span className="text-xs font-mono text-green-500 mt-3">FAST METABOLISM</span>
-                  <span className="text-[10px] text-zinc-600">Weekly cycles. Continuous adaptation.</span>
+                  <span className="text-[10px] text-stone-400">Weekly cycles. Continuous adaptation.</span>
                 </div>
 
                 {/* Slow Metabolism - Elephant */}
                 <div className="flex flex-col items-center">
-                  <div className="w-48 h-24 bg-zinc-950 border border-red-600/50 rounded overflow-hidden relative">
+                  <div className="w-48 h-24 bg-white border border-red-600/50 rounded overflow-hidden relative">
                     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 100" preserveAspectRatio="none">
                       {/* Slow heartbeat line */}
                       <path
@@ -105,14 +105,14 @@ const MetabolicRatePage: NextPage = () => {
                     <div className="absolute bottom-2 right-2 text-xs font-mono text-red-400">30 BPM</div>
                   </div>
                   <span className="text-xs font-mono text-red-500 mt-3">SLOW METABOLISM</span>
-                  <span className="text-[10px] text-zinc-600">Quarterly cycles. Planned changes.</span>
+                  <span className="text-[10px] text-stone-400">Quarterly cycles. Planned changes.</span>
                 </div>
               </div>
             </div>
 
             {/* Caption */}
             <div className="text-center mt-6">
-              <span className="text-xs font-mono text-zinc-600">Neither is wrong. They're different metabolisms for different contexts.</span>
+              <span className="text-xs font-mono text-stone-400">Neither is wrong. They're different metabolisms for different contexts.</span>
             </div>
           </div>
         </section>
@@ -122,51 +122,51 @@ const MetabolicRatePage: NextPage = () => {
           <div className="max-w-3xl mx-auto space-y-16">
 
             {/* Opening */}
-            <div className="space-y-4 text-zinc-300">
+            <div className="space-y-4 text-stone-600">
               <p>A hummingbird's heart beats 1,200 times per minute. An elephant's beats 30 times.</p>
               <p>Neither is wrong. They're different metabolisms optimized for different contexts.</p>
-              <p className="text-white text-xl font-bold pt-4">Organizations work the same way.</p>
+              <p className="text-stone-900 text-xl font-bold pt-4">Organizations work the same way.</p>
             </div>
 
             {/* Quote */}
-            <div className="bg-zinc-950 border border-zinc-800 p-8">
-              <p className="text-2xl text-white italic">"Speed is a function of infrastructure. Change the infrastructure, change the speed."</p>
+            <div className="bg-white border border-stone-200 p-8">
+              <p className="text-2xl text-stone-900 italic">"Speed is a function of infrastructure. Change the infrastructure, change the speed."</p>
             </div>
 
             {/* What it measures */}
             <div className="grid md:grid-cols-2 gap-4">
-              <div className="bg-zinc-900 p-4">
-                <p className="text-white font-bold text-sm">Signal Processing</p>
-                <p className="text-zinc-400 text-sm">How fast does information flow? Hours? Quarters?</p>
+              <div className="bg-stone-100 p-4">
+                <p className="text-stone-900 font-bold text-sm">Signal Processing</p>
+                <p className="text-stone-500 text-sm">How fast does information flow? Hours? Quarters?</p>
               </div>
-              <div className="bg-zinc-900 p-4">
-                <p className="text-white font-bold text-sm">Decision Velocity</p>
-                <p className="text-zinc-400 text-sm">How quickly are decisions made?</p>
+              <div className="bg-stone-100 p-4">
+                <p className="text-stone-900 font-bold text-sm">Decision Velocity</p>
+                <p className="text-stone-500 text-sm">How quickly are decisions made?</p>
               </div>
-              <div className="bg-zinc-900 p-4">
-                <p className="text-white font-bold text-sm">Adaptation Speed</p>
-                <p className="text-zinc-400 text-sm">How fast can you change direction?</p>
+              <div className="bg-stone-100 p-4">
+                <p className="text-stone-900 font-bold text-sm">Adaptation Speed</p>
+                <p className="text-stone-500 text-sm">How fast can you change direction?</p>
               </div>
-              <div className="bg-zinc-900 p-4">
-                <p className="text-white font-bold text-sm">Learning Velocity</p>
-                <p className="text-zinc-400 text-sm">How quickly do insights become action?</p>
+              <div className="bg-stone-100 p-4">
+                <p className="text-stone-900 font-bold text-sm">Learning Velocity</p>
+                <p className="text-stone-500 text-sm">How quickly do insights become action?</p>
               </div>
             </div>
 
             {/* GPI by metabolism */}
             <div className="space-y-4">
-              <h2 className="text-xs font-mono text-zinc-500 mb-4">METABOLIC RATE BY GPI</h2>
+              <h2 className="text-xs font-mono text-stone-500 mb-4">METABOLIC RATE BY GPI</h2>
               <div className="border-l-4 border-green-500 pl-6 py-2">
                 <p className="text-green-500 font-mono text-sm">GPI 1-3: FAST METABOLISM</p>
-                <p className="text-zinc-400 text-sm">Weekly/daily cycles. Continuous adaptation. High energy cost.</p>
+                <p className="text-stone-500 text-sm">Weekly/daily cycles. Continuous adaptation. High energy cost.</p>
               </div>
               <div className="border-l-4 border-yellow-500 pl-6 py-2">
                 <p className="text-yellow-500 font-mono text-sm">GPI 4-6: MEDIUM METABOLISM</p>
-                <p className="text-zinc-400 text-sm">Monthly cycles. Periodic adaptation. Balanced energy.</p>
+                <p className="text-stone-500 text-sm">Monthly cycles. Periodic adaptation. Balanced energy.</p>
               </div>
               <div className="border-l-4 border-red-600 pl-6 py-2">
                 <p className="text-red-600 font-mono text-sm">GPI 7-10: SLOW METABOLISM</p>
-                <p className="text-zinc-400 text-sm">Quarterly/annual cycles. Planned change. High inertia.</p>
+                <p className="text-stone-500 text-sm">Quarterly/annual cycles. Planned change. High inertia.</p>
               </div>
             </div>
 
@@ -174,24 +174,24 @@ const MetabolicRatePage: NextPage = () => {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-green-950/20 border border-green-900/50 p-6">
                 <p className="text-green-500 font-bold text-sm mb-2">DISNEY + PIXAR</p>
-                <p className="text-zinc-300 text-sm mb-2">GPI gap: 2.2 points</p>
-                <p className="text-zinc-400 text-sm">Brain Trust spread. 19 years. $100B+ value.</p>
+                <p className="text-stone-600 text-sm mb-2">GPI gap: 2.2 points</p>
+                <p className="text-stone-500 text-sm">Brain Trust spread. 19 years. $100B+ value.</p>
               </div>
               <div className="bg-red-950/20 border border-red-900/50 p-6">
                 <p className="text-red-500 font-bold text-sm mb-2">HP + AUTONOMY</p>
-                <p className="text-zinc-300 text-sm mb-2">GPI gap: 4.7 points</p>
-                <p className="text-zinc-400 text-sm">Integration failed. $8.8B writedown.</p>
+                <p className="text-stone-600 text-sm mb-2">GPI gap: 4.7 points</p>
+                <p className="text-stone-500 text-sm">Integration failed. $8.8B writedown.</p>
               </div>
             </div>
 
             {/* Google YouTube callout */}
             <div className="border-l-2 border-cyan-500 pl-6">
-              <p className="text-zinc-300"><span className="text-white font-bold">Google + YouTube:</span> GPI gap of 0.2 points. Near-identical metabolisms. $1.65B to ~$400B in 19 years.</p>
+              <p className="text-stone-600"><span className="text-stone-900 font-bold">Google + YouTube:</span> GPI gap of 0.2 points. Near-identical metabolisms. $1.65B to ~$400B in 19 years.</p>
             </div>
 
             {/* 3-Point Rule */}
-            <div className="bg-zinc-950 border border-zinc-800 p-8">
-              <h2 className="text-xs font-mono text-zinc-500 mb-6">THE 3-POINT RULE</h2>
+            <div className="bg-white border border-stone-200 p-8">
+              <h2 className="text-xs font-mono text-stone-500 mb-6">THE 3-POINT RULE</h2>
               <div className="space-y-2 font-mono text-sm">
                 <div className="flex justify-between"><span>0-2 point gap</span><span className="text-green-400">Standard integration</span></div>
                 <div className="flex justify-between"><span>3-4 point gap</span><span className="text-yellow-400">Quarantine required</span></div>
@@ -202,45 +202,45 @@ const MetabolicRatePage: NextPage = () => {
 
             {/* Shift capacity */}
             <div className="space-y-4">
-              <h2 className="text-xs font-mono text-zinc-500 mb-4">METABOLIC SHIFT CAPACITY</h2>
-              <p><span className="text-white font-bold">1-2 points:</span> <span className="text-zinc-400">1-2 years. Process optimization.</span></p>
-              <p><span className="text-white font-bold">2-3 points:</span> <span className="text-zinc-400">3-5 years. Structural change.</span></p>
-              <p><span className="text-white font-bold">4+ points:</span> <span className="text-zinc-400">5-10 years. Complete transformation.</span></p>
-              <p className="text-zinc-500 text-sm pt-4">Organizations claiming 5 points in 18 months? Lying or delusional. Crash diets don't work.</p>
+              <h2 className="text-xs font-mono text-stone-500 mb-4">METABOLIC SHIFT CAPACITY</h2>
+              <p><span className="text-stone-900 font-bold">1-2 points:</span> <span className="text-stone-500">1-2 years. Process optimization.</span></p>
+              <p><span className="text-stone-900 font-bold">2-3 points:</span> <span className="text-stone-500">3-5 years. Structural change.</span></p>
+              <p><span className="text-stone-900 font-bold">4+ points:</span> <span className="text-stone-500">5-10 years. Complete transformation.</span></p>
+              <p className="text-stone-500 text-sm pt-4">Organizations claiming 5 points in 18 months? Lying or delusional. Crash diets don't work.</p>
             </div>
 
             {/* Metabolic Debt */}
             <div className="border-l-2 border-yellow-500 pl-6 space-y-4">
-              <p className="text-xl text-white italic">"You can borrow speed from the future by running people harder. But you can't borrow it forever."</p>
-              <p className="text-zinc-400">The interest on metabolic debt is paid in errors, burnout, and organizational fragility.</p>
+              <p className="text-xl text-stone-900 italic">"You can borrow speed from the future by running people harder. But you can't borrow it forever."</p>
+              <p className="text-stone-500">The interest on metabolic debt is paid in errors, burnout, and organizational fragility.</p>
             </div>
 
             {/* Fast vs Slow */}
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-red-950/20 border border-red-900/50 p-6">
                 <p className="text-red-500 font-bold text-sm mb-2">SLOW METABOLISM FITS</p>
-                <p className="text-zinc-300 text-sm">Regulated industries. Safety-critical ops. Long-cycle businesses. Mature markets.</p>
+                <p className="text-stone-600 text-sm">Regulated industries. Safety-critical ops. Long-cycle businesses. Mature markets.</p>
               </div>
               <div className="bg-green-950/20 border border-green-900/50 p-6">
                 <p className="text-green-500 font-bold text-sm mb-2">FAST METABOLISM FITS</p>
-                <p className="text-zinc-300 text-sm">Technology. Consumer markets. Early-stage ventures. Disrupted industries.</p>
+                <p className="text-stone-600 text-sm">Technology. Consumer markets. Early-stage ventures. Disrupted industries.</p>
               </div>
             </div>
 
             {/* Closing */}
-            <div className="bg-red-600/10 border border-red-600/30 p-8 space-y-4">
-              <p className="text-white font-bold text-2xl">Metabolic rate is infrastructure, not effort.</p>
-              <p className="text-zinc-300">You can't speed up a slow organization by working harder. You have to change the systems that determine speed.</p>
+            <div className="bg-red-50 border border-red-200 p-8 space-y-4">
+              <p className="text-stone-900 font-bold text-2xl">Metabolic rate is infrastructure, not effort.</p>
+              <p className="text-stone-600">You can't speed up a slow organization by working harder. You have to change the systems that determine speed.</p>
               <p className="text-red-500 font-bold text-xl pt-4">Change the infrastructure, change the metabolism.</p>
             </div>
 
             {/* Book Teaser */}
-            <div className="border border-zinc-800 p-8 flex items-center gap-6">
-              <BookOpen size={48} className="text-zinc-600 flex-shrink-0" />
+            <div className="border border-stone-200 p-8 flex items-center gap-6">
+              <BookOpen size={48} className="text-stone-400 flex-shrink-0" />
               <div>
-                <p className="text-zinc-500 text-sm uppercase mb-1">From the upcoming book</p>
+                <p className="text-stone-500 text-sm uppercase mb-1">From the upcoming book</p>
                 <p className="text-xl font-black">The Growing Pains Index</p>
-                <p className="text-zinc-400">Chapter 7: The Speed Gap</p>
+                <p className="text-stone-500">Chapter 7: The Speed Gap</p>
               </div>
             </div>
 
@@ -248,15 +248,15 @@ const MetabolicRatePage: NextPage = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 px-6 border-t border-zinc-900">
+        <section className="py-16 px-6 border-t border-stone-200">
           <div className="max-w-7xl mx-auto text-center">
             <h3 className="text-3xl font-black mb-6">MEASURE YOUR METABOLIC RATE</h3>
-            <p className="text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-stone-500 mb-8 max-w-2xl mx-auto">
               19 questions reveal your GPI across all dimensions. See your organizational metabolism.
             </p>
             <Link
               href="/diagnostic"
-              className="inline-block bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors"
+              className="inline-block bg-red-600 text-white px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors"
             >
               TAKE THE GPI DIAGNOSTIC
             </Link>
@@ -264,7 +264,7 @@ const MetabolicRatePage: NextPage = () => {
         </section>
 
         {/* Related Content */}
-        <section className="py-16 px-6 bg-zinc-950">
+        <section className="py-16 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <RelatedContent
               title="Continue Reading"

@@ -157,7 +157,7 @@ const GPIRadarChart: React.FC<GPIRadarChartProps> = ({
             cy={center}
             r={radius}
             fill="none"
-            stroke="#27272a"
+            stroke="#d6d3d1"
             strokeWidth="1"
             style={{
               opacity: animated ? animationProgress : 1,
@@ -177,7 +177,7 @@ const GPIRadarChart: React.FC<GPIRadarChartProps> = ({
               y1={center}
               x2={endPoint.x}
               y2={endPoint.y}
-              stroke={isHovered ? '#71717a' : '#3f3f46'}
+              stroke={isHovered ? '#a8a29e' : '#e7e5e4'}
               strokeWidth={isHovered ? 2 : 1}
               style={{
                 transition: 'stroke 0.2s, stroke-width 0.2s',
@@ -229,12 +229,12 @@ const GPIRadarChart: React.FC<GPIRadarChartProps> = ({
                 cy={point.y}
                 r={isHovered ? 10 : isWeakest ? 8 : isStrongest ? 6 : 5}
                 fill={getFillColor(dim.score)}
-                stroke={isHovered || isWeakest ? '#fff' : 'none'}
+                stroke={isHovered || isWeakest ? '#1c1917' : 'none'}
                 strokeWidth={isHovered ? 3 : isWeakest ? 2 : 0}
                 className={isWeakest && !isHovered ? 'animate-pulse' : ''}
                 style={{
                   transition: 'r 0.2s, stroke-width 0.2s',
-                  filter: isHovered ? 'drop-shadow(0 0 8px rgba(255,255,255,0.5))' : 'none',
+                  filter: isHovered ? 'drop-shadow(0 0 8px rgba(28,25,23,0.3))' : 'none',
                 }}
                 onMouseEnter={() => setHoveredDimension(dim.dimension)}
                 onMouseLeave={() => setHoveredDimension(null)}
@@ -269,7 +269,7 @@ const GPIRadarChart: React.FC<GPIRadarChartProps> = ({
             >
               <div
                 className={`text-xs font-bold whitespace-nowrap transition-colors ${
-                  isHovered ? 'text-white' : isWeakest ? 'text-red-500' : 'text-zinc-400'
+                  isHovered ? 'text-stone-900' : isWeakest ? 'text-red-500' : 'text-stone-500'
                 }`}
               >
                 {shortLabels[dim.dimension]}
@@ -295,9 +295,9 @@ const GPIRadarChart: React.FC<GPIRadarChartProps> = ({
             transform: 'translate(-50%, -50%)',
           }}
         >
-          <div className="text-center bg-black/80 rounded-full p-3">
-            <div className="text-xs text-zinc-500 uppercase">Avg</div>
-            <div className="text-lg font-black text-white">
+          <div className="text-center bg-white/90 rounded-full p-3 border border-stone-200">
+            <div className="text-xs text-stone-500 uppercase">Avg</div>
+            <div className="text-lg font-black text-stone-900">
               {(
                 orderedDimensions.reduce((sum, d) => sum + d.score, 0) /
                 orderedDimensions.length
@@ -318,7 +318,7 @@ const GPIRadarChart: React.FC<GPIRadarChartProps> = ({
           }}
         >
           <div
-            className="text-center bg-zinc-900 border border-zinc-700 rounded-lg p-4 max-w-[200px]"
+            className="text-center bg-stone-100 border border-stone-300 rounded-lg p-4 max-w-[200px]"
             style={{
               animation: 'fadeIn 0.15s ease-out',
             }}
@@ -326,7 +326,7 @@ const GPIRadarChart: React.FC<GPIRadarChartProps> = ({
             <div className={`text-sm font-black mb-1 ${getScoreColor(hoveredData.score)}`}>
               {hoveredData.score.toFixed(1)}/10
             </div>
-            <div className="text-xs text-zinc-400 leading-relaxed">
+            <div className="text-xs text-stone-600 leading-relaxed">
               {hoveredData.score > 5
                 ? funnyDescriptions[hoveredData.dimension].high
                 : funnyDescriptions[hoveredData.dimension].low

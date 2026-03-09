@@ -98,7 +98,7 @@ const ParticleStatePage = () => {
         ogImage="/images/og-particle-state.svg"
       />
 
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-stone-50 text-stone-900">
         <Navigation currentPage="framework" />
 
         {/* Hero */}
@@ -107,7 +107,7 @@ const ParticleStatePage = () => {
             <div className="max-w-4xl mx-auto">
               {/* Breadcrumb */}
               <div className="mb-8">
-                <Link href="/gpi-framework" className="text-zinc-500 hover:text-white transition-colors text-sm">
+                <Link href="/gpi-framework" className="text-stone-500 hover:text-stone-900 transition-colors text-sm">
                   ← GPI Framework
                 </Link>
               </div>
@@ -124,13 +124,13 @@ const ParticleStatePage = () => {
 
               <p className="text-2xl text-red-400 font-bold mb-4">RIGID</p>
 
-              <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
+              <p className="text-xl text-stone-500 mb-8 max-w-2xl">
                 Organizations where friction isn't entropy. Friction is margin. The gap,
                 the delay, the complexity: these aren't bugs. They're someone's business model.
               </p>
 
               {/* Particle State Visual - Rigid Frozen Grid */}
-              <div className="mb-12 p-8 bg-zinc-950 border border-zinc-800 rounded-xl">
+              <div className="mb-12 p-8 bg-white border border-stone-200 rounded-xl">
                 <svg viewBox="0 0 400 150" className="w-full max-w-lg mx-auto">
                   {/* Rigid grid of boxes */}
                   {/* Row 1 */}
@@ -225,18 +225,18 @@ const ParticleStatePage = () => {
         </section>
 
         {/* What It Feels Like */}
-        <section className="py-16 px-6 bg-zinc-950">
+        <section className="py-16 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-black mb-8">WHAT IT FEELS LIKE</h2>
 
               <div className="bg-red-950/20 border border-red-900/50 rounded-xl p-8 mb-8">
-                <p className="text-xl text-zinc-300 leading-relaxed mb-6">
+                <p className="text-xl text-stone-600 leading-relaxed mb-6">
                   You know the problem. You know the solution. You even know who needs to
                   approve it. But between knowing and doing lies an ocean of committees,
                   stakeholders, review cycles, and "alignment meetings."
                 </p>
-                <p className="text-lg text-zinc-400 leading-relaxed">
+                <p className="text-lg text-stone-500 leading-relaxed">
                   The organization isn't stupid. It's frozen. Smart people work here. They've
                   just learned that proposing change creates more pain than enduring the status
                   quo. So they stop proposing. They start protecting.
@@ -244,30 +244,30 @@ const ParticleStatePage = () => {
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="border border-zinc-800 rounded-xl p-6">
+                <div className="border border-stone-200 rounded-xl p-6">
                   <h3 className="font-bold text-red-500 mb-3">DECISIONS</h3>
-                  <p className="text-zinc-400">
+                  <p className="text-stone-500">
                     Months to years. Budget cycles, committee reviews, stakeholder alignment.
                     By the time you decide, the opportunity has passed.
                   </p>
                 </div>
-                <div className="border border-zinc-800 rounded-xl p-6">
+                <div className="border border-stone-200 rounded-xl p-6">
                   <h3 className="font-bold text-red-500 mb-3">ERRORS</h3>
-                  <p className="text-zinc-400">
+                  <p className="text-stone-500">
                     Persist for years. Blame is assigned, not fixed. The same mistakes
                     recur until the people who remember retire.
                   </p>
                 </div>
-                <div className="border border-zinc-800 rounded-xl p-6">
+                <div className="border border-stone-200 rounded-xl p-6">
                   <h3 className="font-bold text-red-500 mb-3">KNOWLEDGE</h3>
-                  <p className="text-zinc-400">
+                  <p className="text-stone-500">
                     Lives in people's heads. Tribal. When veterans leave, decades of
                     institutional knowledge walk out the door.
                   </p>
                 </div>
-                <div className="border border-zinc-800 rounded-xl p-6">
+                <div className="border border-stone-200 rounded-xl p-6">
                   <h3 className="font-bold text-red-500 mb-3">CHANGE</h3>
-                  <p className="text-zinc-400">
+                  <p className="text-stone-500">
                     Effectively impossible. Legacy systems are too entangled to replace.
                     "We tried that once" is the death sentence for innovation.
                   </p>
@@ -281,13 +281,13 @@ const ParticleStatePage = () => {
         <section className="py-16 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
-              <div className="bg-gradient-to-r from-red-950/50 to-zinc-950 border border-red-800 rounded-xl p-8">
+              <div className="bg-gradient-to-r from-red-950/50 to-stone-100 border border-red-800 rounded-xl p-8">
                 <h2 className="text-3xl font-black mb-6 text-red-500">FRICTION IS MARGIN</h2>
-                <p className="text-xl text-zinc-300 leading-relaxed mb-6">
+                <p className="text-xl text-stone-600 leading-relaxed mb-6">
                   The central insight of particle state organizations: inefficiency isn't
                   accidental. It's profitable. For someone.
                 </p>
-                <ul className="space-y-4 text-zinc-400">
+                <ul className="space-y-4 text-stone-500">
                   <li className="flex items-start gap-3">
                     <span className="text-red-500 font-bold">→</span>
                     <span>The delay in healthcare approvals funds a $1.3B denial management industry</span>
@@ -305,7 +305,7 @@ const ParticleStatePage = () => {
                     <span>The gap between shippers and carriers is the freight broker's entire business</span>
                   </li>
                 </ul>
-                <p className="text-lg text-zinc-300 mt-6 font-bold">
+                <p className="text-lg text-stone-600 mt-6 font-bold">
                   The system isn't broken. It's functioning. For someone else.
                 </p>
               </div>
@@ -314,7 +314,7 @@ const ParticleStatePage = () => {
         </section>
 
         {/* Characteristics */}
-        <section className="py-16 px-6 bg-zinc-950">
+        <section className="py-16 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-black mb-8">PARTICLE STATE CHARACTERISTICS</h2>
@@ -323,7 +323,7 @@ const ParticleStatePage = () => {
                 {characteristics.map((char, i) => (
                   <div key={i} className="border-l-4 border-red-600 pl-6 py-2">
                     <h3 className="text-xl font-bold mb-2">{char.title}</h3>
-                    <p className="text-zinc-400">{char.description}</p>
+                    <p className="text-stone-500">{char.description}</p>
                   </div>
                 ))}
               </div>
@@ -339,14 +339,14 @@ const ParticleStatePage = () => {
 
               <div className="space-y-4">
                 {companyExamples.map((company) => (
-                  <div key={company.name} className="bg-zinc-950 border border-zinc-800 rounded-xl p-6">
+                  <div key={company.name} className="bg-stone-100 border border-stone-200 rounded-xl p-6">
                     <div className="flex items-center justify-between mb-3">
                       <h3 className="text-xl font-bold">{company.name}</h3>
                       <span className="text-red-500 font-mono font-bold text-xl">
                         GPI {company.gpi}
                       </span>
                     </div>
-                    <p className="text-zinc-400">{company.insight}</p>
+                    <p className="text-stone-500">{company.insight}</p>
                   </div>
                 ))}
               </div>
@@ -355,7 +355,7 @@ const ParticleStatePage = () => {
         </section>
 
         {/* Diagnostic Signals */}
-        <section className="py-16 px-6 bg-zinc-950">
+        <section className="py-16 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-black mb-8">YOU'RE IN PARTICLE STATE IF...</h2>
@@ -364,7 +364,7 @@ const ParticleStatePage = () => {
                 {diagnosticSignals.map((signal, i) => (
                   <div key={i} className="flex items-start gap-3 bg-red-950/20 border border-red-900/30 rounded-lg p-4">
                     <span className="text-red-500 font-bold">✗</span>
-                    <span className="text-zinc-300">{signal}</span>
+                    <span className="text-stone-600">{signal}</span>
                   </div>
                 ))}
               </div>
@@ -380,9 +380,9 @@ const ParticleStatePage = () => {
 
               <div className="grid md:grid-cols-2 gap-6">
                 {frictionPoints.map((point, i) => (
-                  <div key={i} className="bg-zinc-950 border border-zinc-800 rounded-xl p-6">
+                  <div key={i} className="bg-stone-100 border border-stone-200 rounded-xl p-6">
                     <h3 className="font-bold text-red-500 mb-3">{point.title}</h3>
-                    <p className="text-zinc-400 text-sm">{point.description}</p>
+                    <p className="text-stone-500 text-sm">{point.description}</p>
                   </div>
                 ))}
               </div>
@@ -391,7 +391,7 @@ const ParticleStatePage = () => {
         </section>
 
         {/* Industries */}
-        <section className="py-16 px-6 bg-zinc-950">
+        <section className="py-16 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-black mb-8">INDUSTRIES THAT CLUSTER HERE</h2>
@@ -403,16 +403,16 @@ const ParticleStatePage = () => {
                   { name: 'Construction', gpi: 8.0 },
                   { name: 'Government', gpi: 9.0 },
                 ].map((industry) => (
-                  <div key={industry.name} className="bg-black border border-zinc-800 rounded-lg p-4 text-center">
+                  <div key={industry.name} className="bg-stone-50 border border-stone-200 rounded-lg p-4 text-center">
                     <div className="text-2xl font-black text-red-500 mb-1">{industry.gpi}</div>
-                    <div className="text-sm text-zinc-400">{industry.name}</div>
+                    <div className="text-sm text-stone-500">{industry.name}</div>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-8 p-6 border border-zinc-800 rounded-xl">
+              <div className="mt-8 p-6 border border-stone-200 rounded-xl">
                 <h3 className="font-bold mb-3">WHY THESE INDUSTRIES?</h3>
-                <p className="text-zinc-400">
+                <p className="text-stone-500">
                   These industries share common traits: heavy regulation, physical infrastructure
                   dependencies, captured markets, and business models that profit from complexity
                   rather than efficiency. They've calcified because calcification is profitable.
@@ -428,30 +428,30 @@ const ParticleStatePage = () => {
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-black mb-8">CAN YOU ESCAPE PARTICLE STATE?</h2>
 
-              <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-8">
-                <p className="text-lg text-zinc-300 mb-6">
+              <div className="bg-stone-100 border border-stone-200 rounded-xl p-8">
+                <p className="text-lg text-stone-600 mb-6">
                   Most organizations don't. The forces that created particle state are the
                   same forces that maintain it. Breaking free requires:
                 </p>
-                <ul className="space-y-4 text-zinc-400 mb-6">
+                <ul className="space-y-4 text-stone-500 mb-6">
                   <li className="flex items-start gap-3">
                     <span className="text-yellow-500">1.</span>
-                    <span><strong className="text-white">Existential threat:</strong> Disruption that makes the status quo untenable</span>
+                    <span><strong className="text-stone-900">Existential threat:</strong> Disruption that makes the status quo untenable</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-yellow-500">2.</span>
-                    <span><strong className="text-white">New leadership:</strong> Outsiders who aren't invested in the existing structure</span>
+                    <span><strong className="text-stone-900">New leadership:</strong> Outsiders who aren't invested in the existing structure</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-yellow-500">3.</span>
-                    <span><strong className="text-white">Permission to fail:</strong> Safety to experiment without career risk</span>
+                    <span><strong className="text-stone-900">Permission to fail:</strong> Safety to experiment without career risk</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-yellow-500">4.</span>
-                    <span><strong className="text-white">Capital patience:</strong> Investors willing to sacrifice short-term returns</span>
+                    <span><strong className="text-stone-900">Capital patience:</strong> Investors willing to sacrifice short-term returns</span>
                   </li>
                 </ul>
-                <p className="text-lg text-zinc-300">
+                <p className="text-lg text-stone-600">
                   Without all four, particle state is sticky. Very sticky. The organizations
                   that escape usually do so through near-death experiences that force transformation.
                 </p>
@@ -461,7 +461,7 @@ const ParticleStatePage = () => {
         </section>
 
         {/* Navigation */}
-        <section className="py-16 px-6 border-t border-zinc-900">
+        <section className="py-16 px-6 border-t border-stone-200">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between gap-6">
               <Link
@@ -472,7 +472,7 @@ const ParticleStatePage = () => {
               </Link>
               <Link
                 href="/diagnostic"
-                className="bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors text-center"
+                className="bg-red-600 text-white px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors text-center"
               >
                 CALCULATE YOUR GPI →
               </Link>

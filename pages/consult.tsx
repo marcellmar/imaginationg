@@ -147,41 +147,41 @@ const ConsultPage: NextPage = () => {
         title="Book a GPI Consult | gpi.studio"
         description="One hour. A clear read on where your org is losing speed and what to do about it. First session free."
       />
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-stone-50 text-stone-900">
         <Navigation />
 
         <main className="max-w-4xl mx-auto px-6 py-16">
 
           <div className="mb-12">
-            <p className="text-xs tracking-widest text-zinc-500 uppercase mb-4">GPI CONSULT</p>
+            <p className="text-xs tracking-widest text-stone-500 uppercase mb-4">GPI CONSULT</p>
             {fromGpi && fromDimLabel ? (
               <>
                 <h1 className="text-4xl font-black leading-tight mb-5">One hour. Starting with {fromDimLabel}.</h1>
-                <div className="bg-zinc-950 border border-zinc-800 p-4 mb-5 max-w-xl">
-                  <div className="text-xs font-mono text-zinc-600 mb-1">FROM YOUR DIAGNOSTIC</div>
-                  <p className="text-zinc-300">
-                    GPI <span className="text-white font-black">{fromGpi}</span> overall. Highest friction: <span className="text-red-400 font-bold">{fromDimLabel}</span>.
+                <div className="bg-white border border-stone-200 p-4 mb-5 max-w-xl">
+                  <div className="text-xs font-mono text-stone-400 mb-1">FROM YOUR DIAGNOSTIC</div>
+                  <p className="text-stone-600">
+                    GPI <span className="text-stone-900 font-black">{fromGpi}</span> overall. Highest friction: <span className="text-red-600 font-bold">{fromDimLabel}</span>.
                   </p>
                 </div>
-                <p className="text-zinc-400 text-lg leading-relaxed max-w-xl">
+                <p className="text-stone-500 text-lg leading-relaxed max-w-xl">
                   You bring the context. I already have your scores. We'll dig into {fromDimLabel} first and work outward from there.
                 </p>
               </>
             ) : (
               <>
                 <h1 className="text-4xl font-black leading-tight mb-5">One hour. No fluff.</h1>
-                <p className="text-zinc-400 text-lg leading-relaxed max-w-xl">
+                <p className="text-stone-500 text-lg leading-relaxed max-w-xl">
                   You bring the org. I run GPI on it live. By the end you'll know exactly where it's calcifying and what to do about it.
                 </p>
               </>
             )}
-            <p className="text-zinc-600 text-sm mt-3">First session free. No pitch at the end.</p>
+            <p className="text-stone-400 text-sm mt-3">First session free. No pitch at the end.</p>
           </div>
 
           {submitted ? (
-            <div className="border border-zinc-800 p-10 text-center max-w-md">
+            <div className="border border-stone-200 p-10 text-center max-w-md">
               <h2 className="text-2xl font-black mb-3">You're booked.</h2>
-              <p className="text-zinc-400">Check your inbox for confirmation. See you then.</p>
+              <p className="text-stone-500">Check your inbox for confirmation. See you then.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -192,16 +192,16 @@ const ConsultPage: NextPage = () => {
                   <button
                     onClick={prevMonth}
                     disabled={!canGoPrev}
-                    className="text-zinc-500 hover:text-white disabled:opacity-20 disabled:cursor-not-allowed px-2 py-1 text-lg"
+                    className="text-stone-500 hover:text-stone-900 disabled:opacity-20 disabled:cursor-not-allowed px-2 py-1 text-lg"
                   >
                     ←
                   </button>
-                  <span className="text-sm font-semibold tracking-widest uppercase text-zinc-300">
+                  <span className="text-sm font-semibold tracking-widest uppercase text-stone-600">
                     {MONTHS[viewMonth]} {viewYear}
                   </span>
                   <button
                     onClick={nextMonth}
-                    className="text-zinc-500 hover:text-white px-2 py-1 text-lg"
+                    className="text-stone-500 hover:text-stone-900 px-2 py-1 text-lg"
                   >
                     →
                   </button>
@@ -210,7 +210,7 @@ const ConsultPage: NextPage = () => {
                 {/* Day of week headers */}
                 <div className="grid grid-cols-7 mb-2">
                   {DOW.map(d => (
-                    <div key={d} className="text-center text-xs text-zinc-600 py-1">{d}</div>
+                    <div key={d} className="text-center text-xs text-stone-400 py-1">{d}</div>
                   ))}
                 </div>
 
@@ -236,8 +236,8 @@ const ConsultPage: NextPage = () => {
                           isSelected
                             ? 'bg-white text-black font-bold'
                             : available
-                            ? 'text-white hover:bg-zinc-800 cursor-pointer'
-                            : 'text-zinc-700 cursor-default'
+                            ? 'text-stone-900 hover:bg-stone-100 cursor-pointer'
+                            : 'text-stone-500 cursor-default'
                         }`}
                       >
                         {day}
@@ -246,12 +246,12 @@ const ConsultPage: NextPage = () => {
                   })}
                 </div>
 
-                <p className="text-xs text-zinc-600 mt-4">Mon – Fri, 10am – 3pm CST</p>
+                <p className="text-xs text-stone-400 mt-4">Mon – Fri, 10am – 3pm CST</p>
 
                 {/* Time slots */}
                 {selectedDate && (
                   <div className="mt-6">
-                    <p className="text-xs tracking-widest text-zinc-500 uppercase mb-3">
+                    <p className="text-xs tracking-widest text-stone-500 uppercase mb-3">
                       {selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
                     </p>
                     <div className="flex flex-wrap gap-2">
@@ -265,10 +265,10 @@ const ConsultPage: NextPage = () => {
                             onClick={() => setSelectedSlot(isActive ? null : slot)}
                             className={`px-4 py-2 text-sm font-medium transition-all ${
                               isBooked
-                                ? 'bg-zinc-900 text-zinc-700 cursor-not-allowed'
+                                ? 'bg-stone-100 text-stone-500 cursor-not-allowed'
                                 : isActive
                                 ? 'bg-white text-black'
-                                : 'bg-zinc-900 text-zinc-300 hover:bg-zinc-800 hover:text-white'
+                                : 'bg-stone-100 text-stone-600 hover:bg-stone-100 hover:text-stone-900'
                             }`}
                           >
                             {isoToCST(slot)}
@@ -284,7 +284,7 @@ const ConsultPage: NextPage = () => {
               <div>
                 {selectedSlot ? (
                   <form onSubmit={handleSubmit} className="space-y-5">
-                    <div className="bg-zinc-900 px-4 py-3 text-sm text-zinc-300 mb-2">
+                    <div className="bg-stone-100 px-4 py-3 text-sm text-stone-600 mb-2">
                       {new Date(selectedSlot).toLocaleString('en-US', {
                         weekday: 'long', month: 'long', day: 'numeric',
                         hour: 'numeric', minute: '2-digit',
@@ -293,50 +293,50 @@ const ConsultPage: NextPage = () => {
                     </div>
 
                     <div>
-                      <label className="block text-xs tracking-widest text-zinc-500 uppercase mb-2">Name</label>
+                      <label className="block text-xs tracking-widest text-stone-500 uppercase mb-2">Name</label>
                       <input
                         type="text" required
                         value={form.name}
                         onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-                        className="w-full bg-zinc-900 border border-zinc-700 px-4 py-3 text-white focus:outline-none focus:border-white"
+                        className="w-full bg-stone-100 border border-stone-300 px-4 py-3 text-stone-900 focus:outline-none focus:border-stone-900"
                         placeholder="Your name"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs tracking-widest text-zinc-500 uppercase mb-2">Email</label>
+                      <label className="block text-xs tracking-widest text-stone-500 uppercase mb-2">Email</label>
                       <input
                         type="email" required
                         value={form.email}
                         onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-                        className="w-full bg-zinc-900 border border-zinc-700 px-4 py-3 text-white focus:outline-none focus:border-white"
+                        className="w-full bg-stone-100 border border-stone-300 px-4 py-3 text-stone-900 focus:outline-none focus:border-stone-900"
                         placeholder="you@company.com"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs tracking-widest text-zinc-500 uppercase mb-2">Company</label>
+                      <label className="block text-xs tracking-widest text-stone-500 uppercase mb-2">Company</label>
                       <input
                         type="text"
                         value={form.company}
                         onChange={e => setForm(f => ({ ...f, company: e.target.value }))}
-                        className="w-full bg-zinc-900 border border-zinc-700 px-4 py-3 text-white focus:outline-none focus:border-white"
+                        className="w-full bg-stone-100 border border-stone-300 px-4 py-3 text-stone-900 focus:outline-none focus:border-stone-900"
                         placeholder="Optional"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs tracking-widest text-zinc-500 uppercase mb-2">What do you want to figure out?</label>
+                      <label className="block text-xs tracking-widest text-stone-500 uppercase mb-2">What do you want to figure out?</label>
                       <textarea
                         rows={4}
                         value={form.context}
                         onChange={e => setForm(f => ({ ...f, context: e.target.value }))}
-                        className="w-full bg-zinc-900 border border-zinc-700 px-4 py-3 text-white focus:outline-none focus:border-white resize-none"
+                        className="w-full bg-stone-100 border border-stone-300 px-4 py-3 text-stone-900 focus:outline-none focus:border-stone-900 resize-none"
                         placeholder="What's the problem, or the behavior you can't explain?"
                       />
                     </div>
 
-                    {error && <p className="text-red-500 text-sm">{error}</p>}
+                    {error && <p className="text-red-600 text-sm">{error}</p>}
 
                     <button
                       type="submit" disabled={loading}
@@ -346,8 +346,8 @@ const ConsultPage: NextPage = () => {
                     </button>
                   </form>
                 ) : (
-                  <div className="flex items-center justify-center h-full min-h-48 border border-zinc-900">
-                    <p className="text-zinc-600 text-sm">Pick a date and time to continue.</p>
+                  <div className="flex items-center justify-center h-full min-h-48 border border-stone-200">
+                    <p className="text-stone-400 text-sm">Pick a date and time to continue.</p>
                   </div>
                 )}
               </div>

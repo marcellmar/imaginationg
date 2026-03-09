@@ -15,13 +15,15 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage }) => {
     { key: 'insights', label: 'INSIGHTS', href: '/insights' },
     { key: 'framework', label: 'FRAMEWORK', href: '/gpi-framework' },
     { key: 'diagnostic', label: 'DIAGNOSTIC', href: '/diagnostic' },
+    { key: 'work', label: 'WORK WITH US', href: '/work-with-us' },
+    { key: 'about', label: 'ABOUT', href: '/about' },
   ];
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-zinc-900">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-stone-50/90 backdrop-blur-sm border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="font-black text-xl tracking-tight">
+          <Link href="/" className="font-black text-xl tracking-tight text-stone-900">
             GPI<span className="text-red-600">.</span>STUDIO
           </Link>
 
@@ -32,7 +34,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage }) => {
                 key={item.key}
                 href={item.href}
                 className={`hover:text-red-600 transition-colors ${
-                  currentPage === item.key ? 'text-red-600' : ''
+                  currentPage === item.key ? 'text-red-600' : 'text-stone-700'
                 }`}
               >
                 {item.label}
@@ -43,7 +45,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage }) => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-white hover:text-red-600 transition-colors"
+            className="md:hidden p-2 text-stone-900 hover:text-red-600 transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -56,20 +58,20 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage }) => {
         <div className="fixed inset-0 z-40 md:hidden">
           {/* Backdrop */}
           <div
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
             onClick={() => setIsOpen(false)}
           />
 
           {/* Menu */}
-          <div className="absolute top-16 left-0 right-0 bg-black border-b border-zinc-800">
+          <div className="absolute top-16 left-0 right-0 bg-white border-b border-stone-200">
             <div className="flex flex-col py-4">
               {navItems.map((item) => (
                 <Link
                   key={item.key}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className={`px-6 py-4 text-lg font-bold border-b border-zinc-900 hover:bg-zinc-900 transition-colors ${
-                    currentPage === item.key ? 'text-red-600' : 'text-white'
+                  className={`px-6 py-4 text-lg font-bold border-b border-stone-100 hover:bg-stone-50 transition-colors ${
+                    currentPage === item.key ? 'text-red-600' : 'text-stone-900'
                   }`}
                 >
                   {item.label}

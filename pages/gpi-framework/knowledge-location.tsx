@@ -37,23 +37,23 @@ const KnowledgeLocationPage = () => {
         ogImage="/images/og-knowledge-location.svg"
       />
 
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-stone-50 text-stone-900">
         <Navigation currentPage="framework" />
 
         <section className="pt-24 pb-16 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
               <div className="mb-8">
-                <Link href="/gpi-framework" className="text-zinc-500 hover:text-white transition-colors text-sm">
+                <Link href="/gpi-framework" className="text-stone-500 hover:text-stone-900 transition-colors text-sm">
                   ← GPI Framework
                 </Link>
               </div>
 
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 bg-red-600 text-black flex items-center justify-center font-black text-2xl rounded">
+                <div className="w-14 h-14 bg-red-600 text-white flex items-center justify-center font-black text-2xl rounded">
                   2
                 </div>
-                <span className="text-xs font-mono text-zinc-500 bg-zinc-900 px-2 py-1 rounded">
+                <span className="text-xs font-mono text-stone-500 bg-stone-100 px-2 py-1 rounded">
                   15% weight
                 </span>
               </div>
@@ -62,12 +62,12 @@ const KnowledgeLocationPage = () => {
                 KNOWLEDGE LOCATION<span className="text-red-600">.</span>
               </h1>
 
-              <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
+              <p className="text-xl text-stone-500 mb-8 max-w-2xl">
                 Where operational knowledge actually lives. Documented and findable, or in someone's head and leaving with them when they go.
               </p>
 
               {/* Knowledge Location Visual */}
-              <div className="mb-12 p-8 bg-zinc-950 border border-zinc-800 rounded-xl">
+              <div className="mb-12 p-8 bg-white border border-stone-200 rounded-xl">
                 <svg viewBox="0 0 400 120" className="w-full max-w-lg mx-auto">
                   {/* Distributed (left) */}
                   <text x="80" y="15" textAnchor="middle" fill="#22c55e" fontSize="10" fontWeight="bold">DISTRIBUTED</text>
@@ -107,9 +107,9 @@ const KnowledgeLocationPage = () => {
                   <text x="80" y="115" textAnchor="middle" fill="#22c55e" fontSize="8">EVERYONE KNOWS</text>
 
                   {/* Divider */}
-                  <line x1="165" y1="20" x2="165" y2="110" stroke="#3f3f46" strokeWidth="1" strokeDasharray="4,4" />
-                  <text x="200" y="70" textAnchor="middle" fill="#3f3f46" fontSize="10">VS</text>
-                  <line x1="235" y1="20" x2="235" y2="110" stroke="#3f3f46" strokeWidth="1" strokeDasharray="4,4" />
+                  <line x1="165" y1="20" x2="165" y2="110" stroke="#d6d3d1" strokeWidth="1" strokeDasharray="4,4" />
+                  <text x="200" y="70" textAnchor="middle" fill="#d6d3d1" fontSize="10">VS</text>
+                  <line x1="235" y1="20" x2="235" y2="110" stroke="#d6d3d1" strokeWidth="1" strokeDasharray="4,4" />
 
                   {/* Centralized (right) */}
                   <text x="320" y="15" textAnchor="middle" fill="#ef4444" fontSize="10" fontWeight="bold">CENTRALIZED</text>
@@ -141,7 +141,7 @@ const KnowledgeLocationPage = () => {
 
                   <text x="320" y="115" textAnchor="middle" fill="#ef4444" fontSize="8">ASK STEVE</text>
                 </svg>
-                <p className="text-center text-zinc-500 text-sm mt-4 font-mono">CODIFIED VS TRIBAL</p>
+                <p className="text-center text-stone-500 text-sm mt-4 font-mono">CODIFIED VS TRIBAL</p>
               </div>
 
               <div className="max-w-md">
@@ -151,7 +151,7 @@ const KnowledgeLocationPage = () => {
           </div>
         </section>
 
-        <section className="py-16 px-6 bg-zinc-950">
+        <section className="py-16 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl font-black mb-8">THE SCALE</h2>
@@ -160,7 +160,7 @@ const KnowledgeLocationPage = () => {
                 <div className="bg-green-950/20 border border-green-900/50 rounded-xl p-6">
                   <div className="text-green-500 font-mono font-bold mb-2">SCORE 1-3</div>
                   <h3 className="text-xl font-bold mb-3">Findable without asking</h3>
-                  <p className="text-zinc-400">
+                  <p className="text-stone-500">
                     A new hire can find most answers without asking a veteran. Processes are written down because writing them down is how the org thinks. The org functions when the expert is on vacation.
                   </p>
                 </div>
@@ -168,7 +168,7 @@ const KnowledgeLocationPage = () => {
                 <div className="bg-red-950/20 border border-red-900/50 rounded-xl p-6">
                   <div className="text-red-500 font-mono font-bold mb-2">SCORE 7-10</div>
                   <h3 className="text-xl font-bold mb-3">Ask Steve</h3>
-                  <p className="text-zinc-400">
+                  <p className="text-stone-500">
                     Knowledge lives in relationships and relationships have single points of failure. When the expert leaves, the knowledge goes with them. Onboarding isn't a process. It's a relationship you have to earn.
                   </p>
                 </div>
@@ -184,26 +184,26 @@ const KnowledgeLocationPage = () => {
 
               <div className="space-y-6">
                 <div className="border-l-4 border-red-600 pl-6 py-4">
-                  <p className="text-lg text-zinc-300">
-                    Tribal knowledge looks like <strong className="text-white">institutional wisdom</strong> until someone retires. Then it looks like starting over.
+                  <p className="text-lg text-stone-600">
+                    Tribal knowledge looks like <strong className="text-stone-900">institutional wisdom</strong> until someone retires. Then it looks like starting over.
                   </p>
                 </div>
 
-                <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-6">
+                <div className="bg-stone-100 border border-stone-200 rounded-xl p-6">
                   <h3 className="font-bold mb-4">THE PRODUCTIVITY ILLUSION</h3>
-                  <p className="text-zinc-400">
+                  <p className="text-stone-500">
                     Teams running on tribal knowledge look efficient because their veterans move fast. New people take months to get useful. That onboarding cost is invisible because it's distributed across hundreds of conversations. Document it and the cost becomes obvious. Don't, and you pay it forever. Most orgs choose not to see it.
                   </p>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-4">
+                  <div className="bg-stone-100 border border-stone-200 rounded-lg p-4">
                     <div className="text-2xl font-black text-green-500 mb-2">Days</div>
-                    <p className="text-sm text-zinc-500">Time to productivity in documented orgs</p>
+                    <p className="text-sm text-stone-500">Time to productivity in documented orgs</p>
                   </div>
-                  <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-4">
+                  <div className="bg-stone-100 border border-stone-200 rounded-lg p-4">
                     <div className="text-2xl font-black text-red-500 mb-2">Months</div>
-                    <p className="text-sm text-zinc-500">Time to productivity in tribal knowledge orgs</p>
+                    <p className="text-sm text-stone-500">Time to productivity in tribal knowledge orgs</p>
                   </div>
                 </div>
               </div>
@@ -211,7 +211,7 @@ const KnowledgeLocationPage = () => {
           </div>
         </section>
 
-        <section className="py-16 px-6 bg-zinc-950">
+        <section className="py-16 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl font-black mb-8">EXAMPLES</h2>
@@ -221,10 +221,10 @@ const KnowledgeLocationPage = () => {
                   <h3 className="text-green-500 font-bold mb-4">DISTRIBUTED KNOWLEDGE (Score 1-3)</h3>
                   <div className="space-y-3">
                     {examples.low.map((ex) => (
-                      <div key={ex.company} className="bg-black border border-zinc-800 rounded-lg p-4 flex items-center justify-between">
+                      <div key={ex.company} className="bg-stone-50 border border-stone-200 rounded-lg p-4 flex items-center justify-between">
                         <div>
                           <span className="font-bold">{ex.company}</span>
-                          <p className="text-sm text-zinc-500 mt-1">{ex.detail}</p>
+                          <p className="text-sm text-stone-500 mt-1">{ex.detail}</p>
                         </div>
                         <span className="text-green-500 font-mono font-bold">{ex.gpi}</span>
                       </div>
@@ -236,10 +236,10 @@ const KnowledgeLocationPage = () => {
                   <h3 className="text-red-500 font-bold mb-4">HOARDED KNOWLEDGE (Score 7-10)</h3>
                   <div className="space-y-3">
                     {examples.high.map((ex) => (
-                      <div key={ex.company} className="bg-black border border-zinc-800 rounded-lg p-4 flex items-center justify-between">
+                      <div key={ex.company} className="bg-stone-50 border border-stone-200 rounded-lg p-4 flex items-center justify-between">
                         <div>
                           <span className="font-bold">{ex.company}</span>
-                          <p className="text-sm text-zinc-500 mt-1">{ex.detail}</p>
+                          <p className="text-sm text-stone-500 mt-1">{ex.detail}</p>
                         </div>
                         <span className="text-red-500 font-mono font-bold">{ex.gpi}</span>
                       </div>
@@ -258,9 +258,9 @@ const KnowledgeLocationPage = () => {
 
               <div className="space-y-3">
                 {diagnosticQuestions.map((q, i) => (
-                  <div key={i} className="border border-zinc-800 rounded-lg p-4 flex items-center gap-4">
+                  <div key={i} className="border border-stone-200 rounded-lg p-4 flex items-center gap-4">
                     <span className="text-red-600 font-bold">{i + 1}</span>
-                    <span className="text-zinc-300">{q}</span>
+                    <span className="text-stone-600">{q}</span>
                   </div>
                 ))}
               </div>
@@ -268,13 +268,13 @@ const KnowledgeLocationPage = () => {
           </div>
         </section>
 
-        <section className="py-16 px-6 border-t border-zinc-900">
+        <section className="py-16 px-6 border-t border-stone-200">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between gap-6">
-              <Link href="/gpi-framework/error-correction" className="border border-zinc-700 px-8 py-4 text-lg font-black hover:border-zinc-500 transition-colors text-center">
+              <Link href="/gpi-framework/error-correction" className="border border-stone-300 px-8 py-4 text-lg font-black hover:border-red-400 transition-colors text-center">
                 ← ERROR CORRECTION
               </Link>
-              <Link href="/gpi-framework/structural-lock-in" className="bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors text-center">
+              <Link href="/gpi-framework/structural-lock-in" className="bg-red-600 text-white px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors text-center">
                 NEXT: STRUCTURAL LOCK-IN →
               </Link>
             </div>

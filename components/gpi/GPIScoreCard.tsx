@@ -44,7 +44,7 @@ const GPIScoreCard: React.FC<GPIScoreCardProps> = ({
       <div className={`border ${style.border} ${style.bg} p-4 rounded-lg`}>
         <div className="flex items-center justify-between mb-3">
           <div>
-            <span className="text-xs text-zinc-500 uppercase">GPI Score</span>
+            <span className="text-xs text-stone-500 uppercase">GPI Score</span>
             <div className={`text-3xl font-black ${style.text}`}>
               {result.overall.toFixed(1)}
             </div>
@@ -59,19 +59,19 @@ const GPIScoreCard: React.FC<GPIScoreCardProps> = ({
   }
 
   return (
-    <div className="border border-zinc-800 bg-zinc-950 rounded-lg overflow-hidden">
+    <div className="border border-stone-200 bg-white rounded-lg overflow-hidden">
       {/* Header */}
       <div className={`${style.bg} border-b ${style.border} px-6 py-4`}>
         <div className="flex items-center justify-between">
           <div>
-            <span className="text-xs text-zinc-500 uppercase tracking-wider">
+            <span className="text-xs text-stone-500 uppercase tracking-wider">
               Growing Pains Index
             </span>
             <div className="flex items-baseline gap-3 mt-1">
               <span className={`text-5xl font-black ${style.text}`}>
                 {result.overall.toFixed(1)}
               </span>
-              <span className="text-zinc-400 text-lg">/10</span>
+              <span className="text-stone-500 text-lg">/10</span>
             </div>
           </div>
           <div className="text-right">
@@ -79,29 +79,29 @@ const GPIScoreCard: React.FC<GPIScoreCardProps> = ({
               <span className={`text-lg font-bold ${style.text}`}>{stateLabel}</span>
             </div>
             {industry && (
-              <span className="text-xs text-zinc-500 mt-2 block">{industry}</span>
+              <span className="text-xs text-stone-500 mt-2 block">{industry}</span>
             )}
           </div>
         </div>
       </div>
 
       {/* Spectrum */}
-      <div className="px-6 py-4 border-b border-zinc-800">
+      <div className="px-6 py-4 border-b border-stone-200">
         <GPISpectrum score={result.overall} size="md" />
       </div>
 
       {/* Metrics */}
       {showMetrics && (
-        <div className="px-6 py-4 border-b border-zinc-800 grid grid-cols-3 gap-4">
+        <div className="px-6 py-4 border-b border-stone-200 grid grid-cols-3 gap-4">
           <div className="text-center">
-            <div className="text-xs text-zinc-500 uppercase mb-1">Metabolic Rate</div>
-            <div className="text-xl font-bold text-white">{result.metabolicRate.toFixed(1)}</div>
-            <div className="text-xs text-zinc-600">
+            <div className="text-xs text-stone-500 uppercase mb-1">Metabolic Rate</div>
+            <div className="text-xl font-bold text-stone-900">{result.metabolicRate.toFixed(1)}</div>
+            <div className="text-xs text-stone-400">
               {result.metabolicRate >= 7 ? 'High' : result.metabolicRate >= 4 ? 'Medium' : 'Low'}
             </div>
           </div>
           <div className="text-center">
-            <div className="text-xs text-zinc-500 uppercase mb-1">Plateau Risk</div>
+            <div className="text-xs text-stone-500 uppercase mb-1">Plateau Risk</div>
             <div className={`text-xl font-bold ${
               result.plateauRisk >= 70 ? 'text-red-500' :
               result.plateauRisk >= 40 ? 'text-yellow-500' : 'text-green-500'
@@ -109,15 +109,15 @@ const GPIScoreCard: React.FC<GPIScoreCardProps> = ({
               {result.plateauRisk}%
             </div>
             {result.monthsToStagnation && (
-              <div className="text-xs text-zinc-600">
+              <div className="text-xs text-stone-400">
                 ~{result.monthsToStagnation} months
               </div>
             )}
           </div>
           <div className="text-center">
-            <div className="text-xs text-zinc-500 uppercase mb-1">Weakest</div>
+            <div className="text-xs text-stone-500 uppercase mb-1">Weakest</div>
             <div className="text-sm font-bold text-red-500">{weakestDim.label}</div>
-            <div className="text-xs text-zinc-600">
+            <div className="text-xs text-stone-400">
               {result.dimensions.find(d => d.dimension === result.weakestDimension)?.score.toFixed(1)}
             </div>
           </div>
@@ -127,7 +127,7 @@ const GPIScoreCard: React.FC<GPIScoreCardProps> = ({
       {/* Dimensions */}
       {showDimensions && (
         <div className="px-6 py-4">
-          <div className="text-xs text-zinc-500 uppercase mb-3">Dimension Breakdown</div>
+          <div className="text-xs text-stone-500 uppercase mb-3">Dimension Breakdown</div>
           <div className="space-y-3">
             {sortedDimensions.map((dim) => {
               const dimInfo = GPI_DIMENSIONS[dim.dimension];
@@ -138,7 +138,7 @@ const GPIScoreCard: React.FC<GPIScoreCardProps> = ({
               return (
                 <div key={dim.dimension} className="relative">
                   <div className="flex justify-between items-center mb-1">
-                    <span className={`text-sm ${isWeakest ? 'text-red-500 font-bold' : isStrongest ? 'text-green-500' : 'text-zinc-400'}`}>
+                    <span className={`text-sm ${isWeakest ? 'text-red-500 font-bold' : isStrongest ? 'text-green-500' : 'text-stone-500'}`}>
                       {dimInfo.label}
                       {isWeakest && <span className="ml-2 text-xs">(Weakest)</span>}
                       {isStrongest && <span className="ml-2 text-xs">(Strongest)</span>}
@@ -150,7 +150,7 @@ const GPIScoreCard: React.FC<GPIScoreCardProps> = ({
                       {dim.score.toFixed(1)}
                     </span>
                   </div>
-                  <div className="h-2 bg-zinc-800 rounded overflow-hidden">
+                  <div className="h-2 bg-stone-200 rounded overflow-hidden">
                     <div
                       className={`h-full transition-all duration-500 ${
                         dim.score <= 3 ? 'bg-green-500' :
@@ -167,8 +167,8 @@ const GPIScoreCard: React.FC<GPIScoreCardProps> = ({
       )}
 
       {/* Footer */}
-      <div className="px-6 py-3 bg-zinc-900/50 text-center">
-        <span className="text-xs text-zinc-600">
+      <div className="px-6 py-3 bg-stone-100 text-center">
+        <span className="text-xs text-stone-400">
           IMAGINATION G • GPI Diagnostic
         </span>
       </div>

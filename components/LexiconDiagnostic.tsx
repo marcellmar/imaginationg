@@ -62,7 +62,7 @@ const LexiconDiagnostic: React.FC<LexiconDiagnosticProps> = ({
 
   const handleAnswer = (answer: 'yes' | 'no') => {
     setAnswers({ ...answers, [currentQuestion]: answer });
-    
+
     if (currentQuestion < questions.length) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
@@ -83,9 +83,9 @@ const LexiconDiagnostic: React.FC<LexiconDiagnosticProps> = ({
   // Start Screen
   if (!started) {
     return (
-      <div className="bg-zinc-950 border border-zinc-800 p-8 my-12">
+      <div className="bg-white border border-stone-200 p-8 my-12">
         <div className="text-center">
-          <div className={`inline-block mb-6 text-xs font-mono bg-zinc-900 border ${colors.border} px-4 py-2 rounded-full`}>
+          <div className={`inline-block mb-6 text-xs font-mono bg-stone-100 border ${colors.border} px-4 py-2 rounded-full`}>
             <span className={`inline-block w-2 h-2 ${colors.bg} rounded-full mr-2 animate-pulse`}></span>
             {lexiconTerm.toUpperCase()} DIAGNOSTIC
           </div>
@@ -93,19 +93,19 @@ const LexiconDiagnostic: React.FC<LexiconDiagnosticProps> = ({
           <h3 className="text-2xl font-black mb-4">
             DETECT YOUR {lexiconTerm.toUpperCase()} LEVEL
           </h3>
-          
-          <p className="text-zinc-400 mb-8">
+
+          <p className="text-stone-500 mb-8">
             {questions.length} targeted questions to measure your exposure to {lexiconTerm}.
           </p>
-          
+
           <button
             onClick={() => setStarted(true)}
-            className={`${colors.bg} px-8 py-4 text-lg font-black ${colors.hover} transition-colors text-black`}
+            className={`${colors.bg} px-8 py-4 text-lg font-black ${colors.hover} transition-colors text-white`}
           >
             START DIAGNOSTIC
           </button>
-          
-          <p className="text-zinc-600 mt-4 text-sm">
+
+          <p className="text-stone-400 mt-4 text-sm">
             Takes 60 seconds. No data stored.
           </p>
         </div>
@@ -116,16 +116,16 @@ const LexiconDiagnostic: React.FC<LexiconDiagnosticProps> = ({
   // Results Screen
   if (showResults) {
     const result = calculateResults(answers);
-    
+
     return (
-      <div className="bg-zinc-950 border border-zinc-800 p-8 my-12">
+      <div className="bg-white border border-stone-200 p-8 my-12">
         <h3 className="text-2xl font-black mb-8 text-center">
           {lexiconTerm.toUpperCase()} ANALYSIS COMPLETE
         </h3>
 
         {/* Score Display */}
-        <div className="bg-black border border-zinc-700 p-8 mb-8 text-center">
-          <p className="text-zinc-500 mb-2">YOUR {lexiconTerm.toUpperCase()} LEVEL</p>
+        <div className="bg-stone-50 border border-stone-300 p-8 mb-8 text-center">
+          <p className="text-stone-500 mb-2">YOUR {lexiconTerm.toUpperCase()} LEVEL</p>
           <p className="text-5xl font-black mb-2">
             {result.score}%
           </p>
@@ -137,20 +137,20 @@ const LexiconDiagnostic: React.FC<LexiconDiagnosticProps> = ({
         {/* Result Analysis */}
         <div className="mb-8">
           <h4 className="text-xl font-black mb-4">{result.title}</h4>
-          <p className="text-zinc-400 mb-6">{result.description}</p>
-          
-          <div className={`border-l-4 ${colors.border} bg-zinc-900 p-6`}>
+          <p className="text-stone-500 mb-6">{result.description}</p>
+
+          <div className={`border-l-4 ${colors.border} bg-stone-100 p-6`}>
             <h5 className="font-black mb-2">RECOMMENDED ACTION:</h5>
-            <p className="text-zinc-300">{result.recommendation}</p>
+            <p className="text-stone-600">{result.recommendation}</p>
           </div>
         </div>
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4">
           {result.interventionUrl && (
-            <Link 
+            <Link
               href={result.interventionUrl}
-              className={`${colors.bg} px-6 py-3 text-center font-black ${colors.hover} transition-colors text-black`}
+              className={`${colors.bg} px-6 py-3 text-center font-black ${colors.hover} transition-colors text-white`}
             >
               DEPLOY INTERVENTION →
             </Link>
@@ -162,7 +162,7 @@ const LexiconDiagnostic: React.FC<LexiconDiagnosticProps> = ({
               setAnswers({});
               setShowResults(false);
             }}
-            className="border-2 border-zinc-700 px-6 py-3 font-black hover:border-zinc-500 transition-colors"
+            className="border-2 border-stone-300 px-6 py-3 font-black hover:border-stone-500 transition-colors"
           >
             RETAKE DIAGNOSTIC
           </button>
@@ -173,17 +173,17 @@ const LexiconDiagnostic: React.FC<LexiconDiagnosticProps> = ({
 
   // Question Screen
   const currentQ = questions[currentQuestion - 1];
-  
+
   return (
-    <div className="bg-zinc-950 border border-zinc-800 p-8 my-12">
+    <div className="bg-white border border-stone-200 p-8 my-12">
       {/* Progress */}
       <div className="mb-8">
         <div className="flex justify-between items-center mb-2">
-          <span className="text-sm text-zinc-500">QUESTION {currentQuestion} OF {questions.length}</span>
-          <span className="text-sm text-zinc-500">{Math.round((currentQuestion / questions.length) * 100)}% COMPLETE</span>
+          <span className="text-sm text-stone-500">QUESTION {currentQuestion} OF {questions.length}</span>
+          <span className="text-sm text-stone-500">{Math.round((currentQuestion / questions.length) * 100)}% COMPLETE</span>
         </div>
-        <div className="h-1 bg-zinc-900">
-          <div 
+        <div className="h-1 bg-stone-100">
+          <div
             className={`h-1 ${colors.bg} transition-all duration-300`}
             style={{ width: `${(currentQuestion / questions.length) * 100}%` }}
           />
@@ -203,10 +203,10 @@ const LexiconDiagnostic: React.FC<LexiconDiagnosticProps> = ({
           onClick={() => handleAnswer('yes')}
           className="group border-2 border-green-600 p-6 hover:bg-green-600 transition-all"
         >
-          <h5 className="text-lg font-black text-green-600 group-hover:text-black mb-2">
+          <h5 className="text-lg font-black text-green-600 group-hover:text-white mb-2">
             {currentQ.yesText}
           </h5>
-          <p className="text-sm text-zinc-400 group-hover:text-black">
+          <p className="text-sm text-stone-500 group-hover:text-white">
             {currentQ.yesSubtext}
           </p>
         </button>
@@ -215,10 +215,10 @@ const LexiconDiagnostic: React.FC<LexiconDiagnosticProps> = ({
           onClick={() => handleAnswer('no')}
           className={`group border-2 ${colors.border} p-6 ${colors.hover} transition-all`}
         >
-          <h5 className={`text-lg font-black ${colors.primary} group-hover:text-black mb-2`}>
+          <h5 className={`text-lg font-black ${colors.primary} group-hover:text-white mb-2`}>
             {currentQ.noText}
           </h5>
-          <p className="text-sm text-zinc-400 group-hover:text-black">
+          <p className="text-sm text-stone-500 group-hover:text-white">
             {currentQ.noSubtext}
           </p>
         </button>

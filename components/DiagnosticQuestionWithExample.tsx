@@ -31,7 +31,7 @@ export const DiagnosticQuestionWithExample: React.FC<Props> = ({
   return (
     <div className="max-w-xl mx-auto">
       {/* Dimension Label */}
-      <div className="text-xs font-mono text-zinc-600 mb-4">
+      <div className="text-xs font-mono text-stone-400 mb-4">
         {dimensionLabel}
       </div>
 
@@ -42,14 +42,14 @@ export const DiagnosticQuestionWithExample: React.FC<Props> = ({
 
       {/* Industry-Specific Example */}
       {example && (
-        <div className="bg-zinc-900/50 border border-zinc-800 rounded-lg p-4 mb-8">
+        <div className="bg-stone-100 border border-stone-200 rounded-lg p-4 mb-8">
           <div className="flex items-start gap-3">
             <Lightbulb size={18} className="text-yellow-500 mt-0.5 flex-shrink-0" />
             <div>
-              <div className="text-xs font-mono text-zinc-600 mb-1">
+              <div className="text-xs font-mono text-stone-400 mb-1">
                 IN {selectedIndustry.toUpperCase()}
               </div>
-              <p className="text-sm text-zinc-400">
+              <p className="text-sm text-stone-500">
                 {example}
               </p>
             </div>
@@ -61,13 +61,13 @@ export const DiagnosticQuestionWithExample: React.FC<Props> = ({
       <div className="grid grid-cols-2 gap-4">
         <button
           onClick={() => onAnswer('yes')}
-          className="border-2 border-green-600 p-6 hover:bg-green-600 transition-all text-center font-black text-lg"
+          className="border-2 border-green-600 p-6 hover:bg-green-600 hover:text-white transition-all text-center font-black text-lg"
         >
           YES
         </button>
         <button
           onClick={() => onAnswer('no')}
-          className="border-2 border-red-600 p-6 hover:bg-red-600 transition-all text-center font-black text-lg"
+          className="border-2 border-red-600 p-6 hover:bg-red-600 hover:text-white transition-all text-center font-black text-lg"
         >
           NO
         </button>

@@ -37,7 +37,7 @@ const STATE_DATA: Record<GPIState, StateData> = {
     industries: ['Healthcare', 'Government', 'Construction'],
     color: 'text-red-500',
     borderColor: 'border-red-600',
-    bgGradient: 'from-red-950/50 to-black',
+    bgGradient: 'from-red-50 to-stone-50',
     href: '/gpi-framework/particle-state',
   },
   transitioning: {
@@ -55,7 +55,7 @@ const STATE_DATA: Record<GPIState, StateData> = {
     industries: ['Retail', 'Logistics', 'Manufacturing'],
     color: 'text-yellow-500',
     borderColor: 'border-yellow-600',
-    bgGradient: 'from-yellow-950/50 to-black',
+    bgGradient: 'from-yellow-50 to-stone-50',
     href: '/gpi-framework/transition-state',
   },
   field: {
@@ -73,7 +73,7 @@ const STATE_DATA: Record<GPIState, StateData> = {
     industries: ['Tech', 'Finance', 'Media'],
     color: 'text-green-500',
     borderColor: 'border-green-600',
-    bgGradient: 'from-green-950/50 to-black',
+    bgGradient: 'from-green-50 to-stone-50',
     href: '/gpi-framework/field-state',
   },
 };
@@ -123,7 +123,7 @@ const GPIStateCard: React.FC<GPIStateCardProps> = ({
       {!compact && (
         <ul className="space-y-2 mb-5">
           {data.traits.map((trait, i) => (
-            <li key={i} className="flex items-start gap-2 text-zinc-400 text-sm">
+            <li key={i} className="flex items-start gap-2 text-stone-500 text-sm">
               <span className={data.color}>■</span>
               <span>{trait}</span>
             </li>
@@ -132,7 +132,7 @@ const GPIStateCard: React.FC<GPIStateCardProps> = ({
       )}
 
       {/* Industries */}
-      <div className={`border-t border-zinc-800 pt-4 text-center text-zinc-500 ${compact ? 'text-xs' : 'text-sm'}`}>
+      <div className={`border-t border-stone-200 pt-4 text-center text-stone-500 ${compact ? 'text-xs' : 'text-sm'}`}>
         {data.industries.join(' • ')}
       </div>
 

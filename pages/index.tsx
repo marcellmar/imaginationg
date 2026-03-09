@@ -32,19 +32,19 @@ interface HomeProps {
 
 const seriesConfig: Record<string, { color: string; label: string }> = {
   'Weekly Smackdown': { color: 'text-red-500', label: 'WEEKLY SMACKDOWN' },
-  'Vital Signs': { color: 'text-blue-500', label: 'VITAL SIGNS' },
+  'Vital Signs': { color: 'text-blue-600', label: 'VITAL SIGNS' },
   'Calcification Alert': { color: 'text-orange-500', label: 'CALCIFICATION ALERT' },
-  'The Autopsy': { color: 'text-zinc-400', label: 'THE AUTOPSY' },
-  'Field Notes': { color: 'text-green-500', label: 'FIELD NOTES' },
-  'Transition Watch': { color: 'text-yellow-500', label: 'TRANSITION WATCH' },
-  'Wildcard': { color: 'text-purple-500', label: 'WILDCARD' },
+  'The Autopsy': { color: 'text-stone-400', label: 'THE AUTOPSY' },
+  'Field Notes': { color: 'text-green-600', label: 'FIELD NOTES' },
+  'Transition Watch': { color: 'text-yellow-600', label: 'TRANSITION WATCH' },
+  'Wildcard': { color: 'text-purple-600', label: 'WILDCARD' },
 };
 
 const getScoreColor = (score: number | null) => {
-  if (!score) return 'text-zinc-500';
-  if (score <= 3) return 'text-green-500';
-  if (score <= 6.9) return 'text-yellow-500';
-  return 'text-red-500';
+  if (!score) return 'text-stone-400';
+  if (score <= 3) return 'text-green-600';
+  if (score <= 6.9) return 'text-yellow-600';
+  return 'text-red-600';
 };
 
 const getStageLabel = (stage: string) => {
@@ -100,7 +100,7 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
         />
       </Head>
 
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-stone-50 text-stone-900">
         <Navigation currentPage="home" />
 
         {/* Hero */}
@@ -109,7 +109,7 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left: Copy */}
               <div>
-                <div className="inline-flex items-center gap-2 text-xs font-mono text-zinc-600 mb-6">
+                <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-6">
                   <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
                   ORGANIZATIONAL PHYSICS
                 </div>
@@ -118,11 +118,11 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
                   YOUR ORG HAS A<br />METABOLIC RATE<span className="text-red-600">.</span>
                 </h1>
 
-                <p className="text-xl text-zinc-400 mb-4 max-w-2xl">
+                <p className="text-xl text-stone-500 mb-4 max-w-2xl">
                   Most friction doesn't show up on a P&L. It shows up in how long decisions take, whether mistakes get fixed or defended, whether your best people have room to move.
                 </p>
 
-                <p className="text-xl text-white font-bold">
+                <p className="text-xl text-stone-900 font-bold">
                   We measure it.
                 </p>
               </div>
@@ -140,7 +140,7 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
                   </defs>
 
                   {/* Background subtle grid (the rigid structure forming) */}
-                  <g opacity="0.1">
+                  <g opacity="0.15">
                     {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
                       <line key={`h${i}`} x1="50" y1={40 + i * 30} x2="350" y2={40 + i * 30} stroke="#ef4444" strokeWidth="1">
                         <animate attributeName="opacity" values="0;0.3;0" dur={`${4 + i * 0.2}s`} repeatCount="indefinite" />
@@ -245,10 +245,10 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
                   <text x="320" y="280" fill="#ef4444" fontSize="10" fontFamily="monospace" opacity="0.7">CALCIFIED</text>
 
                   {/* Arrow showing direction */}
-                  <path d="M 150 285 L 250 285" stroke="#52525b" strokeWidth="1" markerEnd="url(#arrowhead)" />
+                  <path d="M 150 285 L 250 285" stroke="#a8a29e" strokeWidth="1" markerEnd="url(#arrowhead)" />
                   <defs>
                     <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                      <polygon points="0 0, 10 3.5, 0 7" fill="#52525b" />
+                      <polygon points="0 0, 10 3.5, 0 7" fill="#a8a29e" />
                     </marker>
                   </defs>
                 </svg>
@@ -258,23 +258,23 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
         </section>
 
         {/* THIS JUST HAPPENED */}
-        <section className="px-6 border-t border-red-900/50 bg-red-950/10">
+        <section className="px-6 border-t border-red-200 bg-red-50">
           <div className="max-w-6xl mx-auto">
             <Link
               href="/insights/netflix-let-paramount-win"
               className="flex items-center justify-between py-4 group"
             >
               <div className="flex items-center gap-4">
-                <span className="flex items-center gap-1.5 text-xs font-mono text-red-500">
+                <span className="flex items-center gap-1.5 text-xs font-mono text-red-600">
                   <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
                   THIS JUST HAPPENED
                 </span>
-                <span className="text-xs font-mono text-zinc-600">FEB 26, 2026</span>
-                <span className="text-sm font-bold text-white group-hover:text-red-500 transition-colors">
+                <span className="text-xs font-mono text-stone-400">FEB 26, 2026</span>
+                <span className="text-sm font-bold text-stone-900 group-hover:text-red-600 transition-colors">
                   Netflix Let Paramount Win. The GPI gap predicted it in December.
                 </span>
               </div>
-              <span className="text-xs font-mono text-red-500 group-hover:text-red-400 transition-colors whitespace-nowrap">
+              <span className="text-xs font-mono text-red-600 group-hover:text-red-500 transition-colors whitespace-nowrap">
                 READ →
               </span>
             </Link>
@@ -282,11 +282,11 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
         </section>
 
         {/* Latest Analyses */}
-        <section className="py-12 px-6 border-t border-zinc-900 bg-zinc-950">
+        <section className="py-12 px-6 border-t border-stone-200 bg-white">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center justify-between mb-6">
-              <div className="text-xs font-mono text-zinc-600">LATEST ANALYSES</div>
-              <Link href="/insights/gpi-analyses" className="text-xs font-mono text-red-500 hover:text-red-400">
+              <div className="text-xs font-mono text-stone-400">LATEST ANALYSES</div>
+              <Link href="/insights/gpi-analyses" className="text-xs font-mono text-red-600 hover:text-red-500">
                 VIEW ALL →
               </Link>
             </div>
@@ -299,15 +299,15 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
                     href={item.slug ? `/insights/gpi-analyses/${item.slug}` : '/insights/gpi-analyses'}
                     className="block group"
                   >
-                    <div className="border border-zinc-800 p-6 h-full hover:border-red-600/50 transition-all bg-black">
-                      <div className={`text-xs font-mono ${seriesConfig[item.series]?.color || 'text-red-500'} mb-3`}>
+                    <div className="border border-stone-200 p-6 h-full hover:border-red-400 transition-all bg-stone-50">
+                      <div className={`text-xs font-mono ${seriesConfig[item.series]?.color || 'text-red-600'} mb-3`}>
                         {seriesConfig[item.series]?.label || item.series.toUpperCase()}
                       </div>
-                      <h3 className="font-bold mb-2 group-hover:text-red-500 transition-colors">
+                      <h3 className="font-bold mb-2 group-hover:text-red-600 transition-colors">
                         {item.headline}
                       </h3>
                       {item.teaser && (
-                        <p className="text-sm text-zinc-500 line-clamp-2">
+                        <p className="text-sm text-stone-500 line-clamp-2">
                           {item.teaser}
                         </p>
                       )}
@@ -319,30 +319,30 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
               {!featuredContent && seriesContent.length === 0 && (
                 <>
                   <Link href="/insights/gpi-analyses" className="block group">
-                    <div className="border border-zinc-800 p-6 h-full hover:border-red-600/50 transition-all bg-black">
-                      <div className="text-xs font-mono text-red-500 mb-3">WEEKLY SMACKDOWN</div>
-                      <h3 className="font-bold mb-2 group-hover:text-red-500 transition-colors">
+                    <div className="border border-stone-200 p-6 h-full hover:border-red-400 transition-all bg-stone-50">
+                      <div className="text-xs font-mono text-red-600 mb-3">WEEKLY SMACKDOWN</div>
+                      <h3 className="font-bold mb-2 group-hover:text-red-600 transition-colors">
                         Head-to-Head GPI
                       </h3>
-                      <p className="text-sm text-zinc-500">Two companies. Same lens. One moves, one doesn't.</p>
+                      <p className="text-sm text-stone-500">Two companies. Same lens. One moves, one doesn't.</p>
                     </div>
                   </Link>
                   <Link href="/insights/gpi-analyses" className="block group">
-                    <div className="border border-zinc-800 p-6 h-full hover:border-orange-600/50 transition-all bg-black">
+                    <div className="border border-stone-200 p-6 h-full hover:border-orange-400 transition-all bg-stone-50">
                       <div className="text-xs font-mono text-orange-500 mb-3">CALCIFICATION ALERT</div>
                       <h3 className="font-bold mb-2 group-hover:text-orange-500 transition-colors">
                         The Physics Say Trouble
                       </h3>
-                      <p className="text-sm text-zinc-500">When the score tells you what the earnings call won't.</p>
+                      <p className="text-sm text-stone-500">When the score tells you what the earnings call won't.</p>
                     </div>
                   </Link>
                   <Link href="/insights/gpi-analyses" className="block group">
-                    <div className="border border-zinc-800 p-6 h-full hover:border-blue-600/50 transition-all bg-black">
-                      <div className="text-xs font-mono text-blue-500 mb-3">VITAL SIGNS</div>
-                      <h3 className="font-bold mb-2 group-hover:text-blue-500 transition-colors">
+                    <div className="border border-stone-200 p-6 h-full hover:border-blue-400 transition-all bg-stone-50">
+                      <div className="text-xs font-mono text-blue-600 mb-3">VITAL SIGNS</div>
+                      <h3 className="font-bold mb-2 group-hover:text-blue-600 transition-colors">
                         Reading the Monitors
                       </h3>
-                      <p className="text-sm text-zinc-500">Metabolic stress before the market sees it.</p>
+                      <p className="text-sm text-stone-500">Metabolic stress before the market sees it.</p>
                     </div>
                   </Link>
                 </>
@@ -352,20 +352,20 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
         </section>
 
         {/* Framework */}
-        <section className="py-16 px-6 border-t border-zinc-900">
+        <section className="py-16 px-6 border-t border-stone-200">
           <div className="max-w-5xl mx-auto">
-            <div className="text-xs font-mono text-zinc-600 mb-4">THE FRAMEWORK</div>
+            <div className="text-xs font-mono text-stone-400 mb-4">THE FRAMEWORK</div>
             <div className="grid lg:grid-cols-2 gap-12 items-start">
               <div>
                 <h2 className="text-3xl font-black mb-4">
                   SEVEN SIGNALS<span className="text-red-600">.</span>
                 </h2>
-                <p className="text-zinc-400 mb-8">
+                <p className="text-stone-500 mb-8">
                   GPI doesn't measure sentiment or culture scores. It measures the physical properties of how an org moves. Seven dimensions. Each one tells you something about where energy is leaking.
                 </p>
                 <Link
                   href="/gpi-framework"
-                  className="inline-flex items-center gap-2 text-white font-bold hover:text-red-500 transition-colors group"
+                  className="inline-flex items-center gap-2 text-stone-900 font-bold hover:text-red-600 transition-colors group"
                 >
                   SEE THE FRAMEWORK
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -387,10 +387,10 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
                     <Link
                       key={i}
                       href={`/gpi-framework/${dim.slug}`}
-                      className="flex items-center gap-3 py-3 border-b border-zinc-900 hover:border-red-900 group transition-colors"
+                      className="flex items-center gap-3 py-3 border-b border-stone-200 hover:border-red-300 group transition-colors"
                     >
-                      <Icon size={14} className="text-zinc-600 group-hover:text-red-500 transition-colors flex-shrink-0" />
-                      <span className="text-sm font-bold text-zinc-300 group-hover:text-white transition-colors">
+                      <Icon size={14} className="text-stone-400 group-hover:text-red-600 transition-colors flex-shrink-0" />
+                      <span className="text-sm font-bold text-stone-600 group-hover:text-stone-900 transition-colors">
                         {dim.name}
                       </span>
                     </Link>
@@ -402,35 +402,35 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
         </section>
 
         {/* Book Teaser + Featured Insight */}
-        <section className="py-16 px-6 border-t border-zinc-900 bg-zinc-950">
+        <section className="py-16 px-6 border-t border-stone-200 bg-white">
           <div className="max-w-5xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left: Book Context */}
               <div>
                 <div className="flex items-center gap-3 mb-6">
                   <BookOpen size={20} className="text-red-600" />
-                  <span className="text-xs font-mono text-zinc-500">FROM THE UPCOMING BOOK</span>
+                  <span className="text-xs font-mono text-stone-400">FROM THE UPCOMING BOOK</span>
                 </div>
 
                 <h2 className="text-3xl md:text-4xl font-black mb-4 leading-tight">
                   THE GROWING<br />PAINS INDEX<span className="text-red-600">.</span>
                 </h2>
 
-                <p className="text-lg text-zinc-400 mb-4">
+                <p className="text-lg text-stone-500 mb-4">
                   Calcification isn't dysfunction. It's the operating system that built you, running past its environment.
                 </p>
 
-                <p className="text-zinc-500 mb-4">
+                <p className="text-stone-400 mb-4">
                   After scoring 100+ companies across seven dimensions, one pattern keeps appearing: the decisions that made the org work are the same ones making it not work. The playbook didn't fail. The terrain shifted. And nobody updated the playbook.
                 </p>
 
-                <p className="text-zinc-500 mb-8">
+                <p className="text-stone-400 mb-8">
                   That's not a strategy problem. That's physics.
                 </p>
 
                 <Link
                   href="/insights"
-                  className="inline-flex items-center gap-2 text-white font-bold hover:text-red-500 transition-colors group"
+                  className="inline-flex items-center gap-2 text-stone-900 font-bold hover:text-red-600 transition-colors group"
                 >
                   READ THE INSIGHTS
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -439,7 +439,7 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
 
               {/* Right: Featured Insight Card */}
               <Link href="/insights/invested-in-the-waste" className="block group">
-                <div className="border-2 border-red-600/50 bg-black p-8 hover:border-red-600 transition-all relative overflow-hidden">
+                <div className="border-2 border-red-500/50 bg-stone-50 p-8 hover:border-red-600 transition-all relative overflow-hidden">
                   <div className="absolute top-4 right-4 opacity-20">
                     <svg width="80" height="80" viewBox="0 0 80 80">
                       <circle cx="40" cy="20" r="12" stroke="#ef4444" strokeWidth="2" fill="none" />
@@ -454,20 +454,20 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
 
                   <div className="relative">
                     <div className="flex items-center gap-3 mb-4">
-                      <span className="text-xs font-mono text-red-500 bg-red-500/10 px-2 py-1">FEATURED</span>
-                      <span className="text-xs font-mono text-zinc-600">CHAPTER 2</span>
+                      <span className="text-xs font-mono text-red-600 bg-red-50 px-2 py-1 border border-red-200">FEATURED</span>
+                      <span className="text-xs font-mono text-stone-400">CHAPTER 2</span>
                     </div>
 
-                    <h3 className="text-2xl font-black mb-3 group-hover:text-red-500 transition-colors">
+                    <h3 className="text-2xl font-black mb-3 group-hover:text-red-600 transition-colors">
                       You're Invested in the Waste
                       <ArrowRight className="inline ml-2 opacity-0 group-hover:opacity-100 transition-opacity" size={20} />
                     </h3>
 
-                    <p className="text-zinc-400 mb-4">
+                    <p className="text-stone-500 mb-4">
                       The gap between how things should work and how they actually work isn't dysfunction. It's a product. Someone is selling it.
                     </p>
 
-                    <p className="text-red-500 font-bold">
+                    <p className="text-red-600 font-bold">
                       That someone might be you.
                     </p>
                   </div>
@@ -478,18 +478,18 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
         </section>
 
         {/* Bottom CTAs */}
-        <section className="py-16 px-6 border-t border-zinc-900">
+        <section className="py-16 px-6 border-t border-stone-200">
           <div className="max-w-4xl mx-auto space-y-12">
 
             {/* Newsletter */}
             <div className="flex flex-col md:flex-row md:items-center gap-6">
               <div className="flex-1">
-                <div className="text-xs font-mono text-zinc-600 mb-2">WEEKLY ANALYSIS</div>
-                <p className="text-zinc-400">Who's calcifying. Who's not. No spam.</p>
+                <div className="text-xs font-mono text-stone-400 mb-2">WEEKLY ANALYSIS</div>
+                <p className="text-stone-500">Who's calcifying. Who's not. No spam.</p>
               </div>
               <div className="md:w-80">
                 {subscribed ? (
-                  <div className="text-green-500 font-bold">You're in. Watch your inbox.</div>
+                  <div className="text-green-600 font-bold">You're in. Watch your inbox.</div>
                 ) : (
                   <form onSubmit={handleSubscribe} className="flex gap-2">
                     <input
@@ -498,11 +498,11 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="your@email.com"
                       required
-                      className="flex-1 bg-zinc-900 border border-zinc-800 px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-red-600"
+                      className="flex-1 bg-white border border-stone-300 px-4 py-3 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-red-500"
                     />
                     <button
                       type="submit"
-                      className="bg-red-600 px-5 py-3 font-bold hover:bg-red-700 transition-colors whitespace-nowrap"
+                      className="bg-red-600 text-white px-5 py-3 font-bold hover:bg-red-700 transition-colors whitespace-nowrap"
                     >
                       IN
                     </button>
@@ -512,14 +512,14 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
             </div>
 
             {/* Diagnostic */}
-            <div className="flex flex-col md:flex-row md:items-center gap-6 pt-8 border-t border-zinc-900">
+            <div className="flex flex-col md:flex-row md:items-center gap-6 pt-8 border-t border-stone-200">
               <div className="flex-1">
-                <div className="text-xs font-mono text-zinc-600 mb-2">SELF-DIAGNOSTIC</div>
-                <p className="text-zinc-400">32 questions. 8 minutes. Know your score and your highest friction point.</p>
+                <div className="text-xs font-mono text-stone-400 mb-2">SELF-DIAGNOSTIC</div>
+                <p className="text-stone-500">32 questions. 8 minutes. Know your score and your highest friction point.</p>
               </div>
               <Link
                 href="/diagnostic"
-                className="inline-flex items-center gap-2 border border-zinc-700 px-6 py-3 font-bold hover:border-red-600 hover:text-red-500 transition-colors group whitespace-nowrap"
+                className="inline-flex items-center gap-2 border border-stone-300 px-6 py-3 font-bold hover:border-red-500 hover:text-red-600 transition-colors group whitespace-nowrap"
               >
                 TAKE THE DIAGNOSTIC
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -527,14 +527,14 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
             </div>
 
             {/* Consult */}
-            <div className="flex flex-col md:flex-row md:items-center gap-6 pt-8 border-t border-zinc-900">
+            <div className="flex flex-col md:flex-row md:items-center gap-6 pt-8 border-t border-stone-200">
               <div className="flex-1">
-                <div className="text-xs font-mono text-zinc-600 mb-2">LIVE SESSION</div>
-                <p className="text-zinc-400">Want to run this on your org? One hour. I map the friction live. First session free.</p>
+                <div className="text-xs font-mono text-stone-400 mb-2">LIVE SESSION</div>
+                <p className="text-stone-500">Want to run this on your org? One hour. I map the friction live. First session free.</p>
               </div>
               <Link
                 href="/consult"
-                className="inline-flex items-center gap-2 bg-red-600 px-6 py-3 font-bold hover:bg-red-700 transition-colors group whitespace-nowrap"
+                className="inline-flex items-center gap-2 bg-red-600 text-white px-6 py-3 font-bold hover:bg-red-700 transition-colors group whitespace-nowrap"
               >
                 BOOK A SESSION
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -545,8 +545,8 @@ const Home: NextPage<HomeProps> = ({ featuredContent, seriesContent, totalAnalys
         </section>
 
         {/* Footer */}
-        <footer className="py-8 px-6 border-t border-zinc-900">
-          <div className="max-w-4xl mx-auto flex justify-between items-center text-sm text-zinc-600">
+        <footer className="py-8 px-6 border-t border-stone-200">
+          <div className="max-w-4xl mx-auto flex justify-between items-center text-sm text-stone-400">
             <div>GPI.STUDIO</div>
             <div>© IMAGINATION G LLC</div>
           </div>

@@ -37,23 +37,23 @@ const StructuralLockInPage = () => {
         ogImage="/images/og-structural-lock-in.svg"
       />
 
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-stone-50 text-stone-900">
         <Navigation currentPage="framework" />
 
         <section className="pt-24 pb-16 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
               <div className="mb-8">
-                <Link href="/gpi-framework" className="text-zinc-500 hover:text-white transition-colors text-sm">
+                <Link href="/gpi-framework" className="text-stone-500 hover:text-stone-900 transition-colors text-sm">
                   ← GPI Framework
                 </Link>
               </div>
 
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 bg-red-600 text-black flex items-center justify-center font-black text-2xl rounded">
+                <div className="w-14 h-14 bg-red-600 text-white flex items-center justify-center font-black text-2xl rounded">
                   4
                 </div>
-                <span className="text-xs font-mono text-zinc-500 bg-zinc-900 px-2 py-1 rounded">
+                <span className="text-xs font-mono text-stone-500 bg-stone-100 px-2 py-1 rounded">
                   15% weight
                 </span>
               </div>
@@ -62,12 +62,12 @@ const StructuralLockInPage = () => {
                 STRUCTURAL LOCK-IN<span className="text-red-600">.</span>
               </h1>
 
-              <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
+              <p className="text-xl text-stone-500 mb-8 max-w-2xl">
                 How much the current structure constrains what's possible next. Not just technology. Org charts, vendor contracts, physical infrastructure, anything that makes changing direction expensive.
               </p>
 
               {/* Structural Lock-In Visual */}
-              <div className="mb-12 p-8 bg-zinc-950 border border-zinc-800 rounded-xl">
+              <div className="mb-12 p-8 bg-white border border-stone-200 rounded-xl">
                 <svg viewBox="0 0 400 120" className="w-full max-w-lg mx-auto">
                   {/* Modular (left) */}
                   <text x="80" y="15" textAnchor="middle" fill="#22c55e" fontSize="10" fontWeight="bold">MODULAR</text>
@@ -100,9 +100,9 @@ const StructuralLockInPage = () => {
                   <text x="80" y="115" textAnchor="middle" fill="#22c55e" fontSize="8">SWAP ANYTHING</text>
 
                   {/* Divider */}
-                  <line x1="180" y1="20" x2="180" y2="110" stroke="#3f3f46" strokeWidth="1" strokeDasharray="4,4" />
-                  <text x="200" y="70" textAnchor="middle" fill="#3f3f46" fontSize="10">VS</text>
-                  <line x1="220" y1="20" x2="220" y2="110" stroke="#3f3f46" strokeWidth="1" strokeDasharray="4,4" />
+                  <line x1="180" y1="20" x2="180" y2="110" stroke="#d6d3d1" strokeWidth="1" strokeDasharray="4,4" />
+                  <text x="200" y="70" textAnchor="middle" fill="#d6d3d1" fontSize="10">VS</text>
+                  <line x1="220" y1="20" x2="220" y2="110" stroke="#d6d3d1" strokeWidth="1" strokeDasharray="4,4" />
 
                   {/* Entangled (right) */}
                   <text x="320" y="15" textAnchor="middle" fill="#ef4444" fontSize="10" fontWeight="bold">ENTANGLED</text>
@@ -144,7 +144,7 @@ const StructuralLockInPage = () => {
 
                   <text x="320" y="115" textAnchor="middle" fill="#ef4444" fontSize="8">TOUCH ONE, BREAK FIVE</text>
                 </svg>
-                <p className="text-center text-zinc-500 text-sm mt-4 font-mono">FLEXIBLE VS FROZEN</p>
+                <p className="text-center text-stone-500 text-sm mt-4 font-mono">FLEXIBLE VS FROZEN</p>
               </div>
 
               <div className="max-w-md">
@@ -154,7 +154,7 @@ const StructuralLockInPage = () => {
           </div>
         </section>
 
-        <section className="py-16 px-6 bg-zinc-950">
+        <section className="py-16 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl font-black mb-8">THE SCALE</h2>
@@ -163,7 +163,7 @@ const StructuralLockInPage = () => {
                 <div className="bg-green-950/20 border border-green-900/50 rounded-xl p-6">
                   <div className="text-green-500 font-mono font-bold mb-2">SCORE 1-3</div>
                   <h3 className="text-xl font-bold mb-3">Pivoting doesn't require rebuilding</h3>
-                  <p className="text-zinc-400">
+                  <p className="text-stone-500">
                     The org can replace components without breaking everything else. Contracts are short. Architecture is modular. What got you here doesn't have to be what gets you there.
                   </p>
                 </div>
@@ -171,7 +171,7 @@ const StructuralLockInPage = () => {
                 <div className="bg-red-950/20 border border-red-900/50 rounded-xl p-6">
                   <div className="text-red-500 font-mono font-bold mb-2">SCORE 7-10</div>
                   <h3 className="text-xl font-bold mb-3">The org is committed to its current form</h3>
-                  <p className="text-zinc-400">
+                  <p className="text-stone-500">
                     Changing how work gets done requires changing the org itself. Expensive, slow, and politically dangerous. Touch one thing, break five. So it doesn't happen.
                   </p>
                 </div>
@@ -187,24 +187,24 @@ const StructuralLockInPage = () => {
 
               <div className="space-y-6">
                 <div className="border-l-4 border-red-600 pl-6 py-4">
-                  <p className="text-lg text-zinc-300">
-                    High lock-in doesn't make transformation impossible. It makes it expensive enough that <strong className="text-white">the people with authority to approve it are the same people whose power depends on things staying the same</strong>.
+                  <p className="text-lg text-stone-600">
+                    High lock-in doesn't make transformation impossible. It makes it expensive enough that <strong className="text-stone-900">the people with authority to approve it are the same people whose power depends on things staying the same</strong>.
                   </p>
                 </div>
 
-                <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-6">
+                <div className="bg-stone-100 border border-stone-200 rounded-xl p-6">
                   <h3 className="font-bold mb-4">THE MAINTENANCE TAX</h3>
-                  <p className="text-zinc-400 mb-4">
+                  <p className="text-stone-500 mb-4">
                     Organizations with high structural lock-in spend 60-80% of IT budget maintaining what already exists. Not because they planned it that way. Because the existing infrastructure demands to be fed. What's left over for new capability is whatever the maintenance doesn't eat first.
                   </p>
                   <div className="grid grid-cols-2 gap-4 text-center">
-                    <div className="bg-black p-4 rounded-lg">
+                    <div className="bg-white p-4 rounded-lg">
                       <div className="text-2xl font-black text-red-500">70%</div>
-                      <div className="text-xs text-zinc-500">Maintenance (Particle)</div>
+                      <div className="text-xs text-stone-500">Maintenance (Particle)</div>
                     </div>
-                    <div className="bg-black p-4 rounded-lg">
+                    <div className="bg-white p-4 rounded-lg">
                       <div className="text-2xl font-black text-green-500">30%</div>
-                      <div className="text-xs text-zinc-500">Maintenance (Field)</div>
+                      <div className="text-xs text-stone-500">Maintenance (Field)</div>
                     </div>
                   </div>
                 </div>
@@ -213,7 +213,7 @@ const StructuralLockInPage = () => {
           </div>
         </section>
 
-        <section className="py-16 px-6 bg-zinc-950">
+        <section className="py-16 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl font-black mb-8">EXAMPLES</h2>
@@ -223,10 +223,10 @@ const StructuralLockInPage = () => {
                   <h3 className="text-green-500 font-bold mb-4">FLEXIBLE SYSTEMS (Score 1-3)</h3>
                   <div className="space-y-3">
                     {examples.low.map((ex) => (
-                      <div key={ex.company} className="bg-black border border-zinc-800 rounded-lg p-4 flex items-center justify-between">
+                      <div key={ex.company} className="bg-stone-50 border border-stone-200 rounded-lg p-4 flex items-center justify-between">
                         <div>
                           <span className="font-bold">{ex.company}</span>
-                          <p className="text-sm text-zinc-500 mt-1">{ex.detail}</p>
+                          <p className="text-sm text-stone-500 mt-1">{ex.detail}</p>
                         </div>
                         <span className="text-green-500 font-mono font-bold">{ex.gpi}</span>
                       </div>
@@ -238,10 +238,10 @@ const StructuralLockInPage = () => {
                   <h3 className="text-red-500 font-bold mb-4">LOCKED-IN SYSTEMS (Score 7-10)</h3>
                   <div className="space-y-3">
                     {examples.high.map((ex) => (
-                      <div key={ex.company} className="bg-black border border-zinc-800 rounded-lg p-4 flex items-center justify-between">
+                      <div key={ex.company} className="bg-stone-50 border border-stone-200 rounded-lg p-4 flex items-center justify-between">
                         <div>
                           <span className="font-bold">{ex.company}</span>
-                          <p className="text-sm text-zinc-500 mt-1">{ex.detail}</p>
+                          <p className="text-sm text-stone-500 mt-1">{ex.detail}</p>
                         </div>
                         <span className="text-red-500 font-mono font-bold">{ex.gpi}</span>
                       </div>
@@ -260,9 +260,9 @@ const StructuralLockInPage = () => {
 
               <div className="space-y-3">
                 {diagnosticQuestions.map((q, i) => (
-                  <div key={i} className="border border-zinc-800 rounded-lg p-4 flex items-center gap-4">
+                  <div key={i} className="border border-stone-200 rounded-lg p-4 flex items-center gap-4">
                     <span className="text-red-600 font-bold">{i + 1}</span>
-                    <span className="text-zinc-300">{q}</span>
+                    <span className="text-stone-600">{q}</span>
                   </div>
                 ))}
               </div>
@@ -270,13 +270,13 @@ const StructuralLockInPage = () => {
           </div>
         </section>
 
-        <section className="py-16 px-6 border-t border-zinc-900">
+        <section className="py-16 px-6 border-t border-stone-200">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between gap-6">
-              <Link href="/gpi-framework/knowledge-location" className="border border-zinc-700 px-8 py-4 text-lg font-black hover:border-zinc-500 transition-colors text-center">
+              <Link href="/gpi-framework/knowledge-location" className="border border-stone-300 px-8 py-4 text-lg font-black hover:border-red-400 transition-colors text-center">
                 ← KNOWLEDGE LOCATION
               </Link>
-              <Link href="/gpi-framework/talent-flow" className="bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors text-center">
+              <Link href="/gpi-framework/talent-flow" className="bg-red-600 text-white px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors text-center">
                 NEXT: TALENT FLOW →
               </Link>
             </div>

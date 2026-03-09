@@ -107,7 +107,7 @@ const GPIFiveQuestions: React.FC<GPIFiveQuestionsProps> = ({
       {/* Header */}
       <div className="text-center mb-10">
         <h2 className="text-2xl font-black mb-2">THE FIVE QUESTIONS</h2>
-        <p className="text-zinc-500">The audit you\'ve been avoiding. Answer honestly.</p>
+        <p className="text-stone-500">The audit you\'ve been avoiding. Answer honestly.</p>
       </div>
 
       {/* Questions */}
@@ -119,43 +119,43 @@ const GPIFiveQuestions: React.FC<GPIFiveQuestionsProps> = ({
           return (
             <div
               key={q.number}
-              className={`bg-zinc-950 border border-zinc-800 ${colors.border} border-l-4 rounded-xl p-6 transition-all ${
+              className={`bg-white border border-stone-200 ${colors.border} border-l-4 rounded-xl p-6 transition-all ${
                 isAnswered ? 'opacity-70' : ''
               }`}
             >
               <div className={`text-xs font-semibold ${colors.accent} tracking-widest uppercase mb-3`}>
                 Question {q.number}
               </div>
-              <p className="text-lg font-semibold text-white mb-4 leading-relaxed">
+              <p className="text-lg font-semibold text-stone-900 mb-4 leading-relaxed">
                 {q.text}
               </p>
-              <div className="space-y-2 text-sm text-zinc-500">
+              <div className="space-y-2 text-sm text-stone-500">
                 {q.subtext.signal && (
                   <p>
-                    <span className="text-zinc-400 italic">{q.subtext.signal}</span>
+                    <span className="text-stone-600 italic">{q.subtext.signal}</span>
                   </p>
                 )}
                 {q.subtext.mixed && (
                   <p>
-                    <span className="text-zinc-400 italic">{q.subtext.mixed}</span>
+                    <span className="text-stone-600 italic">{q.subtext.mixed}</span>
                   </p>
                 )}
                 {q.subtext.structure && (
                   <p>
-                    <span className="text-zinc-400 italic">{q.subtext.structure}</span>
+                    <span className="text-stone-600 italic">{q.subtext.structure}</span>
                   </p>
                 )}
               </div>
 
               {/* Interactive answer buttons */}
               {interactive && (
-                <div className="flex gap-2 mt-4 pt-4 border-t border-zinc-800">
+                <div className="flex gap-2 mt-4 pt-4 border-t border-stone-200">
                   <button
                     onClick={() => handleAnswer(q.number, 'signal')}
                     className={`flex-1 py-2 px-3 rounded text-xs font-bold transition-all ${
                       answers[q.number] === 'signal'
                         ? 'bg-green-600 text-white'
-                        : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'
+                        : 'bg-stone-100 text-stone-500 hover:bg-stone-200'
                     }`}
                   >
                     SIGNAL
@@ -165,7 +165,7 @@ const GPIFiveQuestions: React.FC<GPIFiveQuestionsProps> = ({
                     className={`flex-1 py-2 px-3 rounded text-xs font-bold transition-all ${
                       answers[q.number] === 'mixed'
                         ? 'bg-yellow-600 text-white'
-                        : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'
+                        : 'bg-stone-100 text-stone-500 hover:bg-stone-200'
                     }`}
                   >
                     MIXED
@@ -175,7 +175,7 @@ const GPIFiveQuestions: React.FC<GPIFiveQuestionsProps> = ({
                     className={`flex-1 py-2 px-3 rounded text-xs font-bold transition-all ${
                       answers[q.number] === 'structure'
                         ? 'bg-red-600 text-white'
-                        : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'
+                        : 'bg-stone-100 text-stone-500 hover:bg-stone-200'
                     }`}
                   >
                     STRUCTURE
@@ -188,34 +188,34 @@ const GPIFiveQuestions: React.FC<GPIFiveQuestionsProps> = ({
       </div>
 
       {/* Scoring section */}
-      <div className="mt-10 pt-8 border-t border-zinc-800">
+      <div className="mt-10 pt-8 border-t border-stone-200">
         <h3 className="text-center font-semibold mb-6">
           {interactive ? `Your Signal Score: ${signalCount}/5` : 'Count your honest answers'}
         </h3>
         <div className="grid grid-cols-3 gap-4">
           <div className={`text-center p-4 rounded-xl border ${
-            interactive && signalCount <= 1 ? 'border-red-500 bg-red-950/30' : 'border-red-900/30 bg-red-950/10'
+            interactive && signalCount <= 1 ? 'border-red-500 bg-red-50' : 'border-red-200 bg-red-50/50'
           }`}>
             <div className="text-2xl font-black text-red-500">0-1</div>
-            <div className="text-xs text-zinc-500 mt-1">Move. Now.</div>
+            <div className="text-xs text-stone-500 mt-1">Move. Now.</div>
           </div>
           <div className={`text-center p-4 rounded-xl border ${
-            interactive && signalCount >= 2 && signalCount <= 3 ? 'border-yellow-500 bg-yellow-950/30' : 'border-yellow-900/30 bg-yellow-950/10'
+            interactive && signalCount >= 2 && signalCount <= 3 ? 'border-yellow-500 bg-yellow-50' : 'border-yellow-200 bg-yellow-50/50'
           }`}>
             <div className="text-2xl font-black text-yellow-500">2-3</div>
-            <div className="text-xs text-zinc-500 mt-1">Build. Fast.</div>
+            <div className="text-xs text-stone-500 mt-1">Build. Fast.</div>
           </div>
           <div className={`text-center p-4 rounded-xl border ${
-            interactive && signalCount >= 4 ? 'border-green-500 bg-green-950/30' : 'border-green-900/30 bg-green-950/10'
+            interactive && signalCount >= 4 ? 'border-green-500 bg-green-50' : 'border-green-200 bg-green-50/50'
           }`}>
             <div className="text-2xl font-black text-green-500">4-5</div>
-            <div className="text-xs text-zinc-500 mt-1">Compound.</div>
+            <div className="text-xs text-stone-500 mt-1">Compound.</div>
           </div>
         </div>
       </div>
 
       {/* Footer */}
-      <div className="text-center mt-8 text-zinc-600 italic text-sm">
+      <div className="text-center mt-8 text-stone-400 italic text-sm">
         The mirror doesn\'t lie. Neither should you.
       </div>
     </div>

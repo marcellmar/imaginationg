@@ -41,9 +41,9 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
     }
   };
 
-  const bgClass = darkBackground 
-    ? 'bg-zinc-900' 
-    : 'bg-gradient-to-r from-black to-zinc-900';
+  const bgClass = darkBackground
+    ? 'bg-stone-100'
+    : 'bg-gradient-to-r from-stone-50 to-stone-100';
 
   return (
     <div className={`${bgClass} p-8 rounded-lg`}>
@@ -51,7 +51,7 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
         <>
           <h3 className="text-2xl font-bold mb-2">{title}</h3>
           <p className="text-gray-400 mb-6">{description}</p>
-          
+
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
             <div className="flex-1">
               <input
@@ -59,13 +59,13 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your email address"
-                className="w-full px-4 py-3 bg-black border border-zinc-700 rounded focus:outline-none focus:border-white"
+                className="w-full px-4 py-3 bg-stone-50 border border-stone-300 rounded focus:outline-none focus:border-red-600 placeholder-stone-400"
               />
               {error && <p className="mt-1 text-red-500 text-sm">{error}</p>}
             </div>
             <button
               type="submit"
-              className="bg-white text-black px-6 py-3 font-medium rounded hover:bg-gray-200 transition-all inline-flex items-center justify-center gap-2"
+              className="bg-red-600 text-white px-6 py-3 font-medium rounded hover:bg-red-700 transition-all inline-flex items-center justify-center gap-2"
             >
               Subscribe
               <ArrowRight size={16} />

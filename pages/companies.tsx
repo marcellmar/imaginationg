@@ -24,7 +24,7 @@ interface CompaniesPageProps {
 }
 
 const getScoreColor = (score: number | null) => {
-  if (!score) return 'text-zinc-500';
+  if (!score) return 'text-stone-500';
   if (score <= 3) return 'text-green-500';
   if (score <= 6.9) return 'text-yellow-500';
   return 'text-red-500';
@@ -145,45 +145,45 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
         description={`${totalCount} companies analyzed across 7 dimensions of organizational physics. See who's fluid and who's calcified.`}
       />
 
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-stone-50 text-stone-900">
         <Navigation currentPage="companies" />
 
         {/* Header */}
-        <section className="pt-28 pb-8 px-6 border-b border-zinc-900">
+        <section className="pt-28 pb-8 px-6 border-b border-stone-200">
           <div className="max-w-6xl mx-auto">
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-zinc-600 mb-4">
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-4">
               <span className="w-2 h-2 bg-red-500 rounded-full" />
               GPI DATABASE
             </div>
             <h1 className="text-4xl md:text-5xl font-black mb-4">
               {totalCount} COMPANIES<span className="text-red-600">.</span>{' '}
-              <span className="text-zinc-500">AND COUNTING.</span>
+              <span className="text-stone-500">AND COUNTING.</span>
             </h1>
-            <p className="text-xl text-zinc-400 max-w-2xl">
+            <p className="text-xl text-stone-500 max-w-2xl">
               Same 7 dimensions. Same physics. Different scores. See who can move and who's stuck.
             </p>
           </div>
         </section>
 
         {/* Search and Filters */}
-        <section className="py-4 px-6 border-b border-zinc-900 bg-zinc-950 sticky top-16 z-40">
+        <section className="py-4 px-6 border-b border-stone-200 bg-white sticky top-16 z-40">
           <div className="max-w-6xl mx-auto">
             {/* Search Bar Row */}
             <div className="flex flex-col md:flex-row gap-3">
               {/* Search Input */}
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" size={18} />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500" size={18} />
                 <input
                   type="text"
                   placeholder="Search by name or ticker..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-zinc-900 border border-zinc-800 rounded px-10 py-2.5 text-white placeholder-zinc-500 focus:outline-none focus:border-zinc-600 transition-colors"
+                  className="w-full bg-stone-100 border border-stone-200 rounded px-10 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-400 transition-colors"
                 />
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery('')}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-500 hover:text-stone-900"
                   >
                     <X size={16} />
                   </button>
@@ -195,7 +195,7 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
                 <select
                   value={selectedSector}
                   onChange={(e) => setSelectedSector(e.target.value)}
-                  className="appearance-none bg-zinc-900 border border-zinc-800 rounded px-4 py-2.5 pr-10 text-white focus:outline-none focus:border-zinc-600 transition-colors cursor-pointer min-w-[180px]"
+                  className="appearance-none bg-stone-100 border border-stone-200 rounded px-4 py-2.5 pr-10 text-stone-900 focus:outline-none focus:border-stone-400 transition-colors cursor-pointer min-w-[180px]"
                 >
                   <option value="">All Sectors</option>
                   {sectors.map((sector) => (
@@ -204,7 +204,7 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none" size={16} />
+                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-500 pointer-events-none" size={16} />
               </div>
 
               {/* Filter Toggle Button */}
@@ -212,8 +212,8 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
                 onClick={() => setShowFilters(!showFilters)}
                 className={`flex items-center gap-2 px-4 py-2.5 border rounded transition-colors ${
                   showFilters || hasActiveFilters
-                    ? 'bg-zinc-800 border-zinc-700 text-white'
-                    : 'bg-zinc-900 border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700'
+                    ? 'bg-stone-200 border-stone-300 text-stone-900'
+                    : 'bg-stone-100 border-stone-200 text-stone-500 hover:text-stone-900 hover:border-stone-300'
                 }`}
               >
                 <Filter size={16} />
@@ -226,11 +226,11 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
 
             {/* Expanded Filters */}
             {showFilters && (
-              <div className="mt-4 pt-4 border-t border-zinc-800">
+              <div className="mt-4 pt-4 border-t border-stone-200">
                 <div className="flex flex-wrap gap-6">
                   {/* Stage Filter */}
                   <div>
-                    <div className="text-xs text-zinc-500 mb-2 font-mono">STAGE</div>
+                    <div className="text-xs text-stone-500 mb-2 font-mono">STAGE</div>
                     <div className="flex gap-2">
                       {stageOrder.map((stage) => {
                         const config = stageConfig[stage];
@@ -242,7 +242,7 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
                             className={`px-3 py-1.5 text-sm rounded border transition-colors ${
                               isSelected
                                 ? `${config.color} ${config.bgColor} border-current`
-                                : 'text-zinc-500 border-zinc-700 hover:border-zinc-600'
+                                : 'text-stone-500 border-stone-300 hover:border-stone-400'
                             }`}
                           >
                             {stage}
@@ -254,7 +254,7 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
 
                   {/* GPI Range */}
                   <div>
-                    <div className="text-xs text-zinc-500 mb-2 font-mono">GPI RANGE</div>
+                    <div className="text-xs text-stone-500 mb-2 font-mono">GPI RANGE</div>
                     <div className="flex items-center gap-2">
                       <input
                         type="number"
@@ -264,9 +264,9 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
                         min="1"
                         max="10"
                         step="0.1"
-                        className="w-20 bg-zinc-900 border border-zinc-800 rounded px-3 py-1.5 text-white text-sm placeholder-zinc-600 focus:outline-none focus:border-zinc-600"
+                        className="w-20 bg-stone-100 border border-stone-200 rounded px-3 py-1.5 text-stone-900 text-sm placeholder-stone-400 focus:outline-none focus:border-stone-400"
                       />
-                      <span className="text-zinc-600">—</span>
+                      <span className="text-stone-400">—</span>
                       <input
                         type="number"
                         placeholder="Max"
@@ -275,20 +275,20 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
                         min="1"
                         max="10"
                         step="0.1"
-                        className="w-20 bg-zinc-900 border border-zinc-800 rounded px-3 py-1.5 text-white text-sm placeholder-zinc-600 focus:outline-none focus:border-zinc-600"
+                        className="w-20 bg-stone-100 border border-stone-200 rounded px-3 py-1.5 text-stone-900 text-sm placeholder-stone-400 focus:outline-none focus:border-stone-400"
                       />
                     </div>
                   </div>
 
                   {/* Snapshot Only */}
                   <div>
-                    <div className="text-xs text-zinc-500 mb-2 font-mono">OPTIONS</div>
+                    <div className="text-xs text-stone-500 mb-2 font-mono">OPTIONS</div>
                     <button
                       onClick={() => setSnapshotOnly(!snapshotOnly)}
                       className={`px-3 py-1.5 text-sm rounded border transition-colors ${
                         snapshotOnly
-                          ? 'text-cyan-500 border-cyan-500/50 bg-cyan-500/10'
-                          : 'text-zinc-500 border-zinc-700 hover:border-zinc-600'
+                          ? 'text-cyan-500 border-cyan-400 bg-cyan-50'
+                          : 'text-stone-500 border-stone-300 hover:border-stone-400'
                       }`}
                     >
                       Snapshots only
@@ -300,7 +300,7 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
                     <div className="flex items-end">
                       <button
                         onClick={clearFilters}
-                        className="px-3 py-1.5 text-sm text-zinc-500 hover:text-white transition-colors"
+                        className="px-3 py-1.5 text-sm text-stone-500 hover:text-stone-900 transition-colors"
                       >
                         Clear all
                       </button>
@@ -312,22 +312,22 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
 
             {/* Results Count */}
             <div className="mt-3 flex items-center justify-between text-sm">
-              <div className="text-zinc-500">
-                Showing <span className="text-white font-medium">{filteredCompanies.length}</span> of {totalCount} companies
+              <div className="text-stone-500">
+                Showing <span className="text-stone-900 font-medium">{filteredCompanies.length}</span> of {totalCount} companies
               </div>
               {/* Quick Legend */}
               <div className="hidden md:flex gap-4 text-xs">
                 <div className="flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-green-500" />
-                  <span className="text-zinc-500">Field</span>
+                  <span className="text-stone-500">Field</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-yellow-500" />
-                  <span className="text-zinc-500">Transitioning</span>
+                  <span className="text-stone-500">Transitioning</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-red-500" />
-                  <span className="text-zinc-500">Particle</span>
+                  <span className="text-stone-500">Particle</span>
                 </div>
               </div>
             </div>
@@ -339,7 +339,7 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
           <div className="max-w-6xl mx-auto">
             {filteredCompanies.length === 0 ? (
               <div className="text-center py-16">
-                <div className="text-zinc-500 text-lg mb-4">No companies match your filters.</div>
+                <div className="text-stone-500 text-lg mb-4">No companies match your filters.</div>
                 <button
                   onClick={clearFilters}
                   className="text-red-500 hover:text-red-400 transition-colors"
@@ -360,7 +360,7 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
                         <h2 className={`text-lg font-black ${config.color}`}>
                           {config.label}
                         </h2>
-                        <p className="text-sm text-zinc-500">{config.description}</p>
+                        <p className="text-sm text-stone-500">{config.description}</p>
                       </div>
                       <div className={`text-3xl font-black ${config.color}`}>
                         {stateCompanies.length}
@@ -371,15 +371,15 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
                         const snapshotSlug = getSnapshotSlug(company.name);
                         const cardContent = (
                           <div
-                            className={`border border-zinc-800 bg-black/50 p-4 transition-colors ${
-                              snapshotSlug ? 'hover:border-cyan-500/50 cursor-pointer' : 'hover:border-zinc-700'
+                            className={`border border-stone-200 bg-white p-4 transition-colors ${
+                              snapshotSlug ? 'hover:border-cyan-400 cursor-pointer' : 'hover:border-stone-300'
                             }`}
                           >
                             <div className="flex justify-between items-start mb-2">
                               <div>
-                                <div className="font-bold text-white">{company.name}</div>
+                                <div className="font-bold text-stone-900">{company.name}</div>
                                 {company.ticker && (
-                                  <div className="text-xs text-zinc-600">{company.ticker}</div>
+                                  <div className="text-xs text-stone-400">{company.ticker}</div>
                                 )}
                               </div>
                               <div className={`text-2xl font-black ${getScoreColor(company.gpiScore)}`}>
@@ -387,14 +387,14 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
                               </div>
                             </div>
                             <div className="flex items-center gap-2 mt-3">
-                              <span className="text-xs text-zinc-500">{company.sector}</span>
+                              <span className="text-xs text-stone-500">{company.sector}</span>
                               {company.fortune500Rank && (
-                                <span className="text-xs text-zinc-600">
+                                <span className="text-xs text-stone-400">
                                   F500 #{company.fortune500Rank}
                                 </span>
                               )}
                               {hasSnapshot(company.name) && (
-                                <span className="text-xs text-cyan-500 bg-cyan-500/10 px-1.5 py-0.5 rounded">
+                                <span className="text-xs text-cyan-500 bg-cyan-50 px-1.5 py-0.5 rounded">
                                   SNAPSHOT
                                 </span>
                               )}
@@ -419,10 +419,10 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
         </section>
 
         {/* CTA */}
-        <section className="py-12 px-6 border-t border-zinc-900 bg-zinc-950">
+        <section className="py-12 px-6 border-t border-stone-200 bg-white">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl font-black mb-4">WANT YOUR COMPANY ANALYZED?</h2>
-            <p className="text-zinc-500 mb-6">
+            <p className="text-stone-500 mb-6">
               Get a full GPI breakdown across all 7 dimensions.
             </p>
             <Link
@@ -436,8 +436,8 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
         </section>
 
         {/* Footer */}
-        <footer className="py-8 px-6 border-t border-zinc-900">
-          <div className="max-w-6xl mx-auto flex justify-between items-center text-sm text-zinc-600">
+        <footer className="py-8 px-6 border-t border-stone-200">
+          <div className="max-w-6xl mx-auto flex justify-between items-center text-sm text-stone-400">
             <div>GPI.STUDIO</div>
             <div>© IMAGINATION G LLC</div>
           </div>

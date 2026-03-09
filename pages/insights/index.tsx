@@ -214,7 +214,7 @@ const InsightsPage: NextPage = () => {
         ogImage="/images/og-insights.svg"
       />
 
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-stone-50 text-stone-900">
         <Navigation currentPage="insights" />
 
         {/* Hero */}
@@ -225,7 +225,7 @@ const InsightsPage: NextPage = () => {
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
                   THE PHYSICS OF<br />ORGANIZATIONS<span className="text-red-600">.</span>
                 </h1>
-                <p className="text-xl text-zinc-400 max-w-xl">
+                <p className="text-xl text-stone-500 max-w-xl">
                   Live analyses, case studies, and the patterns that determine whether an org transforms or calcifies.
                 </p>
               </div>
@@ -234,7 +234,7 @@ const InsightsPage: NextPage = () => {
               <div className="flex justify-center">
                 <div className="relative w-full max-w-md">
                   <svg viewBox="0 0 300 200" className="w-full h-auto">
-                    <rect x="0" y="0" width="300" height="200" fill="#09090b" rx="8" />
+                    <rect x="0" y="0" width="300" height="200" fill="#fafaf9" rx="8" />
                     <line x1="150" y1="20" x2="150" y2="180" stroke="#27272a" strokeWidth="1" strokeDasharray="4,4" />
                     <text x="75" y="35" textAnchor="middle" fill="#ef4444" fontSize="10" fontFamily="monospace">FRICTION</text>
                     <rect x="40" y="50" width="3" height="120" fill="#ef4444" opacity="0.6" />
@@ -265,11 +265,11 @@ const InsightsPage: NextPage = () => {
                     <path d="M 160 70 Q 200 65, 240 70 Q 270 75, 280 70" fill="none" stroke="#22c55e" strokeWidth="1" opacity="0.3" />
                     <path d="M 160 100 Q 200 95, 240 100 Q 270 105, 280 100" fill="none" stroke="#22c55e" strokeWidth="1" opacity="0.3" />
                     <path d="M 160 130 Q 200 125, 240 130 Q 270 135, 280 130" fill="none" stroke="#22c55e" strokeWidth="1" opacity="0.3" />
-                    <text x="75" y="185" textAnchor="middle" fill="#52525b" fontSize="8" fontFamily="monospace">GPI 7-10</text>
-                    <text x="225" y="185" textAnchor="middle" fill="#52525b" fontSize="8" fontFamily="monospace">GPI 1-3</text>
+                    <text x="75" y="185" textAnchor="middle" fill="#a8a29e" fontSize="8" fontFamily="monospace">GPI 7-10</text>
+                    <text x="225" y="185" textAnchor="middle" fill="#a8a29e" fontSize="8" fontFamily="monospace">GPI 1-3</text>
                   </svg>
                   <div className="text-center mt-4">
-                    <span className="text-xs font-mono text-zinc-600">Energy flows or it doesn't. GPI measures where it gets stuck.</span>
+                    <span className="text-xs font-mono text-stone-400">Energy flows or it doesn't. GPI measures where it gets stuck.</span>
                   </div>
                 </div>
               </div>
@@ -283,36 +283,36 @@ const InsightsPage: NextPage = () => {
 
             {/* Live Analysis */}
             <Link href={`/insights/${featured.slug}`} className="block group">
-              <div className="border-2 border-red-600 p-8 hover:bg-red-600/5 transition-all h-full">
+              <div className="border-2 border-red-600 p-8 hover:bg-red-50 transition-all h-full">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="flex items-center gap-1.5 text-xs font-mono text-red-500">
                     <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
                     LIVE ANALYSIS
                   </span>
-                  <span className="text-xs text-zinc-600">Feb 26, 2026</span>
+                  <span className="text-xs text-stone-400">Feb 26, 2026</span>
                 </div>
                 <h2 className="text-2xl md:text-3xl font-black mb-3 group-hover:text-red-500 transition-colors">
                   {featured.title}
                   <ArrowRight className="inline ml-2" size={22} />
                 </h2>
-                <p className="text-zinc-400 text-sm">{featured.description}</p>
+                <p className="text-stone-500 text-sm">{featured.description}</p>
               </div>
             </Link>
 
             {/* GPI Content Series */}
             <Link href="/insights/gpi-analyses" className="block group">
-              <div className="border border-zinc-800 bg-zinc-950 p-8 hover:border-zinc-600 transition-all h-full">
-                <div className="text-xs font-mono text-zinc-500 mb-4">GPI CONTENT SERIES</div>
+              <div className="border border-stone-200 bg-white p-8 hover:border-stone-400 transition-all h-full">
+                <div className="text-xs font-mono text-stone-500 mb-4">GPI CONTENT SERIES</div>
                 <h2 className="text-2xl md:text-3xl font-black mb-3 group-hover:text-red-500 transition-colors">
                   SMACKDOWNS. AUTOPSIES. VITAL SIGNS.
                   <ArrowRight className="inline ml-2" size={22} />
                 </h2>
-                <p className="text-zinc-400 text-sm mb-6">Real companies. Real scores. Head-to-head comparisons, forensic breakdowns, and metabolic monitoring.</p>
+                <p className="text-stone-500 text-sm mb-6">Real companies. Real scores. Head-to-head comparisons, forensic breakdowns, and metabolic monitoring.</p>
                 <div className="flex gap-2 flex-wrap">
-                  <span className="text-xs px-3 py-1.5 bg-red-950/50 text-red-400 border border-red-900/50">⚔️ SMACKDOWN</span>
-                  <span className="text-xs px-3 py-1.5 bg-zinc-900 text-zinc-400 border border-zinc-800">🪦 AUTOPSY</span>
-                  <span className="text-xs px-3 py-1.5 bg-blue-950/50 text-blue-400 border border-blue-900/50">🩺 VITAL SIGNS</span>
-                  <span className="text-xs px-3 py-1.5 bg-yellow-950/50 text-yellow-400 border border-yellow-900/50">🔄 TRANSITION</span>
+                  <span className="text-xs px-3 py-1.5 bg-red-50 text-red-600 border border-red-200">⚔️ SMACKDOWN</span>
+                  <span className="text-xs px-3 py-1.5 bg-white text-stone-500 border border-stone-200">🪦 AUTOPSY</span>
+                  <span className="text-xs px-3 py-1.5 bg-blue-50 text-blue-600 border border-blue-200">🩺 VITAL SIGNS</span>
+                  <span className="text-xs px-3 py-1.5 bg-yellow-50 text-yellow-600 border border-yellow-200">🔄 TRANSITION</span>
                 </div>
               </div>
             </Link>
@@ -326,13 +326,13 @@ const InsightsPage: NextPage = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {rest.map((insight) => {
                 const colorClasses: Record<string, string> = {
-                  red: 'bg-red-600/10 text-red-500 group-hover:bg-red-600 group-hover:text-white',
-                  green: 'bg-green-600/10 text-green-500 group-hover:bg-green-600 group-hover:text-white',
-                  purple: 'bg-purple-600/10 text-purple-500 group-hover:bg-purple-600 group-hover:text-white',
-                  cyan: 'bg-cyan-600/10 text-cyan-500 group-hover:bg-cyan-600 group-hover:text-white',
-                  blue: 'bg-blue-600/10 text-blue-500 group-hover:bg-blue-600 group-hover:text-white',
-                  orange: 'bg-orange-600/10 text-orange-500 group-hover:bg-orange-600 group-hover:text-white',
-                  yellow: 'bg-yellow-600/10 text-yellow-500 group-hover:bg-yellow-600 group-hover:text-black',
+                  red: 'bg-red-50 text-red-500 group-hover:bg-red-600 group-hover:text-stone-900',
+                  green: 'bg-green-50 text-green-500 group-hover:bg-green-600 group-hover:text-stone-900',
+                  purple: 'bg-purple-50 text-purple-500 group-hover:bg-purple-600 group-hover:text-stone-900',
+                  cyan: 'bg-cyan-50 text-cyan-500 group-hover:bg-cyan-600 group-hover:text-stone-900',
+                  blue: 'bg-blue-50 text-blue-500 group-hover:bg-blue-600 group-hover:text-stone-900',
+                  orange: 'bg-orange-50 text-orange-500 group-hover:bg-orange-600 group-hover:text-stone-900',
+                  yellow: 'bg-yellow-50 text-yellow-500 group-hover:bg-yellow-600 group-hover:text-black',
                 };
                 const borderClasses: Record<string, string> = {
                   red: 'hover:border-red-600',
@@ -347,20 +347,20 @@ const InsightsPage: NextPage = () => {
                   <Link
                     key={insight.slug}
                     href={`/insights/${insight.slug}`}
-                    className={`group border border-zinc-800 p-8 ${borderClasses[insight.color]} transition-all bg-zinc-950 relative overflow-hidden`}
+                    className={`group border border-stone-200 p-8 ${borderClasses[insight.color]} transition-all bg-white relative overflow-hidden`}
                   >
                     <div className={`w-12 h-12 rounded-lg ${colorClasses[insight.color]} flex items-center justify-center mb-4 transition-all`}>
                       {insight.icon}
                     </div>
                     <div className="flex items-center gap-3 mb-4">
-                      <span className="text-xs font-mono text-zinc-600">{insight.tag}</span>
+                      <span className="text-xs font-mono text-stone-400">{insight.tag}</span>
                     </div>
-                    <h3 className="text-2xl font-black mb-2 group-hover:text-white transition-colors">
+                    <h3 className="text-2xl font-black mb-2 group-hover:text-stone-900 transition-colors">
                       {insight.title}
                       <ArrowRight className="inline ml-2 opacity-0 group-hover:opacity-100 transition-opacity" size={20} />
                     </h3>
-                    <p className="text-sm text-zinc-500 mb-3">{insight.subtitle}</p>
-                    <p className="text-zinc-400 text-sm">{insight.description}</p>
+                    <p className="text-sm text-stone-500 mb-3">{insight.subtitle}</p>
+                    <p className="text-stone-500 text-sm">{insight.description}</p>
                   </Link>
                 );
               })}
@@ -369,13 +369,13 @@ const InsightsPage: NextPage = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-16 px-6 border-t border-zinc-900">
+        <section className="py-16 px-6 border-t border-stone-200">
           <div className="max-w-7xl mx-auto">
-            <p className="text-zinc-500 mb-2 text-sm font-mono">32 QUESTIONS. NOT A GRADE. A READ.</p>
+            <p className="text-stone-500 mb-2 text-sm font-mono">32 QUESTIONS. NOT A GRADE. A READ.</p>
             <h3 className="text-3xl font-black mb-6">KNOW YOUR SCORE<span className="text-red-600">.</span></h3>
             <Link
               href="/diagnostic"
-              className="inline-flex items-center gap-2 bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors group"
+              className="inline-flex items-center gap-2 bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors group text-white"
             >
               TAKE THE GPI DIAGNOSTIC
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />

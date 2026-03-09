@@ -65,21 +65,21 @@ interface Props {
 }
 
 const seriesConfig: Record<string, { color: string; bg: string; icon: string }> = {
-  'Weekly Smackdown': { color: 'text-zinc-300', bg: 'bg-zinc-950', icon: '⚔️' },
-  'Transition Watch': { color: 'text-zinc-300', bg: 'bg-zinc-950', icon: '🔄' },
-  'Wildcard': { color: 'text-zinc-300', bg: 'bg-zinc-950', icon: '🃏' },
-  'Calcification Alert': { color: 'text-zinc-300', bg: 'bg-zinc-950', icon: '🚨' },
-  'Field Notes': { color: 'text-zinc-300', bg: 'bg-zinc-950', icon: '📡' },
-  'The Autopsy': { color: 'text-zinc-400', bg: 'bg-zinc-950', icon: '🪦' },
-  'Vital Signs': { color: 'text-zinc-300', bg: 'bg-zinc-950', icon: '🩺' },
+  'Weekly Smackdown': { color: 'text-stone-600', bg: 'bg-white', icon: '⚔️' },
+  'Transition Watch': { color: 'text-stone-600', bg: 'bg-white', icon: '🔄' },
+  'Wildcard': { color: 'text-stone-600', bg: 'bg-white', icon: '🃏' },
+  'Calcification Alert': { color: 'text-stone-600', bg: 'bg-white', icon: '🚨' },
+  'Field Notes': { color: 'text-stone-600', bg: 'bg-white', icon: '📡' },
+  'The Autopsy': { color: 'text-stone-500', bg: 'bg-white', icon: '🪦' },
+  'Vital Signs': { color: 'text-stone-600', bg: 'bg-white', icon: '🩺' },
 };
 
 const getStageColor = (stage: string) => {
   switch (stage) {
-    case 'Field': return 'text-white border-zinc-500';
-    case 'Transitioning': return 'text-zinc-300 border-zinc-600';
-    case 'Particle': return 'text-zinc-400 border-zinc-700';
-    default: return 'text-zinc-500 border-zinc-800';
+    case 'Field': return 'text-stone-900 border-stone-400';
+    case 'Transitioning': return 'text-stone-600 border-stone-300';
+    case 'Particle': return 'text-stone-500 border-stone-200';
+    default: return 'text-stone-500 border-stone-200';
   }
 };
 
@@ -99,18 +99,18 @@ const GPIRadar = ({ company }: { company: Company }) => {
       {dimensions.map((dim) => (
         <div key={dim.key} className="flex flex-col items-center">
           <div
-            className="w-8 h-24 bg-zinc-900 rounded relative overflow-hidden"
+            className="w-8 h-24 bg-stone-100 rounded relative overflow-hidden"
             title={`${dim.label}: ${dim.value}/10`}
           >
             <div
-              className="absolute bottom-0 left-0 right-0 bg-white"
+              className="absolute bottom-0 left-0 right-0 bg-stone-400"
               style={{
                 height: `${((dim.value || 0) / 10) * 100}%`,
                 opacity: 0.12 + ((dim.value || 0) / 10) * 0.65,
               }}
             />
           </div>
-          <span className="text-[10px] text-zinc-500 mt-1">{dim.label}</span>
+          <span className="text-[10px] text-stone-500 mt-1">{dim.label}</span>
           <span className="text-xs font-mono font-bold">{dim.value || '—'}</span>
         </div>
       ))}
@@ -121,17 +121,17 @@ const GPIRadar = ({ company }: { company: Company }) => {
 const RenderBlock = ({ block }: { block: ContentBlock }) => {
   const renderText = (content: ContentBlock['content']) => {
     return content.map((part, i) => {
-      if (part.href) return <a key={i} href={part.href} className="text-amber-500/80 hover:underline">{part.text}</a>;
+      if (part.href) return <a key={i} href={part.href} className="text-amber-600 hover:underline">{part.text}</a>;
       if (part.bold) return <strong key={i}>{part.text}</strong>;
       if (part.italic) return <em key={i}>{part.text}</em>;
-      if (part.code) return <code key={i} className="bg-zinc-800 px-1 rounded">{part.text}</code>;
+      if (part.code) return <code key={i} className="bg-stone-200 px-1 rounded">{part.text}</code>;
       return <span key={i}>{part.text}</span>;
     });
   };
 
   switch (block.type) {
     case 'paragraph':
-      return <p className="text-zinc-300 leading-relaxed mb-4">{renderText(block.content)}</p>;
+      return <p className="text-stone-600 leading-relaxed mb-4">{renderText(block.content)}</p>;
     case 'heading_1':
       return <h1 className="text-3xl font-black mt-8 mb-4">{renderText(block.content)}</h1>;
     case 'heading_2':
@@ -139,23 +139,23 @@ const RenderBlock = ({ block }: { block: ContentBlock }) => {
     case 'heading_3':
       return <h3 className="text-xl font-bold mt-6 mb-3">{renderText(block.content)}</h3>;
     case 'bulleted_list_item':
-      return <li className="text-zinc-300 mb-2">{renderText(block.content)}</li>;
+      return <li className="text-stone-600 mb-2">{renderText(block.content)}</li>;
     case 'numbered_list_item':
-      return <li className="text-zinc-300 mb-2">{renderText(block.content)}</li>;
+      return <li className="text-stone-600 mb-2">{renderText(block.content)}</li>;
     case 'quote':
       return (
-        <blockquote className="border-l border-zinc-600 pl-6 py-2 my-6 text-xl text-zinc-400 italic">
+        <blockquote className="border-l border-stone-300 pl-6 py-2 my-6 text-xl text-stone-500 italic">
           {renderText(block.content)}
         </blockquote>
       );
     case 'callout':
       return (
-        <div className="bg-zinc-900 border border-zinc-700 rounded-lg p-4 my-6">
-          <p className="text-zinc-200 font-medium">{renderText(block.content)}</p>
+        <div className="bg-stone-100 border border-stone-300 rounded-lg p-4 my-6">
+          <p className="text-stone-700 font-medium">{renderText(block.content)}</p>
         </div>
       );
     case 'divider':
-      return <hr className="border-zinc-800 my-8" />;
+      return <hr className="border-stone-200 my-8" />;
     default:
       return null;
   }
@@ -191,13 +191,13 @@ const AnalysisPage = ({ content }: Props) => {
         description={content.teaser}
       />
 
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-stone-50 text-stone-900">
         <Navigation currentPage="insights" />
 
         {/* Hero */}
-        <section className="pt-24 pb-8 px-6 border-b border-zinc-900">
+        <section className="pt-24 pb-8 px-6 border-b border-stone-200">
           <div className="max-w-4xl mx-auto">
-            <Link href="/insights/gpi-analyses" className="text-zinc-500 text-sm hover:text-white mb-6 inline-block">
+            <Link href="/insights/gpi-analyses" className="text-stone-500 text-sm hover:text-stone-900 mb-6 inline-block">
               ← Back to GPI Analyses
             </Link>
 
@@ -211,7 +211,7 @@ const AnalysisPage = ({ content }: Props) => {
 
             <div className="flex items-center gap-3 mb-4">
               {content.publishDate && (
-                <span className="text-sm text-zinc-500">
+                <span className="text-sm text-stone-500">
                   {new Date(content.publishDate).toLocaleDateString('en-US', {
                     month: 'long',
                     day: 'numeric',
@@ -227,12 +227,12 @@ const AnalysisPage = ({ content }: Props) => {
 
             {audioMap[content.slug] && (
               <div className="mb-6">
-                <div className="text-xs font-mono text-zinc-500 mb-2">LISTEN TO THIS ANALYSIS</div>
-                <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-3">
+                <div className="text-xs font-mono text-stone-500 mb-2">LISTEN TO THIS ANALYSIS</div>
+                <div className="bg-white border border-stone-200 rounded-lg p-3">
                   <audio controls className="w-full" style={{ height: '40px' }}>
                     <source src={audioMap[content.slug].src} type="audio/mpeg" />
                   </audio>
-                  <div className="flex justify-between items-center mt-2 text-xs text-zinc-500">
+                  <div className="flex justify-between items-center mt-2 text-xs text-stone-500">
                     <span>{audioMap[content.slug].title}</span>
                     <span>{audioMap[content.slug].duration}</span>
                   </div>
@@ -240,20 +240,20 @@ const AnalysisPage = ({ content }: Props) => {
               </div>
             )}
 
-            <p className="text-xl text-zinc-400 leading-relaxed">{content.teaser}</p>
+            <p className="text-xl text-stone-500 leading-relaxed">{content.teaser}</p>
           </div>
         </section>
 
         {/* Featured Companies */}
         {content.companies.length > 0 && (
-          <section className="py-8 px-6 border-b border-zinc-900 bg-zinc-950">
+          <section className="py-8 px-6 border-b border-stone-200 bg-white">
             <div className="max-w-4xl mx-auto">
               {content.companies.map((company) => (
                 <div key={company.id} className="mb-8 last:mb-0">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
                     <div>
                       <h2 className="text-2xl font-black">{company.name}</h2>
-                      <p className="text-zinc-500">{company.sector}</p>
+                      <p className="text-stone-500">{company.sector}</p>
                     </div>
                     <div className="flex items-center gap-4">
                       <span className={`px-4 py-2 border rounded-lg font-bold ${getStageColor(company.stage)}`}>
@@ -261,7 +261,7 @@ const AnalysisPage = ({ content }: Props) => {
                       </span>
                       <div className="text-center">
                         <div className="text-3xl font-black font-mono" style={{ color: 'rgba(234,179,8,0.82)' }}>{company.gpiScore?.toFixed(1)}</div>
-                        <div className="text-xs text-zinc-500">GPI SCORE</div>
+                        <div className="text-xs text-stone-500">GPI SCORE</div>
                       </div>
                     </div>
                   </div>
@@ -271,7 +271,7 @@ const AnalysisPage = ({ content }: Props) => {
                   {company.frictionPoints.length > 0 && (
                     <div className="mt-6 flex flex-wrap gap-2">
                       {company.frictionPoints.map((point) => (
-                        <span key={point} className="text-xs bg-zinc-900 text-zinc-400 px-3 py-1 rounded">
+                        <span key={point} className="text-xs bg-stone-100 text-stone-500 px-3 py-1 rounded">
                           {point}
                         </span>
                       ))}
@@ -286,7 +286,7 @@ const AnalysisPage = ({ content }: Props) => {
         {/* Content Blocks */}
         <section className="py-12 px-6">
           <div className="max-w-4xl mx-auto">
-            <article className="prose prose-invert max-w-none">
+            <article className="prose max-w-none">
               {groupBlocks(content.blocks).map((group, i) => {
                 if (Array.isArray(group)) {
                   const type = group[0].type;
@@ -304,15 +304,15 @@ const AnalysisPage = ({ content }: Props) => {
         </section>
 
         {/* CTA */}
-        <section className="py-16 px-6 border-t border-zinc-900">
+        <section className="py-16 px-6 border-t border-stone-200">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl font-black mb-4">CALCULATE YOUR OWN GPI</h2>
-            <p className="text-zinc-400 mb-8">
+            <p className="text-stone-500 mb-8">
               See where your organization sits on the spectrum.
             </p>
             <Link
               href="/diagnostic"
-              className="inline-block bg-white text-black px-8 py-4 font-bold hover:bg-zinc-200 transition-colors"
+              className="inline-block bg-stone-900 text-white px-8 py-4 font-bold hover:bg-stone-800 transition-colors"
             >
               START DIAGNOSTIC
             </Link>

@@ -129,27 +129,27 @@ const GPIDimensionCard: React.FC<GPIDimensionCardProps> = ({
 
   const cardContent = (
     <div
-      className={`border border-zinc-800 bg-black rounded-xl ${compact ? 'p-4' : 'p-6'} ${
+      className={`border border-stone-200 bg-stone-50 rounded-xl ${compact ? 'p-4' : 'p-6'} ${
         clickable ? 'hover:border-red-600 cursor-pointer transition-all hover:scale-[1.01]' : ''
       }`}
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-red-600 text-black flex items-center justify-center font-black rounded">
+          <div className="w-10 h-10 bg-red-600 text-white flex items-center justify-center font-black rounded">
             {dimension.order}
           </div>
           <h3 className={`font-black ${compact ? 'text-sm' : 'text-lg'}`}>
             {dimension.label.toUpperCase()}
           </h3>
         </div>
-        <span className="text-xs font-mono text-zinc-500 bg-zinc-900 px-2 py-1 rounded">
+        <span className="text-xs font-mono text-stone-500 bg-stone-100 px-2 py-1 rounded">
           {Math.round(dimension.weight * 100)}% weight
         </span>
       </div>
 
       {/* Description */}
-      <p className={`text-zinc-400 mb-4 ${compact ? 'text-sm' : ''}`}>
+      <p className={`text-stone-500 mb-4 ${compact ? 'text-sm' : ''}`}>
         {dimension.description}
       </p>
 
@@ -157,23 +157,23 @@ const GPIDimensionCard: React.FC<GPIDimensionCardProps> = ({
       <div className={`space-y-2 ${compact ? 'text-xs' : 'text-sm'}`}>
         <div className="flex gap-2">
           <span className="text-green-500 font-mono w-12">1-3:</span>
-          <span className="text-zinc-500">{dimension.lowDescription}</span>
+          <span className="text-stone-500">{dimension.lowDescription}</span>
         </div>
         <div className="flex gap-2">
           <span className="text-red-500 font-mono w-12">7-10:</span>
-          <span className="text-zinc-500">{dimension.highDescription}</span>
+          <span className="text-stone-500">{dimension.highDescription}</span>
         </div>
       </div>
 
       {/* Examples */}
       {showExamples && !compact && (
-        <div className="mt-4 pt-4 border-t border-zinc-800">
+        <div className="mt-4 pt-4 border-t border-stone-200">
           <div className="grid grid-cols-2 gap-4 text-xs">
-            <div className="bg-green-950/30 border border-green-900/50 rounded p-3">
+            <div className="bg-green-50 border border-green-200 rounded p-3">
               <div className="text-green-500 font-bold">{extended.examples.low.company}</div>
               <div className="text-green-400/60">GPI {extended.examples.low.gpi}</div>
             </div>
-            <div className="bg-red-950/30 border border-red-900/50 rounded p-3">
+            <div className="bg-red-50 border border-red-200 rounded p-3">
               <div className="text-red-500 font-bold">{extended.examples.high.company}</div>
               <div className="text-red-400/60">GPI {extended.examples.high.gpi}</div>
             </div>

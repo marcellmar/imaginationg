@@ -37,7 +37,7 @@ const DecisionLatencyPage = () => {
         ogImage="/images/og-decision-latency.svg"
       />
 
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-stone-50 text-stone-900">
         <Navigation currentPage="framework" />
 
         {/* Hero */}
@@ -45,17 +45,17 @@ const DecisionLatencyPage = () => {
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
               <div className="mb-8">
-                <Link href="/gpi-framework" className="text-zinc-500 hover:text-white transition-colors text-sm">
+                <Link href="/gpi-framework" className="text-stone-500 hover:text-stone-900 transition-colors text-sm">
                   ← GPI Framework
                 </Link>
               </div>
 
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 bg-red-600 text-black flex items-center justify-center font-black text-2xl rounded">
+                <div className="w-14 h-14 bg-red-600 text-white flex items-center justify-center font-black text-2xl rounded">
                   1
                 </div>
                 <div>
-                  <span className="text-xs font-mono text-zinc-500 bg-zinc-900 px-2 py-1 rounded">
+                  <span className="text-xs font-mono text-stone-500 bg-stone-100 px-2 py-1 rounded">
                     20% weight
                   </span>
                 </div>
@@ -65,12 +65,12 @@ const DecisionLatencyPage = () => {
                 DECISION LATENCY<span className="text-red-600">.</span>
               </h1>
 
-              <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
+              <p className="text-xl text-stone-500 mb-8 max-w-2xl">
                 How fast the org moves from "we need to decide" to decided. Every layer between signal and action is a tax. Most orgs don't know how much they're paying.
               </p>
 
               {/* Decision Timeline Visual */}
-              <div className="mb-12 p-8 bg-zinc-950 border border-zinc-800 rounded-xl">
+              <div className="mb-12 p-8 bg-white border border-stone-200 rounded-xl">
                 <svg viewBox="0 0 400 120" className="w-full max-w-lg mx-auto">
                   {/* Fast path (top) */}
                   <text x="10" y="20" fill="#22c55e" fontSize="10" fontWeight="bold">FIELD STATE</text>
@@ -144,7 +144,7 @@ const DecisionLatencyPage = () => {
 
                   <text x="380" y="103" fill="#ef4444" fontSize="10" fontWeight="bold">Months</text>
                 </svg>
-                <p className="text-center text-zinc-500 text-sm mt-4 font-mono">SIGNAL → DECISION → ACTION</p>
+                <p className="text-center text-stone-500 text-sm mt-4 font-mono">SIGNAL → DECISION → ACTION</p>
               </div>
 
               <div className="max-w-md">
@@ -155,7 +155,7 @@ const DecisionLatencyPage = () => {
         </section>
 
         {/* Scale */}
-        <section className="py-16 px-6 bg-zinc-950">
+        <section className="py-16 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl font-black mb-8">THE SCALE</h2>
@@ -164,7 +164,7 @@ const DecisionLatencyPage = () => {
                 <div className="bg-green-950/20 border border-green-900/50 rounded-xl p-6">
                   <div className="text-green-500 font-mono font-bold mb-2">SCORE 1-3</div>
                   <h3 className="text-xl font-bold mb-3">Decisions happen near the work</h3>
-                  <p className="text-zinc-400">
+                  <p className="text-stone-500">
                     Authority sits close to the problem. Teams decide without escalating. Budget moves in days, not quarters. Nobody waits for a meeting to fix an obvious problem.
                   </p>
                 </div>
@@ -172,7 +172,7 @@ const DecisionLatencyPage = () => {
                 <div className="bg-red-950/20 border border-red-900/50 rounded-xl p-6">
                   <div className="text-red-500 font-mono font-bold mb-2">SCORE 7-10</div>
                   <h3 className="text-xl font-bold mb-3">Decisions travel up and down</h3>
-                  <p className="text-zinc-400">
+                  <p className="text-stone-500">
                     Decisions go upward to people far from the work, then back down. By the time approval lands, the context has shifted. The org doesn't move slowly on purpose. It built a structure that can't do anything else.
                   </p>
                 </div>
@@ -188,35 +188,35 @@ const DecisionLatencyPage = () => {
               <h2 className="text-2xl font-black mb-8">THE CEILING</h2>
 
               <div className="space-y-6">
-                <p className="text-lg text-zinc-300">
-                  Decision Latency is the <strong className="text-white">metabolic rate</strong> of the organization. Speed everything else can move at is capped by how fast this one thing moves.
+                <p className="text-lg text-stone-600">
+                  Decision Latency is the <strong className="text-stone-900">metabolic rate</strong> of the organization. Speed everything else can move at is capped by how fast this one thing moves.
                 </p>
 
                 <div className="border-l-4 border-red-600 pl-6 py-4">
-                  <p className="text-zinc-400">
+                  <p className="text-stone-500">
                     Each sign-off adds time without adding value. A decision that needs five approvals doesn't get five times better. It gets five times slower. Most of the cost isn't the delay itself, it's what doesn't happen while you're waiting.
                   </p>
                 </div>
 
-                <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-6">
+                <div className="bg-stone-100 border border-stone-200 rounded-xl p-6">
                   <h3 className="font-bold mb-4">THE APPROVAL CHAIN TAX</h3>
-                  <p className="text-zinc-400">
+                  <p className="text-stone-500">
                     Approval chains don't exist to slow things down. They exist because someone, at some point, made a mistake and added a checkpoint. Then someone else made a different mistake and added another one. The checkpoints accumulate. The mistakes they were designed to prevent become rare. The latency becomes permanent.
                   </p>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-4">
-                  <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-4">
+                  <div className="bg-stone-100 border border-stone-200 rounded-lg p-4">
                     <div className="text-3xl font-black text-green-500 mb-2">3x</div>
-                    <p className="text-sm text-zinc-500">Faster iteration cycles in field-state orgs</p>
+                    <p className="text-sm text-stone-500">Faster iteration cycles in field-state orgs</p>
                   </div>
-                  <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-4">
+                  <div className="bg-stone-100 border border-stone-200 rounded-lg p-4">
                     <div className="text-3xl font-black text-yellow-500 mb-2">6mo</div>
-                    <p className="text-sm text-zinc-500">Average budget reallocation time in particle state</p>
+                    <p className="text-sm text-stone-500">Average budget reallocation time in particle state</p>
                   </div>
-                  <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-4">
+                  <div className="bg-stone-100 border border-stone-200 rounded-lg p-4">
                     <div className="text-3xl font-black text-red-500 mb-2">80%</div>
-                    <p className="text-sm text-zinc-500">Of slow decisions are process problems, not analysis problems</p>
+                    <p className="text-sm text-stone-500">Of slow decisions are process problems, not analysis problems</p>
                   </div>
                 </div>
               </div>
@@ -225,7 +225,7 @@ const DecisionLatencyPage = () => {
         </section>
 
         {/* Examples */}
-        <section className="py-16 px-6 bg-zinc-950">
+        <section className="py-16 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl font-black mb-8">EXAMPLES</h2>
@@ -235,10 +235,10 @@ const DecisionLatencyPage = () => {
                   <h3 className="text-green-500 font-bold mb-4">LOW LATENCY (Score 1-3)</h3>
                   <div className="space-y-3">
                     {examples.low.map((ex) => (
-                      <div key={ex.company} className="bg-black border border-zinc-800 rounded-lg p-4 flex items-center justify-between">
+                      <div key={ex.company} className="bg-stone-50 border border-stone-200 rounded-lg p-4 flex items-center justify-between">
                         <div>
                           <span className="font-bold">{ex.company}</span>
-                          <p className="text-sm text-zinc-500 mt-1">{ex.detail}</p>
+                          <p className="text-sm text-stone-500 mt-1">{ex.detail}</p>
                         </div>
                         <span className="text-green-500 font-mono font-bold">{ex.gpi}</span>
                       </div>
@@ -250,10 +250,10 @@ const DecisionLatencyPage = () => {
                   <h3 className="text-red-500 font-bold mb-4">HIGH LATENCY (Score 7-10)</h3>
                   <div className="space-y-3">
                     {examples.high.map((ex) => (
-                      <div key={ex.company} className="bg-black border border-zinc-800 rounded-lg p-4 flex items-center justify-between">
+                      <div key={ex.company} className="bg-stone-50 border border-stone-200 rounded-lg p-4 flex items-center justify-between">
                         <div>
                           <span className="font-bold">{ex.company}</span>
-                          <p className="text-sm text-zinc-500 mt-1">{ex.detail}</p>
+                          <p className="text-sm text-stone-500 mt-1">{ex.detail}</p>
                         </div>
                         <span className="text-red-500 font-mono font-bold">{ex.gpi}</span>
                       </div>
@@ -273,16 +273,16 @@ const DecisionLatencyPage = () => {
 
               <div className="space-y-3">
                 {diagnosticQuestions.map((q, i) => (
-                  <div key={i} className="border border-zinc-800 rounded-lg p-4 flex items-center gap-4">
+                  <div key={i} className="border border-stone-200 rounded-lg p-4 flex items-center gap-4">
                     <span className="text-red-600 font-bold">{i + 1}</span>
-                    <span className="text-zinc-300">{q}</span>
+                    <span className="text-stone-600">{q}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-8 p-6 bg-zinc-950 border border-zinc-800 rounded-xl">
-                <p className="text-zinc-400">
-                  <strong className="text-white">Scoring:</strong> If most answers suggest
+              <div className="mt-8 p-6 bg-stone-100 border border-stone-200 rounded-xl">
+                <p className="text-stone-500">
+                  <strong className="text-stone-900">Scoring:</strong> If most answers suggest
                   fast, autonomous decision-making, score 1-3. If most answers suggest
                   multi-layered approval and long timelines, score 7-10.
                 </p>
@@ -292,18 +292,18 @@ const DecisionLatencyPage = () => {
         </section>
 
         {/* Navigation */}
-        <section className="py-16 px-6 border-t border-zinc-900">
+        <section className="py-16 px-6 border-t border-stone-200">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between gap-6">
               <Link
                 href="/gpi-framework"
-                className="border border-zinc-700 px-8 py-4 text-lg font-black hover:border-zinc-500 transition-colors text-center"
+                className="border border-stone-300 px-8 py-4 text-lg font-black hover:border-red-400 transition-colors text-center"
               >
                 ← BACK TO FRAMEWORK
               </Link>
               <Link
                 href="/gpi-framework/error-correction"
-                className="bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors text-center"
+                className="bg-red-600 text-white px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors text-center"
               >
                 NEXT: ERROR CORRECTION →
               </Link>

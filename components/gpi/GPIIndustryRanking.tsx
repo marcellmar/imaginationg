@@ -56,8 +56,8 @@ const GPIIndustryRanking: React.FC<GPIIndustryRankingProps> = ({
     const color = getScoreColor(gpi);
     return {
       circle: color === 'green' ? 'bg-green-500 text-white' :
-              color === 'yellow' ? 'bg-yellow-500 text-black' :
-              'bg-red-500 text-black',
+              color === 'yellow' ? 'bg-yellow-500 text-white' :
+              'bg-red-500 text-white',
       bar: color === 'green' ? 'bg-green-500' :
            color === 'yellow' ? 'bg-yellow-500' :
            'bg-red-500',
@@ -72,7 +72,7 @@ const GPIIndustryRanking: React.FC<GPIIndustryRankingProps> = ({
       {/* Header */}
       <div className="text-center mb-8">
         <h2 className="text-2xl font-black mb-2">THE GROWING PAINS INDEX</h2>
-        <p className="text-zinc-500 text-sm">
+        <p className="text-stone-500 text-sm">
           10 = Maximum Pain (Particle Prison) → 1 = Minimum Pain (Field Native)
         </p>
       </div>
@@ -81,15 +81,15 @@ const GPIIndustryRanking: React.FC<GPIIndustryRankingProps> = ({
       <div className="flex justify-between mb-6 px-2 text-xs">
         <div className="text-left">
           <div className="text-red-500 font-bold">RIGID</div>
-          <div className="text-zinc-600">Calcified. Resisting.</div>
+          <div className="text-stone-400">Calcified. Resisting.</div>
         </div>
         <div className="text-center">
           <div className="text-yellow-500 font-bold">BREAKING</div>
-          <div className="text-zinc-600">In transition.</div>
+          <div className="text-stone-400">In transition.</div>
         </div>
         <div className="text-right">
           <div className="text-green-500 font-bold">FLUID</div>
-          <div className="text-zinc-600">Adaptive. Moving.</div>
+          <div className="text-stone-400">Adaptive. Moving.</div>
         </div>
       </div>
 
@@ -104,8 +104,8 @@ const GPIIndustryRanking: React.FC<GPIIndustryRankingProps> = ({
           return (
             <div
               key={industry.industry}
-              className={`relative bg-zinc-950 rounded-xl p-4 overflow-hidden transition-all ${
-                isHighlighted ? 'ring-2 ring-white ring-opacity-50' : ''
+              className={`relative bg-stone-100 rounded-xl p-4 overflow-hidden transition-all ${
+                isHighlighted ? 'ring-2 ring-stone-400 ring-opacity-50' : ''
               }`}
             >
               {/* Background bar */}
@@ -126,9 +126,9 @@ const GPIIndustryRanking: React.FC<GPIIndustryRankingProps> = ({
 
                   {/* Industry info */}
                   <div>
-                    <h3 className="font-semibold text-white">{industry.industry}</h3>
+                    <h3 className="font-semibold text-stone-900">{industry.industry}</h3>
                     {showTaglines && tagline && (
-                      <p className="text-xs text-zinc-500">{tagline}</p>
+                      <p className="text-xs text-stone-500">{tagline}</p>
                     )}
                   </div>
                 </div>
@@ -139,7 +139,7 @@ const GPIIndustryRanking: React.FC<GPIIndustryRankingProps> = ({
                     <div
                       key={i}
                       className={`w-2 h-6 rounded-sm ${
-                        i < industry.gpi ? classes.bar : 'bg-zinc-800'
+                        i < industry.gpi ? classes.bar : 'bg-stone-200'
                       }`}
                     />
                   ))}
@@ -151,7 +151,7 @@ const GPIIndustryRanking: React.FC<GPIIndustryRankingProps> = ({
       </div>
 
       {/* Footer */}
-      <div className="text-center mt-8 text-zinc-500 text-sm">
+      <div className="text-center mt-8 text-stone-500 text-sm">
         Where do you sit? The score determines your trajectory.
       </div>
     </div>

@@ -19,35 +19,35 @@ const TheSpiralModelPage: NextPage = () => {
         }}
       />
 
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-stone-50 text-stone-900">
         <Navigation currentPage="insights" />
 
         {/* Hero Section */}
         <section className="pt-24 pb-16 px-6">
           <div className="max-w-4xl mx-auto">
             {/* Breadcrumb */}
-            <Link href="/insights" className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors mb-8">
+            <Link href="/insights" className="inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors mb-8">
               <ArrowLeft size={16} />
               Back to Insights
             </Link>
 
             {/* Meta */}
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-mono text-red-600 bg-red-600/10 px-3 py-1 rounded">GPI FOUNDATIONS</span>
-              <span className="text-xs text-zinc-500">10 min read</span>
-              <span className="text-xs text-zinc-600">•</span>
-              <span className="text-xs text-zinc-500">TRANSFORMATION</span>
+              <span className="text-xs font-mono text-red-600 bg-red-50 px-3 py-1 rounded">GPI FOUNDATIONS</span>
+              <span className="text-xs text-stone-500">10 min read</span>
+              <span className="text-xs text-stone-400">•</span>
+              <span className="text-xs text-stone-500">TRANSFORMATION</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-[1.1]">
               THE SPIRAL<br />MODEL<span className="text-red-600">.</span>
             </h1>
 
-            <p className="text-2xl text-zinc-500 mb-8">
+            <p className="text-2xl text-stone-500 mb-8">
               Why Transformation Isn't Linear
             </p>
 
-            <p className="text-xl text-zinc-400 max-w-2xl">
+            <p className="text-xl text-stone-500 max-w-2xl">
               Your body doesn't "achieve" a state. It cycles. Breathe in, breathe out. Build tissue, break tissue.
               Companies are the same. The health isn't in any single state—it's in the rhythm.
             </p>
@@ -116,7 +116,7 @@ const TheSpiralModelPage: NextPage = () => {
 
                 {/* Caption */}
                 <div className="absolute -bottom-8 left-0 right-0 text-center">
-                  <span className="text-xs font-mono text-zinc-600">Each cycle ends higher. You can't skip phases.</span>
+                  <span className="text-xs font-mono text-stone-400">Each cycle ends higher. You can't skip phases.</span>
                 </div>
               </div>
             </div>
@@ -128,21 +128,21 @@ const TheSpiralModelPage: NextPage = () => {
           <div className="max-w-3xl mx-auto space-y-16">
 
             {/* Opening */}
-            <div className="space-y-4 text-zinc-300">
+            <div className="space-y-4 text-stone-600">
               <p>"We measured engagement at 72%." Static. Frozen. No indication of direction, velocity, or phase.</p>
               <p>A company with GPI 7 isn't necessarily sick. They might be at peak crystallization, about to dissolve productively. Or frozen solid, unable to change.</p>
-              <p className="text-white text-xl font-bold pt-4">You can't tell from a single measurement.</p>
+              <p className="text-stone-900 text-xl font-bold pt-4">You can't tell from a single measurement.</p>
             </div>
 
             {/* Quote */}
-            <div className="bg-zinc-950 border border-zinc-800 p-8">
-              <p className="text-2xl text-white italic">"Organizations don't transform once. They cycle. The question isn't what state you're in. It's how well you're cycling."</p>
+            <div className="bg-white border border-stone-200 p-8">
+              <p className="text-2xl text-stone-900 italic">"Organizations don't transform once. They cycle. The question isn't what state you're in. It's how well you're cycling."</p>
             </div>
 
             {/* Thermometer vs EKG */}
             <div className="text-center py-4">
-              <p className="text-zinc-400">This is the difference between a thermometer and an EKG.</p>
-              <p className="text-white font-bold text-xl mt-2">One tells you temperature. The other tells you if you're alive.</p>
+              <p className="text-stone-500">This is the difference between a thermometer and an EKG.</p>
+              <p className="text-stone-900 font-bold text-xl mt-2">One tells you temperature. The other tells you if you're alive.</p>
             </div>
 
             {/* Four Phases Grid */}
@@ -150,69 +150,69 @@ const TheSpiralModelPage: NextPage = () => {
               <div className="border-2 border-amber-600 p-6">
                 <div className="text-amber-500 font-mono text-xs mb-2">PHASE 1</div>
                 <h3 className="text-xl font-black text-amber-400 mb-2">CRYSTALLIZATION</h3>
-                <p className="text-zinc-400 text-sm">What works gets repeated. Patterns emerge. "Let's do that again."</p>
+                <p className="text-stone-500 text-sm">What works gets repeated. Patterns emerge. "Let's do that again."</p>
               </div>
               <div className="border-2 border-red-600 p-6">
                 <div className="text-red-500 font-mono text-xs mb-2">PHASE 2</div>
                 <h3 className="text-xl font-black text-red-400 mb-2">PARTICLE</h3>
-                <p className="text-zinc-400 text-sm">Process becomes policy becomes culture. "This is how we do things."</p>
+                <p className="text-stone-500 text-sm">Process becomes policy becomes culture. "This is how we do things."</p>
               </div>
               <div className="border-2 border-purple-600 p-6">
                 <div className="text-purple-500 font-mono text-xs mb-2">PHASE 3</div>
                 <h3 className="text-xl font-black text-purple-400 mb-2">DISSOLUTION</h3>
-                <p className="text-zinc-400 text-sm">Reality stops matching structure. Cracks appear. Structure breaks.</p>
+                <p className="text-stone-500 text-sm">Reality stops matching structure. Cracks appear. Structure breaks.</p>
               </div>
               <div className="border-2 border-green-600 p-6">
                 <div className="text-green-500 font-mono text-xs mb-2">PHASE 4</div>
                 <h3 className="text-xl font-black text-green-400 mb-2">FIELD</h3>
-                <p className="text-zinc-400 text-sm">Fluid. Experimental. New patterns emerge. "What if we tried..."</p>
+                <p className="text-stone-500 text-sm">Fluid. Experimental. New patterns emerge. "What if we tried..."</p>
               </div>
             </div>
 
-            <p className="text-zinc-400 text-center">Then back to crystallization. But <span className="text-white font-bold">higher</span>.</p>
+            <p className="text-stone-500 text-center">Then back to crystallization. But <span className="text-stone-900 font-bold">higher</span>.</p>
 
             {/* Linear Myth */}
             <div className="border-l-2 border-purple-600 pl-6 space-y-4">
               <h2 className="text-xs font-mono text-purple-500 mb-4">THE LINEAR MYTH</h2>
-              <p className="text-zinc-300">The consulting industry sells transformation as a journey from A to B. Current state to future state.</p>
-              <p className="text-zinc-300">It's a compelling story. It fits in PowerPoint. It justifies contracts.</p>
-              <p className="text-white font-bold text-xl">It's also wrong.</p>
+              <p className="text-stone-600">The consulting industry sells transformation as a journey from A to B. Current state to future state.</p>
+              <p className="text-stone-600">It's a compelling story. It fits in PowerPoint. It justifies contracts.</p>
+              <p className="text-stone-900 font-bold text-xl">It's also wrong.</p>
             </div>
 
             {/* Transformation Graveyard */}
-            <div className="bg-zinc-950 border border-zinc-800 p-8">
+            <div className="bg-white border border-stone-200 p-8">
               <h2 className="text-xs font-mono text-red-500 mb-6">THE TRANSFORMATION GRAVEYARD</h2>
-              <div className="space-y-3 text-zinc-300">
-                <p><span className="text-white font-bold">Failed SAP implementations:</span> Jumped to integrated systems without building capability</p>
-                <p><span className="text-white font-bold">Abandoned cloud migrations:</span> On-premise to distributed without metabolic preparation</p>
-                <p><span className="text-white font-bold">Dead innovation labs:</span> Field-state pockets in particle-state orgs, no integration path</p>
-                <p><span className="text-white font-bold">Rejected acquisitions:</span> Bought field-state companies with particle-state metabolism</p>
+              <div className="space-y-3 text-stone-600">
+                <p><span className="text-stone-900 font-bold">Failed SAP implementations:</span> Jumped to integrated systems without building capability</p>
+                <p><span className="text-stone-900 font-bold">Abandoned cloud migrations:</span> On-premise to distributed without metabolic preparation</p>
+                <p><span className="text-stone-900 font-bold">Dead innovation labs:</span> Field-state pockets in particle-state orgs, no integration path</p>
+                <p><span className="text-stone-900 font-bold">Rejected acquisitions:</span> Bought field-state companies with particle-state metabolism</p>
               </div>
             </div>
 
             {/* Amazon Spiral */}
             <div className="space-y-4">
-              <h2 className="text-xs font-mono text-zinc-500 mb-4">THE AMAZON SPIRAL</h2>
-              <p className="text-zinc-300">Amazon is often cited as a field state success story. GPI around 3.2.</p>
-              <p className="text-white font-bold text-xl">Amazon didn't start in field state. They spiraled to it.</p>
+              <h2 className="text-xs font-mono text-stone-500 mb-4">THE AMAZON SPIRAL</h2>
+              <p className="text-stone-600">Amazon is often cited as a field state success story. GPI around 3.2.</p>
+              <p className="text-stone-900 font-bold text-xl">Amazon didn't start in field state. They spiraled to it.</p>
             </div>
 
             <div className="space-y-4">
               <div className="border-l-4 border-red-600 pl-6 py-2">
                 <p className="text-red-600 font-mono text-sm">PHASE 1: Retail (GPI ~7)</p>
-                <p className="text-zinc-400 text-sm">Books. Warehouses. Process optimization. <span className="text-white">Mastered particle first.</span></p>
+                <p className="text-stone-500 text-sm">Books. Warehouses. Process optimization. <span className="text-stone-900">Mastered particle first.</span></p>
               </div>
               <div className="border-l-4 border-yellow-500 pl-6 py-2">
                 <p className="text-yellow-500 font-mono text-sm">PHASE 2: Marketplace (GPI ~4)</p>
-                <p className="text-zinc-400 text-sm">Third-party sellers. Distributed inventory. <span className="text-white">Used Phase 1 to enable Phase 2.</span></p>
+                <p className="text-stone-500 text-sm">Third-party sellers. Distributed inventory. <span className="text-stone-900">Used Phase 1 to enable Phase 2.</span></p>
               </div>
               <div className="border-l-4 border-green-500 pl-6 py-2">
                 <p className="text-green-500 font-mono text-sm">PHASE 3: AWS (GPI ~2)</p>
-                <p className="text-zinc-400 text-sm">Infrastructure-as-service. <span className="text-white">Used Phase 2 coordination for Phase 3.</span></p>
+                <p className="text-stone-500 text-sm">Infrastructure-as-service. <span className="text-stone-900">Used Phase 2 coordination for Phase 3.</span></p>
               </div>
               <div className="border-l-4 border-blue-500 pl-6 py-2">
                 <p className="text-blue-500 font-mono text-sm">PHASE 4: Logistics (GPI ~5)</p>
-                <p className="text-zinc-400 text-sm">Own delivery infrastructure. <span className="text-white">Revisiting particle with field capabilities.</span></p>
+                <p className="text-stone-500 text-sm">Own delivery infrastructure. <span className="text-stone-900">Revisiting particle with field capabilities.</span></p>
               </div>
             </div>
 
@@ -220,19 +220,19 @@ const TheSpiralModelPage: NextPage = () => {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-green-950/20 border border-green-900/50 p-6">
                 <p className="text-green-500 font-bold text-sm mb-2">AMAZON + WHOLE FOODS</p>
-                <p className="text-zinc-300 text-sm mb-2">GPI gap: 2.9 points. Within range.</p>
+                <p className="text-stone-600 text-sm mb-2">GPI gap: 2.9 points. Within range.</p>
                 <p className="text-green-400 text-sm">Result: Successful integration.</p>
               </div>
               <div className="bg-red-950/20 border border-red-900/50 p-6">
                 <p className="text-red-500 font-bold text-sm mb-2">HP + AUTONOMY</p>
-                <p className="text-zinc-300 text-sm mb-2">GPI gap: 4.7 points. Beyond range.</p>
+                <p className="text-stone-600 text-sm mb-2">GPI gap: 4.7 points. Beyond range.</p>
                 <p className="text-red-400 text-sm">Result: $8.8 billion writedown.</p>
               </div>
             </div>
 
             {/* 2-Point Rule */}
-            <div className="bg-zinc-950 border border-zinc-800 p-8">
-              <h2 className="text-xs font-mono text-zinc-500 mb-6">THE 2-POINT RULE</h2>
+            <div className="bg-white border border-stone-200 p-8">
+              <h2 className="text-xs font-mono text-stone-500 mb-6">THE 2-POINT RULE</h2>
               <div className="space-y-2 font-mono text-sm">
                 <div className="flex justify-between"><span>1-2 point shift</span><span className="text-green-400">1-2 years</span></div>
                 <div className="flex justify-between"><span>2-3 point shift</span><span className="text-yellow-400">3-5 years</span></div>
@@ -243,28 +243,28 @@ const TheSpiralModelPage: NextPage = () => {
 
             {/* Particle isn't bad */}
             <div className="border-l-2 border-yellow-500 pl-6 space-y-4">
-              <p className="text-xl text-white italic">"Transformation isn't choosing particle or field. It's building the capability to spiral between them."</p>
-              <p className="text-zinc-400">Nuclear power plants should be particle state. Startups should be field state. The problem isn't the state. It's the mismatch.</p>
+              <p className="text-xl text-stone-900 italic">"Transformation isn't choosing particle or field. It's building the capability to spiral between them."</p>
+              <p className="text-stone-500">Nuclear power plants should be particle state. Startups should be field state. The problem isn't the state. It's the mismatch.</p>
             </div>
 
             {/* Velocity and Direction */}
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="border border-zinc-800 p-6">
+              <div className="border border-stone-200 p-6">
                 <Activity className="w-6 h-6 text-blue-500 mb-3" />
                 <h4 className="font-bold mb-2">SPIRAL VELOCITY</h4>
                 <div className="space-y-1 text-sm">
-                  <div className="flex justify-between"><span className="text-zinc-400">Startups</span><span className="font-mono">3-6 months</span></div>
-                  <div className="flex justify-between"><span className="text-zinc-400">Growth stage</span><span className="font-mono">12-18 months</span></div>
-                  <div className="flex justify-between"><span className="text-zinc-400">Enterprise</span><span className="font-mono">3-5 years</span></div>
-                  <div className="flex justify-between"><span className="text-zinc-400">Dying</span><span className="font-mono text-red-500">∞ (stuck)</span></div>
+                  <div className="flex justify-between"><span className="text-stone-500">Startups</span><span className="font-mono">3-6 months</span></div>
+                  <div className="flex justify-between"><span className="text-stone-500">Growth stage</span><span className="font-mono">12-18 months</span></div>
+                  <div className="flex justify-between"><span className="text-stone-500">Enterprise</span><span className="font-mono">3-5 years</span></div>
+                  <div className="flex justify-between"><span className="text-stone-500">Dying</span><span className="font-mono text-red-500">∞ (stuck)</span></div>
                 </div>
               </div>
-              <div className="border border-zinc-800 p-6">
+              <div className="border border-stone-200 p-6">
                 <TrendingUp className="w-6 h-6 text-green-500 mb-3" />
                 <h4 className="font-bold mb-2">SPIRAL DIRECTION</h4>
                 <div className="space-y-1 text-sm">
                   <div className="flex justify-between"><span className="text-green-400">+1</span><span>Ascending</span></div>
-                  <div className="flex justify-between"><span className="text-zinc-400">0</span><span>Treading water</span></div>
+                  <div className="flex justify-between"><span className="text-stone-500">0</span><span>Treading water</span></div>
                   <div className="flex justify-between"><span className="text-red-400">-1</span><span>Descending</span></div>
                 </div>
               </div>
@@ -272,40 +272,40 @@ const TheSpiralModelPage: NextPage = () => {
 
             {/* Pathologies */}
             <div className="space-y-4">
-              <h2 className="text-xs font-mono text-zinc-500 mb-4">WHEN THE SPIRAL BREAKS</h2>
+              <h2 className="text-xs font-mono text-stone-500 mb-4">WHEN THE SPIRAL BREAKS</h2>
               <div className="border-l-4 border-amber-600 pl-6 py-2">
                 <p className="text-amber-400 font-bold">CRYSTALLIZATION ADDICTION</p>
-                <p className="text-zinc-400 text-sm">"We need more process." Terrified of dissolution. Eventually frozen.</p>
+                <p className="text-stone-500 text-sm">"We need more process." Terrified of dissolution. Eventually frozen.</p>
               </div>
               <div className="border-l-4 border-purple-600 pl-6 py-2">
                 <p className="text-purple-400 font-bold">DISSOLUTION PARALYSIS</p>
-                <p className="text-zinc-400 text-sm">"We're still restructuring." Perpetual crisis. Burns out the org.</p>
+                <p className="text-stone-500 text-sm">"We're still restructuring." Perpetual crisis. Burns out the org.</p>
               </div>
               <div className="border-l-4 border-green-600 pl-6 py-2">
                 <p className="text-green-400 font-bold">FIELD ROMANTICISM</p>
-                <p className="text-zinc-400 text-sm">"We're agile." Mistakes chaos for adaptability. Nothing compounds.</p>
+                <p className="text-stone-500 text-sm">"We're agile." Mistakes chaos for adaptability. Nothing compounds.</p>
               </div>
               <div className="border-l-4 border-red-600 pl-6 py-2">
                 <p className="text-red-400 font-bold">PARTICLE NOSTALGIA</p>
-                <p className="text-zinc-400 text-sm">"Back to basics." Every crisis met by restoring the old way.</p>
+                <p className="text-stone-500 text-sm">"Back to basics." Every crisis met by restoring the old way.</p>
               </div>
             </div>
 
             {/* Closing */}
-            <div className="bg-red-600/10 border border-red-600/30 p-8 space-y-4">
-              <p className="text-white font-bold text-2xl">You can't skip the spiral.</p>
-              <p className="text-zinc-300">Organizations that try to skip phases trigger antibody rejection. Organizations that try to jump too many GPI points at once fail.</p>
-              <p className="text-zinc-300">The path forward isn't faster movement.</p>
+            <div className="bg-red-50 border border-red-200 p-8 space-y-4">
+              <p className="text-stone-900 font-bold text-2xl">You can't skip the spiral.</p>
+              <p className="text-stone-600">Organizations that try to skip phases trigger antibody rejection. Organizations that try to jump too many GPI points at once fail.</p>
+              <p className="text-stone-600">The path forward isn't faster movement.</p>
               <p className="text-red-500 font-bold text-xl pt-4">It's smarter spiraling.</p>
             </div>
 
             {/* Book Teaser */}
-            <div className="border border-zinc-800 p-8 flex items-center gap-6">
-              <BookOpen size={48} className="text-zinc-600 flex-shrink-0" />
+            <div className="border border-stone-200 p-8 flex items-center gap-6">
+              <BookOpen size={48} className="text-stone-400 flex-shrink-0" />
               <div>
-                <p className="text-zinc-500 text-sm uppercase mb-1">From the upcoming book</p>
+                <p className="text-stone-500 text-sm uppercase mb-1">From the upcoming book</p>
                 <p className="text-xl font-black">The Growing Pains Index</p>
-                <p className="text-zinc-400">Chapter 5: You Can't Skip the Transition</p>
+                <p className="text-stone-500">Chapter 5: You Can't Skip the Transition</p>
               </div>
             </div>
 
@@ -313,15 +313,15 @@ const TheSpiralModelPage: NextPage = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 px-6 border-t border-zinc-900">
+        <section className="py-16 px-6 border-t border-stone-200">
           <div className="max-w-7xl mx-auto text-center">
             <h3 className="text-3xl font-black mb-6">FIND YOUR SPIRAL POSITION</h3>
-            <p className="text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-stone-500 mb-8 max-w-2xl mx-auto">
               Measure your current GPI. Understand which phase you're in. Plan realistic transitions.
             </p>
             <Link
               href="/diagnostic"
-              className="inline-block bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors"
+              className="inline-block bg-red-600 text-white px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors"
             >
               TAKE THE GPI DIAGNOSTIC
             </Link>
@@ -329,7 +329,7 @@ const TheSpiralModelPage: NextPage = () => {
         </section>
 
         {/* Related Content */}
-        <section className="py-16 px-6 bg-zinc-950">
+        <section className="py-16 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <RelatedContent
               title="Continue Reading"

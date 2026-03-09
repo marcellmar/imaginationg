@@ -12,9 +12,9 @@ interface RelatedContentProps {
   items: RelatedItem[];
 }
 
-const RelatedContent: React.FC<RelatedContentProps> = ({ 
-  title = "Related Content", 
-  items 
+const RelatedContent: React.FC<RelatedContentProps> = ({
+  title = "Related Content",
+  items
 }) => {
   const getColorClasses = (color: string = 'red') => {
     const colorMap: Record<string, string> = {
@@ -26,7 +26,7 @@ const RelatedContent: React.FC<RelatedContentProps> = ({
   };
 
   return (
-    <div className="my-16 border-t border-zinc-800 pt-12">
+    <div className="my-16 border-t border-stone-200 pt-12">
       <h2 className="text-2xl font-black mb-8">{title}</h2>
       <div className="grid md:grid-cols-3 gap-6">
         {items.map((item, index) => {
@@ -35,12 +35,12 @@ const RelatedContent: React.FC<RelatedContentProps> = ({
             <Link
               key={index}
               href={item.href}
-              className={`border ${colorClasses} p-6 hover:text-black transition-all group`}
+              className={`border ${colorClasses} p-6 hover:text-white transition-all group`}
             >
-              <h3 className="font-bold mb-3 group-hover:text-black">
+              <h3 className="font-bold mb-3 group-hover:text-white">
                 {item.title}
               </h3>
-              <p className="text-sm text-zinc-400 group-hover:text-black">
+              <p className="text-sm text-stone-500 group-hover:text-white">
                 {item.description}
               </p>
               <span className="inline-block mt-4 text-xs font-bold">

@@ -18,13 +18,13 @@ export const GPISpectrumHero: React.FC = () => {
   ];
 
   return (
-    <div className="w-full border border-zinc-800 rounded-lg overflow-hidden">
+    <div className="w-full border border-stone-200 rounded-lg overflow-hidden">
       <svg viewBox="0 0 400 320" className="w-full h-auto">
         {/* Background */}
-        <rect x="0" y="0" width="400" height="320" fill="#09090b" />
+        <rect x="0" y="0" width="400" height="320" fill="#fafaf9" />
 
         {/* Header */}
-        <text x="200" y="24" textAnchor="middle" fill="#52525b" fontSize="9" fontFamily="monospace">
+        <text x="200" y="24" textAnchor="middle" fill="#a8a29e" fontSize="9" fontFamily="monospace">
           GPI DIMENSIONAL SCAN
         </text>
 
@@ -39,7 +39,7 @@ export const GPISpectrumHero: React.FC = () => {
                 x="75"
                 y={y + 11}
                 textAnchor="end"
-                fill="#71717a"
+                fill="#a8a29e"
                 fontSize="10"
                 fontFamily="monospace"
               >
@@ -47,7 +47,7 @@ export const GPISpectrumHero: React.FC = () => {
               </text>
 
               {/* Bar background */}
-              <rect x="85" y={y} width="220" height="18" fill="#27272a" rx="2" />
+              <rect x="85" y={y} width="220" height="18" fill="#e7e5e4" rx="2" />
 
               {/* Bar fill - animated */}
               <rect x="85" y={y} width="0" height="18" fill={dim.color} rx="2" opacity="0.85">
@@ -85,10 +85,10 @@ export const GPISpectrumHero: React.FC = () => {
         })}
 
         {/* Divider */}
-        <line x1="20" y1="290" x2="380" y2="290" stroke="#27272a" strokeWidth="1" />
+        <line x1="20" y1="290" x2="380" y2="290" stroke="#e7e5e4" strokeWidth="1" />
 
         {/* Bottom row */}
-        <text x="85" y="308" textAnchor="start" fill="#71717a" fontSize="10" fontFamily="monospace">
+        <text x="85" y="308" textAnchor="start" fill="#a8a29e" fontSize="10" fontFamily="monospace">
           COMPOSITE GPI
         </text>
 
@@ -116,37 +116,37 @@ interface SeriesHeroProps {
 
 const seriesStyles: Record<string, { gradient: string; accent: string; icon: string }> = {
   'Weekly Smackdown': {
-    gradient: 'from-red-950 via-zinc-950 to-red-950',
+    gradient: 'from-red-50 via-stone-50 to-red-50',
     accent: 'text-red-500 border-red-500',
     icon: '⚔️',
   },
   'Vital Signs': {
-    gradient: 'from-blue-950 via-zinc-950 to-blue-950',
+    gradient: 'from-blue-50 via-stone-50 to-blue-50',
     accent: 'text-blue-500 border-blue-500',
     icon: '🩺',
   },
   'Calcification Alert': {
-    gradient: 'from-orange-950 via-zinc-950 to-orange-950',
+    gradient: 'from-orange-50 via-stone-50 to-orange-50',
     accent: 'text-orange-500 border-orange-500',
     icon: '🚨',
   },
   'The Autopsy': {
-    gradient: 'from-zinc-900 via-zinc-950 to-zinc-900',
-    accent: 'text-zinc-400 border-zinc-400',
+    gradient: 'from-stone-100 via-stone-50 to-stone-100',
+    accent: 'text-stone-500 border-stone-400',
     icon: '🪦',
   },
   'Field Notes': {
-    gradient: 'from-green-950 via-zinc-950 to-green-950',
+    gradient: 'from-green-50 via-stone-50 to-green-50',
     accent: 'text-green-500 border-green-500',
     icon: '📡',
   },
   'Transition Watch': {
-    gradient: 'from-yellow-950 via-zinc-950 to-yellow-950',
+    gradient: 'from-yellow-50 via-stone-50 to-yellow-50',
     accent: 'text-yellow-500 border-yellow-500',
     icon: '🔄',
   },
   'Wildcard': {
-    gradient: 'from-purple-950 via-zinc-950 to-purple-950',
+    gradient: 'from-purple-50 via-stone-50 to-purple-50',
     accent: 'text-purple-500 border-purple-500',
     icon: '🃏',
   },
@@ -156,7 +156,7 @@ export const SeriesHero: React.FC<SeriesHeroProps> = ({ series, headline, compan
   const style = seriesStyles[series] || seriesStyles['Wildcard'];
 
   return (
-    <div className={`relative w-full overflow-hidden rounded-lg border border-zinc-800 bg-gradient-to-r ${style.gradient}`}>
+    <div className={`relative w-full overflow-hidden rounded-lg border border-stone-200 bg-gradient-to-r ${style.gradient}`}>
       {/* Abstract background pattern */}
       <div className="absolute inset-0 opacity-20">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -183,12 +183,12 @@ export const SeriesHero: React.FC<SeriesHeroProps> = ({ series, headline, compan
             {companies.map((company, i) => (
               <div
                 key={i}
-                className={`flex items-center gap-3 bg-black/50 border rounded-lg px-4 py-3 ${
+                className={`flex items-center gap-3 bg-white/70 border rounded-lg px-4 py-3 ${
                   company.gpi <= 3 ? 'border-green-500' :
                   company.gpi <= 6.9 ? 'border-yellow-500' : 'border-red-500'
                 }`}
               >
-                <span className="text-white font-bold">{company.name}</span>
+                <span className="text-stone-900 font-bold">{company.name}</span>
                 <span className={`text-2xl font-black font-mono ${
                   company.gpi <= 3 ? 'text-green-500' :
                   company.gpi <= 6.9 ? 'text-yellow-500' : 'text-red-500'
@@ -198,7 +198,7 @@ export const SeriesHero: React.FC<SeriesHeroProps> = ({ series, headline, compan
               </div>
             ))}
             {companies.length === 2 && (
-              <div className="flex items-center text-zinc-600 font-black text-xl px-2">
+              <div className="flex items-center text-stone-400 font-black text-xl px-2">
                 VS
               </div>
             )}
@@ -252,10 +252,10 @@ export const GPIScoreCard: React.FC<GPIScoreCardProps> = ({ name, gpi, stage, di
   const stageColor = stage === 'Field' ? 'green' : stage === 'Transitioning' ? 'yellow' : 'red';
 
   return (
-    <div className={`border-2 border-${stageColor}-500 bg-${stageColor}-950/20 rounded-lg p-6`}>
+    <div className={`border-2 border-${stageColor}-500 bg-${stageColor}-50 rounded-lg p-6`}>
       <div className="flex justify-between items-start mb-4">
         <div>
-          <h3 className="text-xl font-black text-white">{name}</h3>
+          <h3 className="text-xl font-black text-stone-900">{name}</h3>
           <span className={`text-sm font-mono text-${stageColor}-500`}>{stage.toUpperCase()}</span>
         </div>
         <div className={`text-4xl font-black font-mono text-${stageColor}-500`}>
@@ -278,14 +278,14 @@ export const GPIScoreCard: React.FC<GPIScoreCardProps> = ({ name, gpi, stage, di
             const barColor = value && value <= 3 ? 'bg-green-500' : value && value <= 6 ? 'bg-yellow-500' : 'bg-red-500';
             return (
               <div key={key} className="flex flex-col items-center">
-                <div className="w-full h-16 bg-zinc-900 rounded relative overflow-hidden">
+                <div className="w-full h-16 bg-stone-100 rounded relative overflow-hidden">
                   <div
                     className={`absolute bottom-0 left-0 right-0 ${barColor}`}
                     style={{ height: `${((value || 0) / 10) * 100}%` }}
                   />
                 </div>
-                <span className="text-[10px] text-zinc-500 mt-1">{label}</span>
-                <span className="text-xs font-mono font-bold text-zinc-300">{value || '—'}</span>
+                <span className="text-[10px] text-stone-500 mt-1">{label}</span>
+                <span className="text-xs font-mono font-bold text-stone-600">{value || '—'}</span>
               </div>
             );
           })}

@@ -98,7 +98,7 @@ const TransitionStatePage = () => {
         ogImage="/images/og-transition-state.svg"
       />
 
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-stone-50 text-stone-900">
         <Navigation currentPage="framework" />
 
         {/* Hero */}
@@ -107,7 +107,7 @@ const TransitionStatePage = () => {
             <div className="max-w-4xl mx-auto">
               {/* Breadcrumb */}
               <div className="mb-8">
-                <Link href="/gpi-framework" className="text-zinc-500 hover:text-white transition-colors text-sm">
+                <Link href="/gpi-framework" className="text-stone-500 hover:text-stone-900 transition-colors text-sm">
                   ← GPI Framework
                 </Link>
               </div>
@@ -124,13 +124,13 @@ const TransitionStatePage = () => {
 
               <p className="text-2xl text-yellow-400 font-bold mb-4">BREAKING</p>
 
-              <p className="text-xl text-zinc-400 mb-8 max-w-2xl">
+              <p className="text-xl text-stone-500 mb-8 max-w-2xl">
                 Organizations in flux. Old structures cracking, new patterns emerging.
                 The most vulnerable state. And the most opportune.
               </p>
 
               {/* Transition State Visual - Breaking Structure */}
-              <div className="mb-12 p-8 bg-zinc-950 border border-zinc-800 rounded-xl">
+              <div className="mb-12 p-8 bg-white border border-stone-200 rounded-xl">
                 <svg viewBox="0 0 400 150" className="w-full max-w-lg mx-auto">
                   {/* Left side - Field-like (fluid) */}
                   <circle r="4" fill="#22c55e" opacity="0.8">
@@ -217,18 +217,18 @@ const TransitionStatePage = () => {
         </section>
 
         {/* What It Feels Like */}
-        <section className="py-16 px-6 bg-zinc-950">
+        <section className="py-16 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-black mb-8">WHAT IT FEELS LIKE</h2>
 
               <div className="bg-yellow-950/20 border border-yellow-900/50 rounded-xl p-8 mb-8">
-                <p className="text-xl text-zinc-300 leading-relaxed mb-6">
+                <p className="text-xl text-stone-600 leading-relaxed mb-6">
                   You attend meetings about transformation. Then you attend meetings about
                   the meetings. Somewhere between the strategy deck and the implementation,
                   everything stalls. Not from malice. From friction.
                 </p>
-                <p className="text-lg text-zinc-400 leading-relaxed">
+                <p className="text-lg text-stone-500 leading-relaxed">
                   Some days feel like a startup. Others feel like a government agency. It depends
                   which team you're working with, which initiative you're on, which leader is
                   sponsoring it. The organization is multiple organizations wearing one logo.
@@ -236,30 +236,30 @@ const TransitionStatePage = () => {
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="border border-zinc-800 rounded-xl p-6">
+                <div className="border border-stone-200 rounded-xl p-6">
                   <h3 className="font-bold text-yellow-500 mb-3">DECISIONS</h3>
-                  <p className="text-zinc-400">
+                  <p className="text-stone-500">
                     Weeks to months. Multiple approval layers. Some fast-track processes exist
                     but most things still need committee blessing.
                   </p>
                 </div>
-                <div className="border border-zinc-800 rounded-xl p-6">
+                <div className="border border-stone-200 rounded-xl p-6">
                   <h3 className="font-bold text-yellow-500 mb-3">ERRORS</h3>
-                  <p className="text-zinc-400">
+                  <p className="text-stone-500">
                     Caught in weeks, fixed in months. Post-mortems happen but recommendations
                     often die in implementation. Blame is diffuse.
                   </p>
                 </div>
-                <div className="border border-zinc-800 rounded-xl p-6">
+                <div className="border border-stone-200 rounded-xl p-6">
                   <h3 className="font-bold text-yellow-500 mb-3">KNOWLEDGE</h3>
-                  <p className="text-zinc-400">
+                  <p className="text-stone-500">
                     Partially documented. Some teams share; others hoard. New hires can find
                     some answers but key knowledge is still tribal.
                   </p>
                 </div>
-                <div className="border border-zinc-800 rounded-xl p-6">
+                <div className="border border-stone-200 rounded-xl p-6">
                   <h3 className="font-bold text-yellow-500 mb-3">CHANGE</h3>
-                  <p className="text-zinc-400">
+                  <p className="text-stone-500">
                     Possible but painful. Requires executive sponsorship and multi-quarter
                     timelines. Some areas are modular; most are entangled.
                   </p>
@@ -279,7 +279,7 @@ const TransitionStatePage = () => {
                 {characteristics.map((char, i) => (
                   <div key={i} className="border-l-4 border-yellow-600 pl-6 py-2">
                     <h3 className="text-xl font-bold mb-2">{char.title}</h3>
-                    <p className="text-zinc-400">{char.description}</p>
+                    <p className="text-stone-500">{char.description}</p>
                   </div>
                 ))}
               </div>
@@ -288,21 +288,21 @@ const TransitionStatePage = () => {
         </section>
 
         {/* Company Examples */}
-        <section className="py-16 px-6 bg-zinc-950">
+        <section className="py-16 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-black mb-8">TRANSITION STATE EXAMPLES</h2>
 
               <div className="space-y-4">
                 {companyExamples.map((company) => (
-                  <div key={company.name} className="bg-black border border-zinc-800 rounded-xl p-6">
+                  <div key={company.name} className="bg-stone-50 border border-stone-200 rounded-xl p-6">
                     <div className="flex items-center justify-between mb-3">
                       <h3 className="text-xl font-bold">{company.name}</h3>
                       <span className="text-yellow-500 font-mono font-bold text-xl">
                         GPI {company.gpi}
                       </span>
                     </div>
-                    <p className="text-zinc-400">{company.insight}</p>
+                    <p className="text-stone-500">{company.insight}</p>
                   </div>
                 ))}
               </div>
@@ -320,7 +320,7 @@ const TransitionStatePage = () => {
                 {diagnosticSignals.map((signal, i) => (
                   <div key={i} className="flex items-start gap-3 bg-yellow-950/20 border border-yellow-900/30 rounded-lg p-4">
                     <span className="text-yellow-500 font-bold">~</span>
-                    <span className="text-zinc-300">{signal}</span>
+                    <span className="text-stone-600">{signal}</span>
                   </div>
                 ))}
               </div>
@@ -329,23 +329,23 @@ const TransitionStatePage = () => {
         </section>
 
         {/* Vulnerabilities */}
-        <section className="py-16 px-6 bg-zinc-950">
+        <section className="py-16 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-black mb-8">WHY TRANSITION STATE IS DANGEROUS</h2>
 
               <div className="grid md:grid-cols-2 gap-6">
                 {vulnerabilities.map((vuln, i) => (
-                  <div key={i} className="bg-black border border-red-900/30 rounded-xl p-6">
+                  <div key={i} className="bg-stone-50 border border-red-900/30 rounded-xl p-6">
                     <h3 className="font-bold text-red-500 mb-3">{vuln.title}</h3>
-                    <p className="text-zinc-400">{vuln.description}</p>
+                    <p className="text-stone-500">{vuln.description}</p>
                   </div>
                 ))}
               </div>
 
               <div className="mt-8 p-6 border border-yellow-900/50 bg-yellow-950/20 rounded-xl">
                 <h3 className="font-bold text-yellow-500 mb-3">THE 18-MONTH WINDOW</h3>
-                <p className="text-zinc-400">
+                <p className="text-stone-500">
                   Organizations in transition state typically have 18-24 months before they either
                   break through to field state or calcify into particle state. The window is closing.
                   Most organizations don't make it through. They slide backward into rigidity, not
@@ -369,16 +369,16 @@ const TransitionStatePage = () => {
                   { name: 'Logistics', gpi: 6.0 },
                   { name: 'Manufacturing', gpi: 6.0 },
                 ].map((industry) => (
-                  <div key={industry.name} className="bg-zinc-950 border border-zinc-800 rounded-lg p-4 text-center">
+                  <div key={industry.name} className="bg-stone-100 border border-stone-200 rounded-lg p-4 text-center">
                     <div className="text-2xl font-black text-yellow-500 mb-1">{industry.gpi}</div>
-                    <div className="text-sm text-zinc-400">{industry.name}</div>
+                    <div className="text-sm text-stone-500">{industry.name}</div>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-8 p-6 border border-zinc-800 rounded-xl">
+              <div className="mt-8 p-6 border border-stone-200 rounded-xl">
                 <h3 className="font-bold mb-3">WHY THESE INDUSTRIES?</h3>
-                <p className="text-zinc-400">
+                <p className="text-stone-500">
                   These industries are being disrupted but have enough legacy infrastructure and
                   regulatory protection to resist complete transformation. They're caught between
                   the old world and the new, unable to fully commit to either.
@@ -389,7 +389,7 @@ const TransitionStatePage = () => {
         </section>
 
         {/* Paths Forward */}
-        <section className="py-16 px-6 bg-zinc-950">
+        <section className="py-16 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-black mb-8">TWO PATHS FROM HERE</h2>
@@ -397,7 +397,7 @@ const TransitionStatePage = () => {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-green-950/20 border border-green-900/50 rounded-xl p-6">
                   <h3 className="font-bold text-green-500 text-xl mb-4">→ FIELD STATE</h3>
-                  <ul className="space-y-3 text-zinc-400">
+                  <ul className="space-y-3 text-stone-500">
                     <li className="flex items-start gap-2">
                       <span className="text-green-500">•</span>
                       <span>Kill legacy systems, don't maintain them</span>
@@ -419,7 +419,7 @@ const TransitionStatePage = () => {
 
                 <div className="bg-red-950/20 border border-red-900/50 rounded-xl p-6">
                   <h3 className="font-bold text-red-500 text-xl mb-4">→ PARTICLE STATE</h3>
-                  <ul className="space-y-3 text-zinc-400">
+                  <ul className="space-y-3 text-stone-500">
                     <li className="flex items-start gap-2">
                       <span className="text-red-500">•</span>
                       <span>Let transformation initiatives stall</span>
@@ -444,7 +444,7 @@ const TransitionStatePage = () => {
         </section>
 
         {/* Navigation */}
-        <section className="py-16 px-6 border-t border-zinc-900">
+        <section className="py-16 px-6 border-t border-stone-200">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between gap-6">
               <Link
@@ -455,7 +455,7 @@ const TransitionStatePage = () => {
               </Link>
               <Link
                 href="/gpi-framework/particle-state"
-                className="bg-red-600 px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors text-center"
+                className="bg-red-600 text-white px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors text-center"
               >
                 NEXT: PARTICLE STATE →
               </Link>

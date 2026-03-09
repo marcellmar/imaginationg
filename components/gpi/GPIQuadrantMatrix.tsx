@@ -25,8 +25,8 @@ const QUADRANTS: Record<string, QuadrantData> = {
     verdict: 'MOVE: Your skills transfer. The industry won\'t.',
     titleColor: 'text-yellow-500',
     verdictColor: 'text-yellow-500',
-    bgGradient: 'from-yellow-950/40 to-zinc-950',
-    borderColor: 'border-yellow-900/50',
+    bgGradient: 'from-yellow-50 to-stone-50',
+    borderColor: 'border-yellow-200',
   },
   thrive: {
     title: 'THRIVE',
@@ -35,8 +35,8 @@ const QUADRANTS: Record<string, QuadrantData> = {
     verdict: 'STAY: Compound your advantage.',
     titleColor: 'text-green-500',
     verdictColor: 'text-green-500',
-    bgGradient: 'from-green-950/40 to-zinc-950',
-    borderColor: 'border-green-900/50',
+    bgGradient: 'from-green-50 to-stone-50',
+    borderColor: 'border-green-200',
   },
   comfortableDecline: {
     title: 'COMFORTABLE DECLINE',
@@ -45,8 +45,8 @@ const QUADRANTS: Record<string, QuadrantData> = {
     verdict: 'PREPARE: The floor will shift. Build skills now.',
     titleColor: 'text-red-500',
     verdictColor: 'text-red-500',
-    bgGradient: 'from-red-950/40 to-zinc-950',
-    borderColor: 'border-red-900/50',
+    bgGradient: 'from-red-50 to-stone-50',
+    borderColor: 'border-red-200',
   },
   displaced: {
     title: 'DISPLACED',
@@ -55,8 +55,8 @@ const QUADRANTS: Record<string, QuadrantData> = {
     verdict: 'RUN: Reskill or relocate. Now.',
     titleColor: 'text-purple-500',
     verdictColor: 'text-purple-500',
-    bgGradient: 'from-purple-950/40 to-zinc-950',
-    borderColor: 'border-purple-900/50',
+    bgGradient: 'from-purple-50 to-stone-50',
+    borderColor: 'border-purple-200',
   },
 };
 
@@ -78,19 +78,19 @@ const GPIQuadrantMatrix: React.FC<GPIQuadrantMatrixProps> = ({
       <div
         className={`bg-gradient-to-br ${data.bgGradient} border ${data.borderColor} rounded-xl p-5 ${
           interactive ? 'cursor-pointer hover:scale-[1.02] transition-all' : ''
-        } ${isSelected ? 'ring-2 ring-white ring-opacity-50' : ''}`}
+        } ${isSelected ? 'ring-2 ring-stone-400 ring-opacity-50' : ''}`}
         onClick={() => interactive && onSelect?.(key)}
       >
         <h3 className={`text-lg font-black ${data.titleColor} mb-1`}>
           {data.title}
         </h3>
-        <p className="text-xs text-zinc-500 mb-3">
+        <p className="text-xs text-stone-500 mb-3">
           {data.subtitle}
         </p>
-        <p className="text-sm text-zinc-400 mb-4 leading-relaxed">
+        <p className="text-sm text-stone-500 mb-4 leading-relaxed">
           {data.description}
         </p>
-        <div className={`pt-3 border-t border-zinc-800 text-sm font-semibold ${data.verdictColor}`}>
+        <div className={`pt-3 border-t border-stone-200 text-sm font-semibold ${data.verdictColor}`}>
           → {data.verdict}
         </div>
       </div>
@@ -102,31 +102,31 @@ const GPIQuadrantMatrix: React.FC<GPIQuadrantMatrixProps> = ({
       {/* Header */}
       <div className="text-center mb-8">
         <h2 className="text-2xl font-black mb-2">SIGNAL VS STRUCTURE</h2>
-        <p className="text-zinc-500">Your role type + your industry phase = your trajectory</p>
+        <p className="text-stone-500">Your role type + your industry phase = your trajectory</p>
       </div>
 
       {/* Matrix container with axes */}
       <div className="relative pl-16 pb-16">
         {/* Y-axis label */}
         <div className="absolute left-0 top-1/2 -translate-y-1/2 -rotate-90 origin-center whitespace-nowrap">
-          <span className="text-xs text-zinc-600 tracking-widest uppercase">Your Role Type</span>
+          <span className="text-xs text-stone-400 tracking-widest uppercase">Your Role Type</span>
         </div>
 
         {/* Y-axis ends */}
         <div className="absolute left-6 top-0 bottom-16 flex flex-col justify-between py-8">
-          <span className="text-xs text-zinc-500 -rotate-90 origin-center">SIGNAL</span>
-          <span className="text-xs text-zinc-500 -rotate-90 origin-center">STRUCTURE</span>
+          <span className="text-xs text-stone-500 -rotate-90 origin-center">SIGNAL</span>
+          <span className="text-xs text-stone-500 -rotate-90 origin-center">STRUCTURE</span>
         </div>
 
         {/* X-axis label */}
         <div className="absolute bottom-0 left-16 right-0 text-center">
-          <span className="text-xs text-zinc-600 tracking-widest uppercase">Industry Phase</span>
+          <span className="text-xs text-stone-400 tracking-widest uppercase">Industry Phase</span>
         </div>
 
         {/* X-axis ends */}
         <div className="absolute bottom-6 left-16 right-0 flex justify-between px-8">
-          <span className="text-xs text-zinc-500">PARTICLE (Rigid)</span>
-          <span className="text-xs text-zinc-500">FIELD (Fluid)</span>
+          <span className="text-xs text-stone-500">PARTICLE (Rigid)</span>
+          <span className="text-xs text-stone-500">FIELD (Fluid)</span>
         </div>
 
         {/* Grid */}
@@ -139,14 +139,14 @@ const GPIQuadrantMatrix: React.FC<GPIQuadrantMatrixProps> = ({
       </div>
 
       {/* Footer */}
-      <div className="text-center mt-8 pt-6 border-t border-zinc-800">
+      <div className="text-center mt-8 pt-6 border-t border-stone-200">
         <p className="text-sm">
           <span className="text-green-500 font-semibold">Signal</span>
-          <span className="text-zinc-500"> = You process information, make decisions, create.</span>
+          <span className="text-stone-500"> = You process information, make decisions, create.</span>
         </p>
         <p className="text-sm mt-1">
           <span className="text-red-500 font-semibold">Structure</span>
-          <span className="text-zinc-500"> = You execute processes, maintain systems, follow protocols.</span>
+          <span className="text-stone-500"> = You execute processes, maintain systems, follow protocols.</span>
         </p>
       </div>
     </div>

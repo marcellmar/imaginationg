@@ -63,8 +63,8 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, title, duration, spotify
   if (spotifyUrl) {
     const episodeId = spotifyUrl.split('/episode/')[1]?.split('?')[0];
     return (
-      <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-4 mb-8">
-        <div className="text-xs font-mono text-zinc-600 mb-3">LISTEN TO THIS ANALYSIS</div>
+      <div className="bg-white border border-stone-200 rounded-lg p-4 mb-8">
+        <div className="text-xs font-mono text-stone-400 mb-3">LISTEN TO THIS ANALYSIS</div>
         <iframe
           src={`https://open.spotify.com/embed/episode/${episodeId}?theme=0`}
           width="100%"
@@ -77,7 +77,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, title, duration, spotify
   }
 
   return (
-    <div className="bg-zinc-950 border border-zinc-800 rounded-lg p-4 mb-8">
+    <div className="bg-white border border-stone-200 rounded-lg p-4 mb-8">
       <audio
         ref={audioRef}
         src={src}
@@ -90,7 +90,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, title, duration, spotify
         {/* Play/Pause */}
         <button
           onClick={togglePlay}
-          className="w-12 h-12 flex items-center justify-center bg-red-600 hover:bg-red-700 rounded-full transition-colors flex-shrink-0"
+          className="w-12 h-12 flex items-center justify-center bg-red-600 hover:bg-red-700 rounded-full transition-colors flex-shrink-0 text-white"
         >
           {isPlaying ? <Pause size={20} /> : <Play size={20} className="ml-1" />}
         </button>
@@ -98,20 +98,20 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, title, duration, spotify
         {/* Info + Progress */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between mb-2">
-            <div className="text-xs font-mono text-zinc-600">LISTEN TO THIS ANALYSIS</div>
-            <div className="text-xs font-mono text-zinc-500">
+            <div className="text-xs font-mono text-stone-400">LISTEN TO THIS ANALYSIS</div>
+            <div className="text-xs font-mono text-stone-500">
               {currentTime} {duration && `/ ${duration}`}
             </div>
           </div>
 
           {title && (
-            <div className="text-sm font-bold text-zinc-300 truncate mb-2">{title}</div>
+            <div className="text-sm font-bold text-stone-600 truncate mb-2">{title}</div>
           )}
 
           {/* Progress Bar */}
           <div
             onClick={handleSeek}
-            className="h-2 bg-zinc-800 rounded-full cursor-pointer overflow-hidden"
+            className="h-2 bg-stone-200 rounded-full cursor-pointer overflow-hidden"
           >
             <div
               className="h-full bg-red-600 rounded-full transition-all duration-100"
@@ -123,7 +123,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src, title, duration, spotify
         {/* Mute */}
         <button
           onClick={toggleMute}
-          className="text-zinc-500 hover:text-white transition-colors flex-shrink-0"
+          className="text-stone-500 hover:text-stone-900 transition-colors flex-shrink-0"
         >
           {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
         </button>
