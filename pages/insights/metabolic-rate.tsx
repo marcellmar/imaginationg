@@ -4,12 +4,14 @@ import SEOHead from '../../components/SEOHead';
 import Navigation from '../../components/Navigation';
 import RelatedContent from '../../components/RelatedContent';
 import { ArrowLeft, BookOpen } from 'lucide-react';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const MetabolicRatePage: NextPage = () => {
+  useScrollReveal();
   return (
     <>
       <SEOHead
-        title="Metabolic Rate - The Speed of Organizational Change | IMAGINATION G"
+        title="Metabolic Rate - The Speed of Organizational Change | GPI Studio"
         description="Every organization has a metabolic rate that determines how fast it can process change. Mismatched rates predict integration failure."
         ogType="article"
         ogImage="/images/og-insights.svg"
@@ -23,31 +25,31 @@ const MetabolicRatePage: NextPage = () => {
         <Navigation currentPage="insights" />
 
         {/* Hero Section */}
-        <section className="pt-24 pb-16 px-6">
+        <section className="pt-36 pb-24 px-6">
           <div className="max-w-4xl mx-auto">
             {/* Breadcrumb */}
-            <Link href="/insights" className="inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors mb-8">
+            <Link href="/insights" className="fade-up inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors mb-8">
               <ArrowLeft size={16} />
               Back to Insights
             </Link>
 
             {/* Meta */}
-            <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-mono text-red-600 bg-red-50 px-3 py-1 rounded">GPI FOUNDATIONS</span>
+            <div className="fade-up flex items-center gap-4 mb-6">
+              <span className="text-xs font-mono text-stone-500 border border-stone-200 px-3 py-1">GPI FOUNDATIONS</span>
               <span className="text-xs text-stone-500">9 min read</span>
               <span className="text-xs text-stone-400">•</span>
               <span className="text-xs text-stone-500">ALL DIMENSIONS</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-[1.1]">
+            <h1 className="fade-up text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-[1.1] tracking-headline">
               METABOLIC<br />RATE<span className="text-red-600">.</span>
             </h1>
 
-            <p className="text-2xl text-stone-500 mb-8">
+            <p className="fade-up text-2xl text-stone-500 mb-8">
               The Speed of Organizational Change
             </p>
 
-            <p className="text-xl text-stone-500 max-w-2xl">
+            <p className="fade-up text-xl text-stone-500 max-w-2xl">
               Every organization has a metabolic rate that determines how fast it can process change. Mismatched metabolic rates predict integration failure.
             </p>
 
@@ -56,13 +58,13 @@ const MetabolicRatePage: NextPage = () => {
               <div className="flex gap-8">
                 {/* Fast Metabolism - Hummingbird */}
                 <div className="flex flex-col items-center">
-                  <div className="w-48 h-24 bg-white border border-green-600/50 rounded overflow-hidden relative">
+                  <div className="w-48 h-24 bg-white border border-stone-900/50 rounded overflow-hidden relative">
                     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 100" preserveAspectRatio="none">
                       {/* Fast heartbeat line */}
                       <path
                         d="M0,50 L15,50 L20,20 L25,80 L30,50 L45,50 L50,20 L55,80 L60,50 L75,50 L80,20 L85,80 L90,50 L105,50 L110,20 L115,80 L120,50 L135,50 L140,20 L145,80 L150,50 L165,50 L170,20 L175,80 L180,50 L200,50"
                         fill="none"
-                        stroke="#22c55e"
+                        stroke="#1c1917"
                         strokeWidth="2"
                       >
                         <animate
@@ -74,10 +76,10 @@ const MetabolicRatePage: NextPage = () => {
                         />
                       </path>
                     </svg>
-                    <div className="absolute top-2 left-2 text-xs font-mono text-green-500">GPI 1-3</div>
-                    <div className="absolute bottom-2 right-2 text-xs font-mono text-green-400">1200 BPM</div>
+                    <div className="absolute top-2 left-2 text-xs font-mono text-stone-900">GPI 1-3</div>
+                    <div className="absolute bottom-2 right-2 text-xs font-mono text-stone-900">1200 BPM</div>
                   </div>
-                  <span className="text-xs font-mono text-green-500 mt-3">FAST METABOLISM</span>
+                  <span className="text-xs font-mono text-stone-900 mt-3">FAST METABOLISM</span>
                   <span className="text-[10px] text-stone-400">Weekly cycles. Continuous adaptation.</span>
                 </div>
 
@@ -156,8 +158,8 @@ const MetabolicRatePage: NextPage = () => {
             {/* GPI by metabolism */}
             <div className="space-y-4">
               <h2 className="text-xs font-mono text-stone-500 mb-4">METABOLIC RATE BY GPI</h2>
-              <div className="border-l-4 border-green-500 pl-6 py-2">
-                <p className="text-green-500 font-mono text-sm">GPI 1-3: FAST METABOLISM</p>
+              <div className="border-l-4 border-stone-900 pl-6 py-2">
+                <p className="text-stone-900 font-mono text-sm">GPI 1-3: FAST METABOLISM</p>
                 <p className="text-stone-500 text-sm">Weekly/daily cycles. Continuous adaptation. High energy cost.</p>
               </div>
               <div className="border-l-4 border-yellow-500 pl-6 py-2">
@@ -172,8 +174,8 @@ const MetabolicRatePage: NextPage = () => {
 
             {/* Acquisition comparison */}
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-green-950/20 border border-green-900/50 p-6">
-                <p className="text-green-500 font-bold text-sm mb-2">DISNEY + PIXAR</p>
+              <div className="bg-stone-100 border border-stone-900/50 p-6">
+                <p className="text-stone-900 font-bold text-sm mb-2">DISNEY + PIXAR</p>
                 <p className="text-stone-600 text-sm mb-2">GPI gap: 2.2 points</p>
                 <p className="text-stone-500 text-sm">Brain Trust spread. 19 years. $100B+ value.</p>
               </div>
@@ -193,7 +195,7 @@ const MetabolicRatePage: NextPage = () => {
             <div className="bg-white border border-stone-200 p-8">
               <h2 className="text-xs font-mono text-stone-500 mb-6">THE 3-POINT RULE</h2>
               <div className="space-y-2 font-mono text-sm">
-                <div className="flex justify-between"><span>0-2 point gap</span><span className="text-green-400">Standard integration</span></div>
+                <div className="flex justify-between"><span>0-2 point gap</span><span className="text-stone-900">Standard integration</span></div>
                 <div className="flex justify-between"><span>3-4 point gap</span><span className="text-yellow-400">Quarantine required</span></div>
                 <div className="flex justify-between"><span>5+ point gap</span><span className="text-red-400">Maintain separate</span></div>
                 <div className="flex justify-between"><span>6+ point gap</span><span className="text-red-600">Reconsider entirely</span></div>
@@ -221,8 +223,8 @@ const MetabolicRatePage: NextPage = () => {
                 <p className="text-red-500 font-bold text-sm mb-2">SLOW METABOLISM FITS</p>
                 <p className="text-stone-600 text-sm">Regulated industries. Safety-critical ops. Long-cycle businesses. Mature markets.</p>
               </div>
-              <div className="bg-green-950/20 border border-green-900/50 p-6">
-                <p className="text-green-500 font-bold text-sm mb-2">FAST METABOLISM FITS</p>
+              <div className="bg-stone-100 border border-stone-900/50 p-6">
+                <p className="text-stone-900 font-bold text-sm mb-2">FAST METABOLISM FITS</p>
                 <p className="text-stone-600 text-sm">Technology. Consumer markets. Early-stage ventures. Disrupted industries.</p>
               </div>
             </div>
@@ -264,7 +266,7 @@ const MetabolicRatePage: NextPage = () => {
         </section>
 
         {/* Related Content */}
-        <section className="py-16 px-6 bg-white">
+        <section className="py-24 px-6 bg-white border-t border-stone-200">
           <div className="max-w-7xl mx-auto">
             <RelatedContent
               title="Continue Reading"
@@ -291,6 +293,43 @@ const MetabolicRatePage: NextPage = () => {
             />
           </div>
         </section>
+
+        <footer className="py-16 px-6 border-t border-stone-200">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+              <div>
+                <div className="font-black text-sm mb-4">GPI<span className="text-red-600">.</span>STUDIO</div>
+                <p className="text-sm text-stone-400 leading-relaxed">Organizational physics.<br />We measure where energy gets stuck.</p>
+              </div>
+              <div>
+                <div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div>
+                <div className="space-y-3">
+                  <Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link>
+                  <Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link>
+                  <Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link>
+                </div>
+              </div>
+              <div>
+                <div className="text-xs font-mono text-stone-400 mb-4">WORK</div>
+                <div className="space-y-3">
+                  <Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link>
+                  <Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link>
+                  <Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link>
+                </div>
+              </div>
+              <div>
+                <div className="text-xs font-mono text-stone-400 mb-4">COMPANY</div>
+                <div className="space-y-3">
+                  <Link href="/about" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">About</Link>
+                </div>
+              </div>
+            </div>
+            <div className="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-400">
+              <div>&copy; {new Date().getFullYear()} Imagination G LLC</div>
+              <div className="font-mono">gpi.studio</div>
+            </div>
+          </div>
+        </footer>
       </div>
     </>
   );

@@ -4,12 +4,14 @@ import SEOHead from '../../components/SEOHead';
 import Navigation from '../../components/Navigation';
 import RelatedContent from '../../components/RelatedContent';
 import { ArrowLeft, BookOpen } from 'lucide-react';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const InvestedInTheWastePage: NextPage = () => {
+  useScrollReveal();
   return (
     <>
       <SEOHead
-        title="You're Invested in the Waste | IMAGINATION G"
+        title="You're Invested in the Waste | GPI Studio"
         description="The gap between how things should work and how they actually work isn't an accident. It's a product. Someone is selling it. That someone might be you."
         ogType="article"
         ogImage="/images/og-insights.svg"
@@ -23,31 +25,31 @@ const InvestedInTheWastePage: NextPage = () => {
         <Navigation currentPage="insights" />
 
         {/* Hero Section */}
-        <section className="pt-24 pb-16 px-6">
+        <section className="pt-36 pb-24 px-6">
           <div className="max-w-4xl mx-auto">
             {/* Breadcrumb */}
-            <Link href="/insights" className="inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors mb-8">
+            <Link href="/insights" className="fade-up inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors mb-8">
               <ArrowLeft size={16} />
               Back to Insights
             </Link>
 
             {/* Meta */}
-            <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-mono text-red-600 bg-red-50 px-3 py-1 rounded">FEATURED</span>
+            <div className="fade-up flex items-center gap-4 mb-6">
+              <span className="text-xs font-mono text-stone-500 border border-stone-200 px-3 py-1">FEATURED</span>
               <span className="text-xs text-stone-500">7 min read</span>
               <span className="text-xs text-stone-400">•</span>
               <span className="text-xs text-stone-500">STRUCTURAL LOCK-IN</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-[1.1]">
+            <h1 className="fade-up text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-[1.1] tracking-headline">
               YOU'RE INVESTED<br />IN THE WASTE<span className="text-red-600">.</span>
             </h1>
 
-            <p className="text-2xl text-stone-500 mb-8">
+            <p className="fade-up text-2xl text-stone-500 mb-8">
               And the system made you that way.
             </p>
 
-            <p className="text-xl text-stone-500 max-w-2xl">
+            <p className="fade-up text-xl text-stone-500 max-w-2xl">
               The gap between how things should work and how they actually work isn't dysfunction. It's a product. Someone is selling it. Someone is buying it. That someone might be you.
             </p>
 
@@ -265,7 +267,7 @@ const InvestedInTheWastePage: NextPage = () => {
         </section>
 
         {/* Related Content */}
-        <section className="py-16 px-6 bg-white">
+        <section className="py-24 px-6 bg-white border-t border-stone-200">
           <div className="max-w-7xl mx-auto">
             <RelatedContent
               title="Continue Reading"
@@ -292,6 +294,18 @@ const InvestedInTheWastePage: NextPage = () => {
             />
           </div>
         </section>
+
+        <footer className="py-16 px-6 border-t border-stone-200">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+              <div><div className="font-black text-sm mb-4">GPI<span className="text-red-600">.</span>STUDIO</div><p className="text-sm text-stone-400 leading-relaxed">Organizational physics.<br />We measure where energy gets stuck.</p></div>
+              <div><div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div><div className="space-y-3"><Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link><Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link><Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link></div></div>
+              <div><div className="text-xs font-mono text-stone-400 mb-4">WORK</div><div className="space-y-3"><Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link><Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link><Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link></div></div>
+              <div><div className="text-xs font-mono text-stone-400 mb-4">COMPANY</div><div className="space-y-3"><Link href="/about" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">About</Link></div></div>
+            </div>
+            <div className="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-400"><div>&copy; {new Date().getFullYear()} Imagination G LLC</div><div className="font-mono">gpi.studio</div></div>
+          </div>
+        </footer>
       </div>
     </>
   );

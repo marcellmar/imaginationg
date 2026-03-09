@@ -150,7 +150,7 @@ const RenderBlock = ({ block }: { block: ContentBlock }) => {
       );
     case 'callout':
       return (
-        <div className="bg-stone-100 border border-stone-300 rounded-lg p-4 my-6">
+        <div className="bg-stone-100 border border-stone-300  p-4 my-6">
           <p className="text-stone-700 font-medium">{renderText(block.content)}</p>
         </div>
       );
@@ -228,7 +228,7 @@ const AnalysisPage = ({ content }: Props) => {
             {audioMap[content.slug] && (
               <div className="mb-6">
                 <div className="text-xs font-mono text-stone-500 mb-2">LISTEN TO THIS ANALYSIS</div>
-                <div className="bg-white border border-stone-200 rounded-lg p-3">
+                <div className="bg-white border border-stone-200  p-3">
                   <audio controls className="w-full" style={{ height: '40px' }}>
                     <source src={audioMap[content.slug].src} type="audio/mpeg" />
                   </audio>
@@ -256,7 +256,7 @@ const AnalysisPage = ({ content }: Props) => {
                       <p className="text-stone-500">{company.sector}</p>
                     </div>
                     <div className="flex items-center gap-4">
-                      <span className={`px-4 py-2 border rounded-lg font-bold ${getStageColor(company.stage)}`}>
+                      <span className={`px-4 py-2 border  font-bold ${getStageColor(company.stage)}`}>
                         {company.stage}
                       </span>
                       <div className="text-center">

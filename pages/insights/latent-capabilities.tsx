@@ -3,13 +3,15 @@ import Link from 'next/link';
 import SEOHead from '../../components/SEOHead';
 import Navigation from '../../components/Navigation';
 import RelatedContent from '../../components/RelatedContent';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 import { ArrowLeft, BookOpen } from 'lucide-react';
 
 const LatentCapabilitiesPage: NextPage = () => {
+  useScrollReveal();
   return (
     <>
       <SEOHead
-        title="Latent Capabilities - Assets You Have But Don't Use | IMAGINATION G"
+        title="Latent Capabilities - Assets You Have But Don't Use | GPI Studio"
         description="Most organizations have far more capability than they deploy. The constraint isn't capacity. It's coordination infrastructure."
         ogType="article"
         ogImage="/images/og-insights.svg"
@@ -23,31 +25,31 @@ const LatentCapabilitiesPage: NextPage = () => {
         <Navigation currentPage="insights" />
 
         {/* Hero Section */}
-        <section className="pt-24 pb-16 px-6">
+        <section className="pt-36 pb-24 px-6">
           <div className="max-w-4xl mx-auto">
             {/* Breadcrumb */}
-            <Link href="/insights" className="inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors mb-8">
+            <Link href="/insights" className="fade-up inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors mb-8">
               <ArrowLeft size={16} />
               Back to Insights
             </Link>
 
             {/* Meta */}
-            <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-mono text-red-600 bg-red-50 px-3 py-1 rounded">GPI FOUNDATIONS</span>
+            <div className="fade-up flex items-center gap-4 mb-6">
+              <span className="text-xs font-mono text-stone-500 border border-stone-200 px-3 py-1">GPI FOUNDATIONS</span>
               <span className="text-xs text-stone-500">8 min read</span>
               <span className="text-xs text-stone-400">•</span>
               <span className="text-xs text-stone-500">KNOWLEDGE LOCATION</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-[1.1]">
+            <h1 className="fade-up text-4xl md:text-5xl lg:text-6xl font-black tracking-headline mb-4 leading-[1.1]">
               LATENT<br />CAPABILITIES<span className="text-red-600">.</span>
             </h1>
 
-            <p className="text-2xl text-stone-500 mb-8">
+            <p className="fade-up text-2xl text-stone-500 mb-8">
               Assets You Have But Don't Use
             </p>
 
-            <p className="text-xl text-stone-500 max-w-2xl">
+            <p className="fade-up text-xl text-stone-500 max-w-2xl">
               Most organizations have far more capability than they deploy. The constraint isn't capacity. It's coordination infrastructure.
             </p>
 
@@ -65,7 +67,7 @@ const LatentCapabilitiesPage: NextPage = () => {
                         className={`w-4 h-4 rounded-sm ${
                           isLatent
                             ? 'bg-yellow-500/20 animate-pulse'
-                            : 'bg-green-500'
+                            : 'bg-stone-900'
                         }`}
                         style={{
                           animationDelay: isLatent ? `${(i - 70) * 100}ms` : undefined,
@@ -79,7 +81,7 @@ const LatentCapabilitiesPage: NextPage = () => {
                 {/* Labels */}
                 <div className="flex justify-between mt-4 text-xs font-mono">
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-green-500 rounded-sm" />
+                    <div className="w-3 h-3 bg-stone-900 rounded-sm" />
                     <span className="text-stone-500">DEPLOYED (70%)</span>
                   </div>
                   <div className="flex items-center gap-2">
@@ -175,8 +177,8 @@ const LatentCapabilitiesPage: NextPage = () => {
                 <p className="text-stone-500 text-xs mb-2">Uber, Airbnb, Upwork</p>
                 <p className="text-stone-600 text-sm">Extracts value from coordination. Platform captures margin. Providers commoditized.</p>
               </div>
-              <div className="bg-green-950/20 border border-green-900/50 p-6">
-                <p className="text-green-500 font-bold text-sm mb-2">INFRASTRUCTURE MODEL</p>
+              <div className="bg-stone-100 border border-stone-300 p-6">
+                <p className="text-stone-900 font-bold text-sm mb-2">INFRASTRUCTURE MODEL</p>
                 <p className="text-stone-500 text-xs mb-2">The emerging alternative</p>
                 <p className="text-stone-600 text-sm">Enables coordination without extraction. Providers retain value. Competition on quality.</p>
               </div>
@@ -222,7 +224,7 @@ const LatentCapabilitiesPage: NextPage = () => {
               <h2 className="text-xs font-mono text-stone-500 mb-4">GPI AND LATENT CAPABILITY</h2>
               <div className="space-y-2 text-sm">
                 <p><span className="text-red-500 font-bold">Particle State (GPI 7-10):</span> <span className="text-stone-500">Maximizes latent capability by preventing coordination.</span></p>
-                <p><span className="text-green-500 font-bold">Field State (GPI 1-3):</span> <span className="text-stone-500">Minimizes latent capability by enabling coordination.</span></p>
+                <p><span className="text-stone-900 font-bold">Field State (GPI 1-3):</span> <span className="text-stone-500">Minimizes latent capability by enabling coordination.</span></p>
               </div>
             </div>
 
@@ -264,7 +266,7 @@ const LatentCapabilitiesPage: NextPage = () => {
         </section>
 
         {/* Related Content */}
-        <section className="py-16 px-6 bg-white">
+        <section className="py-24 px-6 bg-white border-t border-stone-200">
           <div className="max-w-7xl mx-auto">
             <RelatedContent
               title="Continue Reading"
@@ -291,6 +293,18 @@ const LatentCapabilitiesPage: NextPage = () => {
             />
           </div>
         </section>
+
+        <footer className="py-16 px-6 border-t border-stone-200">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+              <div><div className="font-black text-sm mb-4">GPI<span className="text-red-600">.</span>STUDIO</div><p className="text-sm text-stone-400 leading-relaxed">Organizational physics.<br />We measure where energy gets stuck.</p></div>
+              <div><div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div><div className="space-y-3"><Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link><Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link><Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link></div></div>
+              <div><div className="text-xs font-mono text-stone-400 mb-4">WORK</div><div className="space-y-3"><Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link><Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link><Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link></div></div>
+              <div><div className="text-xs font-mono text-stone-400 mb-4">COMPANY</div><div className="space-y-3"><Link href="/about" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">About</Link></div></div>
+            </div>
+            <div className="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-400"><div>&copy; {new Date().getFullYear()} Imagination G LLC</div><div className="font-mono">gpi.studio</div></div>
+          </div>
+        </footer>
       </div>
     </>
   );

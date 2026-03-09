@@ -4,12 +4,14 @@ import SEOHead from '../../components/SEOHead';
 import Navigation from '../../components/Navigation';
 import RelatedContent from '../../components/RelatedContent';
 import { ArrowLeft, BookOpen, TrendingUp, TrendingDown, Activity } from 'lucide-react';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const TheSpiralModelPage: NextPage = () => {
+  useScrollReveal();
   return (
     <>
       <SEOHead
-        title="The Spiral Model - Why Transformation Isn't Linear | IMAGINATION G"
+        title="The Spiral Model - Why Transformation Isn't Linear | GPI Studio"
         description="You can't jump from particle to field. Organizational evolution spirals, revisiting particle thinking at higher levels of field capability."
         ogType="article"
         ogImage="/images/og-insights.svg"
@@ -23,31 +25,31 @@ const TheSpiralModelPage: NextPage = () => {
         <Navigation currentPage="insights" />
 
         {/* Hero Section */}
-        <section className="pt-24 pb-16 px-6">
+        <section className="pt-36 pb-24 px-6">
           <div className="max-w-4xl mx-auto">
             {/* Breadcrumb */}
-            <Link href="/insights" className="inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors mb-8">
+            <Link href="/insights" className="fade-up inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors mb-8">
               <ArrowLeft size={16} />
               Back to Insights
             </Link>
 
             {/* Meta */}
-            <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-mono text-red-600 bg-red-50 px-3 py-1 rounded">GPI FOUNDATIONS</span>
+            <div className="fade-up flex items-center gap-4 mb-6">
+              <span className="text-xs font-mono text-stone-500 border border-stone-200 px-3 py-1">GPI FOUNDATIONS</span>
               <span className="text-xs text-stone-500">10 min read</span>
               <span className="text-xs text-stone-400">•</span>
               <span className="text-xs text-stone-500">TRANSFORMATION</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-[1.1]">
+            <h1 className="fade-up text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-[1.1] tracking-headline">
               THE SPIRAL<br />MODEL<span className="text-red-600">.</span>
             </h1>
 
-            <p className="text-2xl text-stone-500 mb-8">
+            <p className="fade-up text-2xl text-stone-500 mb-8">
               Why Transformation Isn't Linear
             </p>
 
-            <p className="text-xl text-stone-500 max-w-2xl">
+            <p className="fade-up text-xl text-stone-500 max-w-2xl">
               Your body doesn't "achieve" a state. It cycles. Breathe in, breathe out. Build tissue, break tissue.
               Companies are the same. The health isn't in any single state—it's in the rhythm.
             </p>
@@ -75,7 +77,7 @@ const TheSpiralModelPage: NextPage = () => {
                       <stop offset="0%" stopColor="#f59e0b" />
                       <stop offset="33%" stopColor="#ef4444" />
                       <stop offset="66%" stopColor="#a855f7" />
-                      <stop offset="100%" stopColor="#22c55e" />
+                      <stop offset="100%" stopColor="#1c1917" />
                     </linearGradient>
                   </defs>
 
@@ -103,15 +105,15 @@ const TheSpiralModelPage: NextPage = () => {
                     <circle cx="100" cy="120" r="4" fill="#a855f7" opacity="0.5" />
 
                     {/* Field - top */}
-                    <text x="140" y="40" fill="#22c55e" fontSize="10">FIELD</text>
-                    <circle cx="100" cy="40" r="4" fill="#22c55e" opacity="0.5" />
+                    <text x="140" y="40" fill="#1c1917" fontSize="10">FIELD</text>
+                    <circle cx="100" cy="40" r="4" fill="#1c1917" opacity="0.5" />
                   </g>
 
                   {/* Upward arrow indicating growth */}
-                  <path d="M 100 20 L 95 30 M 100 20 L 105 30" stroke="#22c55e" strokeWidth="2" fill="none">
+                  <path d="M 100 20 L 95 30 M 100 20 L 105 30" stroke="#1c1917" strokeWidth="2" fill="none">
                     <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" />
                   </path>
-                  <text x="110" y="18" fill="#22c55e" fontSize="8" fontFamily="monospace">HIGHER</text>
+                  <text x="110" y="18" fill="#1c1917" fontSize="8" fontFamily="monospace">HIGHER</text>
                 </svg>
 
                 {/* Caption */}
@@ -162,8 +164,8 @@ const TheSpiralModelPage: NextPage = () => {
                 <h3 className="text-xl font-black text-purple-400 mb-2">DISSOLUTION</h3>
                 <p className="text-stone-500 text-sm">Reality stops matching structure. Cracks appear. Structure breaks.</p>
               </div>
-              <div className="border-2 border-green-600 p-6">
-                <div className="text-green-500 font-mono text-xs mb-2">PHASE 4</div>
+              <div className="border-2 border-stone-900 p-6">
+                <div className="text-stone-900 font-mono text-xs mb-2">PHASE 4</div>
                 <h3 className="text-xl font-black text-green-400 mb-2">FIELD</h3>
                 <p className="text-stone-500 text-sm">Fluid. Experimental. New patterns emerge. "What if we tried..."</p>
               </div>
@@ -206,8 +208,8 @@ const TheSpiralModelPage: NextPage = () => {
                 <p className="text-yellow-500 font-mono text-sm">PHASE 2: Marketplace (GPI ~4)</p>
                 <p className="text-stone-500 text-sm">Third-party sellers. Distributed inventory. <span className="text-stone-900">Used Phase 1 to enable Phase 2.</span></p>
               </div>
-              <div className="border-l-4 border-green-500 pl-6 py-2">
-                <p className="text-green-500 font-mono text-sm">PHASE 3: AWS (GPI ~2)</p>
+              <div className="border-l-4 border-stone-900 pl-6 py-2">
+                <p className="text-stone-900 font-mono text-sm">PHASE 3: AWS (GPI ~2)</p>
                 <p className="text-stone-500 text-sm">Infrastructure-as-service. <span className="text-stone-900">Used Phase 2 coordination for Phase 3.</span></p>
               </div>
               <div className="border-l-4 border-blue-500 pl-6 py-2">
@@ -219,7 +221,7 @@ const TheSpiralModelPage: NextPage = () => {
             {/* Acquisition Comparison */}
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-green-950/20 border border-green-900/50 p-6">
-                <p className="text-green-500 font-bold text-sm mb-2">AMAZON + WHOLE FOODS</p>
+                <p className="text-stone-900 font-bold text-sm mb-2">AMAZON + WHOLE FOODS</p>
                 <p className="text-stone-600 text-sm mb-2">GPI gap: 2.9 points. Within range.</p>
                 <p className="text-green-400 text-sm">Result: Successful integration.</p>
               </div>
@@ -260,7 +262,7 @@ const TheSpiralModelPage: NextPage = () => {
                 </div>
               </div>
               <div className="border border-stone-200 p-6">
-                <TrendingUp className="w-6 h-6 text-green-500 mb-3" />
+                <TrendingUp className="w-6 h-6 text-stone-900 mb-3" />
                 <h4 className="font-bold mb-2">SPIRAL DIRECTION</h4>
                 <div className="space-y-1 text-sm">
                   <div className="flex justify-between"><span className="text-green-400">+1</span><span>Ascending</span></div>
@@ -281,7 +283,7 @@ const TheSpiralModelPage: NextPage = () => {
                 <p className="text-purple-400 font-bold">DISSOLUTION PARALYSIS</p>
                 <p className="text-stone-500 text-sm">"We're still restructuring." Perpetual crisis. Burns out the org.</p>
               </div>
-              <div className="border-l-4 border-green-600 pl-6 py-2">
+              <div className="border-l-4 border-stone-900 pl-6 py-2">
                 <p className="text-green-400 font-bold">FIELD ROMANTICISM</p>
                 <p className="text-stone-500 text-sm">"We're agile." Mistakes chaos for adaptability. Nothing compounds.</p>
               </div>
@@ -329,7 +331,7 @@ const TheSpiralModelPage: NextPage = () => {
         </section>
 
         {/* Related Content */}
-        <section className="py-16 px-6 bg-white">
+        <section className="py-24 px-6 bg-white border-t border-stone-200">
           <div className="max-w-7xl mx-auto">
             <RelatedContent
               title="Continue Reading"
@@ -356,6 +358,18 @@ const TheSpiralModelPage: NextPage = () => {
             />
           </div>
         </section>
+
+        <footer className="py-16 px-6 border-t border-stone-200">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+              <div><div className="font-black text-sm mb-4">GPI<span className="text-red-600">.</span>STUDIO</div><p className="text-sm text-stone-400 leading-relaxed">Organizational physics.<br />We measure where energy gets stuck.</p></div>
+              <div><div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div><div className="space-y-3"><Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link><Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link><Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link></div></div>
+              <div><div className="text-xs font-mono text-stone-400 mb-4">WORK</div><div className="space-y-3"><Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link><Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link><Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link></div></div>
+              <div><div className="text-xs font-mono text-stone-400 mb-4">COMPANY</div><div className="space-y-3"><Link href="/about" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">About</Link></div></div>
+            </div>
+            <div className="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-400"><div>&copy; {new Date().getFullYear()} Imagination G LLC</div><div className="font-mono">gpi.studio</div></div>
+          </div>
+        </footer>
       </div>
     </>
   );

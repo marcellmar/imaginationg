@@ -16,34 +16,24 @@ const RelatedContent: React.FC<RelatedContentProps> = ({
   title = "Related Content",
   items
 }) => {
-  const getColorClasses = (color: string = 'red') => {
-    const colorMap: Record<string, string> = {
-      red: 'border-red-500 text-red-500 hover:bg-red-500',
-      yellow: 'border-yellow-500 text-yellow-500 hover:bg-yellow-500',
-      green: 'border-green-500 text-green-500 hover:bg-green-500',
-    };
-    return colorMap[color] || colorMap.red;
-  };
-
   return (
     <div className="my-16 border-t border-stone-200 pt-12">
       <h2 className="text-2xl font-black mb-8">{title}</h2>
       <div className="grid md:grid-cols-3 gap-6">
         {items.map((item, index) => {
-          const colorClasses = getColorClasses(item.color);
           return (
             <Link
               key={index}
               href={item.href}
-              className={`border ${colorClasses} p-6 hover:text-white transition-all group`}
+              className="border border-stone-200 p-6 hover:border-stone-400 transition-all group bg-white"
             >
-              <h3 className="font-bold mb-3 group-hover:text-white">
+              <h3 className="font-bold mb-3 group-hover:text-red-600 transition-colors">
                 {item.title}
               </h3>
-              <p className="text-sm text-stone-500 group-hover:text-white">
+              <p className="text-sm text-stone-500">
                 {item.description}
               </p>
-              <span className="inline-block mt-4 text-xs font-bold">
+              <span className="inline-block mt-4 text-xs font-bold text-stone-900 group-hover:text-red-600 transition-colors">
                 EXPLORE →
               </span>
             </Link>

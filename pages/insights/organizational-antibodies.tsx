@@ -4,12 +4,14 @@ import SEOHead from '../../components/SEOHead';
 import Navigation from '../../components/Navigation';
 import RelatedContent from '../../components/RelatedContent';
 import { ArrowLeft, BookOpen } from 'lucide-react';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const OrganizationalAntibodiesPage: NextPage = () => {
+  useScrollReveal();
   return (
     <>
       <SEOHead
-        title="Organizational Antibodies - Why Good Ideas Get Rejected | IMAGINATION G"
+        title="Organizational Antibodies - Why Good Ideas Get Rejected | GPI Studio"
         description="Your organization has an immune system that protects against foreign capabilities, even beneficial ones. Understanding the antibody response."
         ogType="article"
         ogImage="/images/og-insights.svg"
@@ -23,31 +25,31 @@ const OrganizationalAntibodiesPage: NextPage = () => {
         <Navigation currentPage="insights" />
 
         {/* Hero Section */}
-        <section className="pt-24 pb-16 px-6">
+        <section className="pt-36 pb-24 px-6">
           <div className="max-w-4xl mx-auto">
             {/* Breadcrumb */}
-            <Link href="/insights" className="inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors mb-8">
+            <Link href="/insights" className="fade-up inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors mb-8">
               <ArrowLeft size={16} />
               Back to Insights
             </Link>
 
             {/* Meta */}
-            <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-mono text-red-600 bg-red-50 px-3 py-1 rounded">GPI FOUNDATIONS</span>
+            <div className="fade-up flex items-center gap-4 mb-6">
+              <span className="text-xs font-mono text-stone-500 border border-stone-200 px-3 py-1">GPI FOUNDATIONS</span>
               <span className="text-xs text-stone-500">9 min read</span>
               <span className="text-xs text-stone-400">•</span>
               <span className="text-xs text-stone-500">ERROR CORRECTION</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-[1.1]">
+            <h1 className="fade-up text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-[1.1] tracking-headline">
               ORGANIZATIONAL<br />ANTIBODIES<span className="text-red-600">.</span>
             </h1>
 
-            <p className="text-2xl text-stone-500 mb-8">
+            <p className="fade-up text-2xl text-stone-500 mb-8">
               Why Good Ideas Get Rejected
             </p>
 
-            <p className="text-xl text-stone-500 max-w-2xl">
+            <p className="fade-up text-xl text-stone-500 max-w-2xl">
               Your organization has an immune system. It protects against foreign capabilities, even beneficial ones. Understanding the antibody response predicts which changes will succeed.
             </p>
 
@@ -60,10 +62,10 @@ const OrganizationalAntibodiesPage: NextPage = () => {
                   <text x="150" y="170" textAnchor="middle" fill="#a8a29e" fontSize="10" fontFamily="monospace">THE ORGANIZATION</text>
 
                   {/* New idea entering - green circle */}
-                  <circle cx="150" cy="100" r="15" fill="#22c55e">
+                  <circle cx="150" cy="100" r="15" fill="#1c1917">
                     <animate attributeName="r" values="12;15;12" dur="2s" repeatCount="indefinite" />
                   </circle>
-                  <text x="150" y="104" textAnchor="middle" fill="black" fontSize="8" fontWeight="bold">NEW</text>
+                  <text x="150" y="104" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">NEW</text>
 
                   {/* Antibodies attacking from all sides */}
                   {/* Process Antibody - top */}
@@ -209,7 +211,7 @@ const OrganizationalAntibodiesPage: NextPage = () => {
             <div className="space-y-4">
               <h2 className="text-xs font-mono text-stone-500 mb-4">ANTIBODY STRENGTH BY GPI</h2>
               <div className="space-y-2 font-mono text-sm">
-                <div className="flex items-center gap-4"><span className="text-green-500">GPI 1-3:</span> <span className="text-stone-500">Weak antibodies. Changes absorbed. Continuous adaptation.</span></div>
+                <div className="flex items-center gap-4"><span className="text-stone-900">GPI 1-3:</span> <span className="text-stone-500">Weak antibodies. Changes absorbed. Continuous adaptation.</span></div>
                 <div className="flex items-center gap-4"><span className="text-yellow-500">GPI 4-6:</span> <span className="text-stone-500">Moderate antibodies. Some changes absorbed. Slower learning.</span></div>
                 <div className="flex items-center gap-4"><span className="text-red-500">GPI 7-10:</span> <span className="text-stone-500">Strong antibodies. Most changes rejected. Learning stalled.</span></div>
               </div>
@@ -233,19 +235,19 @@ const OrganizationalAntibodiesPage: NextPage = () => {
               <h2 className="text-xs font-mono text-stone-500 mb-6">PREPARING THE IMMUNE SYSTEM</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <p className="text-green-400 font-bold mb-2">METABOLIC MATCHING</p>
+                  <p className="text-stone-900 font-bold mb-2">METABOLIC MATCHING</p>
                   <p className="text-stone-500 text-sm">Introduce changes close to current GPI. Build incrementally.</p>
                 </div>
                 <div>
-                  <p className="text-green-400 font-bold mb-2">CAPABILITY BUILDING</p>
+                  <p className="text-stone-900 font-bold mb-2">CAPABILITY BUILDING</p>
                   <p className="text-stone-500 text-sm">Build infrastructure first. Small wins before marathons.</p>
                 </div>
                 <div>
-                  <p className="text-green-400 font-bold mb-2">ANTIBODY IDENTIFICATION</p>
+                  <p className="text-stone-900 font-bold mb-2">ANTIBODY IDENTIFICATION</p>
                   <p className="text-stone-500 text-sm">Map which types will activate. Sequence to build tolerance.</p>
                 </div>
                 <div>
-                  <p className="text-green-400 font-bold mb-2">METABOLIC QUARANTINE</p>
+                  <p className="text-stone-900 font-bold mb-2">METABOLIC QUARANTINE</p>
                   <p className="text-stone-500 text-sm">Keep new capabilities isolated until absorption is possible.</p>
                 </div>
               </div>
@@ -297,7 +299,7 @@ const OrganizationalAntibodiesPage: NextPage = () => {
         </section>
 
         {/* Related Content */}
-        <section className="py-16 px-6 bg-white">
+        <section className="py-24 px-6 bg-white border-t border-stone-200">
           <div className="max-w-7xl mx-auto">
             <RelatedContent
               title="Continue Reading"
@@ -324,6 +326,17 @@ const OrganizationalAntibodiesPage: NextPage = () => {
             />
           </div>
         </section>
+        <footer className="py-16 px-6 border-t border-stone-200">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+              <div><div className="font-black text-sm mb-4">GPI<span className="text-red-600">.</span>STUDIO</div><p className="text-sm text-stone-400 leading-relaxed">Organizational physics.<br />We measure where energy gets stuck.</p></div>
+              <div><div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div><div className="space-y-3"><Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link><Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link><Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link></div></div>
+              <div><div className="text-xs font-mono text-stone-400 mb-4">WORK</div><div className="space-y-3"><Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link><Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link><Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link></div></div>
+              <div><div className="text-xs font-mono text-stone-400 mb-4">COMPANY</div><div className="space-y-3"><Link href="/about" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">About</Link></div></div>
+            </div>
+            <div className="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-400"><div>&copy; {new Date().getFullYear()} Imagination G LLC</div><div className="font-mono">gpi.studio</div></div>
+          </div>
+        </footer>
       </div>
     </>
   );

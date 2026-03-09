@@ -3,13 +3,15 @@ import Link from 'next/link';
 import SEOHead from '../../components/SEOHead';
 import Navigation from '../../components/Navigation';
 import RelatedContent from '../../components/RelatedContent';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 import { ArrowLeft } from 'lucide-react';
 
 const NetflixLetParamountWinPage: NextPage = () => {
+  useScrollReveal();
   return (
     <>
       <SEOHead
-        title="Netflix Let Paramount Win | IMAGINATION G"
+        title="Netflix Let Paramount Win | GPI Studio"
         description="Paramount paid $110.9B for Warner Bros. Discovery. Netflix walked with $2.8B and a 13% stock jump. The GPI gap predicted this in December."
         ogType="article"
         ogImage="/images/og-insights.svg"
@@ -23,29 +25,29 @@ const NetflixLetParamountWinPage: NextPage = () => {
         <Navigation currentPage="insights" />
 
         {/* Hero */}
-        <section className="pt-24 pb-16 px-6">
+        <section className="pt-36 pb-24 px-6">
           <div className="max-w-4xl mx-auto">
-            <Link href="/insights" className="inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors mb-8">
+            <Link href="/insights" className="fade-up inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors mb-8">
               <ArrowLeft size={16} />
               Back to Insights
             </Link>
 
-            <div className="flex items-center gap-4 mb-6">
-              <span className="text-xs font-mono text-red-600 bg-red-50 px-3 py-1">LIVE ANALYSIS</span>
+            <div className="fade-up flex items-center gap-4 mb-6">
+              <span className="text-xs font-mono text-stone-500 border border-stone-200 px-3 py-1">LIVE ANALYSIS</span>
               <span className="text-xs text-stone-500">Feb 26, 2026</span>
               <span className="text-xs text-stone-400">•</span>
               <span className="text-xs text-stone-500">GPI · ACQUISITIONS · METABOLIC COMPATIBILITY</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
+            <h1 className="fade-up text-4xl md:text-5xl lg:text-6xl font-black tracking-headline mb-6 leading-[1.1]">
               NETFLIX LET<br />PARAMOUNT WIN<span className="text-red-600">.</span>
             </h1>
 
-            <p className="text-xl text-stone-500 max-w-2xl mb-4">
+            <p className="fade-up text-xl text-stone-500 max-w-2xl mb-4">
               Paramount paid $110.9B for Warner Bros. Discovery. Netflix walked with a $2.8B termination fee and a 13% stock jump. The GPI gap predicted this in December.
             </p>
 
-            <p className="text-lg text-stone-900 font-bold">
+            <p className="fade-up text-lg text-stone-900 font-bold">
               Paramount won the bid. Netflix kept its metabolism.
             </p>
 
@@ -57,7 +59,7 @@ const NetflixLetParamountWinPage: NextPage = () => {
                   {/* Scale bar */}
                   <defs>
                     <linearGradient id="scaleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#22c55e" />
+                      <stop offset="0%" stopColor="#1c1917" />
                       <stop offset="40%" stopColor="#eab308" />
                       <stop offset="100%" stopColor="#ef4444" />
                     </linearGradient>
@@ -72,10 +74,10 @@ const NetflixLetParamountWinPage: NextPage = () => {
 
                   {/* Netflix marker at 2.2 */}
                   {/* position: 40 + (2.2-1)/9 * 320 = 40 + 42.7 = 82.7 */}
-                  <line x1="83" y1="50" x2="83" y2="90" stroke="#22c55e" strokeWidth="2" />
-                  <circle cx="83" cy="74" r="8" fill="#22c55e" />
-                  <text x="83" y="40" textAnchor="middle" fill="#22c55e" fontSize="10" fontWeight="bold">NETFLIX</text>
-                  <text x="83" y="30" textAnchor="middle" fill="#22c55e" fontSize="9" fontFamily="monospace">GPI 2.2</text>
+                  <line x1="83" y1="50" x2="83" y2="90" stroke="#1c1917" strokeWidth="2" />
+                  <circle cx="83" cy="74" r="8" fill="#1c1917" />
+                  <text x="83" y="40" textAnchor="middle" fill="#1c1917" fontSize="10" fontWeight="bold">NETFLIX</text>
+                  <text x="83" y="30" textAnchor="middle" fill="#1c1917" fontSize="9" fontFamily="monospace">GPI 2.2</text>
 
                   {/* WBD marker at 7.4 */}
                   {/* position: 40 + (7.4-1)/9 * 320 = 40 + 227.6 = 267.6 */}
@@ -136,7 +138,7 @@ const NetflixLetParamountWinPage: NextPage = () => {
                 <p className="text-stone-400 text-xs mt-1">Paid by Paramount to Netflix</p>
               </div>
               <div className="bg-white border border-stone-200 p-5">
-                <p className="text-3xl font-black text-green-500">+13%</p>
+                <p className="text-3xl font-black text-stone-900">+13%</p>
                 <p className="text-stone-500 text-xs mt-2">Netflix stock on exit</p>
                 <p className="text-stone-400 text-xs mt-1">Market's verdict</p>
               </div>
@@ -166,7 +168,7 @@ const NetflixLetParamountWinPage: NextPage = () => {
                     <div className="flex items-center justify-between mb-1">
                       <span className="text-sm font-bold text-stone-900">{row.dim}</span>
                       <div className="flex gap-4 text-xs font-mono">
-                        <span className="text-green-500">Netflix {row.netflix}</span>
+                        <span className="text-stone-900">Netflix {row.netflix}</span>
                         <span className="text-red-500">WBD {row.wbd}</span>
                       </div>
                     </div>
@@ -219,7 +221,7 @@ const NetflixLetParamountWinPage: NextPage = () => {
         </section>
 
         {/* Related */}
-        <section className="py-16 px-6 bg-white">
+        <section className="py-24 px-6 bg-white border-t border-stone-200">
           <div className="max-w-7xl mx-auto">
             <RelatedContent
               title="Continue Reading"
@@ -246,6 +248,18 @@ const NetflixLetParamountWinPage: NextPage = () => {
             />
           </div>
         </section>
+
+        <footer className="py-16 px-6 border-t border-stone-200">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+              <div><div className="font-black text-sm mb-4">GPI<span className="text-red-600">.</span>STUDIO</div><p className="text-sm text-stone-400 leading-relaxed">Organizational physics.<br />We measure where energy gets stuck.</p></div>
+              <div><div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div><div className="space-y-3"><Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link><Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link><Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link></div></div>
+              <div><div className="text-xs font-mono text-stone-400 mb-4">WORK</div><div className="space-y-3"><Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link><Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link><Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link></div></div>
+              <div><div className="text-xs font-mono text-stone-400 mb-4">COMPANY</div><div className="space-y-3"><Link href="/about" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">About</Link></div></div>
+            </div>
+            <div className="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-400"><div>&copy; {new Date().getFullYear()} Imagination G LLC</div><div className="font-mono">gpi.studio</div></div>
+          </div>
+        </footer>
       </div>
     </>
   );
