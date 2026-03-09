@@ -4,6 +4,7 @@ import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
 import { GPIRadarChart } from '../components/gpi';
 import { ArrowLeft, Zap, Clock, Brain, Users, Gauge, Lock, DollarSign, Lightbulb } from 'lucide-react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import {
   calculateFullGPI,
   getStateLabel,
@@ -60,6 +61,7 @@ const getDimensionInsight = (dimension: DimensionKey, score: number): { text: st
 };
 
 const DiagnosticPage = () => {
+  useScrollReveal();
   const [currentStep, setCurrentStep] = useState<'intro' | 'questions' | 'analysis' | 'results'>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [answers, setAnswers] = useState<Record<number, 'yes' | 'no'>>({});
@@ -214,22 +216,22 @@ const DiagnosticPage = () => {
     return (
       <>
         <SEOHead
-          title="GPI Diagnostic | IMAGINATION G"
+          title="GPI Diagnostic | GPI Studio"
           description="Measure your Growing Pains Index. 32 questions. 7 dimensions. See where energy gets stuck."
         />
         <div className="min-h-screen bg-stone-50 text-stone-900">
           <Navigation currentPage="diagnostic" />
-          <section className="pt-20 pb-16 px-6">
+          <section className="pt-36 pb-24 px-6">
             <div className="max-w-3xl mx-auto">
 
               {/* Hero */}
               <div className="mb-12">
-                <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-6">
+                <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-8 fade-up">
                   <span className="w-2 h-2 bg-red-500 rounded-full" />
                   DIAGNOSTIC READY
                 </div>
-                <div className="flex flex-col md:flex-row md:items-start gap-6 mb-6">
-                  <h1 className="text-4xl md:text-5xl font-black tracking-tight flex-1">
+                <div className="flex flex-col md:flex-row md:items-start gap-6 mb-6 fade-up">
+                  <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-headline flex-1">
                     YOUR ORG HAS A<br />
                     <span className="text-red-600">METABOLIC RATE.</span>
                   </h1>
@@ -247,13 +249,13 @@ const DiagnosticPage = () => {
                     <p className="text-xs text-stone-400 mt-2">Used to benchmark your results.</p>
                   </div>
                 </div>
-                <p className="text-xl text-stone-500 max-w-2xl leading-relaxed">
+                <p className="text-xl md:text-2xl text-stone-500 max-w-2xl leading-relaxed fade-up">
                   Most friction isn't visible on a P&L. It shows up in how long decisions take, whether mistakes get fixed or defended, and whether your best people have room to move. This measures all of it. 32 questions. 8 minutes.
                 </p>
               </div>
 
               {/* Scale */}
-              <div className="bg-white border border-stone-200 p-6 mb-8">
+              <div className="bg-white border border-stone-200 p-6 mb-8 fade-up">
                 <div className="text-xs font-mono text-stone-400 mb-4">THE SCALE</div>
                 <div className="relative h-4 bg-stone-100 rounded-full mb-3 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-r from-stone-300 via-stone-500 to-stone-900" />
@@ -276,7 +278,7 @@ const DiagnosticPage = () => {
               </div>
 
               {/* The 7 Dimensions Preview */}
-              <div className="bg-white border border-stone-200 p-6 mb-8">
+              <div className="bg-white border border-stone-200 p-6 mb-8 fade-up">
                 <div className="text-xs font-mono text-stone-400 mb-6">SEVEN DIMENSIONS OF ORGANIZATIONAL FRICTION</div>
                 <div className="space-y-5">
                   <div className="flex items-start gap-4">
@@ -332,7 +334,7 @@ const DiagnosticPage = () => {
               </div>
 
               {/* Start */}
-              <div className="text-center">
+              <div className="text-center fade-up">
                 <button
                   onClick={() => setCurrentStep('questions')}
                   className="bg-stone-900 text-white px-12 py-5 font-semibold text-lg hover:bg-stone-800 transition-colors"
@@ -343,13 +345,54 @@ const DiagnosticPage = () => {
               </div>
 
               {/* Trust Element */}
-              <div className="mt-12 text-center border-t border-stone-200 pt-8">
+              <div className="mt-12 text-center border-t border-stone-200 pt-8 fade-up">
                 <p className="text-stone-400 text-sm">
                   Patterns drawn from analysis of 500+ organizations across 40+ industries.
                 </p>
               </div>
             </div>
           </section>
+
+          {/* Footer */}
+          <footer className="py-16 px-6 border-t border-stone-200">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+                <div>
+                  <div className="font-black text-sm mb-4">GPI<span className="text-red-600">.</span>STUDIO</div>
+                  <p className="text-sm text-stone-400 leading-relaxed">
+                    Organizational physics.<br />
+                    We measure where energy gets stuck.
+                  </p>
+                </div>
+                <div>
+                  <div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div>
+                  <div className="space-y-3">
+                    <Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link>
+                    <Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link>
+                    <Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link>
+                  </div>
+                </div>
+                <div>
+                  <div className="text-xs font-mono text-stone-400 mb-4">WORK</div>
+                  <div className="space-y-3">
+                    <Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link>
+                    <Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link>
+                    <Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link>
+                  </div>
+                </div>
+                <div>
+                  <div className="text-xs font-mono text-stone-400 mb-4">COMPANY</div>
+                  <div className="space-y-3">
+                    <Link href="/about" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">About</Link>
+                  </div>
+                </div>
+              </div>
+              <div className="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-400">
+                <div>&copy; {new Date().getFullYear()} Imagination G LLC</div>
+                <div className="font-mono">gpi.studio</div>
+              </div>
+            </div>
+          </footer>
         </div>
       </>
     );
@@ -360,10 +403,10 @@ const DiagnosticPage = () => {
     const dims = getOrderedDimensions();
     return (
       <>
-        <SEOHead title="Calculating GPI | IMAGINATION G" description="Processing diagnostic results." />
+        <SEOHead title="Calculating GPI | GPI Studio" description="Processing diagnostic results." />
         <div className="min-h-screen bg-stone-50 text-stone-900">
           <Navigation currentPage="diagnostic" />
-          <section className="pt-20 pb-16 px-6">
+          <section className="pt-28 pb-16 px-6">
             <div className="max-w-md mx-auto text-center">
               <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-8">
                 <span className="w-2 h-2 bg-stone-400 rounded-full animate-pulse" />
@@ -412,12 +455,12 @@ const DiagnosticPage = () => {
     return (
       <>
         <SEOHead
-          title={`GPI: ${gpiResults.overall} | IMAGINATION G`}
+          title={`GPI: ${gpiResults.overall} | GPI Studio`}
           description={`Your Growing Pains Index is ${gpiResults.overall}. ${stateLabel}.`}
         />
         <div className="min-h-screen bg-stone-50 text-stone-900">
           <Navigation currentPage="diagnostic" />
-          <section className="pt-20 pb-16 px-6">
+          <section className="pt-36 pb-24 px-6">
             <div className="max-w-5xl mx-auto">
 
               {/* Header */}
@@ -439,13 +482,13 @@ const DiagnosticPage = () => {
                     <div className="flex items-baseline gap-2 mb-4">
                       <span
                         className="text-7xl font-black tabular-nums"
-                        style={{ color: stateColor === 'green' ? '#22c55e' : stateColor === 'yellow' ? '#eab308' : '#ef4444' }}
+                        style={{ color: stateColor === 'green' ? '#1c1917' : stateColor === 'yellow' ? '#78716c' : '#dc2626' }}
                       >
                         {gpiResults.overall}
                       </span>
                       <span className="text-2xl text-stone-400">/10</span>
                     </div>
-                    <div className="text-sm font-bold mb-4" style={{ color: stateColor === 'green' ? '#22c55e' : stateColor === 'yellow' ? '#eab308' : '#ef4444' }}>
+                    <div className="text-sm font-bold mb-4" style={{ color: stateColor === 'green' ? '#1c1917' : stateColor === 'yellow' ? '#78716c' : '#dc2626' }}>
                       {stateLabel.toUpperCase()}
                     </div>
                     <div className="relative h-2 bg-stone-100 rounded-full mb-4">
@@ -453,7 +496,7 @@ const DiagnosticPage = () => {
                         className="absolute top-0 left-0 h-full rounded-full"
                         style={{
                           width: `${(gpiResults.overall / 10) * 100}%`,
-                          backgroundColor: stateColor === 'green' ? '#22c55e' : stateColor === 'yellow' ? '#eab308' : '#ef4444'
+                          backgroundColor: stateColor === 'green' ? '#1c1917' : stateColor === 'yellow' ? '#78716c' : '#dc2626'
                         }}
                       />
                     </div>
@@ -504,7 +547,7 @@ const DiagnosticPage = () => {
                       const isWeakest = dim.dimension === gpiResults.weakestDimension;
                       const isStrongest = dim.dimension === gpiResults.strongestDimension;
                       const insight = getDimensionInsight(dim.dimension, dim.score);
-                      const scoreColor = dim.score <= 3 ? '#22c55e' : dim.score <= 6 ? '#eab308' : '#ef4444';
+                      const scoreColor = dim.score <= 3 ? '#1c1917' : dim.score <= 6 ? '#78716c' : '#dc2626';
 
                       return (
                         <div key={dim.dimension} className={`p-4 border ${isWeakest ? 'border-red-200 bg-red-50/30' : isStrongest ? 'border-stone-400 bg-stone-100' : 'border-stone-200 bg-stone-50'}`}>
@@ -626,98 +669,139 @@ const DiagnosticPage = () => {
               <p className="text-center text-stone-400 text-xs mt-8">
                 Retake in 90 days to measure change.
               </p>
-
-              {/* Save Modal */}
-              {showSaveModal && (
-                <div className="fixed inset-0 bg-stone-900/80 flex items-center justify-center z-50 p-6">
-                  <div className="bg-white border border-stone-200 p-8 max-w-md w-full">
-                    <div className="flex justify-between items-center mb-6">
-                      <h3 className="text-xl font-black">SAVE YOUR RESULTS</h3>
-                      <button
-                        onClick={() => setShowSaveModal(false)}
-                        className="text-stone-400 hover:text-stone-900 text-2xl"
-                      >
-                        &times;
-                      </button>
-                    </div>
-
-                    <form onSubmit={handleSaveResults} className="space-y-4">
-                      <div>
-                        <label className="block text-xs font-mono text-stone-400 mb-2">NAME *</label>
-                        <input
-                          type="text"
-                          required
-                          value={saveForm.name}
-                          onChange={(e) => setSaveForm({ ...saveForm, name: e.target.value })}
-                          className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-stone-900 outline-none"
-                          placeholder="Your name"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-mono text-stone-400 mb-2">EMAIL *</label>
-                        <input
-                          type="email"
-                          required
-                          value={saveForm.email}
-                          onChange={(e) => setSaveForm({ ...saveForm, email: e.target.value })}
-                          className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-stone-900 outline-none"
-                          placeholder="you@company.com"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-mono text-stone-400 mb-2">COMPANY</label>
-                        <input
-                          type="text"
-                          value={saveForm.company}
-                          onChange={(e) => setSaveForm({ ...saveForm, company: e.target.value })}
-                          className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-stone-900 outline-none"
-                          placeholder="Your company"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-mono text-stone-400 mb-2">CITY</label>
-                        <input
-                          type="text"
-                          value={saveForm.city}
-                          onChange={(e) => setSaveForm({ ...saveForm, city: e.target.value })}
-                          className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-stone-900 outline-none"
-                          placeholder="Your city"
-                        />
-                      </div>
-
-                      <div className="flex items-center gap-3 pt-2">
-                        <input
-                          type="checkbox"
-                          id="sendEmail"
-                          checked={sendEmail}
-                          onChange={(e) => setSendEmail(e.target.checked)}
-                          className="w-4 h-4 accent-stone-900"
-                        />
-                        <label htmlFor="sendEmail" className="text-sm text-stone-500">
-                          Email me my results
-                        </label>
-                      </div>
-
-                      {saveError && (
-                        <div className="text-red-600 text-sm">{saveError}</div>
-                      )}
-
-                      <button
-                        type="submit"
-                        disabled={saving}
-                        className="w-full bg-stone-900 text-white py-4 font-semibold hover:bg-stone-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                      >
-                        {saving ? 'Saving...' : 'Save Results'}
-                      </button>
-                    </form>
-                  </div>
-                </div>
-              )}
             </div>
           </section>
+
+          {/* Footer */}
+          <footer className="py-16 px-6 border-t border-stone-200">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+                <div>
+                  <div className="font-black text-sm mb-4">GPI<span className="text-red-600">.</span>STUDIO</div>
+                  <p className="text-sm text-stone-400 leading-relaxed">
+                    Organizational physics.<br />
+                    We measure where energy gets stuck.
+                  </p>
+                </div>
+                <div>
+                  <div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div>
+                  <div className="space-y-3">
+                    <Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link>
+                    <Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link>
+                    <Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link>
+                  </div>
+                </div>
+                <div>
+                  <div className="text-xs font-mono text-stone-400 mb-4">WORK</div>
+                  <div className="space-y-3">
+                    <Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link>
+                    <Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link>
+                    <Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link>
+                  </div>
+                </div>
+                <div>
+                  <div className="text-xs font-mono text-stone-400 mb-4">COMPANY</div>
+                  <div className="space-y-3">
+                    <Link href="/about" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">About</Link>
+                  </div>
+                </div>
+              </div>
+              <div className="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-400">
+                <div>&copy; {new Date().getFullYear()} Imagination G LLC</div>
+                <div className="font-mono">gpi.studio</div>
+              </div>
+            </div>
+          </footer>
+
+          {/* Save Modal */}
+          {showSaveModal && (
+            <div className="fixed inset-0 bg-stone-900/80 flex items-center justify-center z-50 p-6">
+              <div className="bg-white border border-stone-200 p-8 max-w-md w-full">
+                <div className="flex justify-between items-center mb-6">
+                  <h3 className="text-xl font-black">SAVE YOUR RESULTS</h3>
+                  <button
+                    onClick={() => setShowSaveModal(false)}
+                    className="text-stone-400 hover:text-stone-900 text-2xl"
+                  >
+                    &times;
+                  </button>
+                </div>
+
+                <form onSubmit={handleSaveResults} className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-mono text-stone-400 mb-2">NAME *</label>
+                    <input
+                      type="text"
+                      required
+                      value={saveForm.name}
+                      onChange={(e) => setSaveForm({ ...saveForm, name: e.target.value })}
+                      className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-stone-900 outline-none"
+                      placeholder="Your name"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono text-stone-400 mb-2">EMAIL *</label>
+                    <input
+                      type="email"
+                      required
+                      value={saveForm.email}
+                      onChange={(e) => setSaveForm({ ...saveForm, email: e.target.value })}
+                      className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-stone-900 outline-none"
+                      placeholder="you@company.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono text-stone-400 mb-2">COMPANY</label>
+                    <input
+                      type="text"
+                      value={saveForm.company}
+                      onChange={(e) => setSaveForm({ ...saveForm, company: e.target.value })}
+                      className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-stone-900 outline-none"
+                      placeholder="Your company"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-mono text-stone-400 mb-2">CITY</label>
+                    <input
+                      type="text"
+                      value={saveForm.city}
+                      onChange={(e) => setSaveForm({ ...saveForm, city: e.target.value })}
+                      className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-stone-900 outline-none"
+                      placeholder="Your city"
+                    />
+                  </div>
+
+                  <div className="flex items-center gap-3 pt-2">
+                    <input
+                      type="checkbox"
+                      id="sendEmail"
+                      checked={sendEmail}
+                      onChange={(e) => setSendEmail(e.target.checked)}
+                      className="w-4 h-4 accent-stone-900"
+                    />
+                    <label htmlFor="sendEmail" className="text-sm text-stone-500">
+                      Email me my results
+                    </label>
+                  </div>
+
+                  {saveError && (
+                    <div className="text-red-600 text-sm">{saveError}</div>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={saving}
+                    className="w-full bg-stone-900 text-white py-4 font-semibold hover:bg-stone-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {saving ? 'Saving...' : 'Save Results'}
+                  </button>
+                </form>
+              </div>
+            </div>
+          )}
         </div>
       </>
     );
@@ -746,7 +830,7 @@ const DiagnosticPage = () => {
       />
       <div className="min-h-screen bg-stone-50 text-stone-900">
         <Navigation currentPage="diagnostic" />
-        <section className="pt-20 pb-16 px-6">
+        <section className="pt-28 pb-16 px-6">
           <div className="max-w-xl mx-auto">
 
             {/* Progress */}
@@ -797,9 +881,9 @@ const DiagnosticPage = () => {
               const example = getQuestionExample(currentQ.id, selectedIndustry);
               if (!example) return null;
               return (
-                <div className="bg-stone-100/50 border border-stone-200 rounded-lg p-4 mb-8">
+                <div className="bg-stone-100/50 border border-stone-200 p-4 mb-8">
                   <div className="flex items-start gap-3">
-                    <Lightbulb size={18} className="text-yellow-500 mt-0.5 flex-shrink-0" />
+                    <Lightbulb size={18} className="text-stone-400 mt-0.5 flex-shrink-0" />
                     <div>
                       <div className="text-xs font-mono text-stone-400 mb-1">
                         IN {selectedIndustry.toUpperCase()}
@@ -817,13 +901,13 @@ const DiagnosticPage = () => {
             <div className="grid grid-cols-2 gap-4">
               <button
                 onClick={() => handleAnswer('yes')}
-                className="border-2 border-green-600 p-6 hover:bg-green-600 transition-all text-center font-black text-lg"
+                className="border-2 border-stone-900 p-6 hover:bg-stone-900 hover:text-white transition-all text-center font-black text-lg"
               >
                 YES
               </button>
               <button
                 onClick={() => handleAnswer('no')}
-                className="border-2 border-red-600 p-6 hover:bg-red-600 transition-all text-center font-black text-lg"
+                className="border-2 border-stone-400 p-6 hover:bg-stone-900 hover:text-white hover:border-stone-900 transition-all text-center font-black text-lg"
               >
                 NO
               </button>
