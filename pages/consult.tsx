@@ -1,8 +1,10 @@
 import type { NextPage } from 'next';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const DIM_LABELS: Record<string, string> = {
   DECISION_LATENCY: 'Decision Latency',
@@ -49,6 +51,7 @@ const MONTHS = ['January','February','March','April','May','June','July','August
 const DOW = ['Su','Mo','Tu','We','Th','Fr','Sa'];
 
 const ConsultPage: NextPage = () => {
+  useScrollReveal();
   const router = useRouter();
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -63,7 +66,6 @@ const ConsultPage: NextPage = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  // From diagnostic
   const fromGpi = router.query.gpi as string | undefined;
   const fromDim = router.query.dim as string | undefined;
   const fromDimLabel = fromDim ? (DIM_LABELS[fromDim] || fromDim) : null;
@@ -150,41 +152,48 @@ const ConsultPage: NextPage = () => {
       <div className="min-h-screen bg-stone-50 text-stone-900">
         <Navigation />
 
-        <main className="max-w-4xl mx-auto px-6 py-16">
+        <main className="max-w-4xl mx-auto px-6 pt-36 pb-24">
 
-          <div className="mb-12">
-            <p className="text-xs tracking-widest text-stone-500 uppercase mb-4">GPI CONSULT</p>
+          <div className="mb-16 text-center fade-up">
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-8">
+              <span className="w-2 h-2 bg-red-500 rounded-full" />
+              GPI CONSULT
+            </div>
             {fromGpi && fromDimLabel ? (
               <>
-                <h1 className="text-4xl font-black leading-tight mb-5">One hour. Starting with {fromDimLabel}.</h1>
-                <div className="bg-white border border-stone-200 p-4 mb-5 max-w-xl">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05] mb-6 tracking-headline">
+                  One hour<span className="text-red-600">.</span> Starting with {fromDimLabel}<span className="text-red-600">.</span>
+                </h1>
+                <div className="bg-white border border-stone-200 p-4 mb-6 max-w-xl mx-auto">
                   <div className="text-xs font-mono text-stone-400 mb-1">FROM YOUR DIAGNOSTIC</div>
                   <p className="text-stone-600">
                     GPI <span className="text-stone-900 font-black">{fromGpi}</span> overall. Highest friction: <span className="text-red-600 font-bold">{fromDimLabel}</span>.
                   </p>
                 </div>
-                <p className="text-stone-500 text-lg leading-relaxed max-w-xl">
+                <p className="text-stone-500 text-lg leading-relaxed max-w-xl mx-auto">
                   You bring the context. I already have your scores. We'll dig into {fromDimLabel} first and work outward from there.
                 </p>
               </>
             ) : (
               <>
-                <h1 className="text-4xl font-black leading-tight mb-5">One hour. No fluff.</h1>
-                <p className="text-stone-500 text-lg leading-relaxed max-w-xl">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05] mb-6 tracking-headline">
+                  One hour<span className="text-red-600">.</span> No fluff<span className="text-red-600">.</span>
+                </h1>
+                <p className="text-xl text-stone-500 leading-relaxed max-w-xl mx-auto">
                   You bring the org. I run GPI on it live. By the end you'll know exactly where it's calcifying and what to do about it.
                 </p>
               </>
             )}
-            <p className="text-stone-400 text-sm mt-3">First session free. No pitch at the end.</p>
+            <p className="text-stone-400 text-sm mt-4">First session free. No pitch at the end.</p>
           </div>
 
           {submitted ? (
-            <div className="border border-stone-200 p-10 text-center max-w-md">
+            <div className="border border-stone-200 p-10 text-center max-w-md mx-auto fade-up">
               <h2 className="text-2xl font-black mb-3">You're booked.</h2>
               <p className="text-stone-500">Check your inbox for confirmation. See you then.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 fade-up">
 
               {/* Calendar */}
               <div>
@@ -192,7 +201,7 @@ const ConsultPage: NextPage = () => {
                   <button
                     onClick={prevMonth}
                     disabled={!canGoPrev}
-                    className="text-stone-500 hover:text-stone-900 disabled:opacity-20 disabled:cursor-not-allowed px-2 py-1 text-lg"
+                    className="text-stone-400 hover:text-stone-900 disabled:opacity-20 disabled:cursor-not-allowed px-2 py-1 text-lg transition-colors"
                   >
                     ←
                   </button>
@@ -201,20 +210,18 @@ const ConsultPage: NextPage = () => {
                   </span>
                   <button
                     onClick={nextMonth}
-                    className="text-stone-500 hover:text-stone-900 px-2 py-1 text-lg"
+                    className="text-stone-400 hover:text-stone-900 px-2 py-1 text-lg transition-colors"
                   >
                     →
                   </button>
                 </div>
 
-                {/* Day of week headers */}
                 <div className="grid grid-cols-7 mb-2">
                   {DOW.map(d => (
                     <div key={d} className="text-center text-xs text-stone-400 py-1">{d}</div>
                   ))}
                 </div>
 
-                {/* Day cells */}
                 <div className="grid grid-cols-7 gap-1">
                   {Array.from({ length: firstDay }).map((_, i) => (
                     <div key={`empty-${i}`} />
@@ -232,12 +239,12 @@ const ConsultPage: NextPage = () => {
                         key={day}
                         onClick={() => handleDayClick(day)}
                         disabled={!available}
-                        className={`aspect-square flex items-center justify-center text-sm rounded transition-all ${
+                        className={`aspect-square flex items-center justify-center text-sm transition-all ${
                           isSelected
-                            ? 'bg-white text-black font-bold'
+                            ? 'bg-stone-900 text-white font-bold'
                             : available
                             ? 'text-stone-900 hover:bg-stone-100 cursor-pointer'
-                            : 'text-stone-500 cursor-default'
+                            : 'text-stone-300 cursor-default'
                         }`}
                       >
                         {day}
@@ -248,10 +255,9 @@ const ConsultPage: NextPage = () => {
 
                 <p className="text-xs text-stone-400 mt-4">Mon – Fri, 10am – 3pm CST</p>
 
-                {/* Time slots */}
                 {selectedDate && (
                   <div className="mt-6">
-                    <p className="text-xs tracking-widest text-stone-500 uppercase mb-3">
+                    <p className="text-xs tracking-widest text-stone-400 uppercase mb-3">
                       {selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
                     </p>
                     <div className="flex flex-wrap gap-2">
@@ -265,10 +271,10 @@ const ConsultPage: NextPage = () => {
                             onClick={() => setSelectedSlot(isActive ? null : slot)}
                             className={`px-4 py-2 text-sm font-medium transition-all ${
                               isBooked
-                                ? 'bg-stone-100 text-stone-500 cursor-not-allowed'
+                                ? 'bg-stone-100 text-stone-300 cursor-not-allowed'
                                 : isActive
-                                ? 'bg-white text-black'
-                                : 'bg-stone-100 text-stone-600 hover:bg-stone-100 hover:text-stone-900'
+                                ? 'bg-stone-900 text-white'
+                                : 'bg-stone-100 text-stone-600 hover:bg-stone-200 hover:text-stone-900'
                             }`}
                           >
                             {isoToCST(slot)}
@@ -293,45 +299,45 @@ const ConsultPage: NextPage = () => {
                     </div>
 
                     <div>
-                      <label className="block text-xs tracking-widest text-stone-500 uppercase mb-2">Name</label>
+                      <label className="block text-xs tracking-widest text-stone-400 uppercase mb-2">Name</label>
                       <input
                         type="text" required
                         value={form.name}
                         onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-                        className="w-full bg-stone-100 border border-stone-300 px-4 py-3 text-stone-900 focus:outline-none focus:border-stone-900"
+                        className="w-full bg-stone-50 border border-stone-300 px-4 py-3 text-stone-900 focus:outline-none focus:border-stone-900"
                         placeholder="Your name"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs tracking-widest text-stone-500 uppercase mb-2">Email</label>
+                      <label className="block text-xs tracking-widest text-stone-400 uppercase mb-2">Email</label>
                       <input
                         type="email" required
                         value={form.email}
                         onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-                        className="w-full bg-stone-100 border border-stone-300 px-4 py-3 text-stone-900 focus:outline-none focus:border-stone-900"
+                        className="w-full bg-stone-50 border border-stone-300 px-4 py-3 text-stone-900 focus:outline-none focus:border-stone-900"
                         placeholder="you@company.com"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs tracking-widest text-stone-500 uppercase mb-2">Company</label>
+                      <label className="block text-xs tracking-widest text-stone-400 uppercase mb-2">Company</label>
                       <input
                         type="text"
                         value={form.company}
                         onChange={e => setForm(f => ({ ...f, company: e.target.value }))}
-                        className="w-full bg-stone-100 border border-stone-300 px-4 py-3 text-stone-900 focus:outline-none focus:border-stone-900"
+                        className="w-full bg-stone-50 border border-stone-300 px-4 py-3 text-stone-900 focus:outline-none focus:border-stone-900"
                         placeholder="Optional"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs tracking-widest text-stone-500 uppercase mb-2">What do you want to figure out?</label>
+                      <label className="block text-xs tracking-widest text-stone-400 uppercase mb-2">What do you want to figure out?</label>
                       <textarea
                         rows={4}
                         value={form.context}
                         onChange={e => setForm(f => ({ ...f, context: e.target.value }))}
-                        className="w-full bg-stone-100 border border-stone-300 px-4 py-3 text-stone-900 focus:outline-none focus:border-stone-900 resize-none"
+                        className="w-full bg-stone-50 border border-stone-300 px-4 py-3 text-stone-900 focus:outline-none focus:border-stone-900 resize-none"
                         placeholder="What's the problem, or the behavior you can't explain?"
                       />
                     </div>
@@ -340,9 +346,9 @@ const ConsultPage: NextPage = () => {
 
                     <button
                       type="submit" disabled={loading}
-                      className="w-full bg-white text-black py-4 font-black text-sm tracking-widest uppercase hover:bg-zinc-200 transition-all disabled:opacity-50"
+                      className="w-full bg-stone-900 text-white py-4 font-semibold text-sm hover:bg-stone-800 transition-all disabled:opacity-50"
                     >
-                      {loading ? 'BOOKING...' : 'BOOK THE HOUR'}
+                      {loading ? 'Booking...' : 'Book the Hour'}
                     </button>
                   </form>
                 ) : (
@@ -355,6 +361,47 @@ const ConsultPage: NextPage = () => {
             </div>
           )}
         </main>
+
+        {/* Footer */}
+        <footer className="py-16 px-6 border-t border-stone-200">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+              <div>
+                <div className="font-black text-sm mb-4">GPI<span className="text-red-600">.</span>STUDIO</div>
+                <p className="text-sm text-stone-400 leading-relaxed">
+                  Organizational physics.<br />
+                  We measure where energy gets stuck.
+                </p>
+              </div>
+              <div>
+                <div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div>
+                <div className="space-y-3">
+                  <Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link>
+                  <Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link>
+                  <Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link>
+                </div>
+              </div>
+              <div>
+                <div className="text-xs font-mono text-stone-400 mb-4">WORK</div>
+                <div className="space-y-3">
+                  <Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link>
+                  <Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link>
+                  <Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link>
+                </div>
+              </div>
+              <div>
+                <div className="text-xs font-mono text-stone-400 mb-4">COMPANY</div>
+                <div className="space-y-3">
+                  <Link href="/about" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">About</Link>
+                </div>
+              </div>
+            </div>
+            <div className="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-400">
+              <div>© {new Date().getFullYear()} Imagination G LLC</div>
+              <div className="font-mono">gpi.studio</div>
+            </div>
+          </div>
+        </footer>
       </div>
     </>
   );

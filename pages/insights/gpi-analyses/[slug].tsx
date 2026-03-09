@@ -121,7 +121,7 @@ const GPIRadar = ({ company }: { company: Company }) => {
 const RenderBlock = ({ block }: { block: ContentBlock }) => {
   const renderText = (content: ContentBlock['content']) => {
     return content.map((part, i) => {
-      if (part.href) return <a key={i} href={part.href} className="text-amber-600 hover:underline">{part.text}</a>;
+      if (part.href) return <a key={i} href={part.href} className="text-red-600 hover:underline">{part.text}</a>;
       if (part.bold) return <strong key={i}>{part.text}</strong>;
       if (part.italic) return <em key={i}>{part.text}</em>;
       if (part.code) return <code key={i} className="bg-stone-200 px-1 rounded">{part.text}</code>;

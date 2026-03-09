@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import SEOHead from '../../components/SEOHead';
 import Navigation from '../../components/Navigation';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const NOTION_API_KEY = process.env.NOTION_API_KEY;
 const GPI_CONTENT_DB = '2d8990ae-cd45-811a-b634-c11c51be4013';
@@ -35,61 +36,25 @@ interface Props {
   content: ContentItem[];
 }
 
-const seriesConfig: Record<string, { color: string; bg: string; icon: string; description: string }> = {
-  'Weekly Smackdown': {
-    color: 'text-red-500',
-    bg: 'bg-red-50 border-red-200',
-    icon: '⚔️',
-    description: 'Head-to-head GPI comparisons',
-  },
-  'Transition Watch': {
-    color: 'text-yellow-500',
-    bg: 'bg-yellow-50 border-yellow-200',
-    icon: '🔄',
-    description: 'Companies attempting transformation',
-  },
-  'Calcification Alert': {
-    color: 'text-orange-500',
-    bg: 'bg-orange-50 border-orange-200',
-    icon: '🚨',
-    description: 'High-GPI particles in the news',
-  },
-  'Field Notes': {
-    color: 'text-green-500',
-    bg: 'bg-green-50 border-green-200',
-    icon: '📡',
-    description: 'How low-GPI companies stay fluid',
-  },
-  'Wildcard': {
-    color: 'text-purple-500',
-    bg: 'bg-purple-50 border-purple-200',
-    icon: '🃏',
-    description: 'Unexpected GPI scores',
-  },
-  'The Autopsy': {
-    color: 'text-stone-500',
-    bg: 'bg-stone-100 border-stone-200',
-    icon: '🪦',
-    description: 'Forensic breakdown of dead companies',
-  },
-  'Vital Signs': {
-    color: 'text-blue-500',
-    bg: 'bg-blue-50 border-blue-200',
-    icon: '🩺',
-    description: 'Ongoing metabolic monitoring',
-  },
+const seriesConfig: Record<string, { description: string }> = {
+  'Weekly Smackdown': { description: 'Head-to-head GPI comparisons' },
+  'Transition Watch': { description: 'Companies attempting transformation' },
+  'Calcification Alert': { description: 'High-GPI particles in the news' },
+  'Field Notes': { description: 'How low-GPI companies stay fluid' },
+  'Wildcard': { description: 'Unexpected GPI scores' },
+  'The Autopsy': { description: 'Forensic breakdown of dead companies' },
+  'Vital Signs': { description: 'Ongoing metabolic monitoring' },
 };
 
-const getStageColor = (stage: string) => {
-  switch (stage) {
-    case 'Field': return 'text-green-500 bg-green-50';
-    case 'Transitioning': return 'text-yellow-500 bg-yellow-50';
-    case 'Particle': return 'text-red-500 bg-red-50';
-    default: return 'text-stone-500 bg-stone-100';
-  }
+const getScoreColor = (score: number | null) => {
+  if (score === null) return 'text-stone-400';
+  if (score <= 3) return 'text-stone-900';
+  if (score <= 6.9) return 'text-stone-500';
+  return 'text-red-600';
 };
 
 const GPIAnalysesPage: NextPage<Props> = ({ content }) => {
+  useScrollReveal();
   const [filter, setFilter] = useState<string | null>(null);
 
   const filtered = filter ? content.filter((c) => c.series === filter) : content;
@@ -98,23 +63,23 @@ const GPIAnalysesPage: NextPage<Props> = ({ content }) => {
     <>
       <SEOHead
         title="GPI Analyses | GPI Studio"
-        description="66+ company analyses through the GPI lens. Smackdowns, Vital Signs, Autopsies. Who's calcifying. Who's not."
+        description="Company analyses through the GPI lens. Smackdowns, Vital Signs, Autopsies. Who's calcifying. Who's not."
       />
 
       <div className="min-h-screen bg-stone-50 text-stone-900">
         <Navigation currentPage="analyses" />
 
         {/* Hero */}
-        <section className="pt-28 pb-12 px-6 border-b border-stone-200">
-          <div className="max-w-7xl mx-auto">
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-6">
-              <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
-              66+ COMPANIES ANALYZED
+        <section className="pt-36 pb-24 px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-8">
+              <span className="w-2 h-2 bg-red-500 rounded-full" />
+              LIVE ANALYSIS
             </div>
-            <h1 className="text-4xl md:text-5xl font-black mb-4">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.05] tracking-headline">
               GPI ANALYSES<span className="text-red-600">.</span>
             </h1>
-            <p className="text-xl text-stone-500 max-w-2xl">
+            <p className="text-xl md:text-2xl text-stone-500 max-w-2xl leading-relaxed">
               Weekly breakdowns of companies and industries through the Growing Pains Index lens.
               Who&apos;s calcifying? Who&apos;s transforming? Who&apos;s already field?
             </p>
@@ -122,30 +87,30 @@ const GPIAnalysesPage: NextPage<Props> = ({ content }) => {
         </section>
 
         {/* Series Filter */}
-        <section className="py-8 px-6 border-b border-stone-200">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-wrap gap-3">
+        <section className="py-8 px-6 border-t border-stone-200">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex flex-wrap gap-3 fade-up">
               <button
                 onClick={() => setFilter(null)}
-                className={`px-4 py-2 rounded-full text-sm font-bold transition-all ${
+                className={`px-4 py-2 text-sm font-semibold transition-colors ${
                   filter === null
                     ? 'bg-stone-900 text-white'
-                    : 'bg-stone-100 text-stone-500 hover:text-stone-900'
+                    : 'bg-stone-100 text-stone-500 hover:text-stone-900 border border-stone-200'
                 }`}
               >
-                ALL
+                All
               </button>
-              {Object.entries(seriesConfig).map(([name, config]) => (
+              {Object.entries(seriesConfig).map(([name]) => (
                 <button
                   key={name}
                   onClick={() => setFilter(name)}
-                  className={`px-4 py-2 rounded-full text-sm font-bold transition-all ${
+                  className={`px-4 py-2 text-sm font-semibold transition-colors ${
                     filter === name
-                      ? `${config.bg} ${config.color} border`
-                      : 'bg-stone-100 text-stone-500 hover:text-stone-900'
+                      ? 'bg-stone-900 text-white'
+                      : 'bg-stone-100 text-stone-500 hover:text-stone-900 border border-stone-200'
                   }`}
                 >
-                  {config.icon} {name.toUpperCase()}
+                  {name}
                 </button>
               ))}
             </div>
@@ -153,116 +118,141 @@ const GPIAnalysesPage: NextPage<Props> = ({ content }) => {
         </section>
 
         {/* Content Grid */}
-        <section className="py-12 px-6">
-          <div className="max-w-7xl mx-auto">
+        <section className="py-24 px-6 border-t border-stone-200">
+          <div className="max-w-4xl mx-auto">
             {filtered.length === 0 ? (
-              <div className="text-center py-20 border border-stone-200 rounded-xl">
-                <p className="text-4xl mb-4">📊</p>
+              <div className="text-center py-20 border border-stone-200 fade-up">
                 <h3 className="text-xl font-bold mb-2">No analyses yet</h3>
                 <p className="text-stone-500 max-w-md mx-auto">
                   {filter
                     ? `No ${filter} content published yet. Check back soon.`
-                    : 'First analyses publishing soon. 66+ companies already scored.'}
+                    : 'First analyses publishing soon.'}
                 </p>
               </div>
             ) : (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filtered.map((item) => {
-                  const config = seriesConfig[item.series] || seriesConfig['Wildcard'];
-                  return (
-                    <article
-                      key={item.id}
-                      className={`border rounded-xl overflow-hidden hover:border-stone-300 transition-colors ${config.bg}`}
-                    >
-                      <div className="px-6 py-3 border-b border-stone-200/50">
-                        <span className={`text-xs font-bold ${config.color}`}>
-                          {config.icon} {item.series.toUpperCase()}
+              <div className="space-y-6 fade-up-stagger">
+                {filtered.map((item) => (
+                  <article
+                    key={item.id}
+                    className="fade-up border border-stone-200 hover:border-stone-400 transition-colors bg-white"
+                  >
+                    <div className="px-6 py-3 border-b border-stone-100 flex items-center justify-between">
+                      <span className="text-xs font-mono text-stone-400">
+                        {item.series.toUpperCase()}
+                      </span>
+                      {item.publishDate && (
+                        <span className="text-xs text-stone-400">
+                          {new Date(item.publishDate).toLocaleDateString('en-US', {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric',
+                          })}
                         </span>
-                        {item.publishDate && (
-                          <span className="text-xs text-stone-400 ml-3">
-                            {new Date(item.publishDate).toLocaleDateString('en-US', {
-                              month: 'short',
-                              day: 'numeric',
-                              year: 'numeric',
-                            })}
-                          </span>
-                        )}
-                      </div>
+                      )}
+                    </div>
 
-                      <div className="p-6">
-                        <h2 className="text-xl font-bold mb-3 leading-tight">
-                          {item.headline}
-                        </h2>
+                    <div className="p-6">
+                      <h2 className="text-xl font-bold mb-3 leading-tight">
+                        {item.headline}
+                      </h2>
 
-                        {item.teaser && (
-                          <p className="text-stone-500 text-sm mb-4 line-clamp-2">
-                            {item.teaser}
-                          </p>
-                        )}
+                      {item.teaser && (
+                        <p className="text-stone-500 text-sm mb-4 line-clamp-2 leading-relaxed">
+                          {item.teaser}
+                        </p>
+                      )}
 
-                        {item.companies.length > 0 && (
-                          <div className="space-y-2 mt-4">
-                            {item.companies.map((company) => (
-                              <div
-                                key={company.id}
-                                className="flex items-center justify-between bg-white/60 rounded-lg px-3 py-2"
-                              >
-                                <div>
-                                  <span className="font-bold text-sm">{company.name}</span>
-                                  <span className="text-stone-400 text-xs ml-2">{company.sector}</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                  <span className={`text-xs px-2 py-0.5 rounded ${getStageColor(company.stage)}`}>
-                                    {company.stage}
-                                  </span>
-                                  <span className="font-mono font-bold text-sm">
-                                    {company.gpiScore?.toFixed(1) || '—'}
-                                  </span>
-                                </div>
+                      {item.companies.length > 0 && (
+                        <div className="space-y-2 mt-4">
+                          {item.companies.map((company) => (
+                            <div
+                              key={company.id}
+                              className="flex items-center justify-between bg-stone-50 px-3 py-2"
+                            >
+                              <div>
+                                <span className="font-bold text-sm">{company.name}</span>
+                                <span className="text-stone-400 text-xs ml-2">{company.sector}</span>
                               </div>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-
-                      {item.slug && (
-                        <div className="px-6 py-3 border-t border-stone-200/50">
-                          <Link
-                            href={`/insights/gpi-analyses/${item.slug}`}
-                            className={`text-sm font-bold ${config.color} hover:underline`}
-                          >
-                            READ ANALYSIS →
-                          </Link>
+                              <span className={`font-mono font-bold text-sm ${getScoreColor(company.gpiScore)}`}>
+                                {company.gpiScore?.toFixed(1) || '\u2014'}
+                              </span>
+                            </div>
+                          ))}
                         </div>
                       )}
-                    </article>
-                  );
-                })}
+                    </div>
+
+                    {item.slug && (
+                      <div className="px-6 py-3 border-t border-stone-100">
+                        <Link
+                          href={`/insights/gpi-analyses/${item.slug}`}
+                          className="text-sm font-semibold text-stone-900 hover:text-red-600 transition-colors"
+                        >
+                          Read analysis →
+                        </Link>
+                      </div>
+                    )}
+                  </article>
+                ))}
               </div>
             )}
           </div>
         </section>
 
         {/* CTA */}
-        <section className="py-16 px-6 border-t border-stone-200">
-          <div className="max-w-4xl mx-auto text-center">
+        <section className="py-24 px-6 border-t border-stone-200 bg-white">
+          <div className="max-w-4xl mx-auto text-center fade-up">
             <h2 className="text-2xl font-black mb-4">CURIOUS ABOUT YOUR OWN SCORE?</h2>
             <p className="text-stone-500 mb-8">
               32 questions. 7 dimensions. See where your organization&apos;s energy gets stuck.
             </p>
             <Link
               href="/diagnostic"
-              className="inline-block bg-red-600 text-white px-8 py-4 font-bold hover:bg-red-700 transition-colors"
+              className="inline-block bg-stone-900 text-white px-8 py-4 font-semibold hover:bg-stone-800 transition-colors"
             >
-              TAKE THE DIAGNOSTIC
+              Take the Diagnostic
             </Link>
           </div>
         </section>
 
-        <footer className="py-8 px-6 border-t border-stone-200">
-          <div className="max-w-4xl mx-auto flex justify-between items-center text-sm text-stone-400">
-            <div>GPI.STUDIO</div>
-            <div>© IMAGINATION G LLC</div>
+        {/* Footer */}
+        <footer className="py-16 px-6 border-t border-stone-200">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+              <div>
+                <div className="font-black text-sm mb-4">GPI<span className="text-red-600">.</span>STUDIO</div>
+                <p className="text-sm text-stone-400 leading-relaxed">
+                  Organizational physics.<br />
+                  We measure where energy gets stuck.
+                </p>
+              </div>
+              <div>
+                <div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div>
+                <div className="space-y-3">
+                  <Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link>
+                  <Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link>
+                  <Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link>
+                </div>
+              </div>
+              <div>
+                <div className="text-xs font-mono text-stone-400 mb-4">WORK</div>
+                <div className="space-y-3">
+                  <Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link>
+                  <Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link>
+                  <Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link>
+                </div>
+              </div>
+              <div>
+                <div className="text-xs font-mono text-stone-400 mb-4">COMPANY</div>
+                <div className="space-y-3">
+                  <Link href="/about" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">About</Link>
+                </div>
+              </div>
+            </div>
+            <div className="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-400">
+              <div>© {new Date().getFullYear()} Imagination G LLC</div>
+              <div className="font-mono">gpi.studio</div>
+            </div>
           </div>
         </footer>
       </div>

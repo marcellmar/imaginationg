@@ -1,6 +1,9 @@
 import React from 'react';
+import Link from 'next/link';
 import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import { ArrowRight } from 'lucide-react';
 
 const stats = [
   { num: '15+', label: 'YEARS' },
@@ -43,6 +46,8 @@ const built = [
 ];
 
 const AboutPage = () => {
+  useScrollReveal();
+
   return (
     <>
       <SEOHead
@@ -54,55 +59,55 @@ const AboutPage = () => {
         <Navigation currentPage="about" />
 
         {/* Hero */}
-        <section className="pt-28 pb-10 px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-6">
-              <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+        <section className="pt-36 pb-24 px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-8">
+              <span className="w-2 h-2 bg-red-500 rounded-full" />
               ABOUT
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.05] tracking-headline">
               FROM HEAD<span className="text-red-600">.</span><br />
               TO HANDS<span className="text-red-600">.</span>
             </h1>
 
-            <p className="text-xl text-stone-500 max-w-2xl">
+            <p className="text-xl md:text-2xl text-stone-500 max-w-2xl mx-auto leading-relaxed">
               I've spent 15 years walking into systems I didn't build, figuring out why they're stuck, and building the thing that unsticks them.
             </p>
           </div>
         </section>
 
         {/* Stats Ribbon */}
-        <section className="px-6 pb-10">
+        <section className="py-24 px-6 border-t border-stone-200 bg-white">
           <div className="max-w-4xl mx-auto">
-            <div className="flex flex-wrap gap-x-8 gap-y-4">
+            <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 fade-up">
               {stats.map((s) => (
-                <div key={s.label}>
-                  <span className="text-3xl md:text-4xl font-black text-stone-900">{s.num}</span>
-                  <span className="text-xs font-mono text-stone-400 ml-2 tracking-widest">{s.label}</span>
+                <div key={s.label} className="text-center">
+                  <span className="text-4xl md:text-5xl font-black text-stone-900">{s.num}</span>
+                  <div className="text-xs font-mono text-stone-400 mt-2 tracking-widest">{s.label}</div>
                 </div>
               ))}
+            </div>
+
+            <div className="fade-up mt-16 text-center">
+              <p className="text-sm text-stone-500 leading-loose">
+                {orgs.join(' · ')}
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Org Wall */}
-        <section className="px-6 pb-12">
-          <div className="max-w-4xl mx-auto">
-            <p className="text-sm text-stone-500 leading-loose">
-              {orgs.join(' · ')}
-            </p>
-          </div>
-        </section>
-
         {/* What Got Built */}
-        <section className="py-12 px-6 border-t border-stone-200 bg-white">
+        <section className="py-24 px-6 border-t border-stone-200">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-black mb-8">WHAT GOT BUILT<span className="text-red-600">.</span></h2>
+            <div className="fade-up text-xs font-mono text-stone-400 mb-2">THE TRACK RECORD</div>
+            <h2 className="fade-up text-3xl md:text-4xl font-black mb-12 tracking-headline">
+              WHAT GOT BUILT<span className="text-red-600">.</span>
+            </h2>
 
-            <div className="columns-1 md:columns-2 gap-8">
+            <div className="columns-1 md:columns-2 gap-8 fade-up-stagger">
               {built.map((item, i) => (
-                <p key={i} className="text-sm text-stone-700 mb-3 break-inside-avoid">
+                <p key={i} className="fade-up text-sm text-stone-700 mb-4 break-inside-avoid leading-relaxed">
                   {item}
                 </p>
               ))}
@@ -111,30 +116,72 @@ const AboutPage = () => {
         </section>
 
         {/* GPI Thread */}
-        <section className="py-12 px-6 border-t border-stone-200">
-          <div className="max-w-2xl mx-auto">
-            <p className="text-stone-600 mb-3">
+        <section className="py-24 px-6 border-t border-stone-200 bg-white">
+          <div className="max-w-2xl mx-auto text-center fade-up">
+            <p className="text-stone-600 mb-4 text-lg leading-relaxed">
               After enough engagements across enough industries and continents, the same pattern kept showing up. Organizations that looked healthy on paper were stuck in practice. The speed of decisions, the location of knowledge, the cost of changing direction told a different story than the financials.
             </p>
-            <p className="text-stone-900 font-bold mb-6">
+            <p className="text-stone-900 font-bold text-xl mb-10">
               That pattern became the Growing Pains Index.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <a
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link
                 href="/diagnostic"
-                className="inline-flex items-center justify-center bg-red-600 px-6 py-3 text-sm font-black hover:bg-red-700 transition-colors text-white"
+                className="inline-flex items-center justify-center gap-2 bg-stone-900 px-8 py-4 text-sm font-semibold hover:bg-stone-800 transition-colors text-white group"
               >
-                TAKE THE DIAGNOSTIC
-              </a>
-              <a
+                Take the Diagnostic
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
                 href="/work-with-us"
-                className="inline-flex items-center justify-center border-2 border-stone-900 px-6 py-3 text-sm font-black hover:bg-stone-900 hover:text-white transition-colors"
+                className="inline-flex items-center justify-center border border-stone-300 px-8 py-4 text-sm font-semibold hover:border-stone-900 transition-colors"
               >
-                WORK WITH US
-              </a>
+                Work With Us
+              </Link>
             </div>
           </div>
         </section>
+
+        {/* Footer */}
+        <footer className="py-16 px-6 border-t border-stone-200">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+              <div>
+                <div className="font-black text-sm mb-4">GPI<span className="text-red-600">.</span>STUDIO</div>
+                <p className="text-sm text-stone-400 leading-relaxed">
+                  Organizational physics.<br />
+                  We measure where energy gets stuck.
+                </p>
+              </div>
+              <div>
+                <div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div>
+                <div className="space-y-3">
+                  <Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link>
+                  <Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link>
+                  <Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link>
+                </div>
+              </div>
+              <div>
+                <div className="text-xs font-mono text-stone-400 mb-4">WORK</div>
+                <div className="space-y-3">
+                  <Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link>
+                  <Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link>
+                  <Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link>
+                </div>
+              </div>
+              <div>
+                <div className="text-xs font-mono text-stone-400 mb-4">COMPANY</div>
+                <div className="space-y-3">
+                  <Link href="/about" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">About</Link>
+                </div>
+              </div>
+            </div>
+            <div className="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-400">
+              <div>© {new Date().getFullYear()} Imagination G LLC</div>
+              <div className="font-mono">gpi.studio</div>
+            </div>
+          </div>
+        </footer>
       </div>
     </>
   );

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState, useMemo } from 'react';
 import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import { ArrowRight, Search, X, Filter, ChevronDown } from 'lucide-react';
 import { hasSnapshot, getSnapshotSlug } from '../lib/snapshots';
 
@@ -25,36 +26,31 @@ interface CompaniesPageProps {
 
 const getScoreColor = (score: number | null) => {
   if (!score) return 'text-stone-500';
-  if (score <= 3) return 'text-green-500';
-  if (score <= 6.9) return 'text-yellow-500';
-  return 'text-red-500';
+  if (score <= 3) return 'text-stone-900';
+  if (score <= 6.9) return 'text-stone-500';
+  return 'text-red-600';
 };
 
 const stageOrder = ['Field', 'Transitioning', 'Particle'];
 
-const stageConfig: Record<string, { label: string; description: string; color: string; bgColor: string }> = {
+const stageConfig: Record<string, { label: string; description: string }> = {
   'Field': {
     label: 'FIELD STATE',
     description: 'Fluid, adaptive, fast-moving',
-    color: 'text-green-500',
-    bgColor: 'border-green-500/30',
   },
   'Transitioning': {
     label: 'TRANSITIONING',
     description: 'Mixed signals, could go either way',
-    color: 'text-yellow-500',
-    bgColor: 'border-yellow-500/30',
   },
   'Particle': {
     label: 'PARTICLE STATE',
     description: 'Rigid, calcified, slow to change',
-    color: 'text-red-500',
-    bgColor: 'border-red-500/30',
   },
 };
 
 const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sectors }) => {
-  // Search and filter state
+  useScrollReveal();
+
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedSector, setSelectedSector] = useState<string>('');
   const [selectedStages, setSelectedStages] = useState<string[]>(['Field', 'Transitioning', 'Particle']);
@@ -63,36 +59,24 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
   const [snapshotOnly, setSnapshotOnly] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
 
-  // Filter companies
   const filteredCompanies = useMemo(() => {
     return companies.filter((company) => {
-      // Text search (name or ticker)
       if (searchQuery) {
         const query = searchQuery.toLowerCase();
         const nameMatch = company.name.toLowerCase().includes(query);
         const tickerMatch = company.ticker?.toLowerCase().includes(query);
         if (!nameMatch && !tickerMatch) return false;
       }
-
-      // Sector filter
       if (selectedSector && company.sector !== selectedSector) return false;
-
-      // Stage filter
       const stage = company.stage || 'Particle';
       if (!selectedStages.includes(stage)) return false;
-
-      // GPI range filter
       if (gpiMin && company.gpiScore !== null && company.gpiScore < parseFloat(gpiMin)) return false;
       if (gpiMax && company.gpiScore !== null && company.gpiScore > parseFloat(gpiMax)) return false;
-
-      // Snapshot filter
       if (snapshotOnly && !hasSnapshot(company.name)) return false;
-
       return true;
     });
   }, [companies, searchQuery, selectedSector, selectedStages, gpiMin, gpiMax, snapshotOnly]);
 
-  // Group filtered companies by state
   const byState: Record<string, Company[]> = useMemo(() => {
     const grouped: Record<string, Company[]> = {
       'Field': [],
@@ -109,7 +93,6 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
       }
     }
 
-    // Sort each state by GPI score
     for (const state of stageOrder) {
       if (state === 'Field') {
         grouped[state].sort((a, b) => (a.gpiScore || 0) - (b.gpiScore || 0));
@@ -142,24 +125,23 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
     <>
       <SEOHead
         title="Company Analyses | GPI Studio"
-        description={`${totalCount} companies analyzed across 7 dimensions of organizational physics. See who's fluid and who's calcified.`}
+        description="Companies analyzed across 7 dimensions of organizational physics. See who's fluid and who's calcified."
       />
 
       <div className="min-h-screen bg-stone-50 text-stone-900">
-        <Navigation currentPage="companies" />
+        <Navigation />
 
         {/* Header */}
-        <section className="pt-28 pb-8 px-6 border-b border-stone-200">
-          <div className="max-w-6xl mx-auto">
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-4">
+        <section className="pt-36 pb-12 px-6 border-b border-stone-200">
+          <div className="max-w-6xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-8">
               <span className="w-2 h-2 bg-red-500 rounded-full" />
               GPI DATABASE
             </div>
-            <h1 className="text-4xl md:text-5xl font-black mb-4">
-              {totalCount} COMPANIES<span className="text-red-600">.</span>{' '}
-              <span className="text-stone-500">AND COUNTING.</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 tracking-headline">
+              COMPANY DATABASE<span className="text-red-600">.</span>
             </h1>
-            <p className="text-xl text-stone-500 max-w-2xl">
+            <p className="text-xl md:text-2xl text-stone-500 max-w-2xl mx-auto leading-relaxed">
               Same 7 dimensions. Same physics. Different scores. See who can move and who's stuck.
             </p>
           </div>
@@ -168,34 +150,31 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
         {/* Search and Filters */}
         <section className="py-4 px-6 border-b border-stone-200 bg-white sticky top-16 z-40">
           <div className="max-w-6xl mx-auto">
-            {/* Search Bar Row */}
             <div className="flex flex-col md:flex-row gap-3">
-              {/* Search Input */}
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-500" size={18} />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" size={18} />
                 <input
                   type="text"
                   placeholder="Search by name or ticker..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-stone-100 border border-stone-200 rounded px-10 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-400 transition-colors"
+                  className="w-full bg-stone-50 border border-stone-200 px-10 py-2.5 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-stone-400 transition-colors"
                 />
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery('')}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-500 hover:text-stone-900"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-900"
                   >
                     <X size={16} />
                   </button>
                 )}
               </div>
 
-              {/* Sector Dropdown */}
               <div className="relative">
                 <select
                   value={selectedSector}
                   onChange={(e) => setSelectedSector(e.target.value)}
-                  className="appearance-none bg-stone-100 border border-stone-200 rounded px-4 py-2.5 pr-10 text-stone-900 focus:outline-none focus:border-stone-400 transition-colors cursor-pointer min-w-[180px]"
+                  className="appearance-none bg-stone-50 border border-stone-200 px-4 py-2.5 pr-10 text-stone-900 focus:outline-none focus:border-stone-400 transition-colors cursor-pointer min-w-[180px]"
                 >
                   <option value="">All Sectors</option>
                   {sectors.map((sector) => (
@@ -204,16 +183,15 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-500 pointer-events-none" size={16} />
+                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none" size={16} />
               </div>
 
-              {/* Filter Toggle Button */}
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className={`flex items-center gap-2 px-4 py-2.5 border rounded transition-colors ${
+                className={`flex items-center gap-2 px-4 py-2.5 border transition-colors ${
                   showFilters || hasActiveFilters
-                    ? 'bg-stone-200 border-stone-300 text-stone-900'
-                    : 'bg-stone-100 border-stone-200 text-stone-500 hover:text-stone-900 hover:border-stone-300'
+                    ? 'bg-stone-100 border-stone-300 text-stone-900'
+                    : 'bg-stone-50 border-stone-200 text-stone-500 hover:text-stone-900 hover:border-stone-300'
                 }`}
               >
                 <Filter size={16} />
@@ -224,25 +202,22 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
               </button>
             </div>
 
-            {/* Expanded Filters */}
             {showFilters && (
               <div className="mt-4 pt-4 border-t border-stone-200">
                 <div className="flex flex-wrap gap-6">
-                  {/* Stage Filter */}
                   <div>
-                    <div className="text-xs text-stone-500 mb-2 font-mono">STAGE</div>
+                    <div className="text-xs text-stone-400 mb-2 font-mono">STAGE</div>
                     <div className="flex gap-2">
                       {stageOrder.map((stage) => {
-                        const config = stageConfig[stage];
                         const isSelected = selectedStages.includes(stage);
                         return (
                           <button
                             key={stage}
                             onClick={() => toggleStage(stage)}
-                            className={`px-3 py-1.5 text-sm rounded border transition-colors ${
+                            className={`px-3 py-1.5 text-sm border transition-colors ${
                               isSelected
-                                ? `${config.color} ${config.bgColor} border-current`
-                                : 'text-stone-500 border-stone-300 hover:border-stone-400'
+                                ? 'text-stone-900 border-stone-900'
+                                : 'text-stone-400 border-stone-300 hover:border-stone-400'
                             }`}
                           >
                             {stage}
@@ -252,9 +227,8 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
                     </div>
                   </div>
 
-                  {/* GPI Range */}
                   <div>
-                    <div className="text-xs text-stone-500 mb-2 font-mono">GPI RANGE</div>
+                    <div className="text-xs text-stone-400 mb-2 font-mono">GPI RANGE</div>
                     <div className="flex items-center gap-2">
                       <input
                         type="number"
@@ -264,9 +238,9 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
                         min="1"
                         max="10"
                         step="0.1"
-                        className="w-20 bg-stone-100 border border-stone-200 rounded px-3 py-1.5 text-stone-900 text-sm placeholder-stone-400 focus:outline-none focus:border-stone-400"
+                        className="w-20 bg-stone-50 border border-stone-200 px-3 py-1.5 text-stone-900 text-sm placeholder-stone-400 focus:outline-none focus:border-stone-400"
                       />
-                      <span className="text-stone-400">—</span>
+                      <span className="text-stone-300">to</span>
                       <input
                         type="number"
                         placeholder="Max"
@@ -275,32 +249,30 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
                         min="1"
                         max="10"
                         step="0.1"
-                        className="w-20 bg-stone-100 border border-stone-200 rounded px-3 py-1.5 text-stone-900 text-sm placeholder-stone-400 focus:outline-none focus:border-stone-400"
+                        className="w-20 bg-stone-50 border border-stone-200 px-3 py-1.5 text-stone-900 text-sm placeholder-stone-400 focus:outline-none focus:border-stone-400"
                       />
                     </div>
                   </div>
 
-                  {/* Snapshot Only */}
                   <div>
-                    <div className="text-xs text-stone-500 mb-2 font-mono">OPTIONS</div>
+                    <div className="text-xs text-stone-400 mb-2 font-mono">OPTIONS</div>
                     <button
                       onClick={() => setSnapshotOnly(!snapshotOnly)}
-                      className={`px-3 py-1.5 text-sm rounded border transition-colors ${
+                      className={`px-3 py-1.5 text-sm border transition-colors ${
                         snapshotOnly
-                          ? 'text-cyan-500 border-cyan-400 bg-cyan-50'
-                          : 'text-stone-500 border-stone-300 hover:border-stone-400'
+                          ? 'text-stone-900 border-stone-900'
+                          : 'text-stone-400 border-stone-300 hover:border-stone-400'
                       }`}
                     >
                       Snapshots only
                     </button>
                   </div>
 
-                  {/* Clear Filters */}
                   {hasActiveFilters && (
                     <div className="flex items-end">
                       <button
                         onClick={clearFilters}
-                        className="px-3 py-1.5 text-sm text-stone-500 hover:text-stone-900 transition-colors"
+                        className="px-3 py-1.5 text-sm text-stone-400 hover:text-stone-900 transition-colors"
                       >
                         Clear all
                       </button>
@@ -310,25 +282,14 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
               </div>
             )}
 
-            {/* Results Count */}
             <div className="mt-3 flex items-center justify-between text-sm">
               <div className="text-stone-500">
-                Showing <span className="text-stone-900 font-medium">{filteredCompanies.length}</span> of {totalCount} companies
+                {hasActiveFilters ? `${filteredCompanies.length} results` : ''}
               </div>
-              {/* Quick Legend */}
               <div className="hidden md:flex gap-4 text-xs">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-green-500" />
-                  <span className="text-stone-500">Field</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-yellow-500" />
-                  <span className="text-stone-500">Transitioning</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-red-500" />
-                  <span className="text-stone-500">Particle</span>
-                </div>
+                <span className="text-stone-900">Field</span>
+                <span className="text-stone-500">Transitioning</span>
+                <span className="text-red-600">Particle</span>
               </div>
             </div>
           </div>
@@ -342,7 +303,7 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
                 <div className="text-stone-500 text-lg mb-4">No companies match your filters.</div>
                 <button
                   onClick={clearFilters}
-                  className="text-red-500 hover:text-red-400 transition-colors"
+                  className="text-stone-900 hover:text-red-600 transition-colors font-medium"
                 >
                   Clear filters
                 </button>
@@ -354,15 +315,15 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
                 if (stateCompanies.length === 0) return null;
 
                 return (
-                  <div key={state} className={`mb-12 p-6 border ${config.bgColor} rounded-lg`}>
+                  <div key={state} className="mb-12 fade-up">
                     <div className="flex items-center justify-between mb-6">
                       <div>
-                        <h2 className={`text-lg font-black ${config.color}`}>
+                        <h2 className="text-sm font-black tracking-widest text-stone-900">
                           {config.label}
                         </h2>
-                        <p className="text-sm text-stone-500">{config.description}</p>
+                        <p className="text-sm text-stone-400">{config.description}</p>
                       </div>
-                      <div className={`text-3xl font-black ${config.color}`}>
+                      <div className="text-3xl font-black text-stone-300">
                         {stateCompanies.length}
                       </div>
                     </div>
@@ -372,7 +333,7 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
                         const cardContent = (
                           <div
                             className={`border border-stone-200 bg-white p-4 transition-colors ${
-                              snapshotSlug ? 'hover:border-cyan-400 cursor-pointer' : 'hover:border-stone-300'
+                              snapshotSlug ? 'hover:border-stone-400 cursor-pointer' : 'hover:border-stone-300'
                             }`}
                           >
                             <div className="flex justify-between items-start mb-2">
@@ -394,7 +355,7 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
                                 </span>
                               )}
                               {hasSnapshot(company.name) && (
-                                <span className="text-xs text-cyan-500 bg-cyan-50 px-1.5 py-0.5 rounded">
+                                <span className="text-xs text-stone-500 bg-stone-100 px-1.5 py-0.5">
                                   SNAPSHOT
                                 </span>
                               )}
@@ -419,27 +380,62 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
         </section>
 
         {/* CTA */}
-        <section className="py-12 px-6 border-t border-stone-200 bg-white">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl font-black mb-4">WANT YOUR COMPANY ANALYZED?</h2>
-            <p className="text-stone-500 mb-6">
+        <section className="py-24 px-6 border-t border-stone-200 bg-white">
+          <div className="max-w-4xl mx-auto text-center fade-up">
+            <h2 className="text-3xl md:text-4xl font-black mb-6 tracking-headline">
+              WANT YOUR COMPANY ANALYZED<span className="text-red-600">?</span>
+            </h2>
+            <p className="text-stone-500 mb-8">
               Get a full GPI breakdown across all 7 dimensions.
             </p>
             <Link
               href="/diagnostic"
-              className="inline-flex items-center gap-2 bg-red-600 px-6 py-3 font-bold hover:bg-red-700 transition-colors"
+              className="inline-flex items-center gap-2 bg-stone-900 px-8 py-4 text-sm font-semibold hover:bg-stone-800 transition-colors group text-white"
             >
-              START WITH THE DIAGNOSTIC
-              <ArrowRight size={18} />
+              Start with the Diagnostic
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
         </section>
 
         {/* Footer */}
-        <footer className="py-8 px-6 border-t border-stone-200">
-          <div className="max-w-6xl mx-auto flex justify-between items-center text-sm text-stone-400">
-            <div>GPI.STUDIO</div>
-            <div>© IMAGINATION G LLC</div>
+        <footer className="py-16 px-6 border-t border-stone-200">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+              <div>
+                <div className="font-black text-sm mb-4">GPI<span className="text-red-600">.</span>STUDIO</div>
+                <p className="text-sm text-stone-400 leading-relaxed">
+                  Organizational physics.<br />
+                  We measure where energy gets stuck.
+                </p>
+              </div>
+              <div>
+                <div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div>
+                <div className="space-y-3">
+                  <Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link>
+                  <Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link>
+                  <Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link>
+                </div>
+              </div>
+              <div>
+                <div className="text-xs font-mono text-stone-400 mb-4">WORK</div>
+                <div className="space-y-3">
+                  <Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link>
+                  <Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link>
+                  <Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link>
+                </div>
+              </div>
+              <div>
+                <div className="text-xs font-mono text-stone-400 mb-4">COMPANY</div>
+                <div className="space-y-3">
+                  <Link href="/about" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">About</Link>
+                </div>
+              </div>
+            </div>
+            <div className="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-400">
+              <div>© {new Date().getFullYear()} Imagination G LLC</div>
+              <div className="font-mono">gpi.studio</div>
+            </div>
           </div>
         </footer>
       </div>
@@ -486,8 +482,6 @@ export const getStaticProps: GetStaticProps<CompaniesPageProps> = async () => {
         for (const page of data.results) {
           const props = page.properties;
           const name = props.Name?.title?.[0]?.plain_text || 'Unknown';
-
-          // Skip deals - they have their own page
           if (name.toLowerCase().includes('deal')) continue;
 
           const sector = props.Sector?.select?.name || 'Other';
@@ -515,7 +509,6 @@ export const getStaticProps: GetStaticProps<CompaniesPageProps> = async () => {
     console.error('Error fetching companies:', error);
   }
 
-  // Sort sectors alphabetically
   const sectors = Array.from(sectorsSet).sort();
 
   return {

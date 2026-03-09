@@ -8,8 +8,11 @@ import Link from 'next/link';
 import SEOHead from '../../components/SEOHead';
 import Navigation from '../../components/Navigation';
 import { GPISpectrum } from '../../components/gpi';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const TalentFlowPage = () => {
+  useScrollReveal();
+
   const examples = {
     low: [
       { company: 'Spotify', gpi: 2.5, detail: 'Squad model with fluid membership. Moving between squads is a normal career move, not an exception that requires HR approval.' },
@@ -40,9 +43,9 @@ const TalentFlowPage = () => {
       <div className="min-h-screen bg-stone-50 text-stone-900">
         <Navigation currentPage="framework" />
 
-        <section className="pt-24 pb-16 px-6">
+        <section className="pt-36 pb-24 px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-4xl mx-auto fade-up">
               <div className="mb-8">
                 <Link href="/gpi-framework" className="text-stone-500 hover:text-stone-900 transition-colors text-sm">
                   ← GPI Framework
@@ -50,15 +53,15 @@ const TalentFlowPage = () => {
               </div>
 
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 bg-red-600 text-white flex items-center justify-center font-black text-2xl rounded">
+                <div className="w-14 h-14 bg-red-600 text-white flex items-center justify-center font-black text-2xl">
                   5
                 </div>
-                <span className="text-xs font-mono text-stone-500 bg-stone-100 px-2 py-1 rounded">
+                <span className="text-xs font-mono text-stone-500 bg-stone-100 px-2 py-1 rounded-full">
                   10% weight
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl font-black mb-6">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-headline mb-6">
                 TALENT FLOW<span className="text-red-600">.</span>
               </h1>
 
@@ -67,36 +70,36 @@ const TalentFlowPage = () => {
               </p>
 
               {/* Talent Flow Visual */}
-              <div className="mb-12 p-8 bg-white border border-stone-200 rounded-xl">
+              <div className="mb-12 p-8 bg-white border border-stone-200">
                 <svg viewBox="0 0 400 120" className="w-full max-w-lg mx-auto">
                   {/* High Flow (left) */}
-                  <text x="80" y="15" textAnchor="middle" fill="#22c55e" fontSize="10" fontWeight="bold">HIGH FLOW</text>
+                  <text x="80" y="15" textAnchor="middle" fill="#1c1917" fontSize="10" fontWeight="bold">HIGH FLOW</text>
 
                   {/* Entry point */}
-                  <rect x="20" y="45" width="30" height="30" fill="none" stroke="#22c55e" strokeWidth="2" rx="4" />
-                  <text x="35" y="63" textAnchor="middle" fill="#22c55e" fontSize="8">IN</text>
+                  <rect x="20" y="45" width="30" height="30" fill="none" stroke="#1c1917" strokeWidth="2" rx="4" />
+                  <text x="35" y="63" textAnchor="middle" fill="#1c1917" fontSize="8">IN</text>
 
                   {/* Flowing people */}
-                  <circle r="5" fill="#22c55e">
+                  <circle r="5" fill="#1c1917">
                     <animateMotion dur="2s" repeatCount="indefinite" path="M25,60 Q70,30 100,60 Q130,90 160,60" />
                   </circle>
-                  <circle r="5" fill="#22c55e">
+                  <circle r="5" fill="#1c1917">
                     <animateMotion dur="2s" begin="0.5s" repeatCount="indefinite" path="M25,60 Q70,80 100,60 Q130,40 160,60" />
                   </circle>
-                  <circle r="5" fill="#22c55e">
+                  <circle r="5" fill="#1c1917">
                     <animateMotion dur="2s" begin="1s" repeatCount="indefinite" path="M25,60 Q70,50 100,70 Q130,60 160,50" />
                   </circle>
 
                   {/* Team boxes they flow through */}
-                  <rect x="60" y="40" width="20" height="20" fill="#22c55e" opacity="0.3" rx="2" />
-                  <rect x="90" y="55" width="20" height="20" fill="#22c55e" opacity="0.3" rx="2" />
-                  <rect x="120" y="45" width="20" height="20" fill="#22c55e" opacity="0.3" rx="2" />
+                  <rect x="60" y="40" width="20" height="20" fill="#1c1917" opacity="0.3" rx="2" />
+                  <rect x="90" y="55" width="20" height="20" fill="#1c1917" opacity="0.3" rx="2" />
+                  <rect x="120" y="45" width="20" height="20" fill="#1c1917" opacity="0.3" rx="2" />
 
                   {/* Exit point */}
-                  <rect x="150" y="45" width="30" height="30" fill="none" stroke="#22c55e" strokeWidth="2" rx="4" />
-                  <text x="165" y="63" textAnchor="middle" fill="#22c55e" fontSize="8">OUT</text>
+                  <rect x="150" y="45" width="30" height="30" fill="none" stroke="#1c1917" strokeWidth="2" rx="4" />
+                  <text x="165" y="63" textAnchor="middle" fill="#1c1917" fontSize="8">OUT</text>
 
-                  <text x="100" y="105" textAnchor="middle" fill="#22c55e" fontSize="8">PEOPLE MOVE FREELY</text>
+                  <text x="100" y="105" textAnchor="middle" fill="#1c1917" fontSize="8">PEOPLE MOVE FREELY</text>
 
                   {/* Divider */}
                   <line x1="190" y1="20" x2="190" y2="100" stroke="#d6d3d1" strokeWidth="1" strokeDasharray="4,4" />
@@ -143,22 +146,22 @@ const TalentFlowPage = () => {
           </div>
         </section>
 
-        <section className="py-16 px-6 bg-white">
+        <section className="py-24 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">THE SCALE</h2>
+              <h2 className="text-2xl font-black mb-8 fade-up">THE SCALE</h2>
 
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-green-950/20 border border-green-900/50 rounded-xl p-6">
-                  <div className="text-green-500 font-mono font-bold mb-2">SCORE 1-3</div>
+              <div className="grid md:grid-cols-2 gap-8 fade-up-stagger">
+                <div className="bg-stone-100 border border-stone-300 p-6">
+                  <div className="text-stone-900 font-mono font-bold mb-2">SCORE 1-3</div>
                   <h3 className="text-xl font-bold mb-3">People move toward hard problems</h3>
                   <p className="text-stone-500">
                     Strong performers go where they're needed. Internal mobility is common enough that it's not a big deal. The best stay because they have room to grow, not because leaving is difficult.
                   </p>
                 </div>
 
-                <div className="bg-red-950/20 border border-red-900/50 rounded-xl p-6">
-                  <div className="text-red-500 font-mono font-bold mb-2">SCORE 7-10</div>
+                <div className="bg-stone-100 border border-stone-300 p-6">
+                  <div className="text-red-600 font-mono font-bold mb-2">SCORE 7-10</div>
                   <h3 className="text-xl font-bold mb-3">Roles outlast their usefulness</h3>
                   <p className="text-stone-500">
                     The best performers eventually calculate that their leverage is higher somewhere else and leave. What stays behind is a selection effect. The org gets more calcified at every level.
@@ -169,60 +172,58 @@ const TalentFlowPage = () => {
           </div>
         </section>
 
-        <section className="py-16 px-6">
+        <section className="py-24 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">THE SLOW DRAIN</h2>
+              <h2 className="text-2xl font-black mb-8 fade-up">THE SLOW DRAIN</h2>
 
-              <div className="space-y-6">
-                <div className="border-l-4 border-red-600 pl-6 py-4">
-                  <p className="text-lg text-stone-600">
-                    Organizations don't fail from bad people. They fail from the gradual concentration of people who've run out of reasons to try. <strong className="text-stone-900">That concentration is the signal.</strong>
-                  </p>
-                </div>
+              <div className="border-l-4 border-red-600 pl-6 py-4 fade-up mb-6">
+                <p className="text-lg text-stone-600">
+                  Organizations don't fail from bad people. They fail from the gradual concentration of people who've run out of reasons to try. <strong className="text-stone-900">That concentration is the signal.</strong>
+                </p>
+              </div>
 
-                <div className="bg-stone-100 border border-stone-200 rounded-xl p-6">
-                  <h3 className="font-bold mb-4">THE SELECTION EFFECT</h3>
-                  <p className="text-stone-500">
-                    Low talent flow looks like a retention problem. It's usually a mobility problem. When people can't move to different work inside the org, the only signal available to a high performer is to leave entirely. The best self-select out. What remains increasingly self-selects for compliance over capability. The org hires harder to fill the same hole.
-                  </p>
-                </div>
+              <div className="bg-stone-100 border border-stone-200 p-6 fade-up">
+                <h3 className="font-bold mb-4">THE SELECTION EFFECT</h3>
+                <p className="text-stone-500">
+                  Low talent flow looks like a retention problem. It's usually a mobility problem. When people can't move to different work inside the org, the only signal available to a high performer is to leave entirely. The best self-select out. What remains increasingly self-selects for compliance over capability. The org hires harder to fill the same hole.
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-16 px-6 bg-white">
+        <section className="py-24 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">EXAMPLES</h2>
+              <h2 className="text-2xl font-black mb-8 fade-up">EXAMPLES</h2>
 
-              <div className="space-y-8">
+              <div className="space-y-8 fade-up">
                 <div>
-                  <h3 className="text-green-500 font-bold mb-4">HIGH FLOW (Score 1-3)</h3>
+                  <h3 className="text-stone-900 font-bold mb-4">HIGH FLOW (Score 1-3)</h3>
                   <div className="space-y-3">
                     {examples.low.map((ex) => (
-                      <div key={ex.company} className="bg-stone-50 border border-stone-200 rounded-lg p-4 flex items-center justify-between">
+                      <div key={ex.company} className="bg-stone-50 border border-stone-200 p-4 flex items-center justify-between">
                         <div>
                           <span className="font-bold">{ex.company}</span>
                           <p className="text-sm text-stone-500 mt-1">{ex.detail}</p>
                         </div>
-                        <span className="text-green-500 font-mono font-bold">{ex.gpi}</span>
+                        <span className="text-stone-900 font-mono font-bold">{ex.gpi}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="text-red-500 font-bold mb-4">LOW FLOW (Score 7-10)</h3>
+                  <h3 className="text-red-600 font-bold mb-4">LOW FLOW (Score 7-10)</h3>
                   <div className="space-y-3">
                     {examples.high.map((ex) => (
-                      <div key={ex.company} className="bg-stone-50 border border-stone-200 rounded-lg p-4 flex items-center justify-between">
+                      <div key={ex.company} className="bg-stone-50 border border-stone-200 p-4 flex items-center justify-between">
                         <div>
                           <span className="font-bold">{ex.company}</span>
                           <p className="text-sm text-stone-500 mt-1">{ex.detail}</p>
                         </div>
-                        <span className="text-red-500 font-mono font-bold">{ex.gpi}</span>
+                        <span className="text-red-600 font-mono font-bold">{ex.gpi}</span>
                       </div>
                     ))}
                   </div>
@@ -232,14 +233,14 @@ const TalentFlowPage = () => {
           </div>
         </section>
 
-        <section className="py-16 px-6">
+        <section className="py-24 px-6">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-black mb-8">DIAGNOSTIC QUESTIONS</h2>
+              <h2 className="text-2xl font-black mb-8 fade-up">DIAGNOSTIC QUESTIONS</h2>
 
-              <div className="space-y-3">
+              <div className="space-y-3 fade-up">
                 {diagnosticQuestions.map((q, i) => (
-                  <div key={i} className="border border-stone-200 rounded-lg p-4 flex items-center gap-4">
+                  <div key={i} className="border border-stone-200 p-4 flex items-center gap-4">
                     <span className="text-red-600 font-bold">{i + 1}</span>
                     <span className="text-stone-600">{q}</span>
                   </div>
@@ -249,18 +250,59 @@ const TalentFlowPage = () => {
           </div>
         </section>
 
-        <section className="py-16 px-6 border-t border-stone-200">
+        <section className="py-24 px-6 border-t border-stone-200">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between gap-6">
-              <Link href="/gpi-framework/structural-lock-in" className="border border-stone-300 px-8 py-4 text-lg font-black hover:border-red-400 transition-colors text-center">
-                ← STRUCTURAL LOCK-IN
+              <Link href="/gpi-framework/structural-lock-in" className="border border-stone-300 px-8 py-4 text-sm font-semibold hover:border-stone-400 transition-colors text-center">
+                ← Structural Lock-In
               </Link>
-              <Link href="/gpi-framework/capital-intensity" className="bg-red-600 text-white px-8 py-4 text-lg font-black hover:bg-red-700 transition-colors text-center">
-                NEXT: CAPITAL INTENSITY →
+              <Link href="/gpi-framework/capital-intensity" className="bg-stone-900 text-white px-8 py-4 text-sm font-semibold hover:bg-stone-800 transition-colors text-center">
+                Next: Capital Intensity →
               </Link>
             </div>
           </div>
         </section>
+
+        {/* Footer */}
+        <footer className="py-16 px-6 border-t border-stone-200">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+              <div>
+                <div className="font-black text-sm mb-4">GPI<span className="text-red-600">.</span>STUDIO</div>
+                <p className="text-sm text-stone-400 leading-relaxed">
+                  Organizational physics.<br />
+                  We measure where energy gets stuck.
+                </p>
+              </div>
+              <div>
+                <div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div>
+                <div className="space-y-3">
+                  <Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link>
+                  <Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link>
+                  <Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link>
+                </div>
+              </div>
+              <div>
+                <div className="text-xs font-mono text-stone-400 mb-4">WORK</div>
+                <div className="space-y-3">
+                  <Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link>
+                  <Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link>
+                  <Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link>
+                </div>
+              </div>
+              <div>
+                <div className="text-xs font-mono text-stone-400 mb-4">COMPANY</div>
+                <div className="space-y-3">
+                  <Link href="/about" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">About</Link>
+                </div>
+              </div>
+            </div>
+            <div className="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-400">
+              <div>© {new Date().getFullYear()} Imagination G LLC</div>
+              <div className="font-mono">gpi.studio</div>
+            </div>
+          </div>
+        </footer>
       </div>
     </>
   );

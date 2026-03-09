@@ -225,7 +225,7 @@ const DiagnosticPage = () => {
               {/* Hero */}
               <div className="mb-12">
                 <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-6">
-                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                  <span className="w-2 h-2 bg-red-500 rounded-full" />
                   DIAGNOSTIC READY
                 </div>
                 <div className="flex flex-col md:flex-row md:items-start gap-6 mb-6">
@@ -256,19 +256,19 @@ const DiagnosticPage = () => {
               <div className="bg-white border border-stone-200 p-6 mb-8">
                 <div className="text-xs font-mono text-stone-400 mb-4">THE SCALE</div>
                 <div className="relative h-4 bg-stone-100 rounded-full mb-3 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-green-500 via-yellow-500 to-red-500" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-stone-300 via-stone-500 to-stone-900" />
                 </div>
                 <div className="flex justify-between text-sm">
                   <div>
-                    <span className="text-green-500 font-bold">1-3</span>
+                    <span className="text-stone-900 font-bold">1-3</span>
                     <span className="text-stone-400 ml-2">Field — energy flows</span>
                   </div>
                   <div>
-                    <span className="text-yellow-500 font-bold">4-6</span>
+                    <span className="text-stone-500 font-bold">4-6</span>
                     <span className="text-stone-400 ml-2">Transitioning</span>
                   </div>
                   <div>
-                    <span className="text-red-500 font-bold">7-10</span>
+                    <span className="text-red-600 font-bold">7-10</span>
                     <span className="text-stone-400 ml-2">Particle — energy stuck</span>
                   </div>
                 </div>
@@ -335,9 +335,9 @@ const DiagnosticPage = () => {
               <div className="text-center">
                 <button
                   onClick={() => setCurrentStep('questions')}
-                  className="bg-red-600 text-white px-12 py-5 font-black text-lg hover:bg-red-700 transition-colors"
+                  className="bg-stone-900 text-white px-12 py-5 font-semibold text-lg hover:bg-stone-800 transition-colors"
                 >
-                  START DIAGNOSTIC
+                  Start Diagnostic
                 </button>
                 <p className="text-stone-400 text-sm mt-4">32 yes/no questions. No email required to see results.</p>
               </div>
@@ -365,27 +365,27 @@ const DiagnosticPage = () => {
           <Navigation currentPage="diagnostic" />
           <section className="pt-20 pb-16 px-6">
             <div className="max-w-md mx-auto text-center">
-              <div className="inline-flex items-center gap-2 text-xs font-mono text-yellow-500 mb-8">
-                <span className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse" />
+              <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-8">
+                <span className="w-2 h-2 bg-stone-400 rounded-full animate-pulse" />
                 PROCESSING
               </div>
               <h1 className="text-2xl font-black mb-12">CALCULATING GPI</h1>
               <div className="space-y-3 text-left mb-8">
                 {dims.map((dim, i) => (
                   <div key={dim.key} className="flex items-center gap-3 text-sm">
-                    <div className={`w-2 h-2 rounded-full transition-colors ${analysisStep > i ? 'bg-green-500' : 'bg-stone-300'}`} />
+                    <div className={`w-2 h-2 rounded-full transition-colors ${analysisStep > i ? 'bg-stone-900' : 'bg-stone-300'}`} />
                     <span className={analysisStep > i ? 'text-stone-500' : 'text-stone-400'}>
                       {dim.label}
                     </span>
-                    {analysisStep > i && <span className="text-green-500 text-xs">done</span>}
+                    {analysisStep > i && <span className="text-stone-500 text-xs">done</span>}
                   </div>
                 ))}
                 <div className="flex items-center gap-3 text-sm">
-                  <div className={`w-2 h-2 rounded-full transition-colors ${analysisStep > 7 ? 'bg-green-500' : 'bg-stone-300'}`} />
+                  <div className={`w-2 h-2 rounded-full transition-colors ${analysisStep > 7 ? 'bg-stone-900' : 'bg-stone-300'}`} />
                   <span className={analysisStep > 7 ? 'text-stone-500' : 'text-stone-400'}>Composite score</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
-                  <div className={`w-2 h-2 rounded-full transition-colors ${analysisStep > 8 ? 'bg-green-500' : 'bg-stone-300'}`} />
+                  <div className={`w-2 h-2 rounded-full transition-colors ${analysisStep > 8 ? 'bg-stone-900' : 'bg-stone-300'}`} />
                   <span className={analysisStep > 8 ? 'text-stone-500' : 'text-stone-400'}>Industry comparison</span>
                 </div>
               </div>
@@ -422,8 +422,8 @@ const DiagnosticPage = () => {
 
               {/* Header */}
               <div className="text-center mb-8">
-                <div className="inline-flex items-center gap-2 text-xs font-mono text-green-500 mb-4">
-                  <span className="w-2 h-2 bg-green-500 rounded-full" />
+                <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-4">
+                  <span className="w-2 h-2 bg-red-500 rounded-full" />
                   ANALYSIS COMPLETE
                 </div>
                 <h1 className="text-2xl font-black">YOUR GPI RESULTS</h1>
@@ -458,8 +458,8 @@ const DiagnosticPage = () => {
                       />
                     </div>
                     <div className="flex justify-between text-xs font-mono">
-                      <span className="text-green-600">FLOW</span>
-                      <span className="text-red-600">FRICTION</span>
+                      <span className="text-stone-900">FLOW</span>
+                      <span className="text-stone-400">FRICTION</span>
                     </div>
                   </div>
 
@@ -471,7 +471,7 @@ const DiagnosticPage = () => {
                     </div>
                     <div className="bg-white border border-stone-200 p-4 text-center">
                       <div className="text-xs text-stone-400 mb-1">VS INDUSTRY</div>
-                      <div className={`text-2xl font-black ${gpiResults.industryComparison.position === 'above' ? 'text-green-500' : gpiResults.industryComparison.position === 'below' ? 'text-red-500' : 'text-yellow-500'}`}>
+                      <div className={`text-2xl font-black ${gpiResults.industryComparison.position === 'above' ? 'text-red-600' : gpiResults.industryComparison.position === 'below' ? 'text-stone-900' : 'text-stone-500'}`}>
                         {gpiResults.industryComparison.position === 'above' ? 'BETTER' : gpiResults.industryComparison.position === 'below' ? 'WORSE' : 'AVG'}
                       </div>
                     </div>
@@ -507,15 +507,15 @@ const DiagnosticPage = () => {
                       const scoreColor = dim.score <= 3 ? '#22c55e' : dim.score <= 6 ? '#eab308' : '#ef4444';
 
                       return (
-                        <div key={dim.dimension} className={`p-4 rounded-lg border ${isWeakest ? 'border-red-200 bg-red-50' : isStrongest ? 'border-green-900 bg-green-950/20' : 'border-stone-200 bg-stone-100/50'}`}>
+                        <div key={dim.dimension} className={`p-4 border ${isWeakest ? 'border-red-200 bg-red-50/30' : isStrongest ? 'border-stone-400 bg-stone-100' : 'border-stone-200 bg-stone-50'}`}>
                           {/* Header Row */}
                           <div className="flex items-center justify-between mb-2">
                             <div className="flex items-center gap-2">
                               <span className="text-sm font-bold">
                                 {dim.label}
                               </span>
-                              {isWeakest && <span className="text-xs bg-red-50 text-red-600 px-2 py-0.5 rounded">HIGHEST FRICTION</span>}
-                              {isStrongest && <span className="text-xs bg-green-900/50 text-green-400 px-2 py-0.5 rounded">LOWEST FRICTION</span>}
+                              {isWeakest && <span className="text-xs bg-red-50 text-red-600 px-2 py-0.5">HIGHEST FRICTION</span>}
+                              {isStrongest && <span className="text-xs bg-stone-200 text-stone-600 px-2 py-0.5">LOWEST FRICTION</span>}
                             </div>
                             <div className="text-2xl font-black font-mono" style={{ color: scoreColor }}>
                               {dim.score}
@@ -562,8 +562,8 @@ const DiagnosticPage = () => {
               )}
 
               {/* Consult CTA */}
-              <div className="border border-red-200 bg-red-50 p-6 mb-8">
-                <div className="text-xs font-mono text-red-600 mb-3">NEXT STEP</div>
+              <div className="border border-stone-300 bg-white p-6 mb-8">
+                <div className="text-xs font-mono text-stone-400 mb-3">NEXT STEP</div>
                 <h3 className="text-xl font-black mb-2">
                   Bring this to a live session.
                 </h3>
@@ -577,9 +577,9 @@ const DiagnosticPage = () => {
                 )}
                 <a
                   href={`/consult?gpi=${gpiResults.overall}&dim=${gpiResults.weakestDimension}`}
-                  className="inline-block bg-red-600 text-white px-8 py-3 font-black hover:bg-red-700 transition-colors"
+                  className="inline-block bg-stone-900 text-white px-8 py-3 font-semibold hover:bg-stone-800 transition-colors"
                 >
-                  BOOK A SESSION
+                  Book a Session
                 </a>
                 <p className="text-xs text-stone-400 mt-3">First session free. No pitch.</p>
               </div>
@@ -593,16 +593,16 @@ const DiagnosticPage = () => {
                   </p>
                   <button
                     onClick={() => setShowSaveModal(true)}
-                    className="bg-red-600 text-white px-6 py-3 font-black hover:bg-red-700 transition-colors"
+                    className="bg-stone-900 text-white px-6 py-3 font-semibold hover:bg-stone-800 transition-colors"
                   >
-                    EMAIL MY RESULTS
+                    Email My Results
                   </button>
                 </div>
               )}
 
               {saved && (
-                <div className="bg-green-950/30 border border-green-800 p-6 mb-8 text-center">
-                  <div className="text-green-500 font-bold mb-2">Results saved and emailed!</div>
+                <div className="bg-stone-100 border border-stone-300 p-6 mb-8 text-center">
+                  <div className="text-stone-900 font-bold mb-2">Results saved and emailed!</div>
                   <p className="text-sm text-stone-500">Check your inbox for your full GPI breakdown.</p>
                 </div>
               )}
@@ -649,7 +649,7 @@ const DiagnosticPage = () => {
                           required
                           value={saveForm.name}
                           onChange={(e) => setSaveForm({ ...saveForm, name: e.target.value })}
-                          className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-red-600 outline-none"
+                          className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-stone-900 outline-none"
                           placeholder="Your name"
                         />
                       </div>
@@ -661,7 +661,7 @@ const DiagnosticPage = () => {
                           required
                           value={saveForm.email}
                           onChange={(e) => setSaveForm({ ...saveForm, email: e.target.value })}
-                          className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-red-600 outline-none"
+                          className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-stone-900 outline-none"
                           placeholder="you@company.com"
                         />
                       </div>
@@ -672,7 +672,7 @@ const DiagnosticPage = () => {
                           type="text"
                           value={saveForm.company}
                           onChange={(e) => setSaveForm({ ...saveForm, company: e.target.value })}
-                          className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-red-600 outline-none"
+                          className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-stone-900 outline-none"
                           placeholder="Your company"
                         />
                       </div>
@@ -683,7 +683,7 @@ const DiagnosticPage = () => {
                           type="text"
                           value={saveForm.city}
                           onChange={(e) => setSaveForm({ ...saveForm, city: e.target.value })}
-                          className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-red-600 outline-none"
+                          className="w-full bg-stone-50 border border-stone-300 p-3 text-stone-900 focus:border-stone-900 outline-none"
                           placeholder="Your city"
                         />
                       </div>
@@ -694,7 +694,7 @@ const DiagnosticPage = () => {
                           id="sendEmail"
                           checked={sendEmail}
                           onChange={(e) => setSendEmail(e.target.checked)}
-                          className="w-4 h-4 accent-red-600"
+                          className="w-4 h-4 accent-stone-900"
                         />
                         <label htmlFor="sendEmail" className="text-sm text-stone-500">
                           Email me my results
@@ -708,9 +708,9 @@ const DiagnosticPage = () => {
                       <button
                         type="submit"
                         disabled={saving}
-                        className="w-full bg-red-600 text-white py-4 font-black hover:bg-red-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full bg-stone-900 text-white py-4 font-semibold hover:bg-stone-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        {saving ? 'SAVING...' : 'SAVE RESULTS'}
+                        {saving ? 'Saving...' : 'Save Results'}
                       </button>
                     </form>
                   </div>
@@ -735,7 +735,7 @@ const DiagnosticPage = () => {
   });
   const partialGPI = partialAnswers.length > 0 ? calculateFullGPI(partialAnswers, selectedIndustry) : null;
   const liveColor = partialGPI
-    ? (partialGPI.overall <= 3 ? '#22c55e' : partialGPI.overall <= 6 ? '#eab308' : '#ef4444')
+    ? (partialGPI.overall <= 3 ? '#1c1917' : partialGPI.overall <= 6 ? '#78716c' : '#dc2626')
     : '#a8a29e';
 
   return (

@@ -10,36 +10,46 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { key: 'home', label: 'HOME', href: '/' },
-    { key: 'companies', label: 'COMPANIES', href: '/companies' },
-    { key: 'insights', label: 'INSIGHTS', href: '/insights' },
-    { key: 'framework', label: 'FRAMEWORK', href: '/gpi-framework' },
-    { key: 'diagnostic', label: 'DIAGNOSTIC', href: '/diagnostic' },
-    { key: 'work', label: 'WORK WITH US', href: '/work-with-us' },
-    { key: 'about', label: 'ABOUT', href: '/about' },
+    { key: 'insights', label: 'Insights', href: '/insights' },
+    { key: 'analyses', label: 'Analyses', href: '/insights/gpi-analyses' },
+    { key: 'framework', label: 'Framework', href: '/gpi-framework' },
+    { key: 'diagnostic', label: 'Diagnostic', href: '/diagnostic' },
+    { key: 'about', label: 'About', href: '/about' },
   ];
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-stone-50/90 backdrop-blur-sm border-b border-stone-200">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-stone-50/70 backdrop-blur-xl border-b border-stone-200/60">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="font-black text-xl tracking-tight text-stone-900">
+          <Link href="/" className="font-black text-lg tracking-tight text-stone-900">
             GPI<span className="text-red-600">.</span>STUDIO
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex gap-6 text-sm font-bold">
-            {navItems.map((item) => (
-              <Link
-                key={item.key}
-                href={item.href}
-                className={`hover:text-red-600 transition-colors ${
-                  currentPage === item.key ? 'text-red-600' : 'text-stone-700'
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
+          <div className="hidden md:flex items-center gap-8">
+            <div className="flex gap-7 text-sm font-medium text-stone-500">
+              {navItems.map((item) => (
+                <Link
+                  key={item.key}
+                  href={item.href}
+                  className={`hover:text-stone-900 transition-colors ${
+                    currentPage === item.key ? 'text-stone-900' : ''
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+            <Link
+              href="/work-with-us"
+              className={`text-sm font-semibold px-4 py-2 transition-colors ${
+                currentPage === 'work'
+                  ? 'bg-stone-900 text-white'
+                  : 'bg-stone-900 text-white hover:bg-stone-800'
+              }`}
+            >
+              Work With Us
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -56,27 +66,32 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage }) => {
       {/* Mobile Menu Overlay */}
       {isOpen && (
         <div className="fixed inset-0 z-40 md:hidden">
-          {/* Backdrop */}
           <div
-            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/30 backdrop-blur-sm"
             onClick={() => setIsOpen(false)}
           />
 
-          {/* Menu */}
-          <div className="absolute top-16 left-0 right-0 bg-white border-b border-stone-200">
-            <div className="flex flex-col py-4">
+          <div className="absolute top-16 left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-stone-200">
+            <div className="flex flex-col py-2">
               {navItems.map((item) => (
                 <Link
                   key={item.key}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className={`px-6 py-4 text-lg font-bold border-b border-stone-100 hover:bg-stone-50 transition-colors ${
+                  className={`px-6 py-4 text-base font-medium border-b border-stone-100 hover:bg-stone-50 transition-colors ${
                     currentPage === item.key ? 'text-red-600' : 'text-stone-900'
                   }`}
                 >
                   {item.label}
                 </Link>
               ))}
+              <Link
+                href="/work-with-us"
+                onClick={() => setIsOpen(false)}
+                className="mx-6 my-4 text-center bg-stone-900 text-white py-3 text-sm font-semibold"
+              >
+                Work With Us
+              </Link>
             </div>
           </div>
         </div>
