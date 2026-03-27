@@ -72,15 +72,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(500).json({ error: 'Failed to save booking' });
     }
 
+    // Format slot time (used by both email and Telegram)
+    const slotDate = new Date(slot);
+    const formatted = slotDate.toLocaleString('en-US', {
+      weekday: 'long', month: 'long', day: 'numeric',
+      hour: 'numeric', minute: '2-digit', timeZone: 'America/Chicago',
+      timeZoneName: 'short',
+    });
+
     // Send emails
     if (RESEND_API_KEY) {
       const resend = new Resend(RESEND_API_KEY);
-      const slotDate = new Date(slot);
-      const formatted = slotDate.toLocaleString('en-US', {
-        weekday: 'long', month: 'long', day: 'numeric',
-        hour: 'numeric', minute: '2-digit', timeZone: 'America/Chicago',
-        timeZoneName: 'short',
-      });
 
       // Confirmation to visitor
       resend.emails.send({
