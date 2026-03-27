@@ -3,6 +3,8 @@ import { Resend } from 'resend';
 
 const NOTION_API_KEY = process.env.NOTION_API_KEY;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 const BOOKINGS_DB_ID = '317990ae-cd45-812a-acc8-e4136be60ab1';
 const MARCUS_EMAIL = 'marcus@imaginationg.studio';
 
@@ -120,6 +122,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   <p style="color:#aaa;margin:0 0 24px;padding:12px;background:#1a1a1a;border-left:3px solid #444;">${context || 'Not provided'}</p>
   <p style="color:#444;font-size:11px;margin:0;">Saved to Notion GPI Consult Bookings.</p>
 </div>`,
+      }).catch(console.error);
+    }
+
+    // Telegram notification to Marcus
+    if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
+      const msg = `📅 New GPI consult booked\n\n👤 ${name}${company ? ` — ${company}` : ''}\n📧 ${email}\n🕐 ${formatted}${context ? `\n\n💬 ${context}` : ''}`;
+      fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: msg }),
       }).catch(console.error);
     }
 

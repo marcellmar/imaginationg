@@ -18,7 +18,7 @@ const DIM_LABELS: Record<string, string> = {
 
 const AVAILABILITY = {
   days: [1, 2, 3, 4, 5],
-  startHour: 10,
+  startHour: 7,
   endHour: 15,
   timezone: 'America/Chicago',
 };
@@ -253,7 +253,7 @@ const ConsultPage: NextPage = () => {
                   })}
                 </div>
 
-                <p className="text-xs text-stone-400 mt-4">Mon – Fri, 10am – 3pm CST</p>
+                <p className="text-xs text-stone-400 mt-4">Mon – Fri, 7am – 3pm CST</p>
 
                 {selectedDate && (
                   <div className="mt-6">
