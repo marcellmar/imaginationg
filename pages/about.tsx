@@ -1,187 +1,170 @@
-import React from 'react';
+import type { NextPage } from 'next';
 import Link from 'next/link';
 import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
-import { useScrollReveal } from '../hooks/useScrollReveal';
-import { ArrowRight } from 'lucide-react';
 
-const stats = [
-  { num: '15+', label: 'YEARS' },
-  { num: '17', label: 'CITIES' },
-  { num: '4', label: 'CONTINENTS' },
-  { num: '4,500+', label: 'STUDENTS' },
-  { num: '5,000+', label: 'DEVICES' },
+const lineage = [
+  {
+    ground: 'Army signal',
+    work: 'Radio gear, field limits, bad assumptions, tired people, and plans meeting weather, distance, equipment, and time.',
+    carried: 'A plan has to survive outside the briefing.',
+  },
+  {
+    ground: 'Geography / GIS',
+    work: 'Cities, networks, maps, land, movement, money, and people changing the answer once place gets involved.',
+    carried: 'Every decision lives somewhere real.',
+  },
+  {
+    ground: 'China sourcing',
+    work: 'Factory visits, samples, vendors, customs, freight, telecom partners, late changes, and promises crossing time zones.',
+    carried: 'A clean answer still has to pass through people, boxes, ports, and phones.',
+  },
+  {
+    ground: 'Remote patient monitoring',
+    work: 'Blood pressure devices, wireless connections, packaging, logistics, clinical workflows, compliance, support calls, and uptime.',
+    carried: 'The device is only one piece of the promise.',
+  },
+  {
+    ground: 'Public-sector maps',
+    work: 'Certification flows, finance trackers, priority lists, inspection work, patient tracking, and delays with public consequences.',
+    carried: 'A map has to help someone decide.',
+  },
+  {
+    ground: 'Training / CI',
+    work: 'Technical training, phased rollouts, standard work, operator readiness, and change inside production environments.',
+    carried: 'People need a path they can actually use.',
+  },
+  {
+    ground: 'GPI / gpi.db',
+    work: 'Company records, daily notes, snapshots, maps, audits, client reads, and old observations kept close enough to argue with each other.',
+    carried: 'The next read starts with the last one still on the table.',
+  },
 ];
 
-const orgs = [
-  'US Army', 'City of Chicago', 'City of San Diego', 'USPS',
-  'Grubb & Ellis', 'Goodwill Industries', 'Briggs & Stratton',
-  'Topco Associates', 'Remote Patient Devices', 'HOPE LLC',
-  'Varroc TYC', 'Mitsubishi', 'Winston & Strawn',
-  'Physicians Revenue Group', 'Black Diamond Charities',
-  'Dept. of Veteran Affairs', 'Illinois National Guard',
-  'UIC', 'Chongqing University of Technology',
-  'Walgreens', 'UPS Store',
+const proof = [
+  ['17 cities', 'Public agencies, factories, classrooms, logistics networks, and client work.'],
+  ['4 continents', 'Work shaped by countries, markets, and operating cultures moving at different speeds.'],
+  ['4,500+ students', 'Curriculum and management training delivered across seven years in China.'],
+  ['5,000+ devices', 'Remote blood pressure monitors taken from sourcing to deployment.'],
+  ['99.7% uptime', 'Health-tech operations where a missed reading could turn into a real problem.'],
+  ['City systems', 'Asset control, certification flows, priority tracking, finance tracking, and inspections.'],
+  ['Supply chains', 'Dry, LTL, reefer, air, sea, customs, vendors, packaging, and production paths.'],
+  ['Training plans', 'Role definition, course goals, deployment, readiness, and evaluation loops.'],
 ];
 
-const built = [
-  'First citywide real estate asset control system, San Diego',
-  'First site selection methodology for Goodwill Industries',
-  'First forecasting tool for the United States Postal Service',
-  'First emerging markets research tool for Grubb & Ellis Logistics',
-  '5,000+ FDA-compliant blood pressure monitors deployed, 99.7% uptime',
-  'Cannabis beverage bottling line scaled from 200 to 10,000+ units daily',
-  'Cannabis packaging equipment, design through deployment',
-  'Computer asset control system for 2,000+ users',
-  'Nationwide food distribution network, DRY, LTL, REEFER',
-  'Inventory rollout and recovery across Europe and Middle East',
-  'Standard work development, operator training, and assembly line continuous improvement for Briggs & Stratton, Sherrill NY',
-  'Curriculum for 4,500+ students across 7 years in China',
-  'Management training for automotive manufacturers, Chongqing',
-  'Municipal communication training, ShapingBa district government',
-  'Finance Tracker Power App, Chicago Department of Public Health',
-  'Mayor\'s Priority Initiative Tracker, City of Chicago',
-  'TB patient tracking system, food inspection workflows',
-  'Nationwide GIS and demographic data analysis system',
-];
-
-const AboutPage = () => {
-  useScrollReveal();
-
+const AboutPage: NextPage = () => {
   return (
     <>
       <SEOHead
-        title="About | Imagination G"
-        description="Marcus Davis. 15+ years, 17 cities, 4 continents. From head to hands."
+        title="About | GPI Studio"
+        description="GPI Studio came from factories, city systems, sourcing work, training, health-tech operations, and the gap between plans and real work."
       />
 
-      <div className="min-h-screen bg-stone-50 text-stone-900">
+      <div className="gpi-page">
         <Navigation currentPage="about" />
 
-        {/* Hero */}
-        <section className="pt-36 pb-24 px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-8">
-              <span className="w-2 h-2 bg-red-500 rounded-full" />
-              ABOUT
+        <main className="gpi-shell py-14 md:py-20">
+          <section className="grid gap-10 md:grid-cols-[0.75fr_1.25fr] md:items-start">
+            <div>
+              <p className="gpi-kicker">About</p>
+              <h1 className="mt-4 text-5xl leading-none md:text-7xl">
+                I learned to read the gap by standing in it.
+              </h1>
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.05] tracking-headline">
-              FROM HEAD<span className="text-red-600">.</span><br />
-              TO HANDS<span className="text-red-600">.</span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-stone-500 max-w-2xl mx-auto leading-relaxed">
-              I've spent 15 years walking into systems I didn't build, figuring out why they're stuck, and building the thing that unsticks them.
-            </p>
-          </div>
-        </section>
-
-        {/* Stats Ribbon */}
-        <section className="py-24 px-6 border-t border-stone-200 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 fade-up">
-              {stats.map((s) => (
-                <div key={s.label} className="text-center">
-                  <span className="text-4xl md:text-5xl font-black text-stone-900">{s.num}</span>
-                  <div className="text-xs font-mono text-stone-400 mt-2 tracking-widest">{s.label}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="fade-up mt-16 text-center">
-              <p className="text-sm text-stone-500 leading-loose">
-                {orgs.join(' · ')}
+            <div className="gpi-prose max-w-3xl">
+              <p>
+                I have been in the factory when the sample looked fine until production had to repeat it. I have been inside city work where a map made sense on the wall while the real delay sat with one clerk, one form, one missing step.
+              </p>
+              <p className="mt-5">
+                I have watched devices leave a warehouse and become a promise to a patient. I have sat with training plans, freight problems, vendor calls, customs pressure, students, public-sector trackers, and teams trying to make a clean plan work inside a messy day.
+              </p>
+              <p className="mt-5">
+                GPI Studio came from all of those places. The work is to find the person close to the break, pull the records near the story, and make the next move easier to see.
               </p>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* What Got Built */}
-        <section className="py-24 px-6 border-t border-stone-200">
-          <div className="max-w-4xl mx-auto">
-            <div className="fade-up text-xs font-mono text-stone-400 mb-2">THE TRACK RECORD</div>
-            <h2 className="fade-up text-3xl md:text-4xl font-black mb-12 tracking-headline">
-              WHAT GOT BUILT<span className="text-red-600">.</span>
-            </h2>
-
-            <div className="columns-1 md:columns-2 gap-8 fade-up-stagger">
-              {built.map((item, i) => (
-                <p key={i} className="fade-up text-sm text-stone-700 mb-4 break-inside-avoid leading-relaxed">
-                  {item}
-                </p>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* GPI Thread */}
-        <section className="py-24 px-6 border-t border-stone-200 bg-white">
-          <div className="max-w-2xl mx-auto text-center fade-up">
-            <p className="text-stone-600 mb-4 text-lg leading-relaxed">
-              After enough engagements across enough industries and continents, the same pattern kept showing up. Organizations that looked healthy on paper were stuck in practice. The speed of decisions, the location of knowledge, the cost of changing direction told a different story than the financials.
-            </p>
-            <p className="text-stone-900 font-bold text-xl mb-10">
-              That pattern became the Growing Pains Index.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link
-                href="/diagnostic"
-                className="inline-flex items-center justify-center gap-2 bg-stone-900 px-8 py-4 text-sm font-semibold hover:bg-stone-800 transition-colors text-white group"
-              >
-                Take the Diagnostic
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/work-with-us"
-                className="inline-flex items-center justify-center border border-stone-300 px-8 py-4 text-sm font-semibold hover:border-stone-900 transition-colors"
-              >
-                Work With Us
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer className="py-16 px-6 border-t border-stone-200">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+          <section className="gpi-rule mt-14 pt-8">
+            <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
               <div>
-                <div className="font-black text-sm mb-4">GPI<span className="text-red-600">.</span>STUDIO</div>
-                <p className="text-sm text-stone-400 leading-relaxed">
-                  Organizational physics.<br />
-                  We measure where energy gets stuck.
+                <p className="gpi-kicker">Lineage</p>
+                <p className="mt-3 text-sm leading-6 text-stone-700">
+                  No themes here. Just places where the work had to move.
                 </p>
               </div>
-              <div>
-                <div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div>
-                <div className="space-y-3">
-                  <Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link>
-                  <Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link>
-                  <Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link>
-                </div>
-              </div>
-              <div>
-                <div className="text-xs font-mono text-stone-400 mb-4">WORK</div>
-                <div className="space-y-3">
-                  <Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link>
-                  <Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link>
-                  <Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link>
-                </div>
-              </div>
-              <div>
-                <div className="text-xs font-mono text-stone-400 mb-4">COMPANY</div>
-                <div className="space-y-3">
-                  <Link href="/about" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">About</Link>
-                </div>
+
+              <div className="overflow-x-auto">
+                <table className="gpi-table">
+                  <thead>
+                    <tr>
+                      <th>Ground</th>
+                      <th>Work</th>
+                      <th>Carried forward</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {lineage.map((item) => (
+                      <tr key={item.ground}>
+                        <td className="w-44 font-mono text-sm font-bold text-stone-950">{item.ground}</td>
+                        <td className="text-sm leading-6 text-stone-800">{item.work}</td>
+                        <td className="text-sm leading-6 text-stone-700">{item.carried}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
-            <div className="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-400">
-              <div>© {new Date().getFullYear()} Imagination G LLC</div>
-              <div className="font-mono">gpi.studio</div>
+          </section>
+
+          <section className="gpi-rule mt-14 pt-8">
+            <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
+              <div>
+                <p className="gpi-kicker">Proof of work</p>
+                <p className="mt-3 text-sm leading-6 text-stone-700">
+                  The numbers are receipts. They keep the page tied to real consequences.
+                </p>
+              </div>
+
+              <div className="grid gap-px border-y border-stone-300 bg-stone-300 md:grid-cols-2">
+                {proof.map(([metric, detail]) => (
+                  <div key={metric} className="bg-[#f7f2e8] p-5">
+                    <div className="font-mono text-sm font-bold text-stone-950">{metric}</div>
+                    <p className="mt-2 text-sm leading-6 text-stone-700">{detail}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </footer>
+          </section>
+
+          <section className="gpi-rule mt-14 pt-8">
+            <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
+              <div>
+                <p className="gpi-kicker">Now</p>
+              </div>
+              <div className="gpi-prose max-w-3xl">
+                <p>
+                  Now the work looks like a buyer calling the same supplier for the third time, a manager opening a tracker nobody else trusts, or an owner asking for a number and watching everyone get careful.
+                </p>
+                <p className="mt-5">
+                  We stay with the thing in front of everyone first. Then we pull the notes, records, maps, old reads, and nearby evidence close enough to see which story holds up.
+                </p>
+                <p className="mt-5">
+                  Sometimes the work needs a map. Sometimes a memo, company read, or clean stop. If nobody can use it, throw it away.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="gpi-rule mt-14 pt-8">
+            <div className="flex flex-col gap-4 font-mono text-sm md:flex-row md:items-center">
+              <Link className="gpi-link" href="/gpi-framework">Read the lens</Link>
+              <Link className="gpi-link" href="/maps">See the maps</Link>
+              <Link className="gpi-link" href="/signal">Find the signal</Link>
+              <Link className="gpi-link" href="/work">Work with GPI</Link>
+            </div>
+          </section>
+        </main>
       </div>
     </>
   );

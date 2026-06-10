@@ -98,47 +98,47 @@ export const QUESTION_MAPPING: QuestionMapping[] = [
   { questionId: 1, dimension: 'DECISION_LATENCY', fieldAnswer: true },
   { questionId: 2, dimension: 'DECISION_LATENCY', fieldAnswer: true },
   { questionId: 3, dimension: 'DECISION_LATENCY', fieldAnswer: true },
+  { questionId: 4, dimension: 'DECISION_LATENCY', fieldAnswer: true },
   { questionId: 5, dimension: 'DECISION_LATENCY', fieldAnswer: true },
-  { questionId: 8, dimension: 'DECISION_LATENCY', fieldAnswer: true },
 
-  // Knowledge Location (Q17, 19, 21-24, weight 15%)
-  { questionId: 17, dimension: 'KNOWLEDGE_LOCATION', fieldAnswer: true },
-  { questionId: 19, dimension: 'KNOWLEDGE_LOCATION', fieldAnswer: true },
-  { questionId: 21, dimension: 'KNOWLEDGE_LOCATION', fieldAnswer: true },
-  { questionId: 22, dimension: 'KNOWLEDGE_LOCATION', fieldAnswer: true },
-  { questionId: 23, dimension: 'KNOWLEDGE_LOCATION', fieldAnswer: true },
-  { questionId: 24, dimension: 'KNOWLEDGE_LOCATION', fieldAnswer: true },
-
-  // Error Correction Speed (Q4, 7, 18, 20, weight 20%)
-  { questionId: 4, dimension: 'ERROR_CORRECTION', fieldAnswer: true },
+  // Error Correction Speed (Q6-10, weight 20%)
+  { questionId: 6, dimension: 'ERROR_CORRECTION', fieldAnswer: true },
   { questionId: 7, dimension: 'ERROR_CORRECTION', fieldAnswer: true },
-  { questionId: 18, dimension: 'ERROR_CORRECTION', fieldAnswer: true },
-  { questionId: 20, dimension: 'ERROR_CORRECTION', fieldAnswer: true },
+  { questionId: 8, dimension: 'ERROR_CORRECTION', fieldAnswer: true },
+  { questionId: 9, dimension: 'ERROR_CORRECTION', fieldAnswer: true },
+  { questionId: 10, dimension: 'ERROR_CORRECTION', fieldAnswer: true },
 
-  // Structural Lock-In (Q6, 25-28, 32, weight 15%)
-  { questionId: 6, dimension: 'STRUCTURAL_LOCKIN', fieldAnswer: true },
+  // Knowledge Location (Q11-15, weight 15%)
+  { questionId: 11, dimension: 'KNOWLEDGE_LOCATION', fieldAnswer: true },
+  { questionId: 12, dimension: 'KNOWLEDGE_LOCATION', fieldAnswer: true },
+  { questionId: 13, dimension: 'KNOWLEDGE_LOCATION', fieldAnswer: true },
+  { questionId: 14, dimension: 'KNOWLEDGE_LOCATION', fieldAnswer: true },
+  { questionId: 15, dimension: 'KNOWLEDGE_LOCATION', fieldAnswer: true },
+
+  // Knowledge Velocity (Q16-19, weight 10%)
+  { questionId: 16, dimension: 'KNOWLEDGE_VELOCITY', fieldAnswer: true },
+  { questionId: 17, dimension: 'KNOWLEDGE_VELOCITY', fieldAnswer: true },
+  { questionId: 18, dimension: 'KNOWLEDGE_VELOCITY', fieldAnswer: true },
+  { questionId: 19, dimension: 'KNOWLEDGE_VELOCITY', fieldAnswer: true },
+
+  // Talent Flow (Q20-23, weight 10%)
+  { questionId: 20, dimension: 'TALENT_FLOW', fieldAnswer: true },
+  { questionId: 21, dimension: 'TALENT_FLOW', fieldAnswer: true },
+  { questionId: 22, dimension: 'TALENT_FLOW', fieldAnswer: true },
+  { questionId: 23, dimension: 'TALENT_FLOW', fieldAnswer: true },
+
+  // Structural Lock-In (Q24-28, weight 15%)
+  { questionId: 24, dimension: 'STRUCTURAL_LOCKIN', fieldAnswer: true },
   { questionId: 25, dimension: 'STRUCTURAL_LOCKIN', fieldAnswer: true },
   { questionId: 26, dimension: 'STRUCTURAL_LOCKIN', fieldAnswer: true },
   { questionId: 27, dimension: 'STRUCTURAL_LOCKIN', fieldAnswer: true },
   { questionId: 28, dimension: 'STRUCTURAL_LOCKIN', fieldAnswer: true },
-  { questionId: 32, dimension: 'STRUCTURAL_LOCKIN', fieldAnswer: true },
-
-  // Talent Flow (Q12, 16, weight 10%)
-  { questionId: 12, dimension: 'TALENT_FLOW', fieldAnswer: true },
-  { questionId: 16, dimension: 'TALENT_FLOW', fieldAnswer: true },
 
   // Capital Intensity (Q29-31, weight 10%)
   { questionId: 29, dimension: 'CAPITAL_INTENSITY', fieldAnswer: true },
   { questionId: 30, dimension: 'CAPITAL_INTENSITY', fieldAnswer: true },
   { questionId: 31, dimension: 'CAPITAL_INTENSITY', fieldAnswer: true },
-
-  // Knowledge Velocity (Q9-11, 13-15, weight 10%)
-  { questionId: 9, dimension: 'KNOWLEDGE_VELOCITY', fieldAnswer: true },
-  { questionId: 10, dimension: 'KNOWLEDGE_VELOCITY', fieldAnswer: true },
-  { questionId: 11, dimension: 'KNOWLEDGE_VELOCITY', fieldAnswer: true },
-  { questionId: 13, dimension: 'KNOWLEDGE_VELOCITY', fieldAnswer: true },
-  { questionId: 14, dimension: 'KNOWLEDGE_VELOCITY', fieldAnswer: true },
-  { questionId: 15, dimension: 'KNOWLEDGE_VELOCITY', fieldAnswer: true },
+  { questionId: 32, dimension: 'CAPITAL_INTENSITY', fieldAnswer: true },
 ];
 
 /**

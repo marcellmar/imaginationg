@@ -1,0 +1,45 @@
+{
+  "name": "GPI Studio",
+  "url": "https://gpi.studio",
+  "description": "GPI Studio reads where business work slows down, repeats, or gets protected by the system, then turns that read into maps and bounded next moves.",
+  "contact": "marcus@gpi.studio",
+  "primary_paths": [
+    {
+      "name": "Reads",
+      "url": "https://gpi.studio/insights",
+      "purpose": "Public reads, essays, and company analysis through the GPI lens."
+    },
+    {
+      "name": "Lens",
+      "url": "https://gpi.studio/gpi-framework",
+      "purpose": "The GPI states and seven dimensions used to read organizational friction."
+    },
+    {
+      "name": "Maps",
+      "url": "https://gpi.studio/maps",
+      "purpose": "Sanitized examples of working maps, decision artifacts, and proof objects."
+    },
+    {
+      "name": "Signal",
+      "url": "https://gpi.studio/signal",
+      "purpose": "A short signal read that identifies where work is spending energy."
+    },
+    {
+      "name": "Work",
+      "url": "https://gpi.studio/work",
+      "purpose": "Offer boundaries and the main doorway into intake."
+    },
+    {
+      "name": "Intake",
+      "url": "https://gpi.studio/intake",
+      "purpose": "Context questions and booking path for a GPI working session."
+    }
+  ],
+  "agent_guidance": [
+    "Use /signal when the user feels friction but has not named the pattern.",
+    "Use /work when the user has a real decision, operating question, or next move to scope.",
+    "Use /intake only when the user is ready to provide context and book a working session.",
+    "Do not treat public reads as client-specific advice without current context.",
+    "Raw client intake should stay client-specific; reusable patterns graduate into GPI knowledge only after review."
+  ]
+}

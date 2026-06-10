@@ -392,7 +392,7 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
               href="/diagnostic"
               className="inline-flex items-center gap-2 bg-stone-900 px-8 py-4 text-sm font-semibold hover:bg-stone-800 transition-colors group text-white"
             >
-              Start with the Diagnostic
+              Find the signal
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
@@ -410,18 +410,18 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
                 </p>
               </div>
               <div>
-                <div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div>
+                <div className="text-xs font-mono text-stone-400 mb-4">READS</div>
                 <div className="space-y-3">
-                  <Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link>
-                  <Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link>
-                  <Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link>
+                  <Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Reads</Link>
+                  <Link href="/insights/snapshots" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Snapshots</Link>
+                  <Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Lens</Link>
                 </div>
               </div>
               <div>
                 <div className="text-xs font-mono text-stone-400 mb-4">WORK</div>
                 <div className="space-y-3">
-                  <Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link>
-                  <Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link>
+                  <Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Signal</Link>
+                  <Link href="/intake" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Intake</Link>
                   <Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link>
                 </div>
               </div>

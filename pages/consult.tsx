@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -61,7 +60,14 @@ const ConsultPage: NextPage = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
   const [bookedSlots, setBookedSlots] = useState<Set<string>>(new Set());
-  const [form, setForm] = useState({ name: '', email: '', company: '', context: '' });
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    company: '',
+    stuckPoint: '',
+    repeatedPattern: '',
+    sessionFocus: '',
+  });
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -81,7 +87,7 @@ const ConsultPage: NextPage = () => {
     if (fromGpi && fromDimLabel) {
       setForm(f => ({
         ...f,
-        context: `GPI ${fromGpi} overall. Highest friction: ${fromDimLabel}.`,
+        stuckPoint: `GPI ${fromGpi} overall. Highest friction: ${fromDimLabel}.`,
       }));
     }
   }, [fromGpi, fromDimLabel]);
@@ -116,11 +122,24 @@ const ConsultPage: NextPage = () => {
     if (!form.name || !form.email) { setError('Name and email required.'); return; }
     setLoading(true);
     setError('');
+    const context = [
+      fromGpi ? `Signal: GPI ${fromGpi}${fromDimLabel ? `, highest friction: ${fromDimLabel}` : ''}.` : '',
+      form.stuckPoint ? `What feels stuck: ${form.stuckPoint}` : '',
+      form.repeatedPattern ? `Pattern that keeps repeating: ${form.repeatedPattern}` : '',
+      form.sessionFocus ? `Working-session focus: ${form.sessionFocus}` : '',
+    ].filter(Boolean).join('\n\n');
+
     try {
       const res = await fetch('/api/book-consult', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, slot: selectedSlot }),
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          company: form.company,
+          context,
+          slot: selectedSlot,
+        }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -146,54 +165,53 @@ const ConsultPage: NextPage = () => {
   return (
     <>
       <SEOHead
-        title="Book a GPI Consult | gpi.studio"
-        description="One hour. A clear read on where your org is losing speed and what to do about it. First session free."
+        title="GPI Intake | GPI Studio"
+        description="Bring the pattern, add enough context, and book a GPI working session."
       />
-      <div className="min-h-screen bg-stone-50 text-stone-900">
-        <Navigation />
+      <div className="gpi-page">
+        <Navigation currentPage="diagnostic" />
 
-        <main className="max-w-4xl mx-auto px-6 pt-36 pb-24">
+        <main className="gpi-shell py-14 md:py-20">
 
-          <div className="mb-16 text-center fade-up">
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-8">
-              <span className="w-2 h-2 bg-red-500 rounded-full" />
-              GPI CONSULT
+          <div className="mb-12 max-w-4xl fade-up">
+            <div className="gpi-kicker mb-6">
+              GPI Intake
             </div>
             {fromGpi && fromDimLabel ? (
               <>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05] mb-6 tracking-headline">
-                  One hour<span className="text-red-600">.</span> Starting with {fromDimLabel}<span className="text-red-600">.</span>
+                <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-headline md:text-6xl">
+                  Bring the context behind the read.
                 </h1>
-                <div className="bg-white border border-stone-200 p-4 mb-6 max-w-xl mx-auto">
-                  <div className="text-xs font-mono text-stone-400 mb-1">FROM YOUR DIAGNOSTIC</div>
+                <div className="mt-6 border-l border-stone-300 pl-4 max-w-xl">
+                  <div className="text-xs font-mono font-bold uppercase text-stone-600 mb-1">From Signal</div>
                   <p className="text-stone-600">
-                    GPI <span className="text-stone-900 font-black">{fromGpi}</span> overall. Highest friction: <span className="text-red-600 font-bold">{fromDimLabel}</span>.
+                    GPI <span className="text-stone-950 font-bold">{fromGpi}</span>. Highest friction: <span className="text-red-800 font-bold">{fromDimLabel}</span>.
                   </p>
                 </div>
-                <p className="text-stone-500 text-lg leading-relaxed max-w-xl mx-auto">
-                  You bring the context. I already have your scores. We'll dig into {fromDimLabel} first and work outward from there.
+                <p className="gpi-prose mt-6 max-w-2xl text-stone-800">
+                  The number is only useful if it connects to the real pattern. Use this page to name what keeps repeating, then pick a time to work through it.
                 </p>
               </>
             ) : (
               <>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05] mb-6 tracking-headline">
-                  One hour<span className="text-red-600">.</span> No fluff<span className="text-red-600">.</span>
+                <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-headline md:text-6xl">
+                  Bring the pattern. Then book the hour.
                 </h1>
-                <p className="text-xl text-stone-500 leading-relaxed max-w-xl mx-auto">
-                  You bring the org. I run GPI on it live. By the end you'll know exactly where it's calcifying and what to do about it.
+                <p className="gpi-prose mt-6 max-w-2xl text-stone-800">
+                  A useful session starts before the calendar. Name where the work slows down, what keeps returning, and what needs a cleaner read.
                 </p>
               </>
             )}
-            <p className="text-stone-400 text-sm mt-4">First session free. No pitch at the end.</p>
+            <p className="mt-4 font-mono text-xs text-stone-600">The first hour is a fit check and a working read.</p>
           </div>
 
           {submitted ? (
-            <div className="border border-stone-200 p-10 text-center max-w-md mx-auto fade-up">
-              <h2 className="text-2xl font-black mb-3">You're booked.</h2>
-              <p className="text-stone-500">Check your inbox for confirmation. See you then.</p>
+            <div className="border-t border-stone-300 py-10 max-w-md fade-up">
+              <h2 className="text-2xl font-bold mb-3">You are booked.</h2>
+              <p className="text-stone-700">A confirmation is on its way. The session will start with the pattern you named here.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 fade-up">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 fade-up">
 
               {/* Calendar */}
               <div>
@@ -253,7 +271,7 @@ const ConsultPage: NextPage = () => {
                   })}
                 </div>
 
-                <p className="text-xs text-stone-400 mt-4">Mon – Fri, 7am – 3pm CST</p>
+                <p className="text-xs text-stone-600 mt-4">Mon-Fri, 7am-3pm CST</p>
 
                 {selectedDate && (
                   <div className="mt-6">
@@ -332,13 +350,35 @@ const ConsultPage: NextPage = () => {
                     </div>
 
                     <div>
-                      <label className="block text-xs tracking-widest text-stone-400 uppercase mb-2">What do you want to figure out?</label>
+                      <label className="block text-xs tracking-widest text-stone-400 uppercase mb-2">What feels stuck?</label>
                       <textarea
                         rows={4}
-                        value={form.context}
-                        onChange={e => setForm(f => ({ ...f, context: e.target.value }))}
+                        value={form.stuckPoint}
+                        onChange={e => setForm(f => ({ ...f, stuckPoint: e.target.value }))}
                         className="w-full bg-stone-50 border border-stone-300 px-4 py-3 text-stone-900 focus:outline-none focus:border-stone-900 resize-none"
-                        placeholder="What's the problem, or the behavior you can't explain?"
+                        placeholder="Where does the work slow down, loop, or get harder than it should?"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs tracking-widest text-stone-400 uppercase mb-2">What keeps repeating?</label>
+                      <textarea
+                        rows={3}
+                        value={form.repeatedPattern}
+                        onChange={e => setForm(f => ({ ...f, repeatedPattern: e.target.value }))}
+                        className="w-full bg-stone-50 border border-stone-300 px-4 py-3 text-stone-900 focus:outline-none focus:border-stone-900 resize-none"
+                        placeholder="The same meeting, delay, conflict, workaround, customer issue, or decision pattern."
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs tracking-widest text-stone-400 uppercase mb-2">What should the session help clarify?</label>
+                      <textarea
+                        rows={3}
+                        value={form.sessionFocus}
+                        onChange={e => setForm(f => ({ ...f, sessionFocus: e.target.value }))}
+                        className="w-full bg-stone-50 border border-stone-300 px-4 py-3 text-stone-900 focus:outline-none focus:border-stone-900 resize-none"
+                        placeholder="A decision, team pattern, system problem, offer question, or next move."
                       />
                     </div>
 
@@ -348,12 +388,12 @@ const ConsultPage: NextPage = () => {
                       type="submit" disabled={loading}
                       className="w-full bg-stone-900 text-white py-4 font-semibold text-sm hover:bg-stone-800 transition-all disabled:opacity-50"
                     >
-                      {loading ? 'Booking...' : 'Book the Hour'}
+                      {loading ? 'Booking...' : 'Book the working session'}
                     </button>
                   </form>
                 ) : (
                   <div className="flex items-center justify-center h-full min-h-48 border border-stone-200">
-                    <p className="text-stone-400 text-sm">Pick a date and time to continue.</p>
+                    <p className="text-stone-600 text-sm">Pick a date and time to open the intake questions.</p>
                   </div>
                 )}
               </div>
@@ -362,44 +402,10 @@ const ConsultPage: NextPage = () => {
           )}
         </main>
 
-        {/* Footer */}
-        <footer className="py-16 px-6 border-t border-stone-200">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
-              <div>
-                <div className="font-black text-sm mb-4">GPI<span className="text-red-600">.</span>STUDIO</div>
-                <p className="text-sm text-stone-400 leading-relaxed">
-                  Organizational physics.<br />
-                  We measure where energy gets stuck.
-                </p>
-              </div>
-              <div>
-                <div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div>
-                <div className="space-y-3">
-                  <Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link>
-                  <Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link>
-                  <Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link>
-                </div>
-              </div>
-              <div>
-                <div className="text-xs font-mono text-stone-400 mb-4">WORK</div>
-                <div className="space-y-3">
-                  <Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link>
-                  <Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link>
-                  <Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link>
-                </div>
-              </div>
-              <div>
-                <div className="text-xs font-mono text-stone-400 mb-4">COMPANY</div>
-                <div className="space-y-3">
-                  <Link href="/about" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">About</Link>
-                </div>
-              </div>
-            </div>
-            <div className="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-400">
-              <div>© {new Date().getFullYear()} Imagination G LLC</div>
-              <div className="font-mono">gpi.studio</div>
-            </div>
+        <footer className="gpi-rule">
+          <div className="gpi-shell flex flex-col gap-3 py-8 font-mono text-xs text-stone-600 md:flex-row md:items-center md:justify-between">
+            <div>GPI Studio. Operating intelligence for companies in motion.</div>
+            <div>marcus@gpi.studio · gpi.studio</div>
           </div>
         </footer>
       </div>

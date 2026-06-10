@@ -1,0 +1,291 @@
+{
+  "generatedAt": "2026-06-08T01:50:33+00:00",
+  "source": "/Users/marcellmar/Documents/projects/marcus-gpi-brain/gpi-framework/gpi.db",
+  "companies": [
+    {
+      "id": 1117,
+      "slug": "byd",
+      "name": "BYD",
+      "ticker": "002594.SZ",
+      "sector": "Automotive",
+      "analysisDate": "2026-06-08",
+      "gpiScore": 3.8,
+      "state": "Field",
+      "dimensions": [
+        {
+          "dimension": "Decision Latency",
+          "score": 3.0
+        },
+        {
+          "dimension": "Error Correction",
+          "score": 3.0
+        },
+        {
+          "dimension": "Knowledge Location",
+          "score": 4.0
+        },
+        {
+          "dimension": "Structural Lock-In",
+          "score": 4.0
+        },
+        {
+          "dimension": "Talent Flow",
+          "score": 3.0
+        },
+        {
+          "dimension": "Capital Intensity",
+          "score": 4.0
+        },
+        {
+          "dimension": "Knowledge Velocity",
+          "score": 3.0
+        }
+      ],
+      "pattern": "The work stays close to the floor",
+      "patternDescription": "BYD put speed into the operating architecture. Batteries, factories, model updates, engineering depth, and modular integration reinforce each other instead of waiting for one heroic decision loop. The company isn't simply cheaper. It is better matched to the terrain.",
+      "keyNumbers": [
+        "4,602,436 vehicles sold in 2025",
+        "2,256,714 BEVs sold in 2025",
+        "1,046,083 overseas sales in 2025, up about 151%",
+        "CNY 803.97B 2025 revenue",
+        "Q1 2026 net profit fell 55.4% to CNY 4.09B",
+        "120,000 engineers"
+      ],
+      "enablers": [
+        "Battery, factory, and product work sit close together",
+        "Blade Battery platform reuse",
+        "Factories can switch models",
+        "Large engineering base"
+      ],
+      "friction": [
+        "China domestic market saturation",
+        "Overseas management culture challenges",
+        "EU and US tariff pressure",
+        "Profit pressure from price wars and softer Q1 2026 earnings"
+      ],
+      "quotable": "BYD isn't winning on price alone. It built a company able to keep updating while the market moves.",
+      "sources": [
+        {
+          "title": "BYD 2025 vehicle sales and overseas sales",
+          "url": "https://cnevpost.com/2026/01/01/byd-nev-sales-dec-2025/"
+        },
+        {
+          "title": "BYD 2025 revenue and profit filing summary",
+          "url": "https://finance.yahoo.com/sectors/technology/articles/byd-reports-drop-earnings-2025-092609022.html"
+        },
+        {
+          "title": "BYD Q1 2026 profit pressure",
+          "url": "https://www.carscoops.com/2026/05/byd-q1-2026-profit-drop/"
+        }
+      ],
+      "sourceRef": "local_snapshot_refresh",
+      "voiceVersion": "gpi_studio_2026_06"
+    },
+    {
+      "id": 1118,
+      "slug": "tesla",
+      "name": "Tesla",
+      "ticker": "TSLA",
+      "sector": "Automotive",
+      "analysisDate": "2026-06-08",
+      "gpiScore": 6.8,
+      "state": "Transitioning",
+      "dimensions": [
+        {
+          "dimension": "Decision Latency",
+          "score": 5.0
+        },
+        {
+          "dimension": "Error Correction",
+          "score": 6.0
+        },
+        {
+          "dimension": "Knowledge Location",
+          "score": 7.0
+        },
+        {
+          "dimension": "Structural Lock-In",
+          "score": 8.0
+        },
+        {
+          "dimension": "Talent Flow",
+          "score": 7.0
+        },
+        {
+          "dimension": "Capital Intensity",
+          "score": 8.0
+        },
+        {
+          "dimension": "Knowledge Velocity",
+          "score": 7.0
+        }
+      ],
+      "pattern": "Too much waits on Musk",
+      "patternDescription": "Tesla still moves with unusual force, but too much movement depends on founder attention. The company built speed by letting Musk override normal bureaucracy. It worked early. At this size, the shortcut turns into a bottleneck.",
+      "keyNumbers": [
+        "1,636,129 vehicles delivered in 2025",
+        "358,023 vehicles delivered in Q1 2026",
+        "46.7 GWh energy storage deployed in 2025",
+        "$22.4B Q1 2026 revenue",
+        "79,918 Supercharger connectors at Q1 2026",
+        "Musk attention split across Tesla, SpaceX, xAI, X, and Neuralink"
+      ],
+      "enablers": [
+        "Brand strength",
+        "Supercharger network moat",
+        "Manufacturing invention",
+        "Software and over-the-air update advantage"
+      ],
+      "friction": [
+        "Founder dependency",
+        "China competition from BYD",
+        "AI, Robotaxi, Optimus, battery, and chip-fab commitments all competing for capital and attention",
+        "27 days of vehicle inventory in Q1 2026",
+        "FSD and robotaxi execution risk",
+        "Talent retention pressure"
+      ],
+      "quotable": "Tesla can still move. The rhythm is the problem. Too much depends on whether founder attention is close to the work.",
+      "sources": [
+        {
+          "title": "Tesla Fourth Quarter 2025 Production, Deliveries & Deployments",
+          "url": "https://ir.tesla.com/press-release/tesla-fourth-quarter-2025-production-deliveries-deployments"
+        },
+        {
+          "title": "Tesla Q1 2026 Update",
+          "url": "https://fortune.com/company-assets/1900/quartr/slides-20833-2026-04-22-20-57-06.pdf"
+        }
+      ],
+      "sourceRef": "local_snapshot_refresh",
+      "voiceVersion": "gpi_studio_2026_06"
+    }
+  ],
+  "articles": [
+    {
+      "slug": "tesla-vs-byd-ev-wars",
+      "title": "Tesla vs BYD EV Wars",
+      "lane": "Weekly Smackdown",
+      "status": "published",
+      "publishDate": "2026-06-08",
+      "articleType": "comparison",
+      "teaser": "I keep thinking about the first time EVs stopped feeling rare. For years, Tesla made the car feel like the event. The screen. The doors. The person explaining it at a dinner table. BYD is a different kind of threat. It makes the event disappear. At some point the car stops being the story, and the story becomes how fast the company can build another one.",
+      "heroRead": "Think about two kitchens before the dinner rush. One has a famous chef in the window, calling shots, changing the menu, making everybody watch. The other has the prep done, the stations stocked, the line cooks moving without a speech. Tesla is still the famous chef. BYD is the kitchen already in rhythm. In a slow market, fame buys attention. Rhythm gets plates out. EVs have moved from miracle to dinner service, and dinner service rewards the kitchen nobody has to keep explaining.",
+      "sourceType": "gpi_db",
+      "sourceRef": "local-refresh:round2-articles-2026-06-08",
+      "voiceVersion": "gpi_studio_2026_06",
+      "companies": [
+        {
+          "name": "Tesla",
+          "company_role": "comparison_subject",
+          "display_order": 1,
+          "snapshot_id": 1163
+        },
+        {
+          "name": "BYD",
+          "company_role": "comparison_subject",
+          "display_order": 2,
+          "snapshot_id": 1164
+        }
+      ],
+      "sections": [
+        {
+          "order": 1,
+          "type": "read",
+          "title": "Start here",
+          "body": [
+            "Think about two kitchens before the dinner rush. One has a famous chef in the window. Everybody knows his name. Every change runs through him. The other kitchen is quieter. Prep is done. Stations are stocked. The line cooks already know the next move. Tesla feels like the first kitchen. BYD feels like the second.",
+            "The car market used to reward the company with the biggest story. Tesla owned that moment. It made EVs feel fast, expensive, strange, and inevitable. Now the fight is less romantic. Can the company keep building, changing, pricing, and shipping without turning every move into a public event?",
+            "BYD is dangerous because it makes the hard part look ordinary. Battery work, factory work, model changes, and export plans are close enough to move together. BYD has flaws. It just has more ways to fix the day before the day gets away from it.",
+            "Tesla can still surprise people. BYD can wear them down. Those are different kinds of power."
+          ],
+          "metadata": {
+            "voice_version": "gpi_studio_2026_06"
+          }
+        },
+        {
+          "order": 2,
+          "type": "company_read",
+          "title": "Tesla",
+          "body": [
+            "Tesla still moves like Musk is supposed to be near the work.",
+            "The company still has the brand, the charging network, the software habit, and factories capable of doing hard things. Talent is there. Dependency is the issue. A company this large can't keep needing the same person to make the room feel awake."
+          ],
+          "metadata": {
+            "voice_version": "gpi_studio_2026_06"
+          }
+        },
+        {
+          "order": 3,
+          "type": "company_read",
+          "title": "BYD",
+          "body": [
+            "BYD keeps more of the answer inside the operation.",
+            "BYD has problems. Profit is under pressure. China is crowded. Going global will test the company in ways the home market never did. Still, BYD has more knobs to turn. Battery, factory, model, and market can move together instead of waiting for one big call."
+          ],
+          "metadata": {
+            "voice_version": "gpi_studio_2026_06"
+          }
+        },
+        {
+          "order": 4,
+          "type": "numbers",
+          "title": "The scoreboard",
+          "body": [
+            "Tesla: 1,636,129 vehicles delivered in 2025. Still huge, but no longer setting the pace by itself.",
+            "Tesla: 358,023 vehicles delivered in Q1 2026. The machine is moving, but the slack is visible.",
+            "Tesla: 46.7 GWh of energy storage deployed in 2025. The car story isn't the whole company.",
+            "BYD: 4,602,436 vehicles sold in 2025. Not a hot streak. Operating tempo.",
+            "BYD: 2,256,714 BEVs sold in 2025. The hybrid bridge didn't stop the pure EV push.",
+            "BYD: 1,046,083 overseas sales in 2025. The fight has left China."
+          ],
+          "metadata": {
+            "voice_version": "gpi_studio_2026_06"
+          }
+        },
+        {
+          "order": 5,
+          "type": "helps",
+          "title": "Still working",
+          "body": [
+            "Tesla still owns the mental shortcut for electric cars.",
+            "The charging network gives the brand a practical moat, more than a story moat.",
+            "The company knows how to push software into a car after the sale.",
+            "BYD makes the battery, builds the car, and keeps more of the learning inside the house.",
+            "Factories can keep changing models without turning every change into a company-wide drama.",
+            "A deep engineering bench means the company isn't waiting for one genius to translate the work."
+          ],
+          "metadata": {
+            "voice_version": "gpi_studio_2026_06"
+          }
+        },
+        {
+          "order": 6,
+          "type": "drags",
+          "title": "Still stuck",
+          "body": [
+            "Tesla has too many big promises open at the same time. Cars, robotaxi, Optimus, AI, batteries, chips. Too many plates.",
+            "Inventory hit 27 days in Q1 2026. It won't kill the company, but it says demand is no longer automatic.",
+            "The founder is still the shortcut. Shortcuts help until the company gets too big to keep using them.",
+            "China is crowded, and price wars can make even a strong company bleed margin.",
+            "Going overseas means more than shipping cars. Service, trust, dealers, regulators, and culture all have to travel too.",
+            "Q1 2026 profit fell hard. Growth is still there, but it is getting more expensive."
+          ],
+          "metadata": {
+            "voice_version": "gpi_studio_2026_06"
+          }
+        },
+        {
+          "order": 7,
+          "type": "line",
+          "title": "Bottom line",
+          "body": [
+            "The lesson for other companies is pretty simple. A strong leader can get people moving, but the work still has to survive a normal Tuesday. If every hard decision needs the same person in the room, the company is not fast. It is waiting well.",
+            "The better company is usually the one with less drama around the work."
+          ],
+          "metadata": {
+            "voice_version": "gpi_studio_2026_06"
+          }
+        }
+      ]
+    }
+  ]
+}

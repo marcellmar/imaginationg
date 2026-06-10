@@ -9,9 +9,9 @@ interface CompanyPageProps {
 }
 
 const getScoreColor = (score: number) => {
-  if (score <= 3) return 'text-green-500';
-  if (score <= 6.9) return 'text-yellow-500';
-  return 'text-red-500';
+  if (score <= 3.5) return 'text-stone-950';
+  if (score <= 6.9) return 'text-stone-600';
+  return 'text-red-700';
 };
 
 // Calculate state from score (source of truth)
@@ -22,21 +22,21 @@ const getStateFromScore = (score: number): string => {
 };
 
 const getStateColor = (state: string) => {
-  if (state.toLowerCase().includes('field')) return 'bg-green-50 text-green-500 border-green-300';
-  if (state.toLowerCase().includes('particle')) return 'bg-red-50 text-red-500 border-red-300';
-  return 'bg-yellow-50 text-yellow-500 border-yellow-300';
+  if (state.toLowerCase().includes('field')) return 'text-stone-950';
+  if (state.toLowerCase().includes('particle')) return 'text-red-700';
+  return 'text-stone-600';
 };
 
 const CompanyPage: NextPage<CompanyPageProps> = ({ snapshot }) => {
   if (!snapshot) {
     return (
-      <div className="min-h-screen bg-stone-50 text-stone-900">
+      <div className="gpi-page">
         <Navigation currentPage="companies" />
-        <div className="pt-32 text-center px-6">
-          <h1 className="text-4xl font-black mb-4">404</h1>
-          <p className="text-stone-500 mb-8">Company snapshot not found</p>
-          <Link href="/companies" className="text-red-500 hover:underline">
-            ← Back to Companies
+        <div className="gpi-shell py-24">
+          <h1 className="text-4xl font-bold">Company snapshot not found</h1>
+          <p className="mt-4 text-stone-700">That company read is not available.</p>
+          <Link href="/insights/snapshots" className="gpi-link mt-8 inline-block">
+            Back to snapshots
           </Link>
         </div>
       </div>
@@ -46,165 +46,209 @@ const CompanyPage: NextPage<CompanyPageProps> = ({ snapshot }) => {
   return (
     <>
       <SEOHead
-        title={`${snapshot.name} GPI Analysis | GPI Studio`}
-        description={`${snapshot.name} GPI Score: ${snapshot.gpiScore}. ${snapshot.pattern}. Full analysis across 7 dimensions.`}
+        title={`${snapshot.name} Company Snapshot | GPI Studio`}
+        description={`${snapshot.name} company snapshot. GPI score ${snapshot.gpiScore}. ${snapshot.pattern}.`}
       />
 
-      <div className="min-h-screen bg-stone-50 text-stone-900">
+      <div className="gpi-page">
         <Navigation currentPage="companies" />
 
-        {/* Back Link */}
-        <section className="pt-24 px-6">
-          <div className="max-w-4xl mx-auto">
-            <Link href="/companies" className="text-stone-500 text-sm hover:text-stone-900 inline-block mb-6">
-              ← Back to Companies
-            </Link>
-          </div>
-        </section>
+        <main className="gpi-shell py-14 md:py-20">
+          <section className="grid gap-10 md:grid-cols-[0.75fr_1.25fr] md:items-start">
+            <div>
+              <Link href="/insights/snapshots" className="gpi-link font-mono text-sm">
+                Back to snapshots
+              </Link>
+              <p className="gpi-kicker mt-8">Company Snapshot</p>
+              <h1 className="mt-4 text-5xl leading-none md:text-7xl">{snapshot.name}</h1>
+            </div>
 
-        {/* Header */}
-        <section className="pb-8 px-6 border-b border-stone-200">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span className={`text-xs font-mono px-2 py-1 border rounded ${getStateColor(getStateFromScore(snapshot.gpiScore))}`}>
-                {getStateFromScore(snapshot.gpiScore).toUpperCase()}
-              </span>
+            <div>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-sm text-stone-600">
+                <span className={getStateColor(getStateFromScore(snapshot.gpiScore))}>
+                  {getStateFromScore(snapshot.gpiScore)}
+                </span>
+                <span>{snapshot.gpiScore.toFixed(2)} GPI</span>
               {snapshot.ticker && (
-                <span className="text-xs font-mono text-stone-500">{snapshot.ticker}</span>
+                  <span>{snapshot.ticker}</span>
               )}
-              <span className="text-xs text-stone-400">Analysis: {snapshot.analysisDate}</span>
-            </div>
-
-            <h1 className="text-4xl md:text-5xl font-black mb-4">{snapshot.name}</h1>
-
-            <div className="flex items-center gap-6">
-              <div>
-                <div className="text-xs text-stone-500 mb-1">GPI SCORE</div>
-                <div className={`text-5xl font-black ${getScoreColor(snapshot.gpiScore)}`}>
-                  {snapshot.gpiScore.toFixed(2)}
-                </div>
+                <span>{snapshot.analysisDate}</span>
               </div>
 
-              <div className="text-sm text-stone-500">
-                {snapshot.marketCap && <div>Market Cap: {snapshot.marketCap}</div>}
-                {snapshot.employees && <div>Employees: {snapshot.employees.toLocaleString()}</div>}
-                {snapshot.revenue && <div>Revenue: {snapshot.revenue}</div>}
+              <div className="mt-8 gpi-prose max-w-3xl text-stone-800">
+                <p>
+                  This is a company read, not a full story about the company. The
+                  point is to name the pattern, show what is helping, and show what
+                  may slow the next move down.
+                </p>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Pattern */}
-        <section className="py-8 px-6 border-b border-stone-200 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-xs font-mono text-red-500 mb-2">THE PATTERN</div>
-            <h2 className="text-2xl font-black mb-4">{snapshot.pattern}</h2>
-            <p className="text-stone-600 leading-relaxed">{snapshot.patternDescription}</p>
-          </div>
-        </section>
-
-        {/* Dimension Scores */}
-        <section className="py-8 px-6 border-b border-stone-200">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-xs font-mono text-stone-500 mb-6">DIMENSION SCORES</div>
-
-            <div className="space-y-4">
-              {snapshot.dimensions.map((dim) => (
-                <div key={dim.dimension} className="border border-stone-200 p-4">
-                  <div className="flex justify-between items-start mb-2">
-                    <div className="font-bold text-stone-900">{dim.dimension}</div>
-                    <div className={`text-2xl font-black ${getScoreColor(dim.score)}`}>
-                      {dim.score}
-                    </div>
-                  </div>
-                  <p className="text-sm text-stone-500">{dim.explanation}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Key Numbers */}
-        <section className="py-8 px-6 border-b border-stone-200">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-xs font-mono text-stone-500 mb-6">KEY NUMBERS</div>
-            <div className="grid md:grid-cols-2 gap-3">
-              {snapshot.keyNumbers.map((num, i) => (
-                <div key={i} className="bg-stone-100 p-3 text-sm">
-                  {num}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Transformation Signals */}
-        <section className="py-8 px-6 border-b border-stone-200">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-xs font-mono text-stone-500 mb-6">TRANSFORMATION SIGNALS</div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <div className="text-green-500 font-bold mb-3">ENABLERS</div>
-                <ul className="space-y-2">
-                  {snapshot.enablers.map((e, i) => (
-                    <li key={i} className="text-sm text-stone-600 flex items-start gap-2">
-                      <span className="text-green-500 mt-1">+</span>
-                      {e}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <div className="text-red-500 font-bold mb-3">FRICTION</div>
-                <ul className="space-y-2">
-                  {snapshot.friction.map((f, i) => (
-                    <li key={i} className="text-sm text-stone-600 flex items-start gap-2">
-                      <span className="text-red-500 mt-1">−</span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Quotable */}
-        {snapshot.quotable && (
-          <section className="py-8 px-6 border-b border-stone-200 bg-white">
-            <div className="max-w-4xl mx-auto">
-              <blockquote className="text-xl text-stone-600 italic border-l-4 border-red-600 pl-6">
-                "{snapshot.quotable}"
-              </blockquote>
             </div>
           </section>
-        )}
 
-        {/* CTA */}
-        <section className="py-12 px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-xl font-black mb-4">WANT YOUR COMPANY ANALYZED?</h2>
-            <p className="text-stone-500 mb-6">
-              Get a full GPI breakdown across all 7 dimensions.
-            </p>
-            <Link
-              href="/diagnostic"
-              className="inline-flex items-center gap-2 bg-red-600 text-white px-6 py-3 font-bold hover:bg-red-700 transition-colors"
-            >
-              START WITH THE DIAGNOSTIC
-            </Link>
-          </div>
-        </section>
+          <section className="gpi-rule mt-14 pt-8">
+            <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
+              <div>
+                <p className="gpi-kicker">The Read</p>
+                <p className="mt-3 text-sm leading-6 text-stone-700">
+                  What the company appears to have learned, overlearned, or carried
+                  forward.
+                </p>
+              </div>
 
-        {/* Footer */}
-        <footer className="py-8 px-6 border-t border-stone-200">
-          <div className="max-w-6xl mx-auto flex justify-between items-center text-sm text-stone-400">
-            <div>GPI.STUDIO</div>
-            <div>© IMAGINATION G LLC</div>
-          </div>
-        </footer>
+              <div className="gpi-prose max-w-3xl">
+                <h2 className="text-3xl font-bold leading-tight text-stone-950 md:text-4xl">{snapshot.pattern}</h2>
+                <p className="mt-5">{snapshot.patternDescription}</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="gpi-rule mt-14 pt-8">
+            <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
+              <div>
+                <p className="gpi-kicker">Scorecard</p>
+                <p className="mt-3 text-sm leading-6 text-stone-700">
+                  The score is not a grade. It is a read on how easily the company
+                  can update and move.
+                </p>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="gpi-table">
+                  <tbody>
+                    <tr>
+                      <th>GPI Score</th>
+                      <td className={`font-mono text-xl font-bold ${getScoreColor(snapshot.gpiScore)}`}>
+                        {snapshot.gpiScore.toFixed(2)}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>State</th>
+                      <td>{snapshot.state}</td>
+                    </tr>
+                    {snapshot.marketCap && (
+                      <tr>
+                        <th>Market Cap</th>
+                        <td>{snapshot.marketCap}</td>
+                      </tr>
+                    )}
+                    {snapshot.employees && (
+                      <tr>
+                        <th>Employees</th>
+                        <td>{snapshot.employees.toLocaleString()}</td>
+                      </tr>
+                    )}
+                    {snapshot.revenue && (
+                      <tr>
+                        <th>Revenue</th>
+                        <td>{snapshot.revenue}</td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section className="gpi-rule mt-14 pt-8">
+            <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
+              <div>
+                <p className="gpi-kicker">The Read Checks</p>
+                <p className="mt-3 text-sm leading-6 text-stone-700">
+                  The seven places where a clean story usually runs into how the
+                  company actually works.
+                </p>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="gpi-table">
+                  <tbody>
+                    {snapshot.dimensions.map((dim) => (
+                      <tr key={dim.dimension}>
+                        <td className="w-56 font-mono text-sm font-bold text-stone-950">{dim.dimension}</td>
+                        <td className={`w-16 font-mono text-sm font-bold ${getScoreColor(dim.score)}`}>{dim.score}</td>
+                        <td className="text-sm leading-6 text-stone-700">{dim.explanation}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          {snapshot.keyNumbers.length > 0 && (
+            <section className="gpi-rule mt-14 pt-8">
+              <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
+                <div>
+                  <p className="gpi-kicker">Numbers Worth Holding</p>
+                  <p className="mt-3 text-sm leading-6 text-stone-700">
+                    Most numbers can stay in the filing. These are the ones that shape the read.
+                  </p>
+                </div>
+
+                <div className="grid gap-px border-y border-stone-300 bg-stone-300 md:grid-cols-2">
+                  {snapshot.keyNumbers.map((num) => (
+                    <div key={num} className="bg-[#f7f2e8] p-5 text-sm leading-6 text-stone-800">
+                      {num}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
+          <section className="gpi-rule mt-14 pt-8">
+            <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
+              <div>
+                <p className="gpi-kicker">Still Working / Still Stuck</p>
+                <p className="mt-3 text-sm leading-6 text-stone-700">
+                  The useful read is not whether the company is good or bad. It is
+                  what helps it move and what keeps pulling it back.
+                </p>
+              </div>
+
+              <div className="grid gap-px border-y border-stone-300 bg-stone-300 md:grid-cols-2">
+                <div className="bg-[#f7f2e8] p-5">
+                  <div className="font-mono text-sm font-bold text-stone-950">Still working</div>
+                  <ul className="mt-4 space-y-3">
+                    {snapshot.enablers.map((item) => (
+                      <li key={item} className="text-sm leading-6 text-stone-700">{item}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-[#f7f2e8] p-5">
+                  <div className="font-mono text-sm font-bold text-stone-950">Still stuck</div>
+                  <ul className="mt-4 space-y-3">
+                    {snapshot.friction.map((item) => (
+                      <li key={item} className="text-sm leading-6 text-stone-700">{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {snapshot.quotable && (
+            <section className="gpi-rule mt-14 pt-8">
+              <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
+                <div>
+                  <p className="gpi-kicker">The Line</p>
+                </div>
+                <blockquote className="max-w-3xl text-2xl leading-snug text-stone-950">
+                  "{snapshot.quotable}"
+                </blockquote>
+              </div>
+            </section>
+          )}
+
+          <section className="gpi-rule mt-14 pt-8">
+            <div className="flex flex-col gap-4 font-mono text-sm md:flex-row md:items-center">
+              <Link className="gpi-link" href="/insights/snapshots">All snapshots</Link>
+              <Link className="gpi-link" href="/gpi-framework">Read the lens</Link>
+              <Link className="gpi-link" href="/work">Turn a decision into a working session</Link>
+            </div>
+          </section>
+        </main>
       </div>
     </>
   );

@@ -76,3 +76,7 @@ Disallow: /node_modules/
 
 # Sitemap Location
 Sitemap: https://gpi.studio/sitemap.xml
+
+# Agent Discovery
+Agent: https://gpi.studio/agent.json
+LLMS: https://gpi.studio/llms.txt

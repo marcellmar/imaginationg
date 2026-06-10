@@ -47,7 +47,7 @@ const getDimensionInsight = (dimension: DimensionKey, score: number): { text: st
     STRUCTURAL_LOCKIN: {
       low: { text: "The structure bends when reality requires it", subtext: "Pivoting doesn't require a reorganization. Process is a tool, not a law." },
       mid: { text: "Some structure helps. Some structure just persists.", subtext: "Certain processes earn their place. Others exist because dismantling them is harder than tolerating them." },
-      high: { text: "The org is metabolically committed to its current form", subtext: "Changing how work gets done requires changing the org itself. That's expensive, slow, and politically dangerous. So it mostly doesn't happen." }
+      high: { text: "The org is metabolically committed to its current form", subtext: "Changing how work gets done means changing the org itself. Expensive, slow, and politically dangerous. So it mostly doesn't happen." }
     },
     CAPITAL_INTENSITY: {
       low: { text: "Resources follow results", subtext: "Spending is tied to outcomes. Money moves when the work moves. Budgets aren't defended, they're allocated." },
@@ -75,6 +75,7 @@ const DiagnosticPage = () => {
   const [sendEmail, setSendEmail] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [savedEmail, setSavedEmail] = useState('');
   const [saveError, setSaveError] = useState<string | null>(null);
 
   const industries = getIndustryList();
@@ -82,57 +83,58 @@ const DiagnosticPage = () => {
   // 32 diagnostic questions
   const questions = [
     // DECISION_LATENCY (5)
-    { id: 1, dimension: "DECISION_LATENCY" as DimensionKey, question: "Did your team make a meaningful decision this week without waiting for approval from above?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 2, dimension: "DECISION_LATENCY" as DimensionKey, question: "Have you seen a decision sit unmade for more than a week because no one was sure who owned it?", yes: "Yes", no: "No", fieldAnswer: false },
-    { id: 3, dimension: "DECISION_LATENCY" as DimensionKey, question: "Can your team commit $10,000 or more without requiring senior approval?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 4, dimension: "DECISION_LATENCY" as DimensionKey, question: "In your org, does a typical decision require sign-off from more than three people?", yes: "Yes", no: "No", fieldAnswer: false },
-    { id: 5, dimension: "DECISION_LATENCY" as DimensionKey, question: "When a problem surfaces, does your team act on it within 24 hours more often than not?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 1, dimension: "DECISION_LATENCY" as DimensionKey, question: "When a real problem shows up, can the people closest to it make the call?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 2, dimension: "DECISION_LATENCY" as DimensionKey, question: "Do decisions often sit for a week because no one is sure who owns them?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 3, dimension: "DECISION_LATENCY" as DimensionKey, question: "Can your team spend meaningful money without turning it into a senior-leadership event?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 4, dimension: "DECISION_LATENCY" as DimensionKey, question: "Does a normal decision need more than three people to bless it?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 5, dimension: "DECISION_LATENCY" as DimensionKey, question: "When something breaks, does the first useful move usually happen within 24 hours?", yes: "Yes", no: "No", fieldAnswer: true },
     // ERROR_CORRECTION (5)
-    { id: 6, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Has your org publicly reversed or killed a major initiative in the last 6 months?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 7, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Are there projects in your org that everyone knows are failing but no one is killing?", yes: "Yes", no: "No", fieldAnswer: false },
-    { id: 8, dimension: "ERROR_CORRECTION" as DimensionKey, question: "When new evidence contradicts a decision, does your org change course quickly?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 9, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Has a 'we've already invested too much to stop' argument ever kept a dead project alive in your org?", yes: "Yes", no: "No", fieldAnswer: false },
-    { id: 10, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Do you actively seek out the people who disagree with your current strategy?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 6, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Has your org killed or reversed a meaningful initiative in the last six months?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 7, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Is there a project everyone knows is not working, but it keeps getting protected?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 8, dimension: "ERROR_CORRECTION" as DimensionKey, question: "When the evidence changes, does the plan change quickly too?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 9, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Does 'we already spent too much' keep bad work alive?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 10, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Do the people who disagree with the plan get heard before the plan hardens?", yes: "Yes", no: "No", fieldAnswer: true },
     // KNOWLEDGE_LOCATION (5)
-    { id: 11, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "If your three most critical people left tomorrow, would their knowledge leave with them?", yes: "Yes", no: "No", fieldAnswer: false },
-    { id: 12, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Do you regularly find out about decisions that affect your work after they've already been made?", yes: "Yes", no: "No", fieldAnswer: false },
-    { id: 13, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Can you clearly explain why your top competitor is winning or losing right now?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 14, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Is there information in your org that certain people protect and others can't easily access?", yes: "Yes", no: "No", fieldAnswer: false },
-    { id: 15, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Do team members openly challenge leadership's assumptions in regular meetings?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 11, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "If your three most important operators left, would key knowledge leave with them?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 12, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Do people find out about decisions that affect their work after the decision is already made?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 13, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Can people find the current version of how the work is supposed to happen?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 14, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Do certain people control information that others need to do the work?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 15, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Can frontline knowledge reach leadership without being softened first?", yes: "Yes", no: "No", fieldAnswer: true },
     // KNOWLEDGE_VELOCITY (4)
-    { id: 16, dimension: "KNOWLEDGE_VELOCITY" as DimensionKey, question: "In your org, does bad news reach leadership faster than good news?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 17, dimension: "KNOWLEDGE_VELOCITY" as DimensionKey, question: "Has your org been caught off guard by something front-line employees saw coming for months?", yes: "Yes", no: "No", fieldAnswer: false },
-    { id: 18, dimension: "KNOWLEDGE_VELOCITY" as DimensionKey, question: "Do the people making decisions have real-time access to what people doing the work actually know?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 19, dimension: "KNOWLEDGE_VELOCITY" as DimensionKey, question: "Does it typically take more than a month for a market shift to change your team's priorities?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 16, dimension: "KNOWLEDGE_VELOCITY" as DimensionKey, question: "Does bad news travel as fast as good news?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 17, dimension: "KNOWLEDGE_VELOCITY" as DimensionKey, question: "Has leadership been surprised by something the front line saw coming?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 18, dimension: "KNOWLEDGE_VELOCITY" as DimensionKey, question: "Do decision-makers see the work as it is now, not as it looked last month?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 19, dimension: "KNOWLEDGE_VELOCITY" as DimensionKey, question: "Does a market or customer shift take more than a month to change priorities?", yes: "Yes", no: "No", fieldAnswer: false },
     // TALENT_FLOW (4)
-    { id: 20, dimension: "TALENT_FLOW" as DimensionKey, question: "Do your best performers consistently move toward your org's most important problems?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 21, dimension: "TALENT_FLOW" as DimensionKey, question: "Is there someone in your org who everyone knows is in the wrong role but stays anyway?", yes: "Yes", no: "No", fieldAnswer: false },
-    { id: 22, dimension: "TALENT_FLOW" as DimensionKey, question: "Have you lost strong performers in the last year because they couldn't get things done here?", yes: "Yes", no: "No", fieldAnswer: false },
-    { id: 23, dimension: "TALENT_FLOW" as DimensionKey, question: "Does promotion in your org correlate more with tenure and relationships than with results?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 20, dimension: "TALENT_FLOW" as DimensionKey, question: "Do strong people move toward the hardest problems?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 21, dimension: "TALENT_FLOW" as DimensionKey, question: "Is someone clearly in the wrong role, but the system keeps them there?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 22, dimension: "TALENT_FLOW" as DimensionKey, question: "Have strong people left because they could not get useful work done here?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 23, dimension: "TALENT_FLOW" as DimensionKey, question: "Do tenure and relationships outrank results when people move up?", yes: "Yes", no: "No", fieldAnswer: false },
     // STRUCTURAL_LOCKIN (5)
-    { id: 24, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "Could your team fundamentally change how it operates within 90 days if the market required it?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 25, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "Are there processes in your org that exist mainly because they've always existed?", yes: "Yes", no: "No", fieldAnswer: false },
-    { id: 26, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "Does your technology infrastructure actively limit what you can do strategically?", yes: "Yes", no: "No", fieldAnswer: false },
-    { id: 27, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "Do recurring meetings stay on the calendar year after year without being reconsidered?", yes: "Yes", no: "No", fieldAnswer: false },
-    { id: 28, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "When your org tries something genuinely new, does the existing structure actively resist it?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 24, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "Could your team change how it works within 90 days if reality required it?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 25, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "Do processes survive mostly because they have always been there?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 26, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "Do old systems or vendor choices block moves the business now needs to make?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 27, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "Do recurring meetings stay on the calendar after their original purpose is gone?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 28, dimension: "STRUCTURAL_LOCKIN" as DimensionKey, question: "When something new enters the business, does the existing structure push it back into the old shape?", yes: "Yes", no: "No", fieldAnswer: false },
     // CAPITAL_INTENSITY (4)
-    { id: 29, dimension: "CAPITAL_INTENSITY" as DimensionKey, question: "Do departments in your org spend aggressively at year-end primarily to protect next year's budget?", yes: "Yes", no: "No", fieldAnswer: false },
-    { id: 30, dimension: "CAPITAL_INTENSITY" as DimensionKey, question: "Is your budget process primarily about defending last year's allocations rather than funding this year's priorities?", yes: "Yes", no: "No", fieldAnswer: false },
-    { id: 31, dimension: "CAPITAL_INTENSITY" as DimensionKey, question: "In a typical week, do your meetings consume more time than the decisions they produce can justify?", yes: "Yes", no: "No", fieldAnswer: false },
-    { id: 32, dimension: "CAPITAL_INTENSITY" as DimensionKey, question: "Are your best resources (people, money, attention) visibly going toward your org's most important problems?", yes: "Yes", no: "No", fieldAnswer: true },
+    { id: 29, dimension: "CAPITAL_INTENSITY" as DimensionKey, question: "Does year-end spending happen mainly to protect next year's budget?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 30, dimension: "CAPITAL_INTENSITY" as DimensionKey, question: "Is the budget conversation more about defending old allocations than funding current priorities?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 31, dimension: "CAPITAL_INTENSITY" as DimensionKey, question: "Do facilities, equipment, contracts, or inventory force decisions before strategy does?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 32, dimension: "CAPITAL_INTENSITY" as DimensionKey, question: "Are money, people, and attention visibly moving toward the most important work?", yes: "Yes", no: "No", fieldAnswer: true },
   ];
 
   const handleAnswer = (answer: 'yes' | 'no') => {
-    setAnswers(prev => ({ ...prev, [currentQuestion]: answer }));
+    const nextAnswers = { ...answers, [currentQuestion]: answer };
+    setAnswers(nextAnswers);
     if (currentQuestion < questions.length) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       setCurrentStep('analysis');
-      runAnalysis();
+      runAnalysis(nextAnswers);
     }
   };
 
-  const runAnalysis = () => {
+  const runAnalysis = (answersSnapshot = answers) => {
     const steps = 9;
     let step = 0;
     const interval = setInterval(() => {
@@ -140,7 +142,7 @@ const DiagnosticPage = () => {
       setAnalysisStep(step);
       if (step >= steps) {
         clearInterval(interval);
-        const diagnosticAnswers: DiagnosticAnswer[] = Object.entries(answers).map(([qId, answer]) => {
+        const diagnosticAnswers: DiagnosticAnswer[] = Object.entries(answersSnapshot).map(([qId, answer]) => {
           const question = questions.find(q => q.id === parseInt(qId));
           return {
             questionId: parseInt(qId),
@@ -163,6 +165,7 @@ const DiagnosticPage = () => {
     setShowSaveModal(false);
     setSaveForm({ name: '', email: '', city: '', company: '' });
     setSaved(false);
+    setSavedEmail('');
     setSaveError(null);
   };
 
@@ -198,14 +201,17 @@ const DiagnosticPage = () => {
         }),
       });
 
+      const data = await response.json().catch(() => null);
+
       if (!response.ok) {
-        throw new Error('Failed to save');
+        throw new Error(data?.error || 'Failed to send');
       }
 
+      setSavedEmail(data?.emailTo || saveForm.email);
       setSaved(true);
       setShowSaveModal(false);
     } catch (error) {
-      setSaveError('Failed to save results. Please try again.');
+      setSaveError(error instanceof Error ? error.message : 'Failed to send the read. Please try again.');
     } finally {
       setSaving(false);
     }
@@ -216,181 +222,158 @@ const DiagnosticPage = () => {
     return (
       <>
         <SEOHead
-          title="GPI Diagnostic | GPI Studio"
-          description="Measure your Growing Pains Index. 32 questions. 7 dimensions. See where energy gets stuck."
+          title="Signal | GPI Studio"
+          description="A short signal read for seeing where work slows down, repeats, or gets protected by the system."
         />
-        <div className="min-h-screen bg-stone-50 text-stone-900">
+        <div className="gpi-page">
           <Navigation currentPage="diagnostic" />
-          <section className="pt-36 pb-24 px-6">
-            <div className="max-w-3xl mx-auto">
+          <section className="gpi-shell py-14 md:py-20">
+            <div className="max-w-4xl">
 
               {/* Hero */}
               <div className="mb-12">
-                <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-8 fade-up">
-                  <span className="w-2 h-2 bg-red-500 rounded-full" />
-                  DIAGNOSTIC READY
+                <div className="gpi-kicker mb-6 fade-up">
+                  Signal
                 </div>
-                <div className="flex flex-col md:flex-row md:items-start gap-6 mb-6 fade-up">
-                  <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-headline flex-1">
-                    YOUR ORG HAS A<br />
-                    <span className="text-red-600">METABOLIC RATE.</span>
-                  </h1>
-                  <div className="border border-stone-300 p-4 md:w-64 shrink-0">
-                    <div className="text-xs font-mono text-stone-500 mb-2">SELECT YOUR INDUSTRY</div>
+                <div className="grid gap-8 md:grid-cols-[1.1fr_0.65fr] md:items-start fade-up">
+                  <div>
+                    <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-headline md:text-6xl">
+                      A first read on where the work gets stuck.
+                    </h1>
+                    <div className="gpi-prose mt-6 max-w-2xl text-stone-800">
+                      <p>
+                        Most business friction is not loud. It shows up as a delayed decision, a protected mistake, a workaround everyone accepts, or knowledge that never reaches the person who needs it.
+                      </p>
+                      <p>
+                        Signal gives you a starting read. Not a grade. A map of where movement is being spent.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="border-t border-stone-300 pt-4 md:border-l md:border-t-0 md:pl-6 md:pt-0">
+                    <div className="text-xs font-mono font-bold uppercase text-stone-600 mb-2">Industry context</div>
                     <select
                       value={selectedIndustry}
                       onChange={(e) => setSelectedIndustry(e.target.value)}
-                      className="w-full bg-stone-50 text-stone-900 text-sm py-1 focus:outline-none"
+                      className="w-full border-b border-stone-400 bg-transparent py-2 text-sm text-stone-950 focus:outline-none"
                     >
                       {industries.map((industry) => (
                         <option key={industry} value={industry}>{industry}</option>
                       ))}
                     </select>
-                    <p className="text-xs text-stone-400 mt-2">Used to benchmark your results.</p>
+                    <p className="text-sm text-stone-600 mt-3">
+                      Used as a comparison point. The useful part is still the pattern inside your own system.
+                    </p>
+                    <div className="mt-6 border-t border-stone-300 pt-4 text-sm text-stone-700">
+                      32 yes/no questions. No email required to see the read.
+                    </div>
                   </div>
                 </div>
-                <p className="text-xl md:text-2xl text-stone-500 max-w-2xl leading-relaxed fade-up">
-                  Most friction isn't visible on a P&L. It shows up in how long decisions take, whether mistakes get fixed or defended, and whether your best people have room to move. This measures all of it. 32 questions. 8 minutes.
-                </p>
               </div>
 
               {/* Scale */}
-              <div className="bg-white border border-stone-200 p-6 mb-8 fade-up">
-                <div className="text-xs font-mono text-stone-400 mb-4">THE SCALE</div>
-                <div className="relative h-4 bg-stone-100 rounded-full mb-3 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-stone-300 via-stone-500 to-stone-900" />
+              <div className="gpi-rule py-8 fade-up">
+                <div className="grid gap-6 md:grid-cols-[0.7fr_1.3fr]">
+                  <div>
+                    <div className="gpi-kicker mb-3">Reading The Score</div>
+                    <p className="text-stone-700">
+                      Lower scores mean the work can still move. Higher scores mean the current structure is charging a toll.
+                    </p>
+                  </div>
+                  <div className="grid gap-4 sm:grid-cols-3">
+                    <div className="border-t border-stone-300 pt-3">
+                      <div className="font-mono text-sm font-bold text-stone-950">1-3</div>
+                      <div className="mt-1 font-bold">Field</div>
+                      <p className="mt-2 text-sm text-stone-600">Signal reaches action without much ceremony.</p>
+                    </div>
+                    <div className="border-t border-stone-300 pt-3">
+                      <div className="font-mono text-sm font-bold text-stone-700">4-6</div>
+                      <div className="mt-1 font-bold">Transition</div>
+                      <p className="mt-2 text-sm text-stone-600">Some things move. Some things keep returning to the old shape.</p>
+                    </div>
+                    <div className="border-t border-stone-300 pt-3">
+                      <div className="font-mono text-sm font-bold text-red-700">7-10</div>
+                      <div className="mt-1 font-bold">Particle</div>
+                      <p className="mt-2 text-sm text-stone-600">The system is spending energy defending its current form.</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex justify-between text-sm">
-                  <div>
-                    <span className="text-stone-900 font-bold">1-3</span>
-                    <span className="text-stone-400 ml-2">Field — energy flows</span>
-                  </div>
-                  <div>
-                    <span className="text-stone-500 font-bold">4-6</span>
-                    <span className="text-stone-400 ml-2">Transitioning</span>
-                  </div>
-                  <div>
-                    <span className="text-red-600 font-bold">7-10</span>
-                    <span className="text-stone-400 ml-2">Particle — energy stuck</span>
-                  </div>
-                </div>
-                <p className="text-xs text-stone-400 mt-4">This is a read, not a grade. A high score in the right environment isn't a failure. It's information about where you are and what it costs you to move from here.</p>
               </div>
 
               {/* The 7 Dimensions Preview */}
-              <div className="bg-white border border-stone-200 p-6 mb-8 fade-up">
-                <div className="text-xs font-mono text-stone-400 mb-6">SEVEN DIMENSIONS OF ORGANIZATIONAL FRICTION</div>
-                <div className="space-y-5">
+              <div className="gpi-rule py-8 fade-up">
+                <div className="gpi-kicker mb-6">Seven places friction hides</div>
+                <div className="grid gap-x-10 gap-y-6 md:grid-cols-2">
                   <div className="flex items-start gap-4">
-                    <Clock size={15} className="text-stone-400 mt-0.5 shrink-0" />
+                    <Clock size={15} className="text-stone-500 mt-1 shrink-0" />
                     <div>
-                      <span className="text-stone-900 font-bold">Decision Latency</span>
-                      <p className="text-stone-500 text-sm mt-0.5">Every layer between signal and action is a tax. Most orgs don't know how much they're paying.</p>
+                      <span className="font-bold">Decision Latency</span>
+                      <p className="text-stone-600 text-sm mt-1">How far a signal has to travel before someone can act on it.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <Zap size={15} className="text-stone-400 mt-0.5 shrink-0" />
+                    <Zap size={15} className="text-stone-500 mt-1 shrink-0" />
                     <div>
-                      <span className="text-stone-900 font-bold">Error Correction</span>
-                      <p className="text-stone-500 text-sm mt-0.5">Mistakes aren't the problem. Mistakes that compound for years because no one can say the project is dead, that's the problem.</p>
+                      <span className="font-bold">Error Correction</span>
+                      <p className="text-stone-600 text-sm mt-1">Whether the system can admit a wrong turn before it becomes identity.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <Brain size={15} className="text-stone-400 mt-0.5 shrink-0" />
+                    <Brain size={15} className="text-stone-500 mt-1 shrink-0" />
                     <div>
-                      <span className="text-stone-900 font-bold">Knowledge Location</span>
-                      <p className="text-stone-500 text-sm mt-0.5">If it lives in someone's head and they leave, it's gone. If it lives in a doc no one can find, same result.</p>
+                      <span className="font-bold">Knowledge Location</span>
+                      <p className="text-stone-600 text-sm mt-1">Where the real operating knowledge lives, and who can reach it.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <Lock size={15} className="text-stone-400 mt-0.5 shrink-0" />
+                    <Gauge size={15} className="text-stone-500 mt-1 shrink-0" />
                     <div>
-                      <span className="text-stone-900 font-bold">Structural Lock-In</span>
-                      <p className="text-stone-500 text-sm mt-0.5">Not just technology. Org charts, vendor contracts, legacy processes. Anything that makes changing direction expensive.</p>
+                      <span className="font-bold">Knowledge Velocity</span>
+                      <p className="text-stone-600 text-sm mt-1">How quickly reality moves from the edge of the work to the people making calls.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <Users size={15} className="text-stone-400 mt-0.5 shrink-0" />
+                    <Users size={15} className="text-stone-500 mt-1 shrink-0" />
                     <div>
-                      <span className="text-stone-900 font-bold">Talent Flow</span>
-                      <p className="text-stone-500 text-sm mt-0.5">Stuck people do stuck work. When mobility inside the org is low, the best performers calculate that their leverage is higher somewhere else.</p>
+                      <span className="font-bold">Talent Flow</span>
+                      <p className="text-stone-600 text-sm mt-1">Whether strong people can move toward the hardest problems.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <DollarSign size={15} className="text-stone-400 mt-0.5 shrink-0" />
+                    <Lock size={15} className="text-stone-500 mt-1 shrink-0" />
                     <div>
-                      <span className="text-stone-900 font-bold">Capital Intensity</span>
-                      <p className="text-stone-500 text-sm mt-0.5">Every dollar locked in physical assets is a dollar that can't move. High capital intensity means strategy gets shaped by what you already built.</p>
+                      <span className="font-bold">Structural Lock-In</span>
+                      <p className="text-stone-600 text-sm mt-1">The habits, contracts, tools, and meetings that keep the old shape alive.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <Gauge size={15} className="text-stone-400 mt-0.5 shrink-0" />
+                    <DollarSign size={15} className="text-stone-500 mt-1 shrink-0" />
                     <div>
-                      <span className="text-stone-900 font-bold">Knowledge Velocity</span>
-                      <p className="text-stone-500 text-sm mt-0.5">The gap between knowing something works better and actually doing it better. That gap is the metabolism.</p>
+                      <span className="font-bold">Capital Intensity</span>
+                      <p className="text-stone-600 text-sm mt-1">How much yesterday's spending controls today's choices.</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Start */}
-              <div className="text-center fade-up">
+              <div className="gpi-rule py-8 fade-up">
                 <button
                   onClick={() => setCurrentStep('questions')}
-                  className="bg-stone-900 text-white px-12 py-5 font-semibold text-lg hover:bg-stone-800 transition-colors"
+                  className="bg-stone-950 text-white px-7 py-4 font-semibold hover:bg-stone-800 transition-colors"
                 >
-                  Start Diagnostic
+                  Find the signal
                 </button>
-                <p className="text-stone-400 text-sm mt-4">32 yes/no questions. No email required to see results.</p>
-              </div>
-
-              {/* Trust Element */}
-              <div className="mt-12 text-center border-t border-stone-200 pt-8 fade-up">
-                <p className="text-stone-400 text-sm">
-                  Patterns drawn from analysis of 500+ organizations across 40+ industries.
+                <p className="text-stone-600 text-sm mt-4">
+                  Answer from how the business actually works, not how the process says it works.
                 </p>
               </div>
             </div>
           </section>
 
-          {/* Footer */}
-          <footer className="py-16 px-6 border-t border-stone-200">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
-                <div>
-                  <div className="font-black text-sm mb-4">GPI<span className="text-red-600">.</span>STUDIO</div>
-                  <p className="text-sm text-stone-400 leading-relaxed">
-                    Organizational physics.<br />
-                    We measure where energy gets stuck.
-                  </p>
-                </div>
-                <div>
-                  <div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div>
-                  <div className="space-y-3">
-                    <Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link>
-                    <Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link>
-                    <Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link>
-                  </div>
-                </div>
-                <div>
-                  <div className="text-xs font-mono text-stone-400 mb-4">WORK</div>
-                  <div className="space-y-3">
-                    <Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link>
-                    <Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link>
-                    <Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link>
-                  </div>
-                </div>
-                <div>
-                  <div className="text-xs font-mono text-stone-400 mb-4">COMPANY</div>
-                  <div className="space-y-3">
-                    <Link href="/about" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">About</Link>
-                  </div>
-                </div>
-              </div>
-              <div className="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-400">
-                <div>&copy; {new Date().getFullYear()} Imagination G LLC</div>
-                <div className="font-mono">gpi.studio</div>
-              </div>
+          <footer className="gpi-rule">
+            <div className="gpi-shell flex flex-col gap-3 py-8 font-mono text-xs text-stone-600 md:flex-row md:items-center md:justify-between">
+              <div>GPI Studio. Operating intelligence for companies in motion.</div>
+              <div>marcus@gpi.studio · gpi.studio</div>
             </div>
           </footer>
         </div>
@@ -403,33 +386,33 @@ const DiagnosticPage = () => {
     const dims = getOrderedDimensions();
     return (
       <>
-        <SEOHead title="Calculating GPI | GPI Studio" description="Processing diagnostic results." />
-        <div className="min-h-screen bg-stone-50 text-stone-900">
+        <SEOHead title="Reading The Signal | GPI Studio" description="Reading your signal answers." />
+        <div className="gpi-page">
           <Navigation currentPage="diagnostic" />
-          <section className="pt-28 pb-16 px-6">
-            <div className="max-w-md mx-auto text-center">
-              <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-8">
+          <section className="gpi-shell py-14 md:py-20">
+            <div className="max-w-md">
+              <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-600 mb-8">
                 <span className="w-2 h-2 bg-stone-400 rounded-full animate-pulse" />
-                PROCESSING
+                Reading the pattern
               </div>
-              <h1 className="text-2xl font-black mb-12">CALCULATING GPI</h1>
+              <h1 className="text-3xl font-bold mb-12">Turning answers into a first read.</h1>
               <div className="space-y-3 text-left mb-8">
                 {dims.map((dim, i) => (
                   <div key={dim.key} className="flex items-center gap-3 text-sm">
                     <div className={`w-2 h-2 rounded-full transition-colors ${analysisStep > i ? 'bg-stone-900' : 'bg-stone-300'}`} />
-                    <span className={analysisStep > i ? 'text-stone-500' : 'text-stone-400'}>
+                    <span className={analysisStep > i ? 'text-stone-700' : 'text-stone-500'}>
                       {dim.label}
                     </span>
-                    {analysisStep > i && <span className="text-stone-500 text-xs">done</span>}
+                    {analysisStep > i && <span className="text-stone-500 text-xs">read</span>}
                   </div>
                 ))}
                 <div className="flex items-center gap-3 text-sm">
                   <div className={`w-2 h-2 rounded-full transition-colors ${analysisStep > 7 ? 'bg-stone-900' : 'bg-stone-300'}`} />
-                  <span className={analysisStep > 7 ? 'text-stone-500' : 'text-stone-400'}>Composite score</span>
+                  <span className={analysisStep > 7 ? 'text-stone-700' : 'text-stone-500'}>Overall read</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
                   <div className={`w-2 h-2 rounded-full transition-colors ${analysisStep > 8 ? 'bg-stone-900' : 'bg-stone-300'}`} />
-                  <span className={analysisStep > 8 ? 'text-stone-500' : 'text-stone-400'}>Industry comparison</span>
+                  <span className={analysisStep > 8 ? 'text-stone-700' : 'text-stone-500'}>Industry context</span>
                 </div>
               </div>
             </div>
@@ -443,6 +426,23 @@ const DiagnosticPage = () => {
   if (currentStep === 'results' && gpiResults) {
     const stateColor = getStateColor(gpiResults.state);
     const stateLabel = getStateLabel(gpiResults.state);
+    const sortedDimensions = [...gpiResults.dimensions].sort((a, b) => b.score - a.score);
+    const weakestLabel = gpiResults.weakestDimension ? GPI_DIMENSIONS[gpiResults.weakestDimension].label : null;
+    const strongestLabel = gpiResults.strongestDimension ? GPI_DIMENSIONS[gpiResults.strongestDimension].label : null;
+    const resultRead = {
+      field: {
+        title: 'The work still has room to move.',
+        body: 'Your answers point to a system where signal can still reach action. The risk is not collapse. The risk is assuming today\'s ease will survive the next layer of growth.',
+      },
+      transitioning: {
+        title: 'The business is between shapes.',
+        body: 'Some parts of the work can move. Other parts keep returning to the old pattern. This is the moment where a few honest changes can prevent the system from hardening around yesterday\'s solution.',
+      },
+      particle: {
+        title: 'The current shape is charging a toll.',
+        body: 'Your answers point to a system spending too much energy preserving how work already happens. The first move is not more effort. It is seeing which constraint is making movement expensive.',
+      },
+    }[gpiResults.state];
 
     // Prepare radar chart data
     const radarDimensions = gpiResults.dimensions.map(d => ({
@@ -458,258 +458,195 @@ const DiagnosticPage = () => {
           title={`GPI: ${gpiResults.overall} | GPI Studio`}
           description={`Your Growing Pains Index is ${gpiResults.overall}. ${stateLabel}.`}
         />
-        <div className="min-h-screen bg-stone-50 text-stone-900">
+        <div className="gpi-page">
           <Navigation currentPage="diagnostic" />
-          <section className="pt-36 pb-24 px-6">
-            <div className="max-w-5xl mx-auto">
+          <section className="gpi-shell py-14 md:py-20">
+            <div className="max-w-5xl">
 
               {/* Header */}
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-4">
-                  <span className="w-2 h-2 bg-red-500 rounded-full" />
-                  ANALYSIS COMPLETE
+              <div className="mb-10">
+                <div className="gpi-kicker mb-4">
+                  First read
                 </div>
-                <h1 className="text-2xl font-black">YOUR GPI RESULTS</h1>
+                <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-headline md:text-5xl">
+                  Here is where the work is spending energy.
+                </h1>
               </div>
 
-              {/* Main Display: Score + Radar */}
-              <div className="grid lg:grid-cols-2 gap-8 items-center mb-12">
-
-                {/* Score */}
-                <div className="flex flex-col items-center lg:items-end">
-                  <div className="bg-white border border-stone-200 p-8 w-full max-w-sm">
-                    <div className="text-xs font-mono text-stone-400 mb-4">GROWING PAINS INDEX</div>
-                    <div className="flex items-baseline gap-2 mb-4">
+              <section className="gpi-rule py-8">
+                <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
+                  <div>
+                    <div className="text-xs font-mono font-bold uppercase text-stone-600">Growing Pains Index</div>
+                    <div className="mt-4 flex items-end gap-3">
                       <span
-                        className="text-7xl font-black tabular-nums"
-                        style={{ color: stateColor === 'green' ? '#1c1917' : stateColor === 'yellow' ? '#78716c' : '#dc2626' }}
+                        className="font-mono text-7xl font-bold tabular-nums leading-none md:text-8xl"
+                        style={{ color: stateColor === 'green' ? '#1c1917' : stateColor === 'yellow' ? '#57534e' : '#991b1b' }}
                       >
                         {gpiResults.overall}
                       </span>
-                      <span className="text-2xl text-stone-400">/10</span>
+                      <span className="pb-2 font-mono text-lg text-stone-600">/ 10</span>
                     </div>
-                    <div className="text-sm font-bold mb-4" style={{ color: stateColor === 'green' ? '#1c1917' : stateColor === 'yellow' ? '#78716c' : '#dc2626' }}>
-                      {stateLabel.toUpperCase()}
+                    <div className="mt-4 font-mono text-sm font-bold uppercase text-stone-700">
+                      {stateLabel}
                     </div>
-                    <div className="relative h-2 bg-stone-100 rounded-full mb-4">
-                      <div
-                        className="absolute top-0 left-0 h-full rounded-full"
-                        style={{
-                          width: `${(gpiResults.overall / 10) * 100}%`,
-                          backgroundColor: stateColor === 'green' ? '#1c1917' : stateColor === 'yellow' ? '#78716c' : '#dc2626'
-                        }}
-                      />
-                    </div>
-                    <div className="flex justify-between text-xs font-mono">
-                      <span className="text-stone-900">FLOW</span>
-                      <span className="text-stone-400">FRICTION</span>
-                    </div>
-                  </div>
-
-                  {/* Key Stats */}
-                  <div className="grid grid-cols-2 gap-4 mt-4 w-full max-w-sm">
-                    <div className="bg-white border border-stone-200 p-4 text-center">
-                      <div className="text-xs text-stone-400 mb-1">PERCENTILE</div>
-                      <div className="text-2xl font-black">{gpiResults.industryComparison.percentile}th</div>
-                    </div>
-                    <div className="bg-white border border-stone-200 p-4 text-center">
-                      <div className="text-xs text-stone-400 mb-1">VS INDUSTRY</div>
-                      <div className={`text-2xl font-black ${gpiResults.industryComparison.position === 'above' ? 'text-red-600' : gpiResults.industryComparison.position === 'below' ? 'text-stone-900' : 'text-stone-500'}`}>
-                        {gpiResults.industryComparison.position === 'above' ? 'BETTER' : gpiResults.industryComparison.position === 'below' ? 'WORSE' : 'AVG'}
+                    <div className="mt-6 grid grid-cols-2 gap-4 border-t border-stone-300 pt-4 text-sm">
+                      <div>
+                        <div className="font-mono text-xs uppercase text-stone-600">Peer context</div>
+                        <div className="mt-1 font-bold">{gpiResults.industryComparison.percentile}th percentile</div>
+                      </div>
+                      <div>
+                        <div className="font-mono text-xs uppercase text-stone-600">Relative friction</div>
+                        <div className="mt-1 font-bold">
+                          {gpiResults.industryComparison.position === 'above' ? 'More than peers' : gpiResults.industryComparison.position === 'below' ? 'Less than peers' : 'In range'}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Radar Chart */}
-                <div className="flex flex-col items-center lg:items-start">
-                  <GPIRadarChart
-                    dimensions={radarDimensions}
-                    size={340}
-                    showLabels={true}
-                    showValues={true}
-                    highlightWeakest={true}
-                    animated={true}
-                  />
-                  <div className="text-xs font-mono text-stone-400 mt-2 text-center lg:text-left">
-                    HOVER FOR DETAILS
+                  <div>
+                    <h2 className="text-3xl font-bold leading-tight md:text-4xl">
+                      {resultRead.title}
+                    </h2>
+                    <div className="gpi-prose mt-5 text-stone-800">
+                      <p>{resultRead.body}</p>
+                      {weakestLabel && (
+                        <p>
+                          The first place to look is <span className="font-bold text-stone-950">{weakestLabel}</span>. That is where movement appears most expensive right now.
+                        </p>
+                      )}
+                      {strongestLabel && (
+                        <p>
+                          The clearest existing movement is <span className="font-bold text-stone-950">{strongestLabel}</span>. Do not ignore that. It is evidence of what the system can already do.
+                        </p>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </section>
 
-              {/* Dimension Breakdown with Insights */}
-              <div className="bg-white border border-stone-200 p-6 mb-8">
-                <div className="text-xs font-mono text-stone-400 mb-6">DIMENSION BREAKDOWN</div>
-                <div className="space-y-6">
-                  {gpiResults.dimensions
-                    .sort((a, b) => b.score - a.score)
-                    .map((dim) => {
-                      const isWeakest = dim.dimension === gpiResults.weakestDimension;
-                      const isStrongest = dim.dimension === gpiResults.strongestDimension;
-                      const insight = getDimensionInsight(dim.dimension, dim.score);
-                      const scoreColor = dim.score <= 3 ? '#1c1917' : dim.score <= 6 ? '#78716c' : '#dc2626';
+              <section className="gpi-rule py-8">
+                <div className="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-start">
+                  <div>
+                    <div className="gpi-kicker mb-4">Dimension read</div>
+                    <div className="overflow-x-auto">
+                      <table className="gpi-table">
+                        <thead>
+                          <tr>
+                            <th>Dimension</th>
+                            <th>Score</th>
+                            <th>Read</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {sortedDimensions.map((dim) => {
+                            const isWeakest = dim.dimension === gpiResults.weakestDimension;
+                            const isStrongest = dim.dimension === gpiResults.strongestDimension;
+                            const insight = getDimensionInsight(dim.dimension, dim.score);
 
-                      return (
-                        <div key={dim.dimension} className={`p-4 border ${isWeakest ? 'border-red-200 bg-red-50/30' : isStrongest ? 'border-stone-400 bg-stone-100' : 'border-stone-200 bg-stone-50'}`}>
-                          {/* Header Row */}
-                          <div className="flex items-center justify-between mb-2">
-                            <div className="flex items-center gap-2">
-                              <span className="text-sm font-bold">
-                                {dim.label}
-                              </span>
-                              {isWeakest && <span className="text-xs bg-red-50 text-red-600 px-2 py-0.5">HIGHEST FRICTION</span>}
-                              {isStrongest && <span className="text-xs bg-stone-200 text-stone-600 px-2 py-0.5">LOWEST FRICTION</span>}
-                            </div>
-                            <div className="text-2xl font-black font-mono" style={{ color: scoreColor }}>
-                              {dim.score}
-                            </div>
-                          </div>
-
-                          {/* Progress Bar */}
-                          <div className="h-2 bg-stone-200 rounded-full overflow-hidden mb-3">
-                            <div
-                              className="h-full rounded-full transition-all duration-500"
-                              style={{
-                                width: `${(dim.score / 10) * 100}%`,
-                                backgroundColor: scoreColor
-                              }}
-                            />
-                          </div>
-
-                          {/* Insight Text */}
-                          <div>
-                            <div className="text-sm font-bold" style={{ color: scoreColor }}>
-                              {insight.text}
-                            </div>
-                            <div className="text-xs text-stone-500 mt-1">
-                              {insight.subtext}
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                </div>
-              </div>
-
-              {/* Highest friction callout */}
-              {gpiResults.weakestDimension && (
-                <div className="border border-stone-200 p-6 mb-8">
-                  <div className="text-xs font-mono text-stone-400 mb-2">HIGHEST FRICTION</div>
-                  <div className="text-lg font-black mb-2">
-                    {GPI_DIMENSIONS[gpiResults.weakestDimension].label}
+                            return (
+                              <tr key={dim.dimension}>
+                                <td>
+                                  <div className="font-bold">{dim.label}</div>
+                                  {isWeakest && <div className="mt-1 font-mono text-xs uppercase text-red-800">Start here</div>}
+                                  {isStrongest && <div className="mt-1 font-mono text-xs uppercase text-stone-600">Existing movement</div>}
+                                </td>
+                                <td className="font-mono font-bold tabular-nums">{dim.score}</td>
+                                <td>
+                                  <div className="font-bold">{insight.text}</div>
+                                  <div className="mt-1 text-sm text-stone-600">{insight.subtext}</div>
+                                </td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
-                  <p className="text-sm text-stone-500">
-                    This is where the org burns the most energy for the least movement. Fix this first or everything else runs uphill.
-                  </p>
+
+                  <div className="border-t border-stone-300 pt-5 lg:border-l lg:border-t-0 lg:pl-7 lg:pt-0">
+                    <div className="gpi-kicker mb-4">Shape of the read</div>
+                    <GPIRadarChart
+                      dimensions={radarDimensions}
+                      size={300}
+                      showLabels={true}
+                      showValues={true}
+                      highlightWeakest={true}
+                      animated={true}
+                    />
+                    <p className="mt-4 text-sm text-stone-600">
+                      The shape tells you more than the score. A single spike can explain more than the average.
+                    </p>
+                  </div>
                 </div>
-              )}
+              </section>
 
-              {/* Consult CTA */}
-              <div className="border border-stone-300 bg-white p-6 mb-8">
-                <div className="text-xs font-mono text-stone-400 mb-3">NEXT STEP</div>
-                <h3 className="text-xl font-black mb-2">
-                  Bring this to a live session.
-                </h3>
-                <p className="text-sm text-stone-500 mb-2">
-                  One hour. You share context on the org. I run GPI on it live and show you exactly where the friction is coming from and what to do about it.
-                </p>
-                {gpiResults.weakestDimension && (
-                  <p className="text-sm text-stone-500 mb-5">
-                    Your highest friction is <span className="text-stone-900 font-bold">{GPI_DIMENSIONS[gpiResults.weakestDimension].label}</span>. That's where we'd start.
-                  </p>
-                )}
-                <a
-                  href={`/consult?gpi=${gpiResults.overall}&dim=${gpiResults.weakestDimension}`}
-                  className="inline-block bg-stone-900 text-white px-8 py-3 font-semibold hover:bg-stone-800 transition-colors"
-                >
-                  Book a Session
-                </a>
-                <p className="text-xs text-stone-400 mt-3">First session free. No pitch.</p>
-              </div>
+              {/* Intake CTA */}
+              <section className="gpi-rule py-8">
+                <div className="grid gap-8 md:grid-cols-[1fr_0.75fr]">
+                  <div>
+                    <div className="gpi-kicker mb-3">Intake path</div>
+                    <h3 className="text-2xl font-bold mb-3">
+                      Turn the read into a working session.
+                    </h3>
+                    <p className="text-stone-700">
+                      Signal names the pattern. The intake adds the real context: what keeps repeating, what decision is stuck, and what the business is asking you to see clearly.
+                    </p>
+                    {weakestLabel && (
+                      <p className="mt-3 text-stone-700">
+                        The session would start with <span className="font-bold text-stone-950">{weakestLabel}</span>, then work outward.
+                      </p>
+                    )}
+                    <div className="mt-6 flex flex-wrap gap-3">
+                      <a
+                        href={`/intake?gpi=${gpiResults.overall}&dim=${gpiResults.weakestDimension}`}
+                        className="bg-stone-950 px-6 py-3 text-sm font-semibold text-white hover:bg-stone-800 transition-colors"
+                      >
+                        Start intake
+                      </a>
+                      <Link
+                        href="/gpi-framework"
+                        className="border border-stone-300 px-6 py-3 text-sm font-semibold hover:border-stone-500 transition-colors"
+                      >
+                        Read the lens
+                      </Link>
+                      <button
+                        onClick={restartDiagnostic}
+                        className="border border-stone-300 px-6 py-3 text-sm font-semibold hover:border-stone-500 transition-colors"
+                      >
+                        Retake
+                      </button>
+                    </div>
+                  </div>
 
-              {/* Save Results */}
-              {!saved && (
-                <div className="bg-white border border-stone-200 p-6 mb-8 text-center">
-                  <div className="text-xs font-mono text-stone-400 mb-2">SAVE YOUR RESULTS</div>
-                  <p className="text-sm text-stone-500 mb-4">
-                    Get the full breakdown emailed. Share it with whoever needs to see it.
-                  </p>
-                  <button
-                    onClick={() => setShowSaveModal(true)}
-                    className="bg-stone-900 text-white px-6 py-3 font-semibold hover:bg-stone-800 transition-colors"
-                  >
-                    Email My Results
-                  </button>
+                  <div className="border-t border-stone-300 pt-5 md:border-l md:border-t-0 md:pl-7 md:pt-0">
+                    <div className="gpi-kicker mb-3">Keep the read</div>
+                    {!saved ? (
+                      <>
+                        <p className="text-sm text-stone-700">
+                          Send the breakdown to yourself if you want to return to it later or share it with someone inside the work.
+                        </p>
+                        <button
+                          onClick={() => setShowSaveModal(true)}
+                          className="mt-5 border border-stone-400 px-5 py-3 text-sm font-semibold hover:border-stone-950 transition-colors"
+                        >
+                          Email the read
+                        </button>
+                      </>
+                    ) : (
+                      <p className="text-sm text-stone-700">
+                        The breakdown has been sent to {savedEmail || 'the email you entered'}.
+                      </p>
+                    )}
+                  </div>
                 </div>
-              )}
-
-              {saved && (
-                <div className="bg-stone-100 border border-stone-300 p-6 mb-8 text-center">
-                  <div className="text-stone-900 font-bold mb-2">Results saved and emailed!</div>
-                  <p className="text-sm text-stone-500">Check your inbox for your full GPI breakdown.</p>
-                </div>
-              )}
-
-              {/* Actions */}
-              <div className="flex flex-wrap gap-4 justify-center">
-                <Link
-                  href="/gpi-framework"
-                  className="border border-stone-300 px-6 py-3 font-bold hover:border-stone-400 transition-colors"
-                >
-                  UNDERSTAND GPI
-                </Link>
-                <button
-                  onClick={restartDiagnostic}
-                  className="border border-stone-300 px-6 py-3 font-bold hover:border-stone-400 transition-colors"
-                >
-                  RETAKE
-                </button>
-              </div>
-
-              <p className="text-center text-stone-400 text-xs mt-8">
-                Retake in 90 days to measure change.
-              </p>
+              </section>
             </div>
           </section>
 
-          {/* Footer */}
-          <footer className="py-16 px-6 border-t border-stone-200">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
-                <div>
-                  <div className="font-black text-sm mb-4">GPI<span className="text-red-600">.</span>STUDIO</div>
-                  <p className="text-sm text-stone-400 leading-relaxed">
-                    Organizational physics.<br />
-                    We measure where energy gets stuck.
-                  </p>
-                </div>
-                <div>
-                  <div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div>
-                  <div className="space-y-3">
-                    <Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link>
-                    <Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link>
-                    <Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link>
-                  </div>
-                </div>
-                <div>
-                  <div className="text-xs font-mono text-stone-400 mb-4">WORK</div>
-                  <div className="space-y-3">
-                    <Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link>
-                    <Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link>
-                    <Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link>
-                  </div>
-                </div>
-                <div>
-                  <div className="text-xs font-mono text-stone-400 mb-4">COMPANY</div>
-                  <div className="space-y-3">
-                    <Link href="/about" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">About</Link>
-                  </div>
-                </div>
-              </div>
-              <div className="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-400">
-                <div>&copy; {new Date().getFullYear()} Imagination G LLC</div>
-                <div className="font-mono">gpi.studio</div>
-              </div>
+          <footer className="gpi-rule">
+            <div className="gpi-shell flex flex-col gap-3 py-8 font-mono text-xs text-stone-600 md:flex-row md:items-center md:justify-between">
+              <div>GPI Studio. Operating intelligence for companies in motion.</div>
+              <div>marcus@gpi.studio · gpi.studio</div>
             </div>
           </footer>
 
@@ -718,7 +655,7 @@ const DiagnosticPage = () => {
             <div className="fixed inset-0 bg-stone-900/80 flex items-center justify-center z-50 p-6">
               <div className="bg-white border border-stone-200 p-8 max-w-md w-full">
                 <div className="flex justify-between items-center mb-6">
-                  <h3 className="text-xl font-black">SAVE YOUR RESULTS</h3>
+                  <h3 className="text-xl font-black">Keep the read</h3>
                   <button
                     onClick={() => setShowSaveModal(false)}
                     className="text-stone-400 hover:text-stone-900 text-2xl"
@@ -783,7 +720,7 @@ const DiagnosticPage = () => {
                       className="w-4 h-4 accent-stone-900"
                     />
                     <label htmlFor="sendEmail" className="text-sm text-stone-500">
-                      Email me my results
+                      Email me the read
                     </label>
                   </div>
 
@@ -796,7 +733,7 @@ const DiagnosticPage = () => {
                     disabled={saving}
                     className="w-full bg-stone-900 text-white py-4 font-semibold hover:bg-stone-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {saving ? 'Saving...' : 'Save Results'}
+                    {saving ? 'Sending...' : 'Send the Read'}
                   </button>
                 </form>
               </div>
@@ -825,13 +762,13 @@ const DiagnosticPage = () => {
   return (
     <>
       <SEOHead
-        title={`Question ${currentQuestion} | GPI Diagnostic`}
+        title={`Question ${currentQuestion} | Signal`}
         description={currentQ.question}
       />
-      <div className="min-h-screen bg-stone-50 text-stone-900">
+      <div className="gpi-page">
         <Navigation currentPage="diagnostic" />
-        <section className="pt-28 pb-16 px-6">
-          <div className="max-w-xl mx-auto">
+        <section className="gpi-shell py-14 md:py-20">
+          <div className="max-w-xl">
 
             {/* Progress */}
             <div className="mb-8">
@@ -859,7 +796,7 @@ const DiagnosticPage = () => {
             {currentQuestion > 1 && (
               <button
                 onClick={() => setCurrentQuestion(currentQuestion - 1)}
-                className="flex items-center gap-2 text-stone-400 hover:text-stone-500 transition-colors text-sm mb-8"
+                className="flex items-center gap-2 text-stone-600 hover:text-stone-950 transition-colors text-sm mb-8"
               >
                 <ArrowLeft size={16} />
                 Back
@@ -868,10 +805,10 @@ const DiagnosticPage = () => {
 
             {/* Question */}
             <div className="mb-8">
-              <div className="text-xs font-mono text-stone-400 mb-4">
+              <div className="gpi-kicker mb-4">
                 {GPI_DIMENSIONS[currentQ.dimension].label}
               </div>
-              <h2 className="text-xl md:text-2xl font-black leading-tight">
+              <h2 className="text-2xl md:text-3xl font-bold leading-tight">
                 {currentQ.question}
               </h2>
             </div>
@@ -881,14 +818,14 @@ const DiagnosticPage = () => {
               const example = getQuestionExample(currentQ.id, selectedIndustry);
               if (!example) return null;
               return (
-                <div className="bg-stone-100/50 border border-stone-200 p-4 mb-8">
+                <div className="border-l border-stone-300 pl-4 mb-8">
                   <div className="flex items-start gap-3">
-                    <Lightbulb size={18} className="text-stone-400 mt-0.5 flex-shrink-0" />
+                    <Lightbulb size={18} className="text-stone-500 mt-0.5 flex-shrink-0" />
                     <div>
-                      <div className="text-xs font-mono text-stone-400 mb-1">
-                        IN {selectedIndustry.toUpperCase()}
+                      <div className="text-xs font-mono text-stone-600 mb-1">
+                        In {selectedIndustry}
                       </div>
-                      <p className="text-sm text-stone-500">
+                      <p className="text-sm text-stone-700">
                         {example}
                       </p>
                     </div>
@@ -901,15 +838,15 @@ const DiagnosticPage = () => {
             <div className="grid grid-cols-2 gap-4">
               <button
                 onClick={() => handleAnswer('yes')}
-                className="border-2 border-stone-900 p-6 hover:bg-stone-900 hover:text-white transition-all text-center font-black text-lg"
+                className="border border-stone-950 p-5 hover:bg-stone-950 hover:text-white transition-all text-center font-bold text-lg"
               >
-                YES
+                Yes
               </button>
               <button
                 onClick={() => handleAnswer('no')}
-                className="border-2 border-stone-400 p-6 hover:bg-stone-900 hover:text-white hover:border-stone-900 transition-all text-center font-black text-lg"
+                className="border border-stone-400 p-5 hover:bg-stone-950 hover:text-white hover:border-stone-950 transition-all text-center font-bold text-lg"
               >
-                NO
+                No
               </button>
             </div>
 

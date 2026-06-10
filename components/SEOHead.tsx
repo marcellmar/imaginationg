@@ -37,6 +37,8 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       
       {/* Canonical URL */}
       <link rel="canonical" href={canonicalUrl} />
+      <link rel="alternate" type="application/json" title="GPI Studio agent manifest" href={`${siteUrl}/agent.json`} />
+      <link rel="alternate" type="text/plain" title="GPI Studio LLM guide" href={`${siteUrl}/llms.txt`} />
       
       {/* Language and Region */}
       <meta httpEquiv="content-language" content="en-US" />
@@ -130,7 +132,39 @@ const SEOHead: React.FC<SEOHeadProps> = ({
                 "@type": "Organization",
                 "name": "GPI Studio",
                 "url": "https://gpi.studio"
-              }
+              },
+              "hasPart": [
+                {
+                  "@type": "WebPage",
+                  "name": "Reads",
+                  "url": "https://gpi.studio/insights"
+                },
+                {
+                  "@type": "WebPage",
+                  "name": "Lens",
+                  "url": "https://gpi.studio/gpi-framework"
+                },
+                {
+                  "@type": "WebPage",
+                  "name": "Maps",
+                  "url": "https://gpi.studio/maps"
+                },
+                {
+                  "@type": "WebPage",
+                  "name": "Signal",
+                  "url": "https://gpi.studio/signal"
+                },
+                {
+                  "@type": "WebPage",
+                  "name": "Work",
+                  "url": "https://gpi.studio/work"
+                },
+                {
+                  "@type": "WebPage",
+                  "name": "Intake",
+                  "url": "https://gpi.studio/intake"
+                }
+              ]
             })
           }}
         />

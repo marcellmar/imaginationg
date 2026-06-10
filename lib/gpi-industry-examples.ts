@@ -482,11 +482,44 @@ export function getQuestionExample(
   questionId: number,
   industry: string
 ): string | null {
-  const questionExamples = industryExamples[questionId];
-  if (!questionExamples) return null;
+  const hints: Record<number, string> = {
+    1: 'who can make the call when the issue is live',
+    2: 'where decisions wait because ownership is unclear',
+    3: 'what level of spending turns into an approval event',
+    4: 'how many people have to bless a normal call',
+    5: 'what happens in the first day after something breaks',
+    6: 'what meaningful work has actually been stopped or reversed',
+    7: 'which protected project people quietly know is not working',
+    8: 'how quickly new evidence changes the plan',
+    9: 'where sunk cost keeps bad work alive',
+    10: 'whether dissent arrives before the decision hardens',
+    11: 'which knowledge would walk out with key operators',
+    12: 'who learns about decisions too late',
+    13: 'where the current way of working is written down or findable',
+    14: 'who controls information other people need',
+    15: 'whether frontline signal reaches leadership intact',
+    16: 'whether bad news travels as quickly as good news',
+    17: 'what the front line saw before leadership did',
+    18: 'whether decision-makers see current reality',
+    19: 'how long external shifts take to change priorities',
+    20: 'whether strong people get moved to the hardest work',
+    21: 'which role mismatch the system keeps tolerating',
+    22: 'who left because useful work was too hard to do',
+    23: 'what actually gets rewarded when people move up',
+    24: 'what would have to change if reality forced a 90-day pivot',
+    25: 'which process survives mostly from habit',
+    26: 'which system or vendor now limits the next move',
+    27: 'which meeting outlived its purpose',
+    28: 'what happens when new work meets the old structure',
+    29: 'whether spending protects future budget instead of current need',
+    30: 'whether budget defense beats priority setting',
+    31: 'which physical or contractual commitments force the next decision',
+    32: 'where money, people, and attention are actually going',
+  };
 
-  const example = questionExamples[industry as IndustryKey];
-  return example?.context || null;
+  const hint = hints[questionId];
+  if (!hint) return null;
+  return `In ${industry}, think about ${hint}.`;
 }
 
 /**

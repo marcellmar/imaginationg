@@ -6,7 +6,7 @@ const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 const BOOKINGS_DB_ID = '317990ae-cd45-812a-acc8-e4136be60ab1';
-const MARCUS_EMAIL = 'marcus@imaginationg.studio';
+const MARCUS_EMAIL = 'marcus@gpi.studio';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -86,9 +86,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       // Confirmation to visitor
       resend.emails.send({
-        from: 'GPI Consult <consult@gpi.studio>',
+        from: 'GPI Studio <consult@gpi.studio>',
         to: email,
-        subject: `Your GPI consult is booked — ${formatted}`,
+        subject: `Your GPI working session is booked — ${formatted}`,
         html: `
 <!DOCTYPE html>
 <html>
@@ -98,10 +98,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     <p style="margin:0 0 16px;font-size:11px;letter-spacing:3px;color:#666;text-transform:uppercase;">GPI.STUDIO</p>
     <h1 style="margin:0 0 24px;font-size:26px;font-weight:900;">You're booked.</h1>
     <p style="color:#aaa;font-size:16px;line-height:1.6;margin-bottom:8px;">${formatted}</p>
-    <p style="color:#666;font-size:14px;line-height:1.6;margin-bottom:32px;">One hour. No fluff. You'll walk away with a clear read on where your org is losing speed and what to do about it.</p>
+    <p style="color:#666;font-size:14px;line-height:1.6;margin-bottom:32px;">One hour. We start with the pattern you named, then work back to where the system is losing movement.</p>
     <div style="border-top:1px solid #1a1a1a;padding-top:24px;">
       <p style="color:#444;font-size:12px;margin:0 0 4px;">Questions? Reply to this email.</p>
-      <p style="color:#333;font-size:11px;margin:0;">GPI CONSULT | gpi.studio</p>
+      <p style="color:#333;font-size:11px;margin:0;">GPI INTAKE | gpi.studio</p>
     </div>
   </div>
 </body>
@@ -110,9 +110,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       // Notification to Marcus
       resend.emails.send({
-        from: 'GPI Consult <consult@gpi.studio>',
+        from: 'GPI Studio <consult@gpi.studio>',
         to: MARCUS_EMAIL,
-        subject: `New consult booked — ${name} — ${formatted}`,
+        subject: `New GPI intake booked — ${name} — ${formatted}`,
         html: `
 <div style="font-family:monospace;padding:24px;background:#111;color:#fff;max-width:600px;">
   <p style="color:#666;font-size:11px;letter-spacing:2px;margin:0 0 16px;">NEW BOOKING</p>
@@ -129,7 +129,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Telegram notification to Marcus
     if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
-      const msg = `📅 New GPI consult booked\n\n👤 ${name}${company ? ` — ${company}` : ''}\n📧 ${email}\n🕐 ${formatted}${context ? `\n\n💬 ${context}` : ''}`;
+      const msg = `New GPI intake booked\n\n${name}${company ? ` - ${company}` : ''}\n${email}\n${formatted}${context ? `\n\n${context}` : ''}`;
       fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

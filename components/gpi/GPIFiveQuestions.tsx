@@ -32,7 +32,7 @@ const QUESTIONS: Question[] = [
     number: 2,
     text: 'What percentage of your work could be written as a checklist and handed to someone else, or something else?',
     subtext: {
-      signal: '<20% = safe for now. Your judgment matters.',
+      signal: '<20% = safe for now. Your judgment still carries the work.',
       mixed: '20-60% = watch closely. Parts of you are automatable.',
       structure: '>60% = urgent. You\'re competing with systems that don\'t sleep.',
     },
@@ -54,7 +54,7 @@ const QUESTIONS: Question[] = [
     subtext: {
       signal: 'Transferable: Pattern recognition, decision-making, communication, learning velocity.',
       mixed: '',
-      structure: 'Evaporates: Industry jargon, legacy system knowledge, regulatory muscle memory, relationships that only matter inside the walls.',
+      structure: 'Evaporates: Industry jargon, legacy system knowledge, regulatory muscle memory, relationships useful only inside the walls.',
     },
     color: 'blue',
   },

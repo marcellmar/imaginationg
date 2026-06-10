@@ -78,7 +78,7 @@ function getDimensionInsight(dimension: DimKey, score: number): { text: string; 
     STRUCTURAL_LOCKIN: {
       low: { text: "The structure bends when reality requires it", subtext: "Pivoting doesn't require a reorganization. Process is a tool, not a law." },
       mid: { text: "Some structure helps. Some structure just persists.", subtext: "Certain processes earn their place. Others exist because dismantling them is harder than tolerating them." },
-      high: { text: "The org is metabolically committed to its current form", subtext: "Changing how work gets done requires changing the org itself. That's expensive, slow, and politically dangerous." }
+      high: { text: "The org is metabolically committed to its current form", subtext: "Changing how work gets done means changing the org itself. Expensive, slow, and politically dangerous." }
     },
     CAPITAL_INTENSITY: {
       low: { text: "Resources follow results", subtext: "Spending is tied to outcomes. Money moves when the work moves. Budgets aren't defended, they're allocated." },
@@ -90,16 +90,13 @@ function getDimensionInsight(dimension: DimKey, score: number): { text: string; 
   return insights[dimension][level];
 }
 
-async function sendResultsEmail(submission: DiagnosticSubmission) {
+async function sendResultsEmail(submission: DiagnosticSubmission): Promise<{ sent: boolean; id?: string; to: string; error?: unknown }> {
   if (!RESEND_API_KEY) {
     console.log('No Resend API key configured, skipping email');
-    return false;
+    return { sent: false, to: submission.email, error: 'No Resend API key configured' };
   }
 
-  const stageColor = submission.stage === 'Field' ? '#22c55e' : submission.stage === 'Transitioning' ? '#eab308' : '#ef4444';
-  const scoreColor = (s: number) => s <= 3 ? '#22c55e' : s <= 5 ? '#eab308' : s <= 7 ? '#f97316' : '#ef4444';
   const displayName = submission.company || submission.name;
-  const today = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
   const dims: { label: string; key: DimKey; score: number }[] = [
     { label: 'Decision Latency', key: 'DECISION_LATENCY', score: submission.dimensions.decisionLatency },
@@ -113,124 +110,77 @@ async function sendResultsEmail(submission: DiagnosticSubmission) {
 
   // Sort highest score (most friction) first
   const sortedDims = [...dims].sort((a, b) => b.score - a.score);
-  const highestFriction = sortedDims[0];
-
   // Industry comparison (same math as results page)
   const comparison = calculateIndustryPercentile(submission.gpiScore, submission.industry);
-  const vsLabel = comparison.position === 'above' ? 'BETTER' : comparison.position === 'below' ? 'WORSE' : 'AVG';
-  const vsColor = comparison.position === 'above' ? '#22c55e' : comparison.position === 'below' ? '#ef4444' : '#eab308';
-
-  const DIM_SLUGS: Record<DimKey, string> = {
-    DECISION_LATENCY: 'decision-latency',
-    ERROR_CORRECTION: 'error-correction',
-    KNOWLEDGE_LOCATION: 'knowledge-location',
-    KNOWLEDGE_VELOCITY: 'knowledge-velocity',
-    TALENT_FLOW: 'talent-flow',
-    STRUCTURAL_LOCKIN: 'structural-lock-in',
-    CAPITAL_INTENSITY: 'capital-intensity',
-  };
+  const vsLabel = comparison.position === 'above' ? 'more friction than peers' : comparison.position === 'below' ? 'less friction than peers' : 'in the peer range';
 
   const dimRows = sortedDims.map((d, i) => {
     const insight = getDimensionInsight(d.key, d.score);
     const isWeakest = i === 0;
-    const borderColor = isWeakest ? '#7f1d1d' : '#27272a';
-    const bgColor = isWeakest ? '#1a0505' : '#0a0a0a';
     return `
-    <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:10px;border:1px solid ${borderColor};background:${bgColor};padding:14px;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #ddd;padding:14px 0;">
       <tr>
-        <td valign="top">
-          <span style="font-size:13px;color:#ccc;font-weight:700;">${d.label}</span>
-          ${isWeakest ? `<span style="display:inline-block;margin-left:8px;font-size:10px;background:#7f1d1d;color:#fca5a5;padding:2px 6px;font-weight:700;">HIGHEST FRICTION</span>` : ''}
+        <td valign="top" style="padding:10px 0;">
+          <div style="font-size:15px;color:#1c1917;font-weight:700;">${d.label}${isWeakest ? ' - start here' : ''}</div>
+          <div style="font-size:13px;color:#57534e;margin-top:4px;">${insight.text}</div>
+          <div style="font-size:13px;color:#78716c;margin-top:4px;line-height:1.5;">${insight.subtext}</div>
         </td>
-        <td valign="top" align="right">
-          <span style="font-size:22px;font-weight:900;color:${scoreColor(d.score)};">${d.score.toFixed(1)}</span>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2" style="padding-top:6px;padding-bottom:8px;">
-          <div style="height:4px;background:#1a1a1a;"><div style="height:4px;width:${d.score * 10}%;background:${scoreColor(d.score)};"></div></div>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <div style="font-size:13px;font-weight:700;color:${scoreColor(d.score)};">${insight.text}</div>
-          <div style="font-size:11px;color:#71717a;margin-top:3px;">${insight.subtext}</div>
-          ${isWeakest ? `<div style="margin-top:12px;"><a href="https://gpi.studio/gpi-framework/${DIM_SLUGS[d.key]}" style="display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;color:#fff;text-transform:uppercase;text-decoration:none;border:1px solid #3f3f46;padding:8px 16px;">UNDERSTAND ${d.label.toUpperCase()} &rarr;</a></div>` : ''}
+        <td valign="top" align="right" style="padding:10px 0;font-size:16px;color:#1c1917;font-weight:700;">
+          ${d.score.toFixed(1)}
         </td>
       </tr>
     </table>`;
   }).join('');
 
+  const textBody = [
+    `Your GPI read for ${displayName}`,
+    '',
+    `Score: ${submission.gpiScore.toFixed(1)} / 10`,
+    `State: ${submission.stage}`,
+    `Industry context: ${comparison.percentile}th percentile, ${vsLabel}`,
+    '',
+    'Dimension read:',
+    ...sortedDims.map((d, i) => {
+      const insight = getDimensionInsight(d.key, d.score);
+      return `${i === 0 ? 'Start here: ' : ''}${d.label} - ${d.score.toFixed(1)}. ${insight.text}. ${insight.subtext}`;
+    }),
+    '',
+    'GPI Studio',
+    'marcus@gpi.studio',
+  ].join('\n');
+
   const emailHtml = `
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
-<body style="margin:0;padding:0;background:#000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#fff;">
-  <div style="max-width:600px;margin:0 auto;padding:48px 32px;">
+<body style="margin:0;padding:0;background:#f7f2e8;font-family:Georgia,'Times New Roman',serif;color:#1c1917;">
+  <div style="max-width:640px;margin:0 auto;padding:36px 24px;">
+    <p style="margin:0 0 8px;font-size:13px;color:#78716c;">GPI Studio</p>
+    <h1 style="margin:0 0 8px;font-size:28px;line-height:1.2;color:#1c1917;">Your GPI read</h1>
+    <p style="margin:0 0 24px;font-size:15px;line-height:1.5;color:#57534e;">${displayName} · ${submission.industry}</p>
 
-    <p style="margin:0 0 4px;font-size:10px;letter-spacing:3px;color:#22c55e;text-transform:uppercase;">&#9679; ANALYSIS COMPLETE</p>
-    <h1 style="margin:0 0 4px;font-size:32px;font-weight:900;color:#fff;">YOUR GPI RESULTS</h1>
-    <p style="margin:0 0 28px;font-size:13px;font-weight:700;color:#fff;">${displayName} <span style="font-weight:400;color:#555;font-size:11px;letter-spacing:1px;">${submission.industry}</span></p>
-
-    <!-- Score box + stats row -->
-    <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:32px;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #d6d3d1;border-bottom:1px solid #d6d3d1;margin-bottom:24px;">
       <tr>
-        <!-- Score box -->
-        <td width="56%" valign="top" style="padding-right:8px;">
-          <table width="100%" cellpadding="0" cellspacing="0" style="background:#111;border:1px solid #27272a;">
-            <tr>
-              <td style="padding:24px;">
-                <div style="font-size:9px;letter-spacing:3px;color:#555;text-transform:uppercase;margin-bottom:12px;">GROWING PAINS INDEX</div>
-                <div style="margin-bottom:4px;">
-                  <span style="font-size:60px;font-weight:900;line-height:1;color:${stageColor};">${submission.gpiScore.toFixed(1)}</span><span style="font-size:16px;color:#444;margin-left:4px;">/10</span>
-                </div>
-                <div style="font-size:11px;font-weight:900;letter-spacing:2px;color:${stageColor};text-transform:uppercase;margin-bottom:20px;">${submission.stage.toUpperCase()} STATE</div>
-                <div style="height:6px;background:#222;margin-bottom:8px;">
-                  <div style="height:6px;width:${submission.gpiScore * 10}%;background:${stageColor};"></div>
-                </div>
-                <table width="100%" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td><span style="font-size:9px;color:#22c55e;letter-spacing:2px;text-transform:uppercase;">FLOW</span></td>
-                    <td align="right"><span style="font-size:9px;color:#ef4444;letter-spacing:2px;text-transform:uppercase;">FRICTION</span></td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </td>
-        <!-- Stat tiles -->
-        <td width="44%" valign="top" style="padding-left:8px;">
-          <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:8px;background:#111;border:1px solid #27272a;">
-            <tr>
-              <td style="padding:20px 24px;">
-                <div style="font-size:9px;letter-spacing:3px;color:#555;text-transform:uppercase;margin-bottom:10px;">PERCENTILE</div>
-                <div style="font-size:36px;font-weight:900;color:#fff;line-height:1;">${comparison.percentile}th</div>
-              </td>
-            </tr>
-          </table>
-          <table width="100%" cellpadding="0" cellspacing="0" style="background:#111;border:1px solid #27272a;">
-            <tr>
-              <td style="padding:20px 24px;">
-                <div style="font-size:9px;letter-spacing:3px;color:#555;text-transform:uppercase;margin-bottom:10px;">VS INDUSTRY</div>
-                <div style="font-size:32px;font-weight:900;color:${vsColor};line-height:1;">${vsLabel}</div>
-              </td>
-            </tr>
-          </table>
-        </td>
+        <td style="padding:16px 0;font-size:14px;color:#57534e;">Score</td>
+        <td align="right" style="padding:16px 0;font-size:20px;font-weight:700;color:#1c1917;">${submission.gpiScore.toFixed(1)} / 10</td>
+      </tr>
+      <tr>
+        <td style="padding:16px 0;border-top:1px solid #d6d3d1;font-size:14px;color:#57534e;">State</td>
+        <td align="right" style="padding:16px 0;border-top:1px solid #d6d3d1;font-size:16px;font-weight:700;color:#1c1917;">${submission.stage}</td>
+      </tr>
+      <tr>
+        <td style="padding:16px 0;border-top:1px solid #d6d3d1;font-size:14px;color:#57534e;">Industry context</td>
+        <td align="right" style="padding:16px 0;border-top:1px solid #d6d3d1;font-size:14px;color:#1c1917;">${comparison.percentile}th percentile, ${vsLabel}</td>
       </tr>
     </table>
 
-    <p style="margin:0 0 14px;font-size:10px;letter-spacing:3px;color:#555;text-transform:uppercase;">DIMENSION BREAKDOWN</p>
+    <h2 style="margin:0 0 8px;font-size:18px;color:#1c1917;">Dimension read</h2>
     ${dimRows}
 
-    <table width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #1a1a1a;padding-top:20px;margin-top:32px;">
-      <tr>
-        <td><span style="font-size:10px;color:#444;letter-spacing:2px;text-transform:uppercase;">GPI.STUDIO</span></td>
-        <td align="center"><span style="font-size:10px;color:#444;">${today}</span></td>
-        <td align="right"><span style="font-size:10px;color:#333;">Growing Pains Index &trade;</span></td>
-      </tr>
-    </table>
-
+    <p style="margin:28px 0 0;border-top:1px solid #d6d3d1;padding-top:16px;font-size:13px;color:#78716c;line-height:1.5;">
+      GPI Studio<br>
+      marcus@gpi.studio
+    </p>
   </div>
 </body>
 </html>`;
@@ -243,23 +193,25 @@ async function sendResultsEmail(submission: DiagnosticSubmission) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'GPI Vital Signs <diagnostics@gpi.studio>',
+        from: 'GPI Studio <consult@gpi.studio>',
         to: submission.email,
-        subject: `GPI Vital Signs: ${displayName} — ${submission.gpiScore.toFixed(2)} / ${submission.stage}`,
+        subject: `Your GPI read`,
+        text: textBody,
         html: emailHtml,
       }),
     });
 
     if (!response.ok) {
-      const error = await response.json();
+      const error = await response.json().catch(() => ({ message: response.statusText }));
       console.error('Resend error:', error);
-      return false;
+      return { sent: false, to: submission.email, error };
     }
 
-    return true;
+    const data = await response.json().catch(() => ({}));
+    return { sent: true, id: data.id, to: submission.email };
   } catch (error) {
     console.error('Email send error:', error);
-    return false;
+    return { sent: false, to: submission.email, error };
   }
 }
 
@@ -289,6 +241,23 @@ export default async function handler(
   }
 
   try {
+    // Email is the requested user-facing action. Do not make it depend on the
+    // Notion record write succeeding first.
+    let emailResult: { sent: boolean; id?: string; to: string; error?: unknown } | null = null;
+    let emailSent = false;
+    if (submission.sendEmail) {
+      emailResult = await sendResultsEmail(submission);
+      emailSent = emailResult.sent;
+      if (!emailSent) {
+        return res.status(502).json({
+          error: 'Email delivery failed',
+          code: 'EMAIL_SEND_FAILED',
+          emailTo: emailResult.to,
+          detail: emailResult.error,
+        });
+      }
+    }
+
     // Save to Notion
     const notionResponse = await fetch('https://api.notion.com/v1/pages', {
       method: 'POST',
@@ -314,7 +283,7 @@ export default async function handler(
           'Structural Lock-In': { number: submission.dimensions.structuralLockIn },
           'Capital Intensity': { number: submission.dimensions.capitalIntensity },
           'Submitted At': { date: { start: new Date().toISOString() } },
-          'Email Sent': { checkbox: false },
+          'Email Sent': { checkbox: emailSent },
         },
       }),
     });
@@ -322,37 +291,27 @@ export default async function handler(
     if (!notionResponse.ok) {
       const error = await notionResponse.json();
       console.error('Notion error:', error);
+      if (emailSent) {
+        return res.status(200).json({
+          success: true,
+          emailSent,
+          emailTo: emailResult?.to,
+          emailId: emailResult?.id,
+          recordSaved: false,
+          warning: 'Email sent, but the read was not saved to Notion.',
+        });
+      }
       return res.status(500).json({ error: 'Failed to save submission' });
     }
 
     const notionData = await notionResponse.json();
 
-    // Send email if requested
-    let emailSent = false;
-    if (submission.sendEmail) {
-      emailSent = await sendResultsEmail(submission);
-
-      // Update Notion record with email status
-      if (emailSent) {
-        await fetch(`https://api.notion.com/v1/pages/${notionData.id}`, {
-          method: 'PATCH',
-          headers: {
-            'Authorization': `Bearer ${NOTION_API_KEY}`,
-            'Content-Type': 'application/json',
-            'Notion-Version': '2022-06-28',
-          },
-          body: JSON.stringify({
-            properties: {
-              'Email Sent': { checkbox: true },
-            },
-          }),
-        });
-      }
-    }
-
     return res.status(200).json({
       success: true,
       emailSent,
+      emailTo: emailResult?.to,
+      emailId: emailResult?.id,
+      recordSaved: true,
       id: notionData.id
     });
   } catch (error) {

@@ -1,260 +1,337 @@
-import React from 'react';
+import type { NextPage } from 'next';
 import Link from 'next/link';
 import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
-import { useScrollReveal } from '../hooks/useScrollReveal';
-import { ArrowRight, Clock, RotateCcw, MapPin, Lock, Users, Building2, Zap } from 'lucide-react';
 
-const GPIFrameworkPage = () => {
-  useScrollReveal();
+const states = [
+  {
+    score: '1-3',
+    name: 'Field State',
+    route: '/gpi-framework/field-state',
+    read: 'The person close to the shelf, counter, line, or inbox can still change the day.',
+    useful: 'Good for a rough pass, fast note, or fix small enough to try.',
+  },
+  {
+    score: '4-6',
+    name: 'Transitioning',
+    route: '/gpi-framework/transition-state',
+    read: 'The old answer still works in places, then slows the work without warning.',
+    useful: 'A map can show which habit still helps and which one drags.',
+  },
+  {
+    score: '7-10',
+    name: 'Particle State',
+    route: '/gpi-framework/particle-state',
+    read: 'Small changes pass through contracts, layers, assets, and old promises.',
+    useful: 'Start narrow, or the fix becomes theater.',
+  },
+];
 
+const dimensions = [
+  ['Decision Latency', '/gpi-framework/decision-latency', 'We look for the wait between seeing trouble and changing the day.'],
+  ['Error Correction', '/gpi-framework/error-correction', 'We watch whether mistakes get fixed, repeated, hidden, or quietly accepted.'],
+  ['Knowledge Location', '/gpi-framework/knowledge-location', 'We find where truth sits: system, crew, file, vendor, manager, or one head.'],
+  ['Structural Lock-In', '/gpi-framework/structural-lock-in', 'We check which old promises make a cleaner direction expensive.'],
+  ['Talent Flow', '/gpi-framework/talent-flow', 'We look for capable people blocked from hard problems.'],
+  ['Capital Intensity', '/gpi-framework/capital-intensity', 'We check plants, stores, tools, debt, inventory, and infrastructure before calling a turn easy.'],
+  ['Knowledge Velocity', '/gpi-framework/knowledge-velocity', 'We watch new information become shared understanding, then changed behavior.'],
+];
+
+const terrain = [
+  ['Grasslands', 'Open ground, fast penalties for waiting.', 'Tech, AI, fast fashion'],
+  ['Jungles', 'Growth hiding waste inside busy work.', 'Healthcare, pharma, retail'],
+  ['Highlands', 'Strong advantage with costly climbs.', 'TSMC, Costco, luxury'],
+  ['Swamps', 'Motion making the job heavier.', 'Utilities, Oracle, SAP'],
+  ['Rivers', 'Ground shifting under the crew while work continues.', 'EV, AI infrastructure, energy transition'],
+  ['Deserts', 'Old resource base drying up while habits stay proud.', 'Print media, coal, late retail'],
+];
+
+const operatingQuestions = [
+  ['Old win', 'Which past success still gets a vote?'],
+  ['Heavy belief', 'Which once-useful belief now slows the place down?'],
+  ['Early clue', 'Which signal shows up before reports catch it?'],
+  ['Bad handoff', 'Which approval layer, asset, contract, or habit adds drag?'],
+  ['Truth keeper', 'Which person, team, file, or vendor gets called first?'],
+  ['Outside ground', 'Which market pace, scarcity, crowding, or nearby shift changed the floor?'],
+  ['Reachable step', 'Which map, packet, branch logic, protocol refresh, or stop helps first?'],
+];
+
+const lensUses = [
+  ['Find the person', 'Someone saw the shopper pause, the invoice stall, the machine wait, or the customer leave.'],
+  ['Name the old win', 'We look for the move people still defend because it once saved the day.'],
+  ['Listen for the excuse', 'The repeated line usually points to the drag people learned to protect.'],
+  ['Pick a first step', 'Small enough to try, clear enough to change behavior.'],
+];
+
+const publishingLanes = [
+  ['/insights/snapshots', 'Snapshots', 'Short company reads from the floor-level angle.'],
+  ['/insights/growing-pains', 'Growing Pains', 'Longer pieces on good firms getting stuck.'],
+  ['/insights/vital-signs', 'Vital Signs', 'Small watches when behavior starts shifting.'],
+  ['/insights/behind-the-map', 'Behind the Map', 'Messy situations turned into usable diagrams.'],
+  ['/insights', 'Reads', 'Notes, observations, and public working reads.'],
+];
+
+const FrameworkPage: NextPage = () => {
   return (
     <>
       <SEOHead
-        title="The GPI Framework | Organizational Physics"
-        description="GPI is a map, not a report card. Seven dimensions. One score. What kind of organism are you, and are you built for the terrain you're actually in?"
+        title="Lens | GPI Studio"
+        description="The GPI lens starts with the pain people work around, then checks old lessons, current pressure, and the next usable step."
         ogImage="/images/og/framework.png"
       />
 
-      <div className="min-h-screen bg-stone-50 text-stone-900">
+      <div className="gpi-page">
         <Navigation currentPage="framework" />
 
-        {/* Hero - Centered */}
-        <section className="pt-36 pb-24 px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-8">
-              <span className="w-2 h-2 bg-red-500 rounded-full" />
-              THE FRAMEWORK
+        <main className="gpi-shell py-14 md:py-20">
+          <section className="grid gap-10 md:grid-cols-[0.75fr_1.25fr] md:items-start">
+            <div>
+              <p className="gpi-kicker">Lens</p>
+              <h1 className="mt-4 text-5xl leading-none md:text-7xl">
+                We start with the person who watched it happen.
+              </h1>
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.05] tracking-headline">
-              GPI IS A MAP<span className="text-red-600">.</span><br />
-              NOT A REPORT CARD<span className="text-red-600">.</span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-stone-500 mb-6 max-w-2xl mx-auto leading-relaxed">
-              A high score isn't a failure. A low score isn't a win. GPI tells you what kind of organism you are and whether the terrain you're in rewards that.
-            </p>
-
-            <p className="text-xl md:text-2xl text-stone-900 font-semibold">
-              Machines get optimized. Organisms get understood.
-            </p>
-          </div>
-        </section>
-
-        {/* The Scale + Three States */}
-        <section className="py-24 px-6 border-t border-stone-200 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <div className="fade-up text-xs font-mono text-stone-400 mb-2">THE GPI SCALE</div>
-            <h2 className="fade-up text-3xl md:text-4xl font-black mb-12 tracking-headline">THREE METABOLIC STATES</h2>
-
-            {/* Scale bar */}
-            <div className="fade-up mb-16">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-stone-900 font-black text-2xl">1</span>
-                <span className="text-stone-500 font-black text-2xl">5</span>
-                <span className="text-stone-900 font-black text-2xl">10</span>
-              </div>
-              <div className="h-2 bg-gradient-to-r from-stone-300 via-stone-500 to-stone-900 rounded-full" />
-              <div className="flex justify-between mt-3 text-xs font-mono text-stone-400">
-                <span>Fast. Adaptive.</span>
-                <span>In transition.</span>
-                <span>Hierarchy-routed.</span>
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6 fade-up-stagger">
-              <div className="fade-up border border-stone-200 p-8 hover:border-stone-400 transition-colors">
-                <div className="text-5xl font-black text-stone-900 mb-4">1-3</div>
-                <div className="text-sm font-black text-stone-900 mb-4 tracking-widest">FIELD STATE</div>
-                <p className="text-stone-500 text-sm leading-relaxed mb-5">Energy flows freely. Decisions happen at the edge. The org learns faster than it plans.</p>
-                <Link href="/gpi-framework/field-state" className="text-xs font-medium text-stone-500 hover:text-stone-900 transition-colors">
-                  Learn more →
-                </Link>
-              </div>
-
-              <div className="fade-up border border-stone-200 p-8 hover:border-stone-400 transition-colors">
-                <div className="text-5xl font-black text-stone-500 mb-4">4-6</div>
-                <div className="text-sm font-black text-stone-900 mb-4 tracking-widest">TRANSITIONING</div>
-                <p className="text-stone-500 text-sm leading-relaxed mb-5">Mixed metabolism. Some energy flows, some gets trapped. The window where intervention changes things.</p>
-                <Link href="/gpi-framework/transition-state" className="text-xs font-medium text-stone-500 hover:text-stone-900 transition-colors">
-                  Learn more →
-                </Link>
-              </div>
-
-              <div className="fade-up border border-stone-200 p-8 hover:border-stone-400 transition-colors">
-                <div className="text-5xl font-black text-red-600 mb-4">7-10</div>
-                <div className="text-sm font-black text-stone-900 mb-4 tracking-widest">PARTICLE STATE</div>
-                <p className="text-stone-500 text-sm leading-relaxed mb-5">Hierarchy routes everything. Energy gets trapped at approval layers. Can be optimal in Swamps. Lethal in Grasslands.</p>
-                <Link href="/gpi-framework/particle-state" className="text-xs font-medium text-stone-500 hover:text-stone-900 transition-colors">
-                  Learn more →
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 7 Dimensions */}
-        <section className="py-24 px-6 border-t border-stone-200">
-          <div className="max-w-4xl mx-auto">
-            <div className="fade-up text-xs font-mono text-stone-400 mb-2">HOW THE SCORE IS BUILT</div>
-            <h2 className="fade-up text-3xl md:text-4xl font-black mb-5 tracking-headline">7 DIMENSIONS</h2>
-            <p className="fade-up text-stone-500 mb-12 max-w-2xl text-lg leading-relaxed">
-              Each one measures where energy leaks. Together they produce the score.
-            </p>
-
-            <div className="grid md:grid-cols-2 gap-5 fade-up-stagger">
-              {[
-                { name: 'Decision Latency', slug: 'decision-latency', icon: Clock, desc: 'How long between signal and action. The most expensive delay most orgs never measure.' },
-                { name: 'Error Correction', slug: 'error-correction', icon: RotateCcw, desc: 'Whether mistakes compound or reverse. Slow error correction means the org learns slower than it fails.' },
-                { name: 'Knowledge Location', slug: 'knowledge-location', icon: MapPin, desc: 'Is expertise findable or trapped in specific heads. When those heads leave, the knowledge goes with them.' },
-                { name: 'Structural Lock-In', slug: 'structural-lock-in', icon: Lock, desc: 'How expensive direction changes are. Org chart, vendor contracts, infrastructure.' },
-                { name: 'Talent Flow', slug: 'talent-flow', icon: Users, desc: 'Whether people move toward hard problems or stay stuck in roles that outlived their purpose.' },
-                { name: 'Capital Intensity', slug: 'capital-intensity', icon: Building2, desc: 'How much physical infrastructure anchors strategy. Every dollar in an asset is a dollar that can\'t move.' },
-                { name: 'Knowledge Velocity', slug: 'knowledge-velocity', icon: Zap, desc: 'How fast insight becomes action. The gap between knowing something and doing something about it.' },
-              ].map((dim) => (
-                <Link key={dim.name} href={`/gpi-framework/${dim.slug}`} className="group fade-up">
-                  <div className="border border-stone-200 p-7 hover:border-stone-400 hover:shadow-sm transition-all h-full">
-                    <div className="flex items-start gap-3 mb-4">
-                      <dim.icon size={16} className="text-stone-400 group-hover:text-red-600 mt-0.5 flex-shrink-0 transition-colors" />
-                      <h3 className="font-semibold text-stone-900 group-hover:text-red-600 transition-colors">{dim.name}</h3>
-                    </div>
-                    <p className="text-stone-500 text-sm leading-relaxed">{dim.desc}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Terrain */}
-        <section className="py-24 px-6 border-t border-stone-200 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <div className="fade-up text-xs font-mono text-stone-400 mb-2">CONTEXT CHANGES EVERYTHING</div>
-            <h2 className="fade-up text-3xl md:text-4xl font-black mb-5 tracking-headline">
-              SAME SCORE<span className="text-red-600">.</span> DIFFERENT PHYSICS<span className="text-red-600">.</span>
-            </h2>
-            <p className="fade-up text-stone-500 mb-12 max-w-2xl text-lg leading-relaxed">
-              A GPI of 5.0 in tech is a death sentence. A GPI of 5.0 in utilities might be optimal. The terrain sets the tolerance threshold.
-            </p>
-
-            <div className="fade-up space-y-0">
-              {[
-                { name: 'GRASSLANDS', desc: 'Speed is oxygen.', examples: 'Tech, AI, fast fashion', tolerance: '≤4.0' },
-                { name: 'JUNGLES', desc: 'Complexity hides inefficiency.', examples: 'Healthcare, pharma, retail', tolerance: '≤5.5' },
-                { name: 'HIGHLANDS', desc: 'Altitude is the moat.', examples: 'TSMC, Costco, luxury', tolerance: '≤6.5' },
-                { name: 'SWAMPS', desc: 'Movement accelerates sinking.', examples: 'Utilities, Oracle, SAP', tolerance: '≤7.0' },
-                { name: 'RIVERS', desc: 'The terrain itself is moving.', examples: 'EV, AI infrastructure', tolerance: 'Trajectory' },
-                { name: 'DESERTS', desc: 'Resources extracted faster than regeneration.', examples: 'Print media, coal, late retail', tolerance: 'Autopsy' },
-              ].map((biome, i) => (
-                <div key={i} className="flex items-center gap-6 py-5 border-b border-stone-200 last:border-0">
-                  <div className="text-xs font-mono font-bold text-stone-900 w-28 flex-shrink-0">{biome.name}</div>
-                  <div className="flex-1">
-                    <span className="text-sm text-stone-600">{biome.desc}</span>
-                    <span className="text-xs text-stone-400 ml-3">{biome.examples}</span>
-                  </div>
-                  <div className="text-sm font-bold font-mono text-stone-500 flex-shrink-0">{biome.tolerance}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* r-K Species */}
-        <section className="py-24 px-6 border-t border-stone-200">
-          <div className="max-w-4xl mx-auto">
-            <div className="fade-up text-xs font-mono text-stone-400 mb-2">SPECIES TYPE</div>
-            <h2 className="fade-up text-3xl md:text-4xl font-black mb-8 tracking-headline">
-              SAME TERRAIN<span className="text-red-600">.</span> DIFFERENT SPECIES<span className="text-red-600">.</span>
-            </h2>
-
-            <p className="fade-up text-stone-500 mb-12 max-w-2xl text-lg leading-relaxed">
-              Two orgs in the same market with the same GPI score can have opposite outcomes. One is built for volume and scale. The other is built for moat and permanence.
-            </p>
-
-            <div className="grid md:grid-cols-2 gap-6 mb-10 fade-up-stagger">
-              <div className="fade-up border border-stone-200 p-8">
-                <div className="text-stone-900 font-mono font-bold text-sm mb-4">r-STRATEGY</div>
-                <p className="text-stone-600 text-sm mb-4 leading-relaxed">Volume over quality. Thin margins, massive scale, rapid replacement. Dandelions. Bacteria. Walmart.</p>
-                <p className="text-xs text-stone-400">McDonald's, Shein, Amazon retail, fast fashion</p>
-              </div>
-
-              <div className="fade-up border border-stone-200 p-8">
-                <div className="text-stone-900 font-mono font-bold text-sm mb-4">K-STRATEGY</div>
-                <p className="text-stone-600 text-sm mb-4 leading-relaxed">Quality over volume. Fat margins, deliberate scarcity, generational durability. Redwood trees. Whales. Hermès.</p>
-                <p className="text-xs text-stone-400">Ferrari, TSMC, Berkshire, Costco, luxury goods</p>
-              </div>
-            </div>
-
-            <div className="fade-up border-l-2 border-red-600 pl-6">
-              <p className="text-stone-600 text-sm leading-relaxed">
-                Blockbuster was K-strategy in a terrain that switched to r-strategy overnight. Quibi spent $1.75B as K-strategy in TikTok's r-terrain. WeWork thought they were building Highland moats in commodity Grasslands.
+            <div className="gpi-prose max-w-3xl">
+              <p>
+                A man stands at a rental car counter after a delayed flight. He booked online, prepaid, gave his license twice, and still watches the clerk hunt through three screens while the line behind him gets quiet.
               </p>
-              <p className="text-stone-400 text-xs mt-4">Wrong species for the terrain. GPI doesn't save you from that.</p>
+              <p className="mt-5">
+                The clerk knows which screen lies. The manager knows which fleet count runs stale after 6 p.m. The customer only knows his kid is waiting at baggage claim and the brand now feels slower than the trip.
+              </p>
+              <p className="mt-5">
+                Inside the company, someone already knows where the promise breaks. Maybe branch operations, pricing, fleet, product, or support. Someone has watched the same customer smile politely, take the keys, and never come back.
+              </p>
+              <p className="mt-5">
+                We would find the branch person first. Before another app refresh, loyalty push, dashboard, or new leader explains the turnaround, find the person who knows where the wait begins.
+              </p>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* CTA */}
-        <section className="py-24 px-6 border-t border-stone-200 bg-white">
-          <div className="max-w-4xl mx-auto text-center fade-up">
-            <p className="text-stone-400 mb-3 text-sm font-mono">32 QUESTIONS. NOT A GRADE. A READ.</p>
-            <h2 className="text-3xl md:text-4xl font-black mb-8 tracking-headline">
-              KNOW YOUR SCORE<span className="text-red-600">.</span>
-            </h2>
-            <Link
-              href="/diagnostic"
-              className="inline-flex items-center gap-2 bg-stone-900 px-8 py-4 text-sm font-semibold hover:bg-stone-800 transition-colors group text-white"
-            >
-              Take the Diagnostic
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer className="py-16 px-6 border-t border-stone-200">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+          <section className="gpi-rule mt-14 pt-8">
+            <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
               <div>
-                <div className="font-black text-sm mb-4">GPI<span className="text-red-600">.</span>STUDIO</div>
-                <p className="text-sm text-stone-400 leading-relaxed">
-                  Organizational physics.<br />
-                  We measure where energy gets stuck.
+                <p className="gpi-kicker">First Pass</p>
+                <p className="mt-3 text-sm leading-6 text-stone-700">
+                  We start where the choice actually happened.
                 </p>
               </div>
-              <div>
-                <div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div>
-                <div className="space-y-3">
-                  <Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link>
-                  <Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link>
-                  <Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link>
-                </div>
+
+              <div className="overflow-x-auto">
+                <table className="gpi-table">
+                  <tbody>
+                    {lensUses.map(([use, detail]) => (
+                      <tr key={use}>
+                        <td className="w-56 font-mono text-sm font-bold text-stone-950">{use}</td>
+                        <td className="text-sm leading-6 text-stone-700">{detail}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
+            </div>
+          </section>
+
+          <section className="gpi-rule mt-14 pt-8">
+            <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
               <div>
-                <div className="text-xs font-mono text-stone-400 mb-4">WORK</div>
-                <div className="space-y-3">
-                  <Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link>
-                  <Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link>
-                  <Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link>
-                </div>
+                <p className="gpi-kicker">Score</p>
+                <p className="mt-3 text-sm leading-6 text-stone-700">
+                  A number helps people hold the read. We still care more about the pause, walkaway, delay, and part of the business forcing people to wait.
+                </p>
               </div>
+
               <div>
-                <div className="text-xs font-mono text-stone-400 mb-4">COMPANY</div>
-                <div className="space-y-3">
-                  <Link href="/about" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">About</Link>
+                <div className="grid grid-cols-3 border-y border-stone-300 font-mono text-xs font-bold text-stone-700">
+                  <div className="border-r border-stone-300 p-3">1 fluid</div>
+                  <div className="border-r border-stone-300 p-3 text-center">5 mixed signals</div>
+                  <div className="p-3 text-right">10 stuck</div>
+                </div>
+                <div className="mt-5 overflow-x-auto">
+                  <table className="gpi-table">
+                    <thead>
+                      <tr>
+                        <th>Score</th>
+                        <th>State</th>
+                        <th>Read</th>
+                        <th>Use</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {states.map((state) => (
+                        <tr key={state.name}>
+                          <td className="font-mono text-sm font-bold text-stone-950">{state.score}</td>
+                          <td className="font-mono text-sm font-bold text-stone-950">
+                            <Link className="gpi-link" href={state.route}>{state.name}</Link>
+                          </td>
+                          <td className="text-sm leading-6 text-stone-700">{state.read}</td>
+                          <td className="text-sm leading-6 text-stone-700">{state.useful}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
-            <div className="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-400">
-              <div>© {new Date().getFullYear()} Imagination G LLC</div>
-              <div className="font-mono">gpi.studio</div>
+          </section>
+
+          <section className="gpi-rule mt-14 pt-8">
+            <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
+              <div>
+                <p className="gpi-kicker">Break Points</p>
+                <p className="mt-3 text-sm leading-6 text-stone-700">
+                  Clean plans usually break in the same few places.
+                </p>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="gpi-table">
+                  <thead>
+                  <tr>
+                    <th>Dimension</th>
+                    <th>Check</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    {dimensions.map(([name, route, question]) => (
+                      <tr key={name}>
+                        <td className="w-56 font-mono text-sm font-bold text-stone-950">
+                          <Link className="gpi-link" href={route}>{name}</Link>
+                        </td>
+                        <td className="text-sm leading-6 text-stone-700">{question}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-        </footer>
+          </section>
+
+          <section className="gpi-rule mt-14 pt-8">
+            <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
+              <div>
+                <p className="gpi-kicker">Ground</p>
+                <p className="mt-3 text-sm leading-6 text-stone-700">
+                  A company can look strong on paper while the ground under the worker changes.
+                </p>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="gpi-table">
+                  <thead>
+                    <tr>
+                      <th>Biome</th>
+                      <th>Meaning</th>
+                      <th>Examples</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {terrain.map(([biome, physics, examples]) => (
+                      <tr key={biome}>
+                        <td className="font-mono text-sm font-bold text-stone-950">{biome}</td>
+                        <td className="text-sm leading-6 text-stone-700">{physics}</td>
+                        <td className="text-sm leading-6 text-stone-700">{examples}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section className="gpi-rule mt-14 pt-8">
+            <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
+              <div>
+                <p className="gpi-kicker">Clock</p>
+                <p className="mt-3 text-sm leading-6 text-stone-700">
+                  Two firms can chase one buyer while running on different clocks.
+                </p>
+              </div>
+
+              <div className="grid gap-px border-y border-stone-300 bg-stone-300 md:grid-cols-2">
+                <div className="bg-[#f7f2e8] p-5">
+                  <div className="font-mono text-sm font-bold text-stone-950">Moves by flow</div>
+                  <p className="mt-2 text-sm leading-6 text-stone-700">
+                    Wins by keeping lines moving: volume, speed, distribution, replacement, replenishment. Busy days can hide weak craft for a while.
+                  </p>
+                  <p className="mt-3 font-mono text-xs text-stone-600">
+                    McDonald's / Shein / Amazon retail / fast fashion
+                  </p>
+                </div>
+                <div className="bg-[#f7f2e8] p-5">
+                  <div className="font-mono text-sm font-bold text-stone-950">Moves by moat</div>
+                  <p className="mt-2 text-sm leading-6 text-stone-700">
+                    Wins by protecting quality, trust, scarcity, craft, durability, hard-earned advantage. Trouble starts when an old answer stays in charge after demand changes.
+                  </p>
+                  <p className="mt-3 font-mono text-xs text-stone-600">
+                    Ferrari / TSMC / Berkshire / Costco / luxury goods
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className="gpi-rule mt-14 pt-8">
+            <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
+              <div>
+                <p className="gpi-kicker">Questions We Carry</p>
+                <p className="mt-3 text-sm leading-6 text-stone-700">
+                  We use these when the story sounds clean but daily friction keeps showing up.
+                </p>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="gpi-table">
+                  <tbody>
+                    {operatingQuestions.map(([question, note]) => (
+                      <tr key={question}>
+                        <td className="w-64 font-mono text-sm font-bold text-stone-950">{question}</td>
+                        <td className="text-sm leading-6 text-stone-700">{note}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section className="gpi-rule mt-14 pt-8">
+            <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
+              <div>
+                <p className="gpi-kicker">Public Shelf</p>
+                <p className="mt-3 text-sm leading-6 text-stone-700">
+                  The work becomes something small enough to use: memo, map, watch note, or company read.
+                </p>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="gpi-table">
+                  <tbody>
+                    {publishingLanes.map(([href, lane, use]) => (
+                      <tr key={lane}>
+                        <td className="w-64 font-mono text-sm font-bold text-stone-950">
+                          <Link className="gpi-link" href={href}>{lane}</Link>
+                        </td>
+                        <td className="text-sm leading-6 text-stone-700">{use}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section className="gpi-rule mt-14 pt-8">
+            <div className="flex flex-col gap-4 font-mono text-sm md:flex-row md:items-center">
+              <Link className="gpi-link" href="/insights">See reads</Link>
+              <Link className="gpi-link" href="/maps">See diagrams</Link>
+              <Link className="gpi-link" href="/work">Bring a hard call</Link>
+            </div>
+          </section>
+        </main>
       </div>
     </>
   );
 };
 
-export default GPIFrameworkPage;
+export default FrameworkPage;

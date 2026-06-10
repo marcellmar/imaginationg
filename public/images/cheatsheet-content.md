@@ -35,6 +35,6 @@ Busyness ≠ progress.
 | Endless 'research' | Paralysis | Set a decision date and ship |
 | Over-polishing MVP | Missed market windows | Launch ugly, learn fast |
 | Waiting for approval | Friction buildup | Design systems that empower moves |
-| Scattered energy | Burnout risk | Pick 1-3 signals that matter most now |
+| Scattered energy | Burnout risk | Pick 1-3 signals carrying the work now |
 
 *© IMAGINATION G - Marcus Davis, Founder*

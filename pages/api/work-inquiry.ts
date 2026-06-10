@@ -4,7 +4,7 @@ import { Resend } from 'resend';
 const NOTION_API_KEY = process.env.NOTION_API_KEY;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const WORK_DB_ID = '31e990ae-cd45-81c7-bc9e-c30d1f6c669c';
-const MARCUS_EMAIL = 'marcus@imaginationg.studio';
+const MARCUS_EMAIL = 'marcus@gpi.studio';
 
 const CATEGORY_MAP: Record<string, string> = {
   'process': 'Process Improvement',

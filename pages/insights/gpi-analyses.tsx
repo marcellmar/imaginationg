@@ -1,5 +1,5 @@
 /**
- * GPI Analyses - ISR from Notion
+ * Snapshots - ISR from Notion
  * Pre-rendered at build time, revalidates every 30 minutes.
  */
 
@@ -53,7 +53,7 @@ const getScoreColor = (score: number | null) => {
   return 'text-red-600';
 };
 
-const GPIAnalysesPage: NextPage<Props> = ({ content }) => {
+const SnapshotsPage: NextPage<Props> = ({ content }) => {
   useScrollReveal();
   const [filter, setFilter] = useState<string | null>(null);
 
@@ -62,25 +62,25 @@ const GPIAnalysesPage: NextPage<Props> = ({ content }) => {
   return (
     <>
       <SEOHead
-        title="GPI Analyses | GPI Studio"
-        description="Company analyses through the GPI lens. Smackdowns, Vital Signs, Autopsies. Who's calcifying. Who's not."
+        title="Snapshots | GPI Studio"
+        description="Company snapshots through the GPI lens. Smackdowns, Vital Signs, Autopsies. Who's calcifying. Who's not."
       />
 
       <div className="min-h-screen bg-stone-50 text-stone-900">
-        <Navigation currentPage="analyses" />
+        <Navigation currentPage="reads" />
 
         {/* Hero */}
         <section className="pt-36 pb-24 px-6">
           <div className="max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-400 mb-8">
               <span className="w-2 h-2 bg-red-500 rounded-full" />
-              LIVE ANALYSIS
+              LIVE READS
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.05] tracking-headline">
-              GPI ANALYSES<span className="text-red-600">.</span>
+              SNAPSHOTS<span className="text-red-600">.</span>
             </h1>
             <p className="text-xl md:text-2xl text-stone-500 max-w-2xl leading-relaxed">
-              Weekly breakdowns of companies and industries through the Growing Pains Index lens.
+              Company and industry readouts through the Growing Pains Index lens.
               Who&apos;s calcifying? Who&apos;s transforming? Who&apos;s already field?
             </p>
           </div>
@@ -122,11 +122,11 @@ const GPIAnalysesPage: NextPage<Props> = ({ content }) => {
           <div className="max-w-4xl mx-auto">
             {filtered.length === 0 ? (
               <div className="text-center py-20 border border-stone-200 fade-up">
-                <h3 className="text-xl font-bold mb-2">No analyses yet</h3>
+                <h3 className="text-xl font-bold mb-2">No snapshots yet</h3>
                 <p className="text-stone-500 max-w-md mx-auto">
                   {filter
                     ? `No ${filter} content published yet. Check back soon.`
-                    : 'First analyses publishing soon.'}
+                    : 'First snapshots publishing soon.'}
                 </p>
               </div>
             ) : (
@@ -188,7 +188,7 @@ const GPIAnalysesPage: NextPage<Props> = ({ content }) => {
                           href={`/insights/gpi-analyses/${item.slug}`}
                           className="text-sm font-semibold text-stone-900 hover:text-red-600 transition-colors"
                         >
-                          Read analysis →
+                          Read snapshot →
                         </Link>
                       </div>
                     )}
@@ -210,7 +210,7 @@ const GPIAnalysesPage: NextPage<Props> = ({ content }) => {
               href="/diagnostic"
               className="inline-block bg-stone-900 text-white px-8 py-4 font-semibold hover:bg-stone-800 transition-colors"
             >
-              Take the Diagnostic
+              Find the signal
             </Link>
           </div>
         </section>
@@ -227,18 +227,18 @@ const GPIAnalysesPage: NextPage<Props> = ({ content }) => {
                 </p>
               </div>
               <div>
-                <div className="text-xs font-mono text-stone-400 mb-4">RESEARCH</div>
+                <div className="text-xs font-mono text-stone-400 mb-4">READS</div>
                 <div className="space-y-3">
-                  <Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Insights</Link>
-                  <Link href="/insights/gpi-analyses" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Analyses</Link>
-                  <Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Framework</Link>
+                  <Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Reads</Link>
+                  <Link href="/insights/snapshots" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Snapshots</Link>
+                  <Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Lens</Link>
                 </div>
               </div>
               <div>
                 <div className="text-xs font-mono text-stone-400 mb-4">WORK</div>
                 <div className="space-y-3">
-                  <Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Diagnostic</Link>
-                  <Link href="/consult" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Book a Session</Link>
+                  <Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Signal</Link>
+                  <Link href="/intake" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Intake</Link>
                   <Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link>
                 </div>
               </div>
@@ -357,4 +357,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 };
 
-export default GPIAnalysesPage;
+export default SnapshotsPage;
