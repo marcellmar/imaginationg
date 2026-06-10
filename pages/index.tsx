@@ -49,6 +49,49 @@ const Home: NextPage = () => {
               <Link href="/insights" className="gpi-link">Read the tape</Link>
               <Link href="/studio" className="gpi-link">Enter the studio</Link>
             </div>
+
+            <div className="mt-10 max-w-5xl border-y border-stone-300 py-5">
+              <div className="mb-5 font-mono text-xs font-bold uppercase text-red-800">
+                On The Tape
+              </div>
+              <div className="grid gap-6 md:grid-cols-2">
+                <Link
+                  href="/insights/gpi-analyses/openai-vs-anthropic-agent-wars"
+                  className="block border-t border-stone-300 pt-4 text-stone-950 transition-colors hover:border-stone-950"
+                >
+                  <div className="font-mono text-xs font-bold uppercase text-stone-600">
+                    Smackdown
+                  </div>
+                  <div className="mt-3 text-2xl font-bold leading-tight">
+                    The Agent Wars: OpenAI vs Anthropic
+                  </div>
+                  <p className="mt-3 text-base leading-7 text-stone-700">
+                    Your team wants the speed, but the first real question is permission. Who lets the agent touch the work, who owns the miss, and which tasks are too expensive to break?
+                  </p>
+                  <div className="mt-4 font-mono text-sm font-bold uppercase text-stone-700">
+                    Read the smackdown
+                  </div>
+                </Link>
+
+                <Link
+                  href="/insights/gpi-analyses/agent-receipts-workplace-trust"
+                  className="block border-t border-stone-300 pt-4 text-stone-950 transition-colors hover:border-stone-950"
+                >
+                  <div className="font-mono text-xs font-bold uppercase text-stone-600">
+                    Field Note
+                  </div>
+                  <div className="mt-3 text-2xl font-bold leading-tight">
+                    Agent Receipts
+                  </div>
+                  <p className="mt-3 text-base leading-7 text-stone-700">
+                    Someone will ask what the agent changed, who approved it, and why the answer moved. If the trail is missing, trust turns into another meeting.
+                  </p>
+                  <div className="mt-4 font-mono text-sm font-bold uppercase text-stone-700">
+                    Read the field note
+                  </div>
+                </Link>
+              </div>
+            </div>
           </section>
 
           <section className="gpi-rule">
