@@ -32,6 +32,8 @@ DEFAULT_TARGETS = [
     "pages/insights/index.tsx",
 ]
 
+LOCAL_ANALYSIS_PAGE = SITE_ROOT / "pages" / "insights" / "gpi-analyses" / "[slug].tsx"
+
 SKIP_STRING_PREFIXES = ("/", "#", "mailto:", "http://", "https://")
 SKIP_EXACT = {
     "home",
@@ -59,6 +61,17 @@ EXTRA_HARD_RULES = [
     (r"\bHere'?s\b", "forbidden: Here's", 2),
     (r"(^|[\n.]\s+)(Why|How|What)\s+", "forbidden heading/opening: Why/How/What", 2),
 ]
+
+ARTICLE_HERO_BANNED = [
+    re.compile(r"\bpicture\b", re.IGNORECASE),
+    re.compile(r"\bhidden read\b", re.IGNORECASE),
+    re.compile(r"\bthe hidden read\b", re.IGNORECASE),
+]
+
+ARTICLE_HERO_PERSON_PATTERN = re.compile(
+    r"\b(you|your|employee|operator|engineer|manager|worker|shopper|patient|customer|buyer)\b",
+    re.IGNORECASE,
+)
 
 
 @dataclass(frozen=True)
@@ -128,6 +141,239 @@ def clean_text(text: str) -> str:
     text = html.unescape(text)
     text = re.sub(r"\s+", " ", text)
     return text.strip()
+
+
+def decode_ts_string(value: str) -> str:
+    value = value.strip()
+    if not value:
+        return ""
+    quote = value[0]
+    if quote not in {"'", '"', "`"}:
+        return clean_text(value)
+    inner = value[1:-1]
+    inner = inner.replace("\\'", "'").replace('\\"', '"').replace("\\`", "`")
+    inner = inner.replace("\\n", "\n")
+    return inner.strip()
+
+
+def read_ts_string(raw: str, offset: int) -> tuple[str, int] | None:
+    i = offset
+    while i < len(raw) and raw[i].isspace():
+        i += 1
+    if i >= len(raw) or raw[i] not in {"'", '"', "`"}:
+        return None
+
+    quote = raw[i]
+    j = i + 1
+    escaped = False
+    while j < len(raw):
+        char = raw[j]
+        if escaped:
+            escaped = False
+        elif char == "\\":
+            escaped = True
+        elif char == quote:
+            return decode_ts_string(raw[i:j + 1]), j + 1
+        j += 1
+    return None
+
+
+def split_top_level_args(raw: str) -> list[tuple[str, int]]:
+    args: list[tuple[str, int]] = []
+    start = 0
+    depth = 0
+    quote = ""
+    escaped = False
+
+    for i, char in enumerate(raw):
+        if quote:
+            if escaped:
+                escaped = False
+            elif char == "\\":
+                escaped = True
+            elif char == quote:
+                quote = ""
+            continue
+
+        if char in {"'", '"', "`"}:
+            quote = char
+        elif char in "([{":
+            depth += 1
+        elif char in ")]}":
+            depth -= 1
+        elif char == "," and depth == 0:
+            args.append((raw[start:i].strip(), start))
+            start = i + 1
+
+    tail = raw[start:].strip()
+    if tail:
+        args.append((tail, start))
+    return args
+
+
+def find_matching_paren(raw: str, open_index: int) -> int | None:
+    depth = 0
+    quote = ""
+    escaped = False
+
+    for i in range(open_index, len(raw)):
+        char = raw[i]
+        if quote:
+            if escaped:
+                escaped = False
+            elif char == "\\":
+                escaped = True
+            elif char == quote:
+                quote = ""
+            continue
+
+        if char in {"'", '"', "`"}:
+            quote = char
+        elif char == "(":
+            depth += 1
+        elif char == ")":
+            depth -= 1
+            if depth == 0:
+                return i
+    return None
+
+
+def extract_local_articles(raw: str, path: Path) -> list[dict[str, object]]:
+    articles: list[dict[str, object]] = []
+    builder_pattern = re.compile(r"const\s+(build[A-Za-z0-9]+)\s*=\s*\([^)]*\)\s*[^=]*=>")
+    starts = list(builder_pattern.finditer(raw))
+
+    for index, match in enumerate(starts):
+        chunk_start = match.start()
+        chunk_end = starts[index + 1].start() if index + 1 < len(starts) else raw.find("const localAnalyses", chunk_start)
+        if chunk_end == -1:
+            chunk_end = len(raw)
+        chunk = raw[chunk_start:chunk_end]
+
+        title = match.group(1)
+        slug = title
+        teaser = ""
+
+        object_teaser = re.search(r"\bteaser\s*:", chunk)
+        object_slug = re.search(r"\bslug\s*:", chunk)
+        if object_teaser:
+            read = read_ts_string(chunk, object_teaser.end())
+            if read:
+                teaser = read[0]
+        if object_slug:
+            read = read_ts_string(chunk, object_slug.end())
+            if read:
+                slug = read[0]
+
+        article_call = chunk.find("article(")
+        if article_call != -1:
+            open_index = article_call + len("article")
+            close_index = find_matching_paren(chunk, open_index)
+            if close_index is not None:
+                args = split_top_level_args(chunk[open_index + 1:close_index])
+                if len(args) >= 6:
+                    teaser = decode_ts_string(args[4][0])
+                    slug = decode_ts_string(args[5][0])
+
+        bottom_match = re.search(
+            r"textBlock\(\s*['\"][^'\"]*bottom-1['\"]\s*,\s*['\"]paragraph['\"]\s*,\s*",
+            chunk,
+        )
+        bottom = ""
+        bottom_line = line_for_offset(raw, chunk_start)
+        if bottom_match:
+            read = read_ts_string(chunk, bottom_match.end())
+            if read:
+                bottom = read[0]
+                bottom_line = line_for_offset(raw, chunk_start + bottom_match.start())
+
+        if teaser or bottom:
+            articles.append(
+                {
+                    "slug": slug,
+                    "teaser": teaser,
+                    "teaser_line": line_for_offset(raw, chunk_start + (object_teaser.start() if object_teaser else 0)),
+                    "bottom": bottom,
+                    "bottom_line": bottom_line,
+                    "path": path,
+                }
+            )
+
+    return articles
+
+
+def check_article_standards() -> list[dict[str, object]]:
+    if not LOCAL_ANALYSIS_PAGE.exists():
+        return []
+
+    raw = LOCAL_ANALYSIS_PAGE.read_text(encoding="utf-8")
+    violations: list[dict[str, object]] = []
+    for article in extract_local_articles(raw, LOCAL_ANALYSIS_PAGE):
+        slug = str(article["slug"])
+        teaser = str(article["teaser"])
+        bottom = str(article["bottom"])
+        teaser_line = int(article["teaser_line"])
+        bottom_line = int(article["bottom_line"])
+        teaser_paragraphs = [paragraph.strip() for paragraph in teaser.split("\n\n") if paragraph.strip()]
+
+        if len(teaser_paragraphs) < 2:
+            violations.append(
+                {
+                    "path": str(LOCAL_ANALYSIS_PAGE.relative_to(SITE_ROOT)),
+                    "line": teaser_line,
+                    "label": "article standard: hero needs at least two paragraphs",
+                    "weight": 3,
+                    "excerpt": slug,
+                }
+            )
+
+        first_paragraph = teaser_paragraphs[0] if teaser_paragraphs else teaser
+        if not ARTICLE_HERO_PERSON_PATTERN.search(first_paragraph):
+            violations.append(
+                {
+                    "path": str(LOCAL_ANALYSIS_PAGE.relative_to(SITE_ROOT)),
+                    "line": teaser_line,
+                    "label": "article standard: hero must start close to a person",
+                    "weight": 3,
+                    "excerpt": clean_text(first_paragraph or slug),
+                }
+            )
+
+        for pattern in ARTICLE_HERO_BANNED:
+            if pattern.search(teaser):
+                violations.append(
+                    {
+                        "path": str(LOCAL_ANALYSIS_PAGE.relative_to(SITE_ROOT)),
+                        "line": teaser_line,
+                        "label": "article standard: banned hero framing",
+                        "weight": 3,
+                        "excerpt": clean_text(pattern.pattern),
+                    }
+                )
+
+        if not re.search(r"\b(At work today|today,|this week|by Friday)\b", bottom, re.IGNORECASE):
+            violations.append(
+                {
+                    "path": str(LOCAL_ANALYSIS_PAGE.relative_to(SITE_ROOT)),
+                    "line": bottom_line,
+                    "label": "article standard: bottom line needs a workplace action",
+                    "weight": 3,
+                    "excerpt": clean_text(bottom or slug),
+                }
+            )
+
+        if re.search(r"\b(Porsche|Citigroup|Citi|Chevron|Microsoft|Tesla|BYD|Lilly|Novo)\s+(should|needs to|has to|must)\b", bottom, re.IGNORECASE):
+            violations.append(
+                {
+                    "path": str(LOCAL_ANALYSIS_PAGE.relative_to(SITE_ROOT)),
+                    "line": bottom_line,
+                    "label": "article standard: bottom line should transfer to reader workplace",
+                    "weight": 3,
+                    "excerpt": clean_text(bottom),
+                }
+            )
+
+    return violations
 
 
 def extract_chunks(path: Path) -> list[Chunk]:
@@ -203,6 +449,7 @@ def main() -> int:
                         "excerpt": excerpt,
                     }
                 )
+    violations.extend(check_article_standards())
 
     if args.json:
         print(json.dumps({"violations": violations}, indent=2))

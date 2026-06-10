@@ -58,7 +58,7 @@ const FrameworkDetailPage: FC<FrameworkDetailPageProps> = ({ spec }) => {
           <section className="gpi-rule mt-14 pt-8">
             <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
               <div>
-                <p className="gpi-kicker">Core Read</p>
+                <p className="gpi-kicker">The Read</p>
               </div>
               <div className="gpi-prose max-w-3xl">
                 <p>{spec.thesis}</p>
@@ -71,8 +71,8 @@ const FrameworkDetailPage: FC<FrameworkDetailPageProps> = ({ spec }) => {
               <div>
                 <p className="gpi-kicker">Scale</p>
                 <p className="mt-3 text-sm leading-6 text-stone-700">
-                  Read the low end and high end as tendencies, not grades. The
-                  situation decides whether the pattern is useful.
+                  Read the low end and high end as field position. The live
+                  pressure decides what the score means.
                 </p>
               </div>
 
@@ -96,7 +96,7 @@ const FrameworkDetailPage: FC<FrameworkDetailPageProps> = ({ spec }) => {
               <div>
                 <p className="gpi-kicker">Signals</p>
                 <p className="mt-3 text-sm leading-6 text-stone-700">
-                  The signs you would expect to see if the read is close to right.
+                  The tells you would expect to see when the read is close.
                 </p>
               </div>
 
@@ -113,10 +113,9 @@ const FrameworkDetailPage: FC<FrameworkDetailPageProps> = ({ spec }) => {
           <section className="gpi-rule mt-14 pt-8">
             <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
               <div>
-                <p className="gpi-kicker">Examples</p>
+                <p className="gpi-kicker">Tape</p>
                 <p className="mt-3 text-sm leading-6 text-stone-700">
-                  Examples are not labels forever. A company can move as its market,
-                  leadership, incentives, and constraints change.
+                  Company tape gives the pattern something real to push against.
                 </p>
               </div>
 
@@ -138,9 +137,9 @@ const FrameworkDetailPage: FC<FrameworkDetailPageProps> = ({ spec }) => {
           <section className="gpi-rule mt-14 pt-8">
             <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
               <div>
-                <p className="gpi-kicker">Client Use</p>
+                <p className="gpi-kicker">Use Today</p>
                 <p className="mt-3 text-sm leading-6 text-stone-700">
-                  The way this read turns into a map, packet, or decision conversation.
+                  How the read turns into a map, packet, or decision people can use.
                 </p>
               </div>
 
@@ -163,7 +162,7 @@ const FrameworkDetailPage: FC<FrameworkDetailPageProps> = ({ spec }) => {
             <div className="flex flex-col gap-4 font-mono text-sm md:flex-row md:items-center">
               {spec.previous && <Link className="gpi-link" href={spec.previous[1]}>{spec.previous[0]}</Link>}
               <Link className="gpi-link" href="/gpi-framework">Lens overview</Link>
-              <Link className="gpi-link" href="/maps">Maps</Link>
+              <Link className="gpi-link" href="/studio">Studio</Link>
               {spec.next && <Link className="gpi-link" href={spec.next[1]}>{spec.next[0]}</Link>}
             </div>
           </section>

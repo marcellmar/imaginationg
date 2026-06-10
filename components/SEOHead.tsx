@@ -146,18 +146,8 @@ const SEOHead: React.FC<SEOHeadProps> = ({
                 },
                 {
                   "@type": "WebPage",
-                  "name": "Maps",
-                  "url": "https://gpi.studio/maps"
-                },
-                {
-                  "@type": "WebPage",
-                  "name": "Signal",
-                  "url": "https://gpi.studio/signal"
-                },
-                {
-                  "@type": "WebPage",
-                  "name": "Work",
-                  "url": "https://gpi.studio/work"
+                  "name": "Studio",
+                  "url": "https://gpi.studio/studio"
                 },
                 {
                   "@type": "WebPage",

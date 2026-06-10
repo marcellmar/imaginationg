@@ -67,7 +67,7 @@ const PublishingLanePage: FC<PublishingLanePageProps> = ({ lane }) => {
             <div className="flex flex-col gap-4 font-mono text-sm md:flex-row md:items-center">
               <Link className="gpi-link" href="/insights">Reads</Link>
               <Link className="gpi-link" href="/gpi-framework">Lens</Link>
-              <Link className="gpi-link" href="/maps">Maps</Link>
+              <Link className="gpi-link" href="/studio">Studio</Link>
             </div>
           </section>
         </main>

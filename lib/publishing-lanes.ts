@@ -28,8 +28,9 @@ export const publishingLanes: Record<string, PublishingLane> = {
     description: 'Short watches on companies starting to move differently.',
     purpose: 'Used before the story has settled. The point is to catch the change while it can still be read clearly.',
     items: [
-      { title: 'Porsche New CEO Transition Watch', href: '/insights/gpi-analyses/porsche-new-ceo-transition-watch', note: 'A leadership-change watch on whether the company can actually move differently.' },
-      { title: 'Citigroup Project Bora Bora', href: '/insights/gpi-analyses/citigroup-project-bora-bora', note: 'A flattening watch on whether simplification reaches the work.' },
+      { title: 'Anduril Transition Watch', href: '/insights/gpi-analyses/anduril-arsenal-transition-watch', note: 'The startup won the room. Now it has to survive the machinery it is entering.' },
+      { title: 'Porsche Transition Watch', href: '/insights/gpi-analyses/porsche-new-ceo-transition-watch', note: 'A new CEO only helps if decisions start traveling a shorter path.' },
+      { title: 'Citigroup Project Bora Bora', href: '/insights/gpi-analyses/citigroup-project-bora-bora', note: 'Fewer layers, fewer committees, and fewer places for ownership to hide.' },
     ],
   },
   smackdowns: {
@@ -39,7 +40,8 @@ export const publishingLanes: Record<string, PublishingLane> = {
     purpose: 'Used when one company makes the other easier to understand.',
     items: [
       { title: 'Tesla vs BYD EV Wars', href: '/insights/gpi-analyses/tesla-vs-byd-ev-wars', note: 'Same EV fight, different operating rhythm.' },
-      { title: 'Eli Lilly vs Novo Nordisk Pill Wars', href: '/insights/gpi-analyses/eli-lilly-vs-novo-nordisk-pill-wars', note: 'A read on pharma pressure, manufacturing, and who can keep pace.' },
+      { title: 'The Pill Wars: Eli Lilly vs Novo Nordisk', href: '/insights/gpi-analyses/eli-lilly-vs-novo-nordisk-pill-wars', note: 'Same obesity-drug fight, different patient friction.' },
+      { title: 'The Agent Wars: OpenAI vs Anthropic', href: '/insights/gpi-analyses/openai-vs-anthropic-agent-wars', note: 'Same frontier AI fight, different permission layer.' },
     ],
   },
   'calcification-alerts': {
@@ -48,8 +50,9 @@ export const publishingLanes: Record<string, PublishingLane> = {
     description: 'Signs an old habit is starting to turn into a wall.',
     purpose: 'Used when the warning shows up before the collapse makes it obvious.',
     items: [
-      { title: 'Chevron Layoffs Calcification Alert', href: '/insights/gpi-analyses/chevron-layoffs-calcification-alert', note: 'Layoffs as a sign the structure may be hardening, not only saving money.' },
-      { title: 'Forever Layoffs', href: '/insights/gpi-analyses/forever-layoffs-institutionalized-uncertainty', note: 'Job cuts becoming routine instead of an emergency move.' },
+      { title: 'UnitedHealth Calcification Alert', href: '/insights/gpi-analyses/unitedhealth-risk-adjustment-calcification-alert', note: 'When the coding machine gets this powerful, trust becomes the operating constraint.' },
+      { title: 'Chevron Calcification Alert', href: '/insights/gpi-analyses/chevron-layoffs-calcification-alert', note: 'Cutting heads is easier than removing the friction that made the work slow.' },
+      { title: 'Forever Layoffs', href: '/insights/gpi-analyses/forever-layoffs-institutionalized-uncertainty', note: 'The slow bleed became the system.' },
     ],
   },
   'field-notes': {
@@ -58,8 +61,9 @@ export const publishingLanes: Record<string, PublishingLane> = {
     description: 'Short working notes from the edge of the work.',
     purpose: 'The quick-note lane. A smaller observation gets sharpened in public before it becomes a full read.',
     items: [
-      { title: 'Blended Workforce AI Teammates', href: '/insights/gpi-analyses/blended-workforce-ai-teammates', note: 'A live read on AI teammates, labor design, and friction inside the work.' },
-      { title: 'The 1%: Signals from the Coordination Age', href: '/insights/gpi-analyses/the-one-percent-coordination-age', note: 'A note on the small share of organizations already moving like networks.' },
+      { title: 'Agent Receipts', href: '/insights/gpi-analyses/agent-receipts-workplace-trust', note: 'Agents need a receipt trail before they earn real authority.' },
+      { title: 'Blended Workforce', href: '/insights/gpi-analyses/blended-workforce-ai-teammates', note: 'AI teammates expose the org chart before they fix the work.' },
+      { title: 'The One Percent', href: '/insights/gpi-analyses/the-one-percent-coordination-age', note: 'A note on the small share of organizations already moving like networks.' },
     ],
   },
   autopsies: {
@@ -77,9 +81,10 @@ export const publishingLanes: Record<string, PublishingLane> = {
     description: 'Odd reads on everyday systems, habits, and business models.',
     purpose: 'Used when naming the pattern makes the old situation hard to unsee.',
     items: [
-      { title: 'Microsoft Soft Layoff RTO Mandate', href: '/insights/gpi-analyses/microsoft-soft-layoff-rto-mandate', note: 'Return-to-office as friction design, not only workplace policy.' },
-      { title: 'Subscription Heist', href: '/insights/gpi-analyses/subscription-heist-forgetfulness-business-model', note: 'Forgetting as a business model, with cancellation friction doing the quiet work.' },
-      { title: 'Shadow Work Self-Checkout Heist', href: '/insights/gpi-analyses/shadow-work-self-checkout-heist', note: 'A read on hidden labor transfer and who keeps the margin.' },
+      { title: 'The AI Answer Tax', href: '/insights/gpi-analyses/ai-answer-tax-zero-click-web', note: 'The web is learning what happens when answers travel without visits.' },
+      { title: 'The Soft Layoff', href: '/insights/gpi-analyses/microsoft-soft-layoff-rto-mandate', note: 'Return-to-office as a filter, not only a workplace policy.' },
+      { title: 'Subscription Heist', href: '/insights/gpi-analyses/subscription-heist-forgetfulness-business-model', note: 'Forgetting became a business model.' },
+      { title: 'Shadow Work', href: '/insights/gpi-analyses/shadow-work-self-checkout-heist', note: 'A read on hidden labor transfer and who keeps the margin.' },
     ],
   },
   'operating-terrain-essays': {
@@ -104,8 +109,8 @@ export const publishingLanes: Record<string, PublishingLane> = {
     description: 'The workbench: what I looked at, what mattered, and how it became a map, card, packet, or decision path.',
     purpose: 'The proof-of-work lane. Raw material turns into something a client can actually use.',
     items: [
+      { title: 'Studio', href: '/studio', note: 'Signal, maps, and working reps in one place.' },
       { title: 'Maps', href: '/maps', note: 'Visual examples from company and client work.' },
-      { title: 'Work', href: '/work', note: 'Bounded work turning signal into client decisions.' },
       { title: 'Knowledge Velocity', href: '/gpi-framework/knowledge-velocity', note: 'The dimension behind getting from notes to a usable read.' },
     ],
   },

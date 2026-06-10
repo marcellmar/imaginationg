@@ -245,7 +245,7 @@ const CompanyPage: NextPage<CompanyPageProps> = ({ snapshot }) => {
             <div className="flex flex-col gap-4 font-mono text-sm md:flex-row md:items-center">
               <Link className="gpi-link" href="/insights/snapshots">All snapshots</Link>
               <Link className="gpi-link" href="/gpi-framework">Read the lens</Link>
-              <Link className="gpi-link" href="/work">Turn a decision into a working session</Link>
+              <Link className="gpi-link" href="/studio">Turn a decision into a studio session</Link>
             </div>
           </section>
         </main>

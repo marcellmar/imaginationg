@@ -23,7 +23,7 @@ const MapsPage: NextPage = () => {
       />
 
       <div className="gpi-page">
-        <Navigation currentPage="maps" />
+        <Navigation currentPage="studio" />
 
         <main>
           <section className="gpi-shell py-12 md:py-16">
@@ -113,7 +113,7 @@ const MapsPage: NextPage = () => {
                 <p>
                   That is why the map works. It lets the room look at the same thing without pretending the decision is cleaner than it is.
                 </p>
-                <Link href="/work" className="gpi-link">Bring a decision to the work</Link>
+                <Link href="/studio" className="gpi-link">Bring a decision to the studio</Link>
               </div>
             </div>
           </section>

@@ -235,11 +235,10 @@ const SnapshotsPage: NextPage<Props> = ({ content }) => {
                 </div>
               </div>
               <div>
-                <div className="text-xs font-mono text-stone-400 mb-4">WORK</div>
+                <div className="text-xs font-mono text-stone-400 mb-4">STUDIO</div>
                 <div className="space-y-3">
-                  <Link href="/diagnostic" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Signal</Link>
+                  <Link href="/studio" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Studio</Link>
                   <Link href="/intake" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Intake</Link>
-                  <Link href="/work-with-us" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Work With Us</Link>
                 </div>
               </div>
               <div>

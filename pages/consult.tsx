@@ -166,10 +166,10 @@ const ConsultPage: NextPage = () => {
     <>
       <SEOHead
         title="GPI Intake | GPI Studio"
-        description="Bring the pattern, add enough context, and book a GPI working session."
+        description="Bring the pressure, add enough context, and book a GPI studio session."
       />
       <div className="gpi-page">
-        <Navigation currentPage="diagnostic" />
+        <Navigation currentPage="studio" />
 
         <main className="gpi-shell py-14 md:py-20">
 
@@ -180,7 +180,7 @@ const ConsultPage: NextPage = () => {
             {fromGpi && fromDimLabel ? (
               <>
                 <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-headline md:text-6xl">
-                  Bring the context behind the read.
+                  Bring the pressure behind the read.
                 </h1>
                 <div className="mt-6 border-l border-stone-300 pl-4 max-w-xl">
                   <div className="text-xs font-mono font-bold uppercase text-stone-600 mb-1">From Signal</div>
@@ -189,26 +189,26 @@ const ConsultPage: NextPage = () => {
                   </p>
                 </div>
                 <p className="gpi-prose mt-6 max-w-2xl text-stone-800">
-                  The number is only useful if it connects to the real pattern. Use this page to name what keeps repeating, then pick a time to work through it.
+                  The number only helps when it connects to the real pressure. Name what keeps repeating, then pick a time to work the tape.
                 </p>
               </>
             ) : (
               <>
                 <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-headline md:text-6xl">
-                  Bring the pattern. Then book the hour.
+                  Bring the pressure. Book the floor time.
                 </h1>
                 <p className="gpi-prose mt-6 max-w-2xl text-stone-800">
-                  A useful session starts before the calendar. Name where the work slows down, what keeps returning, and what needs a cleaner read.
+                  A useful studio session starts before the calendar. Name where the work slows down, what keeps returning, and what needs a cleaner read.
                 </p>
               </>
             )}
-            <p className="mt-4 font-mono text-xs text-stone-600">The first hour is a fit check and a working read.</p>
+            <p className="mt-4 font-mono text-xs text-stone-600">The first hour is a fit check and a working rep.</p>
           </div>
 
           {submitted ? (
             <div className="border-t border-stone-300 py-10 max-w-md fade-up">
               <h2 className="text-2xl font-bold mb-3">You are booked.</h2>
-              <p className="text-stone-700">A confirmation is on its way. The session will start with the pattern you named here.</p>
+              <p className="text-stone-700">A confirmation is on its way. The session will start with the pressure you named here.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 fade-up">
@@ -350,7 +350,7 @@ const ConsultPage: NextPage = () => {
                     </div>
 
                     <div>
-                      <label className="block text-xs tracking-widest text-stone-400 uppercase mb-2">What feels stuck?</label>
+                    <label className="block text-xs tracking-widest text-stone-400 uppercase mb-2">Where is the pressure?</label>
                       <textarea
                         rows={4}
                         value={form.stuckPoint}
@@ -361,7 +361,7 @@ const ConsultPage: NextPage = () => {
                     </div>
 
                     <div>
-                      <label className="block text-xs tracking-widest text-stone-400 uppercase mb-2">What keeps repeating?</label>
+                    <label className="block text-xs tracking-widest text-stone-400 uppercase mb-2">What keeps repeating?</label>
                       <textarea
                         rows={3}
                         value={form.repeatedPattern}
@@ -372,7 +372,7 @@ const ConsultPage: NextPage = () => {
                     </div>
 
                     <div>
-                      <label className="block text-xs tracking-widest text-stone-400 uppercase mb-2">What should the session help clarify?</label>
+                    <label className="block text-xs tracking-widest text-stone-400 uppercase mb-2">What should the floor time clarify?</label>
                       <textarea
                         rows={3}
                         value={form.sessionFocus}
@@ -388,7 +388,7 @@ const ConsultPage: NextPage = () => {
                       type="submit" disabled={loading}
                       className="w-full bg-stone-900 text-white py-4 font-semibold text-sm hover:bg-stone-800 transition-all disabled:opacity-50"
                     >
-                      {loading ? 'Booking...' : 'Book the working session'}
+                      {loading ? 'Booking...' : 'Book the studio session'}
                     </button>
                   </form>
                 ) : (

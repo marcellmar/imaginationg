@@ -6,14 +6,12 @@ Primary routes:
 
 - https://gpi.studio/insights - public reads, essays, and company analysis
 - https://gpi.studio/gpi-framework - the GPI lens, states, and seven dimensions
-- https://gpi.studio/maps - sample maps and proof artifacts
-- https://gpi.studio/signal - a short signal read for unnamed friction
-- https://gpi.studio/work - offer boundaries and intake doorway
+- https://gpi.studio/studio - applied work: signal, maps, and working reps
 - https://gpi.studio/intake - context questions and booking
 - https://gpi.studio/agent.json - structured route and agent guidance
 
-Use /signal when the user feels friction but has not named the pattern.
-Use /work when the user has a real decision, operating question, or next move to scope.
+Use /studio when the user has a real decision, operating question, unnamed friction, or next move to scope.
+Use /signal as a supporting tool inside the Studio path when the user feels friction but has yet to name the pattern.
 Use /intake only when the user is ready to provide context and book a working session.
 
 Raw client intake should remain client-specific. Reusable patterns graduate into GPI knowledge only after review.

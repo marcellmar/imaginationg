@@ -9,9 +9,7 @@ interface NavigationProps {
 const navItems = [
   { key: 'reads', label: 'Reads', href: '/insights' },
   { key: 'framework', label: 'Lens', href: '/gpi-framework' },
-  { key: 'maps', label: 'Maps', href: '/maps' },
-  { key: 'diagnostic', label: 'Signal', href: '/signal' },
-  { key: 'work', label: 'Work', href: '/work' },
+  { key: 'studio', label: 'Studio', href: '/studio' },
   { key: 'about', label: 'About', href: '/about' },
 ];
 

@@ -90,7 +90,7 @@ const DeepReadPage: FC<DeepReadPageProps> = ({ read }) => {
             <div className="flex flex-col gap-4 font-mono text-sm md:flex-row md:items-center">
               <Link className="gpi-link" href="/insights/growing-pains">All deep reads</Link>
               <Link className="gpi-link" href="/gpi-framework">Read the lens</Link>
-              <Link className="gpi-link" href="/work">Bring a decision</Link>
+              <Link className="gpi-link" href="/studio">Bring a decision</Link>
             </div>
           </section>
         </main>

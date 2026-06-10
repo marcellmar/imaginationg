@@ -22,7 +22,7 @@ const getDimensionInsight = (dimension: DimensionKey, score: number): { text: st
     DECISION_LATENCY: {
       low: { text: "Decisions happen at the speed of information", subtext: "Authority sits close to the problem. No approval chain between signal and action." },
       mid: { text: "Some decisions flow, some stall", subtext: "Smaller calls move fast. Anything significant starts traveling upward and slowing down." },
-      high: { text: "Decisions are metabolically expensive", subtext: "Every choice passes through layers that add time without adding value. The org burns energy just to move." }
+      high: { text: "Decisions are metabolically expensive", subtext: "Every choice passes through layers adding time without adding value. The org burns energy just to move." }
     },
     ERROR_CORRECTION: {
       low: { text: "The system catches its own mistakes", subtext: "Wrong turns surface fast. There's no political cost to reversing, so reversals happen." },
@@ -31,7 +31,7 @@ const getDimensionInsight = (dimension: DimensionKey, score: number): { text: st
     },
     KNOWLEDGE_LOCATION: {
       low: { text: "The right person knows and is reachable", subtext: "Operational knowledge is distributed and findable. Nobody's head is the single point of failure." },
-      mid: { text: "Knowledge clusters around people and teams", subtext: "Some information moves freely. Some of it lives in relationships and informal networks that not everyone can access." },
+      mid: { text: "Knowledge clusters around people and teams", subtext: "Some information moves freely. Some of it lives in relationships and informal networks with limited access." },
       high: { text: "Knowledge is a currency here", subtext: "Information concentrates where it protects status. Silos aren't accidents, they're architecture. The org can't see itself clearly from inside." }
     },
     KNOWLEDGE_VELOCITY: {
@@ -42,7 +42,7 @@ const getDimensionInsight = (dimension: DimensionKey, score: number): { text: st
     TALENT_FLOW: {
       low: { text: "People move toward the hardest problems", subtext: "Strong performers go where they're needed. Titles don't outweigh outcomes." },
       mid: { text: "Mobility exists but org charts create drag", subtext: "People can move, but there's friction. The structure shapes who goes where more than the work does." },
-      high: { text: "Roles outlast their usefulness", subtext: "People serve positions, not problems. The best performers eventually calculate that their leverage is higher somewhere else." }
+      high: { text: "Roles outlast their usefulness", subtext: "People serve positions, not problems. The best performers eventually see higher leverage somewhere else." }
     },
     STRUCTURAL_LOCKIN: {
       low: { text: "The structure bends when reality requires it", subtext: "Pivoting doesn't require a reorganization. Process is a tool, not a law." },
@@ -51,7 +51,7 @@ const getDimensionInsight = (dimension: DimensionKey, score: number): { text: st
     },
     CAPITAL_INTENSITY: {
       low: { text: "Resources follow results", subtext: "Spending is tied to outcomes. Money moves when the work moves. Budgets aren't defended, they're allocated." },
-      mid: { text: "Some spending is strategic. Some is inertia.", subtext: "Resources go to the right places often enough. But some capital is locked in legacy commitments that haven't been reconsidered." },
+      mid: { text: "Some spending is strategic. Some is inertia.", subtext: "Resources go to the right places often enough. But some capital is locked in legacy commitments waiting for a fresh look." },
       high: { text: "Budget cycles shape strategy more than strategy shapes budgets", subtext: "Capital is territorial. Defending last year's allocation takes as much energy as doing the work. Efficiency is a threat to the people who benefit from the current structure." }
     }
   };
@@ -90,15 +90,15 @@ const DiagnosticPage = () => {
     { id: 5, dimension: "DECISION_LATENCY" as DimensionKey, question: "When something breaks, does the first useful move usually happen within 24 hours?", yes: "Yes", no: "No", fieldAnswer: true },
     // ERROR_CORRECTION (5)
     { id: 6, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Has your org killed or reversed a meaningful initiative in the last six months?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 7, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Is there a project everyone knows is not working, but it keeps getting protected?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 7, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Is there a project everyone knows is failing, but it keeps getting protected?", yes: "Yes", no: "No", fieldAnswer: false },
     { id: 8, dimension: "ERROR_CORRECTION" as DimensionKey, question: "When the evidence changes, does the plan change quickly too?", yes: "Yes", no: "No", fieldAnswer: true },
     { id: 9, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Does 'we already spent too much' keep bad work alive?", yes: "Yes", no: "No", fieldAnswer: false },
     { id: 10, dimension: "ERROR_CORRECTION" as DimensionKey, question: "Do the people who disagree with the plan get heard before the plan hardens?", yes: "Yes", no: "No", fieldAnswer: true },
     // KNOWLEDGE_LOCATION (5)
     { id: 11, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "If your three most important operators left, would key knowledge leave with them?", yes: "Yes", no: "No", fieldAnswer: false },
-    { id: 12, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Do people find out about decisions that affect their work after the decision is already made?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 12, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Do people find out about decisions affecting their work after the decision is already made?", yes: "Yes", no: "No", fieldAnswer: false },
     { id: 13, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Can people find the current version of how the work is supposed to happen?", yes: "Yes", no: "No", fieldAnswer: true },
-    { id: 14, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Do certain people control information that others need to do the work?", yes: "Yes", no: "No", fieldAnswer: false },
+    { id: 14, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Do certain people control information others need to do the work?", yes: "Yes", no: "No", fieldAnswer: false },
     { id: 15, dimension: "KNOWLEDGE_LOCATION" as DimensionKey, question: "Can frontline knowledge reach leadership without being softened first?", yes: "Yes", no: "No", fieldAnswer: true },
     // KNOWLEDGE_VELOCITY (4)
     { id: 16, dimension: "KNOWLEDGE_VELOCITY" as DimensionKey, question: "Does bad news travel as fast as good news?", yes: "Yes", no: "No", fieldAnswer: true },
@@ -223,10 +223,10 @@ const DiagnosticPage = () => {
       <>
         <SEOHead
           title="Signal | GPI Studio"
-          description="A short signal read for seeing where work slows down, repeats, or gets protected by the system."
+          description="A short first rep for finding where work slows down, repeats, or gets protected by the system."
         />
         <div className="gpi-page">
-          <Navigation currentPage="diagnostic" />
+          <Navigation currentPage="studio" />
           <section className="gpi-shell py-14 md:py-20">
             <div className="max-w-4xl">
 
@@ -238,14 +238,14 @@ const DiagnosticPage = () => {
                 <div className="grid gap-8 md:grid-cols-[1.1fr_0.65fr] md:items-start fade-up">
                   <div>
                     <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-headline md:text-6xl">
-                      A first read on where the work gets stuck.
+                      Find the first place the work is spending energy.
                     </h1>
                     <div className="gpi-prose mt-6 max-w-2xl text-stone-800">
                       <p>
-                        Most business friction is not loud. It shows up as a delayed decision, a protected mistake, a workaround everyone accepts, or knowledge that never reaches the person who needs it.
+                        Most growing pains start quietly. A decision keeps circling back, a mistake gets protected, a workaround becomes normal, or the person with the answer stays too far from the work.
                       </p>
                       <p>
-                        Signal gives you a starting read. Not a grade. A map of where movement is being spent.
+                        Signal gives you a first rep. It points to the part of the system using the most energy, then gives you a cleaner place to start.
                       </p>
                     </div>
                   </div>
@@ -301,7 +301,7 @@ const DiagnosticPage = () => {
 
               {/* The 7 Dimensions Preview */}
               <div className="gpi-rule py-8 fade-up">
-                <div className="gpi-kicker mb-6">Seven places friction hides</div>
+                  <div className="gpi-kicker mb-6">Seven places friction hides</div>
                 <div className="grid gap-x-10 gap-y-6 md:grid-cols-2">
                   <div className="flex items-start gap-4">
                     <Clock size={15} className="text-stone-500 mt-1 shrink-0" />
@@ -342,7 +342,7 @@ const DiagnosticPage = () => {
                     <Lock size={15} className="text-stone-500 mt-1 shrink-0" />
                     <div>
                       <span className="font-bold">Structural Lock-In</span>
-                      <p className="text-stone-600 text-sm mt-1">The habits, contracts, tools, and meetings that keep the old shape alive.</p>
+                      <p className="text-stone-600 text-sm mt-1">The habits, contracts, tools, and meetings keeping the old shape alive.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -388,7 +388,7 @@ const DiagnosticPage = () => {
       <>
         <SEOHead title="Reading The Signal | GPI Studio" description="Reading your signal answers." />
         <div className="gpi-page">
-          <Navigation currentPage="diagnostic" />
+          <Navigation currentPage="studio" />
           <section className="gpi-shell py-14 md:py-20">
             <div className="max-w-md">
               <div className="inline-flex items-center gap-2 text-xs font-mono text-stone-600 mb-8">
@@ -431,8 +431,8 @@ const DiagnosticPage = () => {
     const strongestLabel = gpiResults.strongestDimension ? GPI_DIMENSIONS[gpiResults.strongestDimension].label : null;
     const resultRead = {
       field: {
-        title: 'The work still has room to move.',
-        body: 'Your answers point to a system where signal can still reach action. The risk is not collapse. The risk is assuming today\'s ease will survive the next layer of growth.',
+        title: 'The work still has space to move.',
+        body: 'Your answers point to a system where signal can still reach action. The risk is assuming today\'s ease will survive the next layer of growth.',
       },
       transitioning: {
         title: 'The business is between shapes.',
@@ -440,7 +440,7 @@ const DiagnosticPage = () => {
       },
       particle: {
         title: 'The current shape is charging a toll.',
-        body: 'Your answers point to a system spending too much energy preserving how work already happens. The first move is not more effort. It is seeing which constraint is making movement expensive.',
+        body: 'Your answers point to a system spending too much energy preserving how work already happens. The first move is seeing which constraint is making movement expensive.',
       },
     }[gpiResults.state];
 
@@ -459,7 +459,7 @@ const DiagnosticPage = () => {
           description={`Your Growing Pains Index is ${gpiResults.overall}. ${stateLabel}.`}
         />
         <div className="gpi-page">
-          <Navigation currentPage="diagnostic" />
+          <Navigation currentPage="studio" />
           <section className="gpi-shell py-14 md:py-20">
             <div className="max-w-5xl">
 
@@ -516,7 +516,7 @@ const DiagnosticPage = () => {
                       )}
                       {strongestLabel && (
                         <p>
-                          The clearest existing movement is <span className="font-bold text-stone-950">{strongestLabel}</span>. Do not ignore that. It is evidence of what the system can already do.
+                          The clearest existing movement is <span className="font-bold text-stone-950">{strongestLabel}</span>. Keep it close. It is evidence of what the system can already do.
                         </p>
                       )}
                     </div>
@@ -586,10 +586,10 @@ const DiagnosticPage = () => {
                   <div>
                     <div className="gpi-kicker mb-3">Intake path</div>
                     <h3 className="text-2xl font-bold mb-3">
-                      Turn the read into a working session.
+                      Bring the pressure to the studio floor.
                     </h3>
                     <p className="text-stone-700">
-                      Signal names the pattern. The intake adds the real context: what keeps repeating, what decision is stuck, and what the business is asking you to see clearly.
+                      Signal names the pattern. Intake adds the real context: what keeps repeating, what decision is stuck, and what the business is asking you to see clearly.
                     </p>
                     {weakestLabel && (
                       <p className="mt-3 text-stone-700">
@@ -766,7 +766,7 @@ const DiagnosticPage = () => {
         description={currentQ.question}
       />
       <div className="gpi-page">
-        <Navigation currentPage="diagnostic" />
+        <Navigation currentPage="studio" />
         <section className="gpi-shell py-14 md:py-20">
           <div className="max-w-xl">
 

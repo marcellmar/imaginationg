@@ -4266,12 +4266,19 @@ export const snapshotsContent: Record<string, CompanySnapshot> = {
 
   'openai': {
     slug: 'openai',
-    name: 'Openai',
-    analysisDate: '2026-01-27',
-    gpiScore: 4.8,
-    state: 'Transitioning (upper)',
+    name: 'OpenAI',
+    analysisDate: '2026-06-10',
+    gpiScore: 5.4,
+    state: 'Transitioning',
+    ticker: 'OPAI.PVT',
     dimensions: [
-
+      { dimension: 'Decision Latency', score: 4, explanation: 'OpenAI still ships quickly, but large partner commitments and capital planning add drag around the edges.' },
+      { dimension: 'Error Correction', score: 5, explanation: 'The company can adjust product direction quickly, while governance, trust, and safety issues remain heavier correction loops.' },
+      { dimension: 'Knowledge Location', score: 5, explanation: 'Research and product judgment are still concentrated in a small technical and executive core, even as distribution broadens.' },
+      { dimension: 'Structural Lock-In', score: 6.5, explanation: 'Compute, cloud, chip, and data-center commitments create strategic lock-in around the frontier buildout.' },
+      { dimension: 'Talent Flow', score: 5, explanation: 'OpenAI attracts elite talent, but intense competition and scale add retention and coordination pressure.' },
+      { dimension: 'Capital Intensity', score: 9, explanation: 'Frontier AI scale requires massive data-center, GPU, cloud, and power commitments before demand fully matures.' },
+      { dimension: 'Knowledge Velocity', score: 4.5, explanation: 'Product learning remains fast, but infrastructure physics now shape how quickly capability reaches users.' },
     ],
     pattern: 'Capital Gravity',
     patternDescription: 'OpenAI embodies the AI industry\'s central tension: exponential compute requirements colliding with linear revenue growth. The company ships fast, pivots strategically, and dominates consumer AI with Decision Latency (3.5), Error Correction (4.0), and Knowledge Velocity (4.0) all scoring in field-to-transitioning range. But Capital Intensity (8.5) is particle-state physics. Every capability leap requires 10x more compute. Training runs that cost millions in 2023 cost billions in 2026. The $1.4 trillion infrastructure commitment isn\'t excess. It\'s table stakes for maintaining leadership. But those commitments create Structural Lock-In (6.0) that constrains strategic options. Oracle needs OpenAI\'s IPO to service its bonds. CoreWeave\'s debt is collateralized by future compute demand. Microsoft',
@@ -4302,6 +4309,48 @@ export const snapshotsContent: Record<string, CompanySnapshot> = {
       'Knowledge politicization'
     ],
     quotable: 'You can have fast decision-making or extreme capital efficiency, but not both at frontier AI scale. OpenAI chose frontier. Now physics applies.',
+  },
+
+  'anthropic': {
+    slug: 'anthropic',
+    name: 'Anthropic',
+    analysisDate: '2026-06-10',
+    gpiScore: 3.0,
+    state: 'Field',
+    ticker: 'Pre-IPO',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 2, explanation: 'Anthropic keeps product and safety decisions close to frontier work, with fast movement in Claude Code, Enterprise, and partner programs.' },
+      { dimension: 'Error Correction', score: 3, explanation: 'The company publishes operational safety lessons and adjusts deployment boundaries as agent risks change.' },
+      { dimension: 'Knowledge Location', score: 2, explanation: 'Knowledge sits close to research, product, safety, and enterprise deployment teams rather than being buried in legacy divisions.' },
+      { dimension: 'Structural Lock-In', score: 4, explanation: 'The model business is still compute-heavy, but Anthropic has kept more strategic room than infrastructure-first rivals.' },
+      { dimension: 'Talent Flow', score: 2, explanation: 'Anthropic continues to attract frontier AI, safety, and enterprise product talent.' },
+      { dimension: 'Capital Intensity', score: 7, explanation: 'Compute remains a major constraint, especially as Claude moves into coding agents and workforce-scale enterprise deployments.' },
+      { dimension: 'Knowledge Velocity', score: 2, explanation: 'Claude Code, Enterprise, and containment work show tight loops between frontier capability and production use.' },
+    ],
+    pattern: 'Trust as Distribution',
+    patternDescription: 'Anthropic is not winning enterprise AI by being louder. It is turning trust, containment, and workflow fit into distribution. Claude Code makes the model useful inside codebases, Claude Enterprise packages governance for security teams, and the partner network teaches consultants how to put Claude into production. The friction is compute: every success makes infrastructure more expensive.',
+    keyNumbers: [
+      'GPI: 3.0 Field',
+      'Capital Intensity: 7',
+      'Claude Partner Network: 40,000+ firm applications',
+      'Claude certifications: 10,000+ consultants',
+      'Cognizant rollout: roughly 350,000 associates',
+      'Deloitte availability: 470,000 people',
+    ],
+    enablers: [
+      'Claude Code adoption',
+      'Enterprise governance posture',
+      'Partner ecosystem',
+      'Safety and containment credibility',
+      'Strong technical talent',
+    ],
+    friction: [
+      'High capital intensity',
+      'Infrastructure Costs',
+      'Talent Scarcity',
+      'Regulatory Pressure',
+    ],
+    quotable: 'Anthropic is turning trust into distribution. The model enters through the work people are afraid to break.',
   },
 
 
@@ -4831,10 +4880,186 @@ export const snapshotsContent: Record<string, CompanySnapshot> = {
     ],
   },
 
+  'eli-lilly': {
+    slug: 'eli-lilly',
+    name: 'Eli Lilly',
+    analysisDate: '2026-06-08',
+    gpiScore: 6.05,
+    state: 'Transitioning',
+    ticker: 'LLY',
+    revenue: '$19.8B (Q1 2026)',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 6, explanation: 'Lilly can still move hard when the market is clear, but manufacturing, reimbursement, regulators, and global launch work slow the loop.' },
+      { dimension: 'Error Correction', score: 5, explanation: 'The obesity franchise is learning fast from demand, pricing, and access pressure. The company still has to prove the oral launch can scale cleanly.' },
+      { dimension: 'Knowledge Location', score: 6, explanation: 'Core drug knowledge sits deep inside R&D, manufacturing, medical affairs, and regulatory teams, with enough central control to keep big bets coordinated.' },
+      { dimension: 'Structural Lock-In', score: 7, explanation: 'Factories, clinical programs, payer contracts, patent timelines, and supply commitments make wrong turns expensive.' },
+      { dimension: 'Talent Flow', score: 7, explanation: 'Lilly attracts strong scientific and commercial talent, but rapid growth creates pressure on coordination and institutional memory.' },
+      { dimension: 'Capital Intensity', score: 7, explanation: 'GLP-1 demand requires large manufacturing and supply-chain investment before the market fully settles.' },
+      { dimension: 'Knowledge Velocity', score: 5, explanation: 'The company is moving faster than a normal large pharma organization, but external constraints still shape the pace.' },
+    ],
+    pattern: 'Cleaner Patient Path',
+    patternDescription: 'Lilly has the stronger growth engine and a pill design that removes daily friction. The risk is scale: the company has to keep manufacturing, access, price, and trust moving at the same time.',
+    keyNumbers: [
+      'Q1 2026 revenue: $19.8B',
+      'Mounjaro Q1 2026 sales: $8.7B',
+      'Zepbound Q1 2026 sales: $4.16B',
+      'Foundayo FDA approval: April 2026',
+      'Foundayo routine: no food or water restrictions',
+    ],
+    enablers: [
+      'Mounjaro and Zepbound commercial engine',
+      'Cleaner oral-pill routine',
+      'Broad obesity pipeline',
+      'Strong investor confidence',
+      'Manufacturing expansion underway',
+    ],
+    friction: [
+      'Manufacturing Capacity',
+      'Supply Chain',
+      'Competition',
+      'Pricing Pressure',
+      'Patent Cliffs',
+      'Regulatory Pressure',
+    ],
+    quotable: 'Lilly has the cleaner habit. In a daily medicine market, that can become part of the product.',
+    sources: [
+      { title: 'Lilly Foundayo FDA approval release', url: 'https://investor.lilly.com/news-releases/news-release-details/fda-approves-lillys-foundayotm-orforglipron-only-glp-1-pill' },
+      { title: 'Lilly Q1 2026 revenue coverage', url: 'https://www.pharmaceutical-technology.com/news/eli-lilly-lifts-2026-revenue-guidance-as-q1-marks-dominant-opening/' },
+    ],
+  },
+
+  'novo-nordisk': {
+    slug: 'novo-nordisk',
+    name: 'Novo Nordisk',
+    analysisDate: '2026-06-08',
+    gpiScore: 6.6,
+    state: 'Transitioning',
+    ticker: 'NVO',
+    revenue: 'DKK 309.1B (2025)',
+    dimensions: [
+      { dimension: 'Decision Latency', score: 6, explanation: 'Novo still has deep disease-area focus, but market-share pressure, a leadership reset, and restructuring make decisions heavier.' },
+      { dimension: 'Error Correction', score: 8, explanation: 'The company is correcting in public through leadership change, job cuts, pipeline resets, and a hard push behind oral Wegovy.' },
+      { dimension: 'Knowledge Location', score: 6, explanation: 'Semaglutide knowledge is deep and close to the work, though large-company structure still shapes how quickly learning travels.' },
+      { dimension: 'Structural Lock-In', score: 6, explanation: 'Novo is tied to its GLP-1 franchise, manufacturing base, and obesity-care identity, but still has room to redirect.' },
+      { dimension: 'Talent Flow', score: 7, explanation: 'Restructuring and layoffs can free capacity, but they also risk losing stored judgment during a market fight.' },
+      { dimension: 'Capital Intensity', score: 7, explanation: 'Oral and injectable GLP-1 scale requires heavy investment in manufacturing, trials, and market access.' },
+      { dimension: 'Knowledge Velocity', score: 6, explanation: 'Novo learns quickly inside obesity care, but the market is now moving faster than the old lead allowed.' },
+    ],
+    pattern: 'First-Mover Under Pressure',
+    patternDescription: 'Novo still owns deep obesity trust and has the first oral weight-loss GLP-1 with real traction. The pressure is that Lilly is turning patient convenience into a competitive weapon.',
+    keyNumbers: [
+      '2025 sales: DKK 309.1B',
+      '2025 sales growth: 10% at constant exchange rates',
+      'Wegovy pill prescriptions: more than 3 million in just over five months',
+      'More than 80% of new Wegovy pill prescriptions from people new to GLP-1 therapy',
+      'Planned job cuts: 9,000',
+    ],
+    enablers: [
+      'Deep obesity-care trust',
+      'Semaglutide knowledge base',
+      'First oral Wegovy traction',
+      'Global commercial reach',
+      'Strong prescriber familiarity',
+    ],
+    friction: [
+      'Market Share Loss',
+      'Pricing Pressure',
+      'Restructuring',
+      'Layoffs as Adaptation',
+      'Knowledge Drain',
+      'Litigation Exposure',
+    ],
+    quotable: 'Novo still has the first pill people are actually filling. The problem is that Lilly made the morning routine part of the fight.',
+    sources: [
+      { title: 'Novo Nordisk 2025 annual report', url: 'https://annualreport.novonordisk.com/2025/strategic-aspirations/financial-performance.html' },
+      { title: 'Novo Wegovy pill prescription milestone', url: 'https://www.prnewswire.com/news-releases/wegovy-pill-prescriptions-surpass-3-million-1-filled-roughly-every-5-seconds-bringing-glp-1-therapy-to-people-with-obesity-previously-untreated-while-novo-nordisk-unveils-new-data-at-ada-2026-302793337.html' },
+    ],
+  },
+
 };
 
+const snapshotTickerFallbacks: Record<string, string> = {
+  '23andMe': 'MEHCQ',
+  '3M': 'MMM',
+  'Accenture': 'ACN',
+  'AMD': 'AMD',
+  'Arthur J. Gallagher & Co.': 'AJG',
+  'Ascension': 'Non-profit',
+  'Allstate Corporation': 'ALL',
+  'BYD': '002594.SZ',
+  'Blockbuster': 'BBI',
+  'Canva': 'Private',
+  'Cargill': 'Private',
+  'Caterpillar': 'CAT',
+  'Cencora': 'COR',
+  'Chick Fil A': 'Private',
+  'Coca-Cola': 'KO',
+  'CommonSpirit Health': 'Non-profit',
+  'CVS Health': 'CVS',
+  'Databricks': 'Private',
+  'Dick\'s Sporting Goods': 'DKS',
+  'Dominion Energy': 'D',
+  'Dr Horton': 'DHI',
+  'Duke Energy': 'DUK',
+  'Elevance Health': 'ELV',
+  'Ge Aerospace': 'GE',
+  'General Dynamics': 'GD',
+  'General Motors': 'GM',
+  'H E B': 'Private',
+  'Hca Healthcare': 'HCA',
+  'Hewlett Packard Enterprise': 'HPE',
+  'Honeywell': 'HON',
+  'In N Out Burger': 'Private',
+  'Kenvue': 'KVUE',
+  'Koch Industries': 'Private',
+  'Lennar': 'LEN / LEN.B',
+  'Lockheed Martin': 'LMT',
+  'Mars, Incorporated': 'Private',
+  'Mckesson': 'MCK',
+  'Microstrategy': 'MSTR',
+  'Netflix Wbd Deal Analysis': 'NFLX / WBD',
+  'NextEra Energy': 'NEE',
+  'Northrop Grumman': 'NOC',
+  'Northvolt': 'Private',
+  'Northwell Health': 'N/A',
+  'PepsiCo': 'PEP',
+  'Pilot Company': 'Private',
+  'Pixar Animation Studios': 'DIS',
+  'Procter & Gamble': 'PG',
+  'Prologis': 'PLD',
+  'Publix': 'Private',
+  'Qualcomm': 'QCOM',
+  'Rite Aid': 'RAD/RADCQ',
+  'Rivian': 'RIVN',
+  'Revolut': 'Private',
+  'Roblox': 'RBLX',
+  'RTX Corporation (Raytheon)': 'RTX',
+  'Saks Global': 'Private',
+  'Siemens Usa': 'SIEGY',
+  'Spacex': 'Private',
+  'State Farm': 'Private Mutual',
+  'Stellantis N.V.': 'STLA',
+  'Stripe': 'Private',
+  'Synopsys': 'SNPS',
+  'Tenet Healthcare': 'THC',
+  'The Cigna Group': 'CI',
+  'UnitedHealth Group': 'UNH',
+  'Walgreens Boots Alliance': 'WBA',
+  'Walmart 2026 02 01 Complete': 'WMT',
+  'Walmart Inc': 'WMT',
+  'Wework': 'WEWKQ',
+  'Winco Foods': 'Private',
+  'XPO, Inc.': 'XPO',
+};
+
+const withSnapshotFallbacks = (snapshot: CompanySnapshot): CompanySnapshot => ({
+  ...snapshot,
+  ticker: snapshot.ticker || snapshotTickerFallbacks[snapshot.name],
+});
+
 export function getSnapshotBySlug(slug: string): CompanySnapshot | null {
-  return snapshotsContent[slug.toLowerCase()] || null;
+  const snapshot = snapshotsContent[slug.toLowerCase()];
+  return snapshot ? withSnapshotFallbacks(snapshot) : null;
 }
 
 export function getSnapshotByName(name: string): CompanySnapshot | null {
@@ -4844,7 +5069,7 @@ export function getSnapshotByName(name: string): CompanySnapshot | null {
     .replace(/^-|-$/g, '');
 
   // Try direct match first
-  if (snapshotsContent[slug]) return snapshotsContent[slug];
+  if (snapshotsContent[slug]) return withSnapshotFallbacks(snapshotsContent[slug]);
 
   // Try common variations
   const variations: Record<string, string> = {
@@ -4854,12 +5079,15 @@ export function getSnapshotByName(name: string): CompanySnapshot | null {
     'dicks-sporting-goods': 'dicks-sporting-goods',
   };
 
-  if (variations[slug]) return snapshotsContent[variations[slug]] || null;
+  if (variations[slug]) {
+    const snapshot = snapshotsContent[variations[slug]];
+    return snapshot ? withSnapshotFallbacks(snapshot) : null;
+  }
 
   // Search by name
   for (const snapshot of Object.values(snapshotsContent)) {
     if (snapshot.name.toLowerCase() === name.toLowerCase()) {
-      return snapshot;
+      return withSnapshotFallbacks(snapshot);
     }
   }
 
@@ -4867,5 +5095,5 @@ export function getSnapshotByName(name: string): CompanySnapshot | null {
 }
 
 export function getAllSnapshots(): CompanySnapshot[] {
-  return Object.values(snapshotsContent);
+  return Object.values(snapshotsContent).map(withSnapshotFallbacks);
 }

@@ -1,7 +1,66 @@
 {
-  "generatedAt": "2026-06-08T01:50:33+00:00",
+  "generatedAt": "2026-06-10T16:53:40+00:00",
   "source": "/Users/marcellmar/Documents/projects/marcus-gpi-brain/gpi-framework/gpi.db",
   "companies": [
+    {
+      "id": 4,
+      "slug": "anthropic",
+      "name": "Anthropic",
+      "ticker": "Pre-IPO",
+      "sector": "Technology",
+      "analysisDate": "2026-05-28",
+      "gpiScore": 3.0,
+      "state": "Field",
+      "dimensions": [
+        {
+          "dimension": "Decision Latency",
+          "score": 2.0
+        },
+        {
+          "dimension": "Error Correction",
+          "score": 3.0
+        },
+        {
+          "dimension": "Knowledge Location",
+          "score": 2.0
+        },
+        {
+          "dimension": "Structural Lock-In",
+          "score": 4.0
+        },
+        {
+          "dimension": "Talent Flow",
+          "score": 2.0
+        },
+        {
+          "dimension": "Capital Intensity",
+          "score": 7.0
+        },
+        {
+          "dimension": "Knowledge Velocity",
+          "score": 2.0
+        }
+      ],
+      "pattern": null,
+      "patternDescription": null,
+      "keyNumbers": [],
+      "enablers": [
+        "Decision Latency",
+        "Knowledge Velocity",
+        "Talent Flow",
+        "Knowledge Location"
+      ],
+      "friction": [
+        "High capital intensity",
+        "Infrastructure Costs",
+        "Talent Scarcity",
+        "Regulatory Pressure"
+      ],
+      "quotable": null,
+      "sources": [],
+      "sourceRef": null,
+      "voiceVersion": null
+    },
     {
       "id": 1117,
       "slug": "byd",
@@ -82,6 +141,190 @@
       "voiceVersion": "gpi_studio_2026_06"
     },
     {
+      "id": 1130,
+      "slug": "eli-lilly",
+      "name": "Eli Lilly",
+      "ticker": "LLY",
+      "sector": "Pharmaceuticals",
+      "analysisDate": "2026-05-16",
+      "gpiScore": 6.05,
+      "state": "Transitioning",
+      "dimensions": [
+        {
+          "dimension": "Decision Latency",
+          "score": 6.0
+        },
+        {
+          "dimension": "Error Correction",
+          "score": 5.0
+        },
+        {
+          "dimension": "Knowledge Location",
+          "score": 6.0
+        },
+        {
+          "dimension": "Structural Lock-In",
+          "score": 7.0
+        },
+        {
+          "dimension": "Talent Flow",
+          "score": 7.0
+        },
+        {
+          "dimension": "Capital Intensity",
+          "score": 7.0
+        },
+        {
+          "dimension": "Knowledge Velocity",
+          "score": 5.0
+        }
+      ],
+      "pattern": null,
+      "patternDescription": null,
+      "keyNumbers": [],
+      "enablers": [
+        "Error Correction",
+        "Knowledge Velocity"
+      ],
+      "friction": [
+        "Manufacturing Capacity",
+        "Supply Chain",
+        "Competition",
+        "Litigation Exposure",
+        "Pricing Pressure",
+        "Patent Cliffs",
+        "Regulatory Pressure",
+        "Supply Chain Concentration"
+      ],
+      "quotable": null,
+      "sources": [],
+      "sourceRef": null,
+      "voiceVersion": null
+    },
+    {
+      "id": 1116,
+      "slug": "novo-nordisk",
+      "name": "Novo Nordisk",
+      "ticker": "NVO",
+      "sector": "Pharmaceuticals",
+      "analysisDate": "2026-05-16",
+      "gpiScore": 6.6,
+      "state": "Transitioning",
+      "dimensions": [
+        {
+          "dimension": "Decision Latency",
+          "score": 6.0
+        },
+        {
+          "dimension": "Error Correction",
+          "score": 8.0
+        },
+        {
+          "dimension": "Knowledge Location",
+          "score": 6.0
+        },
+        {
+          "dimension": "Structural Lock-In",
+          "score": 6.0
+        },
+        {
+          "dimension": "Talent Flow",
+          "score": 7.0
+        },
+        {
+          "dimension": "Capital Intensity",
+          "score": 7.0
+        },
+        {
+          "dimension": "Knowledge Velocity",
+          "score": 6.0
+        }
+      ],
+      "pattern": null,
+      "patternDescription": null,
+      "keyNumbers": [],
+      "enablers": [
+        "Decision Latency",
+        "Knowledge Location",
+        "Knowledge Velocity"
+      ],
+      "friction": [
+        "Market Share Loss",
+        "Pricing Pressure",
+        "Restructuring",
+        "Layoffs as Adaptation",
+        "Knowledge Drain",
+        "Litigation Exposure"
+      ],
+      "quotable": null,
+      "sources": [],
+      "sourceRef": null,
+      "voiceVersion": null
+    },
+    {
+      "id": 1035,
+      "slug": "openai",
+      "name": "OpenAI",
+      "ticker": "OPAI.PVT",
+      "sector": "Technology",
+      "analysisDate": "2026-05-16",
+      "gpiScore": 5.4,
+      "state": "Transitioning",
+      "dimensions": [
+        {
+          "dimension": "Decision Latency",
+          "score": 4.0
+        },
+        {
+          "dimension": "Error Correction",
+          "score": 5.0
+        },
+        {
+          "dimension": "Knowledge Location",
+          "score": 5.0
+        },
+        {
+          "dimension": "Structural Lock-In",
+          "score": 6.5
+        },
+        {
+          "dimension": "Talent Flow",
+          "score": 5.0
+        },
+        {
+          "dimension": "Capital Intensity",
+          "score": 9.0
+        },
+        {
+          "dimension": "Knowledge Velocity",
+          "score": 4.5
+        }
+      ],
+      "pattern": null,
+      "patternDescription": null,
+      "keyNumbers": [],
+      "enablers": [
+        "Decision Latency",
+        "Knowledge Velocity"
+      ],
+      "friction": [
+        "Capital Intensity",
+        "Debt Pressure",
+        "Supply Chain Dependency",
+        "Profitability Timeline",
+        "Knowledge Politicization",
+        "Governance Complexity",
+        "Scandal Overhang",
+        "Litigation Exposure",
+        "Leadership churn",
+        "Trust Erosion"
+      ],
+      "quotable": null,
+      "sources": [],
+      "sourceRef": null,
+      "voiceVersion": null
+    },
+    {
       "id": 1118,
       "slug": "tesla",
       "name": "Tesla",
@@ -160,6 +403,118 @@
     }
   ],
   "articles": [
+    {
+      "slug": "openai-vs-anthropic-agent-wars",
+      "title": "The Agent Wars: OpenAI vs Anthropic",
+      "lane": "smackdowns",
+      "status": "published",
+      "publishDate": "2026-06-10",
+      "articleType": "weekly_smackdown",
+      "teaser": "You are the person approving AI tools for a team that already found its favorites. One group wants ChatGPT because everyone knows it. The engineers want Claude because it lives closer to the code. Security wants logs, boundaries, and fewer surprises.\n\nThe web keeps writing this as a model race. Inside work, it is a permission race. OpenAI is building the biggest front door in AI. Anthropic is trying to own the moment a company finally lets an agent touch real work.",
+      "heroRead": "The web keeps writing this as a model race. Inside work, it is a permission race.",
+      "sourceType": "gpi_db_refresh",
+      "sourceRef": "{\"standard\": \"WEEKLY SMACKDOWN, June 7, 2026, Tesla vs BYD EV Wars\", \"sources\": [\"https://openai.com/index/accelerating-the-next-phase-ai/\", \"https://openai.com/index/openai-nvidia-systems-partnership/\", \"https://www.anthropic.com/product/enterprise\", \"https://www.anthropic.com/news/services-track-partner-hub\", \"https://www.anthropic.com/product/claude-code\", \"https://www.anthropic.com/engineering/how-we-contain-claude\", \"https://venturebeat.com/technology/anthropic-finally-beat-openai-in-business-ai-adoption-but-3-big-threats-could-erase-its-lead\"]}",
+      "voiceVersion": "gpi-studio-public-voice-v1.0.4",
+      "companies": [
+        {
+          "name": "OpenAI",
+          "company_role": "scale_default",
+          "display_order": 1,
+          "snapshot_id": null
+        },
+        {
+          "name": "Anthropic",
+          "company_role": "trust_wedge",
+          "display_order": 2,
+          "snapshot_id": null
+        }
+      ],
+      "sections": [
+        {
+          "order": 1,
+          "type": "read",
+          "title": "Start here",
+          "body": [
+            "The easy version says OpenAI has scale and Anthropic has trust. The better read is sharper. OpenAI owns the default habit. Anthropic is moving into the places where default habit stops being enough: codebases, regulated teams, procurement, audit, containment, and partner-led rollout.",
+            "OpenAI is building the power grid. Anthropic is building the breaker box. One wants every person and company to walk through the same front door. The other wants the risk owner to say yes when the agent asks for access.",
+            "That makes this fight more contentious than model benchmarks. The winner may be the company that decides where agents are allowed to act."
+          ],
+          "metadata": {}
+        },
+        {
+          "order": 2,
+          "type": "company_read",
+          "title": "OpenAI",
+          "body": [
+            "OpenAI has the larger habit and the heavier machine.",
+            "ChatGPT is still the consumer default, and OpenAI keeps pushing toward a unified agent surface across chat, code, search, apps, and enterprise workflows. The strength is obvious: distribution. The drag is also obvious: the more OpenAI becomes infrastructure, the more every product move has to feed the compute flywheel."
+          ],
+          "metadata": {}
+        },
+        {
+          "order": 3,
+          "type": "company_read",
+          "title": "Anthropic",
+          "body": [
+            "Anthropic is making trust feel operational.",
+            "Claude Code, Claude Enterprise, and the partner network all point at the same wedge. Anthropic sells more than a model. It sells a way for companies to let a model near fragile work without pretending the risk disappeared. That is a quieter kind of distribution, but it travels deep."
+          ],
+          "metadata": {}
+        },
+        {
+          "order": 4,
+          "type": "numbers",
+          "title": "The scoreboard",
+          "body": [
+            "OpenAI: latest funding round closed with $122B in committed capital at an $852B post-money valuation.",
+            "OpenAI: ChatGPT is reported by OpenAI at more than 900M weekly active users, with enterprise on track toward parity with consumer revenue.",
+            "OpenAI: infrastructure now spans Microsoft, Oracle, AWS, CoreWeave, Google Cloud, NVIDIA, AMD, Broadcom, and data-center partners. That is reach and dependency at the same time.",
+            "Anthropic: Claude Enterprise is built around governance, data controls, audit, and regulated deployment. That is the enterprise buyer speaking.",
+            "Anthropic: more than 40,000 firms applied to the Claude Partner Network, and more than 10,000 consultants earned Claude certification.",
+            "VentureBeat reported Anthropic passed OpenAI in U.S. business adoption in April 2026, citing Ramp AI Index spending data. That is a workplace signal, not a hype signal."
+          ],
+          "metadata": {}
+        },
+        {
+          "order": 5,
+          "type": "helps",
+          "title": "Still working",
+          "body": [
+            "OpenAI has the default consumer habit and a massive developer surface.",
+            "Codex, ChatGPT, API, and enterprise products give OpenAI many doors into the same customer.",
+            "OpenAI has raised enough capital to chase frontier scale aggressively.",
+            "Anthropic has a clean wedge in coding, enterprise trust, and regulated work.",
+            "Claude Enterprise packages governance in a way security and procurement teams understand.",
+            "The partner network turns consultants into distribution without requiring every sale to come from Anthropic directly."
+          ],
+          "metadata": {}
+        },
+        {
+          "order": 6,
+          "type": "drags",
+          "title": "Still stuck",
+          "body": [
+            "OpenAI has to keep the compute flywheel spinning while capital commitments get heavier.",
+            "The more OpenAI touches, the more trust, safety, privacy, and product coherence have to move together.",
+            "OpenAI may own the front door while losing some deeper workplace decisions to narrower trusted tools.",
+            "Anthropic still faces brutal compute economics as Claude usage moves from chat to agents.",
+            "Safety positioning helps Anthropic win trust, but it also creates a sharper spotlight when capability outruns containment.",
+            "Partner-led distribution can get wide before the operating model gets easy to control."
+          ],
+          "metadata": {}
+        },
+        {
+          "order": 7,
+          "type": "line",
+          "title": "Bottom line",
+          "body": [
+            "At work today, stop asking which AI tool is smarter and ask which tool owns the permission moment. Who can touch the codebase, customer record, spreadsheet, contract, inbox, or production system? The tool that wins that yes will shape more work than the tool that wins the demo.",
+            "Then write down the boundary before you buy: what the agent can read, what it can change, who sees the log, and who owns the mistake. That is where the AI race enters your company."
+          ],
+          "metadata": {}
+        }
+      ]
+    },
     {
       "slug": "tesla-vs-byd-ev-wars",
       "title": "Tesla vs BYD EV Wars",
@@ -284,6 +639,119 @@
           "metadata": {
             "voice_version": "gpi_studio_2026_06"
           }
+        }
+      ]
+    },
+    {
+      "slug": "eli-lilly-vs-novo-nordisk-pill-wars",
+      "title": "The Pill Wars: Eli Lilly vs Novo Nordisk",
+      "lane": "smackdowns",
+      "status": "published",
+      "publishDate": "2026-06-08",
+      "articleType": "weekly_smackdown",
+      "teaser": "A patient experiences this market as a morning routine, a pharmacy pickup, a price, a stomach rule, a side effect, and the question of whether the medicine fits inside a normal day. Novo got the first oral weight-loss GLP-1 out fast. Lilly built the easier daily habit. The lunch is still on the table, but the table has changed.",
+      "heroRead": "Novo got the first oral weight-loss GLP-1 out fast. Lilly built the easier daily habit.",
+      "sourceType": "gpi_db_refresh",
+      "sourceRef": "{\"standard\": \"WEEKLY SMACKDOWN, June 7, 2026, Tesla vs BYD EV Wars\", \"sources\": [\"https://investor.lilly.com/news-releases/news-release-details/fda-approves-lillys-foundayotm-orforglipron-only-glp-1-pill\", \"https://annualreport.novonordisk.com/2025/strategic-aspirations/financial-performance.html\", \"https://www.prnewswire.com/news-releases/wegovy-pill-prescriptions-surpass-3-million-1-filled-roughly-every-5-seconds-bringing-glp-1-therapy-to-people-with-obesity-previously-untreated-while-novo-nordisk-unveils-new-data-at-ada-2026-302793337.html\", \"https://www.pharmaceutical-technology.com/news/eli-lilly-lifts-2026-revenue-guidance-as-q1-marks-dominant-opening/\"]}",
+      "voiceVersion": "gpi-studio-public-voice-v1.0.4",
+      "companies": [
+        {
+          "name": "Eli Lilly",
+          "company_role": "challenger",
+          "display_order": 1,
+          "snapshot_id": null
+        },
+        {
+          "name": "Novo Nordisk",
+          "company_role": "incumbent",
+          "display_order": 2,
+          "snapshot_id": null
+        }
+      ],
+      "sections": [
+        {
+          "order": 1,
+          "type": "read",
+          "title": "Start here",
+          "body": [
+            "The easy version says Lilly is winning and Novo is losing. The better read is messier. Novo still has the first oral obesity GLP-1 in the market, and the early prescription count is real. Lilly has the cleaner habit design, the stronger injectable engine, and a pipeline investors trust more.",
+            "The pill fight is really a daily-life fight. One medicine asks for an empty stomach and a wait before food or coffee. The other can be taken any time of day, without food or water rules. On paper, clinical weight loss carries the headline. In real life, the morning routine gets a vote.",
+            "Novo still knows this disease area deeply. Lilly is a giant company too, with factories, regulators, lawsuits, price pressure, and supply limits of its own. Lilly has momentum. Novo has proof people will actually pick up the pill.",
+            "So the read changes. Lilly has not finished Novo's lunch. Lilly is forcing Novo to eat faster, cheaper, and in public."
+          ],
+          "metadata": {}
+        },
+        {
+          "order": 2,
+          "type": "company_read",
+          "title": "Eli Lilly",
+          "body": [
+            "Lilly has the cleaner patient path.",
+            "Mounjaro and Zepbound turned Lilly into the company everybody has to price against. Foundayo adds a different kind of pressure. The pill may not beat Novo on every clinical headline, but it removes a small daily tax. No empty-stomach rule. No 30-minute wait. For a medicine people may take for years, small friction can become the whole product."
+          ],
+          "metadata": {}
+        },
+        {
+          "order": 3,
+          "type": "company_read",
+          "title": "Novo Nordisk",
+          "body": [
+            "Novo still has the first pill people are actually filling.",
+            "Wegovy pill gave Novo a real counterpunch after a rough stretch. New CEO, restructuring, layoffs, and Lilly pressure all hit at once. The pill gives Novo a live lane back into the fight. The question is whether the company can turn an early launch into a durable habit before Lilly's easier routine catches up."
+          ],
+          "metadata": {}
+        },
+        {
+          "order": 4,
+          "type": "numbers",
+          "title": "The scoreboard",
+          "body": [
+            "Lilly: Q1 2026 revenue reached $19.8B, up 56%. The GLP-1 machine is no side business.",
+            "Lilly: Mounjaro brought in $8.7B in Q1 2026, and Zepbound brought in $4.16B. That is the cash engine under the pill story.",
+            "Lilly: Foundayo won FDA approval as an oral GLP-1 pill with no food or water restrictions. That is product design, not only chemistry.",
+            "Novo: 2025 sales reached DKK 309.1B, up 10% at constant exchange rates. This is a pressured company, not a weak one.",
+            "Novo: Wegovy pill passed 3 million prescriptions in just over five months, with most new starts coming from people new to GLP-1 therapy. The launch has teeth.",
+            "Novo: the company is carrying a leadership reset and 9,000 planned job cuts while trying to defend its best market. That is a hard turn at speed."
+          ],
+          "metadata": {}
+        },
+        {
+          "order": 5,
+          "type": "helps",
+          "title": "Still working",
+          "body": [
+            "Lilly has the stronger growth engine and a broader obesity pipeline behind the pill.",
+            "Foundayo fits a normal morning better than a pill with fasting rules.",
+            "Mounjaro and Zepbound give Lilly commercial muscle while the oral market opens.",
+            "Novo has real obesity trust, deep semaglutide knowledge, and first-mover proof in oral Wegovy.",
+            "Wegovy pill is bringing new GLP-1 patients into the market, not only switching old ones.",
+            "Novo still has global reach, manufacturing depth, and a direct line to prescribers."
+          ],
+          "metadata": {}
+        },
+        {
+          "order": 6,
+          "type": "drags",
+          "title": "Still stuck",
+          "body": [
+            "Lilly has to scale a new pill while the rest of its GLP-1 demand is already stretching capacity.",
+            "Lower realized prices are already showing up in Lilly's numbers. Volume is winning, but price is fighting back.",
+            "Foundayo still has to build trust against a known molecule with a head start.",
+            "Novo has the harder routine. The empty-stomach rule and wait time create daily drag.",
+            "The leadership reset and layoffs put Novo in repair mode while the market is moving faster.",
+            "CagriSema and other next-generation bets have to restore confidence after Lilly changed the comparison set."
+          ],
+          "metadata": {}
+        },
+        {
+          "order": 7,
+          "type": "line",
+          "title": "Bottom line",
+          "body": [
+            "The lesson travels beyond pharma. A product can win the trial and still lose the morning. The routine around the product is part of the product.",
+            "Novo has the first pill with real traction. Lilly has the cleaner habit and the stronger engine behind it. If this becomes a long daily-use market, the company with less friction around the patient has the better hand."
+          ],
+          "metadata": {}
         }
       ]
     }

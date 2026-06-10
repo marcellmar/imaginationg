@@ -20,8 +20,8 @@ interface InsightsPageProps {
 }
 
 const series = [
-  ['/insights/snapshots', 'Snapshots', 'Short company reads for the first pass: state, pressure, next question.'],
-  ['/insights/growing-pains', 'Growing Pains', 'Longer reads on the mess reports clean up too early.'],
+  ['/insights/snapshots', 'Snapshots', 'Company reads from the 1,100-plus record pile: state, pressure, next question.'],
+  ['/insights/growing-pains', 'Growing Pains', 'Longer reads on good systems getting heavy before the clean report admits it.'],
   ['/insights/field-notes', 'Field Notes', 'Small observations while the thought still has dirt on it.'],
   ['/insights/vital-signs', 'Vital Signs', 'Early signs a company may be changing before the market finds clean language.'],
   ['/insights/smackdowns', 'Smackdowns', 'Two companies under the same pressure, with the operating difference made plain.'],
@@ -67,7 +67,7 @@ const InsightsPage: NextPage<InsightsPageProps> = ({ companies, totalCompanies }
     <>
       <SEOHead
         title="Reads | GPI Studio"
-        description="Company snapshots, field notes, maps, and public reads from GPI Studio, written from the place where the work shows itself."
+        description="The public training floor for GPI Studio: company reads, field notes, smackdowns, and growing pain signals from the 1,100-company evidence base."
         ogImage="/images/og/insights.png"
       />
 
@@ -79,16 +79,19 @@ const InsightsPage: NextPage<InsightsPageProps> = ({ companies, totalCompanies }
             <div>
               <p className="gpi-kicker">Reads</p>
               <h1 className="mt-4 text-5xl leading-none md:text-7xl">
-                Start with the person close to the break.
+                The reads are the reps.
               </h1>
             </div>
 
             <div className="gpi-prose max-w-3xl">
               <p>
-                A cashier sees the line slow before corporate sees a staffing problem. A buyer hears the supplier pause before the dashboard catches risk. A customer service rep knows which policy makes people mad before the renewal report turns red.
+                You learn the studio by watching the work. A company cuts people, a drug launch changes the morning routine, an AI agent touches a real workflow, a customer gets asked to do unpaid labor.
               </p>
               <p className="mt-5">
-                The reads start there, then pull in filings, snapshots, maps, notes, and the GPI corpus. The public story gets useful when the person near the work and the record on the table start pointing at the same drag.
+                Each read is a rep against the same question: where is the growing pain, what signal showed up early, and what would someone do with the read at work today?
+              </p>
+              <p className="mt-5">
+                The 1,100-plus company database is the tape wall. The public reads are how the studio keeps its eyes sharp before a client brings a live problem to the floor.
               </p>
             </div>
           </section>
@@ -96,31 +99,26 @@ const InsightsPage: NextPage<InsightsPageProps> = ({ companies, totalCompanies }
           <section className="gpi-rule mt-14 pt-8">
             <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
               <div>
-                <p className="gpi-kicker">Start here</p>
+                <p className="gpi-kicker">Public Reps</p>
                 <p className="mt-3 text-sm leading-6 text-stone-700">
-                  Pick the shelf closest to the question in front of you. Some reads stay short. Some need the longer trail.
+                  Pick the lane closest to the pressure in front of you.
                 </p>
               </div>
 
-              <div className="overflow-x-auto">
-                <table className="gpi-table">
-                  <thead>
-                    <tr>
-                      <th>Read</th>
-                      <th>Use it when</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {series.slice(0, 4).map(([href, lane, use]) => (
-                      <tr key={lane}>
-                        <td className="w-56 font-mono text-sm font-bold text-stone-950">
-                          <Link className="gpi-link" href={href}>{lane}</Link>
-                        </td>
-                        <td className="text-sm leading-6 text-stone-700">{use}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+              <div className="grid gap-5 md:grid-cols-2">
+                {series.slice(0, 4).map(([href, lane, use], index) => (
+                  <Link key={lane} className="group border-t border-stone-400 pt-4" href={href}>
+                    <div className="font-mono text-xs font-bold uppercase text-stone-500">
+                      Rep {index + 1}
+                    </div>
+                    <h2 className="mt-3 text-2xl font-bold leading-tight text-stone-950 group-hover:text-red-800">
+                      {lane}
+                    </h2>
+                    <p className="mt-3 text-sm leading-6 text-stone-700">
+                      {use}
+                    </p>
+                  </Link>
+                ))}
               </div>
             </div>
           </section>
@@ -128,31 +126,26 @@ const InsightsPage: NextPage<InsightsPageProps> = ({ companies, totalCompanies }
           <section className="gpi-rule mt-14 pt-8">
             <div className="grid gap-8 md:grid-cols-[0.75fr_1.25fr]">
               <div>
-                <p className="gpi-kicker">When the ground shifts</p>
+                <p className="gpi-kicker">Pressure Lanes</p>
                 <p className="mt-3 text-sm leading-6 text-stone-700">
-                  Some pieces get written while the story still feels wet. Useful work often starts before the language gets polished.
+                  Some pieces get written while the story still feels wet. The useful read often arrives before the language gets polished.
                 </p>
               </div>
 
-              <div className="overflow-x-auto">
-                <table className="gpi-table">
-                  <thead>
-                    <tr>
-                      <th>Read</th>
-                      <th>Use it when</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {series.slice(4).map(([href, lane, use]) => (
-                      <tr key={lane}>
-                        <td className="w-56 font-mono text-sm font-bold text-stone-950">
-                          <Link className="gpi-link" href={href}>{lane}</Link>
-                        </td>
-                        <td className="text-sm leading-6 text-stone-700">{use}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+              <div className="grid gap-5 md:grid-cols-2">
+                {series.slice(4).map(([href, lane, use], index) => (
+                  <Link key={lane} className="group border-t border-stone-400 pt-4" href={href}>
+                    <div className="font-mono text-xs font-bold uppercase text-stone-500">
+                      Drill {index + 1}
+                    </div>
+                    <h2 className="mt-3 text-2xl font-bold leading-tight text-stone-950 group-hover:text-red-800">
+                      {lane}
+                    </h2>
+                    <p className="mt-3 text-sm leading-6 text-stone-700">
+                      {use}
+                    </p>
+                  </Link>
+                ))}
               </div>
             </div>
           </section>
@@ -162,7 +155,7 @@ const InsightsPage: NextPage<InsightsPageProps> = ({ companies, totalCompanies }
               <div>
                 <p className="gpi-kicker">Snapshots</p>
                 <p className="mt-3 text-sm leading-6 text-stone-700">
-                  Search by name, ticker, or sector. Clean public pages open first. The rest still help as comparison points while the corpus keeps getting shaped.
+                  Search the company tape by name, ticker, or sector. Clean public pages open first. The rest still help as comparison points while the corpus keeps getting shaped.
                 </p>
               </div>
 
@@ -235,8 +228,8 @@ const InsightsPage: NextPage<InsightsPageProps> = ({ companies, totalCompanies }
           <section className="gpi-rule mt-14 pt-8">
             <div className="flex flex-col gap-4 font-mono text-sm md:flex-row md:items-center">
               <Link className="gpi-link" href="/insights/snapshots">Open snapshots</Link>
-              <Link className="gpi-link" href="/maps">See sample maps</Link>
-              <Link className="gpi-link" href="/work">Turn a decision into a map</Link>
+              <Link className="gpi-link" href="/studio">Enter the studio</Link>
+              <Link className="gpi-link" href="/intake">Bring a growing pain</Link>
             </div>
           </section>
         </main>

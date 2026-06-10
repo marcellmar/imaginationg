@@ -8,22 +8,22 @@ const states = [
     score: '1-3',
     name: 'Field State',
     route: '/gpi-framework/field-state',
-    read: 'The person close to the shelf, counter, line, or inbox can still change the day.',
-    useful: 'Good for a rough pass, fast note, or fix small enough to try.',
+    read: 'People close to the shelf, counter, line, or inbox can still change the day.',
+    useful: 'Good ground for a fast read, small fix, or clean first rep.',
   },
   {
     score: '4-6',
     name: 'Transitioning',
     route: '/gpi-framework/transition-state',
-    read: 'The old answer still works in places, then slows the work without warning.',
-    useful: 'A map can show which habit still helps and which one drags.',
+    read: 'The old answer still helps in places, then slows the work without warning.',
+    useful: 'A map can show which habit still helps and which one adds drag.',
   },
   {
     score: '7-10',
     name: 'Particle State',
     route: '/gpi-framework/particle-state',
     read: 'Small changes pass through contracts, layers, assets, and old promises.',
-    useful: 'Start narrow, or the fix becomes theater.',
+    useful: 'Start narrow, then protect the move from theater.',
   },
 ];
 
@@ -57,10 +57,10 @@ const operatingQuestions = [
 ];
 
 const lensUses = [
-  ['Find the person', 'Someone saw the shopper pause, the invoice stall, the machine wait, or the customer leave.'],
+  ['Find the signal', 'Someone saw the shopper pause, the invoice stall, the machine wait, or the customer leave.'],
+  ['Pull the tape', 'The 1,100-company database gives the pressure a comparison set before the story gets too clean.'],
   ['Name the old win', 'We look for the move people still defend because it once saved the day.'],
-  ['Listen for the excuse', 'The repeated line usually points to the drag people learned to protect.'],
-  ['Pick a first step', 'Small enough to try, clear enough to change behavior.'],
+  ['Pick a first rep', 'Small enough to try, clear enough to change behavior.'],
 ];
 
 const publishingLanes = [
@@ -76,7 +76,7 @@ const FrameworkPage: NextPage = () => {
     <>
       <SEOHead
         title="Lens | GPI Studio"
-        description="The GPI lens starts with the pain people work around, then checks old lessons, current pressure, and the next usable step."
+        description="The GPI lens reads growing pains against more than 1,100 company examples, then turns pressure into a usable next move."
         ogImage="/images/og/framework.png"
       />
 
@@ -88,22 +88,22 @@ const FrameworkPage: NextPage = () => {
             <div>
               <p className="gpi-kicker">Lens</p>
               <h1 className="mt-4 text-5xl leading-none md:text-7xl">
-                We start with the person who watched it happen.
+                The lens turns growing pain into something you can work.
               </h1>
             </div>
 
             <div className="gpi-prose max-w-3xl">
               <p>
-                A man stands at a rental car counter after a delayed flight. He booked online, prepaid, gave his license twice, and still watches the clerk hunt through three screens while the line behind him gets quiet.
+                You already know when the system feels heavy. The same approval comes back, the same handoff misses, the same customer gets patient in the bad way.
               </p>
               <p className="mt-5">
-                The clerk knows which screen lies. The manager knows which fleet count runs stale after 6 p.m. The customer only knows his kid is waiting at baggage claim and the brand now feels slower than the trip.
+                The lens gives the heaviness a shape. It asks where the delay starts, where the truth lives, which old win still gets a vote, and which part of the company can still move.
               </p>
               <p className="mt-5">
-                Inside the company, someone already knows where the promise breaks. Maybe branch operations, pricing, fleet, product, or support. Someone has watched the same customer smile politely, take the keys, and never come back.
+                The 1,100-company database is the tape wall behind the work. Public companies leave big tracks when growing pains harden into bureaucracy, lock-in, slow correction, or wasted talent.
               </p>
               <p className="mt-5">
-                We would find the branch person first. Before another app refresh, loyalty push, dashboard, or new leader explains the turnaround, find the person who knows where the wait begins.
+                GPI uses those tracks to read your pressure without turning it into a sermon. The aim is a clearer view, then one move close enough to the work to use today.
               </p>
             </div>
           </section>
@@ -113,7 +113,7 @@ const FrameworkPage: NextPage = () => {
               <div>
                 <p className="gpi-kicker">First Pass</p>
                 <p className="mt-3 text-sm leading-6 text-stone-700">
-                  We start where the choice actually happened.
+                  The first pass keeps the read close to the work.
                 </p>
               </div>
 
@@ -137,7 +137,7 @@ const FrameworkPage: NextPage = () => {
               <div>
                 <p className="gpi-kicker">Score</p>
                 <p className="mt-3 text-sm leading-6 text-stone-700">
-                  A number helps people hold the read. We still care more about the pause, walkaway, delay, and part of the business forcing people to wait.
+                  A number helps people hold the read. The useful part is still the delay, walkaway, repeated mistake, and piece of the business slowing the day.
                 </p>
               </div>
 
@@ -180,7 +180,7 @@ const FrameworkPage: NextPage = () => {
               <div>
                 <p className="gpi-kicker">Break Points</p>
                 <p className="mt-3 text-sm leading-6 text-stone-700">
-                  Clean plans usually break in the same few places.
+                  These are the drills. Most clean plans break in one of these places.
                 </p>
               </div>
 
@@ -212,7 +212,7 @@ const FrameworkPage: NextPage = () => {
               <div>
                 <p className="gpi-kicker">Ground</p>
                 <p className="mt-3 text-sm leading-6 text-stone-700">
-                  A company can look strong on paper while the ground under the worker changes.
+                  The same move behaves differently on different ground.
                 </p>
               </div>
 
@@ -276,7 +276,7 @@ const FrameworkPage: NextPage = () => {
               <div>
                 <p className="gpi-kicker">Questions We Carry</p>
                 <p className="mt-3 text-sm leading-6 text-stone-700">
-                  We use these when the story sounds clean but daily friction keeps showing up.
+                  These questions keep the read from getting too polished too early.
                 </p>
               </div>
 
@@ -300,7 +300,7 @@ const FrameworkPage: NextPage = () => {
               <div>
                 <p className="gpi-kicker">Public Shelf</p>
                 <p className="mt-3 text-sm leading-6 text-stone-700">
-                  The work becomes something small enough to use: memo, map, watch note, or company read.
+                  The studio keeps publishing reps so the lens stays sharp.
                 </p>
               </div>
 
@@ -324,8 +324,7 @@ const FrameworkPage: NextPage = () => {
           <section className="gpi-rule mt-14 pt-8">
             <div className="flex flex-col gap-4 font-mono text-sm md:flex-row md:items-center">
               <Link className="gpi-link" href="/insights">See reads</Link>
-              <Link className="gpi-link" href="/maps">See diagrams</Link>
-              <Link className="gpi-link" href="/work">Bring a hard call</Link>
+              <Link className="gpi-link" href="/studio">Bring a hard call</Link>
             </div>
           </section>
         </main>

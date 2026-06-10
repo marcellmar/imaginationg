@@ -57,7 +57,7 @@ const AboutPage: NextPage = () => {
     <>
       <SEOHead
         title="About | GPI Studio"
-        description="GPI Studio came from factories, city systems, sourcing work, training, health-tech operations, and the gap between plans and real work."
+        description="GPI Studio came from factories, city systems, sourcing work, training, health-tech operations, and years spent reading the gap between plans and real work."
       />
 
       <div className="gpi-page">
@@ -68,19 +68,19 @@ const AboutPage: NextPage = () => {
             <div>
               <p className="gpi-kicker">About</p>
               <h1 className="mt-4 text-5xl leading-none md:text-7xl">
-                I learned to read the gap by standing in it.
+                The studio came from standing inside the gap.
               </h1>
             </div>
 
             <div className="gpi-prose max-w-3xl">
               <p>
-                I have been in the factory when the sample looked fine until production had to repeat it. I have been inside city work where a map made sense on the wall while the real delay sat with one clerk, one form, one missing step.
+                I learned this work in the places where clean plans meet real days: factories, city offices, classrooms, warehouses, clinics, ports, support calls, and production floors.
               </p>
               <p className="mt-5">
-                I have watched devices leave a warehouse and become a promise to a patient. I have sat with training plans, freight problems, vendor calls, customs pressure, students, public-sector trackers, and teams trying to make a clean plan work inside a messy day.
+                A sample looks fine until production has to repeat it. A map makes sense on the wall while the delay sits with one clerk, one form, one missing step. A device leaves a warehouse and becomes a promise to a patient.
               </p>
               <p className="mt-5">
-                GPI Studio came from all of those places. The work is to find the person close to the break, pull the records near the story, and make the next move easier to see.
+                GPI Studio came from those reps. Find the person close to the break, pull the records near the story, compare the pattern against the tape wall, and make the next move easier to see.
               </p>
             </div>
           </section>
@@ -90,7 +90,7 @@ const AboutPage: NextPage = () => {
               <div>
                 <p className="gpi-kicker">Lineage</p>
                 <p className="mt-3 text-sm leading-6 text-stone-700">
-                  No themes here. Just places where the work had to move.
+                  These are the old reps behind the current studio floor.
                 </p>
               </div>
 
@@ -122,7 +122,7 @@ const AboutPage: NextPage = () => {
               <div>
                 <p className="gpi-kicker">Proof of work</p>
                 <p className="mt-3 text-sm leading-6 text-stone-700">
-                  The numbers are receipts. They keep the page tied to real consequences.
+                  The numbers are receipts. They keep the story tied to real consequences.
                 </p>
               </div>
 
@@ -147,10 +147,10 @@ const AboutPage: NextPage = () => {
                   Now the work looks like a buyer calling the same supplier for the third time, a manager opening a tracker nobody else trusts, or an owner asking for a number and watching everyone get careful.
                 </p>
                 <p className="mt-5">
-                  We stay with the thing in front of everyone first. Then we pull the notes, records, maps, old reads, and nearby evidence close enough to see which story holds up.
+                  The studio stays with the thing in front of everyone first. Then the notes, records, maps, old reads, and nearby evidence come close enough to see which story holds up.
                 </p>
                 <p className="mt-5">
-                  Sometimes the work needs a map. Sometimes a memo, company read, or clean stop. If nobody can use it, throw it away.
+                  Sometimes the pressure needs a map. Sometimes a memo, company read, or clean stop. If nobody can use it, throw it away.
                 </p>
               </div>
             </div>
@@ -159,9 +159,7 @@ const AboutPage: NextPage = () => {
           <section className="gpi-rule mt-14 pt-8">
             <div className="flex flex-col gap-4 font-mono text-sm md:flex-row md:items-center">
               <Link className="gpi-link" href="/gpi-framework">Read the lens</Link>
-              <Link className="gpi-link" href="/maps">See the maps</Link>
-              <Link className="gpi-link" href="/signal">Find the signal</Link>
-              <Link className="gpi-link" href="/work">Work with GPI</Link>
+              <Link className="gpi-link" href="/studio">Enter the studio</Link>
             </div>
           </section>
         </main>
