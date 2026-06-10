@@ -35,3 +35,4 @@ yarn-error.log*
 *.tsbuildinfo
 EOL < /dev/null
 **/.claude/settings.local.json
+__pycache__/
