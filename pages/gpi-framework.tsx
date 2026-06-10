@@ -57,7 +57,7 @@ const operatingQuestions = [
 ];
 
 const lensUses = [
-  ['Find the signal', 'Someone saw the shopper pause, the invoice stall, the machine wait, or the customer leave.'],
+  ['Find the signal', 'The counter, inbox, machine, or customer trail showed the pause first.'],
   ['Pull the tape', 'The 1,100-company database gives the pressure a comparison set before the story gets too clean.'],
   ['Name the old win', 'We look for the move people still defend because it once saved the day.'],
   ['Pick a first rep', 'Small enough to try, clear enough to change behavior.'],

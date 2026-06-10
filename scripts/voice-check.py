@@ -47,6 +47,8 @@ SKIP_EXACT = {
 EXTRA_HARD_RULES = [
     (r"\b[Rr]ooms?\b", "forbidden: room/rooms", 2),
     (r"\b[Tt]hat\b", "forbidden: that", 2),
+    (r"\b[Ss]omeone\b", "forbidden: someone", 2),
+    (r"\b[Rr]aw read:", "forbidden: raw read label", 2),
     (r"\bmatters?\b", "forbidden: matter/matters", 2),
     (r"\bshould\b", "forbidden: should", 2),
     (r"\bdoes not\b", "forbidden: does not", 2),
@@ -276,7 +278,7 @@ def extract_local_articles(raw: str, path: Path) -> list[dict[str, object]]:
                     slug = decode_ts_string(args[5][0])
 
         bottom_match = re.search(
-            r"textBlock\(\s*['\"][^'\"]*bottom-1['\"]\s*,\s*['\"]paragraph['\"]\s*,\s*",
+            r"textBlock\(\s*['\"][^'\"]*(?:bottom|move)-1['\"]\s*,\s*['\"]paragraph['\"]\s*,\s*",
             chunk,
         )
         bottom = ""

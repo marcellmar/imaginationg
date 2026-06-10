@@ -27,7 +27,7 @@ const lineage = [
   {
     ground: 'Public-sector maps',
     work: 'Certification flows, finance trackers, priority lists, inspection work, patient tracking, and delays with public consequences.',
-    carried: 'A map has to help someone decide.',
+    carried: 'A map has to help the owner decide.',
   },
   {
     ground: 'Training / CI',

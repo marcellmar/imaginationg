@@ -66,6 +66,15 @@ export const publishingLanes: Record<string, PublishingLane> = {
       { title: 'The One Percent', href: '/insights/gpi-analyses/the-one-percent-coordination-age', note: 'A note on the small share of organizations already moving like networks.' },
     ],
   },
+  'wtf-files': {
+    slug: 'wtf-files',
+    title: 'THE WTF FILES',
+    description: 'Strange company moves with a live wire under them.',
+    purpose: 'Used when a move looks absurd at first glance, but deeper signal shows capital, panic, or power trying to run next.',
+    items: [
+      { title: 'Allbirds Put Its Logo On A Server Rack', href: '/insights/gpi-analyses/allbirds-newbird-ai-wtf-file', note: 'Allbirds became NewBird AI after brand logic lost its operating center.' },
+    ],
+  },
   autopsies: {
     slug: 'autopsies',
     title: 'Autopsies',
@@ -122,6 +131,7 @@ export const publishingLaneList = [
   publishingLanes.smackdowns,
   publishingLanes['calcification-alerts'],
   publishingLanes['field-notes'],
+  publishingLanes['wtf-files'],
   publishingLanes.autopsies,
   publishingLanes.wildcards,
   publishingLanes['operating-terrain-essays'],

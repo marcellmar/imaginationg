@@ -133,7 +133,8 @@ async function generateOG(filename, title, subtitle, accent = false) {
 }
 
 // Generate all OG images
-await generateOG('home.png', 'YOUR ORG HAS A METABOLIC RATE.', 'We measure where energy gets stuck.', true);
+await generateOG('home.png', "GROWING PAINS AREN'T RANDOM.", 'They leave signals. GPI Studio reads the pressure before it hardens.', true);
+await generateOG('home-growing-pains.png', "GROWING PAINS AREN'T RANDOM.", 'They leave signals. GPI Studio reads the pressure before it hardens.', true);
 await generateOG('diagnostic.png', 'ORGANIZATIONAL DIAGNOSTIC', '42 questions. 7 dimensions. See what the balance sheet misses.', true);
 await generateOG('insights.png', 'INSIGHTS', 'Research and analysis on organizational physics.', false);
 await generateOG('framework.png', 'THE GPI FRAMEWORK', '7 dimensions that determine whether an organization can move.', true);

@@ -38,25 +38,40 @@ const StudioPage: NextPage = () => {
 
         <main>
           <section className="gpi-shell py-12 md:py-16">
-            <div className="gpi-kicker mb-5">Studio</div>
-            <h1 className="max-w-4xl text-5xl font-bold leading-tight text-stone-950 md:text-7xl">
-              Bring the pressure. Work the map.
-            </h1>
-            <div className="mt-8 max-w-3xl gpi-prose text-stone-800">
-              <p>
-                You already know the feeling. The team keeps moving, the calendar stays full, the dashboard has plenty of color, and the same hard thing keeps walking back into the day.
-              </p>
-              <p className="mt-5">
-                The studio starts there. Send the plain version: supplier, invoice, customer, deadline, file, queue, tool, team habit, or stuck call. The rough parts usually carry the signal.
-              </p>
-              <p className="mt-5">
-                Then we catch the signal, map the pressure, and work the move until it has handles: one clean read, one owner, one next step, one bad path avoided.
-              </p>
-            </div>
-            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 font-mono text-sm uppercase">
-              <Link href="/intake" className="gpi-link">Bring a growing pain</Link>
-              <Link href="/signal" className="gpi-link">Find the signal</Link>
-              <a className="gpi-link" href="mailto:marcus@gpi.studio">Email Marcus</a>
+            <div className="grid gap-10 lg:grid-cols-[0.85fr_0.75fr] lg:items-center">
+              <div>
+                <div className="gpi-kicker mb-5">Studio</div>
+                <h1 className="max-w-4xl text-5xl font-bold leading-tight text-stone-950 md:text-7xl">
+                  Bring the pressure. Work the map.
+                </h1>
+                <div className="mt-8 max-w-3xl gpi-prose text-stone-800">
+                  <p>
+                    You already know the feeling. The team keeps moving, the calendar stays full, the dashboard has plenty of color, and the same hard thing keeps walking back into the day.
+                  </p>
+                  <p className="mt-5">
+                    The studio starts there. Send the plain version: supplier, invoice, customer, deadline, file, queue, tool, team habit, or stuck call. The rough parts usually carry the signal.
+                  </p>
+                  <p className="mt-5">
+                    Then we catch the signal, map the pressure, and work the move until it has handles: one clean read, one owner, one next step, one bad path avoided.
+                  </p>
+                </div>
+                <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 font-mono text-sm uppercase">
+                  <Link href="/intake" className="gpi-link">Bring a growing pain</Link>
+                  <Link href="/signal" className="gpi-link">Find the signal</Link>
+                  <a className="gpi-link" href="mailto:marcus@gpi.studio">Email Marcus</a>
+                </div>
+              </div>
+
+              <div>
+                <Image
+                  src="/images/maps/studio-workbench-satori-v2.png"
+                  alt="GPI Studio workbench with marked notes, pressure read, and move-ready card"
+                  width={1100}
+                  height={820}
+                  priority
+                  className="h-auto w-full"
+                />
+              </div>
             </div>
           </section>
 

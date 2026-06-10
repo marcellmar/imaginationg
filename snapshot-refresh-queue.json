@@ -1,0 +1,707 @@
+{
+  "createdAt": "2026-06-10",
+  "cutoff": "2026-03-12",
+  "total": 100,
+  "rows": [
+    {
+      "slug": "dicks-sporting-goods",
+      "name": "Dick\\",
+      "currentDate": "2025-12-25",
+      "currentGpi": 6,
+      "status": "pending"
+    },
+    {
+      "slug": "amazon",
+      "name": "Amazon",
+      "currentDate": "2026-01-16",
+      "currentGpi": 3.55,
+      "status": "pending"
+    },
+    {
+      "slug": "att",
+      "name": "AT&T",
+      "currentDate": "2026-01-16",
+      "currentGpi": 7.55,
+      "status": "pending"
+    },
+    {
+      "slug": "comcast",
+      "name": "Comcast",
+      "currentDate": "2026-01-16",
+      "currentGpi": 6.95,
+      "status": "pending"
+    },
+    {
+      "slug": "disney",
+      "name": "Disney",
+      "currentDate": "2026-01-16",
+      "currentGpi": 6.7,
+      "status": "pending"
+    },
+    {
+      "slug": "netflix",
+      "name": "Netflix",
+      "currentDate": "2026-01-16",
+      "currentGpi": 3.25,
+      "status": "pending"
+    },
+    {
+      "slug": "netflix-wbd-deal-analysis",
+      "name": "Netflix Wbd Deal Analysis",
+      "currentDate": "2026-01-16",
+      "currentGpi": 7.05,
+      "status": "pending"
+    },
+    {
+      "slug": "ups",
+      "name": "UPS",
+      "currentDate": "2026-01-16",
+      "currentGpi": 6.8,
+      "status": "pending"
+    },
+    {
+      "slug": "verizon",
+      "name": "Verizon",
+      "currentDate": "2026-01-16",
+      "currentGpi": 7.05,
+      "status": "pending"
+    },
+    {
+      "slug": "alphabet",
+      "name": "Alphabet (Google)",
+      "currentDate": "2026-01-18",
+      "currentGpi": 4.55,
+      "status": "pending"
+    },
+    {
+      "slug": "apple",
+      "name": "Apple",
+      "currentDate": "2026-01-18",
+      "currentGpi": 4.3,
+      "status": "pending"
+    },
+    {
+      "slug": "costco",
+      "name": "Costco",
+      "currentDate": "2026-01-18",
+      "currentGpi": 3.85,
+      "status": "pending"
+    },
+    {
+      "slug": "fedex",
+      "name": "FedEx",
+      "currentDate": "2026-01-18",
+      "currentGpi": 5.8,
+      "status": "pending"
+    },
+    {
+      "slug": "home-depot",
+      "name": "Home Depot",
+      "currentDate": "2026-01-18",
+      "currentGpi": 4.65,
+      "status": "pending"
+    },
+    {
+      "slug": "meta",
+      "name": "Meta",
+      "currentDate": "2026-01-18",
+      "currentGpi": 4.25,
+      "status": "pending"
+    },
+    {
+      "slug": "microsoft",
+      "name": "Microsoft",
+      "currentDate": "2026-01-18",
+      "currentGpi": 4.65,
+      "status": "pending"
+    },
+    {
+      "slug": "nvidia",
+      "name": "NVIDIA",
+      "currentDate": "2026-01-18",
+      "currentGpi": 3.55,
+      "status": "pending"
+    },
+    {
+      "slug": "target",
+      "name": "Target",
+      "currentDate": "2026-01-18",
+      "currentGpi": 5.3,
+      "status": "pending"
+    },
+    {
+      "slug": "unitedhealth",
+      "name": "UnitedHealth Group",
+      "currentDate": "2026-01-18",
+      "currentGpi": 6,
+      "status": "pending"
+    },
+    {
+      "slug": "walmart",
+      "name": "Walmart",
+      "currentDate": "2026-01-18",
+      "currentGpi": 5.2,
+      "status": "pending"
+    },
+    {
+      "slug": "allstate",
+      "name": "Allstate Corporation",
+      "currentDate": "2026-01-19",
+      "currentGpi": 5.55,
+      "status": "pending"
+    },
+    {
+      "slug": "arthur-j-gallagher",
+      "name": "Arthur J. Gallagher & Co.",
+      "currentDate": "2026-01-19",
+      "currentGpi": 4.15,
+      "status": "pending"
+    },
+    {
+      "slug": "berkshire-hathaway",
+      "name": "Berkshire Hathaway",
+      "currentDate": "2026-01-19",
+      "currentGpi": 3.75,
+      "status": "pending"
+    },
+    {
+      "slug": "blockbuster",
+      "name": "Blockbuster",
+      "currentDate": "2026-01-19",
+      "currentGpi": 8.55,
+      "status": "pending"
+    },
+    {
+      "slug": "boeing",
+      "name": "Boeing",
+      "currentDate": "2026-01-19",
+      "currentGpi": 7.75,
+      "status": "pending"
+    },
+    {
+      "slug": "coca-cola",
+      "name": "Coca-Cola",
+      "currentDate": "2026-01-19",
+      "currentGpi": 5.05,
+      "status": "pending"
+    },
+    {
+      "slug": "cvs",
+      "name": "CVS Health",
+      "currentDate": "2026-01-19",
+      "currentGpi": 5.75,
+      "status": "pending"
+    },
+    {
+      "slug": "elevance",
+      "name": "Elevance Health",
+      "currentDate": "2026-01-19",
+      "currentGpi": 5.35,
+      "status": "pending"
+    },
+    {
+      "slug": "ford",
+      "name": "Ford",
+      "currentDate": "2026-01-19",
+      "currentGpi": 5.9,
+      "status": "pending"
+    },
+    {
+      "slug": "general-dynamics",
+      "name": "General Dynamics",
+      "currentDate": "2026-01-19",
+      "currentGpi": 5.6,
+      "status": "pending"
+    },
+    {
+      "slug": "gm",
+      "name": "General Motors",
+      "currentDate": "2026-01-19",
+      "currentGpi": 5.9,
+      "status": "pending"
+    },
+    {
+      "slug": "general-motors",
+      "name": "General Motors",
+      "currentDate": "2026-01-19",
+      "currentGpi": 5.9,
+      "status": "pending"
+    },
+    {
+      "slug": "lockheed-martin",
+      "name": "Lockheed Martin",
+      "currentDate": "2026-01-19",
+      "currentGpi": 6.65,
+      "status": "pending"
+    },
+    {
+      "slug": "northrop-grumman",
+      "name": "Northrop Grumman",
+      "currentDate": "2026-01-19",
+      "currentGpi": 6.5,
+      "status": "pending"
+    },
+    {
+      "slug": "pepsico",
+      "name": "PepsiCo",
+      "currentDate": "2026-01-19",
+      "currentGpi": 4.85,
+      "status": "pending"
+    },
+    {
+      "slug": "procter-gamble",
+      "name": "Procter & Gamble",
+      "currentDate": "2026-01-19",
+      "currentGpi": 5.45,
+      "status": "pending"
+    },
+    {
+      "slug": "progressive",
+      "name": "Progressive",
+      "currentDate": "2026-01-19",
+      "currentGpi": 3.85,
+      "status": "pending"
+    },
+    {
+      "slug": "rtx",
+      "name": "RTX Corporation (Raytheon)",
+      "currentDate": "2026-01-19",
+      "currentGpi": 6.55,
+      "status": "pending"
+    },
+    {
+      "slug": "state-farm",
+      "name": "State Farm",
+      "currentDate": "2026-01-19",
+      "currentGpi": 5.45,
+      "status": "pending"
+    },
+    {
+      "slug": "stellantis",
+      "name": "Stellantis N.V.",
+      "currentDate": "2026-01-19",
+      "currentGpi": 6.3,
+      "status": "pending"
+    },
+    {
+      "slug": "cigna",
+      "name": "The Cigna Group",
+      "currentDate": "2026-01-19",
+      "currentGpi": 5.35,
+      "status": "pending"
+    },
+    {
+      "slug": "xpo",
+      "name": "XPO, Inc.",
+      "currentDate": "2026-01-19",
+      "currentGpi": 4.2,
+      "status": "pending"
+    },
+    {
+      "slug": "accenture",
+      "name": "Accenture",
+      "currentDate": "2026-01-20",
+      "currentGpi": 4.45,
+      "status": "pending"
+    },
+    {
+      "slug": "broadcom",
+      "name": "Broadcom Inc.",
+      "currentDate": "2026-01-20",
+      "currentGpi": 5.45,
+      "status": "pending"
+    },
+    {
+      "slug": "dominion-energy",
+      "name": "Dominion Energy",
+      "currentDate": "2026-01-20",
+      "currentGpi": 6.8,
+      "status": "pending"
+    },
+    {
+      "slug": "duke-energy",
+      "name": "Duke Energy",
+      "currentDate": "2026-01-20",
+      "currentGpi": 6.65,
+      "status": "pending"
+    },
+    {
+      "slug": "ge-vernova",
+      "name": "GE Vernova",
+      "currentDate": "2026-01-20",
+      "currentGpi": 6.3,
+      "status": "pending"
+    },
+    {
+      "slug": "hewlett-packard-enterprise",
+      "name": "Hewlett Packard Enterprise",
+      "currentDate": "2026-01-20",
+      "currentGpi": 5.85,
+      "status": "pending"
+    },
+    {
+      "slug": "ibm",
+      "name": "IBM",
+      "currentDate": "2026-01-20",
+      "currentGpi": 6.35,
+      "status": "pending"
+    },
+    {
+      "slug": "intel",
+      "name": "Intel",
+      "currentDate": "2026-01-20",
+      "currentGpi": 7,
+      "status": "pending"
+    },
+    {
+      "slug": "kenvue",
+      "name": "Kenvue",
+      "currentDate": "2026-01-20",
+      "currentGpi": 5.4,
+      "status": "pending"
+    },
+    {
+      "slug": "mars",
+      "name": "Mars, Incorporated",
+      "currentDate": "2026-01-20",
+      "currentGpi": 5.65,
+      "status": "pending"
+    },
+    {
+      "slug": "nextera-energy",
+      "name": "NextEra Energy",
+      "currentDate": "2026-01-20",
+      "currentGpi": 5.9,
+      "status": "pending"
+    },
+    {
+      "slug": "oracle",
+      "name": "Oracle",
+      "currentDate": "2026-01-20",
+      "currentGpi": 6.4,
+      "status": "pending"
+    },
+    {
+      "slug": "qualcomm",
+      "name": "Qualcomm",
+      "currentDate": "2026-01-20",
+      "currentGpi": 4.75,
+      "status": "pending"
+    },
+    {
+      "slug": "salesforce",
+      "name": "Salesforce",
+      "currentDate": "2026-01-20",
+      "currentGpi": 4.35,
+      "status": "pending"
+    },
+    {
+      "slug": "southern-company",
+      "name": "Southern Company",
+      "currentDate": "2026-01-20",
+      "currentGpi": 6.55,
+      "status": "pending"
+    },
+    {
+      "slug": "3m",
+      "name": "3M",
+      "currentDate": "2026-01-26",
+      "currentGpi": 6,
+      "status": "pending"
+    },
+    {
+      "slug": "amd",
+      "name": "AMD",
+      "currentDate": "2026-01-26",
+      "currentGpi": 4.05,
+      "status": "pending"
+    },
+    {
+      "slug": "ascension",
+      "name": "Ascension",
+      "currentDate": "2026-01-26",
+      "currentGpi": 6.4,
+      "status": "pending"
+    },
+    {
+      "slug": "cardinal-health",
+      "name": "Cardinal Health",
+      "currentDate": "2026-01-26",
+      "currentGpi": 6.15,
+      "status": "pending"
+    },
+    {
+      "slug": "caterpillar",
+      "name": "Caterpillar",
+      "currentDate": "2026-01-26",
+      "currentGpi": 5.85,
+      "status": "pending"
+    },
+    {
+      "slug": "cencora",
+      "name": "Cencora",
+      "currentDate": "2026-01-26",
+      "currentGpi": 6.35,
+      "status": "pending"
+    },
+    {
+      "slug": "commonspirit-health",
+      "name": "CommonSpirit Health",
+      "currentDate": "2026-01-26",
+      "currentGpi": 6.4,
+      "status": "pending"
+    },
+    {
+      "slug": "dr-horton",
+      "name": "Dr Horton",
+      "currentDate": "2026-01-26",
+      "currentGpi": 5.2,
+      "status": "pending"
+    },
+    {
+      "slug": "ge-aerospace",
+      "name": "Ge Aerospace",
+      "currentDate": "2026-01-26",
+      "currentGpi": 4.75,
+      "status": "pending"
+    },
+    {
+      "slug": "hca-healthcare",
+      "name": "Hca Healthcare",
+      "currentDate": "2026-01-26",
+      "currentGpi": 6.05,
+      "status": "pending"
+    },
+    {
+      "slug": "honeywell",
+      "name": "Honeywell",
+      "currentDate": "2026-01-26",
+      "currentGpi": 5.85,
+      "status": "pending"
+    },
+    {
+      "slug": "lennar",
+      "name": "Lennar",
+      "currentDate": "2026-01-26",
+      "currentGpi": 5.35,
+      "status": "pending"
+    },
+    {
+      "slug": "mckesson",
+      "name": "Mckesson",
+      "currentDate": "2026-01-26",
+      "currentGpi": 5.5,
+      "status": "pending"
+    },
+    {
+      "slug": "northwell-health",
+      "name": "Northwell Health",
+      "currentDate": "2026-01-26",
+      "currentGpi": 6.68,
+      "status": "pending"
+    },
+    {
+      "slug": "pixar",
+      "name": "Pixar Animation Studios",
+      "currentDate": "2026-01-26",
+      "currentGpi": 3.2,
+      "status": "pending"
+    },
+    {
+      "slug": "prologis",
+      "name": "Prologis",
+      "currentDate": "2026-01-26",
+      "currentGpi": 5.3,
+      "status": "pending"
+    },
+    {
+      "slug": "rite-aid",
+      "name": "Rite Aid",
+      "currentDate": "2026-01-26",
+      "currentGpi": 8.85,
+      "status": "pending"
+    },
+    {
+      "slug": "siemens-usa",
+      "name": "Siemens Usa",
+      "currentDate": "2026-01-26",
+      "currentGpi": 5.5,
+      "status": "pending"
+    },
+    {
+      "slug": "synopsys",
+      "name": "Synopsys",
+      "currentDate": "2026-01-26",
+      "currentGpi": 5.65,
+      "status": "pending"
+    },
+    {
+      "slug": "tenet-healthcare",
+      "name": "Tenet Healthcare",
+      "currentDate": "2026-01-26",
+      "currentGpi": 6.05,
+      "status": "pending"
+    },
+    {
+      "slug": "walgreens-boots-alliance",
+      "name": "Walgreens Boots Alliance",
+      "currentDate": "2026-01-26",
+      "currentGpi": 7.55,
+      "status": "pending"
+    },
+    {
+      "slug": "23andme",
+      "name": "23Andme",
+      "currentDate": "2026-01-27",
+      "currentGpi": 7.85,
+      "status": "pending"
+    },
+    {
+      "slug": "cargill",
+      "name": "Cargill",
+      "currentDate": "2026-01-27",
+      "currentGpi": 7.2,
+      "status": "pending"
+    },
+    {
+      "slug": "carvana",
+      "name": "Carvana",
+      "currentDate": "2026-01-27",
+      "currentGpi": 4.15,
+      "status": "pending"
+    },
+    {
+      "slug": "chick-fil-a",
+      "name": "Chick Fil A",
+      "currentDate": "2026-01-27",
+      "currentGpi": 3.9,
+      "status": "pending"
+    },
+    {
+      "slug": "databricks",
+      "name": "Databricks",
+      "currentDate": "2026-01-27",
+      "currentGpi": 3.3,
+      "status": "pending"
+    },
+    {
+      "slug": "h-e-b",
+      "name": "H E B",
+      "currentDate": "2026-01-27",
+      "currentGpi": 3.3,
+      "status": "pending"
+    },
+    {
+      "slug": "in-n-out-burger",
+      "name": "In N Out Burger",
+      "currentDate": "2026-01-27",
+      "currentGpi": 3.25,
+      "status": "pending"
+    },
+    {
+      "slug": "microstrategy",
+      "name": "Microstrategy",
+      "currentDate": "2026-01-27",
+      "currentGpi": 5.5,
+      "status": "pending"
+    },
+    {
+      "slug": "northvolt",
+      "name": "Northvolt",
+      "currentDate": "2026-01-27",
+      "currentGpi": 8.6,
+      "status": "pending"
+    },
+    {
+      "slug": "publix",
+      "name": "Publix",
+      "currentDate": "2026-01-27",
+      "currentGpi": 5.1,
+      "status": "pending"
+    },
+    {
+      "slug": "revolut",
+      "name": "Revolut",
+      "currentDate": "2026-01-27",
+      "currentGpi": 3.1,
+      "status": "pending"
+    },
+    {
+      "slug": "rivian",
+      "name": "Rivian",
+      "currentDate": "2026-01-27",
+      "currentGpi": 5.75,
+      "status": "pending"
+    },
+    {
+      "slug": "roblox",
+      "name": "Roblox",
+      "currentDate": "2026-01-27",
+      "currentGpi": 4.3,
+      "status": "pending"
+    },
+    {
+      "slug": "saks-global",
+      "name": "Saks Global",
+      "currentDate": "2026-01-27",
+      "currentGpi": 8.75,
+      "status": "pending"
+    },
+    {
+      "slug": "spacex",
+      "name": "Spacex",
+      "currentDate": "2026-01-27",
+      "currentGpi": 3.05,
+      "status": "pending"
+    },
+    {
+      "slug": "wework",
+      "name": "Wework",
+      "currentDate": "2026-01-27",
+      "currentGpi": 7.6,
+      "status": "pending"
+    },
+    {
+      "slug": "winco-foods",
+      "name": "Winco Foods",
+      "currentDate": "2026-01-27",
+      "currentGpi": 3.6,
+      "status": "pending"
+    },
+    {
+      "slug": "koch-industries",
+      "name": "Koch Industries",
+      "currentDate": "2026-01-29",
+      "currentGpi": 7.05,
+      "status": "pending"
+    },
+    {
+      "slug": "walmart-2026-02-01-complete",
+      "name": "Walmart 2026 02 01 Complete",
+      "currentDate": "2026-02-01",
+      "currentGpi": 6.05,
+      "status": "pending"
+    },
+    {
+      "slug": "walmart-inc",
+      "name": "Walmart Inc",
+      "currentDate": "2026-02-01",
+      "currentGpi": 5.2,
+      "status": "pending"
+    },
+    {
+      "slug": "canva",
+      "name": "Canva",
+      "currentDate": "2026-02-12",
+      "currentGpi": 3.2,
+      "status": "pending"
+    },
+    {
+      "slug": "pilot-company",
+      "name": "Pilot Company",
+      "currentDate": "2026-03-02",
+      "currentGpi": 5.5,
+      "status": "pending"
+    }
+  ]
+}

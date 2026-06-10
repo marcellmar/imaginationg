@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
@@ -17,7 +18,7 @@ const Home: NextPage = () => {
       <SEOHead
         title="GPI Studio | Growing pains leave signals."
         description="GPI Studio reads growing pains before they harden into operating problems. Public company reads, decision maps, and consulting work from the same studio floor."
-        ogImage="/images/og/home.png"
+        ogImage="/images/og/home-growing-pains.png"
       />
 
       <Head>
@@ -29,25 +30,37 @@ const Home: NextPage = () => {
 
         <main>
           <section className="gpi-shell py-12 md:py-16">
-            <div className="gpi-kicker mb-5">GPI Studio</div>
-            <h1 className="max-w-4xl text-5xl font-bold leading-tight text-stone-950 md:text-7xl">
-              Growing pains aren't random. They leave signals.
-            </h1>
-            <div className="mt-8 max-w-3xl gpi-prose text-stone-800">
-              <p>
-                You feel it before the report catches up. The team is busy, the calendar is full, the tool stack looks modern, and the same decision still keeps circling the table.
-              </p>
-              <p className="mt-5">
-                This is the studio floor. GPI watches companies under pressure, breaks down the tape, names the growing pain, and turns the read into a decision you can use before the system hardens.
-              </p>
-              <p className="mt-5">
-                The public reads are the reps. The consulting work is the film session on your own operating problem: where the signal is, what it means, and what to do next.
-              </p>
-            </div>
-            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 font-mono text-sm uppercase">
-              <Link href="/intake" className="gpi-link">Bring a growing pain</Link>
-              <Link href="/insights" className="gpi-link">Read the tape</Link>
-              <Link href="/studio" className="gpi-link">Enter the studio</Link>
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_0.62fr] lg:items-center">
+              <div>
+                <div className="gpi-kicker mb-5">GPI Studio</div>
+                <h1 className="max-w-4xl text-5xl font-bold leading-tight text-stone-950 md:text-7xl">
+                  Growing pains aren't random. They leave signals.
+                </h1>
+                <div className="mt-8 max-w-2xl gpi-prose text-stone-800">
+                  <p>
+                    Bring the messy operating pressure: stalled decision, AI rollout, reorg drag, customer friction.
+                  </p>
+                  <p className="mt-5">
+                    GPI Studio breaks down the tape and turns the read into a move small enough to use this week.
+                  </p>
+                </div>
+                <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 font-mono text-sm uppercase">
+                  <Link href="/intake" className="gpi-link">Bring a growing pain</Link>
+                  <Link href="/insights" className="gpi-link">Read the tape</Link>
+                  <Link href="/studio" className="gpi-link">Enter the studio</Link>
+                </div>
+              </div>
+
+              <div className="mx-auto w-full max-w-[360px] lg:max-w-[390px]">
+                <Image
+                  src="/images/maps/home-supply-chain-pressure-map-satori.png"
+                  alt="Sample GPI Studio pressure map for a supply-chain line stoppage"
+                  width={640}
+                  height={820}
+                  priority
+                  className="h-auto w-full"
+                />
+              </div>
             </div>
 
             <div className="mt-10 max-w-5xl border-y border-stone-300 py-5">
@@ -84,7 +97,7 @@ const Home: NextPage = () => {
                     Agent Receipts
                   </div>
                   <p className="mt-3 text-base leading-7 text-stone-700">
-                    Someone will ask what the agent changed, who approved it, and why the answer moved. If the trail is missing, trust turns into another meeting.
+                    Finance will ask what the agent changed, who approved it, and why the answer moved. If the trail is missing, trust turns into another meeting.
                   </p>
                   <div className="mt-4 font-mono text-sm font-bold uppercase text-stone-700">
                     Read the field note
@@ -161,7 +174,7 @@ const Home: NextPage = () => {
                 <div className="gpi-kicker mb-3">Work With The Studio</div>
                 <h2 className="text-3xl font-bold md:text-5xl">Bring the pressure. Grind it into a move.</h2>
                 <p className="mt-5 text-lg leading-8 text-stone-700">
-                  The studio runs like a floor process. The rough thing comes in, gets watched from every angle, gets worked against the GPI lens, and leaves with a move someone can actually make.
+                  The studio runs like a floor process. The rough thing comes in, gets watched from every angle, gets worked against the GPI lens, and leaves with a move the owner can actually make.
                 </p>
                 <p className="mt-5 text-lg leading-8 text-stone-700">
                   The light at the end is usually smaller than people want at first: one decision moved closer to the work, one hidden tradeoff named, one bad path avoided.

@@ -23,6 +23,7 @@ const series = [
   ['/insights/snapshots', 'Snapshots', 'Company reads from the 1,100-plus record pile: state, pressure, next question.'],
   ['/insights/growing-pains', 'Growing Pains', 'Longer reads on good systems getting heavy before the clean report admits it.'],
   ['/insights/field-notes', 'Field Notes', 'Small observations while the thought still has dirt on it.'],
+  ['/insights/wtf-files', 'WTF Files', 'Strange company moves with a live wire under them.'],
   ['/insights/vital-signs', 'Vital Signs', 'Early signs a company may be changing before the market finds clean language.'],
   ['/insights/smackdowns', 'Smackdowns', 'Two companies under the same pressure, with the operating difference made plain.'],
   ['/insights/calcification-alerts', 'Calcification Alerts', 'Moments when an old habit starts turning into a wall.'],
@@ -88,7 +89,7 @@ const InsightsPage: NextPage<InsightsPageProps> = ({ companies, totalCompanies }
                 You learn the studio by watching the work. A company cuts people, a drug launch changes the morning routine, an AI agent touches a real workflow, a customer gets asked to do unpaid labor.
               </p>
               <p className="mt-5">
-                Each read is a rep against the same question: where is the growing pain, what signal showed up early, and what would someone do with the read at work today?
+                Each read is a rep against the same question: where is the growing pain, what signal showed up early, and what move belongs at work today?
               </p>
               <p className="mt-5">
                 The 1,100-plus company database is the tape wall. The public reads are how the studio keeps its eyes sharp before a client brings a live problem to the floor.

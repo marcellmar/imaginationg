@@ -64,6 +64,7 @@ const seriesLane: Record<string, { label: string; href: string }> = {
   'Wildcard': { label: 'Wildcards', href: '/insights/wildcards' },
   'Calcification Alert': { label: 'Calcification Alerts', href: '/insights/calcification-alerts' },
   'Field Notes': { label: 'Field Notes', href: '/insights/field-notes' },
+  'THE WTF FILES': { label: 'THE WTF FILES', href: '/insights/wtf-files' },
   'The Autopsy': { label: 'Autopsies', href: '/insights/autopsies' },
   'Vital Signs': { label: 'Vital Signs', href: '/insights/vital-signs' },
 };
@@ -244,6 +245,12 @@ const textBlock = (id: string, type: ContentBlock['type'], text: string): Conten
   type,
   content: [{ text }],
 });
+
+const linkBlock = (
+  id: string,
+  type: ContentBlock['type'],
+  content: ContentBlock['content']
+): ContentBlock => ({ id, type, content });
 
 const snapshotDimension = (snapshot: CompanySnapshot, name: string) =>
   snapshot.dimensions.find((dimension) => dimension.dimension === name)?.score;
@@ -560,6 +567,43 @@ const article = (
   companies: Company[],
   blocks: ContentBlock[]
 ): AnalysisContent => ({ id, headline, series, publishDate, teaser, slug, companies, blocks });
+
+const buildAllbirdsWtfFile = (): AnalysisContent => article(
+  'local-allbirds-newbird-ai-wtf-file',
+  'Allbirds Put Its Logo On A Server Rack',
+  'THE WTF FILES',
+  '2026-06-10',
+  `You look down and see Allbirds by a door. Soft shoe. Climate promise. Office sneaker. A brand built for people who wanted buying shoes to feel a little less dirty.
+
+Then filing hits the table. Shoe business sold. GPU rentals next. NewBird AI. Same public shell, new costume, zero chill. A sneaker company just walked into the AI compute line and acted like it had been invited.`,
+  'allbirds-newbird-ai-wtf-file',
+  [
+    companyCard('allbirds', 'Allbirds / NewBird AI', 'Footwear shell / AI compute infrastructure', 8.2, 'Particle', {
+      decisionLatency: 8,
+      errorCorrection: 9,
+      knowledgeLocation: 8,
+      talentFlow: 8,
+      knowledgeVelocity: 7,
+      structuralLockIn: 8,
+      capitalIntensity: 9,
+    }, ['Brand sale', 'Identity collapse', 'AI category chase', 'Convertible financing', 'GPU capital load']),
+  ],
+  [
+    textBlock('allbirds-wtf-heading', 'heading_2', 'WTF'),
+    textBlock('allbirds-wtf-1', 'paragraph', 'Allbirds agreed to sell footwear brand and related assets for $39M, then announced a $50M convertible financing facility tied to a new AI compute plan. Old public shoe company kept shell. Shoe business out. NewBird AI in.'),
+    textBlock('allbirds-smell-heading', 'heading_2', 'You heard that right.'),
+    textBlock('allbirds-smell-1', 'paragraph', 'A shoe company sells shoes, keeps shell, and buys an AI costume. Which customer follows? Which store skill survives? Which product habit helps run GPUs? Which part of wool-sneaker trust becomes uptime?'),
+    textBlock('allbirds-smell-2', 'paragraph', 'If a brand can lose its business and still pitch a hotter market, is the company selling compute or selling a second chance for the ticker? If old muscle stays behind, is this a pivot or a costume change with financing attached?'),
+    textBlock('allbirds-pain-heading', 'heading_2', 'Now what?'),
+    textBlock('allbirds-pain-0', 'bulleted_list_item', 'Door one: NewBird actually finds cheap compute access, rents it well, and becomes a tiny AI landlord. Strange, but possible.'),
+    textBlock('allbirds-pain-1', 'bulleted_list_item', 'Door two: financing story runs hotter than operating reality. Press release gets oxygen. Customer pipeline stays thin.'),
+    textBlock('allbirds-pain-2', 'bulleted_list_item', 'Door three: shoe brand survives somewhere else, public shell drifts, and old Allbirds becomes a trivia question for bubble historians.'),
+    textBlock('allbirds-pain-3', 'bulleted_list_item', 'Door four: this becomes a template. More tired public companies discover a hot category costume and call it transformation.'),
+    textBlock('allbirds-move-heading', 'heading_2', 'Don\'t buy the costume'),
+    textBlock('allbirds-move-1', 'paragraph', 'This week, if a tired business shows up wearing a hot new word, slow down. Make it point to one old advantage still alive under the new outfit. Customer. Skill. Channel. Margin. Operator. Pick one.'),
+    textBlock('allbirds-move-2', 'paragraph', 'If it can only point to vibes, deck language, and a market everyone suddenly wants to be in, keep your wallet in your pocket.'),
+  ]
+);
 
 const buildPorscheTransitionWatch = (): AnalysisContent => article(
   'local-porsche-new-ceo-transition-watch',
@@ -1100,6 +1144,7 @@ The web is entering a new toll road. AI systems still need pages, reviews, guide
 );
 
 const localAnalyses: Record<string, () => AnalysisContent | null> = {
+  'allbirds-newbird-ai-wtf-file': buildAllbirdsWtfFile,
   'tesla-vs-byd-ev-wars': buildTeslaBydRead,
   'eli-lilly-vs-novo-nordisk-pill-wars': buildPillWarsRead,
   'openai-vs-anthropic-agent-wars': buildAgentWarsRead,
@@ -1121,6 +1166,10 @@ const localAnalyses: Record<string, () => AnalysisContent | null> = {
 const AnalysisPage = ({ content }: Props) => {
   const lane = seriesLane[content.series] || { label: content.series || 'Reads', href: '/insights' };
   const readSections = getReadSections(content.blocks);
+  const companyBlock =
+    content.series === 'THE WTF FILES'
+      ? { label: 'File subject', note: 'Public shell. New costume.' }
+      : { label: 'Companies in the read', note: 'Same lens. Different weight.' };
 
   return (
     <>
@@ -1182,9 +1231,9 @@ const AnalysisPage = ({ content }: Props) => {
             <section className="gpi-rule mt-8 pt-5">
               <div className="grid gap-6 md:grid-cols-[0.72fr_1.28fr]">
                 <div>
-                  <p className="gpi-kicker">Companies in the read</p>
+                  <p className="gpi-kicker">{companyBlock.label}</p>
                   <p className="mt-3 text-sm leading-6 text-stone-700">
-                    Same lens. Different weight.
+                    {companyBlock.note}
                   </p>
                 </div>
 

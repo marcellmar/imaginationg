@@ -72,7 +72,7 @@ const SnapshotsPage: NextPage<SnapshotsPageProps> = ({ snapshots }) => {
     <>
       <SEOHead
         title="Company Snapshots | GPI Studio"
-        description="The GPI Studio company tape wall: scores, states, tickers, and operating patterns from the snapshot database."
+        description="GPI Studio snapshots catch the pressure pattern before a company turns it into a headline."
         ogImage="/images/og/insights.png"
       />
 
@@ -84,16 +84,16 @@ const SnapshotsPage: NextPage<SnapshotsPageProps> = ({ snapshots }) => {
             <div>
               <p className="gpi-kicker">Snapshots</p>
               <h1 className="mt-4 text-5xl leading-none md:text-7xl">
-                Company tape, ready to pull.
+                The warning usually shows up before the story gets a name.
               </h1>
             </div>
 
             <div className="gpi-prose max-w-3xl">
               <p>
-                When a live problem comes in, the studio needs comparison fast. These snapshots are the tape wall: score, state, ticker, pressure, and the operating pattern behind the company.
+                A company rarely breaks all at once. First the decision takes longer, the old win keeps getting defended, the best people work around the system, or the new strategy starts paying rent to yesterday's structure.
               </p>
               <p className="mt-5">
-                Search first, then pull the company read. The long essays live in the other lanes. This shelf stays built for quick pattern recognition.
+                The useful move is seeing which kind of pressure you are looking at before the headline gives it a lazy name. These snapshots keep score, state, ticker, and pattern close enough to compare fast.
               </p>
             </div>
           </section>
