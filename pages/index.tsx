@@ -174,7 +174,7 @@ const Home: NextPage = () => {
                 </h2>
                 <div className="gpi-prose mt-5 text-stone-800">
                   <p>
-                    Five questions turn the broad feeling into a first read: decision drag, error cleanup, trapped knowledge, talent stuck in the wrong place, old commitments, capital weight, or slow learning.
+                    Thirty-two questions turn the broad feeling into a first read: decision drag, error cleanup, trapped knowledge, talent stuck in the wrong place, old commitments, capital weight, or slow learning.
                   </p>
                   <p className="mt-5">
                     Not the whole answer. Just enough to know which part of the system deserves the first look.
