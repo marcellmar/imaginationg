@@ -12,6 +12,13 @@ const floorWork = [
   ['Leave with a move', 'One owner, one decision, one path to test, one bad path to avoid before the week gets away.'],
 ];
 
+const indexNotes = [
+  ['Database', '1,100-plus company reads across public markets, sectors, failures, pivots, and pressure points.'],
+  ['Signal', 'The part of work still hurting after everyone gets smarter and busier.'],
+  ['Lens', 'Seven pressure points: decisions, errors, knowledge, talent, lock-in, capital, and learning speed.'],
+  ['Use', 'A clearer read, a sharper map, or a next move while there is still space to turn.'],
+];
+
 const Home: NextPage = () => {
   return (
     <>
@@ -130,41 +137,53 @@ const Home: NextPage = () => {
           </section>
 
           <section className="gpi-rule">
-            <div className="gpi-shell py-12 md:py-16">
-              <div className="mb-8 max-w-3xl">
-                <div className="gpi-kicker mb-3">The Index</div>
-                <h2 className="text-3xl font-bold leading-tight md:text-5xl">GPI means Growing Pains Index.</h2>
-                <p className="mt-5 text-lg leading-8 text-stone-700">
-                  Growing pains show up before the obvious failure: a slow decision, a repeated mistake, knowledge trapped in one person, talent boxed out of the hard work, a past bet making the next move expensive.
-                </p>
-                <p className="mt-5 text-lg leading-8 text-stone-700">
-                  The index comes from more than 1,100 company reads. The studio uses the evidence pile like game tape, so a client problem gets compared against real patterns instead of one person's hunch.
-                </p>
-                <p className="mt-5 text-lg leading-8 text-stone-700">
-                  Lower friction means the company can still learn, move, and correct. Higher friction means the organization may be turning its own weight into a wall.
-                </p>
+            <div className="gpi-shell grid gap-10 py-12 lg:grid-cols-[1.35fr_0.85fr] lg:items-start md:py-16">
+              <div>
+                <div className="mb-8 max-w-3xl">
+                  <div className="gpi-kicker mb-3">The Index</div>
+                  <h2 className="text-3xl font-bold leading-tight md:text-5xl">GPI means Growing Pains Index.</h2>
+                  <p className="mt-5 text-lg leading-8 text-stone-700">
+                    Growing pains show up before the obvious failure: a slow decision, a repeated mistake, knowledge trapped in one person, talent boxed out of the hard work, a past bet making the next move expensive.
+                  </p>
+                  <p className="mt-5 text-lg leading-8 text-stone-700">
+                    The index comes from more than 1,100 company reads. The studio uses the evidence pile like game tape, so a client problem gets compared against real patterns instead of one person's hunch.
+                  </p>
+                  <p className="mt-5 text-lg leading-8 text-stone-700">
+                    Lower friction means the company can still learn, move, and correct. Higher friction means the organization may be turning its own weight into a wall.
+                  </p>
+                </div>
+
+                <div className="grid gap-5 md:grid-cols-2">
+                  {indexNotes.map(([name, detail]) => (
+                    <div key={name} className="border-t border-stone-400 pt-4">
+                      <div className="font-mono text-xs font-bold uppercase text-stone-500">
+                        {name}
+                      </div>
+                      <p className="mt-3 text-lg leading-8 text-stone-800">
+                        {detail}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <table className="gpi-table text-sm md:text-base">
-                <tbody>
-                  <tr>
-                    <th>Database</th>
-                    <td>1,100-plus company reads across public markets, sectors, failures, pivots, and pressure points.</td>
-                  </tr>
-                  <tr>
-                    <th>Signal</th>
-                    <td>The part of work still hurting after everyone gets smarter and busier.</td>
-                  </tr>
-                  <tr>
-                    <th>Lens</th>
-                    <td>Seven pressure points: decisions, errors, knowledge, talent, lock-in, capital, and learning speed.</td>
-                  </tr>
-                  <tr>
-                    <th>Use</th>
-                    <td>A clearer read, a sharper map, or a next move while there is still space to turn.</td>
-                  </tr>
-                </tbody>
-              </table>
+              <div className="border-t border-stone-400 pt-5 lg:mt-1">
+                <div className="gpi-kicker mb-3">Use The Index</div>
+                <h2 className="text-3xl font-bold leading-tight md:text-4xl">
+                  Start with the pressure point.
+                </h2>
+                <div className="gpi-prose mt-5 text-stone-800">
+                  <p>
+                    Five questions turn the broad feeling into a first read: decision drag, error cleanup, trapped knowledge, talent stuck in the wrong place, old commitments, capital weight, or slow learning.
+                  </p>
+                  <p className="mt-5">
+                    Not the whole answer. Just enough to know which part of the system deserves the first look.
+                  </p>
+                  <Link href="/diagnostic" className="gpi-link mt-6 inline-block">
+                    Find the pressure point
+                  </Link>
+                </div>
+              </div>
             </div>
           </section>
 
