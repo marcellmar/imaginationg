@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
+import SiteFooter from '../components/SiteFooter';
 
 const floorWork = [
   ['Bring the pressure', 'The messy issue comes in raw: delay, reorg, AI rollout, customer friction, vendor confusion, stalled decision.'],
@@ -224,12 +225,7 @@ const Home: NextPage = () => {
           </section>
         </main>
 
-        <footer className="gpi-rule">
-          <div className="gpi-shell flex flex-col gap-3 py-8 font-mono text-xs text-stone-600 md:flex-row md:items-center md:justify-between">
-            <div>marcus@gpi.studio</div>
-            <div>marcus@gpi.studio · gpi.studio</div>
-          </div>
-        </footer>
+        <SiteFooter />
       </div>
     </>
   );

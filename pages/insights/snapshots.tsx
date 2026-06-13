@@ -174,7 +174,7 @@ const SnapshotsPage: NextPage<SnapshotsPageProps> = ({ snapshots }) => {
                               {snapshot.name}
                             </Link>
                           </td>
-                          <td className="font-mono text-sm text-stone-700">{snapshot.ticker}</td>
+                          <td className="font-mono text-sm text-stone-700">{snapshot.ticker ?? '—'}</td>
                           <td className={`font-mono text-sm font-bold ${scoreColor(snapshot.gpiScore)}`}>
                             {snapshot.gpiScore.toFixed(1)}
                           </td>

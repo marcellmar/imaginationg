@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState, useMemo } from 'react';
 import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
+import SiteFooter from '../components/SiteFooter';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { ArrowRight, Search, X, Filter, ChevronDown } from 'lucide-react';
 import { hasSnapshot, getSnapshotSlug } from '../lib/snapshots';
@@ -398,45 +399,7 @@ const Companies: NextPage<CompaniesPageProps> = ({ companies, totalCount, sector
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="py-16 px-6 border-t border-stone-200">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
-              <div>
-                <div className="font-black text-sm mb-4">GPI<span className="text-red-600">.</span>STUDIO</div>
-                <p className="text-sm text-stone-400 leading-relaxed">
-                  Organizational physics.<br />
-                  We measure where energy gets stuck.
-                </p>
-              </div>
-              <div>
-                <div className="text-xs font-mono text-stone-400 mb-4">READS</div>
-                <div className="space-y-3">
-                  <Link href="/insights" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Reads</Link>
-                  <Link href="/insights/snapshots" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Snapshots</Link>
-                  <Link href="/gpi-framework" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Lens</Link>
-                </div>
-              </div>
-              <div>
-                <div className="text-xs font-mono text-stone-400 mb-4">STUDIO</div>
-                <div className="space-y-3">
-                  <Link href="/studio" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Studio</Link>
-                  <Link href="/intake" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">Intake</Link>
-                </div>
-              </div>
-              <div>
-                <div className="text-xs font-mono text-stone-400 mb-4">COMPANY</div>
-                <div className="space-y-3">
-                  <Link href="/about" className="block text-sm text-stone-500 hover:text-stone-900 transition-colors">About</Link>
-                </div>
-              </div>
-            </div>
-            <div className="pt-8 border-t border-stone-200 flex justify-between items-center text-xs text-stone-400">
-              <div>© {new Date().getFullYear()} Imagination G LLC</div>
-              <div className="font-mono">gpi.studio</div>
-            </div>
-          </div>
-        </footer>
+        <SiteFooter />
       </div>
     </>
   );

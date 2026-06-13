@@ -539,6 +539,83 @@ The web keeps writing this as a model race. Inside work, it is a permission race
   };
 };
 
+const buildSpaceXIpoWatch = (): AnalysisContent | null => {
+  const spacex = getSnapshotBySlug('spacex');
+
+  if (!spacex) return null;
+
+  return {
+    id: 'local-spacex-ipo-public-gravity',
+    headline: 'SpaceX IPO Watch: Selling The Failure Budget',
+    series: 'Transition Watch',
+    publishDate: '2026-06-12',
+    teaser: `The engineer sees the fireball before the shareholder sees the explanation. That gap is the SpaceX business.
+
+Starlink gives SpaceX cash. Falcon gives it trust. Government launches give it cover. Starship spends all three by breaking in public. The IPO turns that failure budget into something ordinary people can now buy without understanding what keeps it alive.`,
+    slug: 'spacex-ipo-public-gravity',
+    companies: [
+      snapshotCompany(spacex, 'Aerospace / satellites / AI infrastructure'),
+    ],
+    blocks: [
+      textBlock('spacex-start-heading', 'heading_2', 'Start here'),
+      textBlock(
+        'spacex-start-1',
+        'paragraph',
+        'The SpaceX story starts in the gap between the blast and the explanation. Most companies hide failure because customers, regulators, and investors read it as weakness. SpaceX built a business where visible failure can still be read as progress.'
+      ),
+      textBlock(
+        'spacex-start-2',
+        'paragraph',
+        'That permission came from a stack. Falcon made the company credible. Starlink made it liquid. Defense work made it strategically useful. Starship then got room to be ugly because the rest of the company kept proving the machine was serious.'
+      ),
+      textBlock(
+        'spacex-start-3',
+        'paragraph',
+        'The IPO changes the ownership of that ugliness. The failure budget used to sit inside a private mission company. Now it sits inside a public security that index funds, retail buyers, employees, analysts, and regulators all have to interpret at once.'
+      ),
+      textBlock('spacex-company-heading', 'heading_2', 'SpaceX'),
+      textBlock('spacex-company-pattern', 'paragraph', 'SpaceX is selling shares in a learning curve that only works if failure stays usable.'),
+      textBlock(
+        'spacex-company-read',
+        'paragraph',
+        'The clean media read is rockets plus satellites plus Musk. The deeper read is permission. SpaceX has permission from customers to launch critical payloads, from users to depend on Starlink, from employees to work hot, from regulators to keep testing after mishaps, and now from shareholders to hold a stock tied to all of it. That permission is the scarce asset.'
+      ),
+      textBlock('spacex-score-heading', 'heading_2', 'The scoreboard'),
+      textBlock('spacex-score-0', 'bulleted_list_item', 'SPCX listed on NASDAQ on June 12, 2026. The failure budget moved from private capital into public ownership.'),
+      textBlock('spacex-score-1', 'bulleted_list_item', 'The IPO raised roughly $75B and closed near a $2.1T valuation. That is more than cash. It is advance payment for future tolerated mess.'),
+      textBlock('spacex-score-2', 'bulleted_list_item', '2025 revenue was reported around $18.7B, with about $6.6B adjusted EBITDA. Starlink is the operating cushion that lets Starship stay experimental.'),
+      textBlock('spacex-score-3', 'bulleted_list_item', 'Starlink passed 10M active customers, with current reports above 12M. That customer base turns SpaceX from launch shop into utility-like infrastructure.'),
+      textBlock('spacex-score-4', 'bulleted_list_item', 'Flight 12 triggered an FAA-supervised mishap investigation. One event now lives as engineering data, regulatory file, and investor interpretation.'),
+      textBlock('spacex-score-5', 'bulleted_list_item', 'The refreshed GPI score is 4.20. The operating core remains unusually adaptive, but the permission stack around it got heavier.'),
+      textBlock('spacex-working-heading', 'heading_2', 'Still working'),
+      textBlock('spacex-working-0', 'bulleted_list_item', 'Falcon gives SpaceX boring reliability in the part of the company that has to be boring.'),
+      textBlock('spacex-working-1', 'bulleted_list_item', 'Starlink gives SpaceX recurring cash and a live customer network while Starship keeps learning.'),
+      textBlock('spacex-working-2', 'bulleted_list_item', 'Shotwell gives the operating system a steadier hand than the public Musk story suggests.'),
+      textBlock('spacex-working-3', 'bulleted_list_item', 'Vertical integration keeps the fix close to the break.'),
+      textBlock('spacex-working-4', 'bulleted_list_item', 'Government launch work gives SpaceX strategic protection, not only revenue.'),
+      textBlock('spacex-working-5', 'bulleted_list_item', 'Public capital lengthens the runway for bets that private tender rounds were already struggling to carry cleanly.'),
+      textBlock('spacex-stuck-heading', 'heading_2', 'Still stuck'),
+      textBlock('spacex-stuck-0', 'bulleted_list_item', 'Public owners may buy the upside of failure without having the stomach for failure itself.'),
+      textBlock('spacex-stuck-1', 'bulleted_list_item', 'The $2.1T valuation pulls launch, telecom, defense, AI, and orbital compute into one expectation stack.'),
+      textBlock('spacex-stuck-2', 'bulleted_list_item', 'xAI and X make the permission problem dirtier because they bring compute load, attention drain, and social-platform baggage into the read.'),
+      textBlock('spacex-stuck-3', 'bulleted_list_item', 'Musk control keeps decisions fast and concentrates the permission risk in one person.'),
+      textBlock('spacex-stuck-4', 'bulleted_list_item', 'Post-IPO liquidity can release talent exactly when the company needs people willing to live inside the pressure.'),
+      textBlock('spacex-stuck-5', 'bulleted_list_item', 'Regulators can convert a learning event into calendar drag before the company has extracted the lesson.'),
+      textBlock('spacex-bottom-heading', 'heading_2', 'Bottom line'),
+      textBlock(
+        'spacex-bottom-1',
+        'paragraph',
+        'At work today, name the permission budget behind the thing your team is trying to learn: who lets it be ugly, who keeps trusting you while it is ugly, who pays for the next attempt, and who can shut it down before the lesson reaches the floor.'
+      ),
+      textBlock(
+        'spacex-bottom-2',
+        'paragraph',
+        'The IPO sells pieces of that permission structure to people who may only understand the upside. If the market learns to tolerate the blast because the fix keeps arriving, SpaceX stays strange and dangerous. If the company starts managing the blast for the market before the fix reaches the floor, the GPI score moves up.'
+      ),
+    ],
+  };
+};
+
 const companyCard = (
   id: string,
   name: string,
@@ -1145,6 +1222,7 @@ The web is entering a new toll road. AI systems still need pages, reviews, guide
 
 const localAnalyses: Record<string, () => AnalysisContent | null> = {
   'allbirds-newbird-ai-wtf-file': buildAllbirdsWtfFile,
+  'spacex-ipo-public-gravity': buildSpaceXIpoWatch,
   'tesla-vs-byd-ev-wars': buildTeslaBydRead,
   'eli-lilly-vs-novo-nordisk-pill-wars': buildPillWarsRead,
   'openai-vs-anthropic-agent-wars': buildAgentWarsRead,

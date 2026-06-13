@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import SEOHead from '../components/SEOHead';
 import Navigation from '../components/Navigation';
+import SiteFooter from '../components/SiteFooter';
 import { GPIRadarChart } from '../components/gpi';
 import { ArrowLeft, Zap, Clock, Brain, Users, Gauge, Lock, DollarSign, Lightbulb } from 'lucide-react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
@@ -370,12 +371,7 @@ const DiagnosticPage = () => {
             </div>
           </section>
 
-          <footer className="gpi-rule">
-            <div className="gpi-shell flex flex-col gap-3 py-8 font-mono text-xs text-stone-600 md:flex-row md:items-center md:justify-between">
-              <div>GPI Studio. Operating intelligence for companies in motion.</div>
-              <div>marcus@gpi.studio · gpi.studio</div>
-            </div>
-          </footer>
+          <SiteFooter />
         </div>
       </>
     );
@@ -643,12 +639,7 @@ const DiagnosticPage = () => {
             </div>
           </section>
 
-          <footer className="gpi-rule">
-            <div className="gpi-shell flex flex-col gap-3 py-8 font-mono text-xs text-stone-600 md:flex-row md:items-center md:justify-between">
-              <div>GPI Studio. Operating intelligence for companies in motion.</div>
-              <div>marcus@gpi.studio · gpi.studio</div>
-            </div>
-          </footer>
+          <SiteFooter />
 
           {/* Save Modal */}
           {showSaveModal && (

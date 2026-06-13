@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-10T16:53:40+00:00",
+  "generatedAt": "2026-06-13T00:48:50+00:00",
   "source": "/Users/marcellmar/Documents/projects/marcus-gpi-brain/gpi-framework/gpi.db",
   "companies": [
     {
@@ -325,6 +325,107 @@
       "voiceVersion": null
     },
     {
+      "id": 1041,
+      "slug": "spacex",
+      "name": "SpaceX",
+      "ticker": "SPCX",
+      "sector": "Aerospace/Defense",
+      "analysisDate": "2026-06-12",
+      "gpiScore": 4.2,
+      "state": "Transitioning",
+      "dimensions": [
+        {
+          "dimension": "Decision Latency",
+          "score": 3.0
+        },
+        {
+          "dimension": "Error Correction",
+          "score": 3.0
+        },
+        {
+          "dimension": "Knowledge Location",
+          "score": 4.0
+        },
+        {
+          "dimension": "Structural Lock-In",
+          "score": 6.0
+        },
+        {
+          "dimension": "Talent Flow",
+          "score": 5.0
+        },
+        {
+          "dimension": "Capital Intensity",
+          "score": 8.0
+        },
+        {
+          "dimension": "Knowledge Velocity",
+          "score": 2.0
+        }
+      ],
+      "pattern": "The Balance Sheet Under The Blast",
+      "patternDescription": "A Starship failure is only the top layer. Falcon is paid proof SpaceX can deliver on boring days. Starlink is the cash register, with millions of customers sending money back into the system. Washington is the anchor customer, because launch capacity has become national infrastructure. The factory habit is break, read, rebuild. Public stock is the new landlord, asking for a cleaner version of a messy learning cycle. The hard risk is Musk spending attention, trust, people, and cash faster than the operating machine can refill them.",
+      "keyNumbers": [
+        "SPCX listed on NASDAQ on June 12, 2026",
+        "$135 IPO price, first-day close around $161",
+        "Roughly $75B raised in the IPO",
+        "Roughly $2.1T first-day market value",
+        "$18.7B 2025 revenue",
+        "$6.6B 2025 adjusted EBITDA",
+        "Starlink above 10M active customers, with current reports above 12M",
+        "Flight 12 triggered an FAA-supervised mishap investigation before the next Starship step"
+      ],
+      "enablers": [
+        "Falcon keeps paying the trust bill in the background",
+        "Starlink turns satellite count into recurring customer money",
+        "Defense demand makes SpaceX useful even during a rough test cycle",
+        "Factory control keeps fewer strangers between flaw and fix",
+        "Shotwell gives the company an adult operating center",
+        "IPO cash buys time for expensive mistakes"
+      ],
+      "friction": [
+        "Retail buyers may love the dream and hate the invoice",
+        "xAI and X can spend attention earned by rockets",
+        "FAA review can turn a useful wreck into lost calendar",
+        "Fresh liquidity can pull veterans away from the hard part",
+        "A $2.1T price leaves less room for ordinary disappointment",
+        "One ticker now carries rockets, broadband, defense, chips, Mars, and Musk moods"
+      ],
+      "quotable": "If you run a shop, the lesson is simple. A risky team needs something boring underneath it. The wild project needs a cash drawer, a trusted customer, a person who keeps the day steady, and a way to turn bad work into better work before the room gets scared. SpaceX has all four for now. Falcon is the boring proof. Starlink is the drawer. Washington is the customer nobody wants to lose. Shotwell is the steady hand. Starship is the expensive machine in the corner still eating parts. The public market just moved into the house and started asking when dinner will be ready.",
+      "sources": [
+        {
+          "title": "Guardian SpaceX stock market debut and first-day valuation",
+          "url": "https://www.theguardian.com/science/2026/jun/12/spacex-stock-price-ipo-spcx"
+        },
+        {
+          "title": "Business Insider SpaceX IPO live updates",
+          "url": "https://www.businessinsider.com/spacex-ipo-live-updates-pricing-spcx-stock-2026-6"
+        },
+        {
+          "title": "Investors.com SpaceX first day trading",
+          "url": "https://www.investors.com/news/spacex-ipo-starts-trading/"
+        },
+        {
+          "title": "SEC SpaceX S-1 filing",
+          "url": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/spaceexplorationtechnologi.htm"
+        },
+        {
+          "title": "Starlink progress report",
+          "url": "https://starlink.com/progress"
+        },
+        {
+          "title": "Spaceflight Now FAA Starship mishap investigation",
+          "url": "https://spaceflightnow.com/2026/05/27/faa-requires-spacex-led-mishap-investigation-before-resumption-of-starship-launches/"
+        },
+        {
+          "title": "U.S. Space Force NSSL Phase 3 Lane 2 contracts",
+          "url": "https://www.spaceforce.mil/News/Article-Display/Article/4146459/space-systems-command-awards-national-security-space-launch-phase-3-lane-2-cont/"
+        }
+      ],
+      "sourceRef": "gpi-framework/active-spirals/constructed-artifacts/gpi-snapshots/spacex-2026-06-12.md",
+      "voiceVersion": "gpi-studio-public-voice-v1.0.4"
+    },
+    {
       "id": 1118,
       "slug": "tesla",
       "name": "Tesla",
@@ -403,6 +504,102 @@
     }
   ],
   "articles": [
+    {
+      "slug": "spacex-ipo-public-gravity",
+      "title": "SpaceX IPO Watch: Selling The Failure Budget",
+      "lane": "vital-signs",
+      "status": "published",
+      "publishDate": "2026-06-12",
+      "articleType": "transition_watch",
+      "teaser": "The engineer sees the fireball before the shareholder sees the explanation. That gap is the SpaceX business.\n\nStarlink gives SpaceX cash. Falcon gives it trust. Government launches give it cover. Starship spends all three by breaking in public. The IPO turns that failure budget into something ordinary people can now buy without understanding what keeps it alive.",
+      "heroRead": "SpaceX sells shares in a learning curve that only works if failure stays usable.",
+      "sourceType": "gpi_db",
+      "sourceRef": "gpi-framework/active-spirals/constructed-artifacts/gpi-snapshots/spacex-2026-06-12.md",
+      "voiceVersion": "gpi-studio-public-voice-v1.0.4",
+      "companies": [
+        {
+          "name": "SpaceX",
+          "company_role": "transition_watch_subject",
+          "display_order": 1,
+          "snapshot_id": 1165
+        }
+      ],
+      "sections": [
+        {
+          "order": 1,
+          "type": "read",
+          "title": "Start here",
+          "body": [
+            "The SpaceX story starts in the gap between the blast and the explanation. Most companies hide failure because customers, regulators, and investors read it as weakness. SpaceX built a business where visible failure can still be read as progress.",
+            "That permission came from a stack. Falcon made the company credible. Starlink made it liquid. Defense work made it strategically useful. Starship then got room to be ugly because the rest of the company kept proving the machine was serious.",
+            "The IPO changes the ownership of that ugliness. The failure budget used to sit inside a private mission company. Now it sits inside a public security that index funds, retail buyers, employees, analysts, and regulators all have to interpret at once."
+          ],
+          "metadata": {}
+        },
+        {
+          "order": 2,
+          "type": "company_read",
+          "title": "SpaceX",
+          "body": [
+            "SpaceX is selling shares in a learning curve that only works if failure stays usable.",
+            "The clean media read is rockets plus satellites plus Musk. The deeper read is permission. SpaceX has permission from customers to launch critical payloads, from users to depend on Starlink, from employees to work hot, from regulators to keep testing after mishaps, and now from shareholders to hold a stock tied to all of it. That permission is the scarce asset."
+          ],
+          "metadata": {}
+        },
+        {
+          "order": 3,
+          "type": "numbers",
+          "title": "The scoreboard",
+          "body": [
+            "SPCX listed on NASDAQ on June 12, 2026. The failure budget moved from private capital into public ownership.",
+            "The IPO raised roughly $75B and closed near a $2.1T valuation. That is more than cash. It is advance payment for future tolerated mess.",
+            "2025 revenue was reported around $18.7B, with about $6.6B adjusted EBITDA. Starlink is the operating cushion that lets Starship stay experimental.",
+            "Starlink passed 10M active customers, with current reports above 12M. That customer base turns SpaceX from launch shop into utility-like infrastructure.",
+            "Flight 12 triggered an FAA-supervised mishap investigation. One event now lives as engineering data, regulatory file, and investor interpretation.",
+            "The refreshed GPI score is 4.20. The operating core remains unusually adaptive, but the permission stack around it got heavier."
+          ],
+          "metadata": {}
+        },
+        {
+          "order": 4,
+          "type": "helps",
+          "title": "Still working",
+          "body": [
+            "Falcon gives SpaceX boring reliability in the part of the company that has to be boring.",
+            "Starlink gives SpaceX recurring cash and a live customer network while Starship keeps learning.",
+            "Shotwell gives the operating system a steadier hand than the public Musk story suggests.",
+            "Vertical integration keeps the fix close to the break.",
+            "Government launch work gives SpaceX strategic protection, not only revenue.",
+            "Public capital lengthens the runway for bets that private tender rounds were already struggling to carry cleanly."
+          ],
+          "metadata": {}
+        },
+        {
+          "order": 5,
+          "type": "drags",
+          "title": "Still stuck",
+          "body": [
+            "Public owners may buy the upside of failure without having the stomach for failure itself.",
+            "The $2.1T valuation pulls launch, telecom, defense, AI, and orbital compute into one expectation stack.",
+            "xAI and X make the permission problem dirtier because they bring compute load, attention drain, and social-platform baggage into the read.",
+            "Musk control keeps decisions fast and concentrates the permission risk in one person.",
+            "Post-IPO liquidity can release talent exactly when the company needs people willing to live inside the pressure.",
+            "Regulators can convert a learning event into calendar drag before the company has extracted the lesson."
+          ],
+          "metadata": {}
+        },
+        {
+          "order": 6,
+          "type": "line",
+          "title": "Bottom line",
+          "body": [
+            "At work today, name the permission budget behind the thing your team is trying to learn: who lets it be ugly, who keeps trusting you while it is ugly, who pays for the next attempt, and who can shut it down before the lesson reaches the floor.",
+            "The IPO sells pieces of that permission structure to people who may only understand the upside. If the market learns to tolerate the blast because the fix keeps arriving, SpaceX stays strange and dangerous. If the company starts managing the blast for the market before the fix reaches the floor, the GPI score moves up."
+          ],
+          "metadata": {}
+        }
+      ]
+    },
     {
       "slug": "openai-vs-anthropic-agent-wars",
       "title": "The Agent Wars: OpenAI vs Anthropic",

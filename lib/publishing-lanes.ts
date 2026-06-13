@@ -28,6 +28,7 @@ export const publishingLanes: Record<string, PublishingLane> = {
     description: 'Short watches on companies starting to move differently.',
     purpose: 'Used before the story has settled. The point is to catch the change while it can still be read clearly.',
     items: [
+      { title: 'SpaceX IPO Watch', href: '/insights/gpi-analyses/spacex-ipo-public-gravity', note: 'The rocket still moves fast. The public wrapper got heavier.' },
       { title: 'Anduril Transition Watch', href: '/insights/gpi-analyses/anduril-arsenal-transition-watch', note: 'The startup won the room. Now it has to survive the machinery it is entering.' },
       { title: 'Porsche Transition Watch', href: '/insights/gpi-analyses/porsche-new-ceo-transition-watch', note: 'A new CEO only helps if decisions start traveling a shorter path.' },
       { title: 'Citigroup Project Bora Bora', href: '/insights/gpi-analyses/citigroup-project-bora-bora', note: 'Fewer layers, fewer committees, and fewer places for ownership to hide.' },

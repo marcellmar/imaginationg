@@ -13,7 +13,7 @@ export interface CompanySnapshot {
   analysisDate: string;
   gpiScore: number;
   state: string;
-  ticker?: string;
+  ticker?: string | null;
   marketCap?: string;
   employees?: number;
   revenue?: string;
@@ -3926,48 +3926,48 @@ export const snapshotsContent: Record<string, CompanySnapshot> = {
 
   'spacex': {
     slug: 'spacex',
-    name: 'Spacex',
-    analysisDate: '2026-01-27',
-    gpiScore: 3.05,
-    state: 'Transitioning (lower)',
+    name: 'SpaceX',
+    analysisDate: '2026-06-12',
+    gpiScore: 4.2,
+    state: 'Transitioning',
     dimensions: [
-      { dimension: 'Decision Latency', score: 2, explanation: 'Only 4 direct reports to Musk in 13,000-person company. Flat hierarchy. 2019 layoffs executed rapidly. IPO decision Dec 2025 to bank selection Jan 2026. 971 launches in single quarter shows decision velocity.' },
-      { dimension: 'Error Correction', score: 2, explanation: 'Starship failures treated as data, not scandals. Only 2 of 5 recoveries in 2025, yet launches continued with rapid iteration. FAA mishap investigations transparent. No committees reviewing failures. Mission-over-ego culture.' },
-      { dimension: 'Knowledge Location', score: 3, explanation: '85% vertical integration keeps core knowledge in-house. 3,000+ suppliers create some dependencies. Musk as Chief Engineer concentrates technical knowledge. Geographic concentration across 6 sites. Flat structure enables knowledge flow.' },
-      { dimension: 'Structural Lock-In', score: 4, explanation: '$17B EchoStar acquisition with $2B debt obligations through Nov 2027. $13.5B government contracts through 2029. Massive launch facility investments. However, reusable architecture reduces per-launch lock-in. Starlink recurring revenue funds flexibility.' },
-      { dimension: 'Talent Flow', score: 4, explanation: '2022 RTO mandate caused 15% senior departures. Glassdoor 2.4/5 work-life balance. 65% recommend to friend (not great). Mandatory 40+ hour weeks. But doubled to 13,000 employees since 2019. Mission magnetism attracts talent. Musk 24 years, Shotwell 18 years stability.' },
-      { dimension: 'Capital Intensity', score: 6, explanation: 'Space inherently capital-intensive. $17B EchoStar acquisition. Starship R&D billions. Orbital AI data centers require massive chip purchases. $30B+ IPO raise. However, reusability changes economics. Falcon 9 $2,720/kg versus competitors 2-10x higher. Starlink $15B+ recurring revenue.' },
-      { dimension: 'Knowledge Velocity', score: 2, explanation: '971 LEO launches in Q4 2025 (30% QoQ growth). 3,200+ satellites in 2025 (record). Starship iterations unprecedented for aerospace. Simultaneous Starship dev, Starlink scaling, IPO prep, new launch sites. New domains entered rapidly: launch to satellites to orbital computing to spectrum.' }
+      { dimension: 'Decision Latency', score: 3, explanation: 'The fast part is still launch, inspect, cut metal, relaunch. The slow part starts when one bad afternoon must satisfy the engineering room, FAA office, customer desk, and investor call.' },
+      { dimension: 'Error Correction', score: 3, explanation: 'A miss only earns value after a changed part reaches the next build. A mishap report can help safety, but it can also park learning in paperwork while the shop waits.' },
+      { dimension: 'Knowledge Location', score: 4, explanation: 'SpaceX owns engines, satellites, terminals, software, and launch ops, so the fix can stay near the broken piece. xAI, X, defense work, and orbital compute widen the attention map.' },
+      { dimension: 'Structural Lock-In', score: 6, explanation: 'SPCX puts launch, broadband, military reliance, AI dreams, Mars language, and Musk control into one public container. A problem in one corner can tax the whole container.' },
+      { dimension: 'Talent Flow', score: 5, explanation: 'The needed worker can stand inside smoke, noise, and half-finished answers without freezing. New stock wealth rewards years of heat and also gives tired people a clean door.' },
+      { dimension: 'Capital Intensity', score: 8, explanation: 'SpaceX has to pay before proof arrives: pads, ships, satellites, terminals, spectrum, ground stations, chips, data centers. Bigger fuel tank, bigger burn.' },
+      { dimension: 'Knowledge Velocity', score: 2, explanation: 'The advantage is the short walk from ugly test to useful change. If public storytelling gets to the front of the line, speed starts leaking out of the system.' }
     ],
-    pattern: 'Field Physics at Scale',
-    patternDescription: 'SpaceX proves that field-state physics can persist at massive scale if organizational architecture is intentional. Most companies calcify as they grow because layers accumulate, knowledge disperses, and capital commitments lock in structures. SpaceX inverts this: Musk maintains 4 direct reports in a 13,000-person company, vertical integration keeps knowledge concentrated, and reusable architecture reduces per-unit capital intensity despite massive infrastructure investments. The company doubled employees between 2019-2026 while maintaining flat hierarchy and fail-fast culture. This is the Field at Scale pattern: structural choices that resist gravitational pull toward particle state. The friction points are real (talent churn from RTO, regulatory delays, capital intensity), but they are ex',
+    pattern: 'The Balance Sheet Under The Blast',
+    patternDescription: 'A Starship failure is only the top layer. Falcon is paid proof SpaceX can deliver on boring days. Starlink is the cash register, with millions of customers sending money back into the system. Washington is the anchor customer, because launch capacity has become national infrastructure. The factory habit is break, read, rebuild. Public stock is the new landlord, asking for a cleaner version of a messy learning cycle. The hard risk is Musk spending attention, trust, people, and cash faster than the operating machine can refill them.',
     keyNumbers: [
-      '$800B valuation (Dec 2025), targeting $1.5T IPO mid-2026',
-      '$22-24B projected revenue for 2026, growing 50%+ annually',
-      '13,000 employees (2026), doubled from 6,000 in 2019',
-      '971 LEO launches in Q4 2025 alone (30% quarter-over-quarter growth)',
-      '3,200+ satellites deployed in 2025 (yearly record)',
-      'Only 4 direct reports to CEO Musk in 13,000-person company',
-      '85% vertical integration keeps knowledge in-house',
-      'Only 2 of 5 Starship recoveries successful in 2025, yet launches continued'
+      'SPCX listed on NASDAQ on June 12, 2026',
+      '$135 IPO price, first-day close around $161',
+      'Roughly $75B raised in the IPO',
+      'Roughly $2.1T first-day market value',
+      '$18.7B 2025 revenue',
+      '$6.6B 2025 adjusted EBITDA',
+      'Starlink above 10M active customers, with current reports above 12M',
+      'Flight 12 triggered an FAA-supervised mishap investigation before the next Starship step'
     ],
     enablers: [
-      'Musk holds only 4 direct reports in 13,000-person company, minimizing decision layers',
-      '85% vertical integration keeps critical knowledge in-house and reduces supply chain dependencies',
-      'Fail-fast culture',
-      'Reusable rocket architecture reduces per-launch capital intensity despite massive infrastructure investments',
-      'Starlink recurring revenue ($15B+ projected) funds innovation without external dependency',
-      'Leadership stability'
+      'Falcon keeps paying the trust bill in the background',
+      'Starlink turns satellite count into recurring customer money',
+      'Defense demand makes SpaceX useful even during a rough test cycle',
+      'Factory control keeps fewer strangers between flaw and fix',
+      'Shotwell gives the company an adult operating center',
+      'IPO cash buys time for expensive mistakes'
     ],
     friction: [
-      'FAA regulatory approval processes taking 12+ months create external bottlenecks beyond company control',
-      '2022 RTO mandate caused 15% senior employee departures, many to competitors with remote flexibility',
-      'Glassdoor 2.4/5 work-life balance rating and mandatory 40+ hour weeks create talent retention challenges',
-      '$17B EchoStar acquisition includes $2B debt interest obligations through November 2027',
-      '$13.5B government contracts through 2029 create delivery commitments that constrain resource allocation',
-      'Space infrastructure inherently capital-intensive'
+      'Retail buyers may love the dream and hate the invoice',
+      'xAI and X can spend attention earned by rockets',
+      'FAA review can turn a useful wreck into lost calendar',
+      'Fresh liquidity can pull veterans away from the hard part',
+      'A $2.1T price leaves less room for ordinary disappointment',
+      'One ticker now carries rockets, broadband, defense, chips, Mars, and Musk moods'
     ],
-    quotable: 'SpaceX at 3.05 GPI represents organizational fluidity that most Fortune 500 CEOs would kill for. Decision latency of 2, error correction of 2, knowledge velocity of 2 create operational tempo that launches 971 rockets in 90 days.',
+    quotable: 'If you run a shop, the lesson is simple. A risky team needs something boring underneath it. The wild project needs a cash drawer, a trusted customer, a person who keeps the day steady, and a way to turn bad work into better work before the room gets scared. SpaceX has all four for now. Falcon is the boring proof. Starlink is the drawer. Washington is the customer nobody wants to lose. Shotwell is the steady hand. Starship is the expensive machine in the corner still eating parts. The public market just moved into the house and started asking when dinner will be ready.',
   },
 
   'dr-horton': {
@@ -5120,6 +5120,7 @@ const snapshotTickerFallbacks: Record<string, string> = {
   'Saks Global': 'Private',
   'Siemens Usa': 'SIEGY',
   'Spacex': 'Private',
+  'SpaceX': 'SPCX',
   'State Farm': 'Private Mutual',
   'Stellantis N.V.': 'STLA',
   'Stripe': 'Private',
@@ -5137,7 +5138,7 @@ const snapshotTickerFallbacks: Record<string, string> = {
 
 const withSnapshotFallbacks = (snapshot: CompanySnapshot): CompanySnapshot => ({
   ...snapshot,
-  ticker: snapshot.ticker || snapshotTickerFallbacks[snapshot.name],
+  ticker: snapshot.ticker || snapshotTickerFallbacks[snapshot.name] || null,
 });
 
 export function getSnapshotBySlug(slug: string): CompanySnapshot | null {

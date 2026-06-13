@@ -84,6 +84,13 @@ const snapshotHeroOverrides: Record<string, { title: string; body: string[] }> =
       'Anthropic is building around the blocker. Claude Enterprise, Claude Code, Claude Gov, partner services, and safety work all point at the same lane: make powerful models usable in places where a loose chatbot would get shut down. The prize is bigger than model share. It is becoming the permission layer for intelligence inside serious work.',
     ],
   },
+  spacex: {
+    title: 'A flight director has about thirty seconds before the room needs language.',
+    body: [
+      'A screen flashes. Somebody sees pressure, heat, tumble, telemetry, silence. For a few seconds, nobody knows if the test bought a better vehicle or only made a bigger bill.',
+      'After the IPO, more people are waiting outside mission control: employees with fresh stock, index funds, retail buyers, FAA staff, military customers, and analysts hunting for a clean sentence before the engineers finish reading the debris.',
+    ],
+  },
 };
 
 const getHeroInsight = (snapshot: CompanySnapshot) => {
